@@ -197,5 +197,8 @@
     "v.notliteral": "Not word for word in the dictation.",
     "rec.filling": "Filling the fields from the dictation …",
     "hint.missing": "Required, nothing said.",
-    "hint.format": "That is not a readable date."
+    "hint.format": "That is not a readable date.",
+    "sign.attachment": "Attachment",
+    "sign.openpdf": "Open the PDF",
+    "sign.norecipient": "no recipient on this form yet"
 }

@@ -4,5 +4,7 @@
     "language": "de",
     "pages": 2,
     "origin": "original",
-    "file": "form.pdf"
+    "file": "form.pdf",
+    "recipient": "betreibungsamt@example.ch",
+    "subject": "Betreibungsbegehren zur Signatur"
 }

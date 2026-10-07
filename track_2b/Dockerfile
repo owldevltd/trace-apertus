@@ -1,8 +1,10 @@
-# Trace runs on Node alone: no install step, no build step. The model is reached over the network (BASE_URL).
+# Trace runs on Node with one library, pdf-lib for writing the filled PDF; no build step. The model is reached
+# over the network (BASE_URL).
 FROM node:20-alpine
 
 WORKDIR /app
-COPY package.json ./
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev --no-audit --no-fund
 COPY src ./src
 COPY data ./data
 

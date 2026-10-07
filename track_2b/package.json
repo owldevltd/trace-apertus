@@ -17,5 +17,8 @@
         "test:read": "node tests/read.js",
         "test:fields": "node tests/fields.js",
         "test:server": "node tests/server.js"
+    },
+    "dependencies": {
+        "pdf-lib": "^1.17.1"
     }
 }

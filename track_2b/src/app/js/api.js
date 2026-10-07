@@ -25,6 +25,9 @@ export const api = {
     } ).then( json ),
     transcribe: ( id ) => fetch( '/api/jobs/' + id + '/transcribe', { method: 'POST' } ).then( json ),
     fill: ( id ) => fetch( '/api/jobs/' + id + '/fill', { method: 'POST' } ).then( json ),
+    draft: ( id ) => fetch( '/api/jobs/' + id + '/draft' ).then( json ),
+    send: ( id ) => fetch( '/api/jobs/' + id + '/send', { method: 'POST' } ).then( json ),
+    pdfUrl: ( id ) => '/api/jobs/' + id + '/output.pdf',
     // decision: { decision: 'confirmed' | 'changed' | 'rejected', value? }
     review: ( id, fid, decision ) => fetch( '/api/jobs/' + id + '/fields/' + fid, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify( decision ) } ).then( json ),
     pageUrl: ( id, n ) => '/api/jobs/' + id + '/pages/' + n,

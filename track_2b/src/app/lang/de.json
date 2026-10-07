@@ -197,5 +197,8 @@
     "v.notliteral": "Nicht wörtlich im Diktat.",
     "rec.filling": "Die Felder werden aus dem Diktat gefüllt …",
     "hint.missing": "Pflichtangabe, nichts gesagt.",
-    "hint.format": "Das ist kein lesbares Datum."
+    "hint.format": "Das ist kein lesbares Datum.",
+    "sign.attachment": "Anhang",
+    "sign.openpdf": "PDF öffnen",
+    "sign.norecipient": "noch kein Empfänger zu diesem Formular"
 }

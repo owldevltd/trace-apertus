@@ -6,6 +6,7 @@ import { runPipeline } from '../pipeline.js';
 import { transcribeJob } from '../speech/transcriber.js';
 import { fillJob } from '../fields/filler.js';
 import { hints, loadCatalogue } from '../review/hints.js';
+import { writeOutput } from '../output/pdf.js';
 
 const DECISIONS = [ 'confirmed', 'changed', 'rejected' ];
 
@@ -194,6 +195,43 @@ export function registerJobs( router, client ) {
         return { status: 200, json: { job } };
     } );
 
+    // the filled form as PDF, written anew from the job as it stands
+    router.add( 'GET', '/api/jobs/:id/output.pdf', async ( { params } ) => {
+        const job = await find( params.id );
+        if ( !job ) {
+            return { status: 404, json: { error: 'no such job' } };
+        }
+        const file = await output( job );
+        return { status: 200, file, type: 'application/pdf' };
+    } );
+
+    // the mail draft for the signature: recipient and subject from the shipped form, when it is one
+    router.add( 'GET', '/api/jobs/:id/draft', async ( { params } ) => {
+        const job = await find( params.id );
+        if ( !job ) {
+            return { status: 404, json: { error: 'no such job' } };
+        }
+        return { status: 200, json: await draft( job ) };
+    } );
+
+    // sending: the PDF is written, the job is marked sent; the signature service itself is not connected
+    router.add( 'POST', '/api/jobs/:id/send', async ( { params } ) => {
+        const job = await find( params.id );
+        if ( !job ) {
+            return { status: 404, json: { error: 'no such job' } };
+        }
+        if ( job.fields.some( ( f ) => ( f.hints || [] ).some( ( h ) => h.kind === 'missing' ) ) ) {
+            return { status: 409, json: { error: 'required fields are still empty' } };
+        }
+        await output( job );
+        const at = new Date().toISOString();
+        job.history.push( { at, event: 'exported', note: 'output.pdf' } );
+        job.history.push( { at, event: 'sent' } );
+        job.status = 'sent';
+        await saveJob( job );
+        return { status: 200, json: { job, draft: await draft( job ) } };
+    } );
+
     router.add( 'GET', '/api/jobs/:id', async ( { params } ) => {
         const job = await find( params.id );
         if ( !job ) {
@@ -213,6 +251,44 @@ function page( params, suffix ) {
         return { status: 404, json: { error: 'no such page' } };
     }
     return { status: 200, file: path.join( jobDir( params.id ), 'pages', params.n + suffix ), type: 'image/png' };
+}
+
+// Writes storage/<id>/output.pdf: into the fillable original when the job came from a shipped form, else a new
+// PDF from the page pictures. Returns the file's path.
+async function output( job ) {
+    const dir = jobDir( job.id );
+    let original = null;
+    if ( job.form.file ) {
+        try {
+            original = await fs.readFile( path.join( config.dataDir, job.form.file ) );
+        } catch {
+            // no original at hand: the pictures then
+        }
+    }
+    const pages = [];
+    if ( !original ) {
+        for ( const p of job.pages ) {
+            pages.push( await fs.readFile( path.join( dir, p.image ) ) );
+        }
+    }
+    const bytes = await writeOutput( job, { original, pages } );
+    const file = path.join( dir, 'output.pdf' );
+    await fs.writeFile( file, bytes );
+    return file;
+}
+
+// recipient and subject of the shipped form, from its form.json; empty for a photographed one
+async function draft( job ) {
+    const m = ( job.form.file || '' ).match( /^forms\/([a-z0-9-]+)\// );
+    let meta = {};
+    if ( m ) {
+        try {
+            meta = JSON.parse( await fs.readFile( path.join( config.dataDir, 'forms', m[ 1 ], 'form.json' ), 'utf8' ) );
+        } catch {
+            // a form without a sheet
+        }
+    }
+    return { to: meta.recipient || '', subject: ( meta.subject || job.form.name ), pdf: '/api/jobs/' + job.id + '/output.pdf', pages: job.pages.length };
 }
 
 async function find( id ) {

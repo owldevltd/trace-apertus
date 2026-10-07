@@ -197,5 +197,8 @@
     "v.notliteral": "Pas mot pour mot dans la dictée.",
     "rec.filling": "Remplissage des champs à partir de la dictée …",
     "hint.missing": "Obligatoire, rien n’a été dit.",
-    "hint.format": "Ce n’est pas une date lisible."
+    "hint.format": "Ce n’est pas une date lisible.",
+    "sign.attachment": "Pièce jointe",
+    "sign.openpdf": "Ouvrir le PDF",
+    "sign.norecipient": "pas encore de destinataire pour ce formulaire"
 }

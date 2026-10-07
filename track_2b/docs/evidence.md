@@ -136,3 +136,10 @@ with widgets. From the print alone 61 of its 69 field widgets are covered by a b
 widget; with the widgets of the fillable original as fallback all 69 are fields (41 built, a large field covers
 several small widgets). Both radios are found and form one group. The Suva pages carry no widgets; their fields
 are checked by eye on the control image that `node src/cli.js fields` draws after the reading step.
+
+Output (`make test`, 7 October 2026, `tests/output.js`): on the fillable Betreibungsbegehren the values go into the
+original's own form fields, named by the widget a field was built from, and read back identically; the radio is
+selected by the widget whose box lies where the field lies; an empty value leaves the field empty; a field the
+original has no widget for is drawn at its place. A photographed page becomes a new PDF with the straightened
+page as picture and the values drawn on it. Nothing is flattened, so the recipient still sees a form. The two
+PDFs of the test run land in `storage/tests/` and were checked by eye against the page images.

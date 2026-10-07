@@ -49,6 +49,17 @@ try {
     const image = await fetch( base + '/api/jobs/' + id + '/pages/1/fields.png' );
     check( image.status === 200 && image.headers.get( 'content-type' ) === 'image/png', 'GET /api/jobs/:id/pages/1/fields.png serves the control image' );
 
+    const draft = await ( await fetch( base + '/api/jobs/' + id + '/draft' ) ).json();
+    check( draft.pdf === '/api/jobs/' + id + '/output.pdf' && draft.to.includes( '@' ), 'GET /api/jobs/:id/draft gives recipient and PDF link' );
+
+    const pdf = await fetch( base + '/api/jobs/' + id + '/output.pdf' );
+    const pdfBytes = new Uint8Array( await pdf.arrayBuffer() );
+    check( pdf.status === 200 && pdf.headers.get( 'content-type' ) === 'application/pdf' && String.fromCharCode( ...pdfBytes.slice( 0, 5 ) ) === '%PDF-', 'GET /api/jobs/:id/output.pdf serves the output PDF (' + pdfBytes.length + ' bytes)' );
+
+    const sent = await fetch( base + '/api/jobs/' + id + '/send', { method: 'POST' } );
+    const after = await sent.json();
+    check( sent.status === 200 && after.job.status === 'sent' && after.job.history.some( ( h ) => h.event === 'exported' ), 'POST /api/jobs/:id/send marks the job sent' );
+
     const outside = await fetch( base + '/../package.json' );
     check( outside.status === 404 || outside.status === 200 && !( await outside.text() ).includes( '"name"' ), 'static files stay inside the app folder' );
 } catch ( error ) {

@@ -197,5 +197,8 @@
     "v.notliteral": "Non parola per parola nella dettatura.",
     "rec.filling": "Compilazione dei campi dalla dettatura …",
     "hint.missing": "Obbligatorio, nulla è stato detto.",
-    "hint.format": "Non è una data leggibile."
+    "hint.format": "Non è una data leggibile.",
+    "sign.attachment": "Allegato",
+    "sign.openpdf": "Apri il PDF",
+    "sign.norecipient": "nessun destinatario ancora per questo modulo"
 }

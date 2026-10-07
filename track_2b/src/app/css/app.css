@@ -208,6 +208,8 @@ p { margin: 0; }
 .mail .hd { padding: 10px 14px; border-bottom: 1px solid var(--line); font-size: 13px; display: flex; gap: 8px; }
 .mail .hd b { font-weight: 600; width: 64px; color: var(--muted); flex: none; }
 .mail .bd { padding: 14px; font-size: 14px; line-height: 1.5; }
+.mail .attach { border-bottom: 0; border-top: 1px solid var(--line); align-items: center; }
+.mail .attach a { text-decoration: none; }
 
 /* sheet and toast */
 .sheet { position: absolute; inset: 0; z-index: 8; display: none; align-items: flex-end; }

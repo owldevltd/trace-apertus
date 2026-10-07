@@ -4,5 +4,7 @@
     "language": "de",
     "pages": 4,
     "origin": "original",
-    "file": "form.pdf"
+    "file": "form.pdf",
+    "recipient": "bagatellunfall@example.ch",
+    "subject": "Bagatellunfall-Meldung UVG zur Signatur"
 }
