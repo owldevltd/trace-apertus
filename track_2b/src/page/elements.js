@@ -21,8 +21,8 @@ const LINE_WIDE = 0.8;
 const LABEL_LEFT = 4.4;
 const LABEL_ABOVE = 2.7;
 
-// Empty cells: paper enclosed by lines on all sides with nothing in it. The lines are laid into an empty
-// mask as barriers; what is connected afterwards and does not touch the page edge is a cell.
+// Cells: paper enclosed by lines on all sides. The lines are laid into an empty mask as barriers; what is
+// connected afterwards and does not touch the page edge is a cell. `empty` says whether nothing is printed in it.
 export function findCells( page, lines ) {
     const s = page.scale;
     const w = page.w;
@@ -47,7 +47,6 @@ export function findCells( page, lines ) {
         if ( Math.min( bw, bh ) < min || b[ 4 ] < CELL_FILL * bw * bh ) {
             continue;
         }
-        // empty: no ink; a tinted cell is already recorded as an area
         let empty = true;
         for ( let y = b[ 1 ]; y <= b[ 3 ]; y++ ) {
             if ( hasInk( page.masks.ink, y, b[ 0 ], bw ) ) {
@@ -55,11 +54,8 @@ export function findCells( page, lines ) {
                 break;
             }
         }
-        if ( !empty ) {
-            continue;
-        }
         // the barrier was thicker than the line: pull the box back out to the line
-        cells.push( { x: ( b[ 0 ] - CELL_SEAL ) * s, y: ( b[ 1 ] - CELL_SEAL ) * s, w: ( bw + 2 * CELL_SEAL ) * s, h: ( bh + 2 * CELL_SEAL ) * s } );
+        cells.push( { x: ( b[ 0 ] - CELL_SEAL ) * s, y: ( b[ 1 ] - CELL_SEAL ) * s, w: ( bw + 2 * CELL_SEAL ) * s, h: ( bh + 2 * CELL_SEAL ) * s, empty } );
     }
     return cells.sort( byPosition );
 }
@@ -71,7 +67,8 @@ export function typeElements( page, parts ) {
     const { lines, marks, areas, cells, objects } = parts;
     const thin = ( b ) => Math.min( b.w, b.h ) <= LINE_THICK * page.unit * page.scale && Math.max( b.w, b.h ) >= LINE_ASPECT * Math.min( b.w, b.h );
     const elements = [];
-    const add = ( type, b ) => elements.push( { type, content: b.content || '', x: b.x, y: b.y, width: b.w, height: b.h } );
+    // from: what an input was made of (area, cell, line); the field builder treats them differently
+    const add = ( type, b, from ) => elements.push( { type, content: b.content || '', x: b.x, y: b.y, width: b.w, height: b.h, ...( from ? { from } : {} ) } );
 
     for ( const l of lines ) {
         add( 'line', l );
@@ -84,8 +81,13 @@ export function typeElements( page, parts ) {
             continue;
         }
         // a coloured separator bar is a line, not a field
-        add( thin( a ) ? 'line' : 'input', a );
+        if ( thin( a ) ) {
+            add( 'line', a );
+        } else {
+            add( 'input', a, 'area' );
+        }
     }
+    const u = page.unit * page.scale;
     for ( const c of cells ) {
         // the tinted area inside the cell already is the field
         const covered = areas.some( ( a ) => {
@@ -93,9 +95,26 @@ export function typeElements( page, parts ) {
             const h = Math.min( a.y + a.h, c.y + c.h ) - Math.max( a.y, c.y );
             return w > 0 && h > 0 && w * h * 2 > Math.min( a.w * a.h, c.w * c.h );
         } );
-        if ( !covered ) {
-            add( 'input', c );
+        if ( covered ) {
+            continue;
         }
+        if ( c.empty ) {
+            add( 'input', c, 'cell' );
+            continue;
+        }
+        // A cell whose only content stands along its top is a labelled field: the label is in the cell, the space
+        // under it is the input. Of 774 field widgets the geometry missed, 157 were such cells.
+        const seal = CELL_SEAL * page.scale;
+        const within = objects.filter( ( o ) => o.x >= c.x - seal && o.y >= c.y - seal && o.x + o.w <= c.x + c.w + seal && o.y + o.h <= c.y + c.h + seal );
+        const touching = objects.filter( ( o ) => o.x < c.x + c.w && o.x + o.w > c.x && o.y < c.y + c.h && o.y + o.h > c.y );
+        if ( !within.length || within.length !== touching.length || marks.some( ( m ) => m.x >= c.x && m.x + m.w <= c.x + c.w && m.y >= c.y && m.y + m.h <= c.y + c.h ) ) {
+            continue;
+        }
+        const top = Math.max( ...within.map( ( o ) => o.y + o.h ) );
+        if ( within.some( ( o ) => o.y - c.y > u ) || ( top - c.y ) * 2 > c.h || c.y + c.h - top < CELL_MIN * u ) {
+            continue;
+        }
+        add( 'input', { x: c.x, y: top, w: c.w, h: c.y + c.h - top }, 'cell' );
     }
     for ( const o of objects ) {
         add( thin( o ) ? 'line' : 'unknown', o );
@@ -116,30 +135,41 @@ function inputsOverLines( page, elements ) {
         return w > 0 && h > 0 && w * h * 2 > Math.min( a.width * a.height, b.width * b.height );
     };
     const found = [];
+    const uprights = elements.filter( ( e ) => e.type === 'line' && e.width < e.height );
     for ( const l of elements ) {
         if ( l.type !== 'line' || l.width < l.height || l.width < 2 * u || l.width >= wide ) {
             continue;
         }
-        const field = { x: l.x, y: l.y - Math.floor( LINE_FIELD * u ), width: l.width, height: Math.floor( LINE_FIELD * u ) - 2 };
-        let label = false;
-        let blocked = false;
-        for ( const e of elements ) {
-            if ( e === l || ( e.type === 'line' && e.width < e.height ) ) {
+        // the line may be the bottom border of several cells: one field per stretch between the vertical lines
+        const top = l.y - Math.floor( LINE_FIELD * u );
+        const cuts = uprights.filter( ( v ) => v.x > l.x + u && v.x + v.width < l.x + l.width - u && v.y < l.y && v.y + v.height > top ).map( ( v ) => v.x ).sort( ( a, b ) => a - b );
+        let start = l.x;
+        for ( const end of [ ...cuts, l.x + l.width ] ) {
+            const field = { x: start, y: top, width: end - start, height: Math.floor( LINE_FIELD * u ) - 2 };
+            start = end;
+            if ( field.width < 2 * u ) {
                 continue;
             }
-            if ( over( e, field ) ) {
-                blocked = true;
-                break;
+            let label = false;
+            let blocked = false;
+            for ( const e of elements ) {
+                if ( e === l || ( e.type === 'line' && e.width < e.height ) ) {
+                    continue;
+                }
+                if ( over( e, field ) ) {
+                    blocked = true;
+                    break;
+                }
+                if ( e.type !== 'unknown' ) {
+                    continue;
+                }
+                const left = e.x + e.width <= field.x + u && field.x - e.x - e.width <= LABEL_LEFT * u && e.y + e.height >= field.y && e.y <= l.y + u;
+                const above = e.y + e.height <= field.y + u && field.y - e.y - e.height <= LABEL_ABOVE * u && e.x < field.x + field.width && e.x + e.width > field.x;
+                label = label || left || above;
             }
-            if ( e.type !== 'unknown' ) {
-                continue;
+            if ( !blocked && label ) {
+                found.push( { type: 'input', content: '', ...field, from: 'line' } );
             }
-            const left = e.x + e.width <= l.x + u && l.x - e.x - e.width <= LABEL_LEFT * u && e.y + e.height >= field.y && e.y <= l.y + u;
-            const above = e.y + e.height <= field.y + u && field.y - e.y - e.height <= LABEL_ABOVE * u && e.x < l.x + l.width && e.x + e.width > l.x;
-            label = label || left || above;
-        }
-        if ( !blocked && label ) {
-            found.push( { type: 'input', content: '', ...field } );
         }
     }
     return found;

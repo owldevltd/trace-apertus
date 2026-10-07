@@ -1,6 +1,6 @@
 import { parentPort } from 'node:worker_threads';
 import { analyzePage } from './analyze.js';
-import { drawGeometry, drawElements } from './painter.js';
+import { drawGeometry, drawElements, drawFields } from './painter.js';
 import { readImage, toGray } from './raster.js';
 import { cropElement } from '../read/reader.js';
 import { styleElements } from '../read/styler.js';
@@ -38,6 +38,12 @@ const tasks = {
             await drawElements( payload.file, payload.control, elements );
         }
         return elements;
+    },
+
+    // fields and their blocks → control image
+    paintFields: async ( payload ) => {
+        await drawFields( payload.file, payload.control, payload.fields, payload.blocks );
+        return true;
     },
 };
 

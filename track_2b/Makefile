@@ -15,6 +15,7 @@ test:
 	node src/cli.js analyze --out=storage/tests/pages data/forms/*/*.png
 	node tests/sources.js --got=storage/tests/pages --out=storage/tests/sources.md data/forms/*
 	node tests/marks.js --got=storage/tests/pages --out=storage/tests/marks.md data/forms/*
+	node tests/fields.js --got=storage/tests/pages --out=storage/tests/fields.md data/forms/*
 
 # Reads the unknown elements of three shipped pages with the model and holds the text against the text layer of the
 # PDFs. Needs API_KEY in .env (copy .env.example). 152 calls, one after the other, about 7 minutes. Results and the

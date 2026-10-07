@@ -4,16 +4,20 @@ import { config } from './config.js';
 import { run, close } from './workers.js';
 import { createClient } from './model/client.js';
 import { toRead, readElements } from './read/reader.js';
+import { buildFields } from './fields/builder.js';
 
 // The pipeline from the command line, step by step.
 //
 //   node src/cli.js analyze [--out=<dir>] <image> [<image> …]
 //   node src/cli.js read    [--out=<dir>] <image> [<image> …]
+//   node src/cli.js fields  [--out=<dir>] <image> [<image> …]
 //
 // analyze writes <dir>/<name>.json (the geometry) and <dir>/<name>-page.png (control image) per page.
 // read takes that geometry, asks the model for every unknown element (API_KEY in the environment) and writes
 // <dir>/<name>-elements.json and <dir>/<name>-elements.png; raw answers go to <dir>/<name>.read/ and the
-// exchange with the model to <dir>/model/. The default <dir> is storage/pages/.
+// exchange with the model to <dir>/model/. fields takes the read elements (else the bare geometry), the form
+// widgets from a <name>.json next to the image when there is one, and writes <dir>/<name>-fields.json and
+// <dir>/<name>-fields.png. The default <dir> is storage/pages/.
 
 const args = process.argv.slice( 2 );
 const command = args.shift();
@@ -73,7 +77,40 @@ if ( command === 'analyze' && files.length ) {
     console.log( files.length + ' pages, ' + client.state.calls + ' calls' + ( client.state.halted ? ', halted by HTTP ' + client.state.halted : '' )
         + ', ' + ( ( Date.now() - started ) / 1000 ).toFixed( 0 ) + 's' );
     close();
+} else if ( command === 'fields' && files.length ) {
+    await Promise.all( files.map( async ( file, i ) => {
+        const name = path.basename( file, path.extname( file ) );
+        let page;
+        let elements;
+        try {
+            page = JSON.parse( await fs.readFile( path.join( out, name + '.json' ), 'utf8' ) );
+            elements = JSON.parse( await fs.readFile( path.join( out, name + '-elements.json' ), 'utf8' ) );
+        } catch {
+            if ( !page ) {
+                console.log( name.padEnd( 44 ) + ' no geometry in ' + out + ', run analyze first' );
+                return;
+            }
+            elements = page.elements;
+        }
+        let widgets = [];
+        try {
+            const ref = JSON.parse( await fs.readFile( file.replace( /\.[^.]+$/, '.json' ), 'utf8' ) );
+            widgets = ( ref.widgets || [] ).map( ( w ) => ( { typ: w.typ, name: w.name, x: w.x, y: w.y, width: w.w, height: w.h } ) );
+        } catch {
+            // no fillable original beside the image
+        }
+        const result = buildFields( [ { page: i + 1, unit: page.unit, elements, widgets } ] );
+        await fs.writeFile( path.join( out, name + '-fields.json' ), JSON.stringify( result, null, 2 ) );
+        await run( 'paintFields', { file, control: path.join( out, name + '-fields.png' ), fields: result.fields, blocks: result.blocks } );
+        const kinds = {};
+        for ( const f of result.fields ) {
+            kinds[ f.kind ] = ( kinds[ f.kind ] || 0 ) + 1;
+        }
+        console.log( name.padEnd( 44 ) + ' ' + result.fields.length + ' fields ' + JSON.stringify( kinds )
+            + '  with label ' + result.fields.filter( ( f ) => f.labelBlock ).length + '  with widget ' + result.fields.filter( ( f ) => f.widget ).length );
+    } ) );
+    close();
 } else {
-    console.log( 'usage: node src/cli.js analyze|read [--out=<dir>] <image> [<image> …]' );
+    console.log( 'usage: node src/cli.js analyze|read|fields [--out=<dir>] <image> [<image> …]' );
     process.exit( 1 );
 }
