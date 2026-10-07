@@ -28,10 +28,12 @@ const COLUMN_GAP = 1.0;
 // Writing lines this close under a field's line, with the same extent, belong to the same field.
 const LINE_CHAIN = 2.5;
 
-// Words in a label that make the field a date or a signature; everything else is text. Numbers are not guessed
-// from words (a phone number has spaces, an AHV number dots).
-const DATE = /\b(datum|date|data)\b/i;
-const SIGNATURE = /unterschrift|signatur|signature|firma e signature/i;
+// Words in a label that make the field a date or a signature; everything else is text. A date label is short
+// ("Geburtsdatum", "Datum der Anstellung"); a long label that merely mentions a date is a text field. Numbers are
+// not guessed from words (a phone number has spaces, an AHV number dots).
+const DATE = /datum|\bdate\b|\bdata\b/i;
+const DATE_WORDS = 4;
+const SIGNATURE = /unterschrift|signatur|signature/i;
 
 // Overlap by more than half of the smaller area: the same box.
 export function same( a, b ) {
@@ -96,6 +98,34 @@ export function buildFields( pages ) {
             }
             fields.push( field );
         }
+        // a fillable original knows its fields even where the print shows nothing (no frame, no tint): every
+        // widget no built field covers becomes a field of its own
+        for ( const w of page.widgets || [] ) {
+            const mark = w.typ === 'checkbox' || w.typ === 'radio';
+            if ( fields.some( ( f ) => f.page === page.page && same( f, w ) ) ) {
+                continue;
+            }
+            const box = { x: w.x, y: w.y, width: w.width, height: w.height };
+            const label = mark ? markLabel( box, texts, u ) : inputLabel( box, plain, u );
+            const field = {
+                id: '',
+                label: label ? words( label.content ) : '',
+                kind: mark ? w.typ : ( w.typ === 'unterschrift' ? 'signature' : kind( box, label, u ) ),
+                page: page.page,
+                ...box,
+                widget: w.name,
+            };
+            if ( label ) {
+                field.labelBlock = ids.get( label );
+            }
+            if ( mark ) {
+                field.option = field.label;
+            }
+            if ( w.typ === 'radio' ) {
+                radios.push( field );
+            }
+            fields.push( field );
+        }
         groupRadios( radios, u ).forEach( ( group, i ) => {
             for ( const f of group ) {
                 f.group = 'p' + page.page + 'g' + ( i + 1 );
@@ -120,7 +150,7 @@ function chainLines( fields, elements, byId, u ) {
     const lines = elements.filter( ( e ) => e.type === 'line' && e.width >= e.height ).sort( ( a, b ) => a.y - b.y );
     const absorbed = new Set();
     for ( const f of fields ) {
-        if ( absorbed.has( f ) || byId.get( f.boxBlock ).from !== 'line' ) {
+        if ( absorbed.has( f ) || byId.get( f.boxBlock )?.from !== 'line' ) {
             continue;
         }
         let own = lines.find( ( l ) => Math.abs( l.y - f.y - f.height ) <= 3 && Math.abs( l.x - f.x ) <= u && Math.abs( l.width - f.width ) <= u );
@@ -276,7 +306,7 @@ function kind( e, label, u ) {
     if ( SIGNATURE.test( text ) ) {
         return 'signature';
     }
-    if ( DATE.test( text ) ) {
+    if ( DATE.test( text ) && text.trim().split( /\s+/ ).length <= DATE_WORDS ) {
         return 'date';
     }
     return e.height > MULTILINE * u ? 'multiline' : 'text';

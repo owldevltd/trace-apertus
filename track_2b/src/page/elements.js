@@ -76,18 +76,27 @@ export function typeElements( page, parts ) {
     for ( const m of marks ) {
         add( m.kind, m );
     }
+    const u = page.unit * page.scale;
     for ( const a of areas ) {
-        if ( objects.some( ( o ) => o.x < a.x + a.w && o.x + o.w > a.x && o.y < a.y + a.h && o.y + o.h > a.y ) ) {
+        const touching = objects.filter( ( o ) => o.x < a.x + a.w && o.x + o.w > a.x && o.y < a.y + a.h && o.y + o.h > a.y );
+        if ( !touching.length ) {
+            // a coloured separator bar is a line, not a field
+            if ( thin( a ) ) {
+                add( 'line', a );
+            } else {
+                add( 'input', a, 'area' );
+            }
             continue;
         }
-        // a coloured separator bar is a line, not a field
-        if ( thin( a ) ) {
-            add( 'line', a );
-        } else {
-            add( 'input', a, 'area' );
+        // a tinted box with its label printed along its top is a field under the label, like a labelled cell
+        const top = Math.max( ...touching.map( ( o ) => o.y + o.h ) );
+        const inside = touching.every( ( o ) => o.x >= a.x && o.x + o.w <= a.x + a.w && o.y >= a.y - 2 && o.y - a.y <= u );
+        if ( thin( a ) || !inside || ( top - a.y ) * 2 > a.h || a.y + a.h - top < CELL_MIN * u
+            || marks.some( ( m ) => m.x >= a.x && m.x + m.w <= a.x + a.w && m.y >= a.y && m.y + m.h <= a.y + a.h ) ) {
+            continue;
         }
+        add( 'input', { x: a.x, y: top, w: a.w, h: a.y + a.h - top }, 'area' );
     }
-    const u = page.unit * page.scale;
     for ( const c of cells ) {
         // the tinted area inside the cell already is the field
         const covered = areas.some( ( a ) => {

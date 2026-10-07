@@ -51,6 +51,7 @@ How we test, throughout:
 | 07.10. | Labels and radio groups from the elements | 1 871 field widgets and 201 radio widgets on 30 pages, the text layer standing in for the reading; radios of one group share their widget name in the PDF | a label at 22.4 % of the hit widgets (search distances 4.4 / 2.7 from above); of 151 widgets whose name is a word, 79 labels share a word with it. Radio pairs grouped right / grouped wrong / missed: row only 30 / 15 / 120, row and column 150 / 169 / 0. Gaps: in a row the same group lies 90 % within 5.2 character heights, other groups from 23 on; in a column the same group half within 0.6, other groups from 0.2 on | **row, else column**, row gap 12, column gap 1: 148 / 21 / 2 |
 | 07.10. | Labelled cells, writing-line blocks, line fields cut at vertical lines | the same widgets; three rules on top of the port as it stood (1 302 hit = 69.6 %, 97 invented = 6.6 %) | labelled cells and line blocks: 1 324 hit (70.8 %), 108 invented (7.2 %); with the cut at vertical lines **1 331 hit (71.1 %), 140 invented (9.1 %)**. On the Suva page, a printed table without widgets, the fields go from 25 to 36 and carry their labels | kept, with the price on record: on fillable PDFs the empty cells were fields already; on a printed table these rules are what finds the fields |
 | 07.10. | Where the label of a tick mark stands | 891 built tick marks with a label | in the text object the mark sits in 803, right of it 27, left of it 8, none 53 | the text the mark sits in is its label; the model reads it without the box |
+| 07.10. | Tinted boxes with the label printed inside; fields the print does not show | the same widgets; the Betreibungsbegehren page, whose boxes have neither frame nor tint on paper | tinted boxes with their label along the top as fields under the label: 1 335 hit (71.4 %), 152 invented (9.8 %). On the Betreibungsbegehren the geometry finds 33 inputs, none of them the main boxes: the print shows only labels on white. With the form fields of the fillable original as fallback, every widget without a built field becomes one: 69 of 69, 41 fields built | both kept; a fillable original knows its fields, the print does not have to |
 | 04.10. | Real scans instead of rendered PDFs | 12 scanned German forms (XFUND), then 10 never seen before | rendered PDFs 91 % of fields; scans 43 %, with deskewing 55 %; ten unseen scans **44 %**. Thin grey table lines fall apart in a scan, light box borders drop below the ink threshold, a page frame counts as a wall | **known limit**: the geometry is tuned on rendered forms; photos need deskewing and a cleaner capture step (not built) |
 
 ## 3 Checking read text against the image
@@ -128,6 +129,7 @@ The shape check at threshold 0.02 flags 15 of the 22 wrong readings and 24 of th
 holds the full table of that run, including the flag counts for other thresholds.
 
 Fields on the shipped pages (`make test`, 7 October 2026): the Betreibungsbegehren page is the only shipped page
-with widgets; 61 of its 69 field widgets are hit by a built field, 4 fields lie on no widget, both radios are found
-and form one group. The Suva pages carry no widgets; their fields are checked by eye on the control image that
-`node src/cli.js fields` draws after the reading step.
+with widgets. From the print alone 61 of its 69 field widgets are covered by a built field and 4 fields lie on no
+widget; with the widgets of the fillable original as fallback all 69 are fields (41 built, a large field covers
+several small widgets). Both radios are found and form one group. The Suva pages carry no widgets; their fields
+are checked by eye on the control image that `node src/cli.js fields` draws after the reading step.
