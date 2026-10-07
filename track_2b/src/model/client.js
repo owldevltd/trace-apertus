@@ -39,7 +39,8 @@ export function createClient( config ) {
             content.push( { type: 'input_audio', input_audio: { data: base64( options.audio.bytes ), format: options.audio.format } } );
         }
         const body = {
-            model: config.model,
+            // the large model only where a step says so (the catalogue); everything else runs on the small one
+            model: options.model || config.model,
             temperature: 0,
             max_tokens: options.room || 400,
             messages: [ { role: 'user', content } ],
@@ -76,7 +77,7 @@ export function createClient( config ) {
             await fs.writeFile( path.join( options.log, state.stamp + '-' + String( state.calls ).padStart( 4, '0' ) + '.json' ), JSON.stringify( {
                 at: new Date( started ).toISOString(),
                 tag: options.tag || null,
-                model: config.model,
+                model: body.model,
                 temperature: 0,
                 room: body.max_tokens,
                 prompt,

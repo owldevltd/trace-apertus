@@ -61,7 +61,8 @@ export async function judgeVague( job, catalogue, client ) {
     const text = JSON.stringify( catalogue.fields, null, 1 );
     for ( const f of job.fields ) {
         const entry = find( catalogue, f );
-        if ( !entry || !f.value || f.kind === 'checkbox' || f.kind === 'radio' ) {
+        // only where the catalogue has a requirement with a source: without one the model has nothing to judge by
+        if ( !entry || !f.value || f.kind === 'checkbox' || f.kind === 'radio' || !entry.source || /keine sichere quelle/i.test( entry.source ) ) {
             continue;
         }
         const p = 'Du prüfst eine Angabe in einem Schweizer Formular.\nFormular: ' + job.form.name + '\nFeld: ' + f.label + '\nGesprochene Angabe: "' + f.value + '"\n\n'

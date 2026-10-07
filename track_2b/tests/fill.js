@@ -54,6 +54,15 @@ for ( const f of job.fields ) {
     md += '| ' + f.id + ' | ' + ( want || '–' ) + ' | ' + wantState + ' | ' + ( got || '–' ) + ' | ' + ( f.source ? f.source.how : '' ) + ' | ' + ( f.source && f.source.approve ? 'yes' : '' ) + ' | ' + verdict + ' |\n';
 }
 md += '\n' + Object.entries( tally ).map( ( [ k, v ] ) => k + ': ' + v ).join( ' · ' ) + '\n';
+const hinted = job.fields.filter( ( f ) => f.hints && f.hints.length );
+if ( hinted.length ) {
+    md += '\n## Hints\n\n| field | kind | text | article |\n|---|---|---|---|\n';
+    for ( const f of hinted ) {
+        for ( const h of f.hints ) {
+            md += '| ' + f.id + ' | ' + h.kind + ' | ' + ( h.text || '' ).replace( /\|/g, '/' ).slice( 0, 160 ) + ' | ' + ( h.article || '' ) + ' |\n';
+        }
+    }
+}
 md += '\nFlagged (approve) among the different and the values expected empty: ' + job.fields.filter( ( f ) => f.source && f.source.approve && ( !mock.values[ f.id ] || plain( f.value ) !== plain( mock.values[ f.id ][ 0 ] ) ) ).length + '\n';
 console.log( md );
 if ( outFile ) {

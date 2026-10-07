@@ -5,12 +5,18 @@ import { run, close } from './workers.js';
 import { createClient } from './model/client.js';
 import { toRead, readElements } from './read/reader.js';
 import { buildFields } from './fields/builder.js';
+import { buildCatalogue } from './review/catalogue.js';
 
 // The pipeline from the command line, step by step.
 //
-//   node src/cli.js analyze [--out=<dir>] <image> [<image> …]
-//   node src/cli.js read    [--out=<dir>] <image> [<image> …]
-//   node src/cli.js fields  [--out=<dir>] <image> [<image> …]
+//   node src/cli.js analyze   [--out=<dir>] <image> [<image> …]
+//   node src/cli.js read      [--out=<dir>] <image> [<image> …]
+//   node src/cli.js fields    [--out=<dir>] <image> [<image> …]
+//   node src/cli.js catalogue <form>
+//
+// catalogue asks the large model once for the catalogue of a shipped form (data/forms/<form>), from the text
+// layer of its pages, and writes data/catalogues/<form>.json, unverified; a person checks the sources against
+// the statute text and sets `verified`.
 //
 // analyze writes <dir>/<name>.json (the geometry) and <dir>/<name>-page.png (control image) per page.
 // read takes that geometry, asks the model for every unknown element (API_KEY in the environment) and writes
@@ -110,7 +116,32 @@ if ( command === 'analyze' && files.length ) {
             + '  with label ' + result.fields.filter( ( f ) => f.labelBlock ).length + '  with widget ' + result.fields.filter( ( f ) => f.widget ).length );
     } ) );
     close();
+} else if ( command === 'catalogue' && files.length === 1 ) {
+    const form = files[ 0 ];
+    const dir = path.join( config.dataDir, 'forms', form );
+    const meta = JSON.parse( await fs.readFile( path.join( dir, 'form.json' ), 'utf8' ) );
+    // the form's text from the text layer of its pages, block by block
+    const blocks = [];
+    for ( const file of ( await fs.readdir( dir ) ).filter( ( f ) => f.endsWith( '.json' ) && f !== 'form.json' ).sort() ) {
+        const ref = JSON.parse( await fs.readFile( path.join( dir, file ), 'utf8' ) );
+        const byBlock = new Map();
+        for ( const w of ref.words || [] ) {
+            if ( !byBlock.has( w.block ) ) {
+                byBlock.set( w.block, [] );
+            }
+            byBlock.get( w.block ).push( w );
+        }
+        for ( const words of byBlock.values() ) {
+            blocks.push( { type: 'text', content: words.sort( ( a, b ) => a.line - b.line || a.x - b.x ).map( ( w ) => w.t ).join( ' ' ) } );
+        }
+    }
+    const client = createClient( config );
+    const catalogue = await buildCatalogue( { form: { name: meta.name }, blocks, fields: [] }, client );
+    const target = path.join( config.dataDir, 'catalogues', form + '.json' );
+    await fs.mkdir( path.dirname( target ), { recursive: true } );
+    await fs.writeFile( target, JSON.stringify( catalogue, null, 4 ) + '\n' );
+    console.log( target + ': ' + catalogue.fields.length + ' fields, ' + catalogue.fields.filter( ( f ) => !/keine sichere/i.test( f.source ) ).length + ' with a source; unverified' );
 } else {
-    console.log( 'usage: node src/cli.js analyze|read|fields [--out=<dir>] <image> [<image> …]' );
+    console.log( 'usage: node src/cli.js analyze|read|fields [--out=<dir>] <image> [<image> …]\n       node src/cli.js catalogue <form>' );
     process.exit( 1 );
 }

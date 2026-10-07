@@ -1,0 +1,213 @@
+{
+    "form": "Bagatellunfall-Meldung UVG (Schweizerische Unfallversicherungsanstalt Suva)",
+    "built": "2026-10-07",
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "verified": "2026-10-07: the model named only the form text as source; sources added by hand from UVG Art. 45 and UVV Art. 53 as published on Fedlex, matched to the fields of page 1; required marks what Art. 53 Abs. 1 lists (time, place, course, consequences, physician) and the reporting employer",
+    "fields": [
+        {
+            "field": "Schaden-Nummer",
+            "requirement": "Von der Suva zugewiesene Nummer eintragen",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "1. Arbeitgeber",
+            "requirement": "Name und Adresse mit Postleitzahl, Tel.-Nr., Kunden-Nr., Betriebsteil, üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "2. Verletzte/r",
+            "requirement": "Name und Vorname, Geburtsdatum, Strasse, PLZ, AHV-Nummer",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "3. Anstellung",
+            "requirement": "Wohnort, Stellung (auswählen), AHV-Nummer, Staatsangehörigkeit, Zivilstand, Datum der Anstellung, ausgeübter Beruf (auswählen), Arbeitszeit des/der Verletzten: Stunden je Woche",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "4. Schaden- datum",
+            "requirement": "Tag des Unfalls eintragen",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "5. Unfallort",
+            "requirement": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse) angeben",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "6. Sachverhalt (Unfallbeschreibung)",
+            "requirement": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge detailliert beschreiben",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "7. Berufsunfall",
+            "requirement": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; genaue Bezeichnung angeben)",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "8. Nicht-berufsunfall",
+            "requirement": "Bis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit) eintragen",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "9. Verletzung",
+            "requirement": "Betroffener Körperteil, Monat, Jahr, bis: Zeit (Stunden, Minuten), Grund der Absenz (links, rechts, unbestimmt), Art der Schädigung angeben",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "10. Arzt- adressen",
+            "requirement": "Erstbehandelnder Arzt bzw. Spital/Klinik, Nachbehandelnder Arzt bzw. Spital/Klinik, Ort und Datum eintragen",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "Stempel und Unterschrift",
+            "requirement": "Formular mit Stempel und Unterschrift des Arbeitgebers abschliessen",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "Apothekerschein UVG",
+            "requirement": "Name und Adresse des Arbeitgebers, Tel.-Nr., Kunden-Nr., Betriebsteil, üblicher Arbeitsplatz des/der Verletzten, Name und Vorname, Geburtsdatum, AHV-Nummer, Strasse, PLZ, Schaden- datum (Tag), Wohnort, Monat, Jahr, Zeit (Stunden, Minuten), Betroffener Körperteil, Art der Schädigung, Arzt- adressen (Erst- und Nachbehandler), Rechnung der Apotheke (Datum der Abgabe, Art und Menge, Preis CHF, Datum, Rp.), Stempel der Apotheke",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited the form text, which is not a source."
+        },
+        {
+            "field": "Tag",
+            "requirement": "Tag des Unfalls",
+            "source": "UVV Art. 53 Abs. 1 Bst. a",
+            "certainty": "high",
+            "checked": "Abs. 1 Bst. a: Zeit des Unfalles.",
+            "required": true
+        },
+        {
+            "field": "Monat",
+            "requirement": "Monat des Unfalls",
+            "source": "UVV Art. 53 Abs. 1 Bst. a",
+            "certainty": "high",
+            "checked": "Abs. 1 Bst. a: Zeit des Unfalles.",
+            "required": true
+        },
+        {
+            "field": "Jahr",
+            "requirement": "Jahr des Unfalls",
+            "source": "UVV Art. 53 Abs. 1 Bst. a",
+            "certainty": "high",
+            "checked": "Abs. 1 Bst. a: Zeit des Unfalles.",
+            "required": true
+        },
+        {
+            "field": "Zeit (Stunden, Minuten)",
+            "requirement": "Uhrzeit des Unfalls in Stunden und Minuten",
+            "source": "UVV Art. 53 Abs. 1 Bst. a",
+            "certainty": "high",
+            "checked": "Abs. 1 Bst. a: Zeit des Unfalles."
+        },
+        {
+            "field": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)",
+            "requirement": "Ort des Unfalls mit Name oder PLZ und die Stelle, an der er geschah",
+            "source": "UVV Art. 53 Abs. 1 Bst. a",
+            "certainty": "high",
+            "checked": "Abs. 1 Bst. a: Ort des Unfalles.",
+            "required": true
+        },
+        {
+            "field": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge",
+            "requirement": "Hergang des Unfalls: Tätigkeit, Ablauf, beteiligte Personen und Gegenstände, so dass der Hergang abgeklärt werden kann",
+            "source": "UVV Art. 53 Abs. 1 Bst. a und Abs. 3 Bst. a",
+            "certainty": "high",
+            "checked": "Abs. 1 Bst. a: Hergang des Unfalles; Abs. 3 Bst. a: Angaben zur Abklärung des Unfallherganges.",
+            "required": true
+        },
+        {
+            "field": "Betroffener Körperteil",
+            "requirement": "Betroffener Körperteil als Folge des Unfalls",
+            "source": "UVV Art. 53 Abs. 1 Bst. a und Abs. 3 Bst. b",
+            "certainty": "high",
+            "checked": "Abs. 1 Bst. a: Folgen des Unfalles; Abs. 3 Bst. b: Angaben für die medizinische Abklärung.",
+            "required": true
+        },
+        {
+            "field": "Art der Schädigung",
+            "requirement": "Art der Verletzung oder Schädigung",
+            "source": "UVV Art. 53 Abs. 1 Bst. a und Abs. 3 Bst. b",
+            "certainty": "high",
+            "checked": "Abs. 1 Bst. a: Folgen des Unfalles; Abs. 3 Bst. b: Angaben für die medizinische Abklärung."
+        },
+        {
+            "field": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+            "requirement": "Behandelnder Arzt oder Spital der Erstbehandlung",
+            "source": "UVV Art. 53 Abs. 1 Bst. b",
+            "certainty": "high",
+            "checked": "Abs. 1 Bst. b: den behandelnden Arzt oder das Spital.",
+            "required": true
+        },
+        {
+            "field": "Nachbehandelnder Arzt bzw. Spital/Klinik",
+            "requirement": "Arzt oder Spital der Nachbehandlung, falls eine stattfindet",
+            "source": "UVV Art. 53 Abs. 1 Bst. b",
+            "certainty": "high",
+            "checked": "Abs. 1 Bst. b: den behandelnden Arzt oder das Spital."
+        },
+        {
+            "field": "Name und Adresse mit Postleitzahl",
+            "requirement": "Name und Adresse des meldenden Arbeitgebers",
+            "source": "UVG Art. 45 Abs. 2; UVV Art. 53 Abs. 3",
+            "certainty": "high",
+            "checked": "UVG Art. 45 Abs. 2: der Arbeitgeber meldet dem Versicherer unverzüglich; UVV Art. 53 Abs. 3: das Formular ist vom Arbeitgeber vollständig und wahrheitsgetreu auszufüllen.",
+            "required": true
+        },
+        {
+            "field": "Name und Vorname",
+            "requirement": "Name und Vorname der verletzten Person",
+            "source": "UVV Art. 53 Abs. 3 Bst. c",
+            "certainty": "high",
+            "checked": "Abs. 3 Bst. c: Angaben für die Festsetzung der Leistungen; die Person muss feststehen.",
+            "required": true
+        },
+        {
+            "field": "Geburtsdatum",
+            "requirement": "Geburtsdatum der verletzten Person",
+            "source": "UVV Art. 53 Abs. 3 Bst. c",
+            "certainty": "high",
+            "checked": "Abs. 3 Bst. c: Angaben für die Festsetzung der Leistungen."
+        },
+        {
+            "field": "AHV-Nummer",
+            "requirement": "AHV-Nummer der verletzten Person",
+            "source": "UVV Art. 53 Abs. 3 Bst. c",
+            "certainty": "high",
+            "checked": "Abs. 3 Bst. c: Angaben für die Festsetzung der Leistungen."
+        },
+        {
+            "field": "Stempel und Unterschrift",
+            "requirement": "Das Formular trägt Stempel und Unterschrift des Arbeitgebers",
+            "source": "UVV Art. 53 Abs. 3",
+            "certainty": "high",
+            "checked": "Abs. 3: vom Arbeitgeber auszufüllen und dem Versicherer zuzustellen; die Unterschrift verlangt das Formular."
+        }
+    ]
+}
