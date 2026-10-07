@@ -28,3 +28,4 @@ bench:
 	node --env-file=.env src/cli.js analyze --out=storage/bench/pages $(BENCH_PAGES)
 	node --env-file=.env src/cli.js read --out=storage/bench/pages $(BENCH_PAGES)
 	node tests/read.js --got=storage/bench/pages --out=storage/bench/read.md data/forms/*
+	node --env-file=.env tests/fill.js --out=storage/bench/fill.md

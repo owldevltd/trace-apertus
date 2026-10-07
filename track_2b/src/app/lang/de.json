@@ -192,5 +192,10 @@
     "rec.pieces": "{n} Stück(e) gesendet · {d}",
     "rec.closing": "Aufnahme wird abgeschlossen …",
     "rec.transcribing": "Transkription läuft … die Stücke erscheinen hier, sobald sie zurück sind.",
-    "tr.listen": "bitte anhören"
+    "tr.listen": "bitte anhören",
+    "v.said": "Du hast gesagt: „{q}“",
+    "v.notliteral": "Nicht wörtlich im Diktat.",
+    "rec.filling": "Die Felder werden aus dem Diktat gefüllt …",
+    "hint.missing": "Pflichtangabe, nichts gesagt.",
+    "hint.format": "Das ist kein lesbares Datum."
 }

@@ -5,6 +5,7 @@
 <div class="pane">
     {{#isFields}}
     <div class="hero"><p class="eyebrow">{{t:fields}}</p>{{card}}</div>
+    {{#filling}}<div class="grey row"><div class="spinner"></div><p class="small muted">{{t:rec.filling}}</p></div>{{/filling}}
     {{#sections}}
     <div class="stack narrow"><p class="eyebrow">{{title}}{{#ok}} · {{ok}}{{/ok}}</p><div class="cells">{{#fields}}{{> field}}{{/fields}}</div></div>
     {{/sections}}

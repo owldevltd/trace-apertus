@@ -24,6 +24,9 @@ export const api = {
         body: piece.blob,
     } ).then( json ),
     transcribe: ( id ) => fetch( '/api/jobs/' + id + '/transcribe', { method: 'POST' } ).then( json ),
+    fill: ( id ) => fetch( '/api/jobs/' + id + '/fill', { method: 'POST' } ).then( json ),
+    // decision: { decision: 'confirmed' | 'changed' | 'rejected', value? }
+    review: ( id, fid, decision ) => fetch( '/api/jobs/' + id + '/fields/' + fid, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify( decision ) } ).then( json ),
     pageUrl: ( id, n ) => '/api/jobs/' + id + '/pages/' + n,
     // asks for the job until the pipeline is done or failed; onStep( run ) on every answer
     async wait( id, onStep, every = 800 ) {

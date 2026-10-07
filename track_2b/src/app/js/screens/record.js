@@ -115,13 +115,25 @@ export function wire( ctx ) {
         ctx.router.pop();
         try {
             await api.transcribe( entry.jobId );
-            const { run } = await api.wait( entry.jobId, null, 1000 );
+            let { run } = await api.wait( entry.jobId, null, 1000 );
             if ( run.step === 'error' ) {
                 throw new Error( run.error || 'transcription' );
             }
             ctx.model.forget( entry.jobId );
             await ctx.model.loadForm( entry );
             ctx.event( ctx.t( 'ev.dictated', { f: entry.name, d: entry.duration } ), entry.jobId, entry.photo );
+            // then the values into the fields
+            if ( ctx.state.current === entry && ctx.router.top().id === 'form' ) {
+                ctx.state.tab = 'fields';
+                form.render( ctx, entry );
+            }
+            await api.fill( entry.jobId );
+            ( { run } = await api.wait( entry.jobId, null, 1000 ) );
+            if ( run.step === 'error' ) {
+                throw new Error( run.error || 'filling' );
+            }
+            ctx.model.forget( entry.jobId );
+            await ctx.model.loadForm( entry );
         } catch ( error ) {
             ctx.toast( ctx.t( 'job.failed', { e: error.message } ) );
         }

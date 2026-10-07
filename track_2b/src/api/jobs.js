@@ -4,6 +4,10 @@ import { config } from '../config.js';
 import { createJob, jobDir, saveJob, loadJob, loadRun, listJobs } from '../job.js';
 import { runPipeline } from '../pipeline.js';
 import { transcribeJob } from '../speech/transcriber.js';
+import { fillJob } from '../fields/filler.js';
+import { hints, loadCatalogue } from '../review/hints.js';
+
+const DECISIONS = [ 'confirmed', 'changed', 'rejected' ];
 
 const AUDIO = { 'audio/mpeg': 'mp3', 'audio/mp3': 'mp3', 'audio/wav': 'wav', 'audio/x-wav': 'wav', 'audio/wave': 'wav' };
 
@@ -127,6 +131,67 @@ export function registerJobs( router, client ) {
         }
         transcribeJob( job, client ).catch( () => {} );
         return { status: 202, json: { id: job.id, step: 'transcribe' } };
+    } );
+
+    router.add( 'POST', '/api/jobs/:id/fill', async ( { params } ) => {
+        const job = await find( params.id );
+        if ( !job ) {
+            return { status: 404, json: { error: 'no such job' } };
+        }
+        const run = await loadRun( job.id );
+        if ( [ 'analyze', 'read', 'fields', 'transcribe', 'fill' ].includes( run.step ) ) {
+            return { status: 409, json: { error: 'already running', run } };
+        }
+        fillJob( job, client ).catch( () => {} );
+        return { status: 202, json: { id: job.id, step: 'fill' } };
+    } );
+
+    // a person's decision on a field: { decision: confirmed | changed | rejected, value?, by? }
+    router.add( 'PUT', '/api/jobs/:id/fields/:fid', async ( { params, body } ) => {
+        const job = await find( params.id );
+        const field = job && job.fields.find( ( f ) => f.id === params.fid );
+        if ( !field ) {
+            return { status: 404, json: { error: 'no such field' } };
+        }
+        let data;
+        try {
+            data = JSON.parse( body.toString( 'utf8' ) );
+        } catch {
+            return { status: 400, json: { error: 'a decision is JSON' } };
+        }
+        if ( !DECISIONS.includes( data.decision ) ) {
+            return { status: 400, json: { error: 'decision is confirmed, changed or rejected' } };
+        }
+        const review = { at: new Date().toISOString(), decision: data.decision, ...( data.by ? { by: String( data.by ) } : {} ) };
+        if ( data.decision === 'changed' ) {
+            review.before = field.value || '';
+            field.value = String( data.value ?? '' ).trim();
+            field.source = { how: 'entered', approve: false, review };
+        } else if ( data.decision === 'rejected' ) {
+            review.before = field.value || '';
+            field.value = '';
+            field.source = { how: 'entered', approve: false, review };
+        } else {
+            field.source = { ...( field.source || { how: 'entered' } ), approve: false, review };
+        }
+        // the code hints anew for every field; a vague judgement stays, except on the field just decided
+        const fresh = hints( job, await loadCatalogue( job ) );
+        for ( const f of job.fields ) {
+            const keep = ( f.hints || [] ).filter( ( h ) => h.kind === 'vague' && f.id !== field.id );
+            const mine = fresh.filter( ( h ) => h.field === f.id ).map( ( { field: _, ...h } ) => h );
+            if ( keep.length || mine.length ) {
+                f.hints = [ ...mine, ...keep ];
+            } else {
+                delete f.hints;
+            }
+        }
+        // every flagged value decided: the form is reviewed
+        if ( job.status === 'filled' && !job.fields.some( ( f ) => f.source && f.source.approve ) ) {
+            job.status = 'reviewed';
+            job.history.push( { at: review.at, event: 'reviewed' } );
+        }
+        await saveJob( job );
+        return { status: 200, json: { job } };
     } );
 
     router.add( 'GET', '/api/jobs/:id', async ( { params } ) => {

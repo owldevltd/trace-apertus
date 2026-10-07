@@ -192,5 +192,10 @@
     "rec.pieces": "{n} morceau(x) envoyé(s) · {d}",
     "rec.closing": "Clôture de l’enregistrement …",
     "rec.transcribing": "Transcription en cours … les morceaux apparaissent ici dès leur retour.",
-    "tr.listen": "à écouter"
+    "tr.listen": "à écouter",
+    "v.said": "Tu as dit : « {q} »",
+    "v.notliteral": "Pas mot pour mot dans la dictée.",
+    "rec.filling": "Remplissage des champs à partir de la dictée …",
+    "hint.missing": "Obligatoire, rien n’a été dit.",
+    "hint.format": "Ce n’est pas une date lisible."
 }

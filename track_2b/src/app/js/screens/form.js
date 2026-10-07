@@ -1,6 +1,7 @@
 import { $, on } from '../dom.js';
 import { escape } from '../template.js';
 import { fieldsOf } from '../model.js';
+import { api } from '../api.js';
 import { drawPreview, wirePreview } from '../preview.js';
 import { switchPane } from '../router.js';
 import * as record from './record.js';
@@ -39,6 +40,13 @@ export function render( ctx, entry ) {
     state.current = entry;
     const f = ctx.model.formOf( entry );
     const all = fieldsOf( f, entry.off );
+    // a job's values live on the server; a mocked form's in the entry
+    if ( entry.jobId ) {
+        entry.values = f.values;
+        if ( f.status === 'filled' || f.status === 'reviewed' ) {
+            entry.status = entry.status === 'sent' ? 'sent' : 'filled';
+        }
+    }
     const filled = !!entry.values;
     const count = ( k ) => all.filter( ( fl ) => entry.values?.[ fl.id ]?.[ 1 ] === k ).length;
     const unclear = count( 'unclear' );
@@ -71,6 +79,7 @@ export function render( ctx, entry ) {
         sections,
         transcript: f.transcript && f.transcript.length ? f.transcript : [],
         transcribing: state.transcribing && state.transcribing === entry.jobId,
+        filling: state.transcribing && state.transcribing === entry.jobId && f.transcript && f.transcript.length > 0,
         laws,
         pvHint: filled ? t( 'form.pv.filled' ) : t( 'form.pv.empty' ),
         pvMeta: t( 'pv.meta', { n: f.pages } ),
@@ -128,6 +137,10 @@ export function wire( ctx ) {
     on( body, 'click', '.seg', ( el ) => el.classList.toggle( 'open' ) );
     on( body, 'click', '[data-confirm]', ( b ) => {
         const entry = ctx.state.current;
+        if ( entry.jobId ) {
+            decide( ctx, entry, b.dataset.confirm, { decision: 'confirmed' } );
+            return;
+        }
         entry.values[ b.dataset.confirm ][ 1 ] = 'ok';
         entry.values[ b.dataset.confirm ][ 2 ] = '';
         ctx.store.touch();
@@ -137,6 +150,10 @@ export function wire( ctx ) {
     on( body, 'click', '[data-save]', ( b ) => {
         const entry = ctx.state.current;
         const v = $( '[data-input]', body ).value.trim();
+        if ( entry.jobId ) {
+            decide( ctx, entry, b.dataset.save, v ? { decision: 'changed', value: v } : { decision: 'rejected' } );
+            return;
+        }
         entry.values[ b.dataset.save ] = [ v, v ? 'ok' : 'missing', v ? '' : ctx.t( 'v.notsaid' ) ];
         ctx.store.touch();
         render( ctx, entry );
@@ -147,6 +164,17 @@ export function wire( ctx ) {
     on( bottom, 'click', '[data-sign]', () => sign.open( ctx, ctx.state.current ) );
 }
 
+// a person's decision on a job's field goes to the server; the form comes back with it
+async function decide( ctx, entry, id, decision ) {
+    try {
+        const { job } = await api.review( entry.jobId, id, decision );
+        ctx.model.keep( job );
+    } catch ( error ) {
+        ctx.toast( ctx.t( 'job.failed', { e: error.message } ) );
+    }
+    render( ctx, entry );
+}
+
 // change a value in place: a text box, a text area, or a tick for a mark
 function edit( ctx, id, wrap ) {
     const { t, state } = ctx;
@@ -155,6 +183,10 @@ function edit( ctx, id, wrap ) {
     const fl = fieldsOf( f ).find( ( x ) => x.id === id );
     const cur = entry.values[ id ]?.[ 0 ] || '';
     if ( fl.kind === 'checkbox' || fl.kind === 'radio' ) {
+        if ( entry.jobId ) {
+            decide( ctx, entry, id, cur ? { decision: 'rejected' } : { decision: 'changed', value: 'x' } );
+            return;
+        }
         entry.values[ id ] = [ cur ? '' : 'x', cur ? 'empty' : 'ok', '' ];
         ctx.store.touch();
         render( ctx, entry );

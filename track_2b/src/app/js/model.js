@@ -11,7 +11,9 @@ function fromMock( f ) {
     return { ...f, sizes: [ f.page ], blocks: BLOCKS[ f.id ] || [] };
 }
 
-// a job of the server as a view: one section per page, the fields and blocks as the pipeline found them
+// a job of the server as a view: one section per page, the fields and blocks as the pipeline found them;
+// after the filling every field carries its value with state and note: ok, unclear (a person should look),
+// missing (required, nothing said), empty
 export function fromJob( job, t ) {
     const sections = job.pages.map( ( p ) => ( {
         title: t( 'page', { n: p.n } ),
@@ -24,9 +26,30 @@ export function fromJob( job, t ) {
             y: f.y,
             w: f.width,
             h: f.height,
+            hints: f.hints || [],
             ...( f.group ? { group: f.group, option: f.option } : {} ),
         } ) ),
     } ) ).filter( ( s ) => s.fields.length );
+    const filled = job.status === 'filled' || job.status === 'reviewed' || job.status === 'sent';
+    const values = {};
+    if ( filled ) {
+        for ( const f of job.fields ) {
+            const missing = ( f.hints || [] ).some( ( h ) => h.kind === 'missing' );
+            const vague = ( f.hints || [] ).find( ( h ) => h.kind === 'vague' );
+            const open = f.source && f.source.approve && !f.source.review;
+            const state = f.kind === 'signature' ? 'sign' : f.value ? ( open || vague ? 'unclear' : 'ok' ) : missing ? 'missing' : 'empty';
+            const note = vague ? vague.text : open ? ( f.source.quote ? t( 'v.said', { q: f.source.quote } ) : t( 'v.notliteral' ) ) : missing ? t( 'hint.missing' ) : '';
+            values[ f.id ] = [ f.value || '', state, note ];
+        }
+    }
+    const laws = [];
+    for ( const f of job.fields ) {
+        for ( const h of f.hints || [] ) {
+            if ( h.kind === 'legal' ) {
+                laws.push( { fields: [ f.id ], art: h.article, text: h.text, source: h.catalogue } );
+            }
+        }
+    }
     return {
         id: 'job:' + job.id,
         jobId: job.id,
@@ -40,8 +63,9 @@ export function fromJob( job, t ) {
         sections,
         blocks: job.blocks.map( ( b ) => ( { type: b.type, page: b.page, x: b.x, y: b.y, w: b.width, h: b.height, content: b.content, fontSize: b.fontSize, color: b.color, background: b.background } ) ),
         transcript: ( job.transcript || [] ).map( ( p ) => ( { t: clock( p.start ), section: p.approve ? t( 'tr.listen' ) : '', summary: p.text, raw: p.raw } ) ),
-        values: null,
-        laws: [],
+        values: filled ? values : null,
+        status: job.status,
+        laws,
     };
 }
 

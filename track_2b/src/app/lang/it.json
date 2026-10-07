@@ -192,5 +192,10 @@
     "rec.pieces": "{n} parte/i inviata/e · {d}",
     "rec.closing": "Chiusura della registrazione …",
     "rec.transcribing": "Trascrizione in corso … le parti compaiono qui appena tornano.",
-    "tr.listen": "da ascoltare"
+    "tr.listen": "da ascoltare",
+    "v.said": "Hai detto: «{q}»",
+    "v.notliteral": "Non parola per parola nella dettatura.",
+    "rec.filling": "Compilazione dei campi dalla dettatura …",
+    "hint.missing": "Obbligatorio, nulla è stato detto.",
+    "hint.format": "Non è una data leggibile."
 }
