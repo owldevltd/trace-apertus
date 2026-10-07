@@ -4,22 +4,32 @@ import path from 'node:path';
 // Tick marks from the geometry against the checkbox and radio widgets of the forms. Per widget: found as a
 // box, found as a circle, not found. Per find: does it lie on a widget.
 //
-//   node tests/marks.js <reference dir> <analyzed dir> [--out=<file.md>]
+//   node tests/marks.js --got=<analyzed dir> [--out=<file.md>] <reference dir> [<reference dir> …]
 
 // How far the centre of a find may lie beside the widget (original pixels).
 const NEAR = 8;
 
-const [ refDir, gotDir ] = process.argv.slice( 2 ).filter( ( a ) => !a.startsWith( '--' ) );
+const refDirs = process.argv.slice( 2 ).filter( ( a ) => !a.startsWith( '--' ) );
+const gotDir = ( process.argv.find( ( a ) => a.startsWith( '--got=' ) ) || '' ).slice( 6 );
 const outFile = ( process.argv.find( ( a ) => a.startsWith( '--out=' ) ) || '' ).slice( 6 );
-if ( !refDir || !gotDir ) {
-    console.log( 'usage: node tests/marks.js <reference dir> <analyzed dir> [--out=<file.md>]' );
+if ( !refDirs.length || !gotDir ) {
+    console.log( 'usage: node tests/marks.js --got=<analyzed dir> [--out=<file.md>] <reference dir> [<reference dir> …]' );
     process.exit( 1 );
 }
 
 const sum = { checkbox: { all: 0, checkbox: 0, radio: 0, nothing: 0 }, radio: { all: 0, checkbox: 0, radio: 0, nothing: 0 }, free: 0, finds: 0, ticked: 0, tickedOnWidget: 0 };
 const sizes = { checkbox: [], radio: [] };
 let rows = '';
-for ( const file of ( await fs.readdir( refDir ) ).filter( ( f ) => f.endsWith( '.json' ) ).sort() ) {
+const files = [];
+for ( const dir of refDirs ) {
+    if ( !( await fs.stat( dir ) ).isDirectory() ) {
+        continue;
+    }
+    for ( const f of ( await fs.readdir( dir ) ).filter( ( f ) => f.endsWith( '.json' ) ).sort() ) {
+        files.push( path.join( dir, f ) );
+    }
+}
+for ( const file of files ) {
     const name = path.basename( file, '.json' );
     let got;
     try {
@@ -27,7 +37,7 @@ for ( const file of ( await fs.readdir( refDir ) ).filter( ( f ) => f.endsWith( 
     } catch {
         continue;
     }
-    const ref = JSON.parse( await fs.readFile( path.join( refDir, file ), 'utf8' ) );
+    const ref = JSON.parse( await fs.readFile( file, 'utf8' ) );
     const spots = ( ref.widgets || [] ).filter( ( w ) => w.typ === 'checkbox' || w.typ === 'radio' );
     if ( !spots.length ) {
         continue;

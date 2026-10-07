@@ -6,7 +6,7 @@ import { compare } from './compare.js';
 // per document. Two levels: blocks against objects, lines against text lines (strips). For forms also:
 // what lies at the place of each widget.
 //
-//   node tests/sources.js <reference dir> <analyzed dir> [--out=<file.md>]
+//   node tests/sources.js --got=<analyzed dir> [--out=<file.md>] <reference dir> [<reference dir> …]
 //
 // The reference dir holds <name>.json per page (words, images, widgets from the PDF); the analyzed dir
 // holds <name>.json as written by `cli.js analyze`.
@@ -19,10 +19,11 @@ const NEAR = 8;
 
 const CAUSES = [ 'single', 'page-sized', 'merged below/above', 'merged beside', 'cut between lines', 'number cut off', 'cut at wide gap', 'as line', 'missed' ];
 
-const [ refDir, gotDir ] = process.argv.slice( 2 ).filter( ( a ) => !a.startsWith( '--' ) );
+const refDirs = process.argv.slice( 2 ).filter( ( a ) => !a.startsWith( '--' ) );
+const gotDir = ( process.argv.find( ( a ) => a.startsWith( '--got=' ) ) || '' ).slice( 6 );
 const outFile = ( process.argv.find( ( a ) => a.startsWith( '--out=' ) ) || '' ).slice( 6 );
-if ( !refDir || !gotDir ) {
-    console.log( 'usage: node tests/sources.js <reference dir> <analyzed dir> [--out=<file.md>]' );
+if ( !refDirs.length || !gotDir ) {
+    console.log( 'usage: node tests/sources.js --got=<analyzed dir> [--out=<file.md>] <reference dir> [<reference dir> …]' );
     process.exit( 1 );
 }
 
@@ -91,7 +92,16 @@ const byDoc = {};
 const widgets = {};
 const words = { all: 0, object: 0, line: 0, missed: 0 };
 const levels = { blocks: {}, lines: {} };
-for ( const file of ( await fs.readdir( refDir ) ).filter( ( f ) => f.endsWith( '.json' ) ).sort() ) {
+const files = [];
+for ( const dir of refDirs ) {
+    if ( !( await fs.stat( dir ) ).isDirectory() ) {
+        continue;
+    }
+    for ( const f of ( await fs.readdir( dir ) ).filter( ( f ) => f.endsWith( '.json' ) ).sort() ) {
+        files.push( path.join( dir, f ) );
+    }
+}
+for ( const file of files ) {
     const name = path.basename( file, '.json' );
     let got;
     try {
@@ -99,9 +109,9 @@ for ( const file of ( await fs.readdir( refDir ) ).filter( ( f ) => f.endsWith( 
     } catch {
         continue;
     }
-    const ref = JSON.parse( await fs.readFile( path.join( refDir, file ), 'utf8' ) );
+    const ref = JSON.parse( await fs.readFile( file, 'utf8' ) );
     const page = ref.width * ref.height;
-    const doc = ref.kind === 'formular' ? path.basename( ref.source, '.pdf' ) : name;
+    const doc = ref.kind === 'form' || ref.kind === 'formular' ? path.basename( path.dirname( ref.source ) ) + '/' + path.basename( ref.source, '.pdf' ) : name;
 
     if ( ref.words.length ) {
         const res = compare( ref, got );
