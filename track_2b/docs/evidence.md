@@ -116,3 +116,10 @@ On the six shipped pages (run of 7 October 2026, no model call): 244 of 266 refe
 object (91.7 %), 1 684 of 1 690 words lie in an object (99.6 %), 60 of the 69 text-field widgets of the
 Betreibungsbegehren have a writing line (87 %), both radio widgets are found and the pre-printed tick is read as ticked.
 These two forms are among the easier ones of the full set; the full set is the number to quote.
+
+Reading on the shipped pages (run of 7 October 2026, `make bench`: Apertus 8B at the CSCS endpoint, temperature 0,
+one element per call, 152 calls in 6.8 minutes): 143 read elements with reference text, 121 identical (84.6 %),
+18 near, 4 different, 0 empty, 1.1 % character errors. Forms carry short labels and read better than the document
+pages measured above; Suva pages 1 and 3 are the same page in two copies, so this is effectively two distinct pages.
+The shape check at threshold 0.02 flags 15 of the 22 wrong readings and 24 of the 121 right ones. `results/read.md`
+holds the full table of that run, including the flag counts for other thresholds.

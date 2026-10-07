@@ -6,12 +6,14 @@
     "private": true,
     "license": "Apache-2.0",
     "engines": {
-        "node": ">=20.3"
+        "node": ">=20.6"
     },
     "scripts": {
         "start": "node src/server.js",
         "analyze": "node src/cli.js analyze",
+        "read": "node src/cli.js read",
         "test:sources": "node tests/sources.js",
-        "test:marks": "node tests/marks.js"
+        "test:marks": "node tests/marks.js",
+        "test:read": "node tests/read.js"
     }
 }
