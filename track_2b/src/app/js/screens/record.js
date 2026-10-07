@@ -1,5 +1,4 @@
 import { $ } from '../dom.js';
-import { formOf } from '../mock/forms.js';
 import * as form from './form.js';
 
 // Listening: the microphone level is real when the browser gives the microphone, nothing is kept or sent.
@@ -13,7 +12,7 @@ export async function start( ctx, entry ) {
     const s = ctx.screen( 'record' );
     ctx.state.current = entry;
     $( '[data-timer]', s ).textContent = '0:00';
-    $( '[data-hint]', s ).textContent = ctx.t( 'rec.hint', { f: formOf( entry.formId ).name } );
+    $( '[data-hint]', s ).textContent = ctx.t( 'rec.hint', { f: entry.name } );
     await ctx.router.push( 'record' );
     const started = Date.now();
     ctx.state.timer = setInterval( () => {
@@ -76,13 +75,18 @@ export function wire( ctx ) {
     const s = ctx.screen( 'record' );
     $( '[data-stop]', s ).addEventListener( 'click', () => {
         const entry = ctx.state.current;
-        const f = formOf( entry.formId );
+        const f = ctx.model.formOf( entry );
         stop( ctx );
-        entry.values = JSON.parse( JSON.stringify( f.values ) );
-        entry.status = 'filled';
         entry.duration = $( '[data-timer]', s ).textContent;
+        // a mocked form fills with its made-up values; a real job waits for the transcription step
+        if ( f.values ) {
+            entry.values = JSON.parse( JSON.stringify( f.values ) );
+            entry.status = 'filled';
+            ctx.event( ctx.t( 'ev.dictated', { f: f.name, d: entry.duration } ), f.id, entry.photo );
+        } else {
+            ctx.toast( ctx.t( 'rec.later' ) );
+        }
         ctx.store.touch();
-        ctx.event( ctx.t( 'ev.dictated', { f: f.name, d: entry.duration } ), f.id, entry.photo );
         ctx.state.tab = 'fields';
         form.render( ctx, entry );
         ctx.router.pop();

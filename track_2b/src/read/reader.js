@@ -5,8 +5,9 @@ import { encodePng } from '../page/png.js';
 
 // Reading: every element the geometry could not name ("unknown") goes to the model as a single crop with a little
 // margin, and the model answers two things: does it contain picture parts, and what text stands in it. One element
-// per call: bundled, the model loses type and assignment (measured 4 October 2026). Answers are cached per element,
-// so a rerun only asks what it has not asked before.
+// per call: bundled, the model loses type and assignment (measured 4 October 2026). A text with several tick marks
+// in it ("Stellung: ☐ Höheres Kader ☐ Mittleres Kader …") is read per mark, so every box gets the words beside it.
+// Answers are cached per element, so a rerun only asks what it has not asked before.
 
 const MARGIN = 12;
 
@@ -17,24 +18,52 @@ const MAX_WIDTH = 1240;
 // one glyph ("1.", "—") the model reports picture parts where there are none.
 const TINY = 2.0;
 
+// A speck: lower than this many character heights, or smaller than one in both directions. Photographed
+// pages leave such crumbs of broken lines; no glyph is that small, so they are not sent to the model.
+const SPECK = 0.6;
+
+// A segment of an option row narrower than this many character heights carries no label.
+const SEGMENT = 0.5;
+
 // The wording the measurements were made with, kept as it is (German, like the forms); the answer is JSON.
 const PROMPT = 'Das Bild ist ein Ausschnitt aus einem Dokument, ein einzelnes Element. Beantworte zwei Dinge. '
     + 'bildanteile: Hat das Element Bildanteile (Logo, Foto, Zeichnung, Grafik)? '
     + 'text: der Text im Element, exakt wiedergegeben, ohne Kästchen und Kreise; steht kein Text darin, "". '
     + 'Antworte nur als JSON: {"bildanteile": true oder false, "text": "..."}';
 
-// The elements a page needs read: index and box of every unknown one.
+// For an empty crop the model sometimes hands the prompt back as the text.
+const ECHO = 'Ausschnitt aus einem Dokument';
+
+// What a page needs read: one task per unknown element that could carry text, or one per segment of an
+// element that holds several tick marks. A task: { key, i, part?, x, y, width, height }.
 export function toRead( page ) {
+    const u = page.unit;
+    const marks = page.elements.filter( ( e ) => e.type === 'checkbox' || e.type === 'radio' );
     const list = [];
     page.elements.forEach( ( e, i ) => {
-        if ( e.type === 'unknown' ) {
-            list.push( { i, x: e.x, y: e.y, width: e.width, height: e.height } );
+        if ( e.type !== 'unknown' || e.height < SPECK * u || ( e.width < u && e.height < u ) ) {
+            return;
+        }
+        const inside = marks.filter( ( m ) => within( m, e ) ).sort( ( a, b ) => a.x - b.x );
+        if ( inside.length < 2 ) {
+            list.push( { key: String( i ), i, x: e.x, y: e.y, width: e.width, height: e.height } );
+            return;
+        }
+        // cut the row at every mark's left edge; the part before the first mark is a segment of its own
+        const cuts = [ e.x, ...inside.map( ( m ) => m.x ).filter( ( x ) => x > e.x + SEGMENT * u ), e.x + e.width ];
+        let part = 0;
+        for ( let k = 0; k < cuts.length - 1; k++ ) {
+            const width = cuts[ k + 1 ] - cuts[ k ];
+            if ( width >= SEGMENT * u ) {
+                list.push( { key: i + '-' + part, i, part, x: cuts[ k ], y: e.y, width, height: e.height } );
+                part++;
+            }
         }
     } );
     return list;
 }
 
-// The crop of one element as a PNG, with margin, no wider than the service keeps. CPU work: runs in a worker.
+// The crop of one task as a PNG, with margin, no wider than the service keeps. CPU work: runs in a worker.
 export function cropElement( image, e ) {
     const x = Math.max( 0, e.x - MARGIN );
     const y = Math.max( 0, e.y - MARGIN );
@@ -47,24 +76,24 @@ export function cropElement( image, e ) {
     return encodePng( part.width, part.height, part.data );
 }
 
-// Reads the unknown elements of a page. page: the analyze result; crops: PNG per element index; client: the model
-// door; cacheDir: where the answer per element is kept; log: where the client writes the raw exchange.
-// Returns the elements with content, type and isOCR, and how many calls were made.
+// Reads the unknown elements of a page. page: the analyze result; crops: PNG per task key; client: the model door;
+// cacheDir: where the answer per task is kept; log: where the client writes the raw exchange. Returns the elements
+// with content, type and isOCR (an option row split into its segments), and how many calls were made.
 export async function readElements( page, crops, client, cacheDir, log = null ) {
-    const elements = page.elements.map( ( e ) => ( { ...e } ) );
     await fs.mkdir( cacheDir, { recursive: true } );
+    const marks = page.elements.filter( ( e ) => e.type === 'checkbox' || e.type === 'radio' );
+    const read = new Map();
     let calls = 0;
-    for ( let i = 0; i < elements.length; i++ ) {
-        const e = elements[ i ];
-        if ( e.type !== 'unknown' || !crops[ i ] ) {
+    for ( const task of toRead( page ) ) {
+        if ( !crops[ task.key ] ) {
             continue;
         }
-        const file = path.join( cacheDir, i + '.json' );
+        const file = path.join( cacheDir, task.key + '.json' );
         let text = null;
         try {
             text = JSON.parse( await fs.readFile( file, 'utf8' ) ).text;
         } catch {
-            const answer = await client.ask( PROMPT, { image: crops[ i ], room: 800, log, tag: page.file + ' #' + i } );
+            const answer = await client.ask( PROMPT, { image: crops[ task.key ], room: 800, log, tag: page.file + ' #' + task.key } );
             if ( answer === null ) {
                 continue;
             }
@@ -73,22 +102,43 @@ export async function readElements( page, crops, client, cacheDir, log = null ) 
             await fs.writeFile( file, JSON.stringify( { text, http: answer.http, usage: answer.usage, finish: answer.finish } ) );
         }
         const a = parse( text );
-        const content = typeof a.text === 'string' ? a.text.trim() : '';
-
-        // A box or circle inside the element looks like a graphic to the model; the geometry already knows it.
-        const mark = elements.some( ( k ) => ( k.type === 'checkbox' || k.type === 'radio' )
-            && k.x + k.width / 2 >= e.x && k.x + k.width / 2 <= e.x + e.width && k.y + k.height / 2 >= e.y && k.y + k.height / 2 <= e.y + e.height );
-        const tiny = Math.max( e.width, e.height ) < TINY * page.unit;
-        if ( a.bildanteile === true && !mark && !tiny ) {
-            e.type = 'image';
-        } else if ( content !== '' ) {
-            e.type = 'text';
+        let content = typeof a.text === 'string' ? a.text.trim() : '';
+        if ( content.includes( ECHO ) ) {
+            content = '';
         }
-        e.content = content;
+        const box = { type: 'unknown', content: '', x: task.x, y: task.y, width: task.width, height: task.height };
+        // A box or circle inside the element looks like a graphic to the model; the geometry already knows it.
+        const mark = marks.some( ( m ) => within( m, box ) );
+        const tiny = Math.max( box.width, box.height ) < TINY * page.unit;
+        if ( a.bildanteile === true && !mark && !tiny ) {
+            box.type = 'image';
+        } else if ( content !== '' ) {
+            box.type = 'text';
+        }
+        box.content = content;
         // the text was read from the image, not taken from a text layer
-        e.isOCR = true;
+        box.isOCR = true;
+        if ( !read.has( task.i ) ) {
+            read.set( task.i, [] );
+        }
+        read.get( task.i ).push( box );
     }
+    const elements = [];
+    page.elements.forEach( ( e, i ) => {
+        if ( read.has( i ) ) {
+            elements.push( ...read.get( i ) );
+        } else {
+            elements.push( { ...e } );
+        }
+    } );
     return { elements, calls };
+}
+
+// The centre of a lies in b.
+function within( a, b ) {
+    const cx = a.x + a.width / 2;
+    const cy = a.y + a.height / 2;
+    return cx >= b.x && cx <= b.x + b.width && cy >= b.y && cy <= b.y + b.height;
 }
 
 // The answer as JSON, with the fences and chatter the model sometimes adds stripped off.

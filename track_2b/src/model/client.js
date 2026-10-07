@@ -12,7 +12,8 @@ const TIMEOUT = 180000;
 
 // One client per process: the queue is what keeps the calls sequential across jobs.
 export function createClient( config ) {
-    const state = { calls: 0, halted: 0, queue: Promise.resolve() };
+    // the raw exchange is numbered per process; the stamp keeps runs of several processes apart
+    const state = { calls: 0, halted: 0, queue: Promise.resolve(), stamp: Date.now().toString( 36 ) };
 
     // Asks the model and resolves with { text, http, usage, finish }, or null after a halt or an error.
     // options: image (PNG bytes), audio ({ bytes, format }), room (max tokens), log (dir for the raw exchange), tag.
@@ -72,7 +73,7 @@ export function createClient( config ) {
             : null;
         if ( options.log ) {
             await fs.mkdir( options.log, { recursive: true } );
-            await fs.writeFile( path.join( options.log, String( state.calls ).padStart( 4, '0' ) + '.json' ), JSON.stringify( {
+            await fs.writeFile( path.join( options.log, state.stamp + '-' + String( state.calls ).padStart( 4, '0' ) + '.json' ), JSON.stringify( {
                 at: new Date( started ).toISOString(),
                 tag: options.tag || null,
                 model: config.model,

@@ -30,7 +30,9 @@ export async function drawGeometry( file, target, result ) {
         strokeRect( image, o.x, o.y, o.w, o.h, hexColour( '#e00000' ), 4 );
     }
     for ( const c of result.cells ) {
-        fillRect( image, c.x, c.y, c.w, c.h, hexColour( '#00a000' ), 0.18 );
+        if ( c.empty ) {
+            fillRect( image, c.x, c.y, c.w, c.h, hexColour( '#00a000' ), 0.18 );
+        }
     }
     for ( const m of result.marks ) {
         if ( m.kind === 'radio' ) {

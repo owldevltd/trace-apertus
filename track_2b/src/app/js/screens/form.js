@@ -1,7 +1,6 @@
 import { $, on } from '../dom.js';
 import { escape } from '../template.js';
-import { formOf, fieldsOf } from '../mock/forms.js';
-import { BLOCKS } from '../mock/blocks.js';
+import { fieldsOf } from '../model.js';
 import { drawPreview, wirePreview } from '../preview.js';
 import { switchPane } from '../router.js';
 import * as record from './record.js';
@@ -14,7 +13,21 @@ import * as sign from './sign.js';
 const PILLS = [ 'fields', 'preview', 'transcript', 'legal' ];
 const CHIP = { ok: [ 'ok', 'ok' ], unclear: [ 'warn', 'unclear' ], missing: [ 'bad', 'missing' ], empty: [ '', 'empty' ], sign: [ '', 'type.sign' ] };
 
-export function show( ctx, entry ) {
+// a job's form is fetched from the server the first time it is opened
+export async function show( ctx, entry ) {
+    if ( !ctx.model.formOf( entry ) ) {
+        ctx.body( 'form' ).innerHTML = '<div class="grey row"><div class="spinner"></div></div>';
+        ctx.bottom( 'form' ).innerHTML = '';
+        if ( ctx.router.top().id !== 'form' ) {
+            ctx.router.push( 'form' );
+        }
+        try {
+            await ctx.model.loadForm( entry );
+        } catch ( error ) {
+            ctx.body( 'form' ).innerHTML = '<div class="hero">' + escape( ctx.t( 'job.failed', { e: error.message } ) ) + '</div>';
+            return;
+        }
+    }
     render( ctx, entry );
     if ( ctx.router.top().id !== 'form' ) {
         ctx.router.push( 'form' );
@@ -24,7 +37,7 @@ export function show( ctx, entry ) {
 export function render( ctx, entry ) {
     const { t, tpl, state } = ctx;
     state.current = entry;
-    const f = formOf( entry.formId );
+    const f = ctx.model.formOf( entry );
     const all = fieldsOf( f, entry.off );
     const filled = !!entry.values;
     const count = ( k ) => all.filter( ( fl ) => entry.values?.[ fl.id ]?.[ 1 ] === k ).length;
@@ -45,7 +58,6 @@ export function render( ctx, entry ) {
         };
     } ).filter( ( s ) => s.fields.length );
     const laws = f.laws.map( ( l ) => ( { ...l, fields: l.fields.map( ( id ) => all.find( ( x ) => x.id === id )?.label || id ).join( ', ' ) } ) );
-    const page1 = all.filter( ( fl ) => !fl.page || fl.page === 1 );
     const body = ctx.body( 'form' );
     body.innerHTML = tpl.render( 'form', {
         name: f.name,
@@ -61,7 +73,7 @@ export function render( ctx, entry ) {
         laws,
         pvHint: filled ? t( 'form.pv.filled' ) : t( 'form.pv.empty' ),
         pvMeta: t( 'pv.meta', { n: f.pages } ),
-        preview: drawPreview( f.page, BLOCKS[ f.id ], page1, entry.values, entry.off ),
+        preview: drawPreview( f.sizes, f.blocks, all, entry.values, entry.off ),
     } );
     ctx.bottom( 'form' ).innerHTML = entry.status === 'sent'
         ? '<button class="btn outline block" disabled>' + escape( t( 'btn.sentdone' ) ) + '</button>'
@@ -138,7 +150,7 @@ export function wire( ctx ) {
 function edit( ctx, id, wrap ) {
     const { t, state } = ctx;
     const entry = state.current;
-    const f = formOf( entry.formId );
+    const f = ctx.model.formOf( entry );
     const fl = fieldsOf( f ).find( ( x ) => x.id === id );
     const cur = entry.values[ id ]?.[ 0 ] || '';
     if ( fl.kind === 'checkbox' || fl.kind === 'radio' ) {

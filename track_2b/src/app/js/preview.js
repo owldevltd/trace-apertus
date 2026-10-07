@@ -14,17 +14,33 @@ const PX = 300 / 72;
 // a glyph is about this wide in ems; used to fit a line into its block
 const EM = 0.5;
 
-// page: { w, h }; blocks: the page's blocks; fields: the fields of this page; values: { id: [ value, state ] } or
-// null; off: ids a person unticked.
-export function drawPreview( page, blocks, fields, values, off = [] ) {
-    let svg = '<rect x="0" y="0" width="' + page.w + '" height="' + page.h + '" fill="var(--paper)"/>';
+// space between the pages of a form, in page pixels
+const GAP = 80;
+
+// sizes: [ { w, h } ] per page, drawn one below the other; blocks and fields carry their page (1 when absent);
+// values: { id: [ value, state ] } or null; off: ids a person unticked.
+export function drawPreview( sizes, blocks, fields, values, off = [] ) {
+    const offsets = [];
+    let top = 0;
+    let width = 0;
+    for ( const s of sizes ) {
+        offsets.push( top );
+        top += s.h + GAP;
+        width = Math.max( width, s.w );
+    }
+    const height = top - GAP;
+    const shift = ( page ) => offsets[ Math.max( 0, ( page || 1 ) - 1 ) ] || 0;
+    let svg = '';
+    sizes.forEach( ( s, i ) => {
+        svg += '<rect x="0" y="' + offsets[ i ] + '" width="' + s.w + '" height="' + s.h + '" fill="var(--paper)"/>';
+    } );
     for ( const b of blocks || [] ) {
-        svg += drawBlock( b );
+        svg += drawBlock( { ...b, y: b.y + shift( b.page ) } );
     }
     for ( const f of fields ) {
-        svg += drawField( f, values ? values[ f.id ] : null, off.includes( f.id ) );
+        svg += drawField( { ...f, y: f.y + shift( f.page ) }, values ? values[ f.id ] : null, off.includes( f.id ) );
     }
-    return '<div class="pv-stage"><div class="pv-zoomer"><svg viewBox="0 0 ' + page.w + ' ' + page.h + '" font-family="Geist, system-ui, sans-serif">' + svg + '</svg></div></div>';
+    return '<div class="pv-stage"><div class="pv-zoomer"><svg viewBox="0 0 ' + width + ' ' + height + '" font-family="Geist, system-ui, sans-serif">' + svg + '</svg></div></div>';
 }
 
 function drawBlock( b ) {

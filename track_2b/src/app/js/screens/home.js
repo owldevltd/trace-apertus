@@ -1,5 +1,4 @@
 import { on } from '../dom.js';
-import { formOf } from '../mock/forms.js';
 import * as form from './form.js';
 import * as record from './record.js';
 
@@ -16,19 +15,18 @@ export function enter( ctx ) {
     const head = !n ? t( 'home.none' ) : filled ? t( 'home.review', { n: filled } ) : empty ? t( 'home.ready', { n: empty } ) : t( 'home.sent' );
     const card = !n ? t( 'home.card0' ) : t( 'home.card', { n, e: empty, f: filled, s: sentN } ) + ' ' + ( filled ? t( 'home.card.review' ) : empty ? t( 'home.card.dictate' ) : '' );
     const todos = saved.slice( 0, 6 ).map( ( e ) => {
-        const f = formOf( e.formId );
         const done = e.status === 'sent';
         return {
             uid: e.uid,
             done,
             review: e.status === 'filled',
             dictate: e.status === 'verified',
-            text: done ? t( 'todo.sent', { f: f.name } ) : e.status === 'filled' ? t( 'todo.review', { f: f.name } ) : t( 'todo.dictate', { f: f.name } ),
-            issuer: f.issuer,
+            text: done ? t( 'todo.sent', { f: e.name } ) : e.status === 'filled' ? t( 'todo.review', { f: e.name } ) : t( 'todo.dictate', { f: e.name } ),
+            issuer: e.issuer,
             created: e.created,
         };
     } );
-    const events = store.get( 'events' ).map( ( e ) => ( { ...e, issuer: formOf( e.formId )?.issuer || '' } ) );
+    const events = store.get( 'events' ).map( ( e ) => ( { ...e, issuer: e.issuer || '' } ) );
     body( 'home' ).innerHTML = tpl.render( 'home', { date: ctx.i18n.longDate(), head, card, todos, events } );
 }
 
@@ -41,8 +39,7 @@ export function wire( ctx ) {
     on( el, 'click', '[data-listen]', async ( b ) => {
         const entry = ctx.store.entry( b.dataset.listen );
         ctx.state.tab = 'fields';
-        form.render( ctx, entry );
-        await ctx.router.push( 'form' );
+        await form.show( ctx, entry );
         record.start( ctx, entry );
     } );
 }

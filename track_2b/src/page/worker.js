@@ -18,12 +18,12 @@ const tasks = {
         return result;
     },
 
-    // page image + boxes → one PNG per box, keyed by the element index
+    // page image + reading tasks → one PNG per task, keyed by the task key
     crops: async ( payload ) => {
         const image = await readImage( payload.file );
         const out = {};
         for ( const box of payload.boxes ) {
-            out[ box.i ] = cropElement( image, box );
+            out[ box.key ] = cropElement( image, box );
         }
         return out;
     },

@@ -1,11 +1,11 @@
 import { $ } from '../dom.js';
-import { formOf, fieldsOf } from '../mock/forms.js';
+import { fieldsOf } from '../model.js';
 
 // Send for signature: like a mail draft. The signature service is mocked.
 
 export function open( ctx, entry ) {
     const { t, tpl } = ctx;
-    const f = formOf( entry.formId );
+    const f = ctx.model.formOf( entry );
     const all = fieldsOf( f, entry.off );
     const ok = all.filter( ( fl ) => entry.values[ fl.id ]?.[ 1 ] === 'ok' ).length;
     const empty = all.filter( ( fl ) => entry.values[ fl.id ]?.[ 1 ] === 'empty' ).length;
@@ -28,7 +28,7 @@ export function open( ctx, entry ) {
 export function wire( ctx ) {
     $( '[data-send]', ctx.screen( 'sign' ) ).addEventListener( 'click', () => {
         const entry = ctx.state.current;
-        const f = formOf( entry.formId );
+        const f = ctx.model.formOf( entry );
         entry.status = 'sent';
         entry.sent = ctx.now();
         ctx.store.touch();

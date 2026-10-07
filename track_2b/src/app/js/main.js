@@ -3,7 +3,7 @@ import { createTemplates } from './template.js';
 import { createI18n } from './i18n.js';
 import { createStore } from './store.js';
 import { createRouter } from './router.js';
-import { FORMS } from './mock/forms.js';
+import { createModel } from './model.js';
 import * as home from './screens/home.js';
 import * as forms from './screens/forms.js';
 import * as form from './screens/form.js';
@@ -48,7 +48,7 @@ async function boot() {
         t: i18n.t,
         tpl,
         root,
-        forms: FORMS,
+        model: createModel( i18n.t ),
         screens: SCREENS,
         // what the flow holds between screens; not saved
         state: { tab: 'fields', photo: null, form: null, off: [], current: null },
@@ -110,23 +110,12 @@ function wireShell( ctx ) {
             router.root( 'forms' );
         }
     } );
-    // a file from the desk: an image becomes the photo, a PDF goes straight to recognition
+    // files from the desk take the camera's path: found, straightened, evened out, then sent together
     $( '[data-upload]', root ).addEventListener( 'change', ( e ) => {
-        const file = e.target.files[ 0 ];
+        const files = [ ...e.target.files ];
         e.target.value = '';
-        if ( !file ) {
-            return;
-        }
-        if ( file.type.startsWith( 'image/' ) ) {
-            const reader = new FileReader();
-            reader.onload = () => camera.shrink( reader.result, ( data ) => {
-                ctx.state.photo = data;
-                verify.recognize( ctx );
-            } );
-            reader.readAsDataURL( file );
-        } else {
-            ctx.state.photo = null;
-            verify.recognize( ctx );
+        if ( files.length ) {
+            camera.open( ctx, files );
         }
     } );
     document.addEventListener( 'pointerdown', ( e ) => {

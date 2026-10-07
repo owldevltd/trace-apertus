@@ -36,12 +36,18 @@
             <div class="viewfinder">
                 <video data-video playsinline autoplay muted hidden></video>
                 <img data-shot alt="" hidden>
+                <canvas class="overlay" data-overlay hidden></canvas>
                 <div class="frame"></div>
                 <p class="hint" data-hint></p>
             </div>
+            <div class="pagebar" data-pagebar hidden>
+                <div class="pagestrip" data-strip></div>
+                <button class="btn outline sm press" type="button" data-next data-i18n="cam.next"></button>
+                <button class="btn accent sm press" type="button" data-done></button>
+            </div>
             <div class="shutterbar">
                 <button class="btn outline sm press" type="button" data-nophoto data-i18n="cam.nophoto"></button>
-                <label class="shutter press" data-shutter aria-label="Shutter"><input type="file" accept="image/*" capture="environment" data-file hidden></label>
+                <label class="shutter press" data-shutter aria-label="Shutter"><input type="file" accept="image/*" capture="environment" multiple data-file hidden></label>
                 <button class="btn outline sm press" type="button" data-retake hidden data-i18n="cam.retake"></button>
             </div>
         </section>
@@ -111,7 +117,7 @@
         </div>
 
         <div class="toast" data-toast></div>
-        <input type="file" accept="image/*,application/pdf" data-upload hidden>
+        <input type="file" accept="image/*" multiple data-upload hidden>
     </main>
 </div>
 </body>
