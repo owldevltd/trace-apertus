@@ -17,6 +17,7 @@ test:
 	node tests/sources.js --got=storage/tests/pages --out=storage/tests/sources.md data/forms/*
 	node tests/marks.js --got=storage/tests/pages --out=storage/tests/marks.md data/forms/*
 	node tests/fields.js --got=storage/tests/pages --out=storage/tests/fields.md data/forms/*
+	node tests/numbers.js
 	node tests/server.js
 
 # Reads the unknown elements of three shipped pages with the model and holds the text against the text layer of the

@@ -39,10 +39,15 @@ export function fromJob( job, t ) {
         subject: job.form.name,
         sections,
         blocks: job.blocks.map( ( b ) => ( { type: b.type, page: b.page, x: b.x, y: b.y, w: b.width, h: b.height, content: b.content, fontSize: b.fontSize, color: b.color, background: b.background } ) ),
-        transcript: [],
+        transcript: ( job.transcript || [] ).map( ( p ) => ( { t: clock( p.start ), section: p.approve ? t( 'tr.listen' ) : '', summary: p.text, raw: p.raw } ) ),
         values: null,
         laws: [],
     };
+}
+
+function clock( sec ) {
+    const s = Math.round( sec || 0 );
+    return Math.floor( s / 60 ) + ':' + String( s % 60 ).padStart( 2, '0' );
 }
 
 export function createModel( t ) {
@@ -70,6 +75,10 @@ export function createModel( t ) {
             const view = fromJob( job, t );
             jobs.set( job.id, view );
             return view;
+        },
+        // drop a cached job so the next load fetches it anew
+        forget( id ) {
+            jobs.delete( id );
         },
     };
 }

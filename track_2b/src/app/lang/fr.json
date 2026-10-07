@@ -188,5 +188,9 @@
     "job.error": "Échec.",
     "page": "Page {n}",
     "field.unlabelled": "Champ {n}",
-    "rec.later": "La transcription vient à l’étape suivante."
+    "rec.later": "La transcription vient à l’étape suivante.",
+    "rec.pieces": "{n} morceau(x) envoyé(s) · {d}",
+    "rec.closing": "Clôture de l’enregistrement …",
+    "rec.transcribing": "Transcription en cours … les morceaux apparaissent ici dès leur retour.",
+    "tr.listen": "à écouter"
 }

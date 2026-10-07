@@ -188,5 +188,9 @@
     "job.error": "Fehlgeschlagen.",
     "page": "Seite {n}",
     "field.unlabelled": "Feld {n}",
-    "rec.later": "Die Transkription kommt im nächsten Schritt."
+    "rec.later": "Die Transkription kommt im nächsten Schritt.",
+    "rec.pieces": "{n} Stück(e) gesendet · {d}",
+    "rec.closing": "Aufnahme wird abgeschlossen …",
+    "rec.transcribing": "Transkription läuft … die Stücke erscheinen hier, sobald sie zurück sind.",
+    "tr.listen": "bitte anhören"
 }

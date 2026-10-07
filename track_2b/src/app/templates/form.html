@@ -11,7 +11,8 @@
     {{/isFields}}
     {{#isPreview}}<div class="hero"><p class="eyebrow">{{t:preview}}</p>{{pvHint}}</div><div class="pv"><span class="small muted">{{pvMeta}}</span>{{{preview}}}</div>{{/isPreview}}
     {{#isTranscript}}
-        {{^transcript}}<div class="grey centre"><p class="muted">{{t:tr.empty}}</p></div>{{/transcript}}
+        {{#transcribing}}<div class="grey row"><div class="spinner"></div><p class="small muted">{{t:rec.transcribing}}</p></div>{{/transcribing}}
+        {{^transcript}}{{^transcribing}}<div class="grey centre"><p class="muted">{{t:tr.empty}}</p></div>{{/transcribing}}{{/transcript}}
         {{#transcript}}<div class="seg press"><div class="meta"><span class="num">{{t}}</span><span>{{section}}</span></div>{{summary}}<div class="raw">{{raw}}</div></div>{{/transcript}}
         {{#transcript.length}}<p class="small muted">{{t:tr.hint}}</p>{{/transcript.length}}
     {{/isTranscript}}

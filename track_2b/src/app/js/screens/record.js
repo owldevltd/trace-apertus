@@ -1,8 +1,10 @@
 import { $ } from '../dom.js';
+import { createRecorder } from '../capture/recorder.js';
+import { api } from '../api.js';
 import * as form from './form.js';
 
-// Listening: the microphone level is real when the browser gives the microphone, nothing is kept or sent.
-// Stopping fills the form with the mocked values of the walk-through.
+// Listening: the recording goes to the server in pieces as they close, and stopping starts the transcription;
+// the transcript appears on the form. A mocked form of the walk-through fills with its made-up values instead.
 
 export function leave( ctx ) {
     stop( ctx );
@@ -12,26 +14,39 @@ export async function start( ctx, entry ) {
     const s = ctx.screen( 'record' );
     ctx.state.current = entry;
     $( '[data-timer]', s ).textContent = '0:00';
+    $( '[data-pieces]', s ).textContent = '';
     $( '[data-hint]', s ).textContent = ctx.t( 'rec.hint', { f: entry.name } );
     await ctx.router.push( 'record' );
     const started = Date.now();
     ctx.state.timer = setInterval( () => {
         const sec = Math.floor( ( Date.now() - started ) / 1000 );
-        $( '[data-timer]', s ).textContent = Math.floor( sec / 60 ) + ':' + String( sec % 60 ).padStart( 2, '0' );
+        $( '[data-timer]', s ).textContent = clock( sec );
     }, 250 );
+    const uploads = [];
+    const recorder = createRecorder( {
+        onPiece: ( piece ) => {
+            if ( !entry.jobId ) {
+                return;
+            }
+            uploads.push( api.addAudio( entry.jobId, piece ).then( () => {
+                $( '[data-pieces]', s ).textContent = ctx.t( 'rec.pieces', { n: uploads.length, d: clock( Math.round( piece.start + piece.duration ) ) } );
+            } ).catch( ( error ) => ctx.toast( ctx.t( 'job.failed', { e: error.message } ) ) ) );
+        },
+    } );
+    ctx.state.recorder = recorder;
+    ctx.state.uploads = uploads;
     let analyser = null;
     try {
-        const stream = await navigator.mediaDevices.getUserMedia( { audio: true, video: false } );
-        const audio = new ( window.AudioContext || window.webkitAudioContext )();
-        analyser = audio.createAnalyser();
-        analyser.fftSize = 512;
-        audio.createMediaStreamSource( stream ).connect( analyser );
-        ctx.state.audio = { stream, audio };
+        analyser = await recorder.start();
     } catch {
-        ctx.state.audio = null;
+        ctx.state.recorder = null;
         $( '[data-hint]', s ).textContent = ctx.t( 'rec.fail' );
     }
     wave( ctx, analyser );
+}
+
+function clock( sec ) {
+    return Math.floor( sec / 60 ) + ':' + String( sec % 60 ).padStart( 2, '0' );
 }
 
 function wave( ctx, analyser ) {
@@ -61,35 +76,59 @@ function wave( ctx, analyser ) {
     draw();
 }
 
-function stop( ctx ) {
+// ends the recording; the last piece closes and uploads; resolves when every piece is on the server
+async function stop( ctx ) {
     cancelAnimationFrame( ctx.state.raf );
     clearInterval( ctx.state.timer );
-    if ( ctx.state.audio ) {
-        ctx.state.audio.stream.getTracks().forEach( ( track ) => track.stop() );
-        ctx.state.audio.audio.close().catch( () => {} );
-        ctx.state.audio = null;
+    const recorder = ctx.state.recorder;
+    ctx.state.recorder = null;
+    if ( recorder ) {
+        await recorder.stop();
     }
+    await Promise.all( ctx.state.uploads || [] );
+    ctx.state.uploads = [];
 }
 
 export function wire( ctx ) {
     const s = ctx.screen( 'record' );
-    $( '[data-stop]', s ).addEventListener( 'click', () => {
+    $( '[data-stop]', s ).addEventListener( 'click', async () => {
         const entry = ctx.state.current;
         const f = ctx.model.formOf( entry );
-        stop( ctx );
         entry.duration = $( '[data-timer]', s ).textContent;
-        // a mocked form fills with its made-up values; a real job waits for the transcription step
+        $( '[data-hint]', s ).textContent = ctx.t( 'rec.closing' );
+        await stop( ctx );
         if ( f.values ) {
+            // the walk-through: made-up values
             entry.values = JSON.parse( JSON.stringify( f.values ) );
             entry.status = 'filled';
             ctx.event( ctx.t( 'ev.dictated', { f: f.name, d: entry.duration } ), f.id, entry.photo );
-        } else {
-            ctx.toast( ctx.t( 'rec.later' ) );
+            ctx.store.touch();
+            ctx.state.tab = 'fields';
+            form.render( ctx, entry );
+            ctx.router.pop();
+            return;
         }
         ctx.store.touch();
-        ctx.state.tab = 'fields';
+        ctx.state.tab = 'transcript';
+        ctx.state.transcribing = entry.jobId;
         form.render( ctx, entry );
         ctx.router.pop();
+        try {
+            await api.transcribe( entry.jobId );
+            const { run } = await api.wait( entry.jobId, null, 1000 );
+            if ( run.step === 'error' ) {
+                throw new Error( run.error || 'transcription' );
+            }
+            ctx.model.forget( entry.jobId );
+            await ctx.model.loadForm( entry );
+            ctx.event( ctx.t( 'ev.dictated', { f: entry.name, d: entry.duration } ), entry.jobId, entry.photo );
+        } catch ( error ) {
+            ctx.toast( ctx.t( 'job.failed', { e: error.message } ) );
+        }
+        ctx.state.transcribing = null;
+        if ( ctx.state.current === entry && ctx.router.top().id === 'form' ) {
+            form.render( ctx, entry );
+        }
     } );
     $( '[data-cancel]', s ).addEventListener( 'click', () => ctx.router.pop() );
 }

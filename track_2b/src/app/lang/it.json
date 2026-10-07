@@ -188,5 +188,9 @@
     "job.error": "Fallito.",
     "page": "Pagina {n}",
     "field.unlabelled": "Campo {n}",
-    "rec.later": "La trascrizione arriva nel passo successivo."
+    "rec.later": "La trascrizione arriva nel passo successivo.",
+    "rec.pieces": "{n} parte/i inviata/e · {d}",
+    "rec.closing": "Chiusura della registrazione …",
+    "rec.transcribing": "Trascrizione in corso … le parti compaiono qui appena tornano.",
+    "tr.listen": "da ascoltare"
 }

@@ -3,6 +3,9 @@ import path from 'node:path';
 import { config } from '../config.js';
 import { createJob, jobDir, saveJob, loadJob, loadRun, listJobs } from '../job.js';
 import { runPipeline } from '../pipeline.js';
+import { transcribeJob } from '../speech/transcriber.js';
+
+const AUDIO = { 'audio/mpeg': 'mp3', 'audio/mp3': 'mp3', 'audio/wav': 'wav', 'audio/x-wav': 'wav', 'audio/wave': 'wav' };
 
 // The job routes. A page arrives as a PNG body; a job can also start from a shipped form in data/forms, which
 // brings the form widgets of a fillable original along. Running the pipeline answers at once; the app asks for
@@ -83,6 +86,47 @@ export function registerJobs( router, client ) {
         // runs on after the answer; the app asks for the job to see it progress
         runPipeline( job, client ).catch( () => {} );
         return { status: 202, json: { id: job.id, step: 'analyze' } };
+    } );
+
+    // a piece of the recording: MP3 or WAV body, piece number, start and length in seconds in the headers
+    router.add( 'POST', '/api/jobs/:id/audio', async ( { req, params, body } ) => {
+        const job = await find( params.id );
+        if ( !job ) {
+            return { status: 404, json: { error: 'no such job' } };
+        }
+        const format = AUDIO[ ( req.headers[ 'content-type' ] || '' ).split( ';' )[ 0 ].trim() ];
+        if ( !format || !body || !body.length ) {
+            return { status: 415, json: { error: 'a piece is an MP3 or WAV body' } };
+        }
+        const dir = path.join( jobDir( job.id ), 'audio' );
+        await fs.mkdir( dir, { recursive: true } );
+        let pieces = [];
+        try {
+            pieces = JSON.parse( await fs.readFile( path.join( dir, 'pieces.json' ), 'utf8' ) );
+        } catch {
+            // the first piece
+        }
+        const n = Number( req.headers[ 'x-piece' ] ) || pieces.length + 1;
+        const piece = { n, file: n + '.' + format, format, start: Number( req.headers[ 'x-start' ] ) || 0, duration: Number( req.headers[ 'x-duration' ] ) || 0, bytes: body.length };
+        await fs.writeFile( path.join( dir, piece.file ), body );
+        pieces = [ ...pieces.filter( ( p ) => p.n !== n ), piece ].sort( ( a, b ) => a.n - b.n );
+        await fs.writeFile( path.join( dir, 'pieces.json' ), JSON.stringify( pieces ) );
+        job.audio = { file: 'audio/', duration: Math.round( pieces.reduce( ( a, p ) => a + p.duration, 0 ) * 10 ) / 10, language: job.form.language, pieces: pieces.length };
+        await saveJob( job );
+        return { status: 201, json: { id: job.id, piece: n, pieces: pieces.length } };
+    } );
+
+    router.add( 'POST', '/api/jobs/:id/transcribe', async ( { params } ) => {
+        const job = await find( params.id );
+        if ( !job ) {
+            return { status: 404, json: { error: 'no such job' } };
+        }
+        const run = await loadRun( job.id );
+        if ( [ 'analyze', 'read', 'fields', 'transcribe' ].includes( run.step ) ) {
+            return { status: 409, json: { error: 'already running', run } };
+        }
+        transcribeJob( job, client ).catch( () => {} );
+        return { status: 202, json: { id: job.id, step: 'transcribe' } };
     } );
 
     router.add( 'GET', '/api/jobs/:id', async ( { params } ) => {

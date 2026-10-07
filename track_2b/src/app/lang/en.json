@@ -188,5 +188,9 @@
     "job.error": "Failed.",
     "page": "Page {n}",
     "field.unlabelled": "Field {n}",
-    "rec.later": "Transcription follows in the next step."
+    "rec.later": "Transcription follows in the next step.",
+    "rec.pieces": "{n} piece(s) sent · {d}",
+    "rec.closing": "Closing the recording …",
+    "rec.transcribing": "Transcribing … the pieces appear here as they come back.",
+    "tr.listen": "please listen"
 }
