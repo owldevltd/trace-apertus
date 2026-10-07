@@ -1,0 +1,8 @@
+<div class="field {{state}}">
+    <span class="label">{{label}}{{#law}} · §{{/law}}</span>
+    {{#chip}}<span class="state"><span class="chip {{chip}}">{{chipLabel}}</span></span>{{/chip}}
+    <span class="value{{#isEmpty}} empty{{/isEmpty}}">{{shown}}</span>
+    {{#unclear}}<div class="wide suggest"><span class="ico">?</span><span class="grow">{{note}}</span><span class="row gap"><button class="btn sm press" data-confirm="{{id}}">{{t:correct}}</button><button class="btn outline sm press" data-edit="{{id}}">{{t:change}}</button></span></div>{{/unclear}}
+    {{#missing}}<div class="wide suggest"><span class="ico">!</span><span class="grow">{{note}}</span><button class="btn sm press" data-edit="{{id}}">{{t:enter}}</button></div>{{/missing}}
+    {{#editable}}<div class="wide end"><button class="btn outline sm press" data-edit="{{id}}">{{t:change}}</button></div>{{/editable}}
+</div>

@@ -1,0 +1,193 @@
+// The forms of the click-through. Positions and labels are real: the Betreibungsbegehren from the form fields of
+// the fillable PDF in data/forms, the Suva form from what the geometry found on its printed page (both at
+// 300 dpi, page pixels). Values, transcript and legal texts are made up for the walk-through and say so.
+// A field: id, label, kind (text, multiline, date, checkbox, radio, signature), x, y, w, h; radios share a group.
+
+export const FORMS = [
+    {
+        id: 'betreibungsbegehren',
+        name: 'Betreibungsbegehren',
+        issuer: 'Betreibungsamt (Form. 1)',
+        pages: 2,
+        page: { w: 2481, h: 3509 },
+        kind: 'authorities',
+        ico: '🏛️',
+        recipient: 'betreibungsamt@chur.ch',
+        subject: 'Betreibungsbegehren Garage Caduff AG gegen Hartmann',
+        sections: [
+            { title: 'Betreibungsamt', fields: [
+                { id: 'amt', label: 'Betreibungsamt', kind: 'multiline', x: 1349, y: 546, w: 1038, h: 337 },
+            ] },
+            { title: 'Schuldner', fields: [
+                { id: 'schuldner', label: 'Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)', kind: 'multiline', x: 148, y: 550, w: 973, h: 193 },
+                { id: 'sgeburt', label: 'Geburtsdatum (falls bekannt)', kind: 'date', x: 152, y: 816, w: 969, h: 92 },
+            ] },
+            { title: 'Gläubiger', fields: [
+                { id: 'glaeubiger', label: 'Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)', kind: 'multiline', x: 152, y: 993, w: 969, h: 213 },
+                { id: 'zahlung-g', label: 'Zahlungsverbindung des Gläubigers', kind: 'radio', group: 'zahlung', option: 'des Gläubigers', x: 1601, y: 1067, w: 56, h: 56 },
+                { id: 'zahlung-v', label: 'Zahlungsverbindung des Vertreters', kind: 'radio', group: 'zahlung', option: 'des Vertreters', x: 1601, y: 1131, w: 56, h: 56 },
+                { id: 'iban', label: 'IBAN', kind: 'text', x: 1298, y: 1242, w: 1076, h: 92 },
+                { id: 'vertreter', label: 'vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)', kind: 'multiline', x: 152, y: 1329, w: 969, h: 288 },
+                { id: 'rueckfragen', label: 'Für Rückfragen: Telefon oder E-Mail', kind: 'text', x: 1507, y: 1384, w: 867, h: 92 },
+            ] },
+            { title: 'Forderung', fields: [
+                { id: 'forderung', label: 'Forderungsgrund oder Forderungsurkunde mit Datum', kind: 'multiline', x: 152, y: 1733, w: 1444, h: 341 },
+                { id: 'betrag', label: 'Betrag (CHF)', kind: 'text', x: 1634, y: 1750, w: 300, h: 65 },
+                { id: 'zins', label: 'Zins %', kind: 'text', x: 1963, y: 1750, w: 109, h: 65 },
+                { id: 'zinsseit', label: 'Zins seit (Datum)', kind: 'date', x: 2099, y: 1750, w: 274, h: 65 },
+            ] },
+            { title: 'Abschluss', fields: [
+                { id: 'bemerkung', label: 'Bemerkungen', kind: 'multiline', x: 152, y: 3017, w: 969, h: 408 },
+                { id: 'fallreferenz', label: 'Ihre Fallreferenz (falls vorhanden)', kind: 'text', x: 1286, y: 3017, w: 1088, h: 65 },
+                { id: 'unterschrift', label: 'Datum und Unterschrift', kind: 'signature', x: 1286, y: 3180, w: 1088, h: 150 },
+            ] },
+        ],
+        transcript: [
+            { t: '0:02', section: 'Gläubiger', summary: 'Betreibungsamt Chur; Gläubigerin Garage Caduff AG, Zahlung aufs Konto.', raw: 'Betreibungsbegehren ans Betreibungsamt Chur. Gläubigerin ist die Garage Caduff AG, Kasernenstrasse acht, siebentausend Chur. Zahlung bitte aufs Konto, IBAN CH93 0076 2011 6238 5295 7.' },
+            { t: '0:35', section: 'Schuldner', summary: 'Peter Hartmann, Domat/Ems.', raw: 'Schuldner ist Peter Hartmann, Via Nova vierzehn, siebentausenddreizehn Domat Ems.' },
+            { t: '0:49', section: 'Forderung', summary: 'Rechnung 2026-118 vom 12.6., CHF 2340.50, 5 % Zins ab 13.7.', raw: 'Die Forderung ist die Rechnung Nummer zwanzig sechsundzwanzig strich einhundertachtzehn vom zwölften Juni für die Reparatur, zweitausenddreihundertvierzig Franken fünfzig, fünf Prozent Zins ab dreizehntem Juli.' },
+        ],
+        values: {
+            amt: [ 'Betreibungsamt Chur', 'ok' ],
+            schuldner: [ 'Peter Hartmann, Via Nova 14, 7013 Domat/Ems', 'ok' ],
+            sgeburt: [ '', 'missing', 'Nicht genannt; hilft dem Amt bei Namensgleichheit.' ],
+            glaeubiger: [ 'Garage Caduff AG, Kasernenstrasse 8, 7000 Chur', 'ok' ],
+            'zahlung-g': [ 'x', 'unclear', 'Aus „aufs Konto“ geschlossen: Konto des Gläubigers oder des Vertreters?' ],
+            'zahlung-v': [ '', 'empty' ],
+            iban: [ 'CH93 0076 2011 6238 5295 7', 'ok' ],
+            vertreter: [ '', 'empty' ],
+            rueckfragen: [ '', 'empty' ],
+            forderung: [ 'Rechnung Nr. 2026-118 vom 12.06.2026, Reparatur', 'ok' ],
+            betrag: [ "2'340.50", 'ok' ],
+            zins: [ '5', 'ok' ],
+            zinsseit: [ '13.07.2026', 'ok' ],
+            bemerkung: [ '', 'empty' ],
+            fallreferenz: [ '', 'empty' ],
+            unterschrift: [ '', 'sign' ],
+        },
+        laws: [
+            { fields: [ 'glaeubiger', 'schuldner' ], art: 'SchKG Art. 67 Abs. 1 Ziff. 1 und 2', text: 'Das Begehren nennt Name und Wohnort des Gläubigers und des Schuldners, bei Vertretung auch den Vertreter.' },
+            { fields: [ 'betrag', 'zins', 'zinsseit' ], art: 'SchKG Art. 67 Abs. 1 Ziff. 3', text: 'Die Forderungssumme in Schweizer Franken; bei Zins der Zinsfuss und der Tag, seit dem er läuft.' },
+            { fields: [ 'forderung' ], art: 'SchKG Art. 67 Abs. 1 Ziff. 4', text: 'Die Forderungsurkunde und ihr Datum, ohne Urkunde der Grund der Forderung.' },
+            { fields: [ 'zins' ], art: 'OR Art. 104 Abs. 1', text: 'Der Verzugszins beträgt 5 % im Jahr, wenn nichts anderes vereinbart ist.' },
+        ],
+    },
+    {
+        id: 'suva-bagatellunfall',
+        name: 'Bagatellunfall-Meldung UVG',
+        issuer: 'Suva',
+        pages: 4,
+        page: { w: 2481, h: 3697 },
+        kind: 'insurers',
+        ico: '🛡️',
+        recipient: 'bagatellunfall@suva.ch',
+        subject: 'Bagatellunfall-Meldung Keller Sandra, Unfall 05.10.2026',
+        sections: [
+            { title: '1. Arbeitgeber', fields: [
+                { id: 'arbeitgeber', label: 'Name und Adresse mit Postleitzahl', kind: 'multiline', x: 182, y: 580, w: 1202, h: 158 },
+                { id: 'tel', label: 'Tel.-Nr.', kind: 'text', x: 1390, y: 574, w: 368, h: 62 },
+                { id: 'kunde', label: 'Kunden-Nr.', kind: 'text', x: 1764, y: 574, w: 476, h: 62 },
+                { id: 'arbeitsplatz', label: 'Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)', kind: 'text', x: 1390, y: 680, w: 850, h: 58 },
+            ] },
+            { title: '2. Verletzte/r', fields: [
+                { id: 'name', label: 'Name und Vorname', kind: 'text', x: 472, y: 804, w: 912, h: 34 },
+                { id: 'geburt', label: 'Geburtsdatum', kind: 'date', x: 1390, y: 776, w: 368, h: 64 },
+                { id: 'ahv', label: 'AHV-Nummer', kind: 'text', x: 1764, y: 776, w: 476, h: 64 },
+                { id: 'strasse', label: 'Strasse', kind: 'text', x: 472, y: 902, w: 912, h: 34 },
+                { id: 'staat', label: 'Staatsangehörigkeit', kind: 'text', x: 1764, y: 882, w: 476, h: 56 },
+                { id: 'zivilstand', label: 'Zivilstand', kind: 'text', x: 1390, y: 976, w: 368, h: 64 },
+            ] },
+            { title: '3. Anstellung', fields: [
+                { id: 'anstellung', label: 'Datum der Anstellung', kind: 'date', x: 472, y: 1104, w: 912, h: 34 },
+                { id: 'beruf', label: 'Ausgeübter Beruf', kind: 'text', x: 1390, y: 1084, w: 850, h: 56 },
+                { id: 'st-kader1', label: 'Höheres Kader', kind: 'checkbox', group: 'stellung', option: 'Höheres Kader', x: 644, y: 1148, w: 28, h: 28 },
+                { id: 'st-kader2', label: 'Mittleres Kader', kind: 'checkbox', group: 'stellung', option: 'Mittleres Kader', x: 968, y: 1148, w: 28, h: 28 },
+                { id: 'st-angestellt', label: 'Angestellte/r / Arbeiter/in', kind: 'checkbox', group: 'stellung', option: 'Angestellte/r / Arbeiter/in', x: 1294, y: 1148, w: 28, h: 28 },
+                { id: 'st-lehrling', label: 'Lehrling', kind: 'checkbox', group: 'stellung', option: 'Lehrling', x: 1760, y: 1148, w: 28, h: 28 },
+                { id: 'st-praktikant', label: 'Praktikant/in', kind: 'checkbox', group: 'stellung', option: 'Praktikant/in', x: 1980, y: 1148, w: 28, h: 28 },
+                { id: 'stunden', label: 'Arbeitszeit des/der Verletzten: Stunden je Woche', kind: 'text', x: 1204, y: 1190, w: 104, h: 34 },
+            ] },
+            { title: '4. Schadendatum', fields: [
+                { id: 'tag', label: 'Tag', kind: 'text', x: 480, y: 1292, w: 100, h: 34 },
+                { id: 'monat', label: 'Monat', kind: 'text', x: 604, y: 1292, w: 330, h: 34 },
+                { id: 'jahr', label: 'Jahr', kind: 'text', x: 960, y: 1292, w: 180, h: 34 },
+                { id: 'zeit', label: 'Zeit (Stunden, Minuten)', kind: 'text', x: 1160, y: 1292, w: 480, h: 34 },
+            ] },
+            { title: '5. Unfallort', fields: [
+                { id: 'ort', label: 'Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)', kind: 'text', x: 182, y: 1384, w: 2058, h: 56 },
+            ] },
+            { title: '6. Sachverhalt', fields: [
+                { id: 'hergang', label: 'Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge', kind: 'multiline', x: 472, y: 1492, w: 1772, h: 592 },
+            ] },
+            { title: '7. Berufsunfall', fields: [
+                { id: 'gegenstaende', label: 'Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)', kind: 'text', x: 182, y: 2190, w: 2058, h: 58 },
+            ] },
+            { title: '9. Verletzung', fields: [
+                { id: 'koerperteil', label: 'Betroffener Körperteil', kind: 'text', x: 786, y: 2360, w: 832, h: 34 },
+                { id: 'seite-links', label: 'links', kind: 'checkbox', group: 'seite', option: 'links', x: 1648, y: 2356, w: 28, h: 28 },
+                { id: 'seite-rechts', label: 'rechts', kind: 'checkbox', group: 'seite', option: 'rechts', x: 1810, y: 2356, w: 28, h: 28 },
+                { id: 'seite-unbestimmt', label: 'unbestimmt', kind: 'checkbox', group: 'seite', option: 'unbestimmt', x: 1994, y: 2356, w: 28, h: 28 },
+                { id: 'schaedigung', label: 'Art der Schädigung', kind: 'text', x: 760, y: 2404, w: 1480, h: 34 },
+            ] },
+            { title: '10. Arztadressen', fields: [
+                { id: 'arzt1', label: 'Erstbehandelnder Arzt bzw. Spital/Klinik', kind: 'multiline', x: 182, y: 2522, w: 1202, h: 72 },
+                { id: 'arzt2', label: 'Nachbehandelnder Arzt bzw. Spital/Klinik', kind: 'multiline', x: 1390, y: 2492, w: 850, h: 102 },
+            ] },
+            { title: 'Abschluss', fields: [
+                { id: 'ortdatum', label: 'Ort und Datum', kind: 'text', x: 477, y: 2660, w: 900, h: 120 },
+                { id: 'unterschrift', label: 'Stempel und Unterschrift', kind: 'signature', x: 1400, y: 2660, w: 840, h: 120 },
+            ] },
+        ],
+        transcript: [
+            { t: '0:02', section: '1. Arbeitgeber', summary: 'Logistik Zugersee AG, Lager Werkstrasse 12, Zug.', raw: 'Bagatellunfall-Meldung von der Logistik Zugersee AG, Werkstrasse zwölf in Zug, Telefon null vier eins, sieben zwei acht, vierzig zehn. Betroffen ist das Lager.' },
+            { t: '0:21', section: '2. Verletzte/r', summary: 'Sandra Keller, geboren 14.3.1988, Lagermitarbeiterin seit 2019.', raw: 'Verletzt ist Sandra Keller, geboren am vierzehnten März achtundachtzig, Werkstrasse zwölf in Zug, Schweizerin, ledig, Lagermitarbeiterin, angestellt seit ersten Februar neunzehn, vierzig Stunden.' },
+            { t: '0:48', section: '4. Schadendatum', summary: 'Gestern 14:20 im Lager beim Abladen einer Palette ausgerutscht, rechtes Handgelenk.', raw: 'Der Unfall war gestern um zwanzig nach zwei im Lager an der Werkstrasse. Sie ist beim Abladen einer Palette ausgerutscht und auf das rechte Handgelenk gestürzt. Erstbehandlung im Notfall vom Kantonsspital Zug.' },
+        ],
+        values: {
+            arbeitgeber: [ 'Logistik Zugersee AG, Werkstrasse 12, 6300 Zug', 'ok' ],
+            tel: [ '041 728 40 10', 'ok' ],
+            kunde: [ '', 'missing', 'Nicht genannt; steht auf der Police.' ],
+            arbeitsplatz: [ 'Lager', 'ok' ],
+            name: [ 'Keller Sandra', 'ok' ],
+            geburt: [ '14.03.1988', 'ok' ],
+            ahv: [ '', 'missing', 'Nicht genannt.' ],
+            strasse: [ 'Werkstrasse 12, 6300 Zug', 'ok' ],
+            staat: [ 'Schweiz', 'ok' ],
+            zivilstand: [ 'ledig', 'ok' ],
+            anstellung: [ '01.02.2019', 'ok' ],
+            beruf: [ 'Lagermitarbeiterin', 'ok' ],
+            'st-kader1': [ '', 'empty' ],
+            'st-kader2': [ '', 'empty' ],
+            'st-angestellt': [ 'x', 'unclear', 'Aus „Lagermitarbeiterin“ geschlossen. Stimmt die Stellung?' ],
+            'st-lehrling': [ '', 'empty' ],
+            'st-praktikant': [ '', 'empty' ],
+            stunden: [ '40', 'ok' ],
+            tag: [ '05', 'ok' ],
+            monat: [ '10', 'ok' ],
+            jahr: [ '2026', 'ok' ],
+            zeit: [ '14:20', 'ok' ],
+            ort: [ 'Lager, Werkstrasse 12, Zug', 'ok' ],
+            hergang: [ 'Beim Abladen einer Palette ausgerutscht und auf das rechte Handgelenk gestürzt.', 'ok' ],
+            gegenstaende: [ 'Palette', 'unclear', 'Du hast „beim Abladen einer Palette“ gesagt. Als beteiligten Gegenstand übernommen.' ],
+            koerperteil: [ 'Handgelenk', 'ok' ],
+            'seite-links': [ '', 'empty' ],
+            'seite-rechts': [ 'x', 'ok' ],
+            'seite-unbestimmt': [ '', 'empty' ],
+            schaedigung: [ '', 'missing', 'Nicht genannt; Verdacht auf Fraktur wäre eine Angabe.' ],
+            arzt1: [ 'Kantonsspital Zug, Notfall', 'ok' ],
+            arzt2: [ '', 'empty' ],
+            ortdatum: [ '', 'empty' ],
+            unterschrift: [ '', 'sign' ],
+        },
+        laws: [
+            { fields: [ 'tag', 'monat', 'jahr', 'hergang' ], art: 'UVG Art. 45 Abs. 2', text: 'Der Arbeitgeber meldet einen Unfall unverzüglich dem Versicherer, sobald er davon erfährt. Datum und Hergang müssen vollständig sein.' },
+            { fields: [ 'kunde' ], art: 'UVV Art. 53', text: 'Die Meldung erfolgt auf dem Formular des Versicherers mit den Angaben zur Police.' },
+            { fields: [ 'schaedigung', 'arzt1' ], art: 'UVG Art. 10', text: 'Der Versicherer übernimmt die Heilbehandlung; die Verletzung und die behandelnde Stelle müssen genannt sein.' },
+        ],
+    },
+];
+
+export const formOf = ( id ) => FORMS.find( ( f ) => f.id === id );
+
+// the fields of a form in one list, without the ones a person unticked
+export const fieldsOf = ( form, off = [] ) => form.sections.flatMap( ( s ) => s.fields.filter( ( f ) => !off.includes( f.id ) ) );

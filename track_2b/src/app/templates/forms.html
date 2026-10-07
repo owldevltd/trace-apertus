@@ -1,0 +1,17 @@
+<p class="eyebrow">{{t:captured}}</p>
+<div class="cells">
+    {{^entries}}<div class="cell muted small">{{t:forms.empty}}</div>{{/entries}}
+    {{#entries}}
+    <button class="cell row press entry" data-open="{{uid}}">{{> thumb}}<div class="grow"><p class="strong">{{name}}</p><p class="muted small">{{issuer}} · {{created}}</p></div><span class="chip {{chip}}">{{status}}</span></button>
+    {{/entries}}
+</div>
+<p class="eyebrow">{{t:templates}}</p>
+{{#groups}}
+<div class="group">
+    <div class="head"><span class="ico">{{ico}}</span>{{label}}</div>
+    <div class="grid2">
+        {{#items}}<button class="tpl press" data-template="{{id}}"><strong>{{name}}</strong><span class="muted small">{{issuer}}</span></button>{{/items}}
+        {{#odd}}<div class="tpl faint"><span class="muted small">{{t:tpl.more}}</span></div>{{/odd}}
+    </div>
+</div>
+{{/groups}}

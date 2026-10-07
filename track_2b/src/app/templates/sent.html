@@ -1,0 +1,5 @@
+{{^entries}}<div class="hero"><p class="eyebrow">{{t:signature}}</p>{{t:sent.empty}}</div>{{/entries}}
+{{#entries.length}}<p class="eyebrow">{{t:sent.wait}}</p>{{/entries.length}}
+<div class="cells">
+    {{#entries}}<div class="cell row">{{> thumb}}<div class="grow"><p class="strong">{{name}}</p><p class="muted small">{{to}}</p></div><span class="chip accent">{{t:st.open}}</span></div>{{/entries}}
+</div>

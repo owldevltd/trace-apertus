@@ -1,0 +1,19 @@
+<div class="stack tight"><h2>{{name}}</h2><div class="meta"><span>{{issuer}}</span><span>{{pages}}</span><span>{{nfields}}</span></div></div>
+<div class="columns">
+<div class="column main">
+{{> pills}}
+<div class="pane">
+    {{#isFields}}
+    <div class="hero"><p class="eyebrow">{{t:fields}}</p>{{card}}</div>
+    {{#sections}}
+    <div class="stack narrow"><p class="eyebrow">{{title}} · {{n}}</p><div class="cells">
+        {{#fields}}<label class="check"><input type="checkbox" {{#on}}checked{{/on}} data-field="{{id}}"><span class="grow strong">{{label}}</span><span class="small muted">{{type}}</span></label>{{/fields}}
+    </div></div>
+    {{/sections}}
+    {{/isFields}}
+    {{#isPreview}}<div class="hero"><p class="eyebrow">{{t:preview}}</p>{{t:verify.pv}}</div><div class="pv"><span class="small muted">{{pvMeta}}</span>{{{preview}}}</div>{{/isPreview}}
+    {{#isPhoto}}{{#photo}}<img class="shot" src="{{photo}}" alt="">{{/photo}}{{^photo}}<div class="grey centre"><p class="muted">{{t:verify.nophoto}}</p><button class="btn outline sm press" data-camera>{{t:verify.takephoto}}</button></div>{{/photo}}{{/isPhoto}}
+</div>
+</div>
+<div class="column aside"><div class="pv"><span class="small muted">{{pvMeta}}</span>{{{preview}}}</div></div>
+</div>

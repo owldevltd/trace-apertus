@@ -132,7 +132,8 @@ async function serveStatic( pathname, res ) {
     }
     try {
         const data = await fs.readFile( file );
-        res.writeHead( 200, { 'Content-Type': TYPES[ path.extname( file ) ] || 'application/octet-stream', 'Content-Length': data.length } );
+        // the app changes while it is being built: the browser asks every time instead of keeping a stale copy
+        res.writeHead( 200, { 'Content-Type': TYPES[ path.extname( file ) ] || 'application/octet-stream', 'Content-Length': data.length, 'Cache-Control': 'no-cache' } );
         res.end( data );
     } catch {
         if ( pathname === '/' ) {

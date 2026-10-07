@@ -1,0 +1,28 @@
+<div class="stack tight"><p class="eyebrow">{{date}}</p><h1>{{head}}</h1></div>
+<div class="hero">{{card}}</div>
+<div class="stack">
+    <p class="eyebrow">{{t:todo}}</p>
+    <div class="cells">
+        {{^todos}}<div class="cell muted small">{{t:todo.empty}}</div>{{/todos}}
+        {{#todos}}
+        <div class="cell todo{{#done}} done{{/done}}">
+            <div class="box">{{#done}}✓{{/done}}</div>
+            <div class="grow">
+                <p class="text strong">{{text}}</p>
+                <p class="muted small">{{issuer}} · {{created}}</p>
+                {{^done}}<div class="acts">
+                    {{#review}}<button class="btn outline sm press" data-open="{{uid}}">{{t:act.review}}</button>{{/review}}
+                    {{#dictate}}<button class="btn outline sm press" data-listen="{{uid}}"><span class="dot"></span>{{t:act.listen}}</button><button class="btn outline sm press" data-open="{{uid}}">{{t:act.open}}</button>{{/dictate}}
+                </div>{{/done}}
+            </div>
+        </div>
+        {{/todos}}
+    </div>
+</div>
+<div class="stack">
+    <p class="eyebrow">{{t:history}}</p>
+    <div class="cells">
+        {{^events}}<div class="cell muted small">{{t:hist.empty}}</div>{{/events}}
+        {{#events}}<div class="cell row">{{> thumb}}<div class="grow"><p class="strong">{{text}}</p><p class="muted small num">{{time}}{{#issuer}} · {{issuer}}{{/issuer}}</p></div></div>{{/events}}
+    </div>
+</div>
