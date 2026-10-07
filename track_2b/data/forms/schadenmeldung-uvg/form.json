@@ -1,0 +1,11 @@
+{
+    "name": "Schadenmeldung UVG",
+    "issuer": "Nachbau nach der Helsana-Meldung",
+    "language": "de",
+    "pages": 2,
+    "origin": "rebuilt",
+    "model": "Schadenmeldung UVG, Helsana Unfall AG, edition 12.2016; same fields, own layout, built by tools/forms/build.js",
+    "file": "form.pdf",
+    "recipient": "schadenmeldung@example.ch",
+    "subject": "Schadenmeldung UVG zur Signatur"
+}

@@ -1,4 +1,4 @@
-.PHONY: run test bench
+.PHONY: run test bench forms
 
 # The pages the model run reads: one page of the Betreibungsbegehren and two of the Suva form, 152 elements.
 BENCH_PAGES = data/forms/betreibungsbegehren/betreibungsbegehren-form-1-s1.png \
@@ -20,6 +20,11 @@ test:
 	node tests/numbers.js
 	node tests/output.js
 	node tests/server.js
+
+# Rebuilds the two rebuilt forms from their definitions in tools/forms/: the fillable PDF, the page images and the
+# reference JSON. A preparation step, its results are committed; needs poppler (pdftoppm, pdftotext).
+forms:
+	node tools/forms/build.js
 
 # Reads the unknown elements of three shipped pages with the model and holds the text against the text layer of the
 # PDFs. Needs API_KEY in .env (copy .env.example). 152 calls, one after the other, about 7 minutes. Results and the

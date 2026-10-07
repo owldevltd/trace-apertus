@@ -1,0 +1,11 @@
+{
+    "name": "Arbeitsfähigkeitszeugnis",
+    "issuer": "Nachbau nach dem SIM-Zeugnis",
+    "language": "de",
+    "pages": 1,
+    "origin": "rebuilt",
+    "model": "SIM-Arbeitsfähigkeitszeugnis, Swiss Insurance Medicine, Ausgabe Januar 2019; same fields, own layout, built by tools/forms/build.js",
+    "file": "form.pdf",
+    "recipient": "personal@example.ch",
+    "subject": "Arbeitsfähigkeitszeugnis zur Signatur"
+}

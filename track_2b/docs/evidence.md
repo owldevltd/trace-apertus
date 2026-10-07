@@ -115,9 +115,18 @@ the transcript; the lessons transfer.
 ## 8 What ships in this repository
 
 The full reference set (22 forms, 61 pages, 1 871 field and 1 007 tick-mark widgets) cannot be redistributed:
-the forms belong to their publishers. `data/forms/` holds two public forms unchanged and, later, two rebuilt ones.
-`make test` runs the geometry over the shipped pages and prints the same measures as above for them; the numbers in
-this document refer to the full set and are reproduced by the same scripts on it.
+the forms belong to their publishers. `data/forms/` holds two public forms unchanged and two rebuilt after forms
+of that set, with the same fields in our own layout (`tools/forms/`, `make forms`). `make test` runs the geometry
+over the shipped pages and prints the same measures as above for them; the numbers in this document refer to the
+full set and are reproduced by the same scripts on it.
+
+The rebuilt forms are rendered PDFs with clean lines and boxes, so they sit at the easy end of the set; they are
+there to show the whole chain on a fillable form the project may ship, not to prove the geometry. On their three
+pages (`make test`, 7 October 2026, text layer as reading, no widget fallback): certificate 76 of 77 text widgets
+and 15 of 15 marks hit, 0 fields invented; accident report page 1 32 of 32 and 20 of 20, 8 invented, page 2
+32 of 32 and 20 of 20, 10 invented (empty table and label cells). Labels on 34 of 77 (the table cells have none
+of their own), 31 of 32 and 20 of 32 hit widgets. Radio pairs across the four pages with widgets: 21 grouped
+right, 0 wrong, 1 not grouped.
 
 On the six shipped pages (run of 7 October 2026, no model call): 244 of 266 reference blocks map to exactly one
 object (91.7 %), 1 684 of 1 690 words lie in an object (99.6 %), 60 of the 69 text-field widgets of the

@@ -96,9 +96,11 @@ function fillWidget( form, f ) {
                     best = w;
                 }
             } );
-            const on = best && best.getOnValue();
-            if ( on ) {
-                field.select( on.decodeText() );
+            // the option names run in the order of the widgets, whether the group stores them as names or as
+            // numbered export values
+            const option = field.getOptions()[ widgets.indexOf( best ) ];
+            if ( option !== undefined ) {
+                field.select( option );
             }
             return true;
         }
