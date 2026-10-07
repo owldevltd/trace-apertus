@@ -1,0 +1,17 @@
+{
+    "name": "trace",
+    "version": "0.1.0",
+    "description": "Trace: capture a form, structure it, fill it by voice, verify, sign",
+    "type": "module",
+    "private": true,
+    "license": "Apache-2.0",
+    "engines": {
+        "node": ">=20.3"
+    },
+    "scripts": {
+        "start": "node src/server.js",
+        "analyze": "node src/cli.js analyze",
+        "test:sources": "node tests/sources.js",
+        "test:marks": "node tests/marks.js"
+    }
+}

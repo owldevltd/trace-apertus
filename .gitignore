@@ -25,3 +25,6 @@ build/
 .DS_Store
 .idea/
 .vscode/
+
+# Runtime data of the app (jobs, page images, recordings)
+track_2b/storage/
