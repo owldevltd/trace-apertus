@@ -14,6 +14,10 @@
     "schema": {
       "const": "2b-0.1"
     },
+    "id": {
+      "type": "string",
+      "description": "the job this file belongs to, assigned by the app"
+    },
     "form": {
       "type": "object",
       "description": "The form as a document, independent of this filling",

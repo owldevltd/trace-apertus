@@ -5,9 +5,10 @@ BENCH_PAGES = data/forms/betreibungsbegehren/betreibungsbegehren-form-1-s1.png \
 	data/forms/suva-bagatellunfall/suva-bagatellunfall-uvg-s1.png \
 	data/forms/suva-bagatellunfall/suva-bagatellunfall-uvg-s3.png
 
-# Starts the app in a Docker container. Not implemented yet: the web app and its container follow in later commits.
+# Builds the image and starts the app on http://localhost:8080. The model key comes from .env (copy .env.example);
+# without it the app runs, but the reading step is skipped.
 run:
-	@echo "make run is not implemented yet — the app and its container follow"; exit 1
+	docker compose up --build
 
 # Runs the geometry over the shipped forms and measures it against the text layer and the widgets of the PDFs.
 # No model call, no network: the reference is in the data folder. Results and control images land in storage/tests/.
@@ -16,6 +17,7 @@ test:
 	node tests/sources.js --got=storage/tests/pages --out=storage/tests/sources.md data/forms/*
 	node tests/marks.js --got=storage/tests/pages --out=storage/tests/marks.md data/forms/*
 	node tests/fields.js --got=storage/tests/pages --out=storage/tests/fields.md data/forms/*
+	node tests/server.js
 
 # Reads the unknown elements of three shipped pages with the model and holds the text against the text layer of the
 # PDFs. Needs API_KEY in .env (copy .env.example). 152 calls, one after the other, about 7 minutes. Results and the
