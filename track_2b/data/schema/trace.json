@@ -1,0 +1,488 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Trace form",
+  "description": "A captured form: its pages and elements, the fields found on it, the values dictated into them, hints, and what a person decided. Version 2b-0.1 (draft, 2026-10-07).",
+  "type": "object",
+  "required": [
+    "schema",
+    "form",
+    "pages",
+    "blocks",
+    "fields"
+  ],
+  "properties": {
+    "schema": {
+      "const": "2b-0.1"
+    },
+    "form": {
+      "type": "object",
+      "description": "The form as a document, independent of this filling",
+      "required": [
+        "name",
+        "language",
+        "pages"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "string",
+          "description": "who publishes the form"
+        },
+        "language": {
+          "type": "string",
+          "enum": [
+            "de",
+            "fr",
+            "it",
+            "en"
+          ],
+          "description": "language of the printed form; dictation is mapped into this language"
+        },
+        "pages": {
+          "type": "integer"
+        },
+        "origin": {
+          "type": "string",
+          "enum": [
+            "original",
+            "rebuilt"
+          ],
+          "description": "original: the published form unchanged; rebuilt: our own layout with the same fields"
+        },
+        "after": {
+          "type": "string",
+          "description": "for a rebuilt form: the form it follows (name and publisher)"
+        },
+        "file": {
+          "type": "string",
+          "description": "path of the PDF relative to the data folder"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "n",
+          "width",
+          "height"
+        ],
+        "properties": {
+          "n": {
+            "type": "integer"
+          },
+          "width": {
+            "type": "integer",
+            "description": "pixels at 300 dpi; every x, y, width, height below refers to this"
+          },
+          "height": {
+            "type": "integer"
+          },
+          "image": {
+            "type": "string",
+            "description": "path of the page image"
+          },
+          "unit": {
+            "type": "number",
+            "description": "character height of the page in pixels, as measured"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "description": "every element the geometry found, unchanged; fields point at them",
+      "items": {
+        "$ref": "#/$defs/block"
+      }
+    },
+    "fields": {
+      "type": "array",
+      "description": "what can be filled in, in reading order",
+      "items": {
+        "$ref": "#/$defs/field"
+      }
+    },
+    "audio": {
+      "type": "object",
+      "description": "the dictation, as recorded on the device",
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number",
+          "description": "seconds"
+        },
+        "language": {
+          "type": "string",
+          "enum": [
+            "de",
+            "fr",
+            "it",
+            "en"
+          ],
+          "description": "language spoken; may differ from form.language"
+        },
+        "pieces": {
+          "type": "integer",
+          "description": "number of pieces the recording was cut into at silence"
+        }
+      },
+      "additionalProperties": false
+    },
+    "transcript": {
+      "type": "array",
+      "description": "what the model heard, piece by piece; raw and untouched",
+      "items": {
+        "type": "object",
+        "required": [
+          "n",
+          "text"
+        ],
+        "properties": {
+          "n": {
+            "type": "integer",
+            "description": "piece number"
+          },
+          "start": {
+            "type": "number",
+            "description": "seconds from the start of the recording"
+          },
+          "text": {
+            "type": "string",
+            "description": "transcript after number words were turned into digits"
+          },
+          "raw": {
+            "type": "string",
+            "description": "transcript exactly as the model returned it"
+          },
+          "approve": {
+            "type": "boolean",
+            "description": "a person should listen: the piece was empty, cut off, or the model switched language"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "captured",
+        "verified",
+        "filled",
+        "reviewed",
+        "sent"
+      ],
+      "description": "where the form stands in the flow"
+    },
+    "history": {
+      "type": "array",
+      "description": "what happened to this form, in order",
+      "items": {
+        "type": "object",
+        "required": [
+          "at",
+          "event"
+        ],
+        "properties": {
+          "at": {
+            "type": "string",
+            "description": "ISO 8601"
+          },
+          "event": {
+            "type": "string",
+            "enum": [
+              "captured",
+              "verified",
+              "dictated",
+              "filled",
+              "reviewed",
+              "exported",
+              "sent"
+            ]
+          },
+          "by": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "block": {
+      "type": "object",
+      "description": "one element of a page, as the geometry and the reading step produced it",
+      "required": [
+        "id",
+        "page",
+        "type",
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "b1, b2, … in reading order over the whole form"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "text",
+            "image",
+            "line",
+            "input",
+            "checkbox",
+            "radio",
+            "unknown"
+          ]
+        },
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "content": {
+          "type": "string",
+          "description": "text read from the element; for checkbox and radio \"x\" when ticked, otherwise empty"
+        },
+        "fontSize": {
+          "type": "number",
+          "description": "points, A4 assumed"
+        },
+        "color": {
+          "type": "string",
+          "description": "#rrggbb"
+        },
+        "background": {
+          "type": "string",
+          "description": "#rrggbb"
+        },
+        "isOCR": {
+          "type": "boolean",
+          "description": "the content was read from the image, not taken from a text layer"
+        },
+        "approve": {
+          "type": "boolean",
+          "description": "a person should look: the rendered text does not match the image"
+        }
+      },
+      "additionalProperties": false
+    },
+    "field": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "kind",
+        "page",
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "f1, f2, … in reading order"
+        },
+        "label": {
+          "type": "string",
+          "description": "the printed label next to or above the field"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "text",
+            "multiline",
+            "number",
+            "date",
+            "checkbox",
+            "radio",
+            "signature"
+          ]
+        },
+        "page": {
+          "type": "integer"
+        },
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "labelBlock": {
+          "type": "string",
+          "description": "id of the block that carries the label"
+        },
+        "boxBlock": {
+          "type": "string",
+          "description": "id of the block that is the input, checkbox or radio"
+        },
+        "group": {
+          "type": "string",
+          "description": "radios that exclude each other share a group name"
+        },
+        "option": {
+          "type": "string",
+          "description": "for a radio or checkbox: what ticking it means, from its label"
+        },
+        "required": {
+          "type": "boolean",
+          "description": "must carry a value before sending; from the catalogue"
+        },
+        "widget": {
+          "type": "string",
+          "description": "name of the PDF form field this field writes into, when the PDF is fillable"
+        },
+        "value": {
+          "type": "string",
+          "description": "what was dictated or entered; for checkbox and radio \"x\" or empty"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "hints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/hint"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "description": "where a value came from and whether a person should look at it",
+      "required": [
+        "how"
+      ],
+      "properties": {
+        "piece": {
+          "type": "integer",
+          "description": "transcript piece the value was taken from"
+        },
+        "quote": {
+          "type": "string",
+          "description": "the words in the transcript the value rests on"
+        },
+        "how": {
+          "type": "string",
+          "enum": [
+            "literal",
+            "derived",
+            "cited",
+            "composed",
+            "entered"
+          ],
+          "description": "literal: the value stands in the transcript as is; derived: every word of it does, in another order; cited: the model named the piece but the words are not there; composed: the model phrased it; entered: a person typed it"
+        },
+        "approve": {
+          "type": "boolean",
+          "description": "a person should look: not literal or derived, or the piece carries approve"
+        },
+        "review": {
+          "$ref": "#/$defs/review"
+        }
+      },
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "description": "what a person did with the value",
+      "required": [
+        "at",
+        "decision"
+      ],
+      "properties": {
+        "at": {
+          "type": "string",
+          "description": "ISO 8601"
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "confirmed",
+            "changed",
+            "rejected"
+          ]
+        },
+        "before": {
+          "type": "string",
+          "description": "the value before the change"
+        },
+        "by": {
+          "type": "string"
+        },
+        "rule": {
+          "type": "string",
+          "description": "id of a general rule, when the change came from one or founded one"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hint": {
+      "type": "object",
+      "description": "something a person should check before sending; the program never says \"not allowed\"",
+      "required": [
+        "kind",
+        "text"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "missing",
+            "vague",
+            "legal",
+            "format"
+          ],
+          "description": "missing: required field empty (code); vague: the model found the entry insufficient against the catalogue; legal: the catalogue's requirement for this field; format: the value does not fit the kind (code)"
+        },
+        "text": {
+          "type": "string"
+        },
+        "article": {
+          "type": "string",
+          "description": "legal reference as printed in the catalogue, e.g. SchKG Art. 67 Abs. 1 Ziff. 3"
+        },
+        "catalogue": {
+          "type": "string",
+          "description": "catalogue file and its validation stamp"
+        },
+        "review": {
+          "$ref": "#/$defs/review"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
