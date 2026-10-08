@@ -1,0 +1,306 @@
+{
+    "form": "Arbeitsfähigkeitszeugnis (Nachbau nach SIM-Vorbild)",
+    "built": "2026-10-07",
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "verified": "2026-10-07: the model named no source for any of the 40 entries; sources added by hand from ATSG Art. 3, 4, 6, 28, 43, OR Art. 324a, 328b, 336c, UVG Art. 6, 9, 16, 17, KVG Art. 72, IVG Art. 7, 28 and AHVG Art. 50c as published on Fedlex, each read in full; three entries rewritten (options misread, heading taken for a field, fixed 100 % mixed with the Visum), one dropped (the attachment is not a field); no statute lists the content of a certificate of incapacity, so required marks what the statutes make the assessment depend on (cause, occupation, period, degree) and what the certificate is nothing without (name, date, physician, signature)",
+    "fields": [
+        {
+            "field": "Arbeitnehmerin / Arbeitnehmer: Name / Vorname",
+            "requirement": "Vollständiger Name der versicherten Person",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source. Identification of the person the certificate is about; no statute lists the content of a certificate of incapacity, but without the name it certifies nothing.",
+            "required": true
+        },
+        {
+            "field": "Arbeitnehmerin / Arbeitnehmer: Geb.-Dat.",
+            "requirement": "Geburtsdatum im Format TT.MM.JJJJ",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Arbeitnehmerin / Arbeitnehmer: Geschlecht",
+            "requirement": "Angabe 'w' für weiblich oder 'm' für männlich",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Arbeitnehmerin / Arbeitnehmer: Adresse / PLZ",
+            "requirement": "Vollständige Wohnadresse inklusive Postleitzahl",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Arbeitnehmerin / Arbeitnehmer: AHV-Nr.",
+            "requirement": "AHV-Versichertennummer der Person (13-stellig, 756.…)",
+            "source": "AHVG Art. 50c Abs. 1",
+            "certainty": "medium",
+            "checked": "Art. 50c Abs. 1: every person resident in Switzerland is assigned an AHV number; the article says nothing about forms, so it only backs that the number exists. Format not prescribed there.",
+            "required": false
+        },
+        {
+            "field": "Arbeitgeberin / Arbeitgeber: Firmenname",
+            "requirement": "Name des Arbeitgebers",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Arbeitgeberin / Arbeitgeber: Kontaktperson",
+            "requirement": "Name der Ansprechperson beim Arbeitgeber",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Arbeitgeberin / Arbeitgeber: Adresse / PLZ",
+            "requirement": "Vollständige Geschäftsadresse inklusive Postleitzahl",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Arbeitgeberin / Arbeitgeber: Telefon",
+            "requirement": "Kontakttelefonnummer des Arbeitgebers",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Arbeitgeberin / Arbeitgeber: E-Mail",
+            "requirement": "E-Mail-Adresse des Arbeitgebers",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Eintrittsjahr",
+            "requirement": "Jahr des Eintritts beim Arbeitgeber; das Dienstjahr bestimmt die Sperrfrist bei Krankheit oder Unfall",
+            "source": "OR Art. 336c Abs. 1 Bst. b",
+            "certainty": "medium",
+            "checked": "Art. 336c Abs. 1 Bst. b: the blocking period against dismissal during incapacity depends on the year of service (30 days in the first, 90 from the second to the fifth, 180 from the sixth); the year of entry is what the period is counted from. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Std. / Tag",
+            "requirement": "Anzahl Stunden pro Arbeitstag",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Bei Kündigung: Arbeitsverhältnis gekündigt per",
+            "requirement": "Datum, auf das das Arbeitsverhältnis gekündigt ist, falls gekündigt; die Arbeitsunfähigkeit kann die Kündigungsfrist unterbrechen",
+            "source": "OR Art. 336c Abs. 2",
+            "certainty": "high",
+            "checked": "The model took the heading \"Anstellung\" for a field; the field here is the notice date. Art. 336c Abs. 2: a dismissal given during the blocking period is void; one given before is suspended for the period. Rewritten and sourced by hand.",
+            "required": false
+        },
+        {
+            "field": "Funktion / ausgeübter Beruf *",
+            "requirement": "Ausgeübter Beruf bzw. Funktion; Massstab der Beurteilung ist die Arbeit im bisherigen Beruf oder Aufgabenbereich",
+            "source": "ATSG Art. 6",
+            "certainty": "high",
+            "checked": "Art. 6: incapacity for work is the inability to do reasonable work in the previous occupation or field of duty; the occupation is the yardstick of the assessment. Added by hand.",
+            "required": true
+        },
+        {
+            "field": "Arbeitszeit: Wochenarbeitszeit / Einsatztage",
+            "requirement": "Wochenstunden und Einsatztage pro Woche",
+            "source": "UVG Art. 17 Abs. 1",
+            "certainty": "medium",
+            "checked": "Art. 17 Abs. 1: the daily allowance is reduced in proportion for partial incapacity; the working time is what a percentage refers to. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Arbeitszeit: Vollzeit (100 %) / Teilzeit",
+            "requirement": "Angabe ob Vollzeit oder Teilzeit mit Prozentangabe",
+            "source": "UVG Art. 17 Abs. 1",
+            "certainty": "medium",
+            "checked": "Art. 17 Abs. 1, as for the working time: the degree of employment is the base of every percentage on this form. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Ursache",
+            "requirement": "Krankheit, Unfall oder Berufskrankheit ankreuzen; die Ursache entscheidet über den zuständigen Versicherer",
+            "source": "ATSG Art. 3 Abs. 1, ATSG Art. 4, UVG Art. 9 Abs. 1",
+            "certainty": "high",
+            "checked": "Art. 3 Abs. 1 defines illness, Art. 4 accident, UVG Art. 9 Abs. 1 occupational disease; the cause decides which insurance pays (UVG Art. 6 Abs. 1 for accidents and occupational diseases). Added by hand.",
+            "required": true
+        },
+        {
+            "field": "Volle Arbeitsunfähigkeit",
+            "requirement": "Angabe ob eine volle Arbeitsunfähigkeit vorliegt",
+            "source": "ATSG Art. 6, UVG Art. 16 Abs. 1",
+            "certainty": "high",
+            "checked": "Art. 6: full or partial incapacity; UVG Art. 16 Abs. 1: full or partial incapacity gives the right to a daily allowance. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Basierend auf *",
+            "requirement": "Ankreuzen, ob die Beurteilung auf dem REP oder auf dem Arbeitsplatzbeschrieb beruht",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model misread the options; they are \"REP\" and \"Arbeitsplatzbeschrieb\". Corrected by hand, no statute."
+        },
+        {
+            "field": "REP vom",
+            "requirement": "Datum des Ressourcenorientierten Eingliederungsprofils (falls REP ausgewählt)",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Arbeitsplatzbeschrieb vom",
+            "requirement": "Datum des beigefügten Arbeitsplatzbeschriebs (falls verwendet)",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Konsultationsdatum",
+            "requirement": "Datum der ärztlichen Konsultation",
+            "source": "ATSG Art. 43 Abs. 2",
+            "certainty": "medium",
+            "checked": "Art. 43 Abs. 2: the insured person must undergo the medical examinations needed for the assessment; the consultation date documents that. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Arbeitsunfähigkeit: von / bis",
+            "requirement": "Beginn und Ende der vollen Arbeitsunfähigkeit (Datum von – bis)",
+            "source": "ATSG Art. 6, OR Art. 324a Abs. 1, UVG Art. 16 Abs. 2",
+            "certainty": "high",
+            "checked": "The period is what every consequence hangs on: continued pay under OR Art. 324a Abs. 1, the daily allowance under UVG Art. 16 (Abs. 2: from the third day after the accident until full capacity is regained). Added by hand.",
+            "required": true
+        },
+        {
+            "field": "nächste Konsultation",
+            "requirement": "Datum der nächsten ärztlichen Nachkontrolle",
+            "source": "ATSG Art. 43 Abs. 2",
+            "certainty": "medium",
+            "checked": "As for the consultation date. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Arbeitsunfähigkeit 100 % / Visum",
+            "requirement": "In dieser Tabelle gilt volle Arbeitsunfähigkeit (100 %); Visum der Ärztin / des Arztes je Zeile",
+            "source": "UVG Art. 17 Abs. 1, KVG Art. 72 Abs. 2",
+            "certainty": "high",
+            "checked": "The model mixed the fixed \"100 %\" with the Visum column. The degree is fixed at 100 % in this table; UVG Art. 17 Abs. 1: 80 % of the insured earnings at full incapacity; KVG Art. 72 Abs. 2: the daily allowance starts at incapacity of at least one half. Rewritten by hand.",
+            "required": false
+        },
+        {
+            "field": "Es liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor",
+            "requirement": "Ja/Nein-Angabe zur arbeitsplatzbezogenen Einschränkung",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added. Workplace-related incapacity is a notion of practice and case law, not of the statute: fit for work elsewhere, not at this workplace.",
+            "required": false
+        },
+        {
+            "field": "Teilarbeitsfähigkeit / Reintegration: Präsenzzeit Std. pro Tag",
+            "requirement": "Stundenanzahl pro Tag bei eingeschränkter Arbeitsfähigkeit",
+            "source": "ATSG Art. 6, IVG Art. 7 Abs. 1",
+            "certainty": "medium",
+            "checked": "Art. 6: partial incapacity; IVG Art. 7 Abs. 1: the insured person must do what is reasonable to shorten the incapacity, which a partial return is. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Teilarbeitsfähigkeit / Reintegration: Präsenzzeit % Pensum",
+            "requirement": "Prozentuale Arbeitszeit bei eingeschränkter Arbeitsfähigkeit",
+            "source": "ATSG Art. 6, IVG Art. 7 Abs. 1",
+            "certainty": "medium",
+            "checked": "As for the hours per day. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Teilarbeitsfähigkeit / Reintegration: Leistungsfähigkeit in der Präsenzzeit",
+            "requirement": "Auswahl aus '25 / 50 / 75 / 100 %'",
+            "source": "ATSG Art. 6",
+            "certainty": "medium",
+            "checked": "Art. 6 speaks of reasonable work in the previous occupation; the performance within presence is the SIM scale on top of that, not in the statute. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Teilarbeitsfähigkeit / Reintegration: Arbeitsfähigkeit gesamt %",
+            "requirement": "Gesamtprozentuale Arbeitsfähigkeit",
+            "source": "ATSG Art. 6, UVG Art. 17 Abs. 1, KVG Art. 72 Abs. 2 und 4",
+            "certainty": "high",
+            "checked": "The total degree is what the daily allowance is cut by (UVG Art. 17 Abs. 1; KVG Art. 72 Abs. 4) and what decides whether there is one at all (KVG Art. 72 Abs. 2: at least one half). Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Teilarbeitsfähigkeit / Reintegration: von / bis",
+            "requirement": "Gültigkeitszeitraum der teilweisen Arbeitsfähigkeit (Datum von – Datum bis)",
+            "source": "OR Art. 324a Abs. 1, UVG Art. 16 Abs. 2",
+            "certainty": "high",
+            "checked": "As for the period of full incapacity. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Teilarbeitsfähigkeit / Reintegration: nächste Konsultation",
+            "requirement": "Datum der nächsten Nachkontrolle für Reintegration",
+            "source": "ATSG Art. 43 Abs. 2",
+            "certainty": "medium",
+            "checked": "As for the consultation date. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Teilarbeitsfähigkeit / Reintegration: Visum",
+            "requirement": "Visum der Ärztin / des Arztes je Zeile",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model wrote \"Bestätigung mit Prozentangabe\"; the Visum is the physician's initial per row. Corrected by hand, no statute."
+        },
+        {
+            "field": "Wiederaufnahme der Arbeit zu 100 % ab",
+            "requirement": "Datum der geplanten vollständigen Wiederaufnahme der Arbeit",
+            "source": "IVG Art. 7 Abs. 2",
+            "certainty": "medium",
+            "checked": "Art. 7 Abs. 2: the insured person takes part in measures to keep the job; the date of full return closes the reintegration. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Bemerkungen",
+            "requirement": "Hinweise für den Arbeitsplatz (Einschränkungen, Hilfsmittel); keine Diagnose, das Zeugnis geht an den Arbeitgeber",
+            "source": "OR Art. 328b",
+            "certainty": "medium",
+            "checked": "Art. 328b: the employer may process data about the employee only as far as they concern suitability for the job; the certificate goes to the employer, so remarks state restrictions, not a diagnosis. The article binds the employer, not the physician; hence medium. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Kontakt mit Arbeitgeberin / Arbeitgeber erwünscht",
+            "requirement": "Ja/Nein-Angabe zur gewünschten Kommunikation",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added, no statute prescribes this entry."
+        },
+        {
+            "field": "Datum",
+            "requirement": "Datum der Ausstellung des Zeugnisses",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added. A certificate without date is worthless in practice, no statute says so.",
+            "required": true
+        },
+        {
+            "field": "Arzt / Ärztin (Name, Stempel)",
+            "requirement": "Name des ausstellenden Arztes und Stempel",
+            "source": "ATSG Art. 28 Abs. 3",
+            "certainty": "medium",
+            "checked": "Art. 28 Abs. 3: physicians are obliged to give the information needed for the claim once authorised; the issuing physician must be identifiable. Added by hand.",
+            "required": true
+        },
+        {
+            "field": "Unterschrift",
+            "requirement": "Unterschrift des Arztes",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added. Without the signature the certificate is not one, in practice.",
+            "required": true
+        }
+    ]
+}

@@ -33,9 +33,13 @@ export function formText( job ) {
     return lines.join( '\n' );
 }
 
+// Room for the answer: 40 entries came to about 3 000 tokens (7 October 2026); a form with a hundred fields
+// needs twice that, or the JSON is cut and the call wasted.
+const ROOM = 7000;
+
 // Asks the large model and returns the catalogue in the repository's shape, unverified.
 export async function buildCatalogue( job, client ) {
-    const answer = await client.ask( prompt( formText( job ) ), { room: 3000, model: LARGE, tag: 'catalogue ' + job.form.name } );
+    const answer = await client.ask( prompt( formText( job ) ), { room: ROOM, model: LARGE, tag: 'catalogue ' + job.form.name } );
     const raw = parse( answer ? answer.text : '' );
     if ( !raw || !Array.isArray( raw.felder ) ) {
         throw new Error( 'the model returned no catalogue' );

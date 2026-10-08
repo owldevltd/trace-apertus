@@ -1,0 +1,407 @@
+{
+    "form": "Schadenmeldung UVG (Nachbau nach Helsana Unfall AG, Ausgabe 12.2016)",
+    "built": "2026-10-07",
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "verified": "2026-10-07: the model cited UVG Art. 49 for 30 entries, UVG Art. 93 for the policy number and KVG Art. 41 for the health insurer; all three were read on Fedlex and are the payment of the daily allowance, the collection of premiums and the choice of provider, so every one was replaced or withdrawn. Sources set by hand from UVG Art. 2, 4, 6, 7, 8, 10, 15, 16, 17, 45, 46, UVV Art. 11, 13, 22, 53, 54, ATSG Art. 63, 64, KVG Art. 1a and AHVG Art. 50c as published on Fedlex, each read in full; three fields the model skipped were added, one heading merged into its field; required marks what UVV Art. 53 Abs. 1 lists (time, place, course, consequences, physician), the reporting employer and the injured person, the weekly hours that decide the cover, the pay the allowance is measured by, and the signatures that make the report true",
+    "fields": [
+        {
+            "field": "Art der Meldung",
+            "requirement": "Auswahl aus: Unfall, Berufskrankheit, Zahnschaden, Rückfall",
+            "source": "UVG Art. 6 Abs. 1, UVV Art. 11, UVG Art. 10 Abs. 1 Bst. a",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. Art. 6 Abs. 1 names the three cases the insurance covers (occupational accident, non-occupational accident, occupational disease), UVV Art. 11 adds relapses and late effects, UVG Art. 10 Abs. 1 Bst. a the dentist for dental damage. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Schaden-Nummer",
+            "requirement": "Von der Versicherung zugewiesene Schaden-Nummer",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added."
+        },
+        {
+            "field": "Name und Adresse mit Postleitzahl",
+            "requirement": "Vollständige Geschäftsadresse des Arbeitgebers inkl. PLZ",
+            "source": "UVG Art. 45 Abs. 2",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. Art. 45 Abs. 2: the employer reports to the insurer without delay; the report must say who reports. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Tel.-Nr.",
+            "requirement": "Kontakt-Telefonnummer des Arbeitgebers",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added."
+        },
+        {
+            "field": "E-Mail",
+            "requirement": "Korrespondenz-E-Mail-Adresse des Arbeitgebers",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added."
+        },
+        {
+            "field": "Police-Nr. UVG",
+            "requirement": "Versicherungspolice-Nummer der obligatorischen Unfallversicherung",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited UVG Art. 93, which is the collection of premiums and the employer's pay records; it says nothing of a policy number. Withdrawn."
+        },
+        {
+            "field": "Police-Nr. UVG-Zusatz",
+            "requirement": "Zusätzliche Police-Nummer für Zusatzversicherungen (falls vorhanden)",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added."
+        },
+        {
+            "field": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+            "requirement": "Genaue Bezeichnung des Betriebszweigs oder Arbeitsplatzes",
+            "source": "UVV Art. 53 Abs. 3 Bst. d",
+            "certainty": "medium",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 3 Bst. d: the form carries what is needed for occupational safety and statistics; the branch of the business is that. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Name und Vorname",
+            "requirement": "Vollständiger Name des Verletzten",
+            "source": "UVG Art. 45 Abs. 2",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. Art. 45 Abs. 2: the report concerns an insured person of the business; the person must be named. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Geburtsdatum",
+            "requirement": "Geburtsdatum im Format TT.MM.JJJJ",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. No statute asks for the date of birth on the report; withdrawn."
+        },
+        {
+            "field": "AHV-Nummer",
+            "requirement": "AHV-Versichertennummer des Verletzten",
+            "source": "AHVG Art. 50c Abs. 1",
+            "certainty": "medium",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. AHVG Art. 50c Abs. 1: every resident person has an AHV number; the article backs the number, not the form. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Strasse, PLZ, Wohnort",
+            "requirement": "Vollständige Wohnadresse inkl. PLZ",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. No statute asks for the address; withdrawn."
+        },
+        {
+            "field": "Zivilstand",
+            "requirement": "Aktueller Zivilstand (z. B. ledig, verheiratet, geschieden)",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added."
+        },
+        {
+            "field": "Land, Staatsangehörigkeit / Bewilligung",
+            "requirement": "Heimatland und Aufenthaltsstatus (falls nicht CH)",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added. UVG Art. 2 Abs. 2 concerns workers posted from abroad, not nationality."
+        },
+        {
+            "field": "E-Mail",
+            "requirement": "Korrespondenz-E-Mail-Adresse des Verletzten",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added."
+        },
+        {
+            "field": "Datum der Anstellung",
+            "requirement": "Datum des Arbeitsbeginns im Format TT.MM.JJJJ",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. No statute asks for the date of employment on the report; withdrawn."
+        },
+        {
+            "field": "Ausgeübter Beruf",
+            "requirement": "Berufsbezeichnung gemäss Arbeitsvertrag",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. No statute asks for the occupation; withdrawn."
+        },
+        {
+            "field": "Stellung",
+            "requirement": "Hierarchieebene (Höheres Kader, Mittleres Kader, Angestellte/r, Lehrling, Praktikant/in)",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. No statute asks for the position; withdrawn."
+        },
+        {
+            "field": "Arbeitszeit des/der Verletzten (Std./Woche)",
+            "requirement": "Wöchentliche Arbeitszeit der verletzten Person bei diesem Arbeitgeber in Stunden; ab acht Stunden pro Woche sind auch Nichtberufsunfälle versichert",
+            "source": "UVV Art. 13 Abs. 1 und 2, UVG Art. 7 Abs. 2, UVG Art. 8 Abs. 2",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 13 Abs. 1: from eight hours a week at one employer the person is insured against non-occupational accidents too; below that only accidents on the way to work count as occupational (Abs. 2, UVG Art. 7 Abs. 2) and non-occupational accidents are not insured (UVG Art. 8 Abs. 2). The weekly hours decide the cover. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Arbeitsverhältnis gekündigt per",
+            "requirement": "Datum der Kündigung (falls zutreffend)",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added. The end of cover after notice (UVG Art. 3) was not fetched and is not cited."
+        },
+        {
+            "field": "Betriebsübliche Vollarbeitszeit (Std./Woche)",
+            "requirement": "Standardarbeitszeit im Betrieb",
+            "source": "UVV Art. 13 Abs. 1",
+            "certainty": "medium",
+            "checked": "The model named no source. The firm's full working time is what the degree of employment is measured against; the eight-hour rule of UVV Art. 13 Abs. 1 is read with it. Added by hand, medium because the article names the hours, not the firm's full time.",
+            "required": false
+        },
+        {
+            "field": "Vertraglicher Beschäftigungsgrad (Prozent)",
+            "requirement": "Prozentualer Anteil der vereinbarten Arbeitszeit",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added."
+        },
+        {
+            "field": "Arbeitseinsatz",
+            "requirement": "Arbeitszeitmodell (unregelmässig, Kurzarbeit, Zwischenverdienst)",
+            "source": "UVG Art. 15 Abs. 3 Bst. d",
+            "certainty": "medium",
+            "checked": "The model named no source. Art. 15 Abs. 3 Bst. d: the Federal Council rules the insured earnings of irregularly employed persons; irregular work changes the base. Short-time work and interim earnings are not in the fetched articles. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Schadendatum (Tag, Monat, Jahr, Zeit)",
+            "requirement": "Datum und Uhrzeit des Ereignisses im Format TT.MM.JJJJ, HH:MM",
+            "source": "UVV Art. 53 Abs. 1 Bst. a",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 1 Bst. a: time of the accident. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Unfallort (Ort und Stelle)",
+            "requirement": "Ort (Name oder PLZ) und genaue Stelle (z. B. Werkstatt, Strasse)",
+            "source": "UVV Art. 53 Abs. 1 Bst. a",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 1 Bst. a: place of the accident. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Sachverhalt (Unfallbeschreibung)",
+            "requirement": "Tätigkeit zur Zeit des Unfalles, Unfallhergang, beteiligte Gegenstände/Fahrzeuge",
+            "source": "UVV Art. 53 Abs. 1 Bst. a, Abs. 2 und Abs. 3 Bst. a",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 1 Bst. a: course of the accident; Abs. 2: the employer checks cause and course of occupational accidents without delay; Abs. 3 Bst. a: the form carries what is needed to clarify the course. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Beteiligte Person(en)",
+            "requirement": "Name und Funktion aller beteiligten Personen",
+            "source": "UVV Art. 53 Abs. 1 Bst. c",
+            "certainty": "medium",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 1 Bst. c: liable third parties and insurances concerned; the persons involved point to them. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Besteht ein Polizeirapport? (Ja/Nein)",
+            "requirement": "Angabe, ob ein Polizeirapport erstellt wurde",
+            "source": "UVV Art. 54",
+            "certainty": "medium",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 54: the insurer may demand copies of official reports and police reports from the authorities; whether one exists is what the insurer needs to know. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Wenn ja, aufgenommen durch",
+            "requirement": "Name der aufnehmenden Behörde oder Person",
+            "source": "UVV Art. 54",
+            "certainty": "medium",
+            "checked": "The model named no source. UVV Art. 54, as for the police report: the authority that took it is where the insurer asks. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Besteht ein Unfallprotokoll? (Ja/Nein)",
+            "requirement": "Angabe, ob ein Unfallprotokoll erstellt wurde",
+            "source": "UVV Art. 53 Abs. 3 Bst. a",
+            "certainty": "medium",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 3 Bst. a: what is needed to clarify the course of the accident; an accident record is that. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Berufsunfall: beteiligte Gegenstände",
+            "requirement": "Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff mit genauer Bezeichnung",
+            "source": "UVV Art. 53 Abs. 3 Bst. a und d",
+            "certainty": "medium",
+            "checked": "Not in the model's list. UVV Art. 53 Abs. 3: what is needed to clarify the course (Bst. a) and for occupational safety and statistics (Bst. d). Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Nichtberufsunfall: letztmals im Betrieb gearbeitet bis / Grund der Absenz",
+            "requirement": "Wochentag, Datum und Zeit der letzten Arbeit vor dem Unfall und Grund der Abwesenheit",
+            "source": "UVG Art. 7 Abs. 1, UVG Art. 8 Abs. 1",
+            "certainty": "medium",
+            "checked": "Not in the model's list. UVG Art. 7 Abs. 1: an accident at work, in breaks or before and after work on the premises is occupational; Art. 8 Abs. 1: every other accident is non-occupational. The last working day places the accident on one side. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+            "requirement": "Name und Adresse der Einrichtung sowie Fachrichtung",
+            "source": "UVV Art. 53 Abs. 1 Bst. b",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 1 Bst. b: the treating physician or hospital. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Nachbehandelnder Arzt bzw. Spital/Klinik",
+            "requirement": "Name und Adresse der Einrichtung sowie Fachrichtung",
+            "source": "UVV Art. 53 Abs. 1 Bst. b",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 1 Bst. b, as for the first treatment. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Erstbehandlung, ambulant/stationär",
+            "requirement": "Angabe der Art der Erstbehandlung",
+            "source": "UVG Art. 10 Abs. 1 Bst. a und c",
+            "certainty": "medium",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVG Art. 10 Abs. 1: Bst. a out-patient treatment, Bst. c treatment, board and lodging in the general ward of a hospital; the two kinds of benefit. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Nachbehandlung, ambulant/stationär",
+            "requirement": "Angabe der Art der Nachbehandlung",
+            "source": "UVG Art. 10 Abs. 1 Bst. a und c",
+            "certainty": "medium",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. As for the first treatment. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Betroffener Körperteil",
+            "requirement": "Verletzter Körperteil und Seite (links, rechts, unbestimmt)",
+            "source": "UVV Art. 53 Abs. 1 Bst. a und Abs. 3 Bst. b",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 1 Bst. a: consequences of the accident; Abs. 3 Bst. b: what the medical assessment of the consequences needs. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Art der Schädigung",
+            "requirement": "Beschreibung der Verletzung (z. B. Schnitt, Bruch, Verbrennung)",
+            "source": "UVV Art. 53 Abs. 1 Bst. a und Abs. 3 Bst. b, UVG Art. 6 Abs. 2",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 1 Bst. a and Abs. 3 Bst. b as for the body part; UVG Art. 6 Abs. 2 lists the injuries (fractures, dislocations, torn menisci, muscles, tendons, ligaments, eardrum) the insurance covers even without an accident in the strict sense, so the kind of injury matters. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Arbeit zufolge Unfalles ausgesetzt? (Ja/Nein)",
+            "requirement": "Angabe, ob Arbeitsunfähigkeit vorliegt",
+            "source": "UVG Art. 45 Abs. 2, UVG Art. 16 Abs. 1",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVG Art. 45 Abs. 2: the employer must report an accident that causes incapacity for work; Art. 16 Abs. 1: incapacity gives the right to a daily allowance. Replaced by hand.",
+            "required": true
+        },
+        {
+            "field": "Wenn ja, ab wann?",
+            "requirement": "Datum, ab dem die Arbeit ausgesetzt wurde",
+            "source": "UVG Art. 16 Abs. 2",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVG Art. 16 Abs. 2: the daily allowance starts on the third day after the day of the accident; the start of incapacity sets it. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Voraussichtliche Dauer",
+            "requirement": "Geschätzte Dauer der Arbeitsunfähigkeit",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. No statute ties anything to an expected duration of one month on the report; withdrawn."
+        },
+        {
+            "field": "Falls Arbeit wieder aufgenommen: ab wann?",
+            "requirement": "Datum und Uhrzeit der Wiederaufnahme der Arbeit",
+            "source": "UVG Art. 16 Abs. 2",
+            "certainty": "high",
+            "checked": "The model named no source. UVG Art. 16 Abs. 2: the allowance ends when full capacity for work is regained; the date of return ends it. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Wiederaufnahme",
+            "requirement": "Ganz oder teilweise wieder aufgenommen",
+            "source": "UVG Art. 17 Abs. 1",
+            "certainty": "high",
+            "checked": "The model mixed \"länger als 1 Monat\" into this entry; the field is full or partial return. UVG Art. 17 Abs. 1: at partial incapacity the allowance is cut in proportion. Rewritten by hand.",
+            "required": false
+        },
+        {
+            "field": "Lohnbestandteile (CHF pro Stunde/Monat/Jahr)",
+            "requirement": "Vertraglicher Grundlohn, Familienzulagen, Ferien- und Feiertagsentschädigung, Gratifikation / 13. Monatslohn und andere Zulagen, je pro Stunde, Monat oder Jahr (brutto)",
+            "source": "UVG Art. 15 Abs. 1 und 2, UVV Art. 22 Abs. 2 und 3",
+            "certainty": "high",
+            "checked": "The model named no source. UVG Art. 15 Abs. 1 and 2: allowances and pensions are measured by the insured earnings, for the allowance the last pay before the accident; UVV Art. 22 Abs. 2: the pay relevant under the AHV, with family allowances (Bst. b); Abs. 3: the last pay including components not yet paid out. Added by hand.",
+            "required": true
+        },
+        {
+            "field": "Anzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)",
+            "requirement": "Anzahl anspruchsberechtigter Kinder",
+            "source": "UVG Art. 15 Abs. 3, UVV Art. 22 Abs. 2 Bst. b",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 15; the delegation is in Abs. 3 and the rule itself in UVV Art. 22 Abs. 2 Bst. b: family allowances within the usual frame count as insured earnings, so the number of children matters. Made precise by hand.",
+            "required": false
+        },
+        {
+            "field": "Weitere(r) Arbeitgeber",
+            "requirement": "Angabe, ob weitere Arbeitgeber vorhanden sind",
+            "source": "UVV Art. 22 Abs. 4",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 22 Abs. 4: the pension is based on the pay earned within a year with one or several employers. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Name und Adresse",
+            "requirement": "Falls ja: Name und Adresse des weiteren Arbeitgebers",
+            "source": "UVV Art. 22 Abs. 4",
+            "certainty": "medium",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. As for the question. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Quellensteuerpflicht",
+            "requirement": "Ja/Nein",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "The model named no source; none added. Taxation at source is a matter of tax law, not of the fetched statutes."
+        },
+        {
+            "field": "Besondere Versicherungsverhältnisse",
+            "requirement": "Angabe von freiwilligen Versicherungen, Familienmitgliedern, Entsandten",
+            "source": "UVG Art. 4 Abs. 1, UVV Art. 22 Abs. 2 Bst. c, UVG Art. 2 Abs. 1 und 2",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVG Art. 4 Abs. 1: self-employed persons and their family members not compulsorily insured may insure voluntarily; UVV Art. 22 Abs. 2 Bst. c: for working family members, partners and shareholders at least the usual pay counts; UVG Art. 2: a worker sent abroad for a limited time stays insured (Abs. 1), one sent to Switzerland from abroad is not (Abs. 2). Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Anspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung? / Wenn ja, wo?",
+            "requirement": "Nein oder Ja mit Nennung der Versicherung (Krankenversicherung, Suva oder andere Unfallversicherung, IV, AHV, berufliche Vorsorge, Militärversicherung, Arbeitslosenversicherung)",
+            "source": "ATSG Art. 63 Abs. 1, ATSG Art. 64 Abs. 1 und 2, UVG Art. 16 Abs. 3",
+            "certainty": "high",
+            "checked": "Not in the model's list. ATSG Art. 63 Abs. 1: coordination between social insurances; Art. 64 Abs. 1 and 2: treatment is paid by one insurance only, in a fixed order; UVG Art. 16 Abs. 3: no accident daily allowance while an IV daily allowance or a maternity allowance is due. Added by hand.",
+            "required": false
+        },
+        {
+            "field": "Name der obligatorischen Krankenversicherung (inkl. Police-Nr.)",
+            "requirement": "Name und Police-Nummer der Krankenkasse",
+            "source": "KVG Art. 1a Abs. 2 Bst. b, ATSG Art. 64 Abs. 2",
+            "certainty": "high",
+            "checked": "The model cited KVG Art. 41, which is the choice of provider. KVG Art. 1a Abs. 2 Bst. b: health insurance pays for accidents only as far as no accident insurance does; ATSG Art. 64 Abs. 2: accident insurance comes before health insurance for treatment. The insurer needs the health insurer for that coordination. Replaced by hand.",
+            "required": false
+        },
+        {
+            "field": "Unterschriften",
+            "requirement": "Ort und Datum, Unterschrift der verletzten Person, Stempel und Unterschrift des Arbeitgebers",
+            "source": "UVV Art. 53 Abs. 3, UVG Art. 46 Abs. 2",
+            "certainty": "high",
+            "checked": "The model cited UVG Art. 49, which is the payment of the daily allowance through the employer, not a reporting duty. UVV Art. 53 Abs. 3: the form is filled in completely and truthfully by the employer; UVG Art. 46 Abs. 2: a deliberately false report lets the insurer refuse benefits. Replaced by hand.",
+            "required": true
+        }
+    ]
+}
