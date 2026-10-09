@@ -1,8 +1,9 @@
 # Forms
 
-The forms the demo and the tests run on. Each folder holds the PDF, one PNG per page rendered at 300 dpi, one
-JSON per page with the reference the tests measure against, and a `form.json` with name, publisher, language,
-origin and the address the signature step sends to.
+The forms the app ships with and the tests run on. Each folder holds the PDF, one PNG per page rendered at
+300 dpi, one JSON per page with the reference the tests measure against, a `form.json` with name, publisher,
+language, origin and the address the signature step sends to, and `captured.json`, the form as the pipeline
+captured it.
 
 | Folder | Form | Publisher | Origin | Pages |
 |---|---|---|---|---|
@@ -17,6 +18,12 @@ one with labels over writing lines, one with boxed fields and tinted section bar
 every page say "nachgebaut nach dem Vorbild von …, nicht das Original". They are built by `tools/forms/build.js`
 from the definitions beside it (`make forms`), which also renders the pages and writes the reference JSON; the
 build needs poppler (`pdftoppm`, `pdftotext`), the app does not.
+
+The app lists the four forms under "Shipped forms". Each was captured once, when it was put here: `make capture`
+(`tools/capture.js`) runs the whole pipeline over it, with the words taken from the text layer of the PDF instead
+of read by the model, and keeps the result beside it as `captured.json`: pages, blocks, fields and the dialogue
+with its questions. Choosing a form in the app makes a job from that file; nothing is recognized at that moment.
+Recognizing, with its progress on the screen, is what happens when a person photographs or uploads a new form.
 
 ## The reference JSON
 

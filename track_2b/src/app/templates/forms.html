@@ -5,7 +5,15 @@
     <button class="cell row press entry" data-open="{{uid}}">{{> thumb}}<div class="grow"><p class="strong">{{name}}</p><p class="muted small">{{issuer}} · {{created}}</p></div><span class="chip {{chip}}">{{status}}</span></button>
     {{/entries}}
 </div>
-<p class="eyebrow">{{t:templates}}</p>
+{{#shipped.length}}
+<p class="eyebrow">{{t:shipped}}</p>
+<div class="group">
+    <div class="grid2">
+        {{#shipped}}<button class="tpl press" data-shipped="{{id}}"><strong>{{name}}</strong><span class="muted small">{{issuer}}{{#rebuilt}} · {{rebuilt}}{{/rebuilt}}</span></button>{{/shipped}}
+    </div>
+</div>
+{{/shipped.length}}
+{{#groups.length}}<p class="eyebrow">{{t:walkthrough}}</p>{{/groups.length}}
 {{#groups}}
 <div class="group">
     <div class="head"><span class="ico">{{ico}}</span>{{label}}</div>

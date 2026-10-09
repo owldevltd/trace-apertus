@@ -10,7 +10,7 @@ export function createJob( form ) {
     const id = Date.now().toString( 36 ) + Math.random().toString( 36 ).slice( 2, 6 );
     return {
         id,
-        schema: '2b-0.1',
+        schema: '2b-0.2',
         form,
         pages: [],
         blocks: [],
@@ -27,7 +27,11 @@ export function jobDir( id ) {
 export async function saveJob( job ) {
     const dir = jobDir( job.id );
     await fs.mkdir( dir, { recursive: true } );
-    await fs.writeFile( path.join( dir, 'job.json' ), JSON.stringify( job, null, 2 ) );
+    // written beside and moved into place: a request that reads the job meanwhile never sees half a file
+    const file = path.join( dir, 'job.json' );
+    const beside = file + '.' + Math.random().toString( 36 ).slice( 2, 8 );
+    await fs.writeFile( beside, JSON.stringify( job, null, 2 ) );
+    await fs.rename( beside, file );
     return dir;
 }
 
@@ -35,12 +39,23 @@ export async function loadJob( id ) {
     return JSON.parse( await fs.readFile( path.join( jobDir( id ), 'job.json' ), 'utf8' ) );
 }
 
+// Stores a page image in the job and records it; returns its number.
+export async function addPage( job, png ) {
+    const n = job.pages.length + 1;
+    const dir = path.join( jobDir( job.id ), 'pages' );
+    await fs.mkdir( dir, { recursive: true } );
+    await fs.writeFile( path.join( dir, n + '.png' ), png );
+    job.pages.push( { n, width: 0, height: 0, image: 'pages/' + n + '.png' } );
+    await saveJob( job );
+    return n;
+}
+
 export function record( job, event, note ) {
     job.history.push( { at: new Date().toISOString(), event, ...( note ? { note } : {} ) } );
     return job;
 }
 
-// Where the pipeline stands: { step, page, at, error }. step is idle, analyze, read, fields, done or error.
+// Where the pipeline stands: { step, page, at, error }. step is idle, analyze, read, fields, dialogue, done or error.
 export async function saveRun( id, run ) {
     await fs.writeFile( path.join( jobDir( id ), 'run.json' ), JSON.stringify( run, null, 2 ) );
     return run;

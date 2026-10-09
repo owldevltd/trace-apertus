@@ -108,12 +108,17 @@ export async function fillJob( job, client ) {
     const state = { step: 'fill', page: 0, at: now(), error: null };
     await saveRun( job.id, state );
     try {
-        const transcript = ( job.transcript || [] ).filter( ( p ) => p.text.trim() !== '' );
+        // What was answered on its own stays: the fields of a unit something was said in reply to, and every
+        // field a person typed an answer into or ticked off. The dictation fills the rest, from the pieces
+        // that were not the answer to one question.
+        const replied = new Set( ( job.transcript || [] ).filter( ( p ) => p.question && p.text.trim() !== '' ).map( ( p ) => p.question ) );
+        const kept = new Set( ( job.dialogue ? job.dialogue.units : [] ).filter( ( u ) => replied.has( u.id ) ).flatMap( ( u ) => u.fields ) );
+        const transcript = ( job.transcript || [] ).filter( ( p ) => p.text.trim() !== '' && !p.question );
         if ( !transcript.length ) {
             throw new Error( 'nothing dictated yet' );
         }
         const text = picture( transcript );
-        const fields = job.fields.filter( ( f ) => f.kind !== 'signature' );
+        const fields = job.fields.filter( ( f ) => f.kind !== 'signature' && !kept.has( f.id ) && !( f.source && f.source.how === 'entered' && !f.source.review ) );
         const asked = {};
         let n = 0;
         for ( const bundle of chunks( fields, BUNDLE ) ) {
@@ -126,9 +131,17 @@ export async function fillJob( job, client ) {
             await saveRun( job.id, Object.assign( state, { page: ++n, at: now() } ) );
             Object.assign( asked, await round( client, again, text, job ) );
         }
+        // the hints anew, except what the model said about an answer that stays
+        for ( const f of job.fields ) {
+            const stay = fields.includes( f ) ? [] : ( f.hints || [] ).filter( ( h ) => h.kind === 'incomplete' );
+            if ( stay.length ) {
+                f.hints = stay;
+            } else {
+                delete f.hints;
+            }
+        }
         for ( const f of fields ) {
             const got = asked[ f.id ];
-            delete f.hints;
             if ( !got || NONE.test( got.value ) ) {
                 f.value = '';
                 delete f.source;
@@ -154,6 +167,49 @@ export async function fillJob( job, client ) {
     }
     await saveRun( job.id, Object.assign( state, { at: now() } ) );
     return job;
+}
+
+// The answer to one question goes into the fields of its unit and nowhere else: the model reads the question with
+// the answer, the code takes what comes back for these fields only and holds it against the answer alone. A unit
+// with one field needs no name on the line: the model names a field by its label as often as by its id
+// ("gläubiger:" for glaeubiger) or splits it into parts, and the whole answer belongs to that field anyway.
+// Measured 9 October 2026 on the walk-through (tests/answers.js): no value in a field it was not said for,
+// against 2 of 16 from the free dictation, and one to two right answers kept by the binding.
+// pieces: the transcript pieces said in reply to the unit. Returns the unit's fields.
+export async function fillUnit( job, unit, pieces, client ) {
+    const fields = unit.fields.map( ( id ) => job.fields.find( ( f ) => f.id === id ) ).filter( Boolean );
+    const ask = unit.question || unit.label;
+    const text = picture( pieces.map( ( p ) => ( { n: p.n, text: ( ask ? 'Frage: ' + ask + '\nAntwort: ' : '' ) + p.text } ) ) );
+    for ( const f of fields ) {
+        f.value = '';
+        delete f.source;
+    }
+    for ( const bundle of chunks( fields, BUNDLE ) ) {
+        const answer = await client.ask( prompt( bundle, text ), { room: room( bundle.length ), log: jobDir( job.id ) + '/model', tag: 'answer ' + unit.id } );
+        const got = answer ? parse( answer.text, bundle ) : {};
+        if ( answer && fields.length === 1 && !got[ fields[ 0 ].id ] ) {
+            got[ fields[ 0 ].id ] = whole( answer.text );
+        }
+        for ( const f of bundle ) {
+            if ( got[ f.id ] && !NONE.test( got[ f.id ].value ) ) {
+                Object.assign( f, judge( f, got[ f.id ], pieces ) );
+            }
+        }
+    }
+    return fields;
+}
+
+// Every line of an answer as one value, whatever name stands in front: { value, cited }, or null for none.
+function whole( text ) {
+    const values = [];
+    for ( const line of text.split( /\r?\n/ ) ) {
+        const value = line.replace( /^[\s\-*]*[\p{L}\p{N} _-]{1,40}?\s*:\s*/u, '' ).replace( /\s*\[\s*p\d+\s*\]/g, '' ).trim().replace( /^["'`]+|["'`]+$/g, '' );
+        if ( value && !NONE.test( value ) ) {
+            values.push( value );
+        }
+    }
+    const cited = [ ...text.matchAll( /\[\s*p(\d+)\s*\]/g ) ].map( ( m ) => Number( m[ 1 ] ) );
+    return values.length ? { value: values.join( ', ' ), cited: [ ...new Set( cited ) ] } : null;
 }
 
 async function round( client, bundle, text, job ) {

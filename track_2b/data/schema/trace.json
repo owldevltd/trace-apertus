@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Trace form",
-  "description": "A captured form: its pages and elements, the fields found on it, the values dictated into them, hints, and what a person decided. Version 2b-0.1 (draft, 2026-10-07).",
+  "description": "A captured form: its pages and elements, the fields found on it, the form as a conversation, the values dictated into the fields, hints, and what a person decided. Version 2b-0.2 (draft, 2026-10-09).",
   "type": "object",
   "required": [
     "schema",
@@ -12,7 +12,7 @@
   ],
   "properties": {
     "schema": {
-      "const": "2b-0.1"
+      "const": "2b-0.2"
     },
     "id": {
       "type": "string",
@@ -112,6 +112,86 @@
         "$ref": "#/$defs/field"
       }
     },
+    "dialogue": {
+      "type": "object",
+      "description": "the form as a conversation: one question per unit of fields, in the order of the paper; built once when the form is captured",
+      "required": [
+        "units"
+      ],
+      "properties": {
+        "built": {
+          "type": "string",
+          "description": "ISO 8601"
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "the model that wrote and checked the questions; null when none was asked"
+        },
+        "units": {
+          "type": "array",
+          "description": "q1, q2, … in the order of the conversation; every field except the signature belongs to exactly one unit",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "kind",
+              "page",
+              "fields",
+              "label"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "single",
+                  "choice",
+                  "table"
+                ],
+                "description": "single: one field; choice: tick marks that belong together; table: rows built alike"
+              },
+              "page": {
+                "type": "integer"
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "ids of the fields an answer to this unit goes into"
+              },
+              "label": {
+                "type": "string",
+                "description": "the printed labels of the unit's fields; what is asked where no question holds"
+              },
+              "rows": {
+                "type": "integer",
+                "description": "for a table"
+              },
+              "columns": {
+                "type": "integer",
+                "description": "for a table"
+              },
+              "question": {
+                "type": "string",
+                "description": "the plain question, present only when it passed the check: every run named this unit, and no other unit of the page is asked with the same words"
+              },
+              "skip": {
+                "type": "boolean",
+                "description": "not asked: the fillable original has no form field at this place"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "audio": {
       "type": "object",
       "description": "the dictation, as recorded on the device",
@@ -142,7 +222,7 @@
     },
     "transcript": {
       "type": "array",
-      "description": "what the model heard, piece by piece; raw and untouched",
+      "description": "what the model heard, piece by piece; raw and untouched. A typed answer to a question is a piece without sound",
       "items": {
         "type": "object",
         "required": [
@@ -169,6 +249,10 @@
           "approve": {
             "type": "boolean",
             "description": "a person should listen: the piece was empty, cut off, or the model switched language"
+          },
+          "question": {
+            "type": "string",
+            "description": "id of the dialogue unit this piece was said or typed in reply to"
           }
         },
         "additionalProperties": false
@@ -466,10 +550,11 @@
           "enum": [
             "missing",
             "vague",
+            "incomplete",
             "legal",
             "format"
           ],
-          "description": "missing: required field empty (code); vague: the model found the entry insufficient against the catalogue; legal: the catalogue's requirement for this field; format: the value does not fit the kind (code)"
+          "description": "missing: required field empty (code); vague: the model found the entry insufficient against the catalogue; incomplete: the model found that the answer does not cover what the question asks for; legal: the catalogue's requirement for this field; format: the value does not fit the kind (code)"
         },
         "text": {
           "type": "string"

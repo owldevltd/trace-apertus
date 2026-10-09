@@ -9,7 +9,6 @@ import * as forms from './screens/forms.js';
 import * as form from './screens/form.js';
 import * as camera from './screens/camera.js';
 import * as verify from './screens/verify.js';
-import * as record from './screens/record.js';
 import * as sign from './screens/sign.js';
 import * as sent from './screens/sent.js';
 import * as more from './screens/more.js';
@@ -17,11 +16,15 @@ import * as more from './screens/more.js';
 // Start: translations and templates are loaded once, then store, i18n, templates and router are built and
 // handed to every screen as ctx. A screen renders into its body when it is entered; one-time listeners are
 // wired at start. Nothing lives in module state.
+//
+// The demo stands beside the app, under /?demo: the walk-through with two forms whose recognition, values and
+// transcript are made up, for showing the flow without a model. It keeps its own state; the app itself shows
+// nothing of it.
 
 const LANGS = [ 'en', 'de', 'fr', 'it' ];
-const TEMPLATES = [ 'home', 'thumb', 'forms', 'pills', 'verify', 'form', 'field', 'sign', 'sent', 'more', 'sheet', 'recognizing' ];
+const TEMPLATES = [ 'home', 'thumb', 'forms', 'pills', 'verify', 'form', 'field', 'turn', 'sign', 'sent', 'more', 'sheet', 'recognizing' ];
 const ROOTS = [ 'home', 'forms', 'sent', 'more' ];
-const SCREENS = { home, forms, form, camera, verify, record, sign, sent, more };
+const SCREENS = { home, forms, form, camera, verify, sign, sent, more };
 
 async function load( urls ) {
     return Promise.all( urls.map( async ( url ) => {
@@ -38,11 +41,14 @@ async function boot() {
         load( LANGS.map( ( l ) => 'lang/' + l + '.json' ) ).then( ( list ) => Object.fromEntries( list.map( ( t, i ) => [ LANGS[ i ], t ] ) ) ),
         load( TEMPLATES.map( ( n ) => 'templates/' + n + '.html' ) ).then( ( list ) => Object.fromEntries( list.map( ( s, i ) => [ TEMPLATES[ i ], s ] ) ) ),
     ] );
-    const store = createStore();
+    const demo = new URLSearchParams( location.search ).has( 'demo' );
+    document.documentElement.toggleAttribute( 'data-demo', demo );
+    const store = createStore( demo ? 'trace-demo' : 'trace' );
     const i18n = createI18n( tables, store.get( 'lang' ) );
     const tpl = createTemplates( sources, i18n.t );
     const root = $( '#stage' );
     const ctx = {
+        demo,
         store,
         i18n,
         t: i18n.t,
@@ -51,7 +57,7 @@ async function boot() {
         model: createModel( i18n.t ),
         screens: SCREENS,
         // what the flow holds between screens; not saved
-        state: { tab: 'fields', photo: null, form: null, off: [], current: null },
+        state: { tab: 'fields', photo: null, form: null, off: [], current: null, pending: new Set(), listen: null },
         screen: ( id ) => $( '#s-' + id, root ),
         body: ( id ) => $( '#s-' + id + ' [data-body]', root ),
         bottom: ( id ) => $( '#s-' + id + ' [data-bottom]', root ),

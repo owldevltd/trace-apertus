@@ -55,13 +55,17 @@ documentation. The common denominator: forms someone else prescribes. The demo s
 ## Flow
 
 1. **Capture.** Photo of the paper form, or a PDF.
-2. **Structure.** The page is split into elements by geometry; the model reads the text of each element; labels and
-   boxes become fields.
+2. **Structure.** The page is split into elements by geometry; the model reads the text of each element (a form
+   that ships with the app was captured beforehand, from the text of its PDF); labels and boxes become fields. The fields are grouped into units, and the model writes one plain question per unit and
+   checks it twice, so the form can be asked as a conversation; where no question holds, the printed label stays.
 3. **Verify the form.** The person sees the fields on the page and unticks what is not a field.
-4. **Dictate.** Free speech, recorded on the device, cut at silence, sent in pieces.
-5. **Fill.** The model maps the transcript onto the fields; every value points at its words.
-6. **Review.** Fields with a value, a status (ok, unclear, missing), hints from a catalogue of legal requirements built
-   once per form by the large model.
+4. **Dictate.** Free speech, recorded on the device, cut at silence, sent in pieces; or the questions one by one,
+   typed or spoken. Spoken, it is a conversation: the microphone stays open at the question, an answer ends at a
+   pause, and the next question is asked.
+5. **Fill.** The model maps the transcript onto the fields; every value points at its words. An answer to one
+   question goes into the fields of that question only, and the model says whether it covers what was asked.
+6. **Review.** Each question with what was said, a status (ok, unclear, missing), hints from a catalogue of legal
+   requirements built once per form by the large model.
 7. **Send.** The filled PDF goes to the recipient for signature.
 
 ## Decision rule

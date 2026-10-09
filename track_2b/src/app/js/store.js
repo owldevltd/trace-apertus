@@ -2,10 +2,10 @@
 // key, read once, written on every change. Screens read through get() and change through set(); a subscriber
 // hears every change. No module state: main.js creates the store and hands it around.
 
-const KEY = 'trace';
 const EVENTS = 30;
 
-export function createStore() {
+// key: where the state is kept; the demo keeps its own, so its made-up forms never show in the app
+export function createStore( KEY = 'trace' ) {
     const state = Object.assign( { saved: [], events: [], lang: 'en', mockIndex: 0 }, read() );
     const listeners = new Set();
 

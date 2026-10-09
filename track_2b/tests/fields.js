@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { buildFields, groupRadios, same } from '../src/fields/builder.js';
+import { standIn } from './shipped.js';
 
 // The built fields against the form widgets of the PDFs, without a model: the text layer stands in for the
 // reading (an element with reference words in it is a text). Per widget: hit by a field of the right kind.
@@ -153,24 +154,6 @@ if ( outFile ) {
     await fs.mkdir( path.dirname( outFile ), { recursive: true } );
     await fs.writeFile( outFile, md );
     console.log( 'written ' + outFile );
-}
-
-// Elements with the text layer standing in for the reading: an unknown with reference words in it is a text.
-function standIn( elements, words ) {
-    return elements.map( ( e ) => {
-        if ( e.type !== 'unknown' ) {
-            return e;
-        }
-        const inside = words.filter( ( w ) => {
-            if ( !w.ink ) {
-                return false;
-            }
-            const cx = w.ink.x + Math.floor( w.ink.w / 2 );
-            const cy = w.ink.y + Math.floor( w.ink.h / 2 );
-            return cx >= e.x && cx <= e.x + e.width && cy >= e.y && cy <= e.y + e.height;
-        } ).sort( ( a, b ) => a.line - b.line || a.x - b.x );
-        return inside.length ? { ...e, type: 'text', content: inside.map( ( w ) => w.t ).join( ' ' ) } : e;
-    } );
 }
 
 // On which side of a built tick mark its label was found.

@@ -1,7 +1,9 @@
 // The recording: the microphone through Web Audio, gathered as 16 kHz mono, cut into pieces only where the
 // size demands it and then at a pause, each piece encoded as MP3 (lamejs, 64 kbit/s) or, without the encoder,
 // as WAV, and handed out as soon as it is closed. Cutting into sentences gained nothing when measured, so a
-// recording goes whole unless it grows past the service's limit.
+// dictation goes whole unless it grows past the service's limit. A conversation is recorded the other way:
+// with `pause` set, a piece closes at the first pause of that length after the person has spoken, one answer
+// per piece, and what was only silence is no piece.
 
 const RATE = 16000;
 const KBPS = 64;
@@ -18,8 +20,39 @@ const HARD_SECONDS = 480;
 
 const BLOCK = 4096;
 
-export function createRecorder( { onLevel, onPiece } = {} ) {
-    const state = { audio: null, stream: null, source: null, processor: null, analyser: null, chunks: [], rate: 48000, seconds: 0, pieceStart: 0, n: 0, floor: null, floorSamples: [], quietMs: 0, closing: Promise.resolve() };
+// in a conversation: the level stands above the floor for this long before it counts as speech, and this much
+// sound before the speech is kept with the piece
+const VOICED_MS = 300;
+const LEAD_MS = 500;
+
+// Speech, then a pause: the gate hears the level block by block and says when an answer has ended.
+export function createGate( pause, voiced = VOICED_MS ) {
+    const state = { voiced: 0, quiet: 0 };
+    return {
+        // ms of sound, above the floor or not; true when an answer has just ended
+        hear( loud, ms ) {
+            if ( loud ) {
+                state.voiced += ms;
+                state.quiet = 0;
+                return false;
+            }
+            state.quiet += ms;
+            if ( state.quiet < pause ) {
+                return false;
+            }
+            // a pause: after speech the answer has ended, after a crackle it is forgotten
+            const ended = state.voiced >= voiced;
+            state.voiced = 0;
+            return ended;
+        },
+        spoken: () => state.voiced >= voiced,
+    };
+}
+
+// pause: in a conversation, the length of the pause in ms that ends an answer; without it the recording is a dictation
+export function createRecorder( { onLevel, onPiece, pause = 0 } = {} ) {
+    const gate = pause ? createGate( pause ) : null;
+    const state = { audio: null, stream: null, source: null, processor: null, analyser: null, chunks: [], rate: 48000, seconds: 0, pieceStart: 0, n: 0, floor: null, floorSamples: [], quietMs: 0, heard: false, closing: Promise.resolve() };
 
     async function start() {
         state.stream = await navigator.mediaDevices.getUserMedia( { audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true, autoGainControl: true }, video: false } );
@@ -63,6 +96,23 @@ export function createRecorder( { onLevel, onPiece } = {} ) {
             return;
         }
         state.quietMs = rms < state.floor ? state.quietMs + ms : 0;
+        if ( gate ) {
+            const ended = gate.hear( rms >= state.floor, ms );
+            state.heard = state.heard || gate.spoken();
+            if ( ended ) {
+                close();
+            } else if ( !state.heard ) {
+                // nothing said yet: only the last moment is kept, so the piece begins just before the speech
+                let kept = 0;
+                let from = state.chunks.length;
+                while ( from > 0 && kept < LEAD_MS ) {
+                    kept += state.chunks[ --from ].length / state.rate * 1000;
+                }
+                state.chunks = state.chunks.slice( from );
+                state.pieceStart = state.seconds - kept / 1000;
+            }
+            return;
+        }
         const length = state.seconds - state.pieceStart;
         if ( ( length >= CUT_SECONDS && state.quietMs >= PAUSE_MS ) || length >= HARD_SECONDS ) {
             close();
@@ -74,10 +124,13 @@ export function createRecorder( { onLevel, onPiece } = {} ) {
         const chunks = state.chunks;
         const start = state.pieceStart;
         const duration = state.seconds - start;
+        const heard = state.heard;
         state.chunks = [];
         state.pieceStart = state.seconds;
-        state.quietMs = 0;
-        if ( !chunks.length || duration < 0.3 ) {
+        state.heard = false;
+        // in a conversation the pause that ended the answer runs on: it is what tells that nobody speaks any more
+        state.quietMs = gate ? state.quietMs : 0;
+        if ( !chunks.length || duration < 0.3 || ( gate && !heard ) ) {
             return state.closing;
         }
         const n = ++state.n;
@@ -101,7 +154,7 @@ export function createRecorder( { onLevel, onPiece } = {} ) {
         await last;
     }
 
-    return { start, stop, seconds: () => state.seconds, pieces: () => state.n, analyser: () => state.analyser };
+    return { start, stop, seconds: () => state.seconds, pieces: () => state.n, analyser: () => state.analyser, quiet: () => state.quietMs };
 }
 
 function concat( chunks ) {

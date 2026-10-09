@@ -13,6 +13,9 @@ const LANGUAGE = { de: 'Deutsch', fr: 'Französisch', it: 'Italienisch', en: 'En
 // at most this many dictionary entries, the longest labels first
 const WORDS = 40;
 
+// the end of a dictionary entry in front of the echoed list counts as part of it from this many characters on
+const ECHO_TAIL = 8;
+
 export function prompt( language, words ) {
     let p = 'Transkribiere die Aufnahme wortwörtlich. Ausgangssprache ist ' + ( LANGUAGE[ language ] || LANGUAGE.de ) + ', bitte gib ' + ( LANGUAGE[ language ] || LANGUAGE.de ) + ' zurück.';
     if ( words.length ) {
@@ -21,11 +24,13 @@ export function prompt( language, words ) {
     return p;
 }
 
-// The dictionary of a job: the form's name and issuer and its field labels, short ones first dropped.
+// The dictionary of a job: the form's name and issuer and its field labels, short ones first dropped. Where the
+// form has a dialogue, only the labels of what is asked: a note the geometry took for a field is no term.
 export function dictionary( job ) {
     const seen = new Set();
     const out = [];
-    for ( const w of [ job.form.name, job.form.issuer, ...job.fields.map( ( f ) => f.label ) ] ) {
+    const skipped = new Set( ( job.dialogue ? job.dialogue.units : [] ).filter( ( u ) => u.skip ).flatMap( ( u ) => u.fields ) );
+    for ( const w of [ job.form.name, job.form.issuer, ...job.fields.filter( ( f ) => !skipped.has( f.id ) ).map( ( f ) => f.label ) ] ) {
         const t = ( w || '' ).replace( /\s+/g, ' ' ).trim();
         if ( t.length > 2 && !seen.has( t.toLowerCase() ) ) {
             seen.add( t.toLowerCase() );
@@ -49,17 +54,7 @@ export async function transcribeJob( job, client ) {
                 continue;
             }
             await saveRun( job.id, Object.assign( state, { page: piece.n, at: now() } ) );
-            const bytes = await fs.readFile( path.join( dir, 'audio', piece.file ) );
-            const answer = await client.ask( prompt( job.form.language, words ), { audio: { bytes, format: piece.format }, room: 1500, log: path.join( dir, 'model' ), tag: 'audio #' + piece.n } );
-            const raw = answer ? answer.text : '';
-            job.transcript.push( {
-                n: piece.n,
-                start: piece.start,
-                text: digits( raw ),
-                raw,
-                // a person should listen: nothing came back, or the answer was cut off
-                approve: raw.trim() === '' || ( answer && answer.finish === 'length' ),
-            } );
+            job.transcript.push( await hear( job, piece, words, client ) );
             job.transcript.sort( ( a, b ) => a.n - b.n );
             await saveJob( job );
         }
@@ -72,6 +67,62 @@ export async function transcribeJob( job, client ) {
     }
     await saveRun( job.id, Object.assign( state, { at: now() } ) );
     return job;
+}
+
+// The pieces of the recording said in reply to one question of the dialogue: transcribed like any piece, and
+// each carries the unit it answers. numbers: the piece numbers; returns their transcript pieces.
+export async function transcribeAnswer( job, numbers, question, client ) {
+    const pieces = JSON.parse( await fs.readFile( path.join( jobDir( job.id ), 'audio', 'pieces.json' ), 'utf8' ) ).filter( ( p ) => numbers.includes( p.n ) );
+    const words = dictionary( job );
+    const said = [];
+    for ( const piece of pieces ) {
+        said.push( { ...( await hear( job, piece, words, client ) ), question } );
+    }
+    job.transcript = [ ...( job.transcript || [] ).filter( ( t ) => !numbers.includes( t.n ) ), ...said ].sort( ( a, b ) => a.n - b.n );
+    return said;
+}
+
+// One piece as a transcript piece. One call.
+async function hear( job, piece, words, client ) {
+    const dir = jobDir( job.id );
+    const bytes = await fs.readFile( path.join( dir, 'audio', piece.file ) );
+    const answer = await client.ask( prompt( job.form.language, words ), { audio: { bytes, format: piece.format }, room: 1500, log: path.join( dir, 'model' ), tag: 'audio #' + piece.n } );
+    const raw = answer ? answer.text : '';
+    const echo = echoAt( raw, words );
+    const said = echo < 0 ? raw : raw.slice( 0, echo ).trim();
+    return {
+        n: piece.n,
+        start: piece.start,
+        text: digits( said ),
+        raw,
+        // a person should listen: nothing came back, the prompt came back, or the answer was cut off
+        approve: said === '' || echo >= 0 || !!( answer && answer.finish === 'length' ),
+    };
+}
+
+// The model hands back the names and terms it was given: alone when there is nothing to hear, or behind what
+// was said. Three entries of the dictionary in a row, in its order and with its commas, are the prompt and not
+// a person; from there on the transcript is cut, together with the end of the entry before, which the model
+// starts the list with as often as not. Returns where the list begins, or -1. Seen 9 October 2026: a tone
+// without speech came back as the whole list and went into a field as a literal value, and a spoken sentence
+// came back with the list behind it.
+export function echoAt( raw, words ) {
+    let at = -1;
+    words.forEach( ( w, i ) => {
+        const found = i + 2 < words.length ? raw.indexOf( [ w, words[ i + 1 ], words[ i + 2 ] ].join( ', ' ) ) : -1;
+        if ( found < 0 || ( at >= 0 && found >= at ) ) {
+            return;
+        }
+        at = found;
+        const before = i > 0 ? words[ i - 1 ] : '';
+        for ( let k = before.length; k >= ECHO_TAIL; k-- ) {
+            if ( raw.slice( 0, found ).endsWith( before.slice( -k ) + ', ' ) ) {
+                at = found - k - 2;
+                break;
+            }
+        }
+    } );
+    return at;
 }
 
 function now() {

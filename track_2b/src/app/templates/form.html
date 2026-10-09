@@ -4,10 +4,11 @@
 {{> pills}}
 <div class="pane">
     {{#isFields}}
-    <div class="hero"><p class="eyebrow">{{t:fields}}</p>{{card}}</div>
+    <div class="hero"><p class="eyebrow">{{paneTitle}}</p>{{card}}</div>
     {{#filling}}<div class="grey row"><div class="spinner"></div><p class="small muted">{{t:rec.filling}}</p></div>{{/filling}}
+    {{#turns.length}}<div class="chat">{{#turns}}{{> turn}}{{/turns}}</div>{{/turns.length}}
     {{#sections}}
-    <div class="stack narrow"><p class="eyebrow">{{title}}{{#ok}} · {{ok}}{{/ok}}</p><div class="cells">{{#fields}}{{> field}}{{/fields}}</div></div>
+    <div class="stack narrow">{{#title}}<p class="eyebrow">{{title}}{{#ok}} · {{ok}}{{/ok}}</p>{{/title}}<div class="cells">{{#fields}}{{> field}}{{/fields}}</div></div>
     {{/sections}}
     {{/isFields}}
     {{#isPreview}}<div class="hero"><p class="eyebrow">{{t:preview}}</p>{{pvHint}}</div><div class="pv"><span class="small muted">{{pvMeta}}</span>{{{preview}}}</div>{{/isPreview}}
@@ -15,9 +16,9 @@
         {{#transcribing}}<div class="grey row"><div class="spinner"></div><p class="small muted">{{t:rec.transcribing}}</p></div>{{/transcribing}}
         {{^transcript}}{{^transcribing}}<div class="grey centre"><p class="muted">{{t:tr.empty}}</p></div>{{/transcribing}}{{/transcript}}
         {{#transcript}}<div class="seg press"><div class="meta"><span class="num">{{t}}</span><span>{{section}}</span></div>{{summary}}<div class="raw">{{raw}}</div></div>{{/transcript}}
-        {{#transcript.length}}<p class="small muted">{{t:tr.hint}}</p>{{/transcript.length}}
+        {{#transcript.length}}<p class="small muted">{{trHint}}</p>{{/transcript.length}}
     {{/isTranscript}}
-    {{#isLegal}}{{#laws}}<div class="law"><p class="art">{{art}}</p><p class="small">{{text}}</p><p class="src">{{t:law.for}}: {{fields}}<br>{{t:law.src}}</p></div>{{/laws}}{{/isLegal}}
+    {{#isLegal}}{{#laws}}<div class="law"><p class="art">{{art}}</p><p class="small">{{text}}</p><p class="src">{{t:law.for}}: {{fields}}<br>{{src}}</p></div>{{/laws}}{{/isLegal}}
 </div>
 </div>
 <div class="column aside"><div class="pv"><span class="small muted">{{pvMeta}}</span>{{{preview}}}</div></div>

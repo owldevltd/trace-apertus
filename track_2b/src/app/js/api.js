@@ -17,12 +17,14 @@ export const api = {
     addPage: ( id, png ) => fetch( '/api/jobs/' + id + '/pages', { method: 'POST', headers: { 'Content-Type': 'image/png' }, body: png } ).then( json ),
     fromForm: ( form ) => fetch( '/api/jobs/from/' + form, { method: 'POST' } ).then( json ),
     run: ( id ) => fetch( '/api/jobs/' + id + '/run', { method: 'POST' } ).then( json ),
-    // piece: { n, start, duration, blob, format }
+    // piece: { n, start, duration, blob, format }; without n the server gives the next free number
     addAudio: ( id, piece ) => fetch( '/api/jobs/' + id + '/audio', {
         method: 'POST',
-        headers: { 'Content-Type': piece.format === 'mp3' ? 'audio/mpeg' : 'audio/wav', 'X-Piece': String( piece.n ), 'X-Start': String( piece.start ), 'X-Duration': String( piece.duration ) },
+        headers: { 'Content-Type': piece.format === 'mp3' ? 'audio/mpeg' : 'audio/wav', ...( piece.n ? { 'X-Piece': String( piece.n ) } : {} ), 'X-Start': String( piece.start ), 'X-Duration': String( piece.duration ) },
         body: piece.blob,
     } ).then( json ),
+    // answer: { text } as typed, { pieces: [ n, … ] } as said, or { skip: true }
+    answer: ( id, unit, answer ) => fetch( '/api/jobs/' + id + '/answers/' + unit, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify( answer ) } ).then( json ),
     transcribe: ( id ) => fetch( '/api/jobs/' + id + '/transcribe', { method: 'POST' } ).then( json ),
     fill: ( id ) => fetch( '/api/jobs/' + id + '/fill', { method: 'POST' } ).then( json ),
     draft: ( id ) => fetch( '/api/jobs/' + id + '/draft' ).then( json ),

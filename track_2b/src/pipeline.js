@@ -2,12 +2,15 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { run as work } from './workers.js';
 import { toRead, readElements } from './read/reader.js';
+import { layerElements } from './read/layer.js';
 import { buildFields } from './fields/builder.js';
+import { buildDialogue } from './dialogue/dialogue.js';
 import { jobDir, saveJob, saveRun } from './job.js';
 
-// The pipeline of a job: geometry → reading → fields, page by page, saved after every step so the app can show
+// The pipeline of a job: geometry → reading → fields → dialogue, saved after every step so the app can show
 // where it stands. Pixel work runs in the workers, the model calls go through the one client of the process.
-// Without a key the reading is skipped and the fields come without labels.
+// A shipped form brings the words of its PDF along and is read from them, not from the image. Without a key the
+// reading of a photographed form is skipped, its fields come without labels, and no dialogue gets questions.
 
 export async function runPipeline( job, client ) {
     const dir = jobDir( job.id );
@@ -20,6 +23,13 @@ export async function runPipeline( job, client ) {
             widgets = JSON.parse( await fs.readFile( path.join( dir, 'widgets.json' ), 'utf8' ) );
         } catch {
             // a photographed form has none
+        }
+        // and the words of its text layer with their place on the page
+        let words = {};
+        try {
+            words = JSON.parse( await fs.readFile( path.join( dir, 'words.json' ), 'utf8' ) );
+        } catch {
+            // a photographed form has none: the model reads it
         }
         const pages = [];
         for ( const p of job.pages ) {
@@ -34,8 +44,13 @@ export async function runPipeline( job, client ) {
             await saveJob( job );
 
             await saveRun( job.id, Object.assign( state, { step: 'read', at: now() } ) );
-            const crops = await work( 'crops', { file, boxes: toRead( geometry ) } );
-            const { elements } = await readElements( geometry, crops, client, base + '.read', path.join( dir, 'model' ) );
+            let elements;
+            if ( words[ p.n ] ) {
+                elements = layerElements( geometry, words[ p.n ] );
+            } else {
+                const crops = await work( 'crops', { file, boxes: toRead( geometry ) } );
+                ( { elements } = await readElements( geometry, crops, client, base + '.read', path.join( dir, 'model' ) ) );
+            }
             const finished = await work( 'finish', { file, page: geometry, elements, control: base + '-elements.png' } );
             await fs.writeFile( base + '-elements.json', JSON.stringify( finished ) );
             pages.push( { page: p.n, unit: geometry.unit, elements: finished, widgets: widgets[ p.n ] || [] } );
@@ -54,6 +69,10 @@ export async function runPipeline( job, client ) {
                 blocks,
             } );
         }
+        // the form as a conversation, once, kept with the form
+        await saveRun( job.id, Object.assign( state, { step: 'dialogue', page: 0, at: now() } ) );
+        job.dialogue = ( await buildDialogue( job, client, path.join( dir, 'model' ) ) ).dialogue;
+        await saveJob( job );
         state.step = 'done';
     } catch ( error ) {
         state.step = 'error';

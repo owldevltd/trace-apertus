@@ -80,6 +80,8 @@ p { margin: 0; }
 .end { display: flex; justify-content: flex-end; }
 .faint { opacity: 0.5; cursor: default; }
 .desktop-only { display: none; }
+/* what belongs to the demo under /?demo, not to the app */
+html:not([data-demo]) .demo-only { display: none !important; }
 
 /* ---------- layout: phone ---------- */
 
@@ -171,6 +173,40 @@ p { margin: 0; }
 .field textarea { min-height: 68px; resize: vertical; }
 .field.unclear { border-color: color-mix(in srgb, var(--warn) 55%, var(--line)); }
 .field.missing { border-color: color-mix(in srgb, var(--bad) 55%, var(--line)); }
+/* conversation: the question on the left, what was said on the right */
+.chat { display: flex; flex-direction: column; gap: 10px; }
+.chat .eyebrow { margin-top: 8px; }
+.turn { display: flex; flex-direction: column; gap: 6px; }
+.bubble { max-width: 88%; padding: 12px 14px; border-radius: var(--r); overflow-wrap: anywhere; }
+.bubble.ask { align-self: flex-start; background: var(--ground); border-bottom-left-radius: 6px; font-weight: 500; }
+.bubble.ask .printed { margin-top: 4px; font-size: 12px; font-weight: 400; color: var(--muted); }
+.asked { display: flex; align-items: flex-start; gap: 8px; }
+.asked .bubble.ask { max-width: calc(88% - 34px); }
+.bubble.ask[data-ask] { cursor: pointer; }
+.turn.current .bubble.ask { box-shadow: 0 0 0 2px var(--accent); }
+/* ticked off: answered and nothing left to decide; an open question is ticked off by hand */
+.tick { flex: none; width: 26px; height: 26px; margin-top: 9px; padding: 0; border-radius: 8px; border: 1.5px solid var(--muted); background: var(--paper); color: var(--ink); display: grid; place-items: center; font-size: 14px; font-weight: 700; cursor: pointer; }
+.tick.done { background: var(--ok); border-color: var(--ok); color: #fff; }
+.tick.look { border-color: var(--warn); color: var(--warn); }
+.tick:disabled { cursor: default; }
+.reply { align-self: flex-end; display: flex; align-items: center; gap: 6px; width: 88%; }
+.reply input { flex: 1; min-width: 0; font: inherit; border: 1.5px solid var(--line); border-radius: 999px; padding: 9px 14px; background: var(--paper); color: var(--ink); }
+.reply .btn.sm { flex: none; }
+.bubble.none.row { gap: 10px; font-style: normal; }
+.bubble.none .spinner { width: 18px; height: 18px; border-width: 2px; }
+.bubble.none { align-self: flex-end; border: 1px dashed var(--line); border-bottom-right-radius: 6px; color: var(--muted); font-style: italic; }
+.opts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.opt { border: 1.5px solid var(--line); background: var(--paper); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 500; cursor: pointer; }
+.opt.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.opt:disabled { cursor: default; color: var(--ink); }
+.opt.on:disabled { color: var(--paper); }
+.turn .field { align-self: flex-end; min-width: 50%; max-width: 88%; border-radius: var(--r); border-bottom-right-radius: 6px; background: var(--accent-soft); border-color: transparent; }
+.turn .field .label:empty { display: none; }
+.turn .field.unclear, .turn .field.missing, .turn .field.empty { background: var(--paper); border-color: var(--line); }
+/* a value that asks for a decision takes the whole width: its note and the buttons need the room */
+.turn .field.unclear, .turn .field.missing { max-width: none; align-self: stretch; }
+.turn .field.unclear { border-color: color-mix(in srgb, var(--warn) 55%, var(--line)); }
+.turn .field.missing { border-color: color-mix(in srgb, var(--bad) 55%, var(--line)); }
 .check { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--rs); background: var(--paper); }
 .check input { width: 20px; height: 20px; accent-color: var(--ink); flex: none; }
 
@@ -187,9 +223,11 @@ p { margin: 0; }
 /* templates */
 .group { background: var(--ground); border-radius: var(--r); padding: 14px; }
 .group .head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; }
+.group .note { margin-bottom: 10px; }
 .group .head .ico { width: 30px; height: 30px; border-radius: 50%; background: var(--paper); display: grid; place-items: center; font-size: 14px; }
 .tpl { background: var(--paper); border-radius: var(--rs); padding: 12px; cursor: pointer; border: 0; text-align: left; display: flex; flex-direction: column; gap: 2px; min-height: 64px; }
-.tpl strong { font-weight: 600; }
+.tpl strong { font-weight: 600; overflow-wrap: anywhere; }
+.grid2 > * { min-width: 0; }
 
 /* preview */
 .pv { display: flex; flex-direction: column; gap: 10px; }
@@ -240,15 +278,10 @@ p { margin: 0; }
 .shutter input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
 .shutterbar .btn.outline { color: #fff; border-color: rgba(255, 255, 255, 0.4); }
 
-/* listening */
-.recwrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 24px 18px 120px; text-align: center; }
-.recwrap .hint { max-width: 300px; }
-.orb { width: 72px; height: 72px; border-radius: 50%; background: var(--ink); display: grid; place-items: center; }
-.orb .dot { width: 18px; height: 18px; }
-.wave { width: 100%; max-width: 340px; height: 90px; display: block; }
-.timer { font-size: 40px; font-weight: 600; letter-spacing: -0.02em; }
-.tips { width: 100%; max-width: 340px; }
-.tips .cell { text-align: left; }
+/* listening: the level where the person looks, at the question or in the bar below */
+.eq { display: block; height: 32px; min-width: 0; width: 100%; }
+.reply.live { background: var(--ground); border-radius: 999px; padding: 6px 6px 6px 14px; gap: 10px; }
+.reply.live .eq { flex: 1; }
 
 /* ---------- motion ---------- */
 
@@ -283,7 +316,7 @@ p { margin: 0; }
     .topbar .wordmark, .topbar .chip.accent { display: none; }
     .bottom { background: linear-gradient(to top, var(--ground) 70%, transparent); display: flex; justify-content: center; }
     .bottom > * { width: 100%; max-width: var(--column-w); }
-    .grey, .group, .option, .iconbtn, .mail, .pill, .lang { background: var(--paper); }
+    .grey, .group, .option, .iconbtn, .mail, .pill, .lang, .bubble.ask, .reply.live { background: var(--paper); }
     .pill.on { background: var(--ink); }
     .group .head .ico, .side-item.on { background: var(--ground); }
     .screen.dark { background: #0c0c0a; }

@@ -1,6 +1,6 @@
 import { on } from '../dom.js';
 import * as form from './form.js';
-import * as record from './record.js';
+import * as listen from '../listen.js';
 
 // Today: a headline on where things stand, the to-dos per saved form, and what happened today.
 
@@ -40,6 +40,6 @@ export function wire( ctx ) {
         const entry = ctx.store.entry( b.dataset.listen );
         ctx.state.tab = 'fields';
         await form.show( ctx, entry );
-        record.start( ctx, entry );
+        listen.start( ctx, entry );
     } );
 }

@@ -1,20 +1,22 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { config } from '../config.js';
-import { createJob, jobDir, saveJob, loadJob, loadRun, listJobs } from '../job.js';
+import { createJob, jobDir, saveJob, loadJob, loadRun, listJobs, addPage } from '../job.js';
+import { listShipped, startShipped } from '../shipped.js';
 import { runPipeline } from '../pipeline.js';
-import { transcribeJob } from '../speech/transcriber.js';
-import { fillJob } from '../fields/filler.js';
-import { hints, loadCatalogue } from '../review/hints.js';
+import { transcribeJob, transcribeAnswer } from '../speech/transcriber.js';
+import { fillJob, fillUnit } from '../fields/filler.js';
+import { hints, loadCatalogue, judgeVague, judgeEnough } from '../review/hints.js';
+import { answered } from '../dialogue/dialogue.js';
 import { writeOutput } from '../output/pdf.js';
 
 const DECISIONS = [ 'confirmed', 'changed', 'rejected' ];
 
 const AUDIO = { 'audio/mpeg': 'mp3', 'audio/mp3': 'mp3', 'audio/wav': 'wav', 'audio/x-wav': 'wav', 'audio/wave': 'wav' };
 
-// The job routes. A page arrives as a PNG body; a job can also start from a shipped form in data/forms, which
-// brings the form widgets of a fillable original along. Running the pipeline answers at once; the app asks for
-// the job until run.step is done.
+// The job routes. A page arrives as a PNG body and the pipeline runs over it; the app asks for the job until
+// run.step is done. A job can also start from a shipped form in data/forms: that one was captured when it was
+// put there and is ready at once.
 
 const PNG = Buffer.from( [ 0x89, 0x50, 0x4e, 0x47 ] );
 const ID = /^[a-z0-9]{6,20}$/;
@@ -22,7 +24,7 @@ const FORM = /^[a-z0-9-]+$/;
 
 export function registerJobs( router, client ) {
 
-    router.add( 'GET', '/api/forms', async () => ( { status: 200, json: await listForms() } ) );
+    router.add( 'GET', '/api/forms', async () => ( { status: 200, json: await listShipped() } ) );
 
     router.add( 'GET', '/api/jobs', async () => ( { status: 200, json: await listJobs() } ) );
 
@@ -37,32 +39,11 @@ export function registerJobs( router, client ) {
     } );
 
     router.add( 'POST', '/api/jobs/from/:form', async ( { params } ) => {
-        if ( !FORM.test( params.form ) ) {
+        const started = FORM.test( params.form ) ? await startShipped( params.form ) : null;
+        if ( !started ) {
             return { status: 404, json: { error: 'no such form' } };
         }
-        const dir = path.join( config.dataDir, 'forms', params.form );
-        let form;
-        try {
-            form = JSON.parse( await fs.readFile( path.join( dir, 'form.json' ), 'utf8' ) );
-        } catch {
-            return { status: 404, json: { error: 'no such form' } };
-        }
-        const job = createJob( { name: form.name, issuer: form.issuer, language: form.language, pages: 0, origin: form.origin, file: 'forms/' + params.form + '/' + form.file } );
-        await saveJob( job );
-        const widgets = {};
-        for ( const png of ( await fs.readdir( dir ) ).filter( ( f ) => f.endsWith( '.png' ) ).sort() ) {
-            const n = await addPage( job, await fs.readFile( path.join( dir, png ) ) );
-            try {
-                const ref = JSON.parse( await fs.readFile( path.join( dir, png.replace( /\.png$/, '.json' ) ), 'utf8' ) );
-                widgets[ n ] = ( ref.widgets || [] ).map( ( w ) => ( { typ: w.typ, name: w.name, x: w.x, y: w.y, width: w.w, height: w.h } ) );
-            } catch {
-                // no reference beside the page
-            }
-        }
-        job.form.pages = job.pages.length;
-        await saveJob( job );
-        await fs.writeFile( path.join( jobDir( job.id ), 'widgets.json' ), JSON.stringify( widgets ) );
-        return { status: 201, json: { id: job.id, pages: job.pages.length } };
+        return { status: 201, json: { id: started.job.id, pages: started.job.pages.length, ready: started.ready } };
     } );
 
     router.add( 'POST', '/api/jobs/:id/pages', async ( { params, body } ) => {
@@ -85,7 +66,7 @@ export function registerJobs( router, client ) {
             return { status: 404, json: { error: 'no such job' } };
         }
         const run = await loadRun( job.id );
-        if ( [ 'analyze', 'read', 'fields' ].includes( run.step ) ) {
+        if ( [ 'analyze', 'read', 'fields', 'dialogue' ].includes( run.step ) ) {
             return { status: 409, json: { error: 'already running', run } };
         }
         // runs on after the answer; the app asks for the job to see it progress
@@ -111,7 +92,8 @@ export function registerJobs( router, client ) {
         } catch {
             // the first piece
         }
-        const n = Number( req.headers[ 'x-piece' ] ) || pieces.length + 1;
+        // without a number the next free one: an answer to a question is recorded apart from the dictation
+        const n = Number( req.headers[ 'x-piece' ] ) || nextPiece( job, pieces );
         const piece = { n, file: n + '.' + format, format, start: Number( req.headers[ 'x-start' ] ) || 0, duration: Number( req.headers[ 'x-duration' ] ) || 0, bytes: body.length };
         await fs.writeFile( path.join( dir, piece.file ), body );
         pieces = [ ...pieces.filter( ( p ) => p.n !== n ), piece ].sort( ( a, b ) => a.n - b.n );
@@ -127,7 +109,7 @@ export function registerJobs( router, client ) {
             return { status: 404, json: { error: 'no such job' } };
         }
         const run = await loadRun( job.id );
-        if ( [ 'analyze', 'read', 'fields', 'transcribe' ].includes( run.step ) ) {
+        if ( [ 'analyze', 'read', 'fields', 'dialogue', 'transcribe' ].includes( run.step ) ) {
             return { status: 409, json: { error: 'already running', run } };
         }
         transcribeJob( job, client ).catch( () => {} );
@@ -140,11 +122,83 @@ export function registerJobs( router, client ) {
             return { status: 404, json: { error: 'no such job' } };
         }
         const run = await loadRun( job.id );
-        if ( [ 'analyze', 'read', 'fields', 'transcribe', 'fill' ].includes( run.step ) ) {
+        if ( [ 'analyze', 'read', 'fields', 'dialogue', 'transcribe', 'fill' ].includes( run.step ) ) {
             return { status: 409, json: { error: 'already running', run } };
         }
         fillJob( job, client ).catch( () => {} );
         return { status: 202, json: { id: job.id, step: 'fill' } };
+    } );
+
+    // an answer to one question of the dialogue: { text } as typed, { pieces: [ n, … ] } as said (pieces of the
+    // recording sent before), or { skip: true } when there is nothing to say. The values go into the fields of
+    // that unit only. A typed answer to a single writing field is the value as it stands; everything else is
+    // read by the model, from all that was said in reply to the question so far, so a missing part can be
+    // added. An answer to a single writing field is then judged: does it cover what the place asks for.
+    // Answers at once: one to four calls.
+    router.add( 'POST', '/api/jobs/:id/answers/:unit', async ( { params, body } ) => {
+        const job = await find( params.id );
+        const unit = job && job.dialogue && job.dialogue.units.find( ( u ) => u.id === params.unit );
+        if ( !unit ) {
+            return { status: 404, json: { error: 'no such question' } };
+        }
+        const run = await loadRun( job.id );
+        if ( [ 'analyze', 'read', 'fields', 'dialogue', 'transcribe', 'fill' ].includes( run.step ) ) {
+            return { status: 409, json: { error: 'already running', run } };
+        }
+        let data;
+        try {
+            data = JSON.parse( body.toString( 'utf8' ) );
+        } catch {
+            return { status: 400, json: { error: 'an answer is JSON' } };
+        }
+        const fields = unit.fields.map( ( id ) => job.fields.find( ( f ) => f.id === id ) );
+        const text = typeof data.text === 'string' ? data.text.trim() : '';
+        const said = Array.isArray( data.pieces ) ? data.pieces.map( Number ).filter( Boolean ) : [];
+        const writing = fields.length === 1 && fields[ 0 ].kind !== 'checkbox' && fields[ 0 ].kind !== 'radio';
+        if ( data.skip ) {
+            for ( const f of fields ) {
+                f.value = '';
+                f.source = { how: 'entered', approve: false };
+            }
+        } else if ( text && writing ) {
+            fields[ 0 ].value = text;
+            fields[ 0 ].source = { how: 'entered', approve: false };
+        } else if ( text || said.length ) {
+            if ( !config.apiKey ) {
+                return { status: 503, json: { error: 'no API_KEY: only a typed answer to a single field works without the model' } };
+            }
+            let pieces;
+            if ( text ) {
+                pieces = [ { n: nextPiece( job, await audioPieces( job ) ), start: 0, text, raw: text, question: unit.id } ];
+                job.transcript = [ ...( job.transcript || [] ), ...pieces ];
+            } else {
+                pieces = await transcribeAnswer( job, said, unit.id, client );
+            }
+            if ( !pieces.length ) {
+                return { status: 400, json: { error: 'no such piece of the recording' } };
+            }
+            // nothing heard: the question stays open, the piece stays in the transcript for a person to listen
+            const heard = pieces.filter( ( p ) => p.text.trim() !== '' );
+            if ( !heard.length ) {
+                await saveJob( job );
+                return { status: 200, json: { job, heard: false } };
+            }
+            await fillUnit( job, unit, job.transcript.filter( ( p ) => p.question === unit.id && p.text.trim() !== '' ), client );
+        } else {
+            return { status: 400, json: { error: 'an answer is text, pieces or skip' } };
+        }
+        const catalogue = await loadCatalogue( job );
+        const judged = catalogue ? await judgeVague( { ...job, fields: fields.filter( ( f ) => f.value ) }, catalogue, client ) : [];
+        if ( writing && fields[ 0 ].value ) {
+            const said = fields[ 0 ].source.how === 'entered' ? text : job.transcript.filter( ( p ) => p.question === unit.id ).map( ( p ) => p.text ).join( ' ' );
+            const enough = await judgeEnough( job, unit, fields[ 0 ], said, client );
+            if ( enough ) {
+                judged.push( enough );
+            }
+        }
+        settle( job, catalogue, fields.map( ( f ) => f.id ), judged );
+        await saveJob( job );
+        return { status: 200, json: { job } };
     } );
 
     // a person's decision on a field: { decision: confirmed | changed | rejected, value?, by? }
@@ -175,17 +229,7 @@ export function registerJobs( router, client ) {
         } else {
             field.source = { ...( field.source || { how: 'entered' } ), approve: false, review };
         }
-        // the code hints anew for every field; a vague judgement stays, except on the field just decided
-        const fresh = hints( job, await loadCatalogue( job ) );
-        for ( const f of job.fields ) {
-            const keep = ( f.hints || [] ).filter( ( h ) => h.kind === 'vague' && f.id !== field.id );
-            const mine = fresh.filter( ( h ) => h.field === f.id ).map( ( { field: _, ...h } ) => h );
-            if ( keep.length || mine.length ) {
-                f.hints = [ ...mine, ...keep ];
-            } else {
-                delete f.hints;
-            }
-        }
+        settle( job, await loadCatalogue( job ), [ field.id ] );
         // every flagged value decided: the form is reviewed
         if ( job.status === 'filled' && !job.fields.some( ( f ) => f.source && f.source.approve ) ) {
             job.status = 'reviewed';
@@ -291,6 +335,43 @@ async function draft( job ) {
     return { to: meta.recipient || '', subject: ( meta.subject || job.form.name ), pdf: '/api/jobs/' + job.id + '/output.pdf', pages: job.pages.length };
 }
 
+// After a value changed: the code hints anew for every field; a judgement of the model (vague, incomplete) stays,
+// except on the fields just changed, which get the new ones. While the questions of a dialogue are being
+// answered, a field nobody was asked about yet is not missing; with the last question answered the form is filled.
+function settle( job, catalogue, changed, judged = [] ) {
+    const asked = job.dialogue ? job.dialogue.units.filter( ( u ) => !u.skip ) : [];
+    const before = [ 'captured', 'verified' ].includes( job.status );
+    if ( before && asked.length && asked.every( ( u ) => answered( job, u ) ) ) {
+        job.status = 'filled';
+        job.history.push( { at: new Date().toISOString(), event: 'filled', note: 'question by question' } );
+    }
+    const open = new Set( [ 'captured', 'verified' ].includes( job.status ) ? asked.filter( ( u ) => !answered( job, u ) ).flatMap( ( u ) => u.fields ) : [] );
+    const fresh = [ ...hints( job, catalogue ), ...judged ].filter( ( h ) => !( h.kind === 'missing' && open.has( h.field ) ) );
+    for ( const f of job.fields ) {
+        const keep = ( f.hints || [] ).filter( ( h ) => ( h.kind === 'vague' || h.kind === 'incomplete' ) && !changed.includes( f.id ) );
+        const mine = fresh.filter( ( h ) => h.field === f.id ).map( ( { field: _, ...h } ) => h );
+        if ( keep.length || mine.length ) {
+            f.hints = [ ...mine, ...keep ];
+        } else {
+            delete f.hints;
+        }
+    }
+}
+
+// the pieces of a job's recording, as the audio route keeps them
+async function audioPieces( job ) {
+    try {
+        return JSON.parse( await fs.readFile( path.join( jobDir( job.id ), 'audio', 'pieces.json' ), 'utf8' ) );
+    } catch {
+        return [];
+    }
+}
+
+// the next free piece number, over the recording and the transcript (a typed answer is a piece without sound)
+function nextPiece( job, pieces ) {
+    return Math.max( 0, ...pieces.map( ( p ) => p.n ), ...( job.transcript || [] ).map( ( p ) => p.n ) ) + 1;
+}
+
 async function find( id ) {
     if ( !ID.test( id ) ) {
         return null;
@@ -302,31 +383,6 @@ async function find( id ) {
     }
 }
 
-// Stores a page image in the job and records it; returns its number.
-async function addPage( job, png ) {
-    const n = job.pages.length + 1;
-    const dir = path.join( jobDir( job.id ), 'pages' );
-    await fs.mkdir( dir, { recursive: true } );
-    await fs.writeFile( path.join( dir, n + '.png' ), png );
-    job.pages.push( { n, width: 0, height: 0, image: 'pages/' + n + '.png' } );
-    await saveJob( job );
-    return n;
-}
-
 function isPng( body ) {
     return body && body.length > 8 && body.subarray( 0, 4 ).equals( PNG );
-}
-
-async function listForms() {
-    const root = path.join( config.dataDir, 'forms' );
-    const out = [];
-    for ( const name of ( await fs.readdir( root ) ).sort() ) {
-        try {
-            const form = JSON.parse( await fs.readFile( path.join( root, name, 'form.json' ), 'utf8' ) );
-            out.push( { id: name, name: form.name, issuer: form.issuer, language: form.language, pages: form.pages, origin: form.origin } );
-        } catch {
-            // a folder without form.json is not a shipped form
-        }
-    }
-    return out;
 }

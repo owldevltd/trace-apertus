@@ -1,7 +1,7 @@
 # Evidence
 
 What was measured before and while Trace was built, and what each number decided. Condensed from the working
-logs (2–7 October 2026); the raw runs, scripts and model answers stay outside the repository because they hold
+logs (2–9 October 2026); the raw runs, scripts and model answers stay outside the repository because they hold
 third-party forms, voices and 240 MB of images. Failed attempts are kept: they are the reason a rule looks the way it does.
 
 How we test, throughout:
@@ -76,6 +76,7 @@ How we test, throughout:
 | 03.10. | Pitch, formants, tempo, voting, self-correction by audio, the thinking model | each on the same six recordings | every pitch shift trades errors for other errors; voting never beats the original; the model returns its own transcript unchanged and calls its errors "matches perfectly"; thinking swaps errors and doubles the time | **not again** (all of them) |
 | 03.10. | A dictionary in the prompt | names, then names plus three technical terms per language | names alone 71/78; **names plus terms 76/78**; the first lever that moved the stable errors ("Margrit", "deambulatore") | names and terms from the form and the local data go into the prompt |
 | 03.10. | Heal the text afterwards | 8B rewrites the transcript, loose vs strict wording | loose: 71 → 74 facts but two right names and two meanings broken; strict (dictionary, "spelling only, keep the wording"): 71 → 72, no damage | strict healing only; about 5 % gain |
+| 09.10. | What does a recording without speech become? | the tone of a test microphone, sent as the answer to one question of a form | the model returned the names and terms of its prompt as the transcript (867 characters), and the filling put them into the field as a literal value, unflagged | three entries of the dictionary in a row are the prompt and not a person. A spoken sentence came back with the same list behind it, so the transcript is cut where the list begins and what was said before it stays; the piece is flagged. The dictionary no longer holds labels of places that are not asked (one was a whole paragraph of the form) |
 
 ## 5 Legal hints
 
@@ -102,7 +103,45 @@ the transcript; the lessons transfer.
 | 06.10. | Literal or derived? | 59 values the model cited without a literal match | "every word of the value is in the block, in another order" holds for 4 (two clearly right, two doubtful); loosening to word stems gives 17 with two wrong ones | derived = every word, strictly; no stems |
 | 06.10. | Human review load | 969 values with a source on 61 documents | 80 carry `approve` (8.3 %): 36 cited, 44 composed (one summary per document) | 1.3 values per document to look at; the review screen is worth building |
 
-## 7 Not again
+## 7 The form as a conversation
+
+While testing the short view of a form (the list of fields on the phone, and beside the page on the desk) the
+context turned out to be lost: a field shows its printed label and nothing else, and "Datum", "Ort" or no label at
+all do not say what is asked about whom. The idea that followed: the app leads through the form as a conversation,
+with a plain question per place in the order of the paper, for someone who does not know the form, and every answer
+goes back to the place it was asked for. Everything below was measured on 9 October 2026 on the four shipped forms
+(407 fields) in about 1 200 model calls. No reference names the right question; the references used are the printed
+label, the name of the PDF form field, the section of a field in the rebuilt forms and the made-up values of the
+walk-through, and the check itself is measured with errors put in on purpose.
+
+| Date | Question | Setup | Finding | Decided |
+|---|---|---|---|---|
+| 09.10. | How bare are the labels of the short view? | the fields of the four shipped forms as the pipeline builds them, no model | of 407 fields **137 have no label, 108 a label of one word, 130 a label that occurs more than once on the same form** | a label alone is not a question; the form is turned into questions |
+| 09.10. | Can the model turn a whole form into a questionnaire? | the page as a picture of text with every field id at its place, one call per form, 70B and 8B; 8B also in bundles of six fields | both answer in valid JSON and invent no id. 70B groups as it likes (136 questions for 336 of the fields), 8B writes 286. An offered answer ("shall I enter today's date?") comes 0 times from 70B and 6 times from 8B, 2 of them fitting. Bundles of six: 25 calls instead of 2 on two forms, no gain | the model does not decide which fields belong together and offers no answers |
+| 09.10. | Does the existing filling sort a dialogue back? | the walk-through's Betreibungsbegehren, every question with its answer as one transcript piece, the filling unchanged | 7 and 8 of 9 expected values the same. The misses both runs share: a radio answered by the name of its option stays empty, and a value is taken from the answer to another question | fields hang on questions by code, and an answer stays with its question |
+| 09.10. | Units by code | radios by their group, tick boxes by the rule measured for radios, rows built alike as a table, everything else a single field | 407 fields → **259 units**: 225 single, 29 choices (65 tick marks), 5 tables (117 cells). Both models write for every unit and invent none | `src/dialogue/units.js` |
+| 09.10. | Plain questions from the small model over the picture of text | 8B, one question per unit, everyday language demanded; then with the label of each unit given; then a second pass that only rewrites | without the labels the questions drift from their place; with them they repeat the form's wording; the rewriting pass returns 183 of 259 unchanged (in bundles of twelve 90 of 246, some with another meaning). Asked back which place a question belongs to, the same question lands on the same place in 23 of 45 cases over two runs | the picture of text is the obstacle: the model has to read the layout. The form goes in as a list of lines, every text a line and none left out (`src/dialogue/listing.js`) |
+| 09.10. | From whose seat does the model write? | "you lead the conversation and fill in the form yourself afterwards" instead of "write a question per field"; the other person unknown, a named party asked about in the third person | before: "… tragen Sie bitte für jede Forderung den Betrag, den Zins und das Datum ein" – the form speaking. After, over the list of lines: of the 13 places about a third party (debtor, injured person) 0 address the other person as that party; when the units of a page are written in bundles of twelve it is 10 of 13 | the interviewer's seat and the unknown respondent are in the prompt; a page is written in one call |
+| 09.10. | Does a check hold, and what does it let through? | the questions without ids, mixed, twelve at a time, with the list of the page; the model names the unit; twice. Errors on purpose: every place is handed the question of its neighbour, or of another place of the page | 70B writing and checking: 182 of 245 questions named right twice; a neighbour's question passes in 12 of 474 cases, another place's in 10 of 4 725. With the page layout instead of the list: 128 of 258 named right | the check runs over the list of lines; a question holds when every run names its own unit |
+| 09.10. | Is the small model enough? | 8B writing over the whole form, page by page, in bundles of twelve; 8B checking; against 70B writing | 8B page by page: 237 questions, 173 named right twice, a neighbour's question passes in 10 of 458, another place's in 12 of 4 568. Whole form: 178 and 15 of 496, but 57 questions worded like another on the same page (29 page by page) and 34 with the form's brackets (17). 70B writing and 8B checking: 161 and 8 of 474. As the checker 8B lets no more through than 70B on the same questions (8 against 12) | **everything on 8B**, one call per page to write; two units asked with the same words both keep the label |
+| 09.10. | How many runs of the check? | four runs over one writing of 256 questions | named right in every run / neighbour's question passing: one run 181 / 28 of 496, two 174 / 16, three 164 / 14, four 154 / 14 | two runs |
+| 09.10. | Is it stable? | the same order a second time at temperature 0; the check over both writings | 8B writes 121 of 236 questions word for word again (70B 208 of 245). What holds: 173 and 178, in both 158; **35 of 259 units change sides**. The check itself decides 15 of 121 questions with the same wording differently when they stand in another bundle | written once when the form is captured and kept with it. A change of sides is between plain question and printed label, never a value at a wrong place |
+| 09.10. | End to end | the walk-through's Betreibungsbegehren; a played respondent (8B) knows only the made-up dictation and answers every question; the filling reads each answer for the fields of its unit only (`tests/answers.js`, `results/answers.md`, 10 calls) | 6 of 9 expected values the same, 3 different, **no value in a field it was not said for**; said at once (`results/fill.md`) 6, 3 and 2 values in a wrong field. The three that differ are the same in both (invoice number from spoken digits, the amount, an invented year, the last one flagged). When the answer line must carry the field's name, one to two right answers are lost: the model names the field by its label ("gläubiger:" for `glaeubiger`) | an answer belongs to the fields of its unit, with one field the whole answer (`fillUnit`); a typed answer to a single field is the value as it stands |
+| 09.10. | Does saying everything at once still fill a longer form? | the walk-through's Suva form, 34 fields, its made-up dictation of three pieces, the filling as it is; never measured before | every expected value arrives, but only 9 of 22 as expected: 13 differ, 5 of them wrong in substance – the date of birth stands in the day, month and year of the accident (day and month literal and unflagged), the time is 20:02 for 14:20, the employer's postcode is invented; 2 values where none was said. On the Betreibungsbegehren (16 fields) the same filling gives 6, 3 and 2 as on 7 October | the dictation stays, for what is still open; on a long form the questions are the way, because an answer cannot land at another question |
+| 09.10. | Can the model tell when a place is answered? | per answer one judgement from the question, the printed label and what was said: enough, incomplete or no; cases built from the 31 units with a value of the two walk-through forms (`tests/enough.js`, `results/enough.md`, 129 calls) | the value itself is taken as enough in 29 of 31 cases, "Das weiss ich nicht." in 0 of 31, only the first part of a value in 1 of 5, the value of the next unit in 8 of 31 – those fit the place by their kind ("10" for the day, a name with an address for the debtor). The same verdict on a second run in 31 of 31; about 2.3 s per judgement. "Incomplete" and "no" are not told apart. Code alone ("not empty") takes everything but "I don't know" | after an answer to a single field the model judges it; anything but a plain yes leaves an `incomplete` hint that says what is missing, and the question shows as open to a decision. The judgement sees what is missing, not whether what was said is true |
+| 09.10. | When does a spoken answer end? | the recorder already measures the noise floor and the length of a pause | not measured: 1.5 s of pause after at least 0.3 s of speech is a start value, agreed to be tuned on real voices; 20 s without speech close the microphone | in a conversation a piece closes at that pause, silence alone is no piece; the next question is asked at once and the answer is read in the background |
+| 09.10. | The repository's own run | `make dialogue` (`tests/questions.js`, `results/dialogue.md`): the pipeline's code on the four shipped forms, read from the text layer, 47 calls, 181 s at the model | 259 units, 29 not asked, 214 questions written, **156 hold**, 74 keep the printed label; a neighbour's question passes in 10 of 414 cases (2.4 %), another place's in 20 of 4 134 (0.5 %) | |
+
+What the check does not see is a question that points at the right place and is worded badly: "Wann ist das
+Geburtsdatum des Schuldners bekannt?" holds. Of 15 holding questions read by hand, 2 asked for something else than
+the field. A played respondent that knows only the names of the PDF's form fields names the right one for 76 of 123
+printed labels asked as they stand and for 65 of 100 holding questions; given the neighbour's question, for 2 of
+115. That measure separates right from wrong and nothing finer, which is why the printed label stays beside every
+question in the app. Of the asked units 37 have no label (34 on the Suva form); the model mostly answers "KEINE"
+there and they stay as they were. The conversation follows the lines of the page from the top; that agrees with
+the order of the form fields in the PDF for 108 of 116 neighbouring units and fails where two columns interleave.
+
+## 8 Not again
 
 - Reading several marked blocks in one image (22.7 % errors, ids swapped).
 - Letting the model correct its own reading (2 healed, 10 broken).
@@ -112,8 +151,12 @@ the transcript; the lessons transfer.
 - Asking the model for links to laws (0 of 9 valid).
 - Taking a cited block as a source without checking the words.
 - Token probabilities as a signal: there is no API for them in the deployment.
+- Giving the model the page as a picture of text to write questions or to say which place one belongs to.
+- A second pass that rewrites questions into plainer words (183 of 259 came back unchanged).
+- Letting the model group the fields into questions, or offer an answer in the question.
+- Writing the questions of a page in bundles: the party a place is about gets lost (10 of 13).
 
-## 8 What ships in this repository
+## 9 What ships in this repository
 
 The full reference set (22 forms, 61 pages, 1 871 field and 1 007 tick-mark widgets) cannot be redistributed:
 the forms belong to their publishers. `data/forms/` holds two public forms unchanged and two rebuilt after forms
@@ -153,3 +196,19 @@ selected by the widget whose box lies where the field lies; an empty value leave
 original has no widget for is drawn at its place. A photographed page becomes a new PDF with the straightened
 page as picture and the values drawn on it. Nothing is flattened, so the recipient still sees a form. The two
 PDFs of the test run land in `storage/tests/` and were checked by eye against the page images.
+
+The dialogue on the shipped forms (run of 9 October 2026, `make dialogue`: Apertus 8B, temperature 0, 47 calls,
+181 seconds at the model): of 259 units 29 are not asked, 156 get a plain question that holds and 74 keep their
+printed label; a form costs 3 to 21 calls. The same target judges whether an answer is enough for its place
+(129 calls, `results/enough.md`): 29 of 31 full answers pass, none of 31 empty ones. The two forms of the
+click-through carry their questions in `src/app/js/mock/dialogues.js`, written by the same code (`make
+walkthrough`, 12 calls: 14 of 14 and 26 of 27 questions hold) and not edited by hand. Asked question by question
+with a played respondent (`make bench`, `tests/answers.js`, 10 calls), the walk-through's Betreibungsbegehren comes
+out with 6 of 9 expected values the same and no value in a wrong field.
+
+The app lists the four shipped forms. Each was captured once (`make capture`, 9 October 2026, 47 calls): the
+pipeline ran over it with the text taken from the text layer of its PDF instead of read by the model
+(`src/read/layer.js`), and the result lies beside it as `captured.json`, with 26, 11, 64 and 50 questions that
+hold. Choosing a form makes a job from that file and opens it at once; recognizing happens where a form is
+created, when a person photographs or uploads one. The walk-through with made-up recognition, values and
+transcript stands beside the app as a demo under `/?demo`, with a state of its own.

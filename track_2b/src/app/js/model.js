@@ -1,14 +1,16 @@
 import { FORMS } from './mock/forms.js';
 import { BLOCKS } from './mock/blocks.js';
+import { DIALOGUES } from './mock/dialogues.js';
 import { api } from './api.js';
 
-// What the screens draw: a form view with name, pages, sections of fields, blocks, and what was dictated. It
-// comes from a mocked form of the walk-through or from a job of the server; the screens do not care which.
+// What the screens draw: a form view with name, pages, sections of fields, blocks, the dialogue (the fields in
+// units, each with its printed label and, where one holds, a plain question) and what was dictated. It comes
+// from a mocked form of the walk-through or from a job of the server; the screens do not care which.
 // A saved entry names one of the two: formId for a mock, jobId for a job.
 
 // a mocked form as a view
 function fromMock( f ) {
-    return { ...f, sizes: [ f.page ], blocks: BLOCKS[ f.id ] || [] };
+    return { ...f, sizes: [ f.page ], blocks: BLOCKS[ f.id ] || [], dialogue: DIALOGUES[ f.id ] || null };
 }
 
 // a job of the server as a view: one section per page, the fields and blocks as the pipeline found them;
@@ -20,6 +22,7 @@ export function fromJob( job, t ) {
         fields: job.fields.filter( ( f ) => f.page === p.n ).map( ( f ) => ( {
             id: f.id,
             label: f.label || t( 'field.unlabelled', { n: f.id.replace( /\D/g, '' ) } ),
+            bare: !f.label,
             kind: f.kind,
             page: f.page,
             x: f.x,
@@ -31,14 +34,19 @@ export function fromJob( job, t ) {
         } ) ),
     } ) ).filter( ( s ) => s.fields.length );
     const filled = job.status === 'filled' || job.status === 'reviewed' || job.status === 'sent';
+    // before that, question by question: the fields of every unit that was answered, or left empty by a person
+    const replied = new Set( ( job.transcript || [] ).filter( ( p ) => p.text.trim() !== '' ).map( ( p ) => p.question ).filter( Boolean ) );
+    const touched = new Set( job.fields.filter( ( f ) => f.value || f.source ).map( ( f ) => f.id ) );
+    const answered = new Set( ( job.dialogue ? job.dialogue.units : [] ).filter( ( u ) => replied.has( u.id ) || u.fields.some( ( id ) => touched.has( id ) ) ).flatMap( ( u ) => u.fields ) );
     const values = {};
-    if ( filled ) {
-        for ( const f of job.fields ) {
+    if ( filled || answered.size ) {
+        for ( const f of job.fields.filter( ( x ) => filled || answered.has( x.id ) ) ) {
             const missing = ( f.hints || [] ).some( ( h ) => h.kind === 'missing' );
-            const vague = ( f.hints || [] ).find( ( h ) => h.kind === 'vague' );
+            // what the model found wanting: against the catalogue, or against the question itself
+            const vague = ( f.hints || [] ).find( ( h ) => h.kind === 'vague' || h.kind === 'incomplete' );
             const open = f.source && f.source.approve && !f.source.review;
             const state = f.kind === 'signature' ? 'sign' : f.value ? ( open || vague ? 'unclear' : 'ok' ) : missing ? 'missing' : 'empty';
-            const note = vague ? vague.text : open ? ( f.source.quote ? t( 'v.said', { q: f.source.quote } ) : t( 'v.notliteral' ) ) : missing ? t( 'hint.missing' ) : '';
+            const note = vague ? ( vague.kind === 'incomplete' ? t( 'hint.incomplete', { m: vague.text } ) : vague.text ) : open ? ( f.source.quote ? t( 'v.said', { q: f.source.quote } ) : t( 'v.notliteral' ) ) : missing ? t( 'hint.missing' ) : '';
             values[ f.id ] = [ f.value || '', state, note ];
         }
     }
@@ -62,8 +70,9 @@ export function fromJob( job, t ) {
         subject: job.form.name,
         sections,
         blocks: job.blocks.map( ( b ) => ( { type: b.type, page: b.page, x: b.x, y: b.y, w: b.width, h: b.height, content: b.content, fontSize: b.fontSize, color: b.color, background: b.background } ) ),
+        dialogue: job.dialogue ? job.dialogue.units : null,
         transcript: ( job.transcript || [] ).map( ( p ) => ( { t: clock( p.start ), section: p.approve ? t( 'tr.listen' ) : '', summary: p.text, raw: p.raw } ) ),
-        values: filled ? values : null,
+        values: filled || answered.size ? values : null,
         status: job.status,
         laws,
     };

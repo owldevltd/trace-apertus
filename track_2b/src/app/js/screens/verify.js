@@ -6,8 +6,9 @@ import { drawPreview, wirePreview } from '../preview.js';
 import { switchPane } from '../router.js';
 
 // Verify: the recognized form with its fields; a person unticks what is not a field, looks at the page and
-// the photo, then saves. A photographed or uploaded form goes through the pipeline on the server and comes
-// back as a job; the template path of the walk-through stays mocked, the shipped forms take turns there.
+// the photo, then saves. This is where a form is created: a photographed or uploaded form goes through the
+// pipeline on the server and comes back as a job. In the demo the recognition is made up and the walk-through's
+// two forms take turns.
 
 const PILLS = [ 'fields', 'preview', 'photo' ];
 const KIND = { checkbox: 'type.choice', radio: 'type.choice', signature: 'type.sign', multiline: 'type.long', date: 'type.date', text: 'type.text' };
@@ -26,7 +27,25 @@ export function recognize( ctx ) {
 }
 
 // the real path: the pages go to the server, the pipeline runs, the job comes back with fields and blocks
-export async function startJob( ctx, pages ) {
+export function startJob( ctx, pages ) {
+    return runJob( ctx, async ( progress ) => {
+        progress( ctx.t( 'job.upload', { n: pages.length } ) );
+        const { id } = await api.createJob( pages[ 0 ].blob );
+        for ( const p of pages.slice( 1 ) ) {
+            await api.addPage( id, p.blob );
+        }
+        return id;
+    } );
+}
+
+// a shipped form that was never captured: its job exists on the server, and the same pipeline runs
+export function startForm( ctx, id ) {
+    ctx.state.photo = null;
+    return runJob( ctx, async () => id );
+}
+
+// create: makes the job on the server and resolves with its id
+async function runJob( ctx, create ) {
     const { t, tpl, state } = ctx;
     state.form = null;
     state.off = [];
@@ -36,15 +55,12 @@ export async function startJob( ctx, pages ) {
     const progress = ( text ) => {
         body.innerHTML = tpl.render( 'recognizing', { progress: text } );
     };
-    progress( t( 'job.upload', { n: pages.length } ) );
+    progress( t( 'job.idle' ) );
     if ( ctx.router.top().id !== 'verify' ) {
         await ctx.router.push( 'verify' );
     }
     try {
-        const { id } = await api.createJob( pages[ 0 ].blob );
-        for ( const p of pages.slice( 1 ) ) {
-            await api.addPage( id, p.blob );
-        }
+        const id = await create( progress );
         await api.run( id );
         const { job, run } = await api.wait( id, ( r ) => progress( t( 'job.' + r.step, { n: r.page } ) ) );
         if ( run.step === 'error' ) {

@@ -16,6 +16,7 @@
         "test:marks": "node tests/marks.js",
         "test:read": "node tests/read.js",
         "test:fields": "node tests/fields.js",
+        "test:dialogue": "node tests/dialogue.js",
         "test:server": "node tests/server.js"
     },
     "dependencies": {

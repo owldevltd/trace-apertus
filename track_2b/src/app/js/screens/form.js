@@ -4,12 +4,18 @@ import { fieldsOf } from '../model.js';
 import { api } from '../api.js';
 import { drawPreview, wirePreview } from '../preview.js';
 import { switchPane } from '../router.js';
-import * as record from './record.js';
+import * as listen from '../listen.js';
 import * as sign from './sign.js';
 
 // One form: its fields with state and value, the page preview, the transcript, the legal texts. Before
 // dictation the fields are empty and the button says "Start listening"; after it, every entry carries ok,
-// unclear or missing, and unclear or missing ones ask for a decision.
+// unclear or missing, and unclear or missing ones ask for a decision. A form with a dialogue shows its fields
+// as a conversation: the question of each unit on the left, in plain words where one holds and with the printed
+// label beside it, and what was said on the right. A bare label had lost its context in the list of fields.
+// The questions can be answered one by one, typed or spoken, and each answer stays with its question; a question
+// with nothing to enter is ticked off. Spoken, the answers follow each other as in a conversation: the microphone
+// stays open, the level is drawn at the question, and an answer ends at a pause. Saying everything at once still
+// works and fills what is open.
 
 const PILLS = [ 'fields', 'preview', 'transcript', 'legal' ];
 const CHIP = { ok: [ 'ok', 'ok' ], unclear: [ 'warn', 'unclear' ], missing: [ 'bad', 'missing' ], empty: [ '', 'empty' ], sign: [ '', 'type.sign' ] };
@@ -47,37 +53,50 @@ export function render( ctx, entry ) {
             entry.status = entry.status === 'sent' ? 'sent' : 'filled';
         }
     }
-    const filled = !!entry.values;
+    const asked = f.dialogue ? conversation( ctx, f, entry ) : null;
+    // filled: after the dictation, or with the last question answered
+    const filled = !!entry.values && !( asked && asked.open );
+    if ( !entry.jobId && filled && entry.status === 'verified' ) {
+        entry.status = 'filled';
+        ctx.store.touch();
+    }
     const count = ( k ) => all.filter( ( fl ) => entry.values?.[ fl.id ]?.[ 1 ] === k ).length;
     const unclear = count( 'unclear' );
     const missing = count( 'missing' );
     const meta = filled
         ? [ t( 'meta.spoken', { d: entry.duration || '0:00' } ), t( 'meta.ok', { n: count( 'ok' ) } ), unclear ? t( 'meta.unclear', { n: unclear } ) : '', missing ? t( 'meta.missing', { n: missing } ) : '' ].filter( Boolean )
         : [ f.issuer, t( 'nfields', { n: all.length } ), t( 'meta.captured', { t: entry.created } ) ];
-    const card = !filled ? t( 'form.empty', { f: f.name } )
+    const card = !filled ? ( !asked ? t( 'form.empty', { f: f.name } ) : entry.values ? t( 'form.progress', { a: asked.total - asked.open, b: asked.total } ) : t( 'form.ask', { f: f.name } ) )
         : unclear + missing ? [ unclear ? t( 'form.unclear', { n: unclear } ) : '', missing ? t( 'form.missing', { n: missing } ) : '', t( 'form.then' ) ].filter( Boolean ).join( ' ' )
         : t( 'form.done' );
     const sections = f.sections.map( ( s ) => {
-        const fields = s.fields.filter( ( fl ) => !entry.off.includes( fl.id ) );
+        // in a conversation only what no unit asks for stays in the list: the signature
+        const fields = s.fields.filter( ( fl ) => !entry.off.includes( fl.id ) && !( asked && asked.used.has( fl.id ) ) );
         return {
-            title: s.title,
-            ok: filled ? t( 'sec.ok', { a: fields.filter( ( fl ) => entry.values[ fl.id ]?.[ 1 ] === 'ok' ).length, b: fields.length } ) : '',
+            // the conversation has named the section already where its last turn belongs to it
+            title: asked && asked.last === s.title ? '' : s.title,
+            ok: filled && !asked ? t( 'sec.ok', { a: fields.filter( ( fl ) => entry.values[ fl.id ]?.[ 1 ] === 'ok' ).length, b: fields.length } ) : '',
             fields: fields.map( ( fl ) => fieldView( ctx, fl, entry.values?.[ fl.id ], f, filled ) ),
         };
     } ).filter( ( s ) => s.fields.length );
-    const laws = f.laws.map( ( l ) => ( { ...l, fields: l.fields.map( ( id ) => all.find( ( x ) => x.id === id )?.label || id ).join( ', ' ) } ) );
+    // a job names the catalogue its legal text comes from; the walk-through's is made up and says so
+    const laws = f.laws.map( ( l ) => ( { ...l, fields: l.fields.map( ( id ) => all.find( ( x ) => x.id === id )?.label || id ).join( ', ' ), src: l.source || t( 'law.src' ) } ) );
     const body = ctx.body( 'form' );
     body.innerHTML = tpl.render( 'form', {
         name: f.name,
         meta,
-        pills: PILLS.map( ( key ) => ( { key, label: t( key ), on: state.tab === key } ) ),
+        pills: PILLS.map( ( key ) => ( { key, label: t( key === 'fields' && asked ? 'questions' : key ), on: state.tab === key } ) ),
+        paneTitle: t( asked ? 'questions' : 'fields' ),
+        turns: asked ? asked.turns : [],
         isFields: state.tab === 'fields',
         isPreview: state.tab === 'preview',
         isTranscript: state.tab === 'transcript',
         isLegal: state.tab === 'legal',
         card,
         sections,
-        transcript: f.transcript && f.transcript.length ? f.transcript : [],
+        // the walk-through's made-up transcript shows once something was dictated, not on a fresh form
+        transcript: f.transcript && f.transcript.length && ( entry.jobId || entry.duration ) ? f.transcript : [],
+        trHint: t( entry.jobId ? 'tr.hint' : 'tr.hint.demo' ),
         transcribing: state.transcribing && state.transcribing === entry.jobId,
         filling: state.transcribing && state.transcribing === entry.jobId && f.transcript && f.transcript.length > 0,
         laws,
@@ -85,7 +104,13 @@ export function render( ctx, entry ) {
         pvMeta: t( 'pv.meta', { n: f.pages } ),
         preview: drawPreview( f.sizes, f.blocks, all, entry.values, entry.off ),
     } );
-    ctx.bottom( 'form' ).innerHTML = entry.status === 'sent'
+    const hearing = listen.active( ctx );
+    ctx.bottom( 'form' ).innerHTML = hearing && hearing.entry === entry
+        // the microphone is open: a conversation shows its level at the question, a dictation here
+        ? ( hearing.talk
+            ? '<button class="btn block press" data-stop><span class="dot pulse"></span>&nbsp;' + escape( t( 'rec.stop' ) ) + '</button>'
+            : '<div class="row"><canvas class="eq grow" data-eq width="480" height="72"></canvas><span class="num" data-timer>0:00</span><button class="btn press" data-stop>' + escape( t( 'rec.stop' ) ) + '</button></div>' )
+        : entry.status === 'sent'
         ? '<button class="btn outline block" disabled>' + escape( t( 'btn.sentdone' ) ) + '</button>'
         : filled
             ? '<div class="row"><button class="btn outline press" data-record aria-label="' + escape( t( 'btn.again' ) ) + '"><span class="dot"></span></button><button class="btn grow press" data-sign' + ( missing ? ' disabled' : '' ) + '>' + escape( t( 'btn.sign' ) ) + '</button></div>'
@@ -97,6 +122,104 @@ export function render( ctx, entry ) {
             ctx.toast( fl.label + ( v ? ': ' + v : '' ) );
         } );
     }
+}
+
+// The fields of a form as a conversation, unit by unit in the order of the dialogue. Returns the turns, the ids
+// of the fields they cover and how many questions are still open. An open question shows alone, the one that is
+// being asked with a place to answer; an answered one has what was said under it, with the same decisions as in
+// the list. A unit that is not asked shows only when it carries a value, so nothing that was filled in is hidden.
+function conversation( ctx, f, entry ) {
+    const { t, state } = ctx;
+    const shown = new Map( fieldsOf( f, entry.off ).map( ( fl ) => [ fl.id, fl ] ) );
+    const section = new Map( f.sections.flatMap( ( s ) => s.fields.map( ( fl ) => [ fl.id, s.title ] ) ) );
+    const valueOf = ( fl ) => entry.values?.[ fl.id ];
+    const needs = ( fl ) => [ 'unclear', 'missing' ].includes( valueOf( fl )?.[ 1 ] );
+    const used = new Set();
+    const units = [];
+    for ( const u of f.dialogue ) {
+        u.fields.forEach( ( id ) => used.add( id ) );
+        const fields = u.fields.map( ( id ) => shown.get( id ) ).filter( Boolean );
+        if ( fields.length && !( u.skip && !fields.some( ( fl ) => valueOf( fl )?.[ 0 ] ) ) ) {
+            units.push( { u, fields, answered: fields.some( ( fl ) => valueOf( fl ) !== undefined ) } );
+        }
+    }
+    // open: not answered, and no answer on its way to the server
+    const open = entry.status === 'sent' ? [] : units.filter( ( x ) => !x.answered && !state.pending.has( x.u.id ) );
+    // the question that is being asked: where the conversation stands, else the one the person chose (also an
+    // answered one, to add to it), else the first that is open
+    const hearing = listen.active( ctx );
+    const talking = hearing && hearing.entry === entry && hearing.talk;
+    const chosen = talking ? hearing.unit : state.asking;
+    const current = entry.status === 'sent' ? null : units.find( ( x ) => x.u.id === chosen ) || open[ 0 ] || null;
+    const turns = [];
+    let title = null;
+    for ( const x of units ) {
+        const { u, fields, answered } = x;
+        const choice = u.kind === 'choice';
+        const writing = fields.length === 1 && fields[ 0 ].kind !== 'checkbox' && fields[ 0 ].kind !== 'radio';
+        // what stands on the right: a single field always; of a choice the ticks and what needs a decision; of a
+        // table the cells with a value and the next empty row, to go on writing
+        let said = [];
+        if ( answered && !choice && u.kind !== 'table' ) {
+            said = fields;
+        } else if ( answered && choice ) {
+            said = fields.filter( ( fl ) => valueOf( fl )?.[ 0 ] || needs( fl ) );
+        } else if ( answered ) {
+            const empty = ( fl ) => !valueOf( fl )?.[ 0 ] && !needs( fl );
+            const next = Math.floor( fields.findIndex( empty ) / u.columns );
+            said = fields.filter( ( fl, i ) => !empty( fl ) || Math.floor( i / u.columns ) === next );
+        }
+        const answers = said.map( ( fl ) => {
+            const view = fieldView( ctx, fl, valueOf( fl ), f, true );
+            const i = fields.indexOf( fl );
+            const cell = u.kind === 'table' ? t( 'chat.cell', { r: Math.floor( i / u.columns ) + 1, c: i % u.columns + 1 } ) : '';
+            // under its question a single answer needs no label; a cell says which one it is
+            return { ...view, label: [ u.kind === 'table' && !fl.bare ? fl.label : '', cell ].filter( Boolean ).join( ' · ' ), law: false };
+        } );
+        const head = section.get( fields[ 0 ].id );
+        const pending = state.pending.has( u.id );
+        const tick = !answered ? 'open' : fields.some( needs ) ? 'look' : 'done';
+        turns.push( {
+            id: u.id,
+            head: head !== title ? head : '',
+            question: u.question || ( choice ? t( 'type.choice' ) : u.label || fields[ 0 ].label ),
+            printed: u.question && u.label && !choice ? t( 'chat.printed', { printed: u.label } ) : '',
+            asPrinted: !u.question && !!u.label && !choice,
+            law: fields.some( ( fl ) => f.laws.some( ( l ) => l.fields.includes( fl.id ) ) ),
+            options: choice ? fields.map( ( fl ) => ( { id: fl.id, label: fl.option || fl.label, on: !!valueOf( fl )?.[ 0 ], can: ( answered || x === current ) && entry.status !== 'sent' } ) ) : [],
+            answers,
+            none: answered && !answers.length,
+            // ticked off: answered and nothing left to decide; an open question is ticked off by hand
+            tick,
+            mark: { open: '', look: '!', done: '✓' }[ tick ],
+            canTick: !answered && !pending && entry.status !== 'sent',
+            current: x === current,
+            canAsk: x !== current && !talking && entry.status !== 'sent',
+            pending,
+            // where the conversation stands the level is drawn; else a place to type, or to start speaking
+            live: x === current && talking,
+            compose: x === current && !talking && !pending ? { id: u.id, text: writing, hint: writing ? '' : t( choice ? 'chat.choose' : 'chat.table' ) } : null,
+        } );
+        title = head;
+    }
+    return { turns, used, last: title, open: open.length, total: units.length, current: current ? current.u.id : null };
+}
+
+// The question that is asked next, as the conversation would show it.
+export function asking( ctx, entry ) {
+    return conversation( ctx, ctx.model.formOf( entry ), entry ).current;
+}
+
+// What changes a job on the server goes one after the other: every request rewrites the job, and the answers of
+// a conversation are still on their way while the next one is spoken.
+export function queued( ctx, request ) {
+    const result = ( ctx.state.queue || Promise.resolve() ).then( request );
+    ctx.state.queue = result.catch( () => {} );
+    return result;
+}
+
+export function leave( ctx ) {
+    listen.cancel( ctx );
 }
 
 function fieldView( ctx, fl, v, f, filled ) {
@@ -159,15 +282,85 @@ export function wire( ctx ) {
         render( ctx, entry );
     } );
     on( body, 'click', '[data-cancel]', () => render( ctx, ctx.state.current ) );
+    // the conversation: choose a question, answer it typed or spoken, tick it off
+    on( body, 'click', '[data-ask]', ( el, event ) => {
+        if ( event.target.closest( '.opt' ) ) {
+            return;
+        }
+        ctx.state.asking = el.dataset.ask;
+        render( ctx, ctx.state.current );
+        $( '[data-answer]', body )?.focus();
+    } );
+    on( body, 'click', '[data-send]', ( b ) => {
+        const text = $( '[data-answer]', body ).value.trim();
+        if ( text ) {
+            answer( ctx, ctx.state.current, b.dataset.send, { text } ).then( () => $( '[data-answer]', body )?.focus() );
+        }
+    } );
+    on( body, 'keydown', '[data-answer]', ( el, event ) => {
+        if ( event.key === 'Enter' && el.value.trim() ) {
+            answer( ctx, ctx.state.current, el.dataset.answer, { text: el.value.trim() } ).then( () => $( '[data-answer]', body )?.focus() );
+        }
+    } );
+    on( body, 'click', '[data-speak]', ( b ) => {
+        const f = ctx.model.formOf( ctx.state.current );
+        listen.start( ctx, ctx.state.current, f.dialogue.find( ( u ) => u.id === b.dataset.speak ) );
+    } );
+    on( body, 'click', '[data-stop]', () => listen.stop( ctx ) );
+    on( body, 'click', '[data-tick]', ( b ) => answer( ctx, ctx.state.current, b.dataset.tick, { skip: true } ) );
     const bottom = ctx.bottom( 'form' );
-    on( bottom, 'click', '[data-record]', () => record.start( ctx, ctx.state.current ) );
+    on( bottom, 'click', '[data-record]', () => listen.start( ctx, ctx.state.current ) );
+    on( bottom, 'click', '[data-stop]', () => listen.stop( ctx ) );
     on( bottom, 'click', '[data-sign]', () => sign.open( ctx, ctx.state.current ) );
+}
+
+// An answer to one question: { text } as typed, { sound: piece } as said, { said: true } as said in the
+// walk-through, { skip: true } for nothing to enter. For a job the server puts the values into the fields of the
+// unit and says whether the answer is enough; the walk-through takes a typed answer as it stands and its made-up
+// values for a spoken one. The question shows as on its way until the server has answered.
+export async function answer( ctx, entry, id, what ) {
+    const f = ctx.model.formOf( entry );
+    const unit = f.dialogue.find( ( u ) => u.id === id );
+    const shown = () => ctx.state.current === entry && ctx.router.top().id === 'form';
+    ctx.state.asking = null;
+    if ( entry.jobId ) {
+        ctx.state.pending.add( id );
+        render( ctx, entry );
+        try {
+            const { job, heard } = await queued( ctx, async () => {
+                if ( !what.sound ) {
+                    return api.answer( entry.jobId, id, what );
+                }
+                // the piece first, numbered by the server, then the answer made of it
+                const { piece } = await api.addAudio( entry.jobId, { ...what.sound, n: 0 } );
+                return api.answer( entry.jobId, id, { pieces: [ piece ] } );
+            } );
+            ctx.model.keep( job );
+            if ( heard === false ) {
+                ctx.toast( ctx.t( 'chat.unheard' ) );
+            }
+        } catch ( error ) {
+            ctx.toast( ctx.t( 'job.failed', { e: error.message } ) );
+        }
+        ctx.state.pending.delete( id );
+    } else {
+        entry.values = entry.values || {};
+        for ( const fl of fieldsOf( f ).filter( ( x ) => unit.fields.includes( x.id ) ) ) {
+            entry.values[ fl.id ] = what.text ? [ what.text, 'ok', '' ] : what.said && f.values[ fl.id ] ? [ ...f.values[ fl.id ] ] : [ '', 'empty', '' ];
+        }
+        ctx.state.pending.delete( id );
+        ctx.store.touch();
+    }
+    if ( shown() ) {
+        render( ctx, entry );
+        $( '.turn.current', ctx.body( 'form' ) )?.scrollIntoView( { block: 'center', behavior: 'smooth' } );
+    }
 }
 
 // a person's decision on a job's field goes to the server; the form comes back with it
 async function decide( ctx, entry, id, decision ) {
     try {
-        const { job } = await api.review( entry.jobId, id, decision );
+        const { job } = await queued( ctx, () => api.review( entry.jobId, id, decision ) );
         ctx.model.keep( job );
     } catch ( error ) {
         ctx.toast( ctx.t( 'job.failed', { e: error.message } ) );
@@ -181,11 +374,21 @@ function edit( ctx, id, wrap ) {
     const entry = state.current;
     const f = ctx.model.formOf( entry );
     const fl = fieldsOf( f ).find( ( x ) => x.id === id );
+    // a tick can be the first thing entered
+    entry.values = entry.values || {};
     const cur = entry.values[ id ]?.[ 0 ] || '';
     if ( fl.kind === 'checkbox' || fl.kind === 'radio' ) {
+        // radios of one group exclude each other: ticking one takes the tick from the others
+        const others = cur || fl.kind !== 'radio' || !fl.group ? [] : fieldsOf( f ).filter( ( x ) => x.group === fl.group && x.id !== id && entry.values[ x.id ]?.[ 0 ] );
         if ( entry.jobId ) {
-            decide( ctx, entry, id, cur ? { decision: 'rejected' } : { decision: 'changed', value: 'x' } );
+            // one after the other: every decision rewrites the job on the server
+            others.reduce( ( done, x ) => done.then( () => queued( ctx, () => api.review( entry.jobId, x.id, { decision: 'rejected' } ) ) ), Promise.resolve() )
+                .catch( () => {} )
+                .then( () => decide( ctx, entry, id, cur ? { decision: 'rejected' } : { decision: 'changed', value: 'x' } ) );
             return;
+        }
+        for ( const x of others ) {
+            entry.values[ x.id ] = [ '', 'empty', '' ];
         }
         entry.values[ id ] = [ cur ? '' : 'x', cur ? 'empty' : 'ok', '' ];
         ctx.store.touch();
