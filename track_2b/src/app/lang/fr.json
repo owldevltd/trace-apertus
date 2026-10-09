@@ -98,7 +98,7 @@
         "one": "1 information obligatoire manque encore.",
         "other": "{n} informations obligatoires manquent encore."
     },
-    "form.then": "Confirme ou complète, puis tu peux envoyer.",
+    "form.then": "Confirme ou complète – tu peux aussi envoyer tel quel.",
     "form.done": "Toutes les informations sont confirmées. Tu peux envoyer le formulaire pour signature.",
     "form.empty": "Touche « Commencer l’écoute » et dicte les informations du {f} avec tes mots. Les champs se remplissent ensuite.",
     "form.pv.filled": "Voici le formulaire. Vert : confirmé, jaune : flou, rouge : manquant. Touche un champ pour sa valeur.",
@@ -198,7 +198,7 @@
     "chat.asprinted": "tel qu’imprimé sur le formulaire",
     "chat.cell": "Ligne {r}, colonne {c}",
     "job.dialogue": "Rédaction des questions …",
-    "form.progress": "{a} questions sur {b} ont une réponse. Réponds à la suivante, ou touche « Commencer l’écoute » et dis le reste d’un coup.",
+    "form.progress": "{a} questions sur {b} ont une réponse.",
     "chat.answer": "Ta réponse …",
     "chat.send": "Envoyer",
     "chat.speak": "Dire la réponse",
@@ -221,6 +221,13 @@
     "trv.m2": "Les chiffres et les noms sont comparés à ce que tu as dit",
     "trv.progress": "{a} sur {b}",
     "btn.next": "Continuer",
-    "form.translate": "Toutes les questions ont une réponse. Touche « Continuer » : tes réponses sont traduites dans la langue du formulaire, et tu les vérifies encore une fois.",
-    "v.translated": "Ta réponse : « {q} »"
+    "form.translate": "Touche « Continuer » : tes réponses sont traduites dans la langue du formulaire, et tu les vérifies encore une fois.",
+    "v.translated": "Ta réponse : « {q} »",
+    "form.required": "Obligatoire : {a} sur {b}.",
+    "form.goon": "Réponds à la suivante, dis le reste d’un coup – ou touche « Continuer » : ce qui est ouvert reste vide.",
+    "chat.required": "Obligatoire",
+    "sign.missing": {
+        "one": "1 information obligatoire manque encore. Tu peux envoyer quand même.",
+        "other": "{n} informations obligatoires manquent encore. Tu peux envoyer quand même."
+    }
 }

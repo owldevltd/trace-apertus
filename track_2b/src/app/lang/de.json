@@ -98,7 +98,7 @@
         "one": "1 Pflichtangabe fehlt noch.",
         "other": "{n} Pflichtangaben fehlen noch."
     },
-    "form.then": "Bestätige oder ergänze sie, dann kannst du senden.",
+    "form.then": "Bestätige oder ergänze sie – senden kannst du auch so.",
     "form.done": "Alle Angaben sind bestätigt. Du kannst das Formular zur Signatur senden.",
     "form.empty": "Tippe auf „Zuhören beginnen“ und sprich die Angaben zum {f} in eigenen Worten. Die Felder füllen sich danach.",
     "form.pv.filled": "So steht es im Formular. Grün ist bestätigt, Gelb unklar, Rot fehlt. Antippen zeigt den Wert.",
@@ -198,7 +198,7 @@
     "chat.asprinted": "wie auf dem Formular gedruckt",
     "chat.cell": "Zeile {r}, Spalte {c}",
     "job.dialogue": "Fragen werden geschrieben …",
-    "form.progress": "{a} von {b} Fragen beantwortet. Beantworte die nächste, oder tippe auf „Zuhören beginnen“ und sag den Rest auf einmal.",
+    "form.progress": "{a} von {b} Fragen beantwortet.",
     "chat.answer": "Deine Antwort …",
     "chat.send": "Senden",
     "chat.speak": "Antwort sprechen",
@@ -221,6 +221,13 @@
     "trv.m2": "Zahlen und Namen werden gegen deine Angaben gehalten",
     "trv.progress": "{a} von {b}",
     "btn.next": "Weiter",
-    "form.translate": "Alle Fragen sind beantwortet. Tippe auf „Weiter“: Deine Antworten werden in die Sprache des Formulars übersetzt, und du prüfst sie noch einmal.",
-    "v.translated": "Deine Angabe: „{q}“"
+    "form.translate": "Tippe auf „Weiter“: Deine Antworten werden in die Sprache des Formulars übersetzt, und du prüfst sie noch einmal.",
+    "v.translated": "Deine Angabe: „{q}“",
+    "form.required": "Pflicht: {a} von {b}.",
+    "form.goon": "Beantworte die nächste, sag den Rest auf einmal – oder tippe auf „Weiter“: Was offen ist, bleibt leer.",
+    "chat.required": "Pflicht",
+    "sign.missing": {
+        "one": "1 Pflichtangabe fehlt noch. Du kannst trotzdem senden.",
+        "other": "{n} Pflichtangaben fehlen noch. Du kannst trotzdem senden."
+    }
 }

@@ -98,7 +98,7 @@
         "one": "1 required entry is still missing.",
         "other": "{n} required entries are still missing."
     },
-    "form.then": "Confirm or complete them, then you can send.",
+    "form.then": "Confirm or complete them – you can send as it is, too.",
     "form.done": "All entries are confirmed. You can send the form for signature.",
     "form.empty": "Tap “Start listening” and say the details for the {f} in your own words. The fields fill in afterwards.",
     "form.pv.filled": "This is how it stands in the form. Green is confirmed, yellow unclear, red missing. Tap a field for its value.",
@@ -198,7 +198,7 @@
     "chat.asprinted": "as printed on the form",
     "chat.cell": "Row {r}, column {c}",
     "job.dialogue": "Writing the questions …",
-    "form.progress": "{a} of {b} questions answered. Answer the next one, or tap “Start listening” and say the rest at once.",
+    "form.progress": "{a} of {b} questions answered.",
     "chat.answer": "Your answer …",
     "chat.send": "Send",
     "chat.speak": "Say the answer",
@@ -221,6 +221,13 @@
     "trv.m2": "Numbers and names are held against what you said",
     "trv.progress": "{a} of {b}",
     "btn.next": "Continue",
-    "form.translate": "All questions are answered. Tap “Continue”: your answers are translated into the language of the form, and you check them once more.",
-    "v.translated": "Your answer: “{q}”"
+    "form.translate": "Tap “Continue”: your answers are translated into the language of the form, and you check them once more.",
+    "v.translated": "Your answer: “{q}”",
+    "form.required": "Required: {a} of {b}.",
+    "form.goon": "Answer the next one, say the rest at once – or tap “Continue”: what is open stays empty.",
+    "chat.required": "Required",
+    "sign.missing": {
+        "one": "1 required entry is still missing. You can send anyway.",
+        "other": "{n} required entries are still missing. You can send anyway."
+    }
 }

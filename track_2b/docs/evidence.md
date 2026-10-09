@@ -136,6 +136,9 @@ walk-through, and the check itself is measured with errors put in on purpose.
 | 09.10. | Translate the stored questions, or write new ones? | the 40 holding German questions in one call per form, then the check twice | all lines come back; 34, 34 and 25 of 28 still point at their place. What does not hold has moved ("Wo und wann ist der Abschluss passiert?" became the place and time of the accident) or has become the same as another | the stored questions are translated when the form is first opened in a language, checked like written ones, and kept with the form; what does not hold is asked with the translated label |
 | 09.10. | The repository's own run | `make dialogue` (`tests/questions.js`, `results/dialogue.md`): the pipeline's code on the four shipped forms, read from the text layer, 47 calls, 181 s at the model | 259 units, 29 not asked, 214 questions written, **156 hold**, 74 keep the printed label; a neighbour's question passes in 10 of 414 cases (2.4 %), another place's in 20 of 4 134 (0.5 %) | |
 | 09.10. | The repository's run in another language | `make dialogue` (`tests/translate.js`, `results/translate.md`): the two walk-through forms in French, Italian and English, 99 calls, 6 of them to the large model for the way there | dialogue: of 40 questions 35, 35 and 39 hold after translation, every label and option comes back (14 calls per language for both forms). Values, one per call: of 28 that are language 14 come back as the German value, 13 as another word, 1 untranslated; of 56 names and numbers 54 stay. Code flags 3 translations, 2 of them rightly ("Werksstrasse", "Palet"). Not caught: "nubile" → "verheiratet", "Suisse" → "Schweizerin", "Paletta" → "Schaufel" | the person sees what they said under every translated value; the translation is not checked by a second translation |
+| 09.10. | Which questions does a form require? | the 33 required entries of the four catalogues bound to the units of the dialogue: by code (the label of a field), by the small model, by the large model, by what both name, and with a check back; read against the pages, 60 calls | 28 entries have a place in the dialogue (43 units). The label binds 17 and no wrong unit. The small model alone names 26 wrong units, the large one 34. The label, else what both name: 26 entries, 3 wrong units; the check back drops 2 of the 3 and none of the 12 right ones. A unit only one of the two names is right in 3 of 31 cases | bound once when a form is captured: the label, else both models with the check back. Nothing has to be answered; what is required and empty is a warning, the form can still be sent |
+| 09.10. | Can the model say what is required, without a checked catalogue? | (a) both models name the indispensable units of every page; (b) both mark the required ones among the 136 entries of the checked catalogues, 33 of them required; (c) the large model builds the catalogue anew with a key for required; 26 calls | (a) the small model names 121 of 230 units, 80 of 110 on one form and 2 of 35 on another, the large one 112. (b) the large model marks 100 of 136 entries, 31 of the 33 among them; the small one 8, 2 of the 33. (c) 7 of 16, 16 of 16 and 18 of 42 entries marked; one of the four catalogues did not come back | as built: required is what a person checked in the catalogue; a form without a catalogue carries no required marks |
+| 09.10. | The repository's run of the binding | `make required` (`tools/capture.js --required`, `results/required.md`): the four captured forms, 29 calls, 14 of them to the large model | 17 entries bound by the label, 10 by both models with the check back, 6 not bound; 39 of 230 asked questions marked required. Read against the pages: one of the 10 is wrong ("Ort und Datum" for the signatures), two entries with a place stay unbound (the amount of the claim, "Arbeit ausgesetzt?") | kept with the captured forms |
 
 What the check does not see is a question that points at the right place and is worded badly: "Wann ist das
 Geburtsdatum des Schuldners bekannt?" holds. Of 15 holding questions read by hand, 2 asked for something else than
@@ -162,6 +165,9 @@ the order of the form fields in the PDF for 108 of 116 neighbouring units and fa
 - Writing the questions of a page in bundles: the party a place is about gets lost (10 of 13).
 - Translating values in a bundle: with names and numbers beside them nothing gets translated (0 of 28).
 - Reading an answer and translating it in one step: half-translated values, and no origin to check.
+- Asking the model which places of a form are required, without a checked catalogue: the small one names half of
+  them, the large one three quarters of the catalogue.
+- Taking a place only one of the two models names for a required entry (3 right of 31).
 
 ## 9 What ships in this repository
 
@@ -216,6 +222,10 @@ out with 6 of 9 expected values the same and no value in a wrong field.
 A form can be filled in in another language than its own (`results/translate.md`): the dialogue is translated
 once, when the form is first opened in that language, and kept with it; the answers are read in the person's
 language and translated value by value before sending.
+
+The questions at which a form requires an entry are marked in the captured forms (`results/required.md`). Nothing
+has to be answered: a person goes on when it is enough for them, and what is required and still empty is a warning
+before sending.
 
 The app lists the four shipped forms. Each was captured once (`make capture`, 9 October 2026, 47 calls): the
 pipeline ran over it with the text taken from the text layer of its PDF instead of read by the model

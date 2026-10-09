@@ -22,7 +22,7 @@ A field is what a person would fill in. `kind` is one of `text`, `multiline`, `n
 
 ## Dialogue
 
-`dialogue.units[]` turn the form into a conversation: `q1`, `q2`, … in the order of the paper. Every field except the signature belongs to exactly one unit; `kind` is `single` (one field), `choice` (tick marks that belong together) or `table` (rows built alike, with `rows` and `columns`). `label` holds the printed labels of the unit's fields. `question` is a plain question for the unit, written by the model named in `dialogue.model` and present only when it passed the check: asked without its id, the model named this unit in every run, and no other unit of the page is asked with the same words. A unit without `question` is asked with its printed label. An answer given to one unit goes into the fields of that unit only; the transcript piece it was said or typed in carries the unit's id in `question`. `skip` marks a unit that is not asked because the fillable original has no form field there. The units are built by code; without a model the dialogue carries labels only.
+`dialogue.units[]` turn the form into a conversation: `q1`, `q2`, … in the order of the paper. Every field except the signature belongs to exactly one unit; `kind` is `single` (one field), `choice` (tick marks that belong together) or `table` (rows built alike, with `rows` and `columns`). `label` holds the printed labels of the unit's fields. `question` is a plain question for the unit, written by the model named in `dialogue.model` and present only when it passed the check: asked without its id, the model named this unit in every run, and no other unit of the page is asked with the same words. A unit without `question` is asked with its printed label. An answer given to one unit goes into the fields of that unit only; the transcript piece it was said or typed in carries the unit's id in `question`. `skip` marks a unit that is not asked because the fillable original has no form field there. `required` marks a unit at which the form requires an entry: a required entry of the form's catalogue was bound to it, by the label of one of its fields, or by the small and the large model naming the same unit and a check back confirming it. A form without a catalogue has no required units. Nothing has to be answered: a person can go on with questions open, they stay empty, and a required unit with nothing in any of its fields then carries the hint `missing` on its first field – a warning, the form can still be sent. The units are built by code; without a model the dialogue carries labels only.
 
 ## Another language than the form's
 
@@ -38,7 +38,7 @@ A person can fill in a form in a language it is not printed in. `language` then 
 
 ## Hints
 
-`hints[]` on a field: `kind` is `missing` (required field empty – by code), `vague` (the entry is insufficient against the catalogue – by the model with the catalogue), `incomplete` (the answer does not cover what the question asks for – by the model, from the question, the printed label and what was said; `text` says what is missing), `legal` (the catalogue's requirement for this field), or `format` (the value does not fit the kind – by code). `article` is the legal reference as printed in the catalogue; `catalogue` names the catalogue file and its validation stamp. Trace never says "not allowed", only "please look here".
+`hints[]` on a field: `kind` is `missing` (something required is empty – by code; with a dialogue one hint per required unit, on its first field), `vague` (the entry is insufficient against the catalogue – by the model with the catalogue), `incomplete` (the answer does not cover what the question asks for – by the model, from the question, the printed label and what was said; `text` says what is missing), `legal` (the catalogue's requirement for this field), or `format` (the value does not fit the kind – by code). `article` is the legal reference as printed in the catalogue; `catalogue` names the catalogue file and its validation stamp. Trace never says "not allowed", only "please look here".
 
 ## The person's decision
 
@@ -83,5 +83,5 @@ A person can fill in a form in a language it is not printed in. `language` then 
 
 ## Changes
 
-- **2b-0.2** (2026-10-09): `dialogue` – the fields in units with a printed label and a checked plain question; `transcript[].question` for a piece said in reply to a unit; hint kind `incomplete`; `language`, `dialogue.translations` and `source.said` for a form filled in in another language.
+- **2b-0.2** (2026-10-09): `dialogue` – the fields in units with a printed label and a checked plain question; `transcript[].question` for a piece said in reply to a unit; hint kind `incomplete`; `dialogue.units[].required`; `language`, `dialogue.translations` and `source.said` for a form filled in in another language.
 - **2b-0.1** (2026-10-07): first draft.

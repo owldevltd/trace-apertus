@@ -98,7 +98,7 @@
         "one": "1 dato obbligatorio manca ancora.",
         "other": "{n} dati obbligatori mancano ancora."
     },
-    "form.then": "Conferma o completa, poi puoi inviare.",
+    "form.then": "Conferma o completa – puoi anche inviare così.",
     "form.done": "Tutti i dati sono confermati. Puoi inviare il modulo per la firma.",
     "form.empty": "Tocca «Inizia ad ascoltare» e detta i dati del {f} con parole tue. I campi si riempiono dopo.",
     "form.pv.filled": "Così sta nel modulo. Verde confermato, giallo incerto, rosso mancante. Tocca un campo per il valore.",
@@ -198,7 +198,7 @@
     "chat.asprinted": "come stampato sul modulo",
     "chat.cell": "Riga {r}, colonna {c}",
     "job.dialogue": "Scrittura delle domande …",
-    "form.progress": "{a} domande su {b} hanno una risposta. Rispondi alla prossima, oppure tocca «Inizia ad ascoltare» e di’ il resto in una volta.",
+    "form.progress": "{a} domande su {b} hanno una risposta.",
     "chat.answer": "La tua risposta …",
     "chat.send": "Invia",
     "chat.speak": "Dire la risposta",
@@ -221,6 +221,13 @@
     "trv.m2": "Numeri e nomi sono confrontati con ciò che hai detto",
     "trv.progress": "{a} di {b}",
     "btn.next": "Avanti",
-    "form.translate": "Tutte le domande hanno una risposta. Tocca «Avanti»: le tue risposte sono tradotte nella lingua del modulo, e le controlli ancora una volta.",
-    "v.translated": "La tua risposta: «{q}»"
+    "form.translate": "Tocca «Avanti»: le tue risposte sono tradotte nella lingua del modulo, e le controlli ancora una volta.",
+    "v.translated": "La tua risposta: «{q}»",
+    "form.required": "Obbligatorio: {a} su {b}.",
+    "form.goon": "Rispondi alla prossima, di’ il resto in una volta – oppure tocca «Avanti»: ciò che è aperto resta vuoto.",
+    "chat.required": "Obbligatorio",
+    "sign.missing": {
+        "one": "1 dato obbligatorio manca ancora. Puoi inviare lo stesso.",
+        "other": "{n} dati obbligatori mancano ancora. Puoi inviare lo stesso."
+    }
 }

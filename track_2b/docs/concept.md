@@ -65,7 +65,9 @@ documentation. The common denominator: forms someone else prescribes. The demo s
 5. **Fill.** The model maps the transcript onto the fields; every value points at its words. An answer to one
    question goes into the fields of that question only, and the model says whether it covers what was asked.
 6. **Review.** Each question with what was said, a status (ok, unclear, missing), hints from a catalogue of legal
-   requirements built once per form by the large model.
+   requirements built once per form by the large model. Nothing has to be answered: the person goes on when it is
+   enough for them, and what was left open stays empty. What the form requires is marked at its question from the
+   start; what of it is still empty is a warning before sending, not a lock.
 7. **Translate**, only where the person's language is not the form's. The form is asked and answered in the
    person's language; its questions are translated once, when it is first opened in that language. Before
    sending, the answers are translated into the language of the form, each shown with what was said beside it,

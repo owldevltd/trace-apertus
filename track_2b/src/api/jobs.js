@@ -206,6 +206,26 @@ export function registerJobs( router, client ) {
         return { status: 200, json: { job } };
     } );
 
+    // The person goes on with questions still open: what was not answered stays empty, and the form is filled as
+    // far as the person wants it. From here on a required question without an answer shows as missing.
+    router.add( 'POST', '/api/jobs/:id/review', async ( { params } ) => {
+        const job = await find( params.id );
+        if ( !job ) {
+            return { status: 404, json: { error: 'no such job' } };
+        }
+        if ( job.status === 'sent' ) {
+            return { status: 409, json: { error: 'the form is sent' } };
+        }
+        if ( [ 'captured', 'verified' ].includes( job.status ) ) {
+            const open = job.dialogue ? job.dialogue.units.filter( ( u ) => !u.skip && !answered( job, u ) ).length : 0;
+            job.status = 'filled';
+            job.history.push( { at: new Date().toISOString(), event: 'filled', note: open + ' questions left open' } );
+            settle( job, await loadCatalogue( job ), [] );
+            await saveJob( job );
+        }
+        return { status: 200, json: { job } };
+    } );
+
     // The dialogue in the language of the person: { language }. Where it is not the language of the form, the
     // questions, labels and options are translated once and kept with the form; the job then knows the language
     // it is answered in. Answers at once with ready when there is nothing to do, else the app asks for the job
@@ -334,16 +354,15 @@ export function registerJobs( router, client ) {
         if ( !job ) {
             return { status: 404, json: { error: 'no such job' } };
         }
-        if ( job.fields.some( ( f ) => ( f.hints || [] ).some( ( h ) => h.kind === 'missing' ) ) ) {
-            return { status: 409, json: { error: 'required fields are still empty' } };
-        }
         if ( toTranslate( job ).length ) {
             return { status: 409, json: { error: 'the answers are not in the language of the form yet' } };
         }
         await output( job );
         const at = new Date().toISOString();
+        // what is required and empty is a warning to the person, not a lock: the history says it went out so
+        const missing = job.fields.filter( ( f ) => ( f.hints || [] ).some( ( h ) => h.kind === 'missing' ) ).length;
         job.history.push( { at, event: 'exported', note: 'output.pdf' } );
-        job.history.push( { at, event: 'sent' } );
+        job.history.push( { at, event: 'sent', ...( missing ? { note: missing + ' required left empty' } : {} ) } );
         job.status = 'sent';
         await saveJob( job );
         return { status: 200, json: { job, draft: await draft( job ) } };

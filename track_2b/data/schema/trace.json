@@ -194,6 +194,10 @@
               "skip": {
                 "type": "boolean",
                 "description": "not asked: the fillable original has no form field at this place"
+              },
+              "required": {
+                "type": "boolean",
+                "description": "the form requires what is entered here: an entry of the form's catalogue marked required was bound to this unit, by the label of a field or by the model with a check back"
               }
             },
             "additionalProperties": false

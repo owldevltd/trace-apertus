@@ -56,7 +56,7 @@ export function record( job, event, note ) {
 }
 
 // Where the pipeline stands: { step, page, at, error }. step is idle, analyze, read, fields, dialogue, transcribe,
-// fill, translate, done or error.
+// fill, translate, done or error. A translation also says how far it is: page of `of`.
 export async function saveRun( id, run ) {
     await fs.writeFile( path.join( jobDir( id ), 'run.json' ), JSON.stringify( run, null, 2 ) );
     return run;

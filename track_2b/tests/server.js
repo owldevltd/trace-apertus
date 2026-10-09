@@ -96,6 +96,19 @@ try {
     check( last.status === 'filled' && last.history.some( ( h ) => h.event === 'filled' ) && last.fields.find( ( f ) => f.id === writing.fields[ 0 ] ).value === 'Chur',
         'with the last question ticked off the form is filled (' + units.length + ' questions)' );
 
+    // going on with questions open: the form is filled as far as the person wants it, what is required and
+    // empty is a hint and not a lock
+    const third = await ( await fetch( base + '/api/jobs/from/arbeitsfaehigkeitszeugnis', { method: 'POST' } ) ).json();
+    const early = await fetch( base + '/api/jobs/' + third.id + '/review', { method: 'POST' } );
+    const left = ( await early.json() ).job;
+    const lacks = left.fields.filter( ( f ) => ( f.hints || [] ).some( ( h ) => h.kind === 'missing' ) ).length;
+    check( early.status === 200 && left.status === 'filled' && left.history.some( ( h ) => h.event === 'filled' && /questions left open/.test( h.note ) ) && lacks > 0,
+        'POST /api/jobs/:id/review fills the form with questions open; what is required shows as missing (' + lacks + ')' );
+    const anyway = await fetch( base + '/api/jobs/' + third.id + '/send', { method: 'POST' } );
+    const gone = ( await anyway.json() ).job;
+    check( anyway.status === 200 && gone.status === 'sent' && gone.history.some( ( h ) => h.event === 'sent' && h.note === lacks + ' required left empty' ), 'a form with something required missing is sent all the same, and its history says so' );
+    check( ( await fetch( base + '/api/jobs/' + third.id + '/review', { method: 'POST' } ) ).status === 409, 'a form that is sent is not gone on with' );
+
     // another language than the form's: nothing to do for the form's own, refused without a model
     const say = ( language ) => fetch( base + '/api/jobs/' + other.id + '/translate', { method: 'POST', body: JSON.stringify( { language } ) } );
     const own = await say( 'de' );

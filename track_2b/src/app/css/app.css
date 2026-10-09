@@ -149,6 +149,8 @@ html:not([data-demo]) .demo-only { display: none !important; }
 .cell { background: var(--paper); border: 1px solid var(--line); border-radius: var(--rs); padding: 12px 14px; }
 .cells { display: flex; flex-direction: column; gap: 8px; }
 .cell.entry { text-align: left; cursor: pointer; width: 100%; }
+.bar { height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: inherit; background: var(--ink); transition: width 0.6s ease; }
 .grey { background: var(--ground); border-radius: var(--r); padding: 14px; }
 .second { background: var(--second-soft); border-radius: var(--r); padding: 14px; }
 .thumb { width: 44px; height: 56px; border-radius: 8px; object-fit: cover; background: var(--ground); flex: none; }
@@ -196,6 +198,8 @@ html:not([data-demo]) .demo-only { display: none !important; }
 .reply .btn.sm { flex: none; }
 .bubble.none.row { gap: 10px; font-style: normal; }
 .bubble.none .spinner { width: 18px; height: 18px; border-width: 2px; }
+.bubble.none.lacking { border-color: var(--bad); color: var(--bad); font-style: normal; }
+.bubble.ask .chip { margin-left: 4px; padding: 1px 8px; font-size: 11px; vertical-align: 1px; }
 .bubble.none { align-self: flex-end; border: 1px dashed var(--line); border-bottom-right-radius: 6px; color: var(--muted); font-style: italic; }
 .opts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .opt { border: 1.5px solid var(--line); background: var(--paper); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 500; cursor: pointer; }

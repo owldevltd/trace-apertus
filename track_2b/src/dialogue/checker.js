@@ -10,7 +10,7 @@ import { INTRO, parse } from './writer.js';
 // does not see a question that points at the right place and is worded badly.
 
 export const RUNS = 2;
-const BUNDLE = 12;
+export const BUNDLE = 12;
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 // room for the answer: tokens per question and a base

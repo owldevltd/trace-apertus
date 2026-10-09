@@ -1,4 +1,4 @@
-.PHONY: run test bench forms capture dialogue walkthrough
+.PHONY: run test bench forms capture required dialogue walkthrough
 
 # The pages the model run reads: one page of the Betreibungsbegehren and two of the Suva form, 152 elements.
 BENCH_PAGES = data/forms/betreibungsbegehren/betreibungsbegehren-form-1-s1.png \
@@ -32,10 +32,18 @@ forms:
 # Captures the four shipped forms: runs the pipeline over each once and keeps the result beside it as
 # data/forms/<form>/captured.json, so the app opens a shipped form without recognizing anything. The text comes
 # from the text layer of the PDFs, the questions from the model. A preparation step, its results are committed.
-# Needs API_KEY in .env. 47 calls, about 4 minutes.
+# The questions at which a form requires an entry are marked from its catalogue. Needs API_KEY in .env. 47 calls
+# for the questions and 29 for the required ones, about 6 minutes.
 capture:
 	@test -f .env || { echo "copy .env.example to .env and set API_KEY"; exit 1; }
 	node --env-file=.env tools/capture.js
+
+# Binds the required entries of the catalogues to the questions of the captured forms anew, without touching the
+# questions, and writes how every entry was bound. Needs API_KEY in .env. 29 calls, 14 of them to the large model.
+# The report lands in storage/bench/; the committed run is in results/required.md.
+required:
+	@test -f .env || { echo "copy .env.example to .env and set API_KEY"; exit 1; }
+	node --env-file=.env tools/capture.js --required --out=storage/bench/required.md
 
 # Reads the unknown elements of three shipped pages with the model and holds the text against the text layer of the
 # PDFs; then fills the walk-through's form from its made-up dictation, said at once and question by question.

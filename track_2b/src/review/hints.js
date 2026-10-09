@@ -11,12 +11,19 @@ import { asked } from '../dialogue/translate.js';
 // sources with the catalogue, 4 without). incomplete comes from the question itself: the model says whether an
 // answer covers what the place asks for. The hint says "please look here", never "not allowed".
 
-// Code hints over all fields: a required field without a value, a date that is none.
+// Code hints over all fields: something required without a value, a date that is none. Where the dialogue says
+// which of its questions are required, a required question with nothing in any of its fields is missing, and the
+// hint stands on its first field: no tick in a required choice is one thing missing, not one per box. A job
+// without such marks takes the catalogue entry of each field by its label.
 export function hints( job, catalogue = null ) {
     const out = [];
+    const units = job.dialogue ? job.dialogue.units : [];
+    const marked = units.some( ( u ) => u.required );
+    const value = new Map( job.fields.map( ( f ) => [ f.id, f.value ] ) );
+    const empty = new Set( units.filter( ( u ) => u.required && !u.skip && !u.fields.some( ( id ) => value.get( id ) ) ).map( ( u ) => u.fields[ 0 ] ) );
     for ( const f of job.fields ) {
-        const entry = catalogue ? find( catalogue, f ) : null;
-        const required = f.required || ( entry && entry.required );
+        const entry = catalogue ? entryOf( catalogue, f ) : null;
+        const required = marked ? empty.has( f.id ) : f.required || ( entry && entry.required );
         if ( required && !f.value ) {
             out.push( { field: f.id, kind: 'missing', text: 'Pflichtangabe, nichts gesagt.' } );
         }
@@ -46,7 +53,7 @@ export async function loadCatalogue( job ) {
 }
 
 // the catalogue entry for a field: same label, or the entry's field name inside the label
-function find( catalogue, f ) {
+export function entryOf( catalogue, f ) {
     const label = plain( f.label );
     if ( !label ) {
         return null;
@@ -63,7 +70,7 @@ export async function judgeVague( job, catalogue, client ) {
     const out = [];
     const text = JSON.stringify( catalogue.fields, null, 1 );
     for ( const f of job.fields ) {
-        const entry = find( catalogue, f );
+        const entry = entryOf( catalogue, f );
         // only where the catalogue has a requirement with a source: without one the model has nothing to judge by
         if ( !entry || !f.value || f.kind === 'checkbox' || f.kind === 'radio' || !entry.source || /keine sichere quelle/i.test( entry.source ) ) {
             continue;

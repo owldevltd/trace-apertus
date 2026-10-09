@@ -6,7 +6,7 @@ import { LANGUAGE, foreign } from '../language.js';
 import { levenshtein } from '../read/fluffy.js';
 import { swiss } from '../fields/dates.js';
 import { parse } from './writer.js';
-import { checkQuestions } from './checker.js';
+import { checkQuestions, RUNS, BUNDLE } from './checker.js';
 import { holding } from './dialogue.js';
 
 // The form in the language of the person. Two steps, both only where that language is not the form's.
@@ -196,13 +196,36 @@ export async function translateValues( job, client, log, onStep ) {
     return fields;
 }
 
-// Runs the translation of a job's dialogue as a step of its own, so the app can show that it is at work; the
-// translation is kept with the job, and for a shipped form in the storage folder as well.
+// The calls the translation of a job's dialogue takes when no line has to be asked for a second time: per page
+// one for the questions and one for the labels and options, then the check of the questions in its bundles.
+export function planned( job ) {
+    const units = job.dialogue.units.filter( ( u ) => !u.skip );
+    let calls = 0;
+    for ( const page of job.pages ) {
+        const here = units.filter( ( u ) => u.page === page.n );
+        const questions = here.filter( ( u ) => u.question ).length;
+        calls += ( questions ? 1 : 0 ) + ( here.some( ( u ) => u.label || u.kind === 'choice' ) ? 1 : 0 ) + RUNS * Math.ceil( questions / BUNDLE );
+    }
+    return calls;
+}
+
+// Runs the translation of a job's dialogue as a step of its own, so the app can show how far it is: run.page
+// counts the calls done, run.of the calls planned. The translation is kept with the job, and for a shipped form
+// in the storage folder as well.
 export async function translateJob( job, language, client ) {
-    const state = { step: 'translate', page: 0, at: new Date().toISOString(), error: null };
+    const state = { step: 'translate', page: 0, of: planned( job ), at: new Date().toISOString(), error: null };
     await saveRun( job.id, state );
+    // a line asked for a second time is a call more than planned: the count stops at the plan
+    const counting = {
+        state: client.state,
+        ask: async ( prompt, options ) => {
+            const answer = await client.ask( prompt, options );
+            await saveRun( job.id, Object.assign( state, { page: Math.min( state.page + 1, state.of ), at: new Date().toISOString() } ) );
+            return answer;
+        },
+    };
     try {
-        const translation = await translateDialogue( job, language, client, path.join( jobDir( job.id ), 'model' ) );
+        const translation = await translateDialogue( job, language, counting, path.join( jobDir( job.id ), 'model' ) );
         if ( client.state.halted || !translation.model ) {
             throw new Error( 'the model did not translate' );
         }
@@ -219,10 +242,11 @@ export async function translateJob( job, language, client ) {
     return job;
 }
 
-// Runs the translation of a job's values as a step of its own; run.page counts the fields done. after( job ):
-// what the caller does with the job once the values are in the language of the form (the hints anew).
+// Runs the translation of a job's values as a step of its own; run.page counts the fields done, run.of all of
+// them. after( job ): what the caller does with the job once the values are in the language of the form (the
+// hints anew).
 export async function translateJobValues( job, client, after ) {
-    const state = { step: 'translate', page: 0, at: new Date().toISOString(), error: null };
+    const state = { step: 'translate', page: 0, of: toTranslate( job ).length, at: new Date().toISOString(), error: null };
     await saveRun( job.id, state );
     try {
         const fields = await translateValues( job, client, path.join( jobDir( job.id ), 'model' ), ( done ) => saveRun( job.id, Object.assign( state, { page: done, at: new Date().toISOString() } ) ) );

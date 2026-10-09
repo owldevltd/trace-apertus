@@ -22,7 +22,8 @@ build needs poppler (`pdftoppm`, `pdftotext`), the app does not.
 The app lists the four forms under "Shipped forms". Each was captured once, when it was put here: `make capture`
 (`tools/capture.js`) runs the whole pipeline over it, with the words taken from the text layer of the PDF instead
 of read by the model, and keeps the result beside it as `captured.json`: pages, blocks, fields and the dialogue
-with its questions. Choosing a form in the app makes a job from that file; nothing is recognized at that moment.
+with its questions, those the form requires marked from its catalogue (`make required` binds them anew without
+touching the questions). Choosing a form in the app makes a job from that file; nothing is recognized at that moment.
 Recognizing, with its progress on the screen, is what happens when a person photographs or uploads a new form.
 
 ## The reference JSON

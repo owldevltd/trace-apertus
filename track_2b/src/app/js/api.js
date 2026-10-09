@@ -25,6 +25,8 @@ export const api = {
     } ).then( json ),
     // answer: { text } as typed, { pieces: [ n, … ] } as said, or { skip: true }
     answer: ( id, unit, answer ) => fetch( '/api/jobs/' + id + '/answers/' + unit, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify( answer ) } ).then( json ),
+    // the person goes on with questions open: what is not answered stays empty
+    goOn: ( id ) => fetch( '/api/jobs/' + id + '/review', { method: 'POST' } ).then( json ),
     // the dialogue in the language of the person; ready: true when there is nothing to wait for
     translate: ( id, language ) => fetch( '/api/jobs/' + id + '/translate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify( { language } ) } ).then( json ),
     // the values into the language of the form

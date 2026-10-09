@@ -5,6 +5,8 @@ import { toRead, readElements } from './read/reader.js';
 import { layerElements } from './read/layer.js';
 import { buildFields } from './fields/builder.js';
 import { buildDialogue } from './dialogue/dialogue.js';
+import { bindRequired } from './dialogue/required.js';
+import { loadCatalogue } from './review/hints.js';
 import { jobDir, saveJob, saveRun } from './job.js';
 
 // The pipeline of a job: geometry → reading → fields → dialogue, saved after every step so the app can show
@@ -72,6 +74,11 @@ export async function runPipeline( job, client ) {
         // the form as a conversation, once, kept with the form
         await saveRun( job.id, Object.assign( state, { step: 'dialogue', page: 0, at: now() } ) );
         job.dialogue = ( await buildDialogue( job, client, path.join( dir, 'model' ) ) ).dialogue;
+        // which of its questions the form requires, where the form has a catalogue that says what is required
+        const catalogue = await loadCatalogue( job );
+        if ( catalogue ) {
+            await bindRequired( job, catalogue, client, path.join( dir, 'model' ) );
+        }
         await saveJob( job );
         state.step = 'done';
     } catch ( error ) {

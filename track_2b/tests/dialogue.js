@@ -6,9 +6,10 @@ import { listing } from '../src/dialogue/listing.js';
 import { buildDialogue } from '../src/dialogue/dialogue.js';
 import { fillJob, fillUnit } from '../src/fields/filler.js';
 import { saveJob, jobDir } from '../src/job.js';
-import { judgeEnough } from '../src/review/hints.js';
+import { judgeEnough, hints } from '../src/review/hints.js';
+import { bindRequired } from '../src/dialogue/required.js';
 import { createGate } from '../src/app/js/capture/recorder.js';
-import { translateDialogue, translateValues, suspect, asked as askedIn } from '../src/dialogue/translate.js';
+import { translateDialogue, translateValues, suspect, planned, asked as askedIn } from '../src/dialogue/translate.js';
 import { parse } from '../src/dialogue/writer.js';
 import { dictionary, echoAt } from '../src/speech/transcriber.js';
 
@@ -18,8 +19,10 @@ import { dictionary, echoAt } from '../src/speech/transcriber.js';
 // asked with the same words, a question the check assigns elsewhere in one run. The same way for an answer: it
 // goes into the fields of its unit whatever name the model puts on the line, and into no other field. And for a
 // form filled in in another language: the translated dialogue, the values translated one by one, and what code
-// holds a translation against. The order of the conversation is held against the order of the form fields in
-// the PDF, the only order a form states.
+// holds a translation against. And for what a form requires: a required entry of the catalogue reaches its
+// question by the label, or by the unit both models name when the check back confirms it, and a required
+// question without an answer is one thing missing. The order of the conversation is held against the order of
+// the form fields in the PDF, the only order a form states.
 //
 //   node tests/dialogue.js --got=<analyzed dir> [--out=<file.md>] <form dir> [<form dir> …]
 
@@ -211,6 +214,13 @@ for ( const dir of dirs ) {
     check( choiceUnit.fields.every( ( id ) => translation.units[ choiceUnit.id ].options[ id ] ) && dialogue.units.filter( ( u ) => u.skip ).every( ( u ) => !translation.units[ u.id ] ),
         job.id + ': the options of a choice are translated, a unit that is not asked is not' );
     other.dialogue = { ...dialogue, translations: { fr: translation } };
+    // the run says how far it is in calls: as many as planned when every line comes back the first time
+    let translating = 0;
+    await translateDialogue( other, 'fr', { ask: ( prompt, options ) => {
+        translating++;
+        return translator.ask( prompt, options );
+    } }, null );
+    check( translating === planned( other ), job.id + ': the translation of a dialogue takes the calls it plans (' + translating + ')' );
     check( askedIn( other, held[ 0 ] ) === 'FR ' + held[ 0 ].question && askedIn( { ...other, language: job.form.language }, held[ 0 ] ) === held[ 0 ].question, job.id + ': a unit is asked in the language of the person' );
 
     // the values: one call per value with a letter in it, none for a number; what was said stays beside it
@@ -244,6 +254,41 @@ for ( const dir of dirs ) {
         && echoAt( words[ 0 ] + ' und dann ' + words[ 3 ] + ', ' + words[ 1 ], words ) === -1,
         job.id + ': the dictionary of the prompt is cut off a transcript, what was said before it stays' );
     check( dialogue.units.filter( ( u ) => u.skip && u.label ).every( ( u ) => !words.includes( u.label ) ), job.id + ': the dictionary holds no label of a place that is not asked' );
+
+    // what the form requires. A catalogue with three required entries: one carries the label of a field, one both
+    // models bind to the same question, one they bind to different questions; and a unit both name that the
+    // check back does not confirm. An entry that is not required marks nothing.
+    const must = { ...job, fields: job.fields.map( ( f ) => ( { ...f, value: undefined } ) ), dialogue: structuredClone( dialogue ) };
+    const here = must.dialogue.units.filter( ( u ) => !u.skip && u.page === choiceUnit.page );
+    const labelled = here.find( ( u ) => u.kind === 'single' && byId.get( u.fields[ 0 ] ).label );
+    const [ agreed, refused, small, large ] = here.filter( ( u ) => u !== labelled && u.id !== choiceUnit.id ).slice( -4 );
+    const book = { fields: [
+        { field: byId.get( labelled.fields[ 0 ] ).label, requirement: 'a', required: true },
+        { field: 'Zyx ohne Beschriftung', requirement: 'b', required: true },
+        { field: 'Wvu ohne Beschriftung', requirement: 'c', required: true },
+        { field: byId.get( small.fields[ 0 ] ).label || 'Tsr', requirement: 'd' },
+    ] };
+    let binding = 0;
+    const bound = await bindRequired( must, book, { ask: async ( prompt, options ) => {
+        binding++;
+        if ( options.tag.startsWith( 'required back' ) ) {
+            return { text: options.tag.endsWith( ' ' + refused.id ) ? 'KEINE' : 'B' };
+        }
+        return { text: JSON.stringify( { zuordnung: [ { nummer: 2, kennungen: [ choiceUnit.id, agreed.id, refused.id ] }, { nummer: 3, kennungen: [ options.tag.startsWith( 'required small' ) ? small.id : large.id ] } ] } ) };
+    } }, null );
+    const pagesAsked = job.pages.filter( ( p ) => must.dialogue.units.some( ( u ) => !u.skip && u.page === p.n ) ).length;
+    check( bound[ 0 ].how === 'label' && bound[ 0 ].units.includes( labelled.id ) && bound[ 1 ].how === 'models' && bound[ 1 ].units.join() === [ choiceUnit.id, agreed.id ].sort( ( a, b ) => a.slice( 1 ) - b.slice( 1 ) ).join()
+        && bound[ 1 ].dropped.join() === refused.id && bound[ 2 ].how === null && binding === 2 * pagesAsked + 3,
+        job.id + ': a required entry reaches its question by the label, or by the unit both models name and the check back confirms' );
+    const marked = must.dialogue.units.filter( ( u ) => u.required ).map( ( u ) => u.id );
+    check( marked.length === bound[ 0 ].units.length + 2 && ![ refused, small, large ].some( ( u ) => marked.includes( u.id ) ) && must.dialogue.units.every( fits ),
+        job.id + ': only what was bound is marked required (' + marked.length + ' questions)' );
+    // a required question with nothing in any of its fields is missing once, on its first field; a tick clears it
+    const lacks = ( j ) => hints( j ).filter( ( h ) => h.kind === 'missing' ).map( ( h ) => h.field );
+    const before = lacks( must );
+    must.fields.find( ( f ) => f.id === choiceUnit.fields[ 1 ] ).value = 'x';
+    check( before.length === marked.length && before.includes( choiceUnit.fields[ 0 ] ) && !before.includes( choiceUnit.fields[ 1 ] ) && lacks( must ).length === marked.length - 1 && !lacks( must ).includes( choiceUnit.fields[ 0 ] ),
+        job.id + ': a required question without an answer is missing once, whatever number of fields it has' );
 
     const count = ( kind ) => units.filter( ( u ) => u.kind === kind );
     const marks = count( 'choice' ).reduce( ( a, u ) => a + u.fields.length, 0 );

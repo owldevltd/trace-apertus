@@ -2,7 +2,7 @@
 <div class="turn{{#current}} current{{/current}}">
     <div class="asked">
         <div class="bubble ask"{{#canAsk}} data-ask="{{id}}"{{/canAsk}}>
-            <p>{{question}}{{#law}} · §{{/law}}</p>
+            <p>{{question}}{{#law}} · §{{/law}}{{#required}} <span class="chip {{required}}">{{t:chat.required}}</span>{{/required}}</p>
             {{#printed}}<p class="printed">{{.}}</p>{{/printed}}
             {{#asPrinted}}<p class="printed">{{t:chat.asprinted}}</p>{{/asPrinted}}
             {{#options.length}}<div class="opts">{{#options}}<button class="opt press{{#on}} on{{/on}}"{{#can}} data-edit="{{id}}"{{/can}}{{^can}} disabled{{/can}}>{{label}}</button>{{/options}}</div>{{/options.length}}
@@ -10,6 +10,7 @@
         <button class="tick {{tick}} press"{{#canTick}} data-tick="{{id}}" aria-label="{{t:chat.tick}}" title="{{t:chat.tick}}"{{/canTick}}{{^canTick}} disabled{{/canTick}}>{{mark}}</button>
     </div>
     {{#answers}}{{> field}}{{/answers}}
+    {{#lacking}}<div class="bubble none lacking">{{.}}</div>{{/lacking}}
     {{#none}}<div class="bubble none">{{t:v.left}}</div>{{/none}}
     {{#pending}}<div class="bubble none row"><div class="spinner"></div><span>{{t:chat.working}}</span></div>{{/pending}}
     {{#live}}<div class="reply live"><canvas class="eq grow" data-eq width="360" height="64"></canvas><span class="num small" data-timer>0:00</span><button class="btn sm press" data-stop>{{t:rec.stop}}</button></div>{{/live}}

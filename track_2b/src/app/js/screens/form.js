@@ -49,16 +49,30 @@ export async function show( ctx, entry ) {
     }
 }
 
-// The page that says the app is at work on the form, in the place of the form itself.
+// The page that says the app is at work on the form, in the place of the form itself, with a bar for how far
+// the work is.
 function working( ctx, title, steps, progress ) {
-    ctx.body( 'form' ).innerHTML = ctx.tpl.render( 'recognizing', { title, steps, progress } );
+    ctx.body( 'form' ).innerHTML = ctx.tpl.render( 'recognizing', { title, steps, progress, bar: { pct: 0 } } );
     ctx.bottom( 'form' ).innerHTML = '';
+}
+
+// Moves the bar of that page, and its line of text, without drawing the page anew. share: 0 to 1.
+function advance( ctx, share, text ) {
+    const body = ctx.body( 'form' );
+    const bar = $( '[data-bar]', body );
+    if ( bar ) {
+        bar.style.width = Math.round( 100 * Math.min( 1, share ) ) + '%';
+    }
+    if ( text && $( '[data-progress]', body ) ) {
+        $( '[data-progress]', body ).textContent = text;
+    }
 }
 
 // The dialogue into the language of the app, once per form and language. Without a model, or when it fails, the
 // form stays in its own language.
 async function translate( ctx, entry ) {
     const { t } = ctx;
+    ctx.state.current = entry;
     working( ctx, t( 'tr.title' ), [ t( 'tr.m1' ), t( 'tr.m2' ) ], t( 'tr.wait' ) );
     if ( ctx.router.top().id !== 'form' ) {
         ctx.router.push( 'form' );
@@ -66,7 +80,12 @@ async function translate( ctx, entry ) {
     try {
         const started = await queued( ctx, () => api.translate( entry.jobId, ctx.i18n.lang ) );
         if ( !started.ready ) {
-            const { run } = await api.wait( entry.jobId, null, 1000 );
+            // the run counts its calls to the model: done of planned
+            const { run } = await api.wait( entry.jobId, ( r ) => {
+                if ( r.step === 'translate' && r.of && ctx.state.current === entry && ctx.router.top().id === 'form' ) {
+                    advance( ctx, r.page / r.of );
+                }
+            }, 700 );
             if ( run.step === 'error' ) {
                 throw new Error( run.error || 'translation' );
             }
@@ -89,10 +108,10 @@ async function translateValues( ctx, entry ) {
         const started = await queued( ctx, () => api.translateValues( entry.jobId ) );
         if ( !started.ready ) {
             const { run } = await api.wait( entry.jobId, ( r ) => {
-                if ( r.step === 'translate' && ctx.state.current === entry && ctx.router.top().id === 'form' ) {
-                    working( ctx, t( 'trv.title' ), steps, t( 'trv.progress', { a: r.page, b: all } ) );
+                if ( r.step === 'translate' && all && ctx.state.current === entry && ctx.router.top().id === 'form' ) {
+                    advance( ctx, r.page / all, t( 'trv.progress', { a: r.page, b: all } ) );
                 }
-            }, 1000 );
+            }, 700 );
             if ( run.step === 'error' ) {
                 throw new Error( run.error || 'translation' );
             }
@@ -102,6 +121,40 @@ async function translateValues( ctx, entry ) {
     }
     ctx.model.forget( entry.jobId );
     await ctx.model.loadForm( entry );
+    if ( ctx.state.current === entry && ctx.router.top().id === 'form' ) {
+        render( ctx, entry );
+    }
+}
+
+// The person goes on: what is still open stays empty, and the form shows as filled. A job is told so on the
+// server; the walk-through leaves the fields of its open questions empty. Answers given in another language than
+// the form's are translated next.
+async function goOn( ctx, entry ) {
+    const f = ctx.model.formOf( entry );
+    ctx.state.asking = null;
+    if ( !entry.jobId ) {
+        entry.values = entry.values || {};
+        for ( const id of ( f.dialogue || [] ).flatMap( ( u ) => u.fields ) ) {
+            // what the walk-through's made-up values call missing is missing when it was not answered, too
+            entry.values[ id ] = entry.values[ id ] || ( f.values[ id ]?.[ 1 ] === 'missing' ? [ ...f.values[ id ] ] : [ '', 'empty', '' ] );
+        }
+        ctx.store.touch();
+        render( ctx, entry );
+        return;
+    }
+    if ( f.status !== 'filled' && f.status !== 'reviewed' ) {
+        try {
+            const { job } = await queued( ctx, () => api.goOn( entry.jobId ) );
+            ctx.model.keep( job );
+        } catch ( error ) {
+            ctx.toast( ctx.t( 'job.failed', { e: error.message } ) );
+            return;
+        }
+    }
+    if ( ctx.model.formOf( entry ).toTranslate ) {
+        await translateValues( ctx, entry );
+        return;
+    }
     if ( ctx.state.current === entry && ctx.router.top().id === 'form' ) {
         render( ctx, entry );
     }
@@ -132,7 +185,10 @@ export function render( ctx, entry ) {
     const meta = filled
         ? [ t( 'meta.spoken', { d: entry.duration || '0:00' } ), t( 'meta.ok', { n: count( 'ok' ) } ), unclear ? t( 'meta.unclear', { n: unclear } ) : '', missing ? t( 'meta.missing', { n: missing } ) : '' ].filter( Boolean )
         : [ f.issuer, t( 'nfields', { n: all.length } ), t( 'meta.captured', { t: entry.created } ) ];
-    const card = !filled ? ( !asked ? t( 'form.empty', { f: f.name } ) : entry.values ? t( 'form.progress', { a: asked.total - asked.open, b: asked.total } ) : t( 'form.ask', { f: f.name } ) )
+    // while the questions are being answered: how many have an answer, how many of the required ones, and that
+    // the person can go on whenever it is enough for them
+    const going = asked && [ t( 'form.progress', { a: asked.total - asked.open, b: asked.total } ), asked.required ? t( 'form.required', { a: asked.given, b: asked.required } ) : '', t( 'form.goon' ) ].filter( Boolean ).join( ' ' );
+    const card = !filled ? ( !asked ? t( 'form.empty', { f: f.name } ) : entry.values ? going : t( 'form.ask', { f: f.name } ) )
         : f.toTranslate ? t( 'form.translate' )
         : unclear + missing ? [ unclear ? t( 'form.unclear', { n: unclear } ) : '', missing ? t( 'form.missing', { n: missing } ) : '', t( 'form.then' ) ].filter( Boolean ).join( ' ' )
         : t( 'form.done' );
@@ -183,7 +239,11 @@ export function render( ctx, entry ) {
             // answered in another language than the form's: the answers are translated before they can be sent
             ? '<button class="btn block press" data-next>' + escape( t( 'btn.next' ) ) + '</button>'
         : filled
-            ? '<div class="row"><button class="btn outline press" data-record aria-label="' + escape( t( 'btn.again' ) ) + '"><span class="dot"></span></button><button class="btn grow press" data-sign' + ( missing ? ' disabled' : '' ) + '>' + escape( t( 'btn.sign' ) ) + '</button></div>'
+            // what is required and missing is said on the card and before sending; it does not lock the button
+            ? '<div class="row"><button class="btn outline press" data-record aria-label="' + escape( t( 'btn.again' ) ) + '"><span class="dot"></span></button><button class="btn grow press" data-sign>' + escape( t( 'btn.sign' ) ) + '</button></div>'
+        : asked && entry.values
+            // with the first answer the person can go on at any time: what is open stays empty
+            ? '<div class="row"><button class="btn outline grow press" data-record><span class="dot"></span>&nbsp;' + escape( t( 'btn.listen' ) ) + '</button><button class="btn press" data-next>' + escape( t( 'btn.next' ) ) + '</button></div>'
             : '<button class="btn block press" data-record><span class="dot"></span>&nbsp;' + escape( t( 'btn.listen' ) ) + '</button>';
     for ( const pv of body.querySelectorAll( '.pv' ) ) {
         wirePreview( pv, ( id ) => {
@@ -230,10 +290,12 @@ function conversation( ctx, f, entry ) {
         // what stands on the right: a single field always; of a choice the ticks and what needs a decision; of a
         // table the cells with a value and the next empty row, to go on writing
         let said = [];
+        // a required choice with no tick: said once for the question, not as a box that is missing
+        const lacking = choice && fields.some( ( fl ) => valueOf( fl )?.[ 1 ] === 'missing' );
         if ( answered && !choice && u.kind !== 'table' ) {
             said = fields;
         } else if ( answered && choice ) {
-            said = fields.filter( ( fl ) => valueOf( fl )?.[ 0 ] || needs( fl ) );
+            said = fields.filter( ( fl ) => valueOf( fl )?.[ 0 ] || valueOf( fl )?.[ 1 ] === 'unclear' );
         } else if ( answered ) {
             const empty = ( fl ) => !valueOf( fl )?.[ 0 ] && !needs( fl );
             const next = Math.floor( fields.findIndex( empty ) / u.columns );
@@ -258,9 +320,12 @@ function conversation( ctx, f, entry ) {
             printed: ( u.question || u.ask ) && u.label && !choice ? t( 'chat.printed', { printed: u.label } ) : '',
             asPrinted: !u.question && !u.ask && !!u.label && !choice,
             law: fields.some( ( fl ) => f.laws.some( ( l ) => l.fields.includes( fl.id ) ) ),
+            // what the form requires says so at the question, in red as long as nothing stands there
+            required: u.required ? ( fields.some( ( fl ) => valueOf( fl )?.[ 0 ] ) ? 'plain' : 'bad' ) : '',
+            lacking: lacking ? t( 'hint.missing' ) : '',
             options: choice ? fields.map( ( fl ) => ( { id: fl.id, label: ( u.options && u.options[ fl.id ] ) || fl.option || fl.label, on: !!valueOf( fl )?.[ 0 ], can: ( answered || x === current ) && entry.status !== 'sent' } ) ) : [],
             answers,
-            none: answered && !answers.length,
+            none: answered && !answers.length && !lacking,
             // ticked off: answered and nothing left to decide; an open question is ticked off by hand
             tick,
             mark: { open: '', look: '!', done: '✓' }[ tick ],
@@ -274,7 +339,9 @@ function conversation( ctx, f, entry ) {
         } );
         title = head;
     }
-    return { turns, used, last: title, open: open.length, total: units.length, current: current ? current.u.id : null };
+    const must = units.filter( ( x ) => x.u.required );
+    return { turns, used, last: title, open: open.length, total: units.length, current: current ? current.u.id : null,
+        required: must.length, given: must.filter( ( x ) => x.fields.some( ( fl ) => valueOf( fl )?.[ 0 ] ) ).length };
 }
 
 // The question that is asked next, as the conversation would show it.
@@ -386,7 +453,7 @@ export function wire( ctx ) {
     const bottom = ctx.bottom( 'form' );
     on( bottom, 'click', '[data-record]', () => listen.start( ctx, ctx.state.current ) );
     on( bottom, 'click', '[data-stop]', () => listen.stop( ctx ) );
-    on( bottom, 'click', '[data-next]', () => translateValues( ctx, ctx.state.current ) );
+    on( bottom, 'click', '[data-next]', () => goOn( ctx, ctx.state.current ) );
     on( bottom, 'click', '[data-sign]', () => sign.open( ctx, ctx.state.current ) );
 }
 
