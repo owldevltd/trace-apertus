@@ -211,5 +211,16 @@
     "shipped": "Moduli forniti",
     "shipped.rebuilt": "ricostruito",
     "walkthrough": "Percorso con valori inventati",
-    "tr.hint.demo": "Tocca per vedere le parole esatte. Trascrizione e attribuzione sono inventate."
+    "tr.hint.demo": "Tocca per vedere le parole esatte. Trascrizione e attribuzione sono inventate.",
+    "tr.title": "Traduzione del modulo …",
+    "tr.m1": "Domande e opzioni",
+    "tr.m2": "Verifica sul modulo",
+    "tr.wait": "Avviene una volta per modulo e lingua.",
+    "trv.title": "Traduzione delle tue risposte …",
+    "trv.m1": "Nella lingua del modulo",
+    "trv.m2": "Numeri e nomi sono confrontati con ciò che hai detto",
+    "trv.progress": "{a} di {b}",
+    "btn.next": "Avanti",
+    "form.translate": "Tutte le domande hanno una risposta. Tocca «Avanti»: le tue risposte sono tradotte nella lingua del modulo, e le controlli ancora una volta.",
+    "v.translated": "La tua risposta: «{q}»"
 }

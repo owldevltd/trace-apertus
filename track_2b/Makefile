@@ -51,14 +51,17 @@ bench:
 	node --env-file=.env tests/answers.js --out=storage/bench/answers.md
 
 # Writes and checks the questions of the four shipped forms with the model, as the pipeline does for a captured
-# form, and measures the check with errors put in on purpose; then judges whether answers are enough for their
-# place, on cases built from the walk-through. Needs API_KEY in .env. 47 and 129 calls, one after the other,
-# about 15 minutes. Results and the raw exchange land in storage/bench/; the committed run is in results/.
+# form, and measures the check with errors put in on purpose; judges whether answers are enough for their place,
+# on cases built from the walk-through; and measures a form filled in in another language than its own: the
+# dialogue translated and checked, the values there and back. Needs API_KEY in .env. 47, 129 and about 100
+# calls, one after the other, about 25 minutes. Results and the raw exchange land in storage/bench/; the
+# committed run is in results/.
 dialogue:
 	@test -f .env || { echo "copy .env.example to .env and set API_KEY"; exit 1; }
 	node src/cli.js analyze --out=storage/bench/forms data/forms/*/*.png
 	node --env-file=.env tests/questions.js --got=storage/bench/forms --out=storage/bench/dialogue.md data/forms/*
 	node --env-file=.env tests/enough.js --out=storage/bench/enough.md
+	node --env-file=.env tests/translate.js --out=storage/bench/translate.md
 
 # Writes the dialogues of the click-through's two forms with the model into src/app/js/mock/dialogues.js.
 # A preparation step, its result is committed. Needs API_KEY in .env. 12 calls.

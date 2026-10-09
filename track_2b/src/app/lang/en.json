@@ -211,5 +211,16 @@
     "shipped": "Shipped forms",
     "shipped.rebuilt": "rebuilt",
     "walkthrough": "Walk-through with made-up values",
-    "tr.hint.demo": "Tap to see the wording. Transcript and mapping are made up."
+    "tr.hint.demo": "Tap to see the wording. Transcript and mapping are made up.",
+    "tr.title": "Translating the form …",
+    "tr.m1": "Questions and options",
+    "tr.m2": "Checked against the form",
+    "tr.wait": "This happens once per form and language.",
+    "trv.title": "Translating your answers …",
+    "trv.m1": "Into the language of the form",
+    "trv.m2": "Numbers and names are held against what you said",
+    "trv.progress": "{a} of {b}",
+    "btn.next": "Continue",
+    "form.translate": "All questions are answered. Tap “Continue”: your answers are translated into the language of the form, and you check them once more.",
+    "v.translated": "Your answer: “{q}”"
 }

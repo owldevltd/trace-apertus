@@ -13,6 +13,7 @@ export function wire( ctx ) {
     on( el, 'click', '[data-lang]', ( b ) => {
         ctx.i18n.set( b.dataset.lang );
         ctx.store.set( 'lang', ctx.i18n.lang );
+        ctx.model.clear();
         ctx.applyStatic();
         enter( ctx );
     } );

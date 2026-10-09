@@ -15,8 +15,12 @@ function fromMock( f ) {
 
 // a job of the server as a view: one section per page, the fields and blocks as the pipeline found them;
 // after the filling every field carries its value with state and note: ok, unclear (a person should look),
-// missing (required, nothing said), empty
-export function fromJob( job, t ) {
+// missing (required, nothing said), empty. lang: the language of the app. Where it is not the form's, the
+// dialogue is shown in its translation, and the view says what is still to translate: the dialogue itself, or
+// the values the person gave.
+export function fromJob( job, t, lang ) {
+    const own = job.dialogue && lang !== job.form.language ? ( job.dialogue.translations || {} )[ lang ] || null : null;
+    const translating = job.language && job.language !== job.form.language;
     const sections = job.pages.map( ( p ) => ( {
         title: t( 'page', { n: p.n } ),
         fields: job.fields.filter( ( f ) => f.page === p.n ).map( ( f ) => ( {
@@ -46,8 +50,11 @@ export function fromJob( job, t ) {
             const vague = ( f.hints || [] ).find( ( h ) => h.kind === 'vague' || h.kind === 'incomplete' );
             const open = f.source && f.source.approve && !f.source.review;
             const state = f.kind === 'signature' ? 'sign' : f.value ? ( open || vague ? 'unclear' : 'ok' ) : missing ? 'missing' : 'empty';
-            const note = vague ? ( vague.kind === 'incomplete' ? t( 'hint.incomplete', { m: vague.text } ) : vague.text ) : open ? ( f.source.quote ? t( 'v.said', { q: f.source.quote } ) : t( 'v.notliteral' ) ) : missing ? t( 'hint.missing' ) : '';
-            values[ f.id ] = [ f.value || '', state, note ];
+            // what the person gave before the translation, where the value is no longer that
+            const said = f.source && f.source.said && f.source.said.value !== f.value ? f.source.said.value : '';
+            const note = vague ? ( vague.kind === 'incomplete' ? t( 'hint.incomplete', { m: vague.text } ) : vague.text )
+                : open ? ( said ? t( 'v.translated', { q: said } ) : f.source.quote ? t( 'v.said', { q: f.source.quote } ) : t( 'v.notliteral' ) ) : missing ? t( 'hint.missing' ) : '';
+            values[ f.id ] = [ f.value || '', state, note, said ];
         }
     }
     const laws = [];
@@ -70,7 +77,12 @@ export function fromJob( job, t ) {
         subject: job.form.name,
         sections,
         blocks: job.blocks.map( ( b ) => ( { type: b.type, page: b.page, x: b.x, y: b.y, w: b.width, h: b.height, content: b.content, fontSize: b.fontSize, color: b.color, background: b.background } ) ),
-        dialogue: job.dialogue ? job.dialogue.units : null,
+        dialogue: job.dialogue ? job.dialogue.units.map( ( u ) => ( own ? { ...u, question: own.units[ u.id ]?.question, ask: own.units[ u.id ]?.label, options: own.units[ u.id ]?.options } : u ) ) : null,
+        language: job.form.language,
+        // the dialogue is not in the language of the app yet
+        untranslated: !!job.dialogue && lang !== job.form.language && !own,
+        // written values still in the language of the person
+        toTranslate: translating ? job.fields.filter( ( f ) => f.value && f.kind !== 'checkbox' && f.kind !== 'radio' && f.kind !== 'signature' && !( f.source && f.source.said ) ).length : 0,
         transcript: ( job.transcript || [] ).map( ( p ) => ( { t: clock( p.start ), section: p.approve ? t( 'tr.listen' ) : '', summary: p.text, raw: p.raw } ) ),
         values: filled || answered.size ? values : null,
         status: job.status,
@@ -83,7 +95,8 @@ function clock( sec ) {
     return Math.floor( s / 60 ) + ':' + String( s % 60 ).padStart( 2, '0' );
 }
 
-export function createModel( t ) {
+// lang(): the language of the app at the moment
+export function createModel( t, lang ) {
     const jobs = new Map();
     return {
         mocks: FORMS,
@@ -99,19 +112,23 @@ export function createModel( t ) {
         async loadForm( entry ) {
             if ( entry.jobId && !jobs.has( entry.jobId ) ) {
                 const { job } = await api.job( entry.jobId );
-                jobs.set( job.id, fromJob( job, t ) );
+                jobs.set( job.id, fromJob( job, t, lang() ) );
             }
             return this.formOf( entry );
         },
         // a view fresh from a job the app just ran
         keep( job ) {
-            const view = fromJob( job, t );
+            const view = fromJob( job, t, lang() );
             jobs.set( job.id, view );
             return view;
         },
         // drop a cached job so the next load fetches it anew
         forget( id ) {
             jobs.delete( id );
+        },
+        // drop them all: the language of the app changed, and with it how a job is shown
+        clear() {
+            jobs.clear();
         },
     };
 }

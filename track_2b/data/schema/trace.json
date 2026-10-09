@@ -66,6 +66,16 @@
       },
       "additionalProperties": false
     },
+    "language": {
+      "type": "string",
+      "enum": [
+        "de",
+        "fr",
+        "it",
+        "en"
+      ],
+      "description": "the language of the person who fills in, when it is not form.language: the dialogue is asked and answered in it, and the values are translated into form.language before sending"
+    },
     "pages": {
       "type": "array",
       "items": {
@@ -188,6 +198,54 @@
             },
             "additionalProperties": false
           }
+        },
+        "translations": {
+          "type": "object",
+          "description": "the dialogue in other languages than the form's, by language; made once when the form is first opened in that language",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "units"
+            ],
+            "properties": {
+              "built": {
+                "type": "string",
+                "description": "ISO 8601"
+              },
+              "model": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "units": {
+                "type": "object",
+                "description": "by unit id",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "question": {
+                      "type": "string",
+                      "description": "the unit's question in this language, present only when the translation passed the same check as the question itself"
+                    },
+                    "label": {
+                      "type": "string",
+                      "description": "the unit's printed label in this language; asked where no question holds"
+                    },
+                    "options": {
+                      "type": "object",
+                      "description": "for a choice: the label of each option in this language, by field id",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
         }
       },
       "additionalProperties": false
@@ -290,6 +348,7 @@
               "verified",
               "dictated",
               "filled",
+              "translated",
               "reviewed",
               "exported",
               "sent"
@@ -499,6 +558,38 @@
         },
         "review": {
           "$ref": "#/$defs/review"
+        },
+        "said": {
+          "type": "object",
+          "description": "what the person gave in their own language, before the value was translated into the language of the form",
+          "required": [
+            "language",
+            "value"
+          ],
+          "properties": {
+            "language": {
+              "type": "string",
+              "enum": [
+                "de",
+                "fr",
+                "it",
+                "en"
+              ]
+            },
+            "value": {
+              "type": "string"
+            },
+            "check": {
+              "type": "string",
+              "enum": [
+                "digits",
+                "near",
+                "empty"
+              ],
+              "description": "why code flags the translation: the digits differ, it differs from what was said by a character or two, or nothing came back"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false

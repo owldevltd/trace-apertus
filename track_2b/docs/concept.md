@@ -66,7 +66,11 @@ documentation. The common denominator: forms someone else prescribes. The demo s
    question goes into the fields of that question only, and the model says whether it covers what was asked.
 6. **Review.** Each question with what was said, a status (ok, unclear, missing), hints from a catalogue of legal
    requirements built once per form by the large model.
-7. **Send.** The filled PDF goes to the recipient for signature.
+7. **Translate**, only where the person's language is not the form's. The form is asked and answered in the
+   person's language; its questions are translated once, when it is first opened in that language. Before
+   sending, the answers are translated into the language of the form, each shown with what was said beside it,
+   and code flags a translation whose digits or names no longer match.
+8. **Send.** The filled PDF goes to the recipient for signature.
 
 ## Decision rule
 

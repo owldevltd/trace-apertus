@@ -211,5 +211,16 @@
     "shipped": "Mitgelieferte Formulare",
     "shipped.rebuilt": "nachgebaut",
     "walkthrough": "Rundgang mit erfundenen Werten",
-    "tr.hint.demo": "Antippen zeigt den Wortlaut. Transkript und Zuordnung sind erfunden."
+    "tr.hint.demo": "Antippen zeigt den Wortlaut. Transkript und Zuordnung sind erfunden.",
+    "tr.title": "Formular wird übersetzt …",
+    "tr.m1": "Fragen und Auswahlmöglichkeiten",
+    "tr.m2": "Gegenprobe am Formular",
+    "tr.wait": "Das passiert einmal je Formular und Sprache.",
+    "trv.title": "Antworten werden übersetzt …",
+    "trv.m1": "In die Sprache des Formulars",
+    "trv.m2": "Zahlen und Namen werden gegen deine Angaben gehalten",
+    "trv.progress": "{a} von {b}",
+    "btn.next": "Weiter",
+    "form.translate": "Alle Fragen sind beantwortet. Tippe auf „Weiter“: Deine Antworten werden in die Sprache des Formulars übersetzt, und du prüfst sie noch einmal.",
+    "v.translated": "Deine Angabe: „{q}“"
 }

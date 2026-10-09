@@ -211,5 +211,16 @@
     "shipped": "Formulaires fournis",
     "shipped.rebuilt": "reconstruit",
     "walkthrough": "Parcours avec des valeurs inventées",
-    "tr.hint.demo": "Touche pour voir le texte exact. Transcription et attribution sont inventées."
+    "tr.hint.demo": "Touche pour voir le texte exact. Transcription et attribution sont inventées.",
+    "tr.title": "Traduction du formulaire …",
+    "tr.m1": "Questions et options",
+    "tr.m2": "Vérification sur le formulaire",
+    "tr.wait": "Cela se fait une fois par formulaire et par langue.",
+    "trv.title": "Traduction de tes réponses …",
+    "trv.m1": "Dans la langue du formulaire",
+    "trv.m2": "Les chiffres et les noms sont comparés à ce que tu as dit",
+    "trv.progress": "{a} sur {b}",
+    "btn.next": "Continuer",
+    "form.translate": "Toutes les questions ont une réponse. Touche « Continuer » : tes réponses sont traduites dans la langue du formulaire, et tu les vérifies encore une fois.",
+    "v.translated": "Ta réponse : « {q} »"
 }

@@ -25,6 +25,10 @@ export const api = {
     } ).then( json ),
     // answer: { text } as typed, { pieces: [ n, … ] } as said, or { skip: true }
     answer: ( id, unit, answer ) => fetch( '/api/jobs/' + id + '/answers/' + unit, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify( answer ) } ).then( json ),
+    // the dialogue in the language of the person; ready: true when there is nothing to wait for
+    translate: ( id, language ) => fetch( '/api/jobs/' + id + '/translate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify( { language } ) } ).then( json ),
+    // the values into the language of the form
+    translateValues: ( id ) => fetch( '/api/jobs/' + id + '/translate/values', { method: 'POST' } ).then( json ),
     transcribe: ( id ) => fetch( '/api/jobs/' + id + '/transcribe', { method: 'POST' } ).then( json ),
     fill: ( id ) => fetch( '/api/jobs/' + id + '/fill', { method: 'POST' } ).then( json ),
     draft: ( id ) => fetch( '/api/jobs/' + id + '/draft' ).then( json ),

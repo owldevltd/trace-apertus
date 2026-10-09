@@ -34,7 +34,8 @@ export function prompt( text ) {
     return INTRO + '\n\n-----\n' + text + '\n-----\n\n' + RULES;
 }
 
-// The entries of a JSON answer under `key`; from a cut-off or unclean answer every whole entry that can be saved.
+// The entries of a JSON answer under `key`; from a cut-off or unclean answer every whole entry that can be saved
+// (an id as a string or as a number; seen 9 October 2026: an answer complete but for one closing brace too many).
 export function parse( text, key, id, value ) {
     const clean = ( text || '' ).replace( /^```(?:json)?\s*|\s*```$/gm, '' );
     try {
@@ -45,7 +46,7 @@ export function parse( text, key, id, value ) {
     } catch {
         // cut off by the room or not clean JSON: entry by entry
     }
-    const one = new RegExp( '\\{\\s*"' + id + '"\\s*:\\s*"([^"]*)"\\s*,\\s*"' + value + '"\\s*:\\s*"((?:[^"\\\\]|\\\\.)*)"\\s*\\}', 'g' );
+    const one = new RegExp( '\\{\\s*"' + id + '"\\s*:\\s*"?([^",}]*?)"?\\s*,\\s*"' + value + '"\\s*:\\s*"((?:[^"\\\\]|\\\\.)*)"\\s*\\}', 'g' );
     return [ ...clean.matchAll( one ) ].map( ( m ) => ( { [ id ]: m[ 1 ], [ value ]: m[ 2 ].replace( /\\"/g, '"' ) } ) );
 }
 

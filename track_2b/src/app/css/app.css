@@ -169,6 +169,8 @@ html:not([data-demo]) .demo-only { display: none !important; }
 .field .value { grid-column: 1; font-weight: 600; font-size: 15px; overflow-wrap: anywhere; }
 .field .value.empty { color: var(--muted); font-weight: 400; font-style: italic; }
 .field .wide { grid-column: 1 / -1; }
+/* what the person said in their own language, under the value it was translated into */
+.field .said { font-size: 12px; color: var(--muted); }
 .field input, .field textarea { width: 100%; font: inherit; font-weight: 600; border: 1.5px solid var(--line); border-radius: 10px; padding: 9px 11px; background: var(--paper); color: var(--ink); }
 .field textarea { min-height: 68px; resize: vertical; }
 .field.unclear { border-color: color-mix(in srgb, var(--warn) 55%, var(--line)); }

@@ -96,6 +96,14 @@ try {
     check( last.status === 'filled' && last.history.some( ( h ) => h.event === 'filled' ) && last.fields.find( ( f ) => f.id === writing.fields[ 0 ] ).value === 'Chur',
         'with the last question ticked off the form is filled (' + units.length + ' questions)' );
 
+    // another language than the form's: nothing to do for the form's own, refused without a model
+    const say = ( language ) => fetch( base + '/api/jobs/' + other.id + '/translate', { method: 'POST', body: JSON.stringify( { language } ) } );
+    const own = await say( 'de' );
+    check( own.status === 200 && ( await own.json() ).ready === true && ( await say( 'fr' ) ).status === 503 && ( await say( 'xx' ) ).status === 400,
+        'POST /api/jobs/:id/translate has nothing to do for the form\'s own language and refuses another one without a key' );
+    const values = await fetch( base + '/api/jobs/' + other.id + '/translate/values', { method: 'POST' } );
+    check( values.status === 200 && ( await values.json() ).ready === true, 'POST /api/jobs/:id/translate/values has nothing to do for a form answered in its own language' );
+
     const outside = await fetch( base + '/../package.json' );
     check( outside.status === 404 || outside.status === 200 && !( await outside.text() ).includes( '"name"' ), 'static files stay inside the app folder' );
 } catch ( error ) {

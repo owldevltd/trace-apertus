@@ -1,6 +1,8 @@
 import { jobDir, saveJob, saveRun, record } from '../job.js';
 import { hints, loadCatalogue, judgeVague } from '../review/hints.js';
 import { MONTHS, day, swiss } from './dates.js';
+import { LANGUAGE, foreign } from '../language.js';
+import { asked } from '../dialogue/translate.js';
 
 // Values from the dictation into the fields. The transcript is the text the model reads from, every piece with
 // its id in front ("[p1] …"); the fields go in bundles of six with the kind of each as the given, and the answer
@@ -35,13 +37,17 @@ export function picture( transcript ) {
     return transcript.map( ( p ) => '[p' + p.n + '] ' + p.text.trim() ).join( '\n\n' );
 }
 
-export function prompt( fields, text ) {
+// spoken: the language of the person, when it is not the form's. The value then stays as it was said: it is
+// held against the person's own words here and translated in a step of its own (measured 9 October 2026: 24 of
+// 28 values literal in French answers, 22 of 27 in English, 29 of 32 in German).
+export function prompt( fields, text, spoken = null ) {
     const lines = fields.map( ( f ) => '- ' + f.id + ': ' + ( f.label || 'Feld ' + f.id ) + ( f.option && f.option !== f.label ? ' (' + f.option + ')' : '' ) + ' — Vorgabe: ' + ( KIND[ f.kind ] || KIND.text ) );
     return 'Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n'
         + '-----\n' + text + '\n-----\n\n'
         + 'Lies daraus ab, was in diese Felder des Formulars gehört:\n' + lines.join( '\n' ) + '\n\n'
         + 'Wurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. '
-        + 'Antworte mit genau einer Zeile je Feld, in der Form "name: wert [Kennung des Stücks, aus dem der Wert stammt]", ohne weiteren Text.';
+        + 'Antworte mit genau einer Zeile je Feld, in der Form "name: wert [Kennung des Stücks, aus dem der Wert stammt]", ohne weiteren Text.'
+        + ( spoken ? '\nDie Person spricht ' + LANGUAGE[ spoken ] + '. Schreibe jeden Wert so, wie er gesagt wurde, auf ' + LANGUAGE[ spoken ] + '; übersetze nichts.' : '' );
 }
 
 export function room( count ) {
@@ -178,14 +184,14 @@ export async function fillJob( job, client ) {
 // pieces: the transcript pieces said in reply to the unit. Returns the unit's fields.
 export async function fillUnit( job, unit, pieces, client ) {
     const fields = unit.fields.map( ( id ) => job.fields.find( ( f ) => f.id === id ) ).filter( Boolean );
-    const ask = unit.question || unit.label;
+    const ask = asked( job, unit );
     const text = picture( pieces.map( ( p ) => ( { n: p.n, text: ( ask ? 'Frage: ' + ask + '\nAntwort: ' : '' ) + p.text } ) ) );
     for ( const f of fields ) {
         f.value = '';
         delete f.source;
     }
     for ( const bundle of chunks( fields, BUNDLE ) ) {
-        const answer = await client.ask( prompt( bundle, text ), { room: room( bundle.length ), log: jobDir( job.id ) + '/model', tag: 'answer ' + unit.id } );
+        const answer = await client.ask( prompt( bundle, text, foreign( job ) ), { room: room( bundle.length ), log: jobDir( job.id ) + '/model', tag: 'answer ' + unit.id } );
         const got = answer ? parse( answer.text, bundle ) : {};
         if ( answer && fields.length === 1 && !got[ fields[ 0 ].id ] ) {
             got[ fields[ 0 ].id ] = whole( answer.text );
@@ -213,7 +219,7 @@ function whole( text ) {
 }
 
 async function round( client, bundle, text, job ) {
-    const answer = await client.ask( prompt( bundle, text ), { room: room( bundle.length ), log: jobDir( job.id ) + '/model', tag: 'fill ' + bundle.map( ( f ) => f.id ).join( ',' ) } );
+    const answer = await client.ask( prompt( bundle, text, foreign( job ) ), { room: room( bundle.length ), log: jobDir( job.id ) + '/model', tag: 'fill ' + bundle.map( ( f ) => f.id ).join( ',' ) } );
     return answer ? parse( answer.text, bundle ) : {};
 }
 

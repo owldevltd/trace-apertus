@@ -1,2 +1,2 @@
-<div class="stack tight"><h2>{{t:rec.title}}</h2><div class="meta"><span>{{t:rec.m1}}</span><span>{{t:rec.m2}}</span></div></div>
+<div class="stack tight"><h2>{{#title}}{{title}}{{/title}}{{^title}}{{t:rec.title}}{{/title}}</h2><div class="meta">{{#steps}}<span>{{.}}</span>{{/steps}}{{^steps}}<span>{{t:rec.m1}}</span><span>{{t:rec.m2}}</span>{{/steps}}</div></div>
 <div class="grey row"><div class="spinner"></div><p class="small muted">{{#progress}}{{progress}}{{/progress}}{{^progress}}{{t:rec.wait}}{{/progress}}</p></div>

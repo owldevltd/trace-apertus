@@ -2,6 +2,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { config } from '../config.js';
 import { day } from '../fields/dates.js';
+import { LANGUAGE, foreign } from '../language.js';
+import { asked } from '../dialogue/translate.js';
 
 // Hints for the person: what to look at before sending. missing and format come from code; legal and vague come
 // from the catalogue of the form, the only source of legal text. The small model judges an entry only with the
@@ -89,10 +91,11 @@ const TAKES = { text: 'Text', multiline: 'Text, mehrere Angaben möglich', date:
 // and says what; it does not see whether what was said is true, and it does not tell "incomplete" from "no".
 // said: the answer as said or typed. Returns an incomplete hint for the field, or null.
 export async function judgeEnough( job, unit, field, said, client ) {
-    const ask = unit.question || unit.label;
+    const ask = asked( job, unit );
     if ( !ask || !said.trim() ) {
         return null;
     }
+    const spoken = foreign( job );
     const p = 'In einem Gespräch wird ein Schweizer Formular ausgefüllt. Jemand stellt eine Frage, die andere Person antwortet.\n\n'
         + 'Frage: ' + ask + '\n'
         + 'Auf dem Formular steht an dieser Stelle: ' + unit.label + ' (' + ( TAKES[ field.kind ] || TAKES.text ) + ')\n'
@@ -101,7 +104,8 @@ export async function judgeEnough( job, unit, field, said, client ) {
         + '- ja: alles, was die Stelle verlangt, wurde gesagt\n'
         + '- unvollständig: etwas Passendes wurde gesagt, aber ein Teil fehlt noch\n'
         + '- nein: nichts Passendes wurde gesagt\n'
-        + 'Antworte nur als JSON, ohne weiteren Text: {"urteil": "ja|unvollständig|nein", "fehlt": "was noch fehlt, sonst leer"}';
+        + 'Antworte nur als JSON, ohne weiteren Text: {"urteil": "ja|unvollständig|nein", "fehlt": "was noch fehlt, sonst leer"}'
+        + ( spoken ? '\nDie Person spricht ' + LANGUAGE[ spoken ] + ': schreibe, was fehlt, auf ' + LANGUAGE[ spoken ] + '.' : '' );
     const answer = await client.ask( p, { room: 150, log: path.join( config.storageDir, job.id, 'model' ), tag: 'enough ' + unit.id } );
     const a = parse( answer ? answer.text : '' );
     const verdict = a && typeof a.urteil === 'string' ? a.urteil.trim().toLowerCase() : '';

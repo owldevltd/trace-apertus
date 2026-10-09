@@ -16,6 +16,11 @@ import * as sign from './sign.js';
 // with nothing to enter is ticked off. Spoken, the answers follow each other as in a conversation: the microphone
 // stays open, the level is drawn at the question, and an answer ends at a pause. Saying everything at once still
 // works and fills what is open.
+//
+// Where the language of the app is not the language of the form, the dialogue is translated once when the form is
+// first opened, and the person answers in their own language. When every question is answered they go on: the
+// answers are translated into the language of the form and shown with what was said beside them, to be checked
+// once more before sending.
 
 const PILLS = [ 'fields', 'preview', 'transcript', 'legal' ];
 const CHIP = { ok: [ 'ok', 'ok' ], unclear: [ 'warn', 'unclear' ], missing: [ 'bad', 'missing' ], empty: [ '', 'empty' ], sign: [ '', 'type.sign' ] };
@@ -35,9 +40,70 @@ export async function show( ctx, entry ) {
             return;
         }
     }
+    if ( entry.jobId && ctx.model.formOf( entry ).untranslated ) {
+        await translate( ctx, entry );
+    }
     render( ctx, entry );
     if ( ctx.router.top().id !== 'form' ) {
         ctx.router.push( 'form' );
+    }
+}
+
+// The page that says the app is at work on the form, in the place of the form itself.
+function working( ctx, title, steps, progress ) {
+    ctx.body( 'form' ).innerHTML = ctx.tpl.render( 'recognizing', { title, steps, progress } );
+    ctx.bottom( 'form' ).innerHTML = '';
+}
+
+// The dialogue into the language of the app, once per form and language. Without a model, or when it fails, the
+// form stays in its own language.
+async function translate( ctx, entry ) {
+    const { t } = ctx;
+    working( ctx, t( 'tr.title' ), [ t( 'tr.m1' ), t( 'tr.m2' ) ], t( 'tr.wait' ) );
+    if ( ctx.router.top().id !== 'form' ) {
+        ctx.router.push( 'form' );
+    }
+    try {
+        const started = await queued( ctx, () => api.translate( entry.jobId, ctx.i18n.lang ) );
+        if ( !started.ready ) {
+            const { run } = await api.wait( entry.jobId, null, 1000 );
+            if ( run.step === 'error' ) {
+                throw new Error( run.error || 'translation' );
+            }
+        }
+    } catch ( error ) {
+        ctx.toast( t( 'job.failed', { e: error.message } ) );
+    }
+    ctx.model.forget( entry.jobId );
+    await ctx.model.loadForm( entry );
+}
+
+// The answers into the language of the form, when the person goes on; then the form shows each value with what
+// was said beside it.
+async function translateValues( ctx, entry ) {
+    const { t } = ctx;
+    const steps = [ t( 'trv.m1' ), t( 'trv.m2' ) ];
+    const all = ctx.model.formOf( entry ).toTranslate;
+    working( ctx, t( 'trv.title' ), steps, t( 'trv.progress', { a: 0, b: all } ) );
+    try {
+        const started = await queued( ctx, () => api.translateValues( entry.jobId ) );
+        if ( !started.ready ) {
+            const { run } = await api.wait( entry.jobId, ( r ) => {
+                if ( r.step === 'translate' && ctx.state.current === entry && ctx.router.top().id === 'form' ) {
+                    working( ctx, t( 'trv.title' ), steps, t( 'trv.progress', { a: r.page, b: all } ) );
+                }
+            }, 1000 );
+            if ( run.step === 'error' ) {
+                throw new Error( run.error || 'translation' );
+            }
+        }
+    } catch ( error ) {
+        ctx.toast( t( 'job.failed', { e: error.message } ) );
+    }
+    ctx.model.forget( entry.jobId );
+    await ctx.model.loadForm( entry );
+    if ( ctx.state.current === entry && ctx.router.top().id === 'form' ) {
+        render( ctx, entry );
     }
 }
 
@@ -67,6 +133,7 @@ export function render( ctx, entry ) {
         ? [ t( 'meta.spoken', { d: entry.duration || '0:00' } ), t( 'meta.ok', { n: count( 'ok' ) } ), unclear ? t( 'meta.unclear', { n: unclear } ) : '', missing ? t( 'meta.missing', { n: missing } ) : '' ].filter( Boolean )
         : [ f.issuer, t( 'nfields', { n: all.length } ), t( 'meta.captured', { t: entry.created } ) ];
     const card = !filled ? ( !asked ? t( 'form.empty', { f: f.name } ) : entry.values ? t( 'form.progress', { a: asked.total - asked.open, b: asked.total } ) : t( 'form.ask', { f: f.name } ) )
+        : f.toTranslate ? t( 'form.translate' )
         : unclear + missing ? [ unclear ? t( 'form.unclear', { n: unclear } ) : '', missing ? t( 'form.missing', { n: missing } ) : '', t( 'form.then' ) ].filter( Boolean ).join( ' ' )
         : t( 'form.done' );
     const sections = f.sections.map( ( s ) => {
@@ -112,6 +179,9 @@ export function render( ctx, entry ) {
             : '<div class="row"><canvas class="eq grow" data-eq width="480" height="72"></canvas><span class="num" data-timer>0:00</span><button class="btn press" data-stop>' + escape( t( 'rec.stop' ) ) + '</button></div>' )
         : entry.status === 'sent'
         ? '<button class="btn outline block" disabled>' + escape( t( 'btn.sentdone' ) ) + '</button>'
+        : filled && f.toTranslate
+            // answered in another language than the form's: the answers are translated before they can be sent
+            ? '<button class="btn block press" data-next>' + escape( t( 'btn.next' ) ) + '</button>'
         : filled
             ? '<div class="row"><button class="btn outline press" data-record aria-label="' + escape( t( 'btn.again' ) ) + '"><span class="dot"></span></button><button class="btn grow press" data-sign' + ( missing ? ' disabled' : '' ) + '>' + escape( t( 'btn.sign' ) ) + '</button></div>'
             : '<button class="btn block press" data-record><span class="dot"></span>&nbsp;' + escape( t( 'btn.listen' ) ) + '</button>';
@@ -182,11 +252,13 @@ function conversation( ctx, f, entry ) {
         turns.push( {
             id: u.id,
             head: head !== title ? head : '',
-            question: u.question || ( choice ? t( 'type.choice' ) : u.label || fields[ 0 ].label ),
-            printed: u.question && u.label && !choice ? t( 'chat.printed', { printed: u.label } ) : '',
-            asPrinted: !u.question && !!u.label && !choice,
+            // a translated dialogue asks with its translated label where no question holds; what is printed
+            // on the form stays as it is printed
+            question: u.question || ( choice ? u.ask || t( 'type.choice' ) : u.ask || u.label || fields[ 0 ].label ),
+            printed: ( u.question || u.ask ) && u.label && !choice ? t( 'chat.printed', { printed: u.label } ) : '',
+            asPrinted: !u.question && !u.ask && !!u.label && !choice,
             law: fields.some( ( fl ) => f.laws.some( ( l ) => l.fields.includes( fl.id ) ) ),
-            options: choice ? fields.map( ( fl ) => ( { id: fl.id, label: fl.option || fl.label, on: !!valueOf( fl )?.[ 0 ], can: ( answered || x === current ) && entry.status !== 'sent' } ) ) : [],
+            options: choice ? fields.map( ( fl ) => ( { id: fl.id, label: ( u.options && u.options[ fl.id ] ) || fl.option || fl.label, on: !!valueOf( fl )?.[ 0 ], can: ( answered || x === current ) && entry.status !== 'sent' } ) ) : [],
             answers,
             none: answered && !answers.length,
             // ticked off: answered and nothing left to decide; an open question is ticked off by hand
@@ -224,7 +296,7 @@ export function leave( ctx ) {
 
 function fieldView( ctx, fl, v, f, filled ) {
     const { t } = ctx;
-    const [ val, st, note ] = v || [ '', filled ? 'empty' : 'open' ];
+    const [ val, st, note, said ] = v || [ '', filled ? 'empty' : 'open' ];
     const chip = CHIP[ st ];
     const mark = fl.kind === 'checkbox' || fl.kind === 'radio';
     const shown = val ? ( mark ? '✓ ' + ( fl.option || fl.label ) : val ) : st === 'sign' ? t( 'v.sign' ) : st === 'missing' ? t( 'v.missing' ) : st === 'open' ? t( 'v.open' ) : t( 'v.left' );
@@ -238,6 +310,9 @@ function fieldView( ctx, fl, v, f, filled ) {
         shown,
         isEmpty: !val,
         note: note || '',
+        // what the person gave in their own language, where the value was translated; a value that asks for a
+        // decision says it in its note already
+        said: said && st !== 'unclear' ? t( 'v.translated', { q: said } ) : '',
         unclear: st === 'unclear',
         missing: st === 'missing',
         editable: filled && st !== 'unclear' && st !== 'missing' && st !== 'sign',
@@ -311,6 +386,7 @@ export function wire( ctx ) {
     const bottom = ctx.bottom( 'form' );
     on( bottom, 'click', '[data-record]', () => listen.start( ctx, ctx.state.current ) );
     on( bottom, 'click', '[data-stop]', () => listen.stop( ctx ) );
+    on( bottom, 'click', '[data-next]', () => translateValues( ctx, ctx.state.current ) );
     on( bottom, 'click', '[data-sign]', () => sign.open( ctx, ctx.state.current ) );
 }
 

@@ -8,14 +8,18 @@ import { fillJob, fillUnit } from '../src/fields/filler.js';
 import { saveJob, jobDir } from '../src/job.js';
 import { judgeEnough } from '../src/review/hints.js';
 import { createGate } from '../src/app/js/capture/recorder.js';
+import { translateDialogue, translateValues, suspect, asked as askedIn } from '../src/dialogue/translate.js';
+import { parse } from '../src/dialogue/writer.js';
 import { dictionary, echoAt } from '../src/speech/transcriber.js';
 
 // The dialogue of the shipped forms without a model: the units the code builds from the fields, the list of
 // lines the model would read, and the rule that decides which written question holds. For the rule a stand-in
 // answers instead of the model, with answers chosen to hit every case: a place with nothing to ask, two places
 // asked with the same words, a question the check assigns elsewhere in one run. The same way for an answer: it
-// goes into the fields of its unit whatever name the model puts on the line, and into no other field. The order
-// of the conversation is held against the order of the form fields in the PDF, the only order a form states.
+// goes into the fields of its unit whatever name the model puts on the line, and into no other field. And for a
+// form filled in in another language: the translated dialogue, the values translated one by one, and what code
+// holds a translation against. The order of the conversation is held against the order of the form fields in
+// the PDF, the only order a form states.
 //
 //   node tests/dialogue.js --got=<analyzed dir> [--out=<file.md>] <form dir> [<form dir> …]
 
@@ -75,6 +79,16 @@ const hear = ( loud, ms ) => Array.from( { length: ms / 100 }, () => gate.hear( 
 check( hear( false, 5000 ) === 0 && hear( true, 2000 ) === 0 && hear( false, 1400 ) === 0 && hear( true, 500 ) === 0 && hear( false, 1500 ) === 1 && hear( false, 3000 ) === 0,
     'an answer ends once, at the first pause of 1.5 s after speech; a shorter pause or silence alone ends nothing' );
 check( hear( true, 200 ) === 0 && hear( false, 2000 ) === 0 && hear( true, 1000 ) === 0 && hear( false, 1500 ) === 1, 'a crackle before a pause is no answer, and is forgotten' );
+
+// an answer of the model that is not clean JSON still gives its entries: cut off, or closed once too often
+const salvaged = [ parse( '{"texte": [{"nummer": 1, "text": "a"}, {"nummer": 2, "text": "b \\"c\\""}]}}', 'texte', 'nummer', 'text' ), parse( '{"fragen": [{"kennung": "q1", "frage": "x?"}, {"kennung": "q2", "fra', 'fragen', 'kennung', 'frage' ) ];
+check( salvaged[ 0 ].length === 2 && String( salvaged[ 0 ][ 1 ].nummer ) === '2' && salvaged[ 0 ][ 1 ].text === 'b "c"' && salvaged[ 1 ].length === 1 && salvaged[ 1 ][ 0 ].kennung === 'q1',
+    'the entries of an answer are saved from JSON that is cut off or closed once too often' );
+
+// what code holds a translation against: the digits of what the person said, and a name bent by a character
+check( suspect( 'célibataire', 'ledig' ) === null && suspect( 'Via Nova 14, 7013 Domat/Ems', 'Via Nova 14, 7013 Domat/Ems' ) === null
+    && suspect( 'rue de la Gare 14', 'Bahnhofstrasse 41' ) === 'digits' && suspect( 'Werkstrasse 12, 6300 Zug', 'Werksstrasse 12, 6300 Zug' ) === 'near' && suspect( 'nubile', ' ' ) === 'empty',
+    'a translation is flagged when its digits differ from what was said, when it differs by a character or two, or when it is empty' );
 
 let rows = '';
 const sum = { fields: 0, units: 0, single: 0, choice: 0, marks: 0, table: 0, cells: 0, skip: 0, bare: 0, pairs: 0, inOrder: 0 };
@@ -166,6 +180,60 @@ for ( const dir of dirs ) {
     await fs.rm( jobDir( whole.id ), { recursive: true, force: true } );
     check( one.value === 'Chur, Poststrasse 1' && byId.get( typed.fields[ 0 ] ).value === 'getippt' && byId.get( rest.fields[ 0 ] ).value === 'Bern' && whole.status === 'filled',
         job.id + ': saying the rest at once keeps what was answered question by question' );
+
+    // another language than the form's. The dialogue: every question and label translated, a line that did not
+    // come back asked once more, a translated question the check assigns elsewhere dropped for its label
+    const other = { ...job, dialogue, language: 'fr' };
+    const held = dialogue.units.filter( ( u ) => u.question );
+    const lost = held[ 1 ];
+    const owner = new Map( held.map( ( u ) => [ 'FR ' + u.question, u.id ] ) );
+    let dropped = false;
+    const translator = {
+        ask: async ( prompt, options ) => {
+            if ( options.tag.startsWith( 'check' ) ) {
+                const second = options.tag.startsWith( 'check run 2' );
+                const zuordnung = [ ...prompt.split( '-----' )[ 2 ].matchAll( /^([A-Z]): (.+)$/gm ) ].map( ( m ) => ( { frage: m[ 1 ], kennung: second && owner.get( m[ 2 ] ) === lost.id ? held[ 0 ].id : owner.get( m[ 2 ] ) } ) );
+                return { text: JSON.stringify( { zuordnung } ) };
+            }
+            const lines = [ ...prompt.matchAll( /^(\d+): (.+)$/gm ) ];
+            const mark = options.tag.startsWith( 'translate questions' ) ? 'FR ' : 'fr: ';
+            // the first list of questions comes back without its second line
+            const skip = options.tag.startsWith( 'translate questions' ) && !dropped && lines.length > 2 ? '2' : null;
+            dropped = dropped || !!skip;
+            return { text: JSON.stringify( { texte: lines.filter( ( m ) => m[ 1 ] !== skip ).map( ( m ) => ( { nummer: Number( m[ 1 ] ), text: mark + m[ 2 ] } ) ) } ) };
+        },
+    };
+    const translation = await translateDialogue( other, 'fr', translator, null );
+    const choiceUnit = dialogue.units.find( ( u ) => !u.skip && u.kind === 'choice' );
+    check( held.filter( ( u ) => u !== lost ).every( ( u ) => translation.units[ u.id ].question === 'FR ' + u.question ) && dropped,
+        job.id + ': the questions of a form are translated, a line that did not come back is asked once more (' + ( held.length - 1 ) + ')' );
+    check( !translation.units[ lost.id ].question && ( !lost.label || translation.units[ lost.id ].label === 'fr: ' + lost.label ), job.id + ': a translated question the check assigns elsewhere is dropped, its translated label is asked' );
+    check( choiceUnit.fields.every( ( id ) => translation.units[ choiceUnit.id ].options[ id ] ) && dialogue.units.filter( ( u ) => u.skip ).every( ( u ) => !translation.units[ u.id ] ),
+        job.id + ': the options of a choice are translated, a unit that is not asked is not' );
+    other.dialogue = { ...dialogue, translations: { fr: translation } };
+    check( askedIn( other, held[ 0 ] ) === 'FR ' + held[ 0 ].question && askedIn( { ...other, language: job.form.language }, held[ 0 ] ) === held[ 0 ].question, job.id + ': a unit is asked in the language of the person' );
+
+    // the values: one call per value with a letter in it, none for a number; what was said stays beside it
+    const writing = job.fields.filter( ( f ) => f.kind !== 'checkbox' && f.kind !== 'radio' && f.kind !== 'signature' ).slice( 0, 4 );
+    const given = [ 'célibataire', '14.03.1988', 'Werkstrasse 12, 6300 Zug', 'rue de la Gare 14' ];
+    const turnedInto = { 'célibataire': 'ledig', 'Werkstrasse 12, 6300 Zug': 'Werksstrasse 12, 6300 Zug', 'rue de la Gare 14': 'Bahnhofstrasse 41' };
+    const inFrench = { ...job, language: 'fr', fields: writing.map( ( f, i ) => ( { ...f, value: given[ i ], source: { how: 'literal', approve: false } } ) ) };
+    let calls = 0;
+    await translateValues( inFrench, { ask: async ( prompt ) => {
+        calls++;
+        return { text: turnedInto[ prompt.split( 'Angabe: ' ).pop() ] };
+    } }, null );
+    const [ word, date, bent, turned ] = inFrench.fields;
+    check( calls === 3 && word.value === 'ledig' && word.source.said.value === 'célibataire' && !word.source.approve && date.value === '14.03.1988' && date.source.said.language === 'fr',
+        job.id + ': a value is translated on its own and keeps what was said; a value without a letter needs no call' );
+    check( bent.source.approve && bent.source.said.check === 'near' && turned.source.approve && turned.source.said.check === 'digits', job.id + ': a bent name and changed digits are flagged by code' );
+    // the reading of an answer says which language it is in, and to leave it there
+    let asked1 = '';
+    await fillUnit( other, single, [ { n: 7, text: 'à Coire' } ], { ask: async ( prompt ) => {
+        asked1 = prompt;
+        return { text: 'x: à Coire [p7]' };
+    } } );
+    check( /Französisch; übersetze nichts/.test( asked1 ) && byId.get( single.fields[ 0 ] ).value === 'à Coire', job.id + ': an answer in another language is read in that language' );
 
     // the model hands back the dictionary of its prompt, alone or behind what was said: the transcript is cut
     // where the list begins, with the end of the entry before it; naming words of the list is no echo

@@ -54,7 +54,7 @@ async function boot() {
         t: i18n.t,
         tpl,
         root,
-        model: createModel( i18n.t ),
+        model: createModel( i18n.t, () => i18n.lang ),
         screens: SCREENS,
         // what the flow holds between screens; not saved
         state: { tab: 'fields', photo: null, form: null, off: [], current: null, pending: new Set(), listen: null },

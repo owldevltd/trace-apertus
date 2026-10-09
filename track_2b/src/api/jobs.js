@@ -8,6 +8,8 @@ import { transcribeJob, transcribeAnswer } from '../speech/transcriber.js';
 import { fillJob, fillUnit } from '../fields/filler.js';
 import { hints, loadCatalogue, judgeVague, judgeEnough } from '../review/hints.js';
 import { answered } from '../dialogue/dialogue.js';
+import { LANGUAGE } from '../language.js';
+import { translateJob, translateJobValues, loadTranslation, toTranslate } from '../dialogue/translate.js';
 import { writeOutput } from '../output/pdf.js';
 
 const DECISIONS = [ 'confirmed', 'changed', 'rejected' ];
@@ -17,6 +19,9 @@ const AUDIO = { 'audio/mpeg': 'mp3', 'audio/mp3': 'mp3', 'audio/wav': 'wav', 'au
 // The job routes. A page arrives as a PNG body and the pipeline runs over it; the app asks for the job until
 // run.step is done. A job can also start from a shipped form in data/forms: that one was captured when it was
 // put there and is ready at once.
+
+// the steps during which a job is at work and takes no other
+const RUNNING = [ 'analyze', 'read', 'fields', 'dialogue', 'transcribe', 'fill', 'translate' ];
 
 const PNG = Buffer.from( [ 0x89, 0x50, 0x4e, 0x47 ] );
 const ID = /^[a-z0-9]{6,20}$/;
@@ -66,7 +71,7 @@ export function registerJobs( router, client ) {
             return { status: 404, json: { error: 'no such job' } };
         }
         const run = await loadRun( job.id );
-        if ( [ 'analyze', 'read', 'fields', 'dialogue' ].includes( run.step ) ) {
+        if ( RUNNING.includes( run.step ) ) {
             return { status: 409, json: { error: 'already running', run } };
         }
         // runs on after the answer; the app asks for the job to see it progress
@@ -109,7 +114,7 @@ export function registerJobs( router, client ) {
             return { status: 404, json: { error: 'no such job' } };
         }
         const run = await loadRun( job.id );
-        if ( [ 'analyze', 'read', 'fields', 'dialogue', 'transcribe' ].includes( run.step ) ) {
+        if ( RUNNING.includes( run.step ) ) {
             return { status: 409, json: { error: 'already running', run } };
         }
         transcribeJob( job, client ).catch( () => {} );
@@ -122,7 +127,7 @@ export function registerJobs( router, client ) {
             return { status: 404, json: { error: 'no such job' } };
         }
         const run = await loadRun( job.id );
-        if ( [ 'analyze', 'read', 'fields', 'dialogue', 'transcribe', 'fill' ].includes( run.step ) ) {
+        if ( RUNNING.includes( run.step ) ) {
             return { status: 409, json: { error: 'already running', run } };
         }
         fillJob( job, client ).catch( () => {} );
@@ -142,7 +147,7 @@ export function registerJobs( router, client ) {
             return { status: 404, json: { error: 'no such question' } };
         }
         const run = await loadRun( job.id );
-        if ( [ 'analyze', 'read', 'fields', 'dialogue', 'transcribe', 'fill' ].includes( run.step ) ) {
+        if ( RUNNING.includes( run.step ) ) {
             return { status: 409, json: { error: 'already running', run } };
         }
         let data;
@@ -201,6 +206,68 @@ export function registerJobs( router, client ) {
         return { status: 200, json: { job } };
     } );
 
+    // The dialogue in the language of the person: { language }. Where it is not the language of the form, the
+    // questions, labels and options are translated once and kept with the form; the job then knows the language
+    // it is answered in. Answers at once with ready when there is nothing to do, else the app asks for the job
+    // until run.step is done.
+    router.add( 'POST', '/api/jobs/:id/translate', async ( { params, body } ) => {
+        const job = await find( params.id );
+        if ( !job || !job.dialogue ) {
+            return { status: 404, json: { error: 'no such job' } };
+        }
+        let language;
+        try {
+            language = JSON.parse( body.toString( 'utf8' ) ).language;
+        } catch {
+            language = null;
+        }
+        if ( !LANGUAGE[ language ] ) {
+            return { status: 400, json: { error: 'language is de, fr, it or en' } };
+        }
+        const run = await loadRun( job.id );
+        if ( RUNNING.includes( run.step ) ) {
+            return { status: 409, json: { error: 'already running', run } };
+        }
+        if ( language === job.form.language ) {
+            delete job.language;
+            await saveJob( job );
+            return { status: 200, json: { id: job.id, ready: true } };
+        }
+        const have = ( job.dialogue.translations || {} )[ language ] || await loadTranslation( job, language );
+        if ( have ) {
+            job.language = language;
+            job.dialogue.translations = { ...( job.dialogue.translations || {} ), [ language ]: have };
+            await saveJob( job );
+            return { status: 200, json: { id: job.id, ready: true } };
+        }
+        if ( !config.apiKey ) {
+            return { status: 503, json: { error: 'no API_KEY: the form stays in its own language' } };
+        }
+        translateJob( job, language, client ).catch( () => {} );
+        return { status: 202, json: { id: job.id, step: 'translate' } };
+    } );
+
+    // The values into the language of the form, before sending: every written value the person gave in their
+    // own language, one after the other; each keeps what was said beside it. run.page counts the values done.
+    router.add( 'POST', '/api/jobs/:id/translate/values', async ( { params } ) => {
+        const job = await find( params.id );
+        if ( !job ) {
+            return { status: 404, json: { error: 'no such job' } };
+        }
+        const run = await loadRun( job.id );
+        if ( RUNNING.includes( run.step ) ) {
+            return { status: 409, json: { error: 'already running', run } };
+        }
+        if ( !toTranslate( job ).length ) {
+            return { status: 200, json: { id: job.id, ready: true } };
+        }
+        if ( !config.apiKey ) {
+            return { status: 503, json: { error: 'no API_KEY: nothing can be translated' } };
+        }
+        translateJobValues( job, client, async ( done ) => settle( done, await loadCatalogue( done ), [] ) ).catch( () => {} );
+        return { status: 202, json: { id: job.id, step: 'translate', values: toTranslate( job ).length } };
+    } );
+
     // a person's decision on a field: { decision: confirmed | changed | rejected, value?, by? }
     router.add( 'PUT', '/api/jobs/:id/fields/:fid', async ( { params, body } ) => {
         const job = await find( params.id );
@@ -218,10 +285,13 @@ export function registerJobs( router, client ) {
             return { status: 400, json: { error: 'decision is confirmed, changed or rejected' } };
         }
         const review = { at: new Date().toISOString(), decision: data.decision, ...( data.by ? { by: String( data.by ) } : {} ) };
+        // what the person said before the translation stays with the value: a correction after it is in the
+        // language of the form and is not translated again
+        const said = field.source && field.source.said ? { said: field.source.said } : {};
         if ( data.decision === 'changed' ) {
             review.before = field.value || '';
             field.value = String( data.value ?? '' ).trim();
-            field.source = { how: 'entered', approve: false, review };
+            field.source = { how: 'entered', approve: false, review, ...said };
         } else if ( data.decision === 'rejected' ) {
             review.before = field.value || '';
             field.value = '';
@@ -266,6 +336,9 @@ export function registerJobs( router, client ) {
         }
         if ( job.fields.some( ( f ) => ( f.hints || [] ).some( ( h ) => h.kind === 'missing' ) ) ) {
             return { status: 409, json: { error: 'required fields are still empty' } };
+        }
+        if ( toTranslate( job ).length ) {
+            return { status: 409, json: { error: 'the answers are not in the language of the form yet' } };
         }
         await output( job );
         const at = new Date().toISOString();

@@ -55,7 +55,8 @@ export function record( job, event, note ) {
     return job;
 }
 
-// Where the pipeline stands: { step, page, at, error }. step is idle, analyze, read, fields, dialogue, done or error.
+// Where the pipeline stands: { step, page, at, error }. step is idle, analyze, read, fields, dialogue, transcribe,
+// fill, translate, done or error.
 export async function saveRun( id, run ) {
     await fs.writeFile( path.join( jobDir( id ), 'run.json' ), JSON.stringify( run, null, 2 ) );
     return run;

@@ -1,14 +1,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { digits } from './numbers.js';
+import { LANGUAGE, foreign } from '../language.js';
 import { jobDir, saveJob, saveRun, record } from '../job.js';
 
 // Transcription: every piece of the recording goes to the model as audio, with the wording the measurements
 // were made with, the language said explicitly (without it the model translates and invents) and the names and
 // words of the form as a dictionary (71 → 76 of 78 facts). Number words become digits afterwards; the raw
 // answer is kept beside it.
-
-const LANGUAGE = { de: 'Deutsch', fr: 'Französisch', it: 'Italienisch', en: 'Englisch' };
 
 // at most this many dictionary entries, the longest labels first
 const WORDS = 40;
@@ -26,7 +25,11 @@ export function prompt( language, words ) {
 
 // The dictionary of a job: the form's name and issuer and its field labels, short ones first dropped. Where the
 // form has a dialogue, only the labels of what is asked: a note the geometry took for a field is no term.
+// A person who answers in another language than the form's does not say its labels: no dictionary then.
 export function dictionary( job ) {
+    if ( foreign( job ) ) {
+        return [];
+    }
     const seen = new Set();
     const out = [];
     const skipped = new Set( ( job.dialogue ? job.dialogue.units : [] ).filter( ( u ) => u.skip ).flatMap( ( u ) => u.fields ) );
@@ -86,14 +89,16 @@ export async function transcribeAnswer( job, numbers, question, client ) {
 async function hear( job, piece, words, client ) {
     const dir = jobDir( job.id );
     const bytes = await fs.readFile( path.join( dir, 'audio', piece.file ) );
-    const answer = await client.ask( prompt( job.form.language, words ), { audio: { bytes, format: piece.format }, room: 1500, log: path.join( dir, 'model' ), tag: 'audio #' + piece.n } );
+    // the language that is spoken: the person's, where it is not the form's; number words are known in German only
+    const spoken = foreign( job ) || job.form.language;
+    const answer = await client.ask( prompt( spoken, words ), { audio: { bytes, format: piece.format }, room: 1500, log: path.join( dir, 'model' ), tag: 'audio #' + piece.n } );
     const raw = answer ? answer.text : '';
     const echo = echoAt( raw, words );
     const said = echo < 0 ? raw : raw.slice( 0, echo ).trim();
     return {
         n: piece.n,
         start: piece.start,
-        text: digits( said ),
+        text: foreign( job ) ? said : digits( said ),
         raw,
         // a person should listen: nothing came back, the prompt came back, or the answer was cut off
         approve: said === '' || echo >= 0 || !!( answer && answer.finish === 'length' ),
