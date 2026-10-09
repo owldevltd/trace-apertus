@@ -21,6 +21,15 @@ function fromMock( f ) {
 export function fromJob( job, t, lang ) {
     const own = job.dialogue && lang !== job.form.language ? ( job.dialogue.translations || {} )[ lang ] || null : null;
     const translating = job.language && job.language !== job.form.language;
+    // what a person should look at when correcting the form: a label the model read and the shape check
+    // doubts, and a single field that has no label at all; the cells of a table have none by nature
+    const read = new Map( job.blocks.map( ( b ) => [ b.id, b ] ) );
+    const unitOf = new Map( ( job.dialogue ? job.dialogue.units : [] ).flatMap( ( u ) => u.fields.map( ( id ) => [ id, u ] ) ) );
+    const doubt = ( f ) => {
+        const b = read.get( f.labelBlock );
+        const u = unitOf.get( f.id );
+        return f.kind !== 'signature' && ( !!( b && b.isOCR && b.approve ) || ( !f.label && !!u && u.kind === 'single' && !u.skip ) );
+    };
     const sections = job.pages.map( ( p ) => ( {
         title: t( 'page', { n: p.n } ),
         fields: job.fields.filter( ( f ) => f.page === p.n ).map( ( f ) => ( {
@@ -35,6 +44,9 @@ export function fromJob( job, t, lang ) {
             h: f.height,
             hints: f.hints || [],
             ...( f.group ? { group: f.group, option: f.option } : {} ),
+            // for the mask in which the form is corrected
+            opt: f.option || '',
+            doubt: doubt( f ),
         } ) ),
     } ) ).filter( ( s ) => s.fields.length );
     const filled = job.status === 'filled' || job.status === 'reviewed' || job.status === 'sent';
@@ -79,6 +91,11 @@ export function fromJob( job, t, lang ) {
         blocks: job.blocks.map( ( b ) => ( { type: b.type, page: b.page, x: b.x, y: b.y, w: b.width, h: b.height, content: b.content, fontSize: b.fontSize, color: b.color, background: b.background } ) ),
         dialogue: job.dialogue ? job.dialogue.units.map( ( u ) => ( own ? { ...u, question: own.units[ u.id ]?.question, ask: own.units[ u.id ]?.label, options: own.units[ u.id ]?.options } : u ) ) : null,
         language: job.form.language,
+        // for the mask in which the form is corrected: what each unit is asked with in the language of the form,
+        // by its first field; whether the form is kept as a form of its own, and whether it was made of another
+        asks: Object.fromEntries( ( job.dialogue ? job.dialogue.units : [] ).map( ( u ) => [ u.fields[ 0 ], { question: u.question || '', required: !!u.required } ] ) ),
+        own: job.form.own || '',
+        made: !!job.form.file,
         // the dialogue is not in the language of the app yet
         untranslated: !!job.dialogue && lang !== job.form.language && !own,
         // written values still in the language of the person

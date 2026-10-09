@@ -229,5 +229,37 @@
     "sign.missing": {
         "one": "1 dato obbligatorio manca ancora. Puoi inviare lo stesso.",
         "other": "{n} dati obbligatori mancano ancora. Puoi inviare lo stesso."
-    }
+    },
+    "job.catalogue": "Raccolta dei requisiti per i campi …",
+    "type.number": "numero",
+    "type.box": "casella",
+    "type.radio": "pulsante di scelta",
+    "edit.open": "Modifica",
+    "edit.page": "Pagina",
+    "edit.name": "Nome del modulo",
+    "edit.suffix": "(adattato)",
+    "edit.card": "{n} campi riconosciuti. Tocca un campo e cambia etichetta, tipo, domanda o se è obbligatorio. Sulla pagina lo sposti; con il mouse trascini l’angolo per la dimensione. Senza spunta: non è un campo.",
+    "edit.doubts": {
+        "one": "1 campo da guardare, è segnato in rosso.",
+        "other": "{n} campi da guardare, sono segnati in rosso."
+    },
+    "edit.look": "da vedere",
+    "edit.isfield": "è un campo",
+    "edit.nolabel": "senza etichetta",
+    "edit.label": "Etichetta",
+    "edit.kind": "Tipo",
+    "edit.option": "Testo dell’opzione",
+    "edit.join": "appartiene alla scelta sopra",
+    "edit.question": "Domanda nella conversazione",
+    "edit.question.hint": "vuoto: si chiede con l’etichetta",
+    "edit.add": "Aggiungi un campo",
+    "edit.place": "Tocca il punto della pagina in cui deve stare il nuovo campo.",
+    "edit.pv": "Tocca un campo e spostalo; con il mouse trascina l’angolo per la dimensione. Due dita o la rotella ingrandiscono la pagina.",
+    "edit.selected": "Scelto: {l}",
+    "edit.none": "Nessun campo scelto.",
+    "edit.saving": "Salvataggio del modulo …",
+    "edit.s1": "Ricomporre campi e domande",
+    "edit.s2": "Nuove domande e indicazioni",
+    "edit.wait": "Il modello scrive solo ciò che è cambiato.",
+    "shipped.own": "modulo proprio"
 }

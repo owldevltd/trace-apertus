@@ -4,7 +4,8 @@ import { escape } from './template.js';
 // The page rebuilt from its blocks: text at its place in its size and colour, lines, images as placeholders,
 // inputs as faint boxes, and the fields on top with their state and value. Drawn as SVG in page pixels, so
 // the fields of the walk-through and the blocks of a real job share one picture. Two-finger zoom, dragging,
-// double tap and the mouse wheel; wirePreview() adds the hands.
+// double tap and the mouse wheel; wirePreview() adds the hands. Where a person corrects the fields the same
+// picture is the place to do it: a field is moved with the finger or the mouse, and sized at its corner.
 
 const COLOUR = { ok: 'var(--ok)', unclear: 'var(--warn)', missing: 'var(--bad)' };
 
@@ -16,6 +17,17 @@ const EM = 0.5;
 
 // space between the pages of a form, in page pixels
 const GAP = 80;
+
+// Where each page begins in the picture: the pages stand one below the other.
+export function offsets( sizes ) {
+    const out = [];
+    let top = 0;
+    for ( const s of sizes ) {
+        out.push( top );
+        top += s.h + GAP;
+    }
+    return out;
+}
 
 // sizes: [ { w, h } ] per page, drawn one below the other; blocks and fields carry their page (1 when absent);
 // values: { id: [ value, state ] } or null; off: ids a person unticked.
@@ -93,16 +105,54 @@ function drawField( f, v, isOff ) {
 }
 
 // Zoom and drag on a drawn preview; onTap( fieldId ) when a field is tapped without dragging.
-export function wirePreview( container, onTap ) {
+// edit, where the fields can be corrected: { view, placing(), onPlace( point ), onMove( id, dx, dy ),
+// onResize( id, dw, dh ) }. A field is then dragged instead of the page, its corner (an element with
+// data-handle) sizes it, and a tap on the page while placing() says where a new field goes. Points and
+// distances are in page pixels of the picture. view keeps zoom and position over a redraw.
+export function wirePreview( container, onTap, edit = null ) {
     const stage = $( '.pv-stage', container );
     if ( !stage ) {
         return;
     }
     const zoomer = $( '.pv-zoomer', stage );
-    const view = { s: 1, tx: 0, ty: 0, moved: false, pinch: null };
+    const view = Object.assign( ( edit && edit.view ) || {}, { moved: false, pinch: null } );
+    view.s = view.s || 1;
+    view.tx = view.tx || 0;
+    view.ty = view.ty || 0;
     const ptrs = new Map();
     const apply = () => {
         zoomer.style.transform = 'translate(' + view.tx + 'px, ' + view.ty + 'px) scale(' + view.s + ')';
+    };
+    apply();
+    // a point of the screen in page pixels of the picture, whatever the zoom
+    const svg = $( 'svg', stage );
+    const onPage = ( e ) => {
+        const r = svg.getBoundingClientRect();
+        const k = svg.viewBox.baseVal.width / r.width;
+        return { x: ( e.clientX - r.left ) * k, y: ( e.clientY - r.top ) * k };
+    };
+    const num = ( el, name ) => Number( el.getAttribute( name ) );
+    // the field or corner being dragged: its element, where it started, and how far it went
+    let grip = null;
+    const shift = ( dx, dy ) => {
+        const { el, from, corner, body } = grip;
+        if ( corner ) {
+            // the corner follows the pointer, the field keeps its upper left
+            el.setAttribute( 'x', from.x + dx );
+            el.setAttribute( 'y', from.y + dy );
+            if ( body.tagName === 'circle' ) {
+                body.setAttribute( 'r', Math.max( 6, grip.size.r + Math.min( dx, dy ) / 2 ) );
+            } else {
+                body.setAttribute( 'width', Math.max( 12, grip.size.w + dx ) );
+                body.setAttribute( 'height', Math.max( 12, grip.size.h + dy ) );
+            }
+        } else if ( el.tagName === 'circle' ) {
+            el.setAttribute( 'cx', from.x + dx );
+            el.setAttribute( 'cy', from.y + dy );
+        } else {
+            el.setAttribute( 'x', from.x + dx );
+            el.setAttribute( 'y', from.y + dy );
+        }
     };
     const clamp = () => {
         const w = stage.clientWidth;
@@ -129,9 +179,18 @@ export function wirePreview( container, onTap ) {
         apply();
     };
     stage.addEventListener( 'pointerdown', ( e ) => {
+        const el = edit && ptrs.size === 0 && e.target.closest ? e.target.closest( '[data-handle], [data-field]' ) : null;
         stage.setPointerCapture( e.pointerId );
         ptrs.set( e.pointerId, local( e ) );
         view.moved = false;
+        grip = null;
+        if ( el ) {
+            const corner = el.hasAttribute( 'data-handle' );
+            const body = corner ? $$( '[data-field]', stage ).find( ( x ) => x.dataset.field === el.dataset.handle ) : el;
+            grip = { el, corner, body, id: body.dataset.field, start: onPage( e ), dx: 0, dy: 0,
+                from: el.tagName === 'circle' ? { x: num( el, 'cx' ), y: num( el, 'cy' ) } : { x: num( el, 'x' ), y: num( el, 'y' ) },
+                size: body.tagName === 'circle' ? { r: num( body, 'r' ) } : { w: num( body, 'width' ), h: num( body, 'height' ) } };
+        }
         if ( ptrs.size === 2 ) {
             const [ a, b ] = [ ...ptrs.values() ];
             view.pinch = { d: Math.hypot( a.x - b.x, a.y - b.y ), s: view.s, c: { x: ( a.x + b.x ) / 2, y: ( a.y + b.y ) / 2 }, tx: view.tx, ty: view.ty };
@@ -144,6 +203,17 @@ export function wirePreview( container, onTap ) {
         const prev = ptrs.get( e.pointerId );
         const cur = local( e );
         ptrs.set( e.pointerId, cur );
+        if ( grip && ptrs.size === 1 ) {
+            const p = onPage( e );
+            grip.dx = p.x - grip.start.x;
+            grip.dy = p.y - grip.start.y;
+            // a finger that rests is a tap: the field moves once it went a few screen pixels
+            if ( view.moved || Math.abs( cur.x - prev.x ) + Math.abs( cur.y - prev.y ) > 2 ) {
+                view.moved = true;
+                shift( grip.dx, grip.dy );
+            }
+            return;
+        }
         if ( ptrs.size === 2 && view.pinch ) {
             const [ a, b ] = [ ...ptrs.values() ];
             const d = Math.hypot( a.x - b.x, a.y - b.y );
@@ -166,9 +236,23 @@ export function wirePreview( container, onTap ) {
         }
     } );
     const up = ( e ) => {
+        const held = ptrs.has( e.pointerId );
         ptrs.delete( e.pointerId );
         if ( ptrs.size < 2 ) {
             view.pinch = null;
+        }
+        if ( !edit || !held || e.type !== 'pointerup' ) {
+            grip = null;
+            return;
+        }
+        const g = grip;
+        grip = null;
+        if ( g && view.moved ) {
+            ( g.corner ? edit.onResize : edit.onMove )( g.id, g.dx, g.dy );
+        } else if ( g ) {
+            onTap( g.id );
+        } else if ( !view.moved && ptrs.size === 0 && edit.placing() ) {
+            edit.onPlace( onPage( e ) );
         }
     };
     stage.addEventListener( 'pointerup', up );
@@ -181,9 +265,12 @@ export function wirePreview( container, onTap ) {
         e.preventDefault();
         zoomAt( local( e ), view.s * ( e.deltaY < 0 ? 1.15 : 1 / 1.15 ) );
     }, { passive: false } );
-    $$( '[data-field]', stage ).forEach( ( el ) => el.addEventListener( 'click', () => {
-        if ( !view.moved ) {
-            onTap( el.dataset.field );
-        }
-    } ) );
+    // where fields are corrected the tap is told from the drag above, on the pointer itself
+    if ( !edit ) {
+        $$( '[data-field]', stage ).forEach( ( el ) => el.addEventListener( 'click', () => {
+            if ( !view.moved ) {
+                onTap( el.dataset.field );
+            }
+        } ) );
+    }
 }

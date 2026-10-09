@@ -20,6 +20,12 @@ Contract: `trace.json` (JSON Schema 2020-12, self-contained). One object per cap
 
 A field is what a person would fill in. `kind` is one of `text`, `multiline`, `number`, `date`, `checkbox`, `radio`, `signature`. `label` is the printed label (left of or above the box); `labelBlock` and `boxBlock` name the blocks. Radios that exclude each other share a `group`; `option` says what ticking means. `required` comes from the catalogue (a required entry), not from the form. `widget` is the name of the PDF form field when the PDF is fillable; the output writes straight into it.
 
+## Corrections by hand
+
+What the pipeline finds is a proposal: the model reads a label wrongly, the geometry misses a field or takes a bar for one, a question points at the right place and is worded badly. A person corrects it before the form is kept, and again later: the label and `kind` of a field, its place and size, tick marks that belong together (`group`, `option`), a field taken away, a field added (`by: "person"`), the question of a unit (`dialogue.units[].by: "person"`; such a question stands as it is and is not checked) and whether the unit is `required`. The job is then put together anew by code: the units from the fields as they stand, each keeping its question, its required mark and its answers where its fields are the same, the pieces of the transcript pointing at their units under the new ids. Only a unit whose fields or labels changed gets a new question from the model, written and checked like the others. A translation of the dialogue is dropped and made anew when the form is next opened in that language. The history records `edited`.
+
+A form that was saved from a capture or corrected is kept as a form of its own and can be chosen and filled in again; `form.own` names it. A form made of a shipped one keeps `form.file`, so its values still go into the form fields of the original PDF; a field a person added is drawn on the page.
+
 ## Dialogue
 
 `dialogue.units[]` turn the form into a conversation: `q1`, `q2`, … in the order of the paper. Every field except the signature belongs to exactly one unit; `kind` is `single` (one field), `choice` (tick marks that belong together) or `table` (rows built alike, with `rows` and `columns`). `label` holds the printed labels of the unit's fields. `question` is a plain question for the unit, written by the model named in `dialogue.model` and present only when it passed the check: asked without its id, the model named this unit in every run, and no other unit of the page is asked with the same words. A unit without `question` is asked with its printed label. An answer given to one unit goes into the fields of that unit only; the transcript piece it was said or typed in carries the unit's id in `question`. `skip` marks a unit that is not asked because the fillable original has no form field there. `required` marks a unit at which the form requires an entry: a required entry of the form's catalogue was bound to it, by the label of one of its fields, or by the small and the large model naming the same unit and a check back confirming it. A form without a catalogue has no required units. Nothing has to be answered: a person can go on with questions open, they stay empty, and a required unit with nothing in any of its fields then carries the hint `missing` on its first field – a warning, the form can still be sent. The units are built by code; without a model the dialogue carries labels only.
@@ -39,6 +45,8 @@ A person can fill in a form in a language it is not printed in. `language` then 
 ## Hints
 
 `hints[]` on a field: `kind` is `missing` (something required is empty – by code; with a dialogue one hint per required unit, on its first field), `vague` (the entry is insufficient against the catalogue – by the model with the catalogue), `incomplete` (the answer does not cover what the question asks for – by the model, from the question, the printed label and what was said; `text` says what is missing), `legal` (the catalogue's requirement for this field), or `format` (the value does not fit the kind – by code). `article` is the legal reference as printed in the catalogue; `catalogue` names the catalogue file and its validation stamp. Trace never says "not allowed", only "please look here".
+
+The catalogue of a shipped form was checked by a person against the statute; a form a person captured gets its catalogue from the large model as a step of its capture, and entries are added the same way for fields a person adds. Such a catalogue, and such an entry, is nobody's checked work: a `legal` hint from it says `unverified` in `catalogue`.
 
 ## The person's decision
 
@@ -83,5 +91,5 @@ A person can fill in a form in a language it is not printed in. `language` then 
 
 ## Changes
 
-- **2b-0.2** (2026-10-09): `dialogue` – the fields in units with a printed label and a checked plain question; `transcript[].question` for a piece said in reply to a unit; hint kind `incomplete`; `dialogue.units[].required`; `language`, `dialogue.translations` and `source.said` for a form filled in in another language.
+- **2b-0.2** (2026-10-09): `dialogue` – the fields in units with a printed label and a checked plain question; `transcript[].question` for a piece said in reply to a unit; hint kind `incomplete`; `dialogue.units[].required`; `form.own`, `fields[].by`, `dialogue.units[].by` and the event `edited` for a form corrected by hand; `language`, `dialogue.translations` and `source.said` for a form filled in in another language.
 - **2b-0.1** (2026-10-07): first draft.

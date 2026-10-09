@@ -229,5 +229,37 @@
     "sign.missing": {
         "one": "1 information obligatoire manque encore. Tu peux envoyer quand même.",
         "other": "{n} informations obligatoires manquent encore. Tu peux envoyer quand même."
-    }
+    },
+    "job.catalogue": "Rassemblement des exigences pour les champs …",
+    "type.number": "nombre",
+    "type.box": "case",
+    "type.radio": "bouton d’option",
+    "edit.open": "Modifier",
+    "edit.page": "Page",
+    "edit.name": "Nom du formulaire",
+    "edit.suffix": "(adapté)",
+    "edit.card": "{n} champs reconnus. Touche un champ et change son libellé, son type, sa question ou s’il est obligatoire. Sur la page tu le déplaces ; avec la souris tu tires son coin pour la taille. Sans coche : ce n’est pas un champ.",
+    "edit.doubts": {
+        "one": "1 champ à regarder, il est marqué en rouge.",
+        "other": "{n} champs à regarder, ils sont marqués en rouge."
+    },
+    "edit.look": "à voir",
+    "edit.isfield": "est un champ",
+    "edit.nolabel": "sans libellé",
+    "edit.label": "Libellé",
+    "edit.kind": "Type",
+    "edit.option": "Texte de l’option",
+    "edit.join": "appartient au choix au-dessus",
+    "edit.question": "Question dans la conversation",
+    "edit.question.hint": "vide : le libellé est demandé",
+    "edit.add": "Ajouter un champ",
+    "edit.place": "Touche l’endroit de la page où le nouveau champ doit se trouver.",
+    "edit.pv": "Touche un champ et déplace-le ; avec la souris, tire son coin pour la taille. Deux doigts ou la molette agrandissent la page.",
+    "edit.selected": "Choisi : {l}",
+    "edit.none": "Aucun champ choisi.",
+    "edit.saving": "Enregistrement du formulaire …",
+    "edit.s1": "Recomposer champs et questions",
+    "edit.s2": "Nouvelles questions et indications",
+    "edit.wait": "Le modèle n’écrit que ce qui a changé.",
+    "shipped.own": "formulaire personnel"
 }

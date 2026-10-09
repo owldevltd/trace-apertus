@@ -3,7 +3,8 @@ import { byPosition } from '../page/mask.js';
 // The form as a list of lines in the order of the paper, the text the model reads to write and to check the
 // questions. Every text block is one line; none is left out and none is classified, since code cannot tell a
 // question from a paragraph. Behind the text the field builder found as the label of a place stands the id of
-// that place's unit in square brackets; a place without a label of its own stands alone at its position.
+// that place's unit in square brackets; a place without a label of its own stands alone at its position, and
+// one a person labelled by hand stands there with that label.
 // Measured 9 October 2026: with the page as a picture of text the model had to read the layout, and the same
 // question pointed at the same place in only 23 of 45 cases over two runs; with this list the check holds.
 
@@ -50,6 +51,8 @@ export function listing( job, units, page ) {
         if ( e.block ) {
             const named = [ ...new Set( here.filter( ( f ) => f.labelBlock === e.block.id ).map( ( f ) => marks.get( f.id ) ) ) ];
             lines.push( e.block.content.replace( /\s+/g, ' ' ).trim() + ( named.length ? '  → ' + named.join( ' ' ) : '' ) );
+        } else if ( marks.has( e.field.id ) && e.field.label ) {
+            lines.push( e.field.label.replace( /\s+/g, ' ' ).trim() + '  → ' + marks.get( e.field.id ) );
         } else if ( marks.has( e.field.id ) && lines[ lines.length - 1 ] !== marks.get( e.field.id ) ) {
             // the cells of a table follow each other: its id once
             lines.push( marks.get( e.field.id ) );

@@ -6,6 +6,7 @@ import { drawPreview, wirePreview } from '../preview.js';
 import { switchPane } from '../router.js';
 import * as listen from '../listen.js';
 import * as sign from './sign.js';
+import * as verify from './verify.js';
 
 // One form: its fields with state and value, the page preview, the transcript, the legal texts. Before
 // dictation the fields are empty and the button says "Start listening"; after it, every entry carries ok,
@@ -207,6 +208,8 @@ export function render( ctx, entry ) {
     const body = ctx.body( 'form' );
     body.innerHTML = tpl.render( 'form', {
         name: f.name,
+        // the fields and questions of a job can be corrected by hand until it is sent
+        canEdit: !!entry.jobId && entry.status !== 'sent',
         meta,
         pills: PILLS.map( ( key ) => ( { key, label: t( key === 'fields' && asked ? 'questions' : key ), on: state.tab === key } ) ),
         paneTitle: t( asked ? 'questions' : 'fields' ),
@@ -400,6 +403,15 @@ export function wire( ctx ) {
         } );
     } );
     on( body, 'click', '.seg', ( el ) => el.classList.toggle( 'open' ) );
+    on( body, 'click', '[data-edit-form]', () => {
+        const entry = ctx.state.current;
+        listen.cancel( ctx );
+        verify.edit( ctx, entry, () => {
+            ctx.state.tab = 'fields';
+            ctx.state.asking = null;
+            show( ctx, entry );
+        } );
+    } );
     on( body, 'click', '[data-confirm]', ( b ) => {
         const entry = ctx.state.current;
         if ( entry.jobId ) {

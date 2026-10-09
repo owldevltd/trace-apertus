@@ -8,6 +8,8 @@ import { fillJob, fillUnit } from '../src/fields/filler.js';
 import { saveJob, jobDir } from '../src/job.js';
 import { judgeEnough, hints } from '../src/review/hints.js';
 import { bindRequired } from '../src/dialogue/required.js';
+import { applyEdit, rebuild, planned as plannedEdit, askFresh } from '../src/fields/editor.js';
+import { extendCatalogue } from '../src/review/catalogue.js';
 import { createGate } from '../src/app/js/capture/recorder.js';
 import { translateDialogue, translateValues, suspect, planned, asked as askedIn } from '../src/dialogue/translate.js';
 import { parse } from '../src/dialogue/writer.js';
@@ -289,6 +291,52 @@ for ( const dir of dirs ) {
     must.fields.find( ( f ) => f.id === choiceUnit.fields[ 1 ] ).value = 'x';
     check( before.length === marked.length && before.includes( choiceUnit.fields[ 0 ] ) && !before.includes( choiceUnit.fields[ 1 ] ) && lacks( must ).length === marked.length - 1 && !lacks( must ).includes( choiceUnit.fields[ 0 ] ),
         job.id + ': a required question without an answer is missing once, whatever number of fields it has' );
+
+    // the form corrected by hand. A label changed, a field taken away, one added: the units are built anew, an
+    // answer stays with its question under the new id, a unit that did not change keeps its question, and only
+    // the changed and the new one get a question from the model
+    const hand = { ...job, id: 'tests/edit-' + job.id, form: { ...job.form }, blocks: structuredClone( job.blocks ), fields: structuredClone( job.fields ), dialogue: structuredClone( dialogue ) };
+    const mine = hand.dialogue.units.filter( ( u ) => !u.skip && u.kind === 'single' && u.question && !mark( u.fields[ 0 ] ) );
+    const [ renamed, taken, stays ] = [ mine[ 1 ], mine[ 0 ], mine[ mine.length - 1 ] ];
+    hand.transcript = [ { n: 1, text: 'a', question: stays.id }, { n: 2, text: 'b', question: taken.id } ];
+    const spot = hand.fields.find( ( f ) => f.id === renamed.fields[ 0 ] );
+    const entry = ( f ) => ( { id: f.id, page: f.page, x: f.x, y: f.y, width: f.width, height: f.height, label: f.label, kind: f.kind, option: f.option, group: f.group } );
+    const edit = { fields: hand.fields.filter( ( f ) => !taken.fields.includes( f.id ) ).map( entry ) };
+    edit.fields.find( ( e ) => e.id === spot.id ).label = 'Anders benannt';
+    edit.fields.push( { page: spot.page, x: spot.x, y: spot.y + spot.height + 4, width: spot.width, height: spot.height, label: 'Ganz neu', kind: 'text' } );
+    const change = applyEdit( hand, edit );
+    const fresh = rebuild( hand, edit, change );
+    const now = ( u ) => hand.dialogue.units.find( ( x ) => x.fields[ 0 ] === u.fields[ 0 ] );
+    check( change.touched.has( spot.id ) && change.added.length === 1 && change.removed.join() === taken.fields.join() && fresh.length === 2 && fresh.every( ( u ) => !u.question )
+        && now( stays ).question === stays.question && hand.transcript[ 0 ].question === now( stays ).id && hand.transcript[ 1 ].question === undefined && hand.dialogue.units.every( fits ),
+        job.id + ': a form corrected by hand keeps what did not change; an answer follows its question to the new id' );
+    check( listing( hand, hand.dialogue.units, spot.page ).includes( 'Anders benannt  → [' + now( renamed ).id + ']' ) && listing( hand, hand.dialogue.units, spot.page ).includes( 'Ganz neu  → [' ),
+        job.id + ': the list of lines carries a label set by hand' );
+    let writing4 = 0;
+    await askFresh( hand, fresh, { ask: async ( prompt, options ) => {
+        writing4++;
+        const ids = fresh.map( ( u ) => u.id );
+        if ( options.tag.startsWith( 'questions' ) ) {
+            return { text: JSON.stringify( { fragen: hand.dialogue.units.filter( ( u ) => !u.skip && u.page === spot.page ).map( ( u ) => ( { kennung: u.id, frage: ids.includes( u.id ) ? 'Neue Frage ' + u.id + '?' : 'Andere Frage ' + u.id + '?' } ) ) } ) };
+        }
+        return { text: JSON.stringify( { zuordnung: [ ...prompt.split( '-----' )[ 2 ].matchAll( /^([A-Z]): Neue Frage (q\d+)\?$/gm ) ].map( ( m ) => ( { frage: m[ 1 ], kennung: m[ 2 ] } ) ) } ) };
+    } }, null );
+    check( writing4 === plannedEdit( fresh ) && fresh.every( ( u ) => u.question === 'Neue Frage ' + u.id + '?' ) && now( stays ).question === stays.question,
+        job.id + ': only what changed gets a new question, in the calls planned (' + writing4 + ')' );
+
+    // the catalogue for a field a person added: an entry is taken for a label it has none for, marked as added,
+    // and its hint says that nobody checked it, whatever stamp the catalogue carries; what the model says about
+    // other fields is left out
+    const book4 = { verified: '2026-10-07 by a person', file: 'x.json', fields: [ { field: 'Anders benannt', requirement: 'alt', source: 'SR 1 Art. 1', certainty: 'high' } ] };
+    let asked4 = '';
+    const added4 = await extendCatalogue( hand, book4, [ 'Anders benannt', 'Ganz neu' ], { ask: async ( prompt ) => {
+        asked4 = prompt;
+        return { text: JSON.stringify( { formular: 'x', felder: [ { feld: 'Ganz neu', vorgabe: 'neu', quelle: 'SR 2 Art. 2', sicherheit: 'mittel' }, { feld: 'Etwas anderes', vorgabe: 'fremd', quelle: 'SR 3', sicherheit: 'hoch' } ] } ) };
+    } } );
+    const legal4 = hints( hand, book4 ).filter( ( h ) => h.kind === 'legal' );
+    check( added4 === 1 && book4.fields.length === 2 && book4.fields[ 1 ].added && /- Ganz neu$/.test( asked4 ) && !/- Anders benannt/.test( asked4 )
+        && legal4.some( ( h ) => h.text === 'neu' && /unverified$/.test( h.catalogue ) ) && legal4.some( ( h ) => h.text === 'alt' && /by a person$/.test( h.catalogue ) ),
+        job.id + ': a field added by hand gets a catalogue entry of its own, and its hint says nobody checked it' );
 
     const count = ( kind ) => units.filter( ( u ) => u.kind === kind );
     const marks = count( 'choice' ).reduce( ( a, u ) => a + u.fields.length, 0 );

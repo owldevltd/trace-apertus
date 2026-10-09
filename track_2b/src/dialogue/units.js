@@ -54,7 +54,8 @@ export function buildUnits( job ) {
                 unit.rows = u.rows;
                 unit.columns = u.columns;
             }
-            if ( fillable && !u.fields.some( ( f ) => f.widget ) ) {
+            // a field a person put there is asked: the output draws its value on the page
+            if ( fillable && !u.fields.some( ( f ) => f.widget || f.by === 'person' ) ) {
                 unit.skip = true;
             }
             units.push( unit );

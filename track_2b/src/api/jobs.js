@@ -1,8 +1,9 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { config } from '../config.js';
-import { createJob, jobDir, saveJob, loadJob, loadRun, listJobs, addPage } from '../job.js';
-import { listShipped, startShipped } from '../shipped.js';
+import { createJob, jobDir, saveJob, loadJob, loadRun, listJobs, addPage, record } from '../job.js';
+import { listForms, startShipped, keepOwn } from '../shipped.js';
+import { invalid, applyEdit, rebuild, planned, uncatalogued, runEdit } from '../fields/editor.js';
 import { runPipeline } from '../pipeline.js';
 import { transcribeJob, transcribeAnswer } from '../speech/transcriber.js';
 import { fillJob, fillUnit } from '../fields/filler.js';
@@ -21,7 +22,7 @@ const AUDIO = { 'audio/mpeg': 'mp3', 'audio/mp3': 'mp3', 'audio/wav': 'wav', 'au
 // put there and is ready at once.
 
 // the steps during which a job is at work and takes no other
-const RUNNING = [ 'analyze', 'read', 'fields', 'dialogue', 'transcribe', 'fill', 'translate' ];
+const RUNNING = [ 'analyze', 'read', 'fields', 'catalogue', 'dialogue', 'transcribe', 'fill', 'translate', 'edit' ];
 
 const PNG = Buffer.from( [ 0x89, 0x50, 0x4e, 0x47 ] );
 const ID = /^[a-z0-9]{6,20}$/;
@@ -29,7 +30,7 @@ const FORM = /^[a-z0-9-]+$/;
 
 export function registerJobs( router, client ) {
 
-    router.add( 'GET', '/api/forms', async () => ( { status: 200, json: await listShipped() } ) );
+    router.add( 'GET', '/api/forms', async () => ( { status: 200, json: await listForms() } ) );
 
     router.add( 'GET', '/api/jobs', async () => ( { status: 200, json: await listJobs() } ) );
 
@@ -204,6 +205,52 @@ export function registerJobs( router, client ) {
         settle( job, catalogue, fields.map( ( f ) => f.id ), judged );
         await saveJob( job );
         return { status: 200, json: { job } };
+    } );
+
+    // The form corrected by hand: { name?, fields: [ … ] }, the whole list of fields as the person left it (see
+    // src/fields/editor.js). The job is put together anew from it, and the form is kept as a form of its own that
+    // can be chosen and filled in again. Answers at once with ready when the model has nothing to do, else the
+    // app asks for the job until run.step is done: the questions of the units that changed are written, and the
+    // catalogue says something about the new labels.
+    router.add( 'PUT', '/api/jobs/:id/form', async ( { params, body } ) => {
+        const job = await find( params.id );
+        if ( !job ) {
+            return { status: 404, json: { error: 'no such job' } };
+        }
+        if ( job.status === 'sent' ) {
+            return { status: 409, json: { error: 'the form is sent' } };
+        }
+        const run = await loadRun( job.id );
+        if ( RUNNING.includes( run.step ) ) {
+            return { status: 409, json: { error: 'already running', run } };
+        }
+        let edit;
+        try {
+            edit = JSON.parse( body.toString( 'utf8' ) );
+        } catch {
+            return { status: 400, json: { error: 'an edit is JSON' } };
+        }
+        const wrong = invalid( job, edit );
+        if ( wrong ) {
+            return { status: 400, json: { error: wrong } };
+        }
+        const change = applyEdit( job, edit );
+        const fresh = rebuild( job, edit, change );
+        const labels = config.apiKey ? await uncatalogued( job, change ) : [];
+        const keep = async ( done ) => {
+            record( done, 'edited', change.touched.size + ' fields changed, ' + change.added.length + ' added, ' + change.removed.length + ' taken away' );
+            settle( done, await loadCatalogue( done ), [] );
+            await keepOwn( done );
+            await saveJob( done );
+        };
+        if ( !config.apiKey || !( planned( fresh ) + labels.length ) ) {
+            await keep( job );
+            return { status: 200, json: { job, ready: true } };
+        }
+        // the fields as corrected are there at once; the questions and the catalogue follow
+        await saveJob( job );
+        runEdit( job, fresh, labels, client, keep ).catch( () => {} );
+        return { status: 202, json: { id: job.id, step: 'edit' } };
     } );
 
     // The person goes on with questions still open: what was not answered stays empty, and the form is filled as

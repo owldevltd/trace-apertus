@@ -22,7 +22,7 @@ import * as more from './screens/more.js';
 // nothing of it.
 
 const LANGS = [ 'en', 'de', 'fr', 'it' ];
-const TEMPLATES = [ 'home', 'thumb', 'forms', 'pills', 'verify', 'form', 'field', 'turn', 'sign', 'sent', 'more', 'sheet', 'recognizing' ];
+const TEMPLATES = [ 'home', 'thumb', 'forms', 'pills', 'verify', 'form', 'field', 'turn', 'sign', 'sent', 'more', 'sheet', 'recognizing', 'picked' ];
 const ROOTS = [ 'home', 'forms', 'sent', 'more' ];
 const SCREENS = { home, forms, form, camera, verify, sign, sent, more };
 
@@ -57,7 +57,7 @@ async function boot() {
         model: createModel( i18n.t, () => i18n.lang ),
         screens: SCREENS,
         // what the flow holds between screens; not saved
-        state: { tab: 'fields', photo: null, form: null, off: [], current: null, pending: new Set(), listen: null },
+        state: { tab: 'fields', photo: null, form: null, off: [], work: null, editing: null, current: null, pending: new Set(), listen: null },
         screen: ( id ) => $( '#s-' + id, root ),
         body: ( id ) => $( '#s-' + id + ' [data-body]', root ),
         bottom: ( id ) => $( '#s-' + id + ' [data-bottom]', root ),

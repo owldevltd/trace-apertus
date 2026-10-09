@@ -229,5 +229,37 @@
     "sign.missing": {
         "one": "1 Pflichtangabe fehlt noch. Du kannst trotzdem senden.",
         "other": "{n} Pflichtangaben fehlen noch. Du kannst trotzdem senden."
-    }
+    },
+    "job.catalogue": "Vorgaben zu den Feldern werden zusammengestellt …",
+    "type.number": "Zahl",
+    "type.box": "Kästchen",
+    "type.radio": "Auswahlknopf",
+    "edit.open": "Bearbeiten",
+    "edit.page": "Seite",
+    "edit.name": "Name des Formulars",
+    "edit.suffix": "(angepasst)",
+    "edit.card": "{n} Felder erkannt. Tippe ein Feld an und ändere Beschriftung, Art, Frage oder Pflicht. Auf der Seite verschiebst du es; mit der Maus ziehst du an der Ecke die Grösse. Haken weg heisst: kein Feld.",
+    "edit.doubts": {
+        "one": "1 Feld bitte ansehen, es ist rot markiert.",
+        "other": "{n} Felder bitte ansehen, sie sind rot markiert."
+    },
+    "edit.look": "ansehen",
+    "edit.isfield": "ist ein Feld",
+    "edit.nolabel": "ohne Beschriftung",
+    "edit.label": "Beschriftung",
+    "edit.kind": "Art",
+    "edit.option": "Text der Möglichkeit",
+    "edit.join": "gehört zur Auswahl darüber",
+    "edit.question": "Frage im Gespräch",
+    "edit.question.hint": "leer: es wird mit der Beschriftung gefragt",
+    "edit.add": "Feld hinzufügen",
+    "edit.place": "Tippe auf die Stelle der Seite, an der das neue Feld stehen soll.",
+    "edit.pv": "Feld antippen und verschieben; mit der Maus an der Ecke die Grösse ziehen. Zwei Finger oder das Mausrad vergrössern die Seite.",
+    "edit.selected": "Gewählt: {l}",
+    "edit.none": "Kein Feld gewählt.",
+    "edit.saving": "Formular wird gespeichert …",
+    "edit.s1": "Felder und Fragen neu zusammensetzen",
+    "edit.s2": "Neue Fragen und Hinweise",
+    "edit.wait": "Das Modell schreibt nur, was sich geändert hat.",
+    "shipped.own": "eigenes Formular"
 }

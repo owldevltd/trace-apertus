@@ -5,13 +5,39 @@
 <div class="pane">
     {{#isFields}}
     <div class="hero"><p class="eyebrow">{{t:fields}}</p>{{card}}</div>
+    {{#edit}}
+    <label class="named"><span class="eyebrow">{{t:edit.name}}</span><input data-name value="{{name}}" autocomplete="off"></label>
+    {{#doubts}}<div class="suggest"><span class="ico">!</span><span class="grow">{{.}}</span></div>{{/doubts}}
+    <button class="btn outline sm press" data-add>{{t:edit.add}}</button>
+    {{/edit}}
     {{#sections}}
     <div class="stack narrow"><p class="eyebrow">{{title}} · {{n}}</p><div class="cells">
-        {{#fields}}<label class="check"><input type="checkbox" {{#on}}checked{{/on}} data-field="{{id}}"><span class="grow strong">{{label}}</span><span class="small muted">{{type}}</span></label>{{/fields}}
+        {{#fields}}
+        {{#edit}}
+        <div class="frow{{#doubt}} doubt{{/doubt}}{{#open}} open{{/open}}{{^on}} off{{/on}}" data-row="{{key}}">
+            <div class="check"><input type="checkbox" {{#on}}checked{{/on}} data-on="{{key}}" aria-label="{{t:edit.isfield}}"><button class="pick grow strong press" data-pick="{{key}}">{{label}}</button>{{#doubt}}<span class="chip bad">{{t:edit.look}}</span>{{/doubt}}<span class="small muted">{{type}}</span></div>
+            {{#open}}
+            <div class="fedit">
+                <label><span>{{t:edit.label}}</span><input data-set="label" value="{{raw}}" autocomplete="off"></label>
+                <label><span>{{t:edit.kind}}</span><select data-set="kind">{{#kinds}}<option value="{{value}}"{{#on}} selected{{/on}}>{{label}}</option>{{/kinds}}</select></label>
+                {{#mark}}
+                <label><span>{{t:edit.option}}</span><input data-set="option" value="{{option}}" autocomplete="off"></label>
+                <label class="tick-line"><input type="checkbox" data-set="join"{{#join}} checked{{/join}}><span>{{t:edit.join}}</span></label>
+                {{/mark}}
+                {{#unit}}
+                <label><span>{{t:edit.question}}</span><input data-set="question" value="{{question}}" placeholder="{{t:edit.question.hint}}" autocomplete="off"></label>
+                <label class="tick-line"><input type="checkbox" data-set="required"{{#required}} checked{{/required}}><span>{{t:chat.required}}</span></label>
+                {{/unit}}
+            </div>
+            {{/open}}
+        </div>
+        {{/edit}}
+        {{^edit}}<label class="check"><input type="checkbox" {{#on}}checked{{/on}} data-field="{{id}}"><span class="grow strong">{{label}}</span><span class="small muted">{{type}}</span></label>{{/edit}}
+        {{/fields}}
     </div></div>
     {{/sections}}
     {{/isFields}}
-    {{#isPreview}}<div class="hero"><p class="eyebrow">{{t:preview}}</p>{{t:verify.pv}}</div><div class="pv"><span class="small muted">{{pvMeta}}</span>{{{preview}}}</div>{{/isPreview}}
+    {{#isPreview}}<div class="hero"><p class="eyebrow">{{t:preview}}</p>{{pvHint}}</div>{{#edit}}{{> picked}}{{/edit}}<div class="pv"><span class="small muted">{{pvMeta}}</span>{{{preview}}}</div>{{/isPreview}}
     {{#isPhoto}}{{#photo}}<img class="shot" src="{{photo}}" alt="">{{/photo}}{{^photo}}<div class="grey centre"><p class="muted">{{t:verify.nophoto}}</p><button class="btn outline sm press" data-camera>{{t:verify.takephoto}}</button></div>{{/photo}}{{/isPhoto}}
 </div>
 </div>

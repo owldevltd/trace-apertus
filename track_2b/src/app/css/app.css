@@ -215,6 +215,22 @@ html:not([data-demo]) .demo-only { display: none !important; }
 .turn .field.missing { border-color: color-mix(in srgb, var(--bad) 55%, var(--line)); }
 .check { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--rs); background: var(--paper); }
 .check input { width: 20px; height: 20px; accent-color: var(--ink); flex: none; }
+.frow { border: 1px solid var(--line); border-radius: var(--rs); background: var(--paper); }
+.frow .check { border: 0; background: transparent; }
+.frow.doubt { border-color: var(--bad); box-shadow: inset 3px 0 0 var(--bad); }
+.frow.open { border-color: var(--ink); }
+.frow.off .pick { color: var(--muted); text-decoration: line-through; }
+.pick { border: 0; background: transparent; padding: 0; text-align: left; font: inherit; font-weight: 600; color: inherit; cursor: pointer; min-width: 0; overflow-wrap: anywhere; }
+.fedit { display: grid; gap: 10px; padding: 4px 14px 14px; }
+.fedit label, .named { display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
+.fedit input:not([type=checkbox]), .fedit select, .named input { width: 100%; min-width: 0; border: 1.5px solid var(--line); border-radius: 10px; padding: 9px 11px; font: inherit; font-size: 15px; color: var(--ink); background: var(--paper); }
+.fedit input:focus, .fedit select:focus, .named input:focus { outline: none; border-color: var(--ink); }
+.fedit .tick-line { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink); }
+.fedit .tick-line input { width: 20px; height: 20px; accent-color: var(--ink); flex: none; }
+.picked { padding: 2px 0; }
+.pv svg .chosen { stroke: var(--ink); stroke-width: 12; }
+.pv svg [data-field] { cursor: move; }
+.pv svg .corner { fill: var(--ink); cursor: nwse-resize; }
 
 /* transcript and legal texts */
 .seg { background: var(--accent); color: var(--accent-ink); border-radius: var(--r); padding: 16px 18px; cursor: pointer; }

@@ -26,6 +26,10 @@ with its questions, those the form requires marked from its catalogue (`make req
 touching the questions). Choosing a form in the app makes a job from that file; nothing is recognized at that moment.
 Recognizing, with its progress on the screen, is what happens when a person photographs or uploads a new form.
 
+A form a person saves from a capture, or corrects by hand, is kept in the same shape under `storage/forms/<id>/`
+(not in this folder: it is the person's, not the repository's) and stands in the app beside the four as a form of
+its own, with the fields, the questions and the catalogue as the person left them.
+
 ## The reference JSON
 
 Produced once from the PDF with poppler (`pdftotext -bbox-layout` for words, lines and blocks; the AcroForm widgets

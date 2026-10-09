@@ -21,9 +21,9 @@ export function enter( ctx ) {
         byKind.get( f.kind ).items.push( { id: f.id, name: f.name, issuer: f.issuer } );
     }
     const groups = [ ...byKind.values() ].map( ( g ) => ( { ...g, odd: g.items.length % 2 === 1 } ) );
-    const shipped = ( ctx.state.shipped || [] ).map( ( f ) => ( { id: f.id, name: f.name, issuer: f.issuer, rebuilt: f.origin === 'rebuilt' ? t( 'shipped.rebuilt' ) : '' } ) );
+    const shipped = ( ctx.state.shipped || [] ).map( ( f ) => ( { id: f.id, name: f.name, issuer: f.issuer, rebuilt: f.own ? t( 'shipped.own' ) : f.origin === 'rebuilt' ? t( 'shipped.rebuilt' ) : '' } ) );
     body( 'forms' ).innerHTML = tpl.render( 'forms', { entries, groups, shipped } );
-    // the list of shipped forms comes from the server, once
+    // the list of shipped forms and of the ones a person kept comes from the server, anew after a form was saved
     if ( !ctx.state.shipped ) {
         ctx.state.shipped = [];
         api.forms().then( ( list ) => {

@@ -62,6 +62,10 @@
         "file": {
           "type": "string",
           "description": "path of the PDF relative to the data folder"
+        },
+        "own": {
+          "type": "string",
+          "description": "the id under which the form of this job is kept as a form of its own, to be chosen and filled in again: set when a person saved a captured form or corrected one by hand"
         }
       },
       "additionalProperties": false
@@ -198,6 +202,13 @@
               "required": {
                 "type": "boolean",
                 "description": "the form requires what is entered here: an entry of the form's catalogue marked required was bound to this unit, by the label of a field or by the model with a check back"
+              },
+              "by": {
+                "type": "string",
+                "enum": [
+                  "person"
+                ],
+                "description": "the question was written by a person; it stands as it is and is not checked"
               }
             },
             "additionalProperties": false
@@ -355,7 +366,8 @@
               "translated",
               "reviewed",
               "exported",
-              "sent"
+              "sent",
+              "edited"
             ]
           },
           "by": {
@@ -526,6 +538,13 @@
           "items": {
             "$ref": "#/$defs/hint"
           }
+        },
+        "by": {
+          "type": "string",
+          "enum": [
+            "person"
+          ],
+          "description": "the field was put on the page by a person, not found by the pipeline"
         }
       },
       "additionalProperties": false

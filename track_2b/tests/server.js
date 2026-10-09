@@ -109,6 +109,37 @@ try {
     check( anyway.status === 200 && gone.status === 'sent' && gone.history.some( ( h ) => h.event === 'sent' && h.note === lacks + ' required left empty' ), 'a form with something required missing is sent all the same, and its history says so' );
     check( ( await fetch( base + '/api/jobs/' + third.id + '/review', { method: 'POST' } ) ).status === 409, 'a form that is sent is not gone on with' );
 
+    // a form corrected by hand: a label, a place, a field taken away, one added, a question written, something
+    // required; the job is put together anew, and the form is kept as one to choose from
+    const fourth = await ( await fetch( base + '/api/jobs/from/arbeitsfaehigkeitszeugnis', { method: 'POST' } ) ).json();
+    const whole4 = ( await ( await fetch( base + '/api/jobs/' + fourth.id ) ).json() ).job;
+    const asked4 = whole4.dialogue.units.filter( ( u ) => !u.skip );
+    const [ first4, out4 ] = asked4.filter( ( u ) => u.kind === 'single' && u.question );
+    const kept4 = asked4.find( ( u ) => u.kind === 'choice' );
+    const put4 = ( edit ) => fetch( base + '/api/jobs/' + fourth.id + '/form', { method: 'PUT', body: JSON.stringify( edit ) } );
+    const list4 = whole4.fields.filter( ( f ) => !out4.fields.includes( f.id ) ).map( ( f ) => ( { id: f.id, page: f.page, x: f.x, y: f.y, width: f.width, height: f.height, label: f.label, kind: f.kind, option: f.option, group: f.group } ) );
+    Object.assign( list4.find( ( f ) => f.id === first4.fields[ 0 ] ), { label: 'Von Hand', x: whole4.fields.find( ( f ) => f.id === first4.fields[ 0 ] ).x + 30, question: 'Wie heisst sie?', required: true } );
+    list4.push( { page: 1, x: 200, y: 3100, width: 500, height: 60, label: 'Neu von Hand', kind: 'text' } );
+    const done4 = await put4( { name: 'Zeugnis von Hand', fields: list4 } );
+    const made4 = ( await done4.json() ).job;
+    const unit4 = made4.dialogue.units.find( ( u ) => u.fields[ 0 ] === first4.fields[ 0 ] );
+    const new4 = made4.fields.find( ( f ) => f.label === 'Neu von Hand' );
+    check( done4.status === 200 && made4.form.name === 'Zeugnis von Hand' && made4.fields.length === whole4.fields.length && !made4.fields.some( ( f ) => out4.fields.includes( f.id ) )
+        && made4.fields.find( ( f ) => f.id === first4.fields[ 0 ] ).label === 'Von Hand' && unit4.question === 'Wie heisst sie?' && unit4.by === 'person' && unit4.required === true,
+        'PUT /api/jobs/:id/form takes the corrections of a person: label, place, a field less, a question, required' );
+    check( new4 && new4.by === 'person' && made4.dialogue.units.some( ( u ) => u.fields.includes( new4.id ) && !u.skip ) && made4.dialogue.units.length === whole4.dialogue.units.length
+        && made4.dialogue.units.find( ( u ) => u.fields[ 0 ] === kept4.fields[ 0 ] ).question === kept4.question && made4.history.some( ( h ) => h.event === 'edited' ),
+        'a field put there by hand is asked, the other questions stay, the history says the form was edited' );
+    const kinds4 = await ( await fetch( base + '/api/forms' ) ).json();
+    const mine4 = kinds4.find( ( f ) => f.own && f.id === made4.form.own );
+    const again4 = mine4 ? await ( await fetch( base + '/api/jobs/from/' + mine4.id, { method: 'POST' } ) ).json() : {};
+    const copy4 = again4.id ? ( await ( await fetch( base + '/api/jobs/' + again4.id ) ).json() ).job : { fields: [], dialogue: { units: [] }, form: {} };
+    check( !!mine4 && mine4.name === 'Zeugnis von Hand' && again4.ready === true && copy4.fields.length === made4.fields.length && copy4.fields.some( ( f ) => f.label === 'Neu von Hand' )
+        && copy4.dialogue.units.some( ( u ) => u.question === 'Wie heisst sie?' ) && copy4.form.own === mine4.id && !copy4.fields.some( ( f ) => f.value ),
+        'the corrected form is kept as a form of its own, and a job made of it starts with the corrections' );
+    check( ( await put4( { fields: [ { id: 'f99999', page: 1, x: 0, y: 0, width: 10, height: 10, label: '', kind: 'text' } ] } ) ).status === 400 && ( await put4( { name: 'x' } ) ).status === 400,
+        'an edit that names a field the form does not have, or no fields at all, is refused' );
+
     // another language than the form's: nothing to do for the form's own, refused without a model
     const say = ( language ) => fetch( base + '/api/jobs/' + other.id + '/translate', { method: 'POST', body: JSON.stringify( { language } ) } );
     const own = await say( 'de' );

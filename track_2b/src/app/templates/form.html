@@ -1,4 +1,4 @@
-<div class="stack tight"><h2>{{name}}</h2><div class="meta">{{#meta}}<span>{{.}}</span>{{/meta}}</div></div>
+<div class="stack tight"><div class="row"><h2 class="grow">{{name}}</h2>{{#canEdit}}<button class="btn outline sm press" data-edit-form>{{t:edit.open}}</button>{{/canEdit}}</div><div class="meta">{{#meta}}<span>{{.}}</span>{{/meta}}</div></div>
 <div class="columns">
 <div class="column main">
 {{> pills}}

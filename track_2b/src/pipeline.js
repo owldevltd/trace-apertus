@@ -6,11 +6,13 @@ import { layerElements } from './read/layer.js';
 import { buildFields } from './fields/builder.js';
 import { buildDialogue } from './dialogue/dialogue.js';
 import { bindRequired } from './dialogue/required.js';
-import { loadCatalogue } from './review/hints.js';
+import { loadCatalogue, saveCatalogue } from './review/hints.js';
+import { buildCatalogue } from './review/catalogue.js';
 import { jobDir, saveJob, saveRun } from './job.js';
 
-// The pipeline of a job: geometry → reading → fields → dialogue, saved after every step so the app can show
-// where it stands. Pixel work runs in the workers, the model calls go through the one client of the process.
+// The pipeline of a job: geometry → reading → fields → catalogue → dialogue, saved after every step so the app
+// can show where it stands. Pixel work runs in the workers, the model calls go through the one client of the
+// process.
 // A shipped form brings the words of its PDF along and is read from them, not from the image. Without a key the
 // reading of a photographed form is skipped, its fields come without labels, and no dialogue gets questions.
 
@@ -71,11 +73,22 @@ export async function runPipeline( job, client ) {
                 blocks,
             } );
         }
+        // what the law or the practice asks of each field: a form that ships has its catalogue, checked by a
+        // person; any other gets one from the large model here, unchecked, so that its fields have hints too
+        let catalogue = await loadCatalogue( job );
+        if ( !catalogue ) {
+            await saveRun( job.id, Object.assign( state, { step: 'catalogue', page: 0, at: now() } ) );
+            try {
+                await saveCatalogue( job, await buildCatalogue( job, client, path.join( dir, 'model' ) ) );
+                catalogue = await loadCatalogue( job );
+            } catch {
+                // no catalogue came back: the form has no legal hints
+            }
+        }
         // the form as a conversation, once, kept with the form
         await saveRun( job.id, Object.assign( state, { step: 'dialogue', page: 0, at: now() } ) );
         job.dialogue = ( await buildDialogue( job, client, path.join( dir, 'model' ) ) ).dialogue;
-        // which of its questions the form requires, where the form has a catalogue that says what is required
-        const catalogue = await loadCatalogue( job );
+        // which of its questions the form requires, where its catalogue says what is required
         if ( catalogue ) {
             await bindRequired( job, catalogue, client, path.join( dir, 'model' ) );
         }

@@ -58,7 +58,14 @@ documentation. The common denominator: forms someone else prescribes. The demo s
 2. **Structure.** The page is split into elements by geometry; the model reads the text of each element (a form
    that ships with the app was captured beforehand, from the text of its PDF); labels and boxes become fields. The fields are grouped into units, and the model writes one plain question per unit and
    checks it twice, so the form can be asked as a conversation; where no question holds, the printed label stays.
-3. **Verify the form.** The person sees the fields on the page and unticks what is not a field.
+   A form that is not one of the shipped ones also gets its catalogue of requirements here, from the large model
+   and unchecked, so that its fields have hints; every hint from it says that nobody checked it.
+3. **Verify the form.** The person sees the fields in a list and on the page. What the program itself doubts is
+   marked red: a label the model read and the shape check does not believe, a field without any label. Every
+   field can be corrected by hand, red or not: its label and kind, the question it is asked with, whether it is
+   required; on the page it is moved, with a mouse also sized, a field that is none is unticked and a missing
+   one is added. Saving puts the form together anew and keeps it as a form of its own, to be filled in again;
+   the same mask opens later from any saved form.
 4. **Dictate.** Free speech, recorded on the device, cut at silence, sent in pieces; or the questions one by one,
    typed or spoken. Spoken, it is a conversation: the microphone stays open at the question, an answer ends at a
    pause, and the next question is asked.

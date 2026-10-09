@@ -229,5 +229,37 @@
     "sign.missing": {
         "one": "1 required entry is still missing. You can send anyway.",
         "other": "{n} required entries are still missing. You can send anyway."
-    }
+    },
+    "job.catalogue": "Collecting what is asked of the fields …",
+    "type.number": "number",
+    "type.box": "tick box",
+    "type.radio": "radio button",
+    "edit.open": "Edit",
+    "edit.page": "Page",
+    "edit.name": "Name of the form",
+    "edit.suffix": "(adapted)",
+    "edit.card": "{n} fields found. Tap a field and change its label, kind, question or whether it is required. On the page you move it; with a mouse you drag its corner to size it. No tick means: not a field.",
+    "edit.doubts": {
+        "one": "Please look at 1 field, it is marked red.",
+        "other": "Please look at {n} fields, they are marked red."
+    },
+    "edit.look": "look",
+    "edit.isfield": "is a field",
+    "edit.nolabel": "no label",
+    "edit.label": "Label",
+    "edit.kind": "Kind",
+    "edit.option": "Text of the option",
+    "edit.join": "belongs to the choice above",
+    "edit.question": "Question in the conversation",
+    "edit.question.hint": "empty: the label is asked",
+    "edit.add": "Add a field",
+    "edit.place": "Tap the place on the page where the new field goes.",
+    "edit.pv": "Tap a field and move it; with a mouse drag its corner to size it. Two fingers or the mouse wheel zoom the page.",
+    "edit.selected": "Chosen: {l}",
+    "edit.none": "No field chosen.",
+    "edit.saving": "Saving the form …",
+    "edit.s1": "Putting fields and questions together anew",
+    "edit.s2": "New questions and hints",
+    "edit.wait": "The model writes only what changed.",
+    "shipped.own": "own form"
 }

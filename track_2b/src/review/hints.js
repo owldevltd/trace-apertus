@@ -31,14 +31,21 @@ export function hints( job, catalogue = null ) {
             out.push( { field: f.id, kind: 'format', text: 'Kein lesbares Datum.' } );
         }
         if ( entry && entry.source && entry.source !== 'keine sichere Quelle' ) {
-            out.push( { field: f.id, kind: 'legal', text: entry.requirement, article: entry.source, catalogue: catalogue.file + ' · ' + ( catalogue.verified || 'unverified' ) } );
+            // an entry added for a field a person made is nobody's checked work, whatever stamp the catalogue has
+            out.push( { field: f.id, kind: 'legal', text: entry.requirement, article: entry.source, catalogue: catalogue.file + ' · ' + ( !entry.added && catalogue.verified || 'unverified' ) } );
         }
     }
     return out;
 }
 
-// The catalogue of a form, when there is one: data/catalogues/<form>.json.
+// The catalogue of a job: its own, built when the form was captured or carried on from the form it was made of
+// (storage/<job>/catalogue.json), else the one of the shipped form, data/catalogues/<form>.json.
 export async function loadCatalogue( job ) {
+    try {
+        return { ...JSON.parse( await fs.readFile( path.join( config.storageDir, job.id, 'catalogue.json' ), 'utf8' ) ), file: 'catalogue.json' };
+    } catch {
+        // no catalogue of its own
+    }
     const m = ( job.form.file || '' ).match( /^forms\/([a-z0-9-]+)\// );
     if ( !m ) {
         return null;
@@ -50,6 +57,12 @@ export async function loadCatalogue( job ) {
     } catch {
         return null;
     }
+}
+
+// Keeps a catalogue with its job.
+export async function saveCatalogue( job, catalogue ) {
+    const { file: _, ...data } = catalogue;
+    await fs.writeFile( path.join( config.storageDir, job.id, 'catalogue.json' ), JSON.stringify( data, null, 4 ) + '\n' );
 }
 
 // the catalogue entry for a field: same label, or the entry's field name inside the label
