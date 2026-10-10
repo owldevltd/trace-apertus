@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve( path.dirname( fileURLToPath( import.meta.url ) ), '..' );
 process.env.STORAGE_DIR = path.join( root, 'storage', 'tests', 'server' );
-process.env.API_KEY = '';
+process.env.LLM_API_KEY = '';
 const { start } = await import( '../src/server.js' );
 
 const WAIT = 120000;

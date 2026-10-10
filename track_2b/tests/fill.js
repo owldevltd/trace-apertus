@@ -10,13 +10,13 @@ import { plain } from '../src/fields/filler.js';
 import { digits } from '../src/speech/numbers.js';
 
 // Dictation → fields with a known truth: the made-up dictation of the walk-through's Betreibungsbegehren goes in
-// as the transcript, the made-up values are the reference. Needs API_KEY; three to four calls.
+// as the transcript, the made-up values are the reference. Needs LLM_API_KEY; three to four calls.
 //
 //   node tests/fill.js [--out=<file.md>]
 
 const outFile = ( process.argv.find( ( a ) => a.startsWith( '--out=' ) ) || '' ).slice( 6 );
 if ( !config.apiKey ) {
-    console.log( 'no API_KEY: nothing to measure' );
+    console.log( 'no LLM_API_KEY: nothing to measure' );
     process.exit( 1 );
 }
 const mock = FORMS.find( ( f ) => f.id === 'betreibungsbegehren' );

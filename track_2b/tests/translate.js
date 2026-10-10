@@ -22,13 +22,13 @@ import { DIALOGUES } from '../src/app/js/mock/dialogues.js';
 // reference is the German value they started from. Counted apart: values the way there changed (they are
 // language) and values it left alone (names, numbers, days). "Flagged" is what code holds against the
 // person's words: other digits, or a difference of a character or two.
-// Needs API_KEY; about 100 calls, six of them to the large model.
+// Needs LLM_API_KEY; about 100 calls, six of them to the large model.
 //
 //   node tests/translate.js [--out=<file.md>]
 
 const outFile = ( process.argv.find( ( a ) => a.startsWith( '--out=' ) ) || '' ).slice( 6 );
 if ( !config.apiKey ) {
-    console.log( 'no API_KEY: nothing to measure' );
+    console.log( 'no LLM_API_KEY: nothing to measure' );
     process.exit( 1 );
 }
 

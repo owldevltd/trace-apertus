@@ -147,7 +147,7 @@ async function serveStatic( pathname, res ) {
 
 if ( process.argv[ 1 ] && path.resolve( process.argv[ 1 ] ) === fileURLToPath( import.meta.url ) ) {
     const { port, close } = await start();
-    console.log( 'Trace listening on http://localhost:' + port + ( config.apiKey ? '' : ' (no API_KEY: the reading step is skipped)' ) );
+    console.log( 'Trace listening on http://localhost:' + port + ( config.apiKey ? '' : ' (no LLM_API_KEY: the reading step is skipped)' ) );
     for ( const signal of [ 'SIGINT', 'SIGTERM' ] ) {
         process.on( signal, async () => {
             await close();

@@ -9,7 +9,7 @@ import { FORMS } from '../src/app/js/mock/forms.js';
 // code, one question per unit from the small model, checked twice. A form of the click-through is defined by
 // hand and has no text blocks its labels rest on, so its section titles and labels become the lines of the list,
 // in the order of the definition. One call per form to write, two per twelve questions to check.
-// Writes src/app/js/mock/dialogues.js; a preparation step, its result is committed. Needs API_KEY.
+// Writes src/app/js/mock/dialogues.js; a preparation step, its result is committed. Needs LLM_API_KEY.
 //
 //   node --env-file=.env tools/dialogue.js
 
@@ -19,7 +19,7 @@ const UNIT = 30;
 const target = path.join( config.root, 'src', 'app', 'js', 'mock', 'dialogues.js' );
 
 if ( !config.apiKey ) {
-    console.log( 'no API_KEY: nothing to write' );
+    console.log( 'no LLM_API_KEY: nothing to write' );
     process.exit( 1 );
 }
 

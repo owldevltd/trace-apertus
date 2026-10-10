@@ -11,13 +11,13 @@ import { DIALOGUES } from '../src/app/js/mock/dialogues.js';
 // carries a value: the value itself as the answer (expected: enough), "I don't know" (not enough), the value of
 // the next unit (not enough; it may still fit the place by its kind), and, where the label asks for several
 // things, only the first part of the value (not enough; an assumption, not a truth). The full answers are judged
-// a second time for stability. Needs API_KEY; one call per case, 129 calls.
+// a second time for stability. Needs LLM_API_KEY; one call per case, 129 calls.
 //
 //   node tests/enough.js [--out=<file.md>]
 
 const outFile = ( process.argv.find( ( a ) => a.startsWith( '--out=' ) ) || '' ).slice( 6 );
 if ( !config.apiKey ) {
-    console.log( 'no API_KEY: nothing to measure' );
+    console.log( 'no LLM_API_KEY: nothing to measure' );
     process.exit( 1 );
 }
 

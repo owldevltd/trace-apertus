@@ -171,7 +171,7 @@ export function registerJobs( router, client ) {
             fields[ 0 ].source = { how: 'entered', approve: false };
         } else if ( text || said.length ) {
             if ( !config.apiKey ) {
-                return { status: 503, json: { error: 'no API_KEY: only a typed answer to a single field works without the model' } };
+                return { status: 503, json: { error: 'no LLM_API_KEY: only a typed answer to a single field works without the model' } };
             }
             let pieces;
             if ( text ) {
@@ -308,7 +308,7 @@ export function registerJobs( router, client ) {
             return { status: 200, json: { id: job.id, ready: true } };
         }
         if ( !config.apiKey ) {
-            return { status: 503, json: { error: 'no API_KEY: the form stays in its own language' } };
+            return { status: 503, json: { error: 'no LLM_API_KEY: the form stays in its own language' } };
         }
         translateJob( job, language, client ).catch( () => {} );
         return { status: 202, json: { id: job.id, step: 'translate' } };
@@ -329,7 +329,7 @@ export function registerJobs( router, client ) {
             return { status: 200, json: { id: job.id, ready: true } };
         }
         if ( !config.apiKey ) {
-            return { status: 503, json: { error: 'no API_KEY: nothing can be translated' } };
+            return { status: 503, json: { error: 'no LLM_API_KEY: nothing can be translated' } };
         }
         translateJobValues( job, client, async ( done ) => settle( done, await loadCatalogue( done ), [] ) ).catch( () => {} );
         return { status: 202, json: { id: job.id, step: 'translate', values: toTranslate( job ).length } };

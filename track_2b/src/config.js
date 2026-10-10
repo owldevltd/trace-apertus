@@ -20,9 +20,9 @@ try {
 }
 
 export const config = {
-    model:   process.env.MODEL    || 'swiss-ai/Apertus-v1.5-8B',
-    baseUrl: process.env.BASE_URL || 'https://api.inference.cscs.ch/v1',
-    apiKey:  process.env.API_KEY  || '',
+    model:   process.env.LLM_NAME     || 'swiss-ai/Apertus-v1.5-8B',
+    baseUrl: process.env.LLM_BASE_URL || 'https://api.inference.cscs.ch/v1',
+    apiKey:  process.env.LLM_API_KEY  || '',
     port:    Number( process.env.PORT || 8080 ),
     dataDir:    process.env.DATA_DIR    || path.join( root, 'data' ),
     storageDir: process.env.STORAGE_DIR || path.join( root, 'storage' ),

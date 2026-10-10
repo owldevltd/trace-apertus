@@ -16,7 +16,7 @@ import { listShipped, startShipped, keepCaptured } from '../src/shipped.js';
 // questions of the dialogue are written and checked by the model, 47 calls for the four forms, and the questions
 // at which a form requires an entry are marked from its catalogue, 29 calls. A preparation
 // step, its result is committed; a form's questions are written once and kept, not anew for every job.
-// Needs API_KEY.
+// Needs LLM_API_KEY.
 //
 // With --required only the last part is done anew on what is kept: the required entries of the form's catalogue
 // are bound to the questions (29 calls for the four forms), the questions themselves stay as they are, and
@@ -25,7 +25,7 @@ import { listShipped, startShipped, keepCaptured } from '../src/shipped.js';
 //   node --env-file=.env tools/capture.js [--required [--out=<file.md>]] [<form> …]
 
 if ( !config.apiKey ) {
-    console.log( 'no API_KEY: the forms would be captured without questions' );
+    console.log( 'no LLM_API_KEY: the forms would be captured without questions' );
     process.exit( 1 );
 }
 

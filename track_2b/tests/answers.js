@@ -13,13 +13,13 @@ import { DIALOGUES } from '../src/app/js/mock/dialogues.js';
 // question. A played respondent, the model itself, knows only the made-up dictation of the walk-through and
 // answers every stored question; each answer goes into the fields of its unit; the made-up values are the
 // reference. The same dictation and the same reference as tests/fill.js, where everything is said at once, so
-// the two results stand side by side. Needs API_KEY; one call for the respondent and one per answer given.
+// the two results stand side by side. Needs LLM_API_KEY; one call for the respondent and one per answer given.
 //
 //   node tests/answers.js [--out=<file.md>]
 
 const outFile = ( process.argv.find( ( a ) => a.startsWith( '--out=' ) ) || '' ).slice( 6 );
 if ( !config.apiKey ) {
-    console.log( 'no API_KEY: nothing to measure' );
+    console.log( 'no LLM_API_KEY: nothing to measure' );
     process.exit( 1 );
 }
 

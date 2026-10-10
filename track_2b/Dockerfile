@@ -1,5 +1,5 @@
 # Trace runs on Node with one library, pdf-lib for writing the filled PDF; no build step. The model is reached
-# over the network (BASE_URL).
+# over the network (LLM_BASE_URL).
 FROM node:20-alpine
 
 WORKDIR /app

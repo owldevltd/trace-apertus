@@ -9,7 +9,7 @@ import { loadShipped } from './shipped.js';
 // The dialogue of the shipped forms with the model: the small model writes a question per unit and checks it
 // twice, as the pipeline does for a captured form. No reference names the right question, so the check itself is
 // measured with errors put in on purpose: every place is handed the question of its neighbour, or of another
-// place of the page, and counted is how often the check would have let that through. Needs API_KEY; a call per
+// place of the page, and counted is how often the check would have let that through. Needs LLM_API_KEY; a call per
 // page to write and two per twelve questions to check, 47 calls on the four forms, one after the other.
 //
 //   node tests/questions.js --got=<analyzed dir> [--out=<file.md>] <form dir> [<form dir> …]
@@ -22,7 +22,7 @@ if ( !dirs.length || !gotDir ) {
     process.exit( 1 );
 }
 if ( !config.apiKey ) {
-    console.log( 'no API_KEY: nothing to measure' );
+    console.log( 'no LLM_API_KEY: nothing to measure' );
     process.exit( 1 );
 }
 

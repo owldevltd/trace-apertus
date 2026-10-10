@@ -19,7 +19,7 @@ import { buildCatalogue } from './review/catalogue.js';
 // the statute text and sets `verified`.
 //
 // analyze writes <dir>/<name>.json (the geometry) and <dir>/<name>-page.png (control image) per page.
-// read takes that geometry, asks the model for every unknown element (API_KEY in the environment) and writes
+// read takes that geometry, asks the model for every unknown element (LLM_API_KEY in the environment) and writes
 // <dir>/<name>-elements.json and <dir>/<name>-elements.png; raw answers go to <dir>/<name>.read/ and the
 // exchange with the model to <dir>/model/. fields takes the read elements (else the bare geometry), the form
 // widgets from a <name>.json next to the image when there is one, and writes <dir>/<name>-fields.json and
@@ -57,7 +57,7 @@ if ( command === 'analyze' && files.length ) {
     const client = createClient( config );
     const started = Date.now();
     if ( !config.apiKey ) {
-        console.log( 'no API_KEY: nothing is asked, the unknown elements stay unknown' );
+        console.log( 'no LLM_API_KEY: nothing is asked, the unknown elements stay unknown' );
     }
     await Promise.all( files.map( async ( file ) => {
         const t0 = Date.now();
