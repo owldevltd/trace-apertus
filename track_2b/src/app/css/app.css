@@ -101,7 +101,7 @@ html:not([data-demo]) .demo-only { display: none !important; }
 .screen.dark .topbar { background: #0c0c0a; color: #fff; }
 .screen.dark .topbar .title { font-size: 17px; }
 .screen.dark .iconbtn { background: rgba(255, 255, 255, 0.12); color: #fff; }
-.iconbtn { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--ground); display: grid; place-items: center; cursor: pointer; flex: none; }
+.iconbtn { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--paper); display: grid; place-items: center; cursor: pointer; flex: none; }
 .iconbtn svg { width: 20px; height: 20px; }
 .wordmark { font-weight: 700; font-size: 20px; letter-spacing: -0.03em; display: inline-flex; align-items: center; gap: 6px; }
 .wordmark i { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); display: inline-block; }
@@ -123,14 +123,14 @@ html:not([data-demo]) .demo-only { display: none !important; }
 .press:active { transform: scale(0.96); filter: brightness(0.92); }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 999px; padding: 15px 22px; font-weight: 600; cursor: pointer; background: var(--ink); color: var(--paper); min-height: 50px; }
 .btn.accent { background: var(--accent); color: var(--accent-ink); }
-.btn.outline { background: transparent; border: 1.5px solid var(--line); color: var(--ink); }
+.btn.outline { background: var(--paper); border: 1.5px solid var(--line); color: var(--ink); }
 .btn.sm { padding: 8px 14px; min-height: 36px; font-size: 13px; font-weight: 500; }
 .btn.block { width: 100%; }
 .btn:disabled { opacity: 0.4; cursor: default; }
 .btn:focus-visible, .iconbtn:focus-visible, .tab:focus-visible, .pill:focus-visible, .side-item:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .pills { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
 .pills::-webkit-scrollbar { display: none; }
-.pill { border: 1.5px solid var(--line); background: transparent; border-radius: 999px; padding: 8px 14px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+.pill { border: 1.5px solid var(--line); background: var(--paper); border-radius: 999px; padding: 8px 14px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; }
 .pill.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 600; background: var(--ground); color: var(--ink); white-space: nowrap; }
 .chip.ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, transparent); }
@@ -204,6 +204,8 @@ html:not([data-demo]) .demo-only { display: none !important; }
 .opts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .opt { border: 1.5px solid var(--line); background: var(--paper); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 500; cursor: pointer; }
 .opt.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+/* what there is to choose from at an entry: the value as it stands marked, the others beside it */
+.picks { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .opt:disabled { cursor: default; color: var(--ink); }
 .opt.on:disabled { color: var(--paper); }
 .turn .field { align-self: flex-end; min-width: 50%; max-width: 88%; border-radius: var(--r); border-bottom-right-radius: 6px; background: var(--accent-soft); border-color: transparent; }
@@ -223,8 +225,8 @@ html:not([data-demo]) .demo-only { display: none !important; }
 .pick { border: 0; background: transparent; padding: 0; text-align: left; font: inherit; font-weight: 600; color: inherit; cursor: pointer; min-width: 0; overflow-wrap: anywhere; }
 .fedit { display: grid; gap: 10px; padding: 4px 14px 14px; }
 .fedit label, .named { display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
-.fedit input:not([type=checkbox]), .fedit select, .named input { width: 100%; min-width: 0; border: 1.5px solid var(--line); border-radius: 10px; padding: 9px 11px; font: inherit; font-size: 15px; color: var(--ink); background: var(--paper); }
-.fedit input:focus, .fedit select:focus, .named input:focus { outline: none; border-color: var(--ink); }
+.fedit input:not([type=checkbox]), .fedit select, .fedit textarea, .named input { width: 100%; min-width: 0; border: 1.5px solid var(--line); border-radius: 10px; padding: 9px 11px; font: inherit; font-size: 15px; color: var(--ink); background: var(--paper); }
+.fedit input:focus, .fedit select:focus, .fedit textarea:focus, .named input:focus { outline: none; border-color: var(--ink); }
 .fedit .tick-line { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink); }
 .fedit .tick-line input { width: 20px; height: 20px; accent-color: var(--ink); flex: none; }
 .picked { padding: 2px 0; }

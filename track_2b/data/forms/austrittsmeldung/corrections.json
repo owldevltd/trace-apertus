@@ -1,0 +1,91 @@
+{
+    "about": "What stands printed beside each form field of this form: taken from the definition the form is built from (tools/forms/austrittsmeldung.js). Applied by tools/correct.js. Every question is written by hand (11 October 2026): the model's questions were read after every capture, they pointed at the right place each time, and two that were worded alike were dropped by the check in two captures of three, and the sheet of the walk-through should ask the same words every time. The kinds of four fields are named here as the model proposed them in every capture (an identifier, a postcode, a telephone number, an e-mail address): should a later capture propose another, these stand.",
+    "fields": {
+        "Nachname": {
+            "label": "Nachname",
+            "question": "Wie heisst die versicherte Person mit Nachnamen?"
+        },
+        "Vorname": {
+            "label": "Vorname",
+            "question": "Wie heisst die versicherte Person mit Vornamen?"
+        },
+        "Geburtsdatum": {
+            "label": "Geburtsdatum",
+            "question": "Wann ist die versicherte Person geboren?"
+        },
+        "Nationalität": {
+            "label": "Nationalität",
+            "question": "Welche Nationalität hat die versicherte Person?"
+        },
+        "Versichertennummer": {
+            "label": "Versicherten-Nr.",
+            "kind": "identifier",
+            "question": "Wie lautet die Versichertennummer der versicherten Person?"
+        },
+        "Aufenthaltsbewilligung": {
+            "label": "Aufenthaltsbewilligung",
+            "question": "Welche Aufenthaltsbewilligung hat die versicherte Person, falls sie eine braucht?"
+        },
+        "Beruf": {
+            "label": "Beruf",
+            "question": "Welchen Beruf übt die versicherte Person aus?"
+        },
+        "Strasse Nummer": {
+            "label": "Strasse/Nr.",
+            "question": "In welcher Strasse wohnt die versicherte Person, mit Hausnummer?"
+        },
+        "PLZ": {
+            "label": "PLZ",
+            "kind": "postcode",
+            "question": "Welche Postleitzahl hat der Wohnort der versicherten Person?"
+        },
+        "Ort": {
+            "label": "Wohnort",
+            "question": "In welchem Ort wohnt die versicherte Person?"
+        },
+        "Telefon": {
+            "label": "Telefon",
+            "kind": "phone",
+            "question": "Welche Telefonnummer hat die versicherte Person?"
+        },
+        "E-Mail": {
+            "label": "E-Mail",
+            "kind": "email",
+            "question": "Welche E-Mail-Adresse hat die versicherte Person?"
+        },
+        "Geschlecht/1": {
+            "label": "männlich",
+            "option": "männlich",
+            "group": "Geschlecht",
+            "question": "Welches Geschlecht hat die versicherte Person: männlich oder weiblich?"
+        },
+        "Geschlecht/2": {
+            "label": "weiblich",
+            "option": "weiblich",
+            "group": "Geschlecht"
+        },
+        "Austritt aus der Firma": {
+            "label": "Ich werde/bin aus der Firma austreten/ausgetreten.",
+            "question": "Tritt die versicherte Person aus der Firma aus, oder ist sie schon ausgetreten?"
+        },
+        "Austrittsdatum": {
+            "label": "Austrittsdatum",
+            "question": "Per wann tritt die versicherte Person aus der Firma aus?"
+        },
+        "Offerte gewünscht": {
+            "label": "Ich bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte.",
+            "question": "Möchte die versicherte Person die Versicherung weiterführen und dafür eine unverbindliche Offerte erhalten?"
+        },
+        "Verzicht": {
+            "label": "Ich verzichte auf mein Recht, die betreffende Versicherung weiterzuführen.",
+            "question": "Verzichtet die versicherte Person auf ihr Recht, die Versicherung weiterzuführen?"
+        },
+        "Datum": {
+            "label": "Datum",
+            "question": "An welchem Datum wird die Austrittsmeldung unterschrieben?"
+        },
+        "Unterschrift": {
+            "label": "Unterschrift"
+        }
+    }
+}

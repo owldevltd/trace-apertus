@@ -144,8 +144,17 @@ export async function stop( ctx ) {
     }
     await Promise.all( listen.sent );
     ctx.store.touch();
+    await read( ctx, entry );
+}
+
+// What was dictated is transcribed and fills the fields that are open. Where the model gave no answer for the
+// recording, the person is told so; the recording is kept on the server, and this is asked for again from the
+// transcript.
+export async function read( ctx, entry ) {
+    const shown = () => ctx.state.current === entry && ctx.router.top().id === 'form';
     ctx.state.tab = 'transcript';
     ctx.state.transcribing = entry.jobId;
+    entry.unheard = false;
     if ( shown() ) {
         form.render( ctx, entry );
     }
@@ -173,8 +182,10 @@ export async function stop( ctx ) {
             await ctx.model.loadForm( entry );
         } );
     } catch ( error ) {
-        ctx.toast( ctx.t( 'job.failed', { e: error.message } ) );
+        entry.unheard = error.message === 'unanswered';
+        ctx.toast( entry.unheard ? ctx.t( 'job.unanswered' ) : ctx.t( 'job.failed', { e: error.message } ) );
     }
+    ctx.store.touch();
     ctx.state.transcribing = null;
     if ( shown() ) {
         form.render( ctx, entry );

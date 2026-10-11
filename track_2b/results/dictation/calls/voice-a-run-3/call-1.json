@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-11T22:03:43.550Z",
+ "tag": "audio #1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1500,
+ "prompt": "Transkribiere die Aufnahme wortwörtlich. Ausgangssprache ist Deutsch, bitte gib Deutsch zurück. Bekannte Namen und Begriffe, die in der Aufnahme vorkommen können: Ich bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte., Ich verzichte auf mein Recht, die betreffende Versicherung weiterzuführen., Ich werde/bin aus der Firma austreten/ausgetreten., Nachbau nach der SWICA-Austrittsmeldung, Aufenthaltsbewilligung, Austrittsmeldung, Versicherten-Nr., Austrittsdatum, Geburtsdatum, Nationalität, Unterschrift, Strasse/Nr., Nachname, männlich, weiblich, Vorname, Wohnort, Telefon, E-Mail, Beruf, Datum, PLZ.",
+ "image": 0,
+ "audio": 243405,
+ "ms": 1979,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-06f2e820-c7ab-4281-a7fd-d45baa792db1",
+  "object": "chat.completion",
+  "created": 1791756227,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Ich heiße Anna Keller und bin am vierzehnten März neunzehnhundertachtundachtzig geboren. Ich bin Schweizerin und arbeite als Buchhalterin. Ich wohne an der Bahnhofstrasse zwölf in acht vier null null Winterthur. Meine Telefonnummer ist null sieben neun vier eins zwei drei sechs acht fünf. Ich trete per einunddreißigsten Dezember zweitausendsechsundzwanzig aus der Firma aus. Ich möchte die Versicherung weiterführen und wünsche eine unverbindliche Offerte, unterschrieben am elften Oktober zweitausendsechsundzwanzig.",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 1448,
+   "total_tokens": 1572,
+   "completion_tokens": 124,
+   "prompt_tokens_details": {
+    "cached_tokens": 1440,
+    "multimodal_tokens": {
+     "audio": 1214
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

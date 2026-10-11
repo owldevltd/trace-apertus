@@ -1,4 +1,4 @@
-.PHONY: run test bench forms capture required dialogue walkthrough
+.PHONY: run test bench forms capture required kinds correct dialogue walkthrough
 
 # The pages the model run reads: one page of the Betreibungsbegehren and two of the Suva form, 152 elements.
 BENCH_PAGES = data/forms/betreibungsbegehren/betreibungsbegehren-form-1-s1.png \
@@ -12,7 +12,9 @@ run:
 	docker compose up --build
 
 # Runs the geometry over the shipped forms and measures it against the text layer and the widgets of the PDFs;
-# builds the units of the dialogue and holds its rule against a stand-in for the model.
+# builds the units of the dialogue and holds its rule against a stand-in for the model; reads what a person said
+# against the values a field may take, with a stand-in as well; writes and checks values by the kind of their
+# field, and takes the kinds a stand-in proposes.
 # No model call, no network: the reference is in the data folder. Results and control images land in storage/tests/.
 test:
 	node src/cli.js analyze --out=storage/tests/pages data/forms/*/*.png
@@ -21,10 +23,15 @@ test:
 	node tests/fields.js --got=storage/tests/pages --out=storage/tests/fields.md data/forms/*
 	node tests/dialogue.js --got=storage/tests/pages --out=storage/tests/dialogue.md data/forms/*
 	node tests/numbers.js
+	node tests/values.js
+	node tests/kinds.js
+	node tests/loops.js
+	node tests/hearing.js
+	node tests/reading.js --got=storage/tests/pages
 	node tests/output.js
 	node tests/server.js
 
-# Rebuilds the two rebuilt forms from their definitions in tools/forms/: the fillable PDF, the page images and the
+# Rebuilds the rebuilt forms from their definitions in tools/forms/: the fillable PDF, the page images and the
 # reference JSON. A preparation step, its results are committed; needs poppler (pdftoppm, pdftotext).
 forms:
 	node tools/forms/build.js
@@ -33,7 +40,7 @@ forms:
 # data/forms/<form>/captured.json, so the app opens a shipped form without recognizing anything. The text comes
 # from the text layer of the PDFs, the questions from the model. A preparation step, its results are committed.
 # The questions at which a form requires an entry are marked from its catalogue. Needs LLM_API_KEY in .env. 47 calls
-# for the questions and 29 for the required ones, about 6 minutes.
+# for the questions, 7 for the kinds of the fields and 29 for the required ones, about 6 minutes.
 capture:
 	@test -f .env || { echo "copy .env.example to .env and set LLM_API_KEY"; exit 1; }
 	node --env-file=.env tools/capture.js
@@ -44,6 +51,22 @@ capture:
 required:
 	@test -f .env || { echo "copy .env.example to .env and set LLM_API_KEY"; exit 1; }
 	node --env-file=.env tools/capture.js --required --out=storage/bench/required.md
+
+# Proposes the kinds of the fields of the captured forms anew (what a field the geometry calls text takes: a
+# telephone number, a postcode, an identifier, …), without touching fields, questions or required marks. A
+# preparation step, its results are committed. Needs LLM_API_KEY in .env. 7 calls.
+kinds:
+	@test -f .env || { echo "copy .env.example to .env and set LLM_API_KEY"; exit 1; }
+	node --env-file=.env tools/capture.js --kinds
+
+# Sets the fields of the captured forms right, the way a person does it in the mask: on a fillable form every
+# form field of the PDF is one field and nothing else is, and data/forms/<form>/corrections.json says what stands
+# printed beside a form field where the pipeline found no label or another one. Only the questions of what
+# changed are written anew. A preparation step, its results are committed; run again it changes nothing.
+# Needs LLM_API_KEY in .env. 14 calls when it was run on the captured forms (11 October 2026).
+correct:
+	@test -f .env || { echo "copy .env.example to .env and set LLM_API_KEY"; exit 1; }
+	node --env-file=.env tools/correct.js
 
 # Reads the unknown elements of three shipped pages with the model and holds the text against the text layer of the
 # PDFs; then fills the walk-through's form from its made-up dictation, said at once and question by question.

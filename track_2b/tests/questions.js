@@ -137,7 +137,7 @@ const md = '# Dialogue: the questions of the shipped forms\n\n'
     + 'and both runs of the check had named that place for it. Worded alike: the two questions are the same words, so no error in the wording; the rule on equal wording drops both.\n\n'
     + '## What a form costs\n\n| form | pages | calls | seconds at the model | tokens in / out |\n|---|---:|---:|---:|---|\n' + costs
     + '| all | | ' + sum.calls + ' | ' + Math.round( sum.seconds ) + ' | ' + sum.in + ' / ' + sum.out + ' |\n\n'
-    + 'Without the pause of two seconds between calls.\n\n'
+    + 'Without the pauses of the queue.\n\n'
     + '## To read: every ' + SAMPLE[ 0 ] + 'th unit, from the ' + SAMPLE[ 1 ] + 'th\n\n| unit | printed label | written question | holds |\n|---|---|---|---|\n' + sample;
 console.log( '\n' + md );
 if ( outFile ) {

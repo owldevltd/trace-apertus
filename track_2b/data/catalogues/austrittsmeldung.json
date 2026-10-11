@@ -1,0 +1,150 @@
+{
+    "form": "Austrittsmeldung (Nachbau nach der SWICA-Austrittsmeldung, Formular 303, Ausgabe 06.2025, erste Seite)",
+    "built": "2026-10-11",
+    "model": null,
+    "verified": null,
+    "about": "Written by hand for the sheet of the walk-through, not checked by a person and without sources: no statute was read for it, so no entry names one and the app shows no legal hint on this form. Required marks who the notice is about and where they live, and the date and signature under it; which entries a notice of leaving requires is not established. Set by the assistant, open.",
+    "fields": [
+        {
+            "field": "Nachname",
+            "requirement": "Familienname der versicherten Person",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open.",
+            "required": true
+        },
+        {
+            "field": "Vorname",
+            "requirement": "Vorname der versicherten Person",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open.",
+            "required": true
+        },
+        {
+            "field": "Geburtsdatum",
+            "requirement": "Geburtsdatum im Format TT.MM.JJJJ",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open.",
+            "required": true
+        },
+        {
+            "field": "Nationalität",
+            "requirement": "Staatsangehörigkeit der versicherten Person",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "Versicherten-Nr.",
+            "requirement": "Versichertennummer beim Versicherer",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "Aufenthaltsbewilligung",
+            "requirement": "Art der Aufenthaltsbewilligung, wenn eine besteht",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "Beruf",
+            "requirement": "Ausgeübter Beruf",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "Strasse/Nr.",
+            "requirement": "Strasse und Hausnummer der Wohnadresse",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open.",
+            "required": true
+        },
+        {
+            "field": "PLZ",
+            "requirement": "Postleitzahl der Wohnadresse",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open.",
+            "required": true
+        },
+        {
+            "field": "Wohnort",
+            "requirement": "Wohnort",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open.",
+            "required": true
+        },
+        {
+            "field": "Telefon",
+            "requirement": "Telefonnummer, unter der die versicherte Person erreichbar ist",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "E-Mail",
+            "requirement": "E-Mail-Adresse",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "Geschlecht",
+            "requirement": "Auswahl aus: männlich, weiblich",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "Ich werde/bin aus der Firma austreten/ausgetreten.",
+            "requirement": "Ankreuzen, wenn die Person aus der Firma austritt oder ausgetreten ist",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "Austrittsdatum",
+            "requirement": "Datum des Austritts aus der Firma im Format TT.MM.JJJJ",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "Ich bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte.",
+            "requirement": "Ankreuzen, wenn eine Offerte für die Weiterführung gewünscht ist",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "Ich verzichte auf mein Recht, die betreffende Versicherung weiterzuführen.",
+            "requirement": "Ankreuzen, wenn auf die Weiterführung verzichtet wird",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open."
+        },
+        {
+            "field": "Datum",
+            "requirement": "Datum der Unterschrift im Format TT.MM.JJJJ",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open.",
+            "required": true
+        },
+        {
+            "field": "Unterschrift",
+            "requirement": "Unterschrift der versicherten Person",
+            "source": "keine sichere Quelle",
+            "certainty": "low",
+            "checked": "No source was looked up for this entry; what it asks for is what the label says. Set by the assistant, open.",
+            "required": true
+        }
+    ]
+}

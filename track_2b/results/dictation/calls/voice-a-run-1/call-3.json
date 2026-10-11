@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T22:03:36.930Z",
+ "tag": "fill f7,f8,f9,f10,f11,f12",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 400,
+ "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Ich heiße Anna Keller und bin am 14. März 1988 geboren. Ich bin Schweizerin und arbeite als Buchhalterin. Ich wohne an der Bahnhofstrasse 12 in 8 4 0 0 Winterthur. Meine Telefonnummer ist 0 7 9 4 1 2 3 6 8 5. Ich trete per 31. Dezember 2026 aus der Firma aus. Ich möchte die Versicherung weiterführen und wünsche eine unverbindliche Offerte, unterschrieben am 11. Oktober 2026.\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- f7: Aufenthaltsbewilligung (Welche Aufenthaltsbewilligung hat die versicherte Person, falls sie eine braucht?) — Vorgabe: Text\n- f8: PLZ (Welche Postleitzahl hat der Wohnort der versicherten Person?) — Vorgabe: Text\n- f9: Strasse/Nr. (In welcher Strasse wohnt die versicherte Person, mit Hausnummer?) — Vorgabe: Text\n- f10: Wohnort (In welchem Ort wohnt die versicherte Person?) — Vorgabe: Text\n- f11: Telefon (Welche Telefonnummer hat die versicherte Person?) — Vorgabe: Text\n- f12: E-Mail (Welche E-Mail-Adresse hat die versicherte Person?) — Vorgabe: Text\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+ "image": 0,
+ "audio": 0,
+ "ms": 573,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-b8c5552f-3cf7-4ad1-831a-cdbe4499d69a",
+  "object": "chat.completion",
+  "created": 1791756219,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "f7: - [p1]\nf8: 8400 [p1]\nf9: Bahnhofstrasse 12 [p1]\nf10: Winterthur [p1]\nf11: 0 79 41 23 68 5 [p1]\nf12: - [p1]",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 509,
+   "total_tokens": 586,
+   "completion_tokens": 77,
+   "prompt_tokens_details": {
+    "cached_tokens": 256,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

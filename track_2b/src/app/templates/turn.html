@@ -6,10 +6,13 @@
             {{#printed}}<p class="printed">{{.}}</p>{{/printed}}
             {{#asPrinted}}<p class="printed">{{t:chat.asprinted}}</p>{{/asPrinted}}
             {{#options.length}}<div class="opts">{{#options}}<button class="opt press{{#on}} on{{/on}}"{{#can}} data-edit="{{id}}"{{/can}}{{^can}} disabled{{/can}}>{{label}}</button>{{/options}}</div>{{/options.length}}
+            {{#yesno.length}}<div class="opts">{{#yesno}}<button class="opt press{{#on}} on{{/on}}" data-say="{{say}}" data-unit="{{unit}}" data-field="{{field}}"{{^can}} disabled{{/can}}>{{label}}</button>{{/yesno}}</div>{{/yesno.length}}
+            {{#listed.length}}<div class="opts">{{#listed}}<button class="opt press{{#on}} on{{/on}}" data-choose="{{field}}" data-value="{{value}}">{{label}}</button>{{/listed}}</div>{{/listed.length}}
         </div>
         <button class="tick {{tick}} press"{{#canTick}} data-tick="{{id}}" aria-label="{{t:chat.tick}}" title="{{t:chat.tick}}"{{/canTick}}{{^canTick}} disabled{{/canTick}}>{{mark}}</button>
     </div>
     {{#answers}}{{> field}}{{/answers}}
+    {{#more}}<div class="reply"><span class="grow">{{t:chat.more}}</span><button class="btn sm press" data-more="{{id}}">{{t:chat.more.yes}}</button><button class="btn outline sm press" data-enough="{{id}}">{{t:chat.more.no}}</button></div>{{/more}}
     {{#lacking}}<div class="bubble none lacking">{{.}}</div>{{/lacking}}
     {{#none}}<div class="bubble none">{{t:v.left}}</div>{{/none}}
     {{#pending}}<div class="bubble none row"><div class="spinner"></div><span>{{t:chat.working}}</span></div>{{/pending}}

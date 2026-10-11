@@ -255,6 +255,11 @@ for ( const dir of dirs ) {
     check( echoAt( list, words ) === 0 && echoAt( spoken + ' ' + words[ 1 ].slice( -12 ) + ', ' + list, words ) === spoken.length + 1
         && echoAt( words[ 0 ] + ' und dann ' + words[ 3 ] + ', ' + words[ 1 ], words ) === -1,
         job.id + ': the dictionary of the prompt is cut off a transcript, what was said before it stays' );
+    // the list broken off after its first entry, and the words it is introduced with
+    const intro = 'Bekannte Namen und Begriffe, die in der Aufnahme vorkommen können: ';
+    check( echoAt( words[ 0 ] + '.', words ) === 0 && echoAt( intro + words[ 0 ] + ', ' + words[ 1 ], words ) === 0 && echoAt( spoken + ' ' + intro + words[ 0 ], words ) === spoken.length + 1
+        && echoAt( words[ 3 ], words ) === -1 && echoAt( 'Ja, ' + words[ 0 ], words ) === -1,
+        job.id + ': the first entry of the dictionary alone and the words that introduce it are the prompt; another entry said alone is an answer' );
     check( dialogue.units.filter( ( u ) => u.skip && u.label ).every( ( u ) => !words.includes( u.label ) ), job.id + ': the dictionary holds no label of a place that is not asked' );
 
     // what the form requires. A catalogue with three required entries: one carries the label of a field, one both

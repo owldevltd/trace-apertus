@@ -15,7 +15,8 @@ function fromMock( f ) {
 
 // a job of the server as a view: one section per page, the fields and blocks as the pipeline found them;
 // after the filling every field carries its value with state and note: ok, unclear (a person should look),
-// missing (required, nothing said), empty. lang: the language of the app. Where it is not the form's, the
+// missing (required, nothing said), empty; and what there is to choose from in its place, the values the field
+// may take or the passages a hint suggests. lang: the language of the app. Where it is not the form's, the
 // dialogue is shown in its translation, and the view says what is still to translate: the dialogue itself, or
 // the values the person gave.
 export function fromJob( job, t, lang ) {
@@ -37,12 +38,17 @@ export function fromJob( job, t, lang ) {
             label: f.label || t( 'field.unlabelled', { n: f.id.replace( /\D/g, '' ) } ),
             bare: !f.label,
             kind: f.kind,
+            // the kind is the model's proposal: the mask says so until a person chooses one
+            proposed: f.kindBy === 'model',
             page: f.page,
             x: f.x,
             y: f.y,
             w: f.width,
             h: f.height,
             hints: f.hints || [],
+            // the values the field may take: what is written into the form, and how it reads in the language of
+            // the app where the dialogue is translated
+            ...( f.values ? { choices: f.values.map( ( v, i ) => ( { value: v, label: own?.units[ unitOf.get( f.id )?.id ]?.values?.[ f.id ]?.[ i ] || v } ) ) } : {} ),
             ...( f.group ? { group: f.group, option: f.option } : {} ),
             // for the mask in which the form is corrected
             opt: f.option || '',
@@ -56,17 +62,27 @@ export function fromJob( job, t, lang ) {
     const answered = new Set( ( job.dialogue ? job.dialogue.units : [] ).filter( ( u ) => replied.has( u.id ) || u.fields.some( ( id ) => touched.has( id ) ) ).flatMap( ( u ) => u.fields ) );
     const values = {};
     if ( filled || answered.size ) {
-        for ( const f of job.fields.filter( ( x ) => filled || answered.has( x.id ) ) ) {
+        // a list of entries nobody answered yet stays an open question, also on a form filled from a dictation
+        // in one go: the dictation does not fill it
+        const lists = new Set( ( job.dialogue ? job.dialogue.units : [] ).filter( ( u ) => u.repeat ).flatMap( ( u ) => u.fields ) );
+        for ( const f of job.fields.filter( ( x ) => ( filled && !lists.has( x.id ) ) || answered.has( x.id ) ) ) {
             const missing = ( f.hints || [] ).some( ( h ) => h.kind === 'missing' );
             // what the model found wanting: against the catalogue, or against the question itself
             const vague = ( f.hints || [] ).find( ( h ) => h.kind === 'vague' || h.kind === 'incomplete' );
             const open = f.source && f.source.approve && !f.source.review;
+            // code found the value to be none of the field's kind: that is what the person is told first
+            const format = open && ( f.hints || [] ).some( ( h ) => h.kind === 'format' );
+            // or that the same value stands in another field too
+            const double = open && ( f.hints || [] ).find( ( h ) => h.kind === 'double' );
             const state = f.kind === 'signature' ? 'sign' : f.value ? ( open || vague ? 'unclear' : 'ok' ) : missing ? 'missing' : 'empty';
             // what the person gave before the translation, where the value is no longer that
             const said = f.source && f.source.said && f.source.said.value !== f.value ? f.source.said.value : '';
-            const note = vague ? ( vague.kind === 'incomplete' ? t( 'hint.incomplete', { m: vague.text } ) : vague.text )
-                : open ? ( said ? t( 'v.translated', { q: said } ) : f.source.quote ? t( 'v.said', { q: f.source.quote } ) : t( 'v.notliteral' ) ) : missing ? t( 'hint.missing' ) : '';
-            values[ f.id ] = [ f.value || '', state, note, said ];
+            const note = format ? t( 'hint.format.' + f.kind )
+                : double ? double.text
+                : vague ? ( vague.kind === 'incomplete' ? t( 'hint.incomplete', { m: vague.text } ) : vague.text )
+                : open ? ( said ? t( 'v.translated', { q: said } ) : f.source.how === 'chosen' ? t( 'v.chosen' ) : f.source.quote ? t( 'v.said', { q: f.source.quote } ) : t( 'v.notliteral' ) ) : missing ? t( 'hint.missing' ) : '';
+            // what else of what was said may fit, where the catalogue found the value wanting
+            values[ f.id ] = [ f.value || '', state, note, said, ( vague && vague.suggestions ) || [] ];
         }
     }
     const laws = [];
@@ -99,7 +115,7 @@ export function fromJob( job, t, lang ) {
         // the dialogue is not in the language of the app yet
         untranslated: !!job.dialogue && lang !== job.form.language && !own,
         // written values still in the language of the person
-        toTranslate: translating ? job.fields.filter( ( f ) => f.value && f.kind !== 'checkbox' && f.kind !== 'radio' && f.kind !== 'signature' && !( f.source && f.source.said ) ).length : 0,
+        toTranslate: translating ? job.fields.filter( ( f ) => f.value && !f.values && f.kind !== 'checkbox' && f.kind !== 'radio' && f.kind !== 'signature' && !( f.source && f.source.said ) ).length : 0,
         transcript: ( job.transcript || [] ).map( ( p ) => ( { t: clock( p.start ), section: p.approve ? t( 'tr.listen' ) : '', summary: p.text, raw: p.raw } ) ),
         values: filled || answered.size ? values : null,
         status: job.status,

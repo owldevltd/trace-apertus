@@ -1,0 +1,1475 @@
+{
+ "about": "The labels, options and questions of the shipped forms in French, Italian and English, by their German wording: translated by hand on 11 October 2026, not proofread. tools/correct.js puts them into each form's dialogue, so a shipped form opens in these languages at once and without a call to the model.",
+ "texts": {
+  "AHV-Nr.": {
+   "fr": "N° AVS",
+   "it": "N. AVS",
+   "en": "OASI no."
+  },
+  "AHV-Nummer": {
+   "fr": "Numéro AVS",
+   "it": "Numero AVS",
+   "en": "OASI number"
+  },
+  "Ab wann kann die Person wieder zu 100 Prozent arbeiten?": {
+   "fr": "À partir de quand la personne peut-elle de nouveau travailler à 100 pour cent ?",
+   "it": "Da quando la persona può di nuovo lavorare al 100 per cento?",
+   "en": "From when can the person work at 100 per cent again?"
+  },
+  "Adresse / PLZ": {
+   "fr": "Adresse / NPA",
+   "it": "Indirizzo / NPA",
+   "en": "Address / postcode"
+  },
+  "Adresse des Betreibungsamtes": {
+   "fr": "Adresse de l’office des poursuites",
+   "it": "Indirizzo dell’ufficio d’esecuzione",
+   "en": "Address of the debt enforcement office"
+  },
+  "An welchem Datum ist der Unfall passiert?": {
+   "fr": "À quelle date l’accident s’est-il produit ?",
+   "it": "In che data è avvenuto l’infortunio?",
+   "en": "On what date did the accident happen?"
+  },
+  "An welchem Datum wird die Austrittsmeldung unterschrieben?": {
+   "fr": "À quelle date l’avis de sortie est-il signé ?",
+   "it": "In quale data viene firmato l’avviso di uscita?",
+   "en": "On what date is the notice of leaving signed?"
+  },
+  "An welchem Ort und an welchem Datum wird die Meldung unterschrieben?": {
+   "fr": "En quel lieu et à quelle date la déclaration est-elle signée ?",
+   "it": "In quale luogo e in che data viene firmata la notifica?",
+   "en": "At what place and on what date is the report signed?"
+  },
+  "An welchem Ort und an welchem Datum wird die Schadenmeldung unterschrieben?": {
+   "fr": "En quel lieu et à quelle date la déclaration de sinistre est-elle signée ?",
+   "it": "In quale luogo e in che data viene firmata la notifica di sinistro?",
+   "en": "At what place and on what date is the accident report signed?"
+  },
+  "Andere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage)": {
+   "fr": "Autres suppléments de salaire (travail à la tâche, commission, salaire en nature, indemnité d’équipe)",
+   "it": "Altri supplementi salariali (cottimo, provvigione, salario in natura, indennità di turno)",
+   "en": "Other wage supplements (piecework, commission, pay in kind, shift allowance)"
+  },
+  "Angestellte/r / Arbeiter/in": {
+   "fr": "Employé/e / ouvrier/ère",
+   "it": "Impiegato/a / operaio/a",
+   "en": "Employee / worker"
+  },
+  "Angestellte/r / Mitarbeiter/in": {
+   "fr": "Employé/e / collaborateur/trice",
+   "it": "Impiegato/a / collaboratore/trice",
+   "en": "Employee / staff member"
+  },
+  "Anzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)": {
+   "fr": "Nombre d’enfants (jusqu’à 18 ans, en formation jusqu’à 25 ans)",
+   "it": "Numero di figli (fino a 18 anni, in formazione fino a 25 anni)",
+   "en": "Number of children (up to 18, in education up to 25)"
+  },
+  "Arbeitsfähigkeit gesamt %": {
+   "fr": "Capacité de travail totale %",
+   "it": "Capacità lavorativa totale %",
+   "en": "Overall capacity to work %"
+  },
+  "Arbeitsplatzbeschrieb": {
+   "fr": "Description du poste de travail",
+   "it": "Descrizione del posto di lavoro",
+   "en": "Job description"
+  },
+  "Arbeitsplatzbeschrieb vom": {
+   "fr": "Description du poste de travail du",
+   "it": "Descrizione del posto di lavoro del",
+   "en": "Job description dated"
+  },
+  "Arbeitsverhältnis gekündigt per": {
+   "fr": "Rapports de travail résiliés pour le",
+   "it": "Rapporto di lavoro disdetto per il",
+   "en": "Employment terminated as of"
+  },
+  "Arbeitszeit des/der Verletzten": {
+   "fr": "Horaire de travail de la personne blessée",
+   "it": "Orario di lavoro dell’infortunato/a",
+   "en": "Working hours of the injured person"
+  },
+  "Arbeitszeit des/der Verletzten (Std./Woche)": {
+   "fr": "Horaire de travail de la personne blessée (h/semaine)",
+   "it": "Orario di lavoro dell’infortunato/a (ore/settimana)",
+   "en": "Working hours of the injured person (hrs/week)"
+  },
+  "Art der Schädigung": {
+   "fr": "Nature de la lésion",
+   "it": "Tipo di lesione",
+   "en": "Kind of injury"
+  },
+  "Arzt / Ärztin (Name, Stempel)": {
+   "fr": "Médecin (nom, timbre)",
+   "it": "Medico (nome, timbro)",
+   "en": "Doctor (name, stamp)"
+  },
+  "Auf welcher Körperseite ist die Verletzung: links, rechts oder unbestimmt?": {
+   "fr": "De quel côté du corps se trouve la blessure : à gauche, à droite ou indéterminé ?",
+   "it": "Da quale lato del corpo si trova la lesione: sinistra, destra o indeterminato?",
+   "en": "On which side of the body is the injury: left, right or undetermined?"
+  },
+  "Auf welches Post- oder Bankkonto sollen bereits bezahlte Rechnungen zurückerstattet werden?": {
+   "fr": "Sur quel compte postal ou bancaire faut-il rembourser les factures déjà payées ?",
+   "it": "Su quale conto postale o bancario vanno rimborsate le fatture già pagate?",
+   "en": "To which postal or bank account should bills already paid be refunded?"
+  },
+  "Auf wessen Konto soll gezahlt werden: auf das des Gläubigers oder auf das des Vertreters?": {
+   "fr": "Sur le compte de qui faut-il payer : celui du créancier ou celui du représentant ?",
+   "it": "Sul conto di chi si deve pagare: quello del creditore o quello del rappresentante?",
+   "en": "Into whose account should the payment go: the creditor’s or the representative’s?"
+  },
+  "Aufenthaltsbewilligung": {
+   "fr": "Autorisation de séjour",
+   "it": "Permesso di dimora",
+   "en": "Residence permit"
+  },
+  "Aus welchem Grund war die verletzte Person vor dem Unfall abwesend?": {
+   "fr": "Pour quelle raison la personne blessée était-elle absente avant l’accident ?",
+   "it": "Per quale motivo la persona infortunata era assente prima dell’infortunio?",
+   "en": "For what reason was the injured person absent before the accident?"
+  },
+  "Ausgeübter Beruf": {
+   "fr": "Profession exercée",
+   "it": "Professione esercitata",
+   "en": "Occupation"
+  },
+  "Austrittsdatum": {
+   "fr": "Date de sortie",
+   "it": "Data di uscita",
+   "en": "Date of leaving"
+  },
+  "Bei Kündigung": {
+   "fr": "En cas de résiliation",
+   "it": "In caso di disdetta",
+   "en": "If notice has been given"
+  },
+  "Bei Teilzeit: Wie viel Prozent beträgt das Pensum?": {
+   "fr": "En cas de temps partiel : quel est le taux d’occupation en pour cent ?",
+   "it": "In caso di tempo parziale: a quanto ammonta il grado d’occupazione in per cento?",
+   "en": "If part-time: what is the workload in per cent?"
+  },
+  "Bemerkungen": {
+   "fr": "Remarques",
+   "it": "Osservazioni",
+   "en": "Remarks"
+  },
+  "Beruf": {
+   "fr": "Profession",
+   "it": "Professione",
+   "en": "Occupation"
+  },
+  "Berufskrankheit": {
+   "fr": "Maladie professionnelle",
+   "it": "Malattia professionale",
+   "en": "Occupational disease"
+  },
+  "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)": {
+   "fr": "Objets en cause (p. ex. machine, outil, véhicule, substance; désignation exacte s.v.p.)",
+   "it": "Oggetti coinvolti (p. es. macchina, attrezzo, veicolo, sostanza; indicare la designazione esatta)",
+   "en": "Objects involved (e.g. machine, tool, vehicle, substance; exact description please)"
+  },
+  "Beteiligte Person(en)": {
+   "fr": "Personne(s) impliquée(s)",
+   "it": "Persona/e coinvolta/e",
+   "en": "Person(s) involved"
+  },
+  "Betrag (CHF)": {
+   "fr": "Montant (CHF)",
+   "it": "Importo (CHF)",
+   "en": "Amount (CHF)"
+  },
+  "Betriebsübliche Vollarbeitszeit (Std./Woche)": {
+   "fr": "Horaire normal de l’entreprise à plein temps (h/semaine)",
+   "it": "Orario normale dell’azienda a tempo pieno (ore/settimana)",
+   "en": "Normal full-time hours of the company (hrs/week)"
+  },
+  "Betroffener Körperteil": {
+   "fr": "Partie du corps atteinte",
+   "it": "Parte del corpo colpita",
+   "en": "Part of the body affected"
+  },
+  "Betroffener Körperteil:": {
+   "fr": "Partie du corps atteinte :",
+   "it": "Parte del corpo colpita:",
+   "en": "Part of the body affected:"
+  },
+  "Bezeichnung der anderen Lohnzulagen": {
+   "fr": "Désignation des autres suppléments de salaire",
+   "it": "Designazione degli altri supplementi salariali",
+   "en": "Description of the other wage supplements"
+  },
+  "CHF pro Jahr": {
+   "fr": "CHF par an",
+   "it": "CHF all’anno",
+   "en": "CHF per year"
+  },
+  "CHF pro Monat": {
+   "fr": "CHF par mois",
+   "it": "CHF al mese",
+   "en": "CHF per month"
+  },
+  "CHF pro Stunde": {
+   "fr": "CHF par heure",
+   "it": "CHF all’ora",
+   "en": "CHF per hour"
+  },
+  "Datum": {
+   "fr": "Date",
+   "it": "Data",
+   "en": "Date"
+  },
+  "Datum der Anstellung": {
+   "fr": "Date de l’engagement",
+   "it": "Data d’assunzione",
+   "en": "Date of employment"
+  },
+  "Dauert die Arbeitsunfähigkeit voraussichtlich länger als einen Monat?": {
+   "fr": "L’incapacité de travail durera-t-elle probablement plus d’un mois ?",
+   "it": "L’incapacità lavorativa durerà presumibilmente più di un mese?",
+   "en": "Is the incapacity for work expected to last longer than a month?"
+  },
+  "E-Mail": {
+   "fr": "E-mail",
+   "it": "E-mail",
+   "en": "E-mail"
+  },
+  "Eintrittsjahr": {
+   "fr": "Année d’entrée",
+   "it": "Anno d’entrata",
+   "en": "Year of joining"
+  },
+  "Entsandte/r": {
+   "fr": "Travailleur/euse détaché/e",
+   "it": "Lavoratore/trice distaccato/a",
+   "en": "Posted worker"
+  },
+  "Erstbehandelnder Arzt bzw. Spital/Klinik": {
+   "fr": "Premier médecin traitant ou hôpital/clinique",
+   "it": "Primo medico curante o ospedale/clinica",
+   "en": "Doctor or hospital giving first treatment"
+  },
+  "Falls Arbeit wieder aufgenommen": {
+   "fr": "Si le travail a été repris",
+   "it": "Se il lavoro è stato ripreso",
+   "en": "If work has been resumed"
+  },
+  "Falls das Arbeitsverhältnis gekündigt ist: auf welches Datum?": {
+   "fr": "Si les rapports de travail sont résiliés : pour quelle date ?",
+   "it": "Se il rapporto di lavoro è disdetto: per quale data?",
+   "en": "If the employment has been terminated: as of what date?"
+  },
+  "Falls die Arbeit ausgesetzt wurde: ab wann?": {
+   "fr": "Si le travail a été interrompu : depuis quand ?",
+   "it": "Se il lavoro è stato interrotto: da quando?",
+   "en": "If work was stopped: from when?"
+  },
+  "Falls die Arbeit schon wieder aufgenommen wurde: ab wann?": {
+   "fr": "Si le travail a déjà été repris : depuis quand ?",
+   "it": "Se il lavoro è già stato ripreso: da quando?",
+   "en": "If work has already been resumed: from when?"
+  },
+  "Falls es einen Polizeirapport gibt: Wer hat ihn aufgenommen?": {
+   "fr": "S’il existe un rapport de police : qui l’a établi ?",
+   "it": "Se esiste un rapporto di polizia: chi l’ha redatto?",
+   "en": "If there is a police report: who took it?"
+  },
+  "Falls es weitere Arbeitgeber gibt: Name und Adresse?": {
+   "fr": "S’il y a d’autres employeurs : nom et adresse ?",
+   "it": "Se ci sono altri datori di lavoro: nome e indirizzo?",
+   "en": "If there are other employers: name and address?"
+  },
+  "Falls ja: bei welcher anderen Sozialversicherung?": {
+   "fr": "Si oui : auprès de quelle autre assurance sociale ?",
+   "it": "Se sì: presso quale altra assicurazione sociale?",
+   "en": "If yes: with which other social insurance?"
+  },
+  "Familienmitglied / Gesellschafter": {
+   "fr": "Membre de la famille / associé",
+   "it": "Familiare / socio",
+   "en": "Family member / partner"
+  },
+  "Ferien-/Feiertagsentschädigung": {
+   "fr": "Indemnité de vacances / de jours fériés",
+   "it": "Indennità di vacanza / per giorni festivi",
+   "en": "Holiday / public holiday pay"
+  },
+  "Firmenname": {
+   "fr": "Nom de l’entreprise",
+   "it": "Nome dell’azienda",
+   "en": "Company name"
+  },
+  "Forderungsgrund oder Forderungsurkunde mit Datum": {
+   "fr": "Cause de l’obligation ou titre de la créance avec date",
+   "it": "Causa del credito o titolo di credito con data",
+   "en": "Ground of the claim or document of title with date"
+  },
+  "Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)": {
+   "fr": "Assurance facultative (employeur / indépendant)",
+   "it": "Assicurazione facoltativa (datore di lavoro / indipendente)",
+   "en": "Voluntary insurance (employer / self-employed)"
+  },
+  "Funktion / ausgeübter Beruf": {
+   "fr": "Fonction / profession exercée",
+   "it": "Funzione / professione esercitata",
+   "en": "Function / occupation"
+  },
+  "Für welche Zeiträume ist die Person teilweise arbeitsfähig? Zu jedem Zeitraum: das Datum der Konsultation, die Präsenzzeit in Stunden pro Tag und in Prozent des Pensums, die Leistungsfähigkeit in der Präsenzzeit, die Arbeitsfähigkeit gesamt in Prozent, von wann bis wann, und wann die nächste Konsultation ist.": {
+   "fr": "Pour quelles périodes la personne est-elle partiellement capable de travailler ? Pour chaque période : la date de la consultation, le temps de présence en heures par jour et en pour cent du taux d’occupation, le rendement pendant le temps de présence, la capacité de travail totale en pour cent, de quand à quand, et la date de la prochaine consultation.",
+   "it": "Per quali periodi la persona è parzialmente abile al lavoro? Per ogni periodo: la data della consultazione, il tempo di presenza in ore al giorno e in per cento del grado d’occupazione, il rendimento durante il tempo di presenza, la capacità lavorativa totale in per cento, da quando a quando, e la data della prossima consultazione.",
+   "en": "For which periods is the person partly able to work? For each period: the date of the consultation, the time present in hours per day and as a percentage of the workload, the performance during the time present, the overall capacity to work in per cent, from when until when, and when the next consultation is."
+  },
+  "Für welche Zeiträume ist die Person voll arbeitsunfähig? Zu jedem Zeitraum: das Datum der Konsultation, von wann bis wann, und wann die nächste Konsultation ist.": {
+   "fr": "Pour quelles périodes la personne est-elle en incapacité totale de travail ? Pour chaque période : la date de la consultation, de quand à quand, et la date de la prochaine consultation.",
+   "it": "Per quali periodi la persona è totalmente inabile al lavoro? Per ogni periodo: la data della consultazione, da quando a quando, e la data della prossima consultazione.",
+   "en": "For which periods is the person fully unable to work? For each period: the date of the consultation, from when until when, and when the next consultation is."
+  },
+  "Geb.-Dat.": {
+   "fr": "Date de naiss.",
+   "it": "Data di nasc.",
+   "en": "Date of birth"
+  },
+  "Geburtsdatum": {
+   "fr": "Date de naissance",
+   "it": "Data di nascita",
+   "en": "Date of birth"
+  },
+  "Geburtsdatum (falls bekannt)": {
+   "fr": "Date de naissance (si connue)",
+   "it": "Data di nascita (se nota)",
+   "en": "Date of birth (if known)"
+  },
+  "Gibt es Bemerkungen oder zusätzliche Informationen?": {
+   "fr": "Y a-t-il des remarques ou des informations complémentaires ?",
+   "it": "Ci sono osservazioni o informazioni supplementari?",
+   "en": "Are there any remarks or additional information?"
+  },
+  "Gibt es Bemerkungen zur Betreibung?": {
+   "fr": "Y a-t-il des remarques concernant la poursuite ?",
+   "it": "Ci sono osservazioni riguardo all’esecuzione?",
+   "en": "Are there any remarks on the debt enforcement?"
+  },
+  "Gibt es ein Unfallprotokoll?": {
+   "fr": "Existe-t-il un procès-verbal de l’accident ?",
+   "it": "Esiste un verbale dell’infortunio?",
+   "en": "Is there an accident record?"
+  },
+  "Gibt es eine eigene Fallreferenz, die auf dem Begehren stehen soll?": {
+   "fr": "Y a-t-il une référence propre à faire figurer sur la réquisition ?",
+   "it": "C’è un riferimento proprio da riportare sulla domanda?",
+   "en": "Is there a case reference of your own that should appear on the request?"
+  },
+  "Gibt es einen Polizeirapport: ja, nein oder unbekannt?": {
+   "fr": "Existe-t-il un rapport de police : oui, non ou inconnu ?",
+   "it": "Esiste un rapporto di polizia: sì, no o sconosciuto?",
+   "en": "Is there a police report: yes, no or unknown?"
+  },
+  "Gibt es weitere Forderungen? Wenn ja, zu jeder: der Grund, der Betrag in Franken, der Zins in Prozent und seit wann.": {
+   "fr": "Y a-t-il d’autres créances ? Si oui, pour chacune : la cause, le montant en francs, l’intérêt en pour cent et depuis quand.",
+   "it": "Ci sono altri crediti? Se sì, per ciascuno: la causa, l’importo in franchi, l’interesse in per cento e da quando.",
+   "en": "Are there further claims? If so, for each: the ground, the amount in francs, the interest in per cent and since when."
+  },
+  "Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)": {
+   "fr": "Créancier (nom et prénom ou raison sociale ; adresse ; NPA localité)",
+   "it": "Creditore (cognome e nome o ditta; indirizzo; NPA località)",
+   "en": "Creditor (surname and first name or company; address; postcode and town)"
+  },
+  "Gratifikation / 13. Monatslohn (und weitere)": {
+   "fr": "Gratification / 13e salaire (et autres)",
+   "it": "Gratifica / 13ª mensilità (e altre)",
+   "en": "Bonus / 13th month’s salary (and others)"
+  },
+  "Grund der Absenz": {
+   "fr": "Motif de l’absence",
+   "it": "Motivo dell’assenza",
+   "en": "Reason for the absence"
+  },
+  "Hat die verletzte Person Anspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung?": {
+   "fr": "La personne blessée a-t-elle droit à des indemnités journalières ou à une rente d’une autre assurance sociale ?",
+   "it": "La persona infortunata ha diritto a indennità giornaliere o a una rendita di un’altra assicurazione sociale?",
+   "en": "Is the injured person entitled to daily allowances or a pension from another social insurance?"
+  },
+  "Hat die verletzte Person weitere Arbeitgeber?": {
+   "fr": "La personne blessée a-t-elle d’autres employeurs ?",
+   "it": "La persona infortunata ha altri datori di lavoro?",
+   "en": "Does the injured person have other employers?"
+  },
+  "Höheres Kader": {
+   "fr": "Cadre supérieur",
+   "it": "Quadro superiore",
+   "en": "Senior management"
+  },
+  "IBAN": {
+   "fr": "IBAN",
+   "it": "IBAN",
+   "en": "IBAN"
+  },
+  "Ich bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte.": {
+   "fr": "Je souhaite maintenir l’assurance et recevoir une offre sans engagement.",
+   "it": "Sono interessato/a a proseguire l’assicurazione e desidero un’offerta non vincolante.",
+   "en": "I am interested in continuing the insurance and would like a non-binding offer."
+  },
+  "Ich verzichte auf mein Recht, die betreffende Versicherung weiterzuführen.": {
+   "fr": "Je renonce à mon droit de maintenir l’assurance concernée.",
+   "it": "Rinuncio al mio diritto di proseguire l’assicurazione in questione.",
+   "en": "I waive my right to continue the insurance concerned."
+  },
+  "Ich werde/bin aus der Firma austreten/ausgetreten.": {
+   "fr": "Je vais quitter/j’ai quitté l’entreprise.",
+   "it": "Lascerò/ho lasciato l’azienda.",
+   "en": "I am leaving/have left the company."
+  },
+  "Ihre Fallreferenz (falls vorhanden)": {
+   "fr": "Votre référence (si disponible)",
+   "it": "Il vostro riferimento (se disponibile)",
+   "en": "Your case reference (if any)"
+  },
+  "In welchem Jahr ist die Person in den Betrieb eingetreten?": {
+   "fr": "En quelle année la personne est-elle entrée dans l’entreprise ?",
+   "it": "In che anno la persona è entrata in azienda?",
+   "en": "In what year did the person join the company?"
+  },
+  "In welchem Land wohnt die verletzte Person?": {
+   "fr": "Dans quel pays la personne blessée habite-t-elle ?",
+   "it": "In quale paese abita la persona infortunata?",
+   "en": "In which country does the injured person live?"
+  },
+  "In welchem Ort wohnt die verletzte Person?": {
+   "fr": "Dans quelle localité la personne blessée habite-t-elle ?",
+   "it": "In quale località abita la persona infortunata?",
+   "en": "In which town does the injured person live?"
+  },
+  "In welchem Ort wohnt die versicherte Person?": {
+   "fr": "Dans quelle localité la personne assurée habite-t-elle ?",
+   "it": "In quale località abita la persona assicurata?",
+   "en": "Which town does the insured person live in?"
+  },
+  "In welcher Strasse wohnt die verletzte Person, mit Hausnummer?": {
+   "fr": "Dans quelle rue la personne blessée habite-t-elle, avec le numéro ?",
+   "it": "In quale via abita la persona infortunata, con il numero civico?",
+   "en": "In which street does the injured person live, with the house number?"
+  },
+  "In welcher Strasse wohnt die versicherte Person, mit Hausnummer?": {
+   "fr": "Dans quelle rue la personne assurée habite-t-elle, avec le numéro ?",
+   "it": "In quale via abita la persona assicurata, con il numero civico?",
+   "en": "Which street does the insured person live in, with the house number?"
+  },
+  "Ist der Arbeitsvertrag der verletzten Person unbefristet, befristet oder gekündigt?": {
+   "fr": "Le contrat de travail de la personne blessée est-il de durée indéterminée, de durée déterminée ou résilié ?",
+   "it": "Il contratto di lavoro della persona infortunata è a tempo indeterminato, a tempo determinato o disdetto?",
+   "en": "Is the injured person’s employment contract open-ended, fixed-term or terminated?"
+  },
+  "Ist die Anstellung eine Vollzeitstelle (100 %) oder eine Teilzeitstelle?": {
+   "fr": "L’emploi est-il à plein temps (100 %) ou à temps partiel ?",
+   "it": "L’impiego è a tempo pieno (100 %) o a tempo parziale?",
+   "en": "Is the job full-time (100 %) or part-time?"
+  },
+  "Ist die verletzte Person freiwillig versichert, als Arbeitgeber oder als Selbständigerwerbende?": {
+   "fr": "La personne blessée est-elle assurée à titre facultatif, comme employeur ou comme indépendante ?",
+   "it": "La persona infortunata è assicurata a titolo facoltativo, come datore di lavoro o come indipendente?",
+   "en": "Is the injured person insured voluntarily, as an employer or as self-employed?"
+  },
+  "Ist die verletzte Person quellensteuerpflichtig?": {
+   "fr": "La personne blessée est-elle assujettie à l’impôt à la source ?",
+   "it": "La persona infortunata è assoggettata all’imposta alla fonte?",
+   "en": "Is the injured person subject to tax at source?"
+  },
+  "Ist die weitere Behandlung im Spital ambulant oder stationär?": {
+   "fr": "La suite du traitement à l’hôpital est-elle ambulatoire ou hospitalière ?",
+   "it": "Il seguito della cura in ospedale è ambulatoriale o stazionario?",
+   "en": "Is the further treatment at the hospital outpatient or inpatient?"
+  },
+  "Ist eine arbeitsplatzbezogene Arbeitsunfähigkeit festgestellt worden?": {
+   "fr": "Une incapacité de travail liée au poste de travail a-t-elle été constatée ?",
+   "it": "È stata constatata un’incapacità lavorativa legata al posto di lavoro?",
+   "en": "Has an incapacity for work related to the workplace been established?"
+  },
+  "Ja": {
+   "fr": "Oui",
+   "it": "Sì",
+   "en": "Yes"
+  },
+  "Jahr": {
+   "fr": "Année",
+   "it": "Anno",
+   "en": "Year"
+  },
+  "Kinder-/Familienzulagen": {
+   "fr": "Allocations pour enfants / familiales",
+   "it": "Assegni per i figli / familiari",
+   "en": "Child / family allowances"
+  },
+  "Konsultationsdatum": {
+   "fr": "Date de la consultation",
+   "it": "Data della consultazione",
+   "en": "Date of consultation"
+  },
+  "Kontaktperson": {
+   "fr": "Personne de contact",
+   "it": "Persona di contatto",
+   "en": "Contact person"
+  },
+  "Krankheit": {
+   "fr": "Maladie",
+   "it": "Malattia",
+   "en": "Illness"
+  },
+  "Kunden-Nr. und Betriebsteil": {
+   "fr": "N° de client et partie d’entreprise",
+   "it": "N. cliente e parte d’azienda",
+   "en": "Customer no. and part of the company"
+  },
+  "Kurzarbeit": {
+   "fr": "Réduction de l’horaire de travail",
+   "it": "Lavoro ridotto",
+   "en": "Short-time work"
+  },
+  "Land": {
+   "fr": "Pays",
+   "it": "Paese",
+   "en": "Country"
+  },
+  "Lehrling": {
+   "fr": "Apprenti/e",
+   "it": "Apprendista",
+   "en": "Apprentice"
+  },
+  "Leistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %": {
+   "fr": "Rendement pendant le temps de présence 25 / 50 / 75 / 100 %",
+   "it": "Rendimento durante il tempo di presenza 25 / 50 / 75 / 100 %",
+   "en": "Performance during the time present 25 / 50 / 75 / 100 %"
+  },
+  "Letztmals im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)": {
+   "fr": "A travaillé pour la dernière fois dans l’entreprise jusqu’au (jour de la semaine, date, heure)",
+   "it": "Ha lavorato per l’ultima volta in azienda fino al (giorno della settimana, data, ora)",
+   "en": "Last worked at the company until (weekday, date, time)"
+  },
+  "Letztmals vor dem Unfall im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)": {
+   "fr": "A travaillé pour la dernière fois dans l’entreprise avant l’accident jusqu’au (jour de la semaine, date, heure)",
+   "it": "Ha lavorato per l’ultima volta in azienda prima dell’infortunio fino al (giorno della settimana, data, ora)",
+   "en": "Last worked at the company before the accident until (weekday, date, time)"
+  },
+  "Mittleres Kader": {
+   "fr": "Cadre moyen",
+   "it": "Quadro medio",
+   "en": "Middle management"
+  },
+  "Monat": {
+   "fr": "Mois",
+   "it": "Mese",
+   "en": "Month"
+  },
+  "Musste die Arbeit wegen des Unfalls ausgesetzt werden?": {
+   "fr": "Le travail a-t-il dû être interrompu à cause de l’accident ?",
+   "it": "Il lavoro ha dovuto essere interrotto a causa dell’infortunio?",
+   "en": "Did work have to be stopped because of the accident?"
+  },
+  "Möchte die versicherte Person die Versicherung weiterführen und dafür eine unverbindliche Offerte erhalten?": {
+   "fr": "La personne assurée souhaite-t-elle maintenir l’assurance et recevoir pour cela une offre sans engagement ?",
+   "it": "La persona assicurata desidera proseguire l’assicurazione e ricevere a tal fine un’offerta non vincolante?",
+   "en": "Does the insured person want to continue the insurance and receive a non-binding offer for it?"
+  },
+  "Nachbehandelnder Arzt bzw. Spital/Klinik": {
+   "fr": "Médecin ou hôpital/clinique assurant la suite du traitement",
+   "it": "Medico o ospedale/clinica per il seguito della cura",
+   "en": "Doctor or hospital giving further treatment"
+  },
+  "Nachname": {
+   "fr": "Nom",
+   "it": "Cognome",
+   "en": "Surname"
+  },
+  "Name / Vorname": {
+   "fr": "Nom / prénom",
+   "it": "Cognome / nome",
+   "en": "Surname / first name"
+  },
+  "Name der obligatorischen Krankenversicherung (inkl. Police-Nr.)": {
+   "fr": "Nom de l’assurance-maladie obligatoire (avec n° de police)",
+   "it": "Nome dell’assicurazione malattie obbligatoria (con n. di polizza)",
+   "en": "Name of the compulsory health insurer (with policy no.)"
+  },
+  "Name und Adresse mit Postleitzahl": {
+   "fr": "Nom et adresse avec numéro postal",
+   "it": "Nome e indirizzo con numero postale",
+   "en": "Name and address with postcode"
+  },
+  "Name und Vorname": {
+   "fr": "Nom et prénom",
+   "it": "Cognome e nome",
+   "en": "Surname and first name"
+  },
+  "Nationalität": {
+   "fr": "Nationalité",
+   "it": "Nazionalità",
+   "en": "Nationality"
+  },
+  "Nein": {
+   "fr": "Non",
+   "it": "No",
+   "en": "No"
+  },
+  "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)": {
+   "fr": "Lieu (nom ou NPA) et endroit (p. ex. atelier, rue)",
+   "it": "Luogo (nome o NPA) e punto preciso (p. es. officina, strada)",
+   "en": "Place (name or postcode) and spot (e.g. workshop, street)"
+  },
+  "Ort und Datum": {
+   "fr": "Lieu et date",
+   "it": "Luogo e data",
+   "en": "Place and date"
+  },
+  "PLZ": {
+   "fr": "NPA",
+   "it": "NPA",
+   "en": "Postcode"
+  },
+  "Per wann tritt die versicherte Person aus der Firma aus?": {
+   "fr": "À quelle date la personne assurée quitte-t-elle l’entreprise ?",
+   "it": "A quale data la persona assicurata lascia l’azienda?",
+   "en": "On what date does the insured person leave the company?"
+  },
+  "Per welchem Datum wurde das Arbeitsverhältnis gekündigt?": {
+   "fr": "Pour quelle date les rapports de travail ont-ils été résiliés ?",
+   "it": "Per quale data è stato disdetto il rapporto di lavoro?",
+   "en": "As of what date was the employment terminated?"
+  },
+  "Police-Nr. UVG": {
+   "fr": "N° de police LAA",
+   "it": "N. di polizza LAINF",
+   "en": "UVG policy no."
+  },
+  "Police-Nr. UVG-Zusatz": {
+   "fr": "N° de police complémentaire LAA",
+   "it": "N. di polizza complementare LAINF",
+   "en": "Supplementary UVG policy no."
+  },
+  "Praktikant/in": {
+   "fr": "Stagiaire",
+   "it": "Praticante",
+   "en": "Trainee"
+  },
+  "Präsenzzeit % Pensum": {
+   "fr": "Temps de présence en % du taux d’occupation",
+   "it": "Tempo di presenza in % del grado d’occupazione",
+   "en": "Time present as % of the workload"
+  },
+  "Präsenzzeit Std. pro Tag": {
+   "fr": "Temps de présence, heures par jour",
+   "it": "Tempo di presenza, ore al giorno",
+   "en": "Time present, hours per day"
+  },
+  "Quellensteuerpflicht": {
+   "fr": "Assujetti/e à l’impôt à la source",
+   "it": "Assoggettato/a all’imposta alla fonte",
+   "en": "Subject to tax at source"
+  },
+  "REP": {
+   "fr": "PIR",
+   "it": "PIR",
+   "en": "REP"
+  },
+  "REP vom": {
+   "fr": "PIR du",
+   "it": "PIR del",
+   "en": "REP dated"
+  },
+  "Rückfall": {
+   "fr": "Rechute",
+   "it": "Ricaduta",
+   "en": "Relapse"
+  },
+  "Schaden-Nummer": {
+   "fr": "Numéro de sinistre",
+   "it": "Numero di sinistro",
+   "en": "Claim number"
+  },
+  "Schadendatum (Tag, Monat, Jahr)": {
+   "fr": "Date du sinistre (jour, mois, année)",
+   "it": "Data del sinistro (giorno, mese, anno)",
+   "en": "Date of the accident (day, month, year)"
+  },
+  "Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)": {
+   "fr": "Débiteur (nom et prénom ou raison sociale ; adresse ; NPA localité)",
+   "it": "Debitore (cognome e nome o ditta; indirizzo; NPA località)",
+   "en": "Debtor (surname and first name or company; address; postcode and town)"
+  },
+  "Seit wann ist die verletzte Person im Betrieb angestellt?": {
+   "fr": "Depuis quand la personne blessée est-elle employée dans l’entreprise ?",
+   "it": "Da quando la persona infortunata è impiegata in azienda?",
+   "en": "Since when has the injured person been employed at the company?"
+  },
+  "Seit welchem Datum wird der Zins verlangt?": {
+   "fr": "Depuis quelle date l’intérêt est-il réclamé ?",
+   "it": "Da quale data è richiesto l’interesse?",
+   "en": "From what date is the interest claimed?"
+  },
+  "Staatsangehörigkeit": {
+   "fr": "Nationalité",
+   "it": "Nazionalità",
+   "en": "Nationality"
+  },
+  "Staatsangehörigkeit / Bewilligung": {
+   "fr": "Nationalité / permis",
+   "it": "Nazionalità / permesso",
+   "en": "Nationality / permit"
+  },
+  "Std. / Tag": {
+   "fr": "H / jour",
+   "it": "Ore / giorno",
+   "en": "Hrs / day"
+  },
+  "Strasse": {
+   "fr": "Rue",
+   "it": "Via",
+   "en": "Street"
+  },
+  "Strasse/Nr.": {
+   "fr": "Rue/n°",
+   "it": "Via/n.",
+   "en": "Street/no."
+  },
+  "Stunden je Woche": {
+   "fr": "Heures par semaine",
+   "it": "Ore alla settimana",
+   "en": "Hours per week"
+  },
+  "Tag": {
+   "fr": "Jour",
+   "it": "Giorno",
+   "en": "Day"
+  },
+  "Teilzeit": {
+   "fr": "Temps partiel",
+   "it": "Tempo parziale",
+   "en": "Part-time"
+  },
+  "Tel.-Nr.": {
+   "fr": "N° de tél.",
+   "it": "N. di tel.",
+   "en": "Tel. no."
+  },
+  "Telefon": {
+   "fr": "Téléphone",
+   "it": "Telefono",
+   "en": "Telephone"
+  },
+  "Telefon oder E-Mail": {
+   "fr": "Téléphone ou e-mail",
+   "it": "Telefono o e-mail",
+   "en": "Telephone or e-mail"
+  },
+  "Trifft für den Arbeitseinsatz etwas davon zu: unregelmässig, Kurzarbeit oder Zwischenverdienst?": {
+   "fr": "L’un de ces cas s’applique-t-il à l’emploi : irrégulier, réduction de l’horaire de travail ou gain intermédiaire ?",
+   "it": "Per l’impiego vale uno di questi casi: irregolare, lavoro ridotto o guadagno intermedio?",
+   "en": "Does any of these apply to the work: irregular, short-time work or interim earnings?"
+  },
+  "Tritt die versicherte Person aus der Firma aus, oder ist sie schon ausgetreten?": {
+   "fr": "La personne assurée quitte-t-elle l’entreprise, ou l’a-t-elle déjà quittée ?",
+   "it": "La persona assicurata lascia l’azienda, o l’ha già lasciata?",
+   "en": "Is the insured person leaving the company, or have they already left?"
+  },
+  "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge": {
+   "fr": "Activité au moment de l’accident ; déroulement de l’accident, objets et véhicules en cause",
+   "it": "Attività al momento dell’infortunio; dinamica dell’infortunio, oggetti e veicoli coinvolti",
+   "en": "Activity at the time of the accident; how it happened, objects and vehicles involved"
+  },
+  "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge": {
+   "fr": "Activité au moment de l’accident ; déroulement de l’accident, personnes, objets et véhicules en cause",
+   "it": "Attività al momento dell’infortunio; dinamica dell’infortunio, persone, oggetti e veicoli coinvolti",
+   "en": "Activity at the time of the accident; how it happened, persons, objects and vehicles involved"
+  },
+  "Um welche Uhrzeit ist der Unfall passiert?": {
+   "fr": "À quelle heure l’accident s’est-il produit ?",
+   "it": "A che ora è avvenuto l’infortunio?",
+   "en": "At what time did the accident happen?"
+  },
+  "Unbekannt": {
+   "fr": "Inconnu",
+   "it": "Sconosciuto",
+   "en": "Unknown"
+  },
+  "Unfall": {
+   "fr": "Accident",
+   "it": "Infortunio",
+   "en": "Accident"
+  },
+  "Unter welcher Telefonnummer oder E-Mail-Adresse ist jemand für Rückfragen erreichbar?": {
+   "fr": "À quel numéro de téléphone ou à quelle adresse e-mail peut-on joindre quelqu’un pour des questions ?",
+   "it": "A quale numero di telefono o indirizzo e-mail è raggiungibile qualcuno per domande?",
+   "en": "On which telephone number or e-mail address can someone be reached for queries?"
+  },
+  "Unterschrift": {
+   "fr": "Signature",
+   "it": "Firma",
+   "en": "Signature"
+  },
+  "Versicherten-Nr.": {
+   "fr": "N° d’assuré",
+   "it": "N. di assicurato",
+   "en": "Insured person no."
+  },
+  "Vertraglicher Beschäftigungsgrad (Prozent)": {
+   "fr": "Taux d’occupation contractuel (pour cent)",
+   "it": "Grado d’occupazione contrattuale (per cento)",
+   "en": "Contractual level of employment (per cent)"
+  },
+  "Vertraglicher Grundlohn inkl. Teuerungszulage (brutto)": {
+   "fr": "Salaire de base contractuel, allocation de renchérissement comprise (brut)",
+   "it": "Salario base contrattuale, indennità di rincaro compresa (lordo)",
+   "en": "Contractual basic wage incl. cost-of-living allowance (gross)"
+  },
+  "Verzichtet die versicherte Person auf ihr Recht, die Versicherung weiterzuführen?": {
+   "fr": "La personne assurée renonce-t-elle à son droit de maintenir l’assurance ?",
+   "it": "La persona assicurata rinuncia al suo diritto di proseguire l’assicurazione?",
+   "en": "Does the insured person waive their right to continue the insurance?"
+  },
+  "Visum": {
+   "fr": "Visa",
+   "it": "Visto",
+   "en": "Initials"
+  },
+  "Vollzeit (100 %)": {
+   "fr": "Plein temps (100 %)",
+   "it": "Tempo pieno (100 %)",
+   "en": "Full-time (100 %)"
+  },
+  "Von welchem Datum ist das Eingliederungsprofil, auf das sich die Teilarbeitsfähigkeit stützt?": {
+   "fr": "De quelle date est le profil d’intégration sur lequel repose la capacité de travail partielle ?",
+   "it": "Di che data è il profilo d’integrazione su cui si basa la capacità lavorativa parziale?",
+   "en": "What is the date of the integration profile on which the partial capacity to work is based?"
+  },
+  "Von welchem Datum ist das Eingliederungsprofil, auf das sich die volle Arbeitsunfähigkeit stützt?": {
+   "fr": "De quelle date est le profil d’intégration sur lequel repose l’incapacité totale de travail ?",
+   "it": "Di che data è il profilo d’integrazione su cui si basa l’incapacità lavorativa totale?",
+   "en": "What is the date of the integration profile on which the full incapacity for work is based?"
+  },
+  "Von welchem Datum ist der Arbeitsplatzbeschrieb, auf den sich die Teilarbeitsfähigkeit stützt?": {
+   "fr": "De quelle date est la description du poste de travail sur laquelle repose la capacité de travail partielle ?",
+   "it": "Di che data è la descrizione del posto di lavoro su cui si basa la capacità lavorativa parziale?",
+   "en": "What is the date of the job description on which the partial capacity to work is based?"
+  },
+  "Von welchem Datum ist der Arbeitsplatzbeschrieb, auf den sich die volle Arbeitsunfähigkeit stützt?": {
+   "fr": "De quelle date est la description du poste de travail sur laquelle repose l’incapacité totale de travail ?",
+   "it": "Di che data è la descrizione del posto di lavoro su cui si basa l’incapacità lavorativa totale?",
+   "en": "What is the date of the job description on which the full incapacity for work is based?"
+  },
+  "Vorname": {
+   "fr": "Prénom",
+   "it": "Nome",
+   "en": "First name"
+  },
+  "Wann hat die verletzte Person vor dem Unfall zuletzt im Betrieb gearbeitet? Wochentag, Datum und Uhrzeit.": {
+   "fr": "Quand la personne blessée a-t-elle travaillé pour la dernière fois dans l’entreprise avant l’accident ? Jour de la semaine, date et heure.",
+   "it": "Quando la persona infortunata ha lavorato per l’ultima volta in azienda prima dell’infortunio? Giorno della settimana, data e ora.",
+   "en": "When did the injured person last work at the company before the accident? Weekday, date and time."
+  },
+  "Wann ist der Schuldner geboren, falls das bekannt ist?": {
+   "fr": "Quand le débiteur est-il né, si c’est connu ?",
+   "it": "Quando è nato il debitore, se è noto?",
+   "en": "When was the debtor born, if that is known?"
+  },
+  "Wann ist die Person geboren?": {
+   "fr": "Quand la personne est-elle née ?",
+   "it": "Quando è nata la persona?",
+   "en": "When was the person born?"
+  },
+  "Wann ist die verletzte Person geboren?": {
+   "fr": "Quand la personne blessée est-elle née ?",
+   "it": "Quando è nata la persona infortunata?",
+   "en": "When was the injured person born?"
+  },
+  "Wann ist die versicherte Person geboren?": {
+   "fr": "Quand la personne assurée est-elle née ?",
+   "it": "Quando è nata la persona assicurata?",
+   "en": "When was the insured person born?"
+  },
+  "War die erste Behandlung im Spital ambulant oder stationär?": {
+   "fr": "Le premier traitement à l’hôpital était-il ambulatoire ou hospitalier ?",
+   "it": "La prima cura in ospedale è stata ambulatoriale o stazionaria?",
+   "en": "Was the first treatment at the hospital outpatient or inpatient?"
+  },
+  "Was hat die verletzte Person gerade getan, und wie ist der Unfall abgelaufen?": {
+   "fr": "Que faisait la personne blessée à ce moment-là, et comment l’accident s’est-il déroulé ?",
+   "it": "Che cosa stava facendo la persona infortunata, e come si è svolto l’infortunio?",
+   "en": "What was the injured person doing at the time, and how did the accident happen?"
+  },
+  "Was hat die verletzte Person gerade getan, und wie ist der Unfall abgelaufen? Wer und was war beteiligt?": {
+   "fr": "Que faisait la personne blessée à ce moment-là, et comment l’accident s’est-il déroulé ? Qui et quoi était en cause ?",
+   "it": "Che cosa stava facendo la persona infortunata, e come si è svolto l’infortunio? Chi e che cosa era coinvolto?",
+   "en": "What was the injured person doing at the time, and how did the accident happen? Who and what was involved?"
+  },
+  "Was wird gemeldet: ein Unfall, eine Berufskrankheit, ein Zahnschaden oder ein Rückfall?": {
+   "fr": "Que déclare-t-on : un accident, une maladie professionnelle, une lésion dentaire ou une rechute ?",
+   "it": "Che cosa si notifica: un infortunio, una malattia professionale, una lesione dentaria o una ricaduta?",
+   "en": "What is being reported: an accident, an occupational disease, a dental injury or a relapse?"
+  },
+  "Welche AHV-Nummer hat die Person?": {
+   "fr": "Quel est le numéro AVS de la personne ?",
+   "it": "Qual è il numero AVS della persona?",
+   "en": "What is the person’s OASI number?"
+  },
+  "Welche AHV-Nummer hat die verletzte Person?": {
+   "fr": "Quel est le numéro AVS de la personne blessée ?",
+   "it": "Qual è il numero AVS della persona infortunata?",
+   "en": "What is the injured person’s OASI number?"
+  },
+  "Welche Art von Schädigung ist es?": {
+   "fr": "De quel genre de lésion s’agit-il ?",
+   "it": "Di che tipo di lesione si tratta?",
+   "en": "What kind of injury is it?"
+  },
+  "Welche Aufenthaltsbewilligung hat die versicherte Person, falls sie eine braucht?": {
+   "fr": "Quelle autorisation de séjour la personne assurée possède-t-elle, si elle en a besoin ?",
+   "it": "Quale permesso di dimora ha la persona assicurata, se ne ha bisogno?",
+   "en": "Which residence permit does the insured person hold, if they need one?"
+  },
+  "Welche E-Mail-Adresse hat das Unternehmen?": {
+   "fr": "Quelle est l’adresse e-mail de l’entreprise ?",
+   "it": "Qual è l’indirizzo e-mail dell’azienda?",
+   "en": "What is the company’s e-mail address?"
+  },
+  "Welche E-Mail-Adresse hat der Arbeitgeber?": {
+   "fr": "Quelle est l’adresse e-mail de l’employeur ?",
+   "it": "Qual è l’indirizzo e-mail del datore di lavoro?",
+   "en": "What is the employer’s e-mail address?"
+  },
+  "Welche E-Mail-Adresse hat die Person?": {
+   "fr": "Quelle est l’adresse e-mail de la personne ?",
+   "it": "Qual è l’indirizzo e-mail della persona?",
+   "en": "What is the person’s e-mail address?"
+  },
+  "Welche E-Mail-Adresse hat die verletzte Person?": {
+   "fr": "Quelle est l’adresse e-mail de la personne blessée ?",
+   "it": "Qual è l’indirizzo e-mail della persona infortunata?",
+   "en": "What is the injured person’s e-mail address?"
+  },
+  "Welche E-Mail-Adresse hat die versicherte Person?": {
+   "fr": "Quelle est l’adresse e-mail de la personne assurée ?",
+   "it": "Qual è l’indirizzo e-mail della persona assicurata?",
+   "en": "What is the insured person’s e-mail address?"
+  },
+  "Welche Gegenstände waren am Unfall beteiligt (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff)?": {
+   "fr": "Quels objets étaient en cause dans l’accident (p. ex. machine, outil, véhicule, substance) ?",
+   "it": "Quali oggetti erano coinvolti nell’infortunio (p. es. macchina, attrezzo, veicolo, sostanza)?",
+   "en": "Which objects were involved in the accident (e.g. machine, tool, vehicle, substance)?"
+  },
+  "Welche Gegenstände waren am Unfall beteiligt, zum Beispiel eine Maschine, ein Werkzeug oder ein Fahrzeug?": {
+   "fr": "Quels objets étaient en cause dans l’accident, par exemple une machine, un outil ou un véhicule ?",
+   "it": "Quali oggetti erano coinvolti nell’infortunio, per esempio una macchina, un attrezzo o un veicolo?",
+   "en": "Which objects were involved in the accident, for example a machine, a tool or a vehicle?"
+  },
+  "Welche Nationalität hat die versicherte Person?": {
+   "fr": "Quelle est la nationalité de la personne assurée ?",
+   "it": "Qual è la nazionalità della persona assicurata?",
+   "en": "What is the insured person’s nationality?"
+  },
+  "Welche Postleitzahl hat der Wohnort der verletzten Person?": {
+   "fr": "Quel est le numéro postal du domicile de la personne blessée ?",
+   "it": "Qual è il numero postale del domicilio della persona infortunata?",
+   "en": "What is the postcode of the injured person’s place of residence?"
+  },
+  "Welche Postleitzahl hat der Wohnort der versicherten Person?": {
+   "fr": "Quel est le code postal du domicile de la personne assurée ?",
+   "it": "Qual è il codice postale del luogo di domicilio della persona assicurata?",
+   "en": "What is the postcode of the place where the insured person lives?"
+  },
+  "Welche Schaden-Nummer hat die Suva vergeben, falls schon eine bekannt ist?": {
+   "fr": "Quel numéro de sinistre la Suva a-t-elle attribué, s’il est déjà connu ?",
+   "it": "Quale numero di sinistro ha assegnato la Suva, se è già noto?",
+   "en": "Which claim number has Suva assigned, if one is already known?"
+  },
+  "Welche Schaden-Nummer wird für diesen Unfall verwendet?": {
+   "fr": "Quel numéro de sinistre est utilisé pour cet accident ?",
+   "it": "Quale numero di sinistro è usato per questo infortunio?",
+   "en": "Which claim number is used for this accident?"
+  },
+  "Welche Staatsangehörigkeit hat die verletzte Person?": {
+   "fr": "Quelle est la nationalité de la personne blessée ?",
+   "it": "Qual è la nazionalità della persona infortunata?",
+   "en": "What is the injured person’s nationality?"
+  },
+  "Welche Staatsangehörigkeit oder welche Bewilligung hat die verletzte Person?": {
+   "fr": "Quelle est la nationalité ou quel est le permis de la personne blessée ?",
+   "it": "Qual è la nazionalità o quale permesso ha la persona infortunata?",
+   "en": "What nationality or which permit does the injured person have?"
+  },
+  "Welche Stellung hat die verletzte Person: höheres Kader, mittleres Kader, Angestellte oder Arbeiter, Lehrling oder Praktikant?": {
+   "fr": "Quelle est la position de la personne blessée : cadre supérieur, cadre moyen, employé ou ouvrier, apprenti ou stagiaire ?",
+   "it": "Qual è la posizione della persona infortunata: quadro superiore, quadro medio, impiegato o operaio, apprendista o praticante?",
+   "en": "What is the injured person’s position: senior management, middle management, employee or worker, apprentice or trainee?"
+  },
+  "Welche Stellung hat die verletzte Person: höheres Kader, mittleres Kader, Angestellte oder Mitarbeiter, Lehrling oder Praktikant?": {
+   "fr": "Quelle est la position de la personne blessée : cadre supérieur, cadre moyen, employé ou collaborateur, apprenti ou stagiaire ?",
+   "it": "Qual è la posizione della persona infortunata: quadro superiore, quadro medio, impiegato o collaboratore, apprendista o praticante?",
+   "en": "What is the injured person’s position: senior management, middle management, employee or staff member, apprentice or trainee?"
+  },
+  "Welche Telefonnummer hat der Arbeitgeber?": {
+   "fr": "Quel est le numéro de téléphone de l’employeur ?",
+   "it": "Qual è il numero di telefono del datore di lavoro?",
+   "en": "What is the employer’s telephone number?"
+  },
+  "Welche Telefonnummer hat die Person?": {
+   "fr": "Quel est le numéro de téléphone de la personne ?",
+   "it": "Qual è il numero di telefono della persona?",
+   "en": "What is the person’s telephone number?"
+  },
+  "Welche Telefonnummer hat die verletzte Person?": {
+   "fr": "Quel est le numéro de téléphone de la personne blessée ?",
+   "it": "Qual è il numero di telefono della persona infortunata?",
+   "en": "What is the injured person’s telephone number?"
+  },
+  "Welche Telefonnummer hat die versicherte Person?": {
+   "fr": "Quel est le numéro de téléphone de la personne assurée ?",
+   "it": "Qual è il numero di telefono della persona assicurata?",
+   "en": "What is the insured person’s telephone number?"
+  },
+  "Welche anderen Lohnzulagen, zum Beispiel Akkord, Provision, Naturallohn oder Schichtzulage, gibt es?": {
+   "fr": "Quels autres suppléments de salaire y a-t-il, par exemple travail à la tâche, commission, salaire en nature ou indemnité d’équipe ?",
+   "it": "Quali altri supplementi salariali ci sono, per esempio cottimo, provvigione, salario in natura o indennità di turno?",
+   "en": "Which other wage supplements are there, for example piecework, commission, pay in kind or shift allowance?"
+  },
+  "Welche internationale Bankverbindung (IBAN) soll für die Zahlung verwendet werden?": {
+   "fr": "Quel IBAN faut-il utiliser pour le paiement ?",
+   "it": "Quale IBAN va usato per il pagamento?",
+   "en": "Which IBAN should be used for the payment?"
+  },
+  "Welchen Beruf übt die Person aus?": {
+   "fr": "Quelle profession la personne exerce-t-elle ?",
+   "it": "Quale professione esercita la persona?",
+   "en": "What is the person’s occupation?"
+  },
+  "Welchen Beruf übt die verletzte Person aus?": {
+   "fr": "Quelle profession la personne blessée exerce-t-elle ?",
+   "it": "Quale professione esercita la persona infortunata?",
+   "en": "What is the injured person’s occupation?"
+  },
+  "Welchen Beruf übt die versicherte Person aus?": {
+   "fr": "Quelle profession la personne assurée exerce-t-elle ?",
+   "it": "Quale professione esercita la persona assicurata?",
+   "en": "What is the insured person’s occupation?"
+  },
+  "Welchen Grund hat die Forderung oder welches Dokument mit Datum liegt der Forderung zugrunde?": {
+   "fr": "Quelle est la cause de la créance, ou sur quel document daté repose-t-elle ?",
+   "it": "Qual è la causa del credito, o su quale documento datato si basa?",
+   "en": "What is the ground of the claim, or which dated document is it based on?"
+  },
+  "Welchen Zivilstand hat die verletzte Person?": {
+   "fr": "Quel est l’état civil de la personne blessée ?",
+   "it": "Qual è lo stato civile della persona infortunata?",
+   "en": "What is the injured person’s marital status?"
+  },
+  "Welcher Arzt oder welches Spital behandelt die verletzte Person weiter?": {
+   "fr": "Quel médecin ou quel hôpital poursuit le traitement de la personne blessée ?",
+   "it": "Quale medico o quale ospedale prosegue la cura della persona infortunata?",
+   "en": "Which doctor or hospital is giving the injured person further treatment?"
+  },
+  "Welcher Arzt oder welches Spital hat die verletzte Person zuerst behandelt?": {
+   "fr": "Quel médecin ou quel hôpital a traité la personne blessée en premier ?",
+   "it": "Quale medico o quale ospedale ha curato per primo la persona infortunata?",
+   "en": "Which doctor or hospital treated the injured person first?"
+  },
+  "Welcher Körperteil wurde verletzt?": {
+   "fr": "Quelle partie du corps a été blessée ?",
+   "it": "Quale parte del corpo è stata ferita?",
+   "en": "Which part of the body was injured?"
+  },
+  "Welches Betreibungsamt ist zuständig, und wie lautet seine Adresse?": {
+   "fr": "Quel office des poursuites est compétent, et quelle est son adresse ?",
+   "it": "Quale ufficio d’esecuzione è competente, e qual è il suo indirizzo?",
+   "en": "Which debt enforcement office is responsible, and what is its address?"
+  },
+  "Welches Datum hat das Zeugnis?": {
+   "fr": "Quelle est la date du certificat ?",
+   "it": "Qual è la data del certificato?",
+   "en": "What is the date of the certificate?"
+  },
+  "Welches Geschlecht hat die Person?": {
+   "fr": "Quel est le sexe de la personne ?",
+   "it": "Qual è il sesso della persona?",
+   "en": "What is the person’s sex?"
+  },
+  "Welches Geschlecht hat die versicherte Person: männlich oder weiblich?": {
+   "fr": "Quel est le sexe de la personne assurée : masculin ou féminin ?",
+   "it": "Qual è il sesso della persona assicurata: maschile o femminile?",
+   "en": "What is the insured person’s sex: male or female?"
+  },
+  "Wenn ja, Name und Adresse": {
+   "fr": "Si oui, nom et adresse",
+   "it": "Se sì, nome e indirizzo",
+   "en": "If yes, name and address"
+  },
+  "Wenn ja, ab wann?": {
+   "fr": "Si oui, depuis quand ?",
+   "it": "Se sì, da quando?",
+   "en": "If yes, from when?"
+  },
+  "Wenn ja, aufgenommen durch": {
+   "fr": "Si oui, établi par",
+   "it": "Se sì, redatto da",
+   "en": "If yes, taken by"
+  },
+  "Wenn ja, wo?": {
+   "fr": "Si oui, où ?",
+   "it": "Se sì, dove?",
+   "en": "If yes, where?"
+  },
+  "Wer ist der Gläubiger, also die Person oder Firma, die das Geld bekommen soll, und wie lautet die Adresse?": {
+   "fr": "Qui est le créancier, c’est-à-dire la personne ou l’entreprise qui doit recevoir l’argent, et quelle est son adresse ?",
+   "it": "Chi è il creditore, cioè la persona o la ditta che deve ricevere il denaro, e qual è l’indirizzo?",
+   "en": "Who is the creditor, that is the person or company that is to receive the money, and what is the address?"
+  },
+  "Wer war am Unfall beteiligt?": {
+   "fr": "Qui était impliqué dans l’accident ?",
+   "it": "Chi era coinvolto nell’infortunio?",
+   "en": "Who was involved in the accident?"
+  },
+  "Wie heisst das Unternehmen, bei dem die Person arbeitet?": {
+   "fr": "Comment s’appelle l’entreprise où travaille la personne ?",
+   "it": "Come si chiama l’azienda in cui lavora la persona?",
+   "en": "What is the name of the company the person works for?"
+  },
+  "Wie heisst der Arbeitgeber, und wie lautet seine Adresse mit Postleitzahl?": {
+   "fr": "Comment s’appelle l’employeur, et quelle est son adresse avec le numéro postal ?",
+   "it": "Come si chiama il datore di lavoro, e qual è il suo indirizzo con il numero postale?",
+   "en": "What is the employer’s name, and what is the address with postcode?"
+  },
+  "Wie heisst der Arzt oder die Ärztin, die das Zeugnis ausgestellt hat?": {
+   "fr": "Comment s’appelle le médecin qui a établi le certificat ?",
+   "it": "Come si chiama il medico che ha rilasciato il certificato?",
+   "en": "What is the name of the doctor who issued the certificate?"
+  },
+  "Wie heisst der Schuldner, also die Person oder Firma, die die Schuld hat, und wo wohnt sie?": {
+   "fr": "Comment s’appelle le débiteur, c’est-à-dire la personne ou l’entreprise qui a la dette, et où habite-t-il ?",
+   "it": "Come si chiama il debitore, cioè la persona o la ditta che ha il debito, e dove abita?",
+   "en": "What is the name of the debtor, that is the person or company that owes the debt, and where do they live?"
+  },
+  "Wie heisst die Arbeitnehmerin oder der Arbeitnehmer, mit Namen und Vornamen?": {
+   "fr": "Comment s’appelle la travailleuse ou le travailleur, nom et prénom ?",
+   "it": "Come si chiama la lavoratrice o il lavoratore, cognome e nome?",
+   "en": "What is the employee’s name, surname and first name?"
+  },
+  "Wie heisst die Kontaktperson beim Arbeitgeber?": {
+   "fr": "Comment s’appelle la personne de contact chez l’employeur ?",
+   "it": "Come si chiama la persona di contatto presso il datore di lavoro?",
+   "en": "What is the name of the contact person at the employer?"
+  },
+  "Wie heisst die Person oder Firma, die den Gläubiger vertritt, und wo wohnt sie?": {
+   "fr": "Comment s’appelle la personne ou l’entreprise qui représente le créancier, et où est-elle domiciliée ?",
+   "it": "Come si chiama la persona o la ditta che rappresenta il creditore, e dove ha sede?",
+   "en": "What is the name of the person or company representing the creditor, and where are they based?"
+  },
+  "Wie heisst die obligatorische Krankenversicherung und welche Police-Nummer hat sie?": {
+   "fr": "Comment s’appelle l’assurance-maladie obligatoire, et quel est son numéro de police ?",
+   "it": "Come si chiama l’assicurazione malattie obbligatoria, e qual è il numero di polizza?",
+   "en": "What is the name of the compulsory health insurer, and what is the policy number?"
+  },
+  "Wie heisst die verletzte Person, mit Namen und Vornamen?": {
+   "fr": "Comment s’appelle la personne blessée, nom et prénom ?",
+   "it": "Come si chiama la persona infortunata, cognome e nome?",
+   "en": "What is the injured person’s name, surname and first name?"
+  },
+  "Wie heisst die versicherte Person mit Nachnamen?": {
+   "fr": "Quel est le nom de famille de la personne assurée ?",
+   "it": "Qual è il cognome della persona assicurata?",
+   "en": "What is the insured person’s surname?"
+  },
+  "Wie heisst die versicherte Person mit Vornamen?": {
+   "fr": "Quel est le prénom de la personne assurée ?",
+   "it": "Qual è il nome della persona assicurata?",
+   "en": "What is the insured person’s first name?"
+  },
+  "Wie hoch ist der Lohn? Zu jedem Bestandteil den Betrag pro Stunde, pro Monat oder pro Jahr: Grundlohn, Kinder- und Familienzulagen, Ferien- und Feiertagsentschädigung, Gratifikation oder 13. Monatslohn, andere Zulagen.": {
+   "fr": "Quel est le salaire ? Pour chaque élément, le montant par heure, par mois ou par an : salaire de base, allocations pour enfants et familiales, indemnité de vacances et de jours fériés, gratification ou 13e salaire, autres suppléments.",
+   "it": "Quanto è il salario? Per ogni elemento, l’importo all’ora, al mese o all’anno: salario base, assegni per i figli e familiari, indennità di vacanza e per giorni festivi, gratifica o 13ª mensilità, altri supplementi.",
+   "en": "How much is the wage? For each part, the amount per hour, per month or per year: basic wage, child and family allowances, holiday and public holiday pay, bonus or 13th month’s salary, other supplements."
+  },
+  "Wie hoch ist der vertragliche Beschäftigungsgrad der verletzten Person in Prozent?": {
+   "fr": "Quel est le taux d’occupation contractuel de la personne blessée, en pour cent ?",
+   "it": "Qual è il grado d’occupazione contrattuale della persona infortunata, in per cento?",
+   "en": "What is the injured person’s contractual level of employment, in per cent?"
+  },
+  "Wie hoch ist die Forderung in Franken?": {
+   "fr": "Quel est le montant de la créance en francs ?",
+   "it": "A quanto ammonta il credito in franchi?",
+   "en": "How much is the claim in francs?"
+  },
+  "Wie lauten die Kunden-Nummer und der Betriebsteil des Arbeitgebers bei der Suva?": {
+   "fr": "Quels sont le numéro de client et la partie d’entreprise de l’employeur auprès de la Suva ?",
+   "it": "Quali sono il numero cliente e la parte d’azienda del datore di lavoro presso la Suva?",
+   "en": "What are the employer’s customer number and part of the company at Suva?"
+  },
+  "Wie lautet der Name und die Adresse des Arbeitgebers mit Postleitzahl?": {
+   "fr": "Quels sont le nom et l’adresse de l’employeur, avec le numéro postal ?",
+   "it": "Quali sono il nome e l’indirizzo del datore di lavoro, con il numero postale?",
+   "en": "What are the employer’s name and address, with postcode?"
+  },
+  "Wie lautet die Adresse der Person, mit Postleitzahl und Ort?": {
+   "fr": "Quelle est l’adresse de la personne, avec le numéro postal et la localité ?",
+   "it": "Qual è l’indirizzo della persona, con numero postale e località?",
+   "en": "What is the person’s address, with postcode and town?"
+  },
+  "Wie lautet die Adresse des Arbeitgebers, mit Postleitzahl und Ort?": {
+   "fr": "Quelle est l’adresse de l’employeur, avec le numéro postal et la localité ?",
+   "it": "Qual è l’indirizzo del datore di lavoro, con numero postale e località?",
+   "en": "What is the employer’s address, with postcode and town?"
+  },
+  "Wie lautet die Nummer der Unfallversicherungs-Police des Arbeitgebers?": {
+   "fr": "Quel est le numéro de la police d’assurance-accidents de l’employeur ?",
+   "it": "Qual è il numero della polizza d’assicurazione contro gli infortuni del datore di lavoro?",
+   "en": "What is the number of the employer’s accident insurance policy?"
+  },
+  "Wie lautet die Nummer der Zusatzversicherung zur Unfallversicherung, falls es eine gibt?": {
+   "fr": "Quel est le numéro de l’assurance complémentaire à l’assurance-accidents, s’il y en a une ?",
+   "it": "Qual è il numero dell’assicurazione complementare all’assicurazione contro gli infortuni, se ce n’è una?",
+   "en": "What is the number of the supplementary insurance to the accident insurance, if there is one?"
+  },
+  "Wie lautet die Versichertennummer der versicherten Person?": {
+   "fr": "Quel est le numéro d’assuré de la personne assurée ?",
+   "it": "Qual è il numero di assicurato della persona assicurata?",
+   "en": "What is the insured person’s insurance number?"
+  },
+  "Wie viel Prozent Zins werden auf die Forderung verlangt?": {
+   "fr": "Quel pourcentage d’intérêt est réclamé sur la créance ?",
+   "it": "Quale percentuale d’interesse è richiesta sul credito?",
+   "en": "What percentage of interest is claimed on the debt?"
+  },
+  "Wie viele Kinder unter 18 Jahren oder in Ausbildung bis 25 Jahre hat die verletzte Person?": {
+   "fr": "Combien d’enfants de moins de 18 ans, ou en formation jusqu’à 25 ans, la personne blessée a-t-elle ?",
+   "it": "Quanti figli sotto i 18 anni, o in formazione fino a 25 anni, ha la persona infortunata?",
+   "en": "How many children under 18, or in education up to 25, does the injured person have?"
+  },
+  "Wie viele Stunden arbeitet die Person pro Tag?": {
+   "fr": "Combien d’heures la personne travaille-t-elle par jour ?",
+   "it": "Quante ore lavora la persona al giorno?",
+   "en": "How many hours does the person work per day?"
+  },
+  "Wie viele Stunden arbeitet die Person pro Woche, und an welchen Tagen?": {
+   "fr": "Combien d’heures la personne travaille-t-elle par semaine, et quels jours ?",
+   "it": "Quante ore lavora la persona alla settimana, e in quali giorni?",
+   "en": "How many hours does the person work per week, and on which days?"
+  },
+  "Wie viele Stunden pro Woche arbeitet die verletzte Person?": {
+   "fr": "Combien d’heures par semaine la personne blessée travaille-t-elle ?",
+   "it": "Quante ore alla settimana lavora la persona infortunata?",
+   "en": "How many hours per week does the injured person work?"
+  },
+  "Wie viele Stunden pro Woche gelten im Betrieb als volle Arbeitszeit?": {
+   "fr": "Combien d’heures par semaine comptent comme plein temps dans l’entreprise ?",
+   "it": "Quante ore alla settimana valgono come tempo pieno in azienda?",
+   "en": "How many hours per week count as full-time at the company?"
+  },
+  "Wiederaufnahme der Arbeit zu 100 % ab": {
+   "fr": "Reprise du travail à 100 % dès le",
+   "it": "Ripresa del lavoro al 100 % dal",
+   "en": "Return to work at 100 % from"
+  },
+  "Wo arbeitet die verletzte Person üblicherweise, in welchem Betriebszweig?": {
+   "fr": "Où la personne blessée travaille-t-elle habituellement, dans quel secteur de l’entreprise ?",
+   "it": "Dove lavora abitualmente la persona infortunata, in quale ramo dell’azienda?",
+   "en": "Where does the injured person usually work, in which branch of the business?"
+  },
+  "Wo ist der Unfall passiert: der Ort und die genaue Stelle, zum Beispiel Werkstatt oder Strasse?": {
+   "fr": "Où l’accident s’est-il produit : le lieu et l’endroit exact, par exemple l’atelier ou la rue ?",
+   "it": "Dove è avvenuto l’infortunio: il luogo e il punto preciso, per esempio l’officina o la strada?",
+   "en": "Where did the accident happen: the place and the exact spot, for example the workshop or the street?"
+  },
+  "Wochenarbeitszeit / Einsatztage": {
+   "fr": "Horaire hebdomadaire / jours de travail",
+   "it": "Orario settimanale / giorni di lavoro",
+   "en": "Weekly hours / working days"
+  },
+  "Wodurch wurde die Arbeitsunfähigkeit verursacht: durch Krankheit, Unfall oder Berufskrankheit?": {
+   "fr": "Qu’est-ce qui a causé l’incapacité de travail : une maladie, un accident ou une maladie professionnelle ?",
+   "it": "Che cosa ha causato l’incapacità lavorativa: una malattia, un infortunio o una malattia professionale?",
+   "en": "What caused the incapacity for work: illness, accident or occupational disease?"
+  },
+  "Wohnort": {
+   "fr": "Domicile",
+   "it": "Domicilio",
+   "en": "Place of residence"
+  },
+  "Worauf stützt sich die Teilarbeitsfähigkeit: auf das Eingliederungsprofil oder auf den Arbeitsplatzbeschrieb?": {
+   "fr": "Sur quoi repose la capacité de travail partielle : sur le profil d’intégration ou sur la description du poste de travail ?",
+   "it": "Su che cosa si basa la capacità lavorativa parziale: sul profilo d’integrazione o sulla descrizione del posto di lavoro?",
+   "en": "What is the partial capacity to work based on: the integration profile or the job description?"
+  },
+  "Worauf stützt sich die volle Arbeitsunfähigkeit: auf das Eingliederungsprofil oder auf den Arbeitsplatzbeschrieb?": {
+   "fr": "Sur quoi repose l’incapacité totale de travail : sur le profil d’intégration ou sur la description du poste de travail ?",
+   "it": "Su che cosa si basa l’incapacità lavorativa totale: sul profilo d’integrazione o sulla descrizione del posto di lavoro?",
+   "en": "What is the full incapacity for work based on: the integration profile or the job description?"
+  },
+  "Wurde die Arbeit ganz oder teilweise wieder aufgenommen?": {
+   "fr": "Le travail a-t-il été repris entièrement ou partiellement ?",
+   "it": "Il lavoro è stato ripreso interamente o parzialmente?",
+   "en": "Has work been resumed fully or partly?"
+  },
+  "Wünscht die Ärztin oder der Arzt Kontakt mit dem Arbeitgeber?": {
+   "fr": "Le médecin souhaite-t-il un contact avec l’employeur ?",
+   "it": "Il medico desidera un contatto con il datore di lavoro?",
+   "en": "Does the doctor wish to be in contact with the employer?"
+  },
+  "Zahladresse (Post-/Bankkonto) für Rückerstattungen": {
+   "fr": "Adresse de paiement (compte postal/bancaire) pour les remboursements",
+   "it": "Indirizzo di pagamento (conto postale/bancario) per i rimborsi",
+   "en": "Payment details (postal/bank account) for refunds"
+  },
+  "Zahnschaden": {
+   "fr": "Lésion dentaire",
+   "it": "Lesione dentaria",
+   "en": "Dental injury"
+  },
+  "Zeit (Stunden, Minuten)": {
+   "fr": "Heure (heures, minutes)",
+   "it": "Ora (ore, minuti)",
+   "en": "Time (hours, minutes)"
+  },
+  "Zins %": {
+   "fr": "Intérêt %",
+   "it": "Interesse %",
+   "en": "Interest %"
+  },
+  "Zivilstand": {
+   "fr": "État civil",
+   "it": "Stato civile",
+   "en": "Marital status"
+  },
+  "Zwischenverdienst": {
+   "fr": "Gain intermédiaire",
+   "it": "Guadagno intermedio",
+   "en": "Interim earnings"
+  },
+  "ab wann?": {
+   "fr": "depuis quand ?",
+   "it": "da quando?",
+   "en": "from when?"
+  },
+  "ambulant": {
+   "fr": "ambulatoire",
+   "it": "ambulatoriale",
+   "en": "outpatient"
+  },
+  "befristeter Arbeitsvertrag": {
+   "fr": "contrat de travail de durée déterminée",
+   "it": "contratto di lavoro a tempo determinato",
+   "en": "fixed-term employment contract"
+  },
+  "bis": {
+   "fr": "jusqu’au",
+   "it": "fino al",
+   "en": "until"
+  },
+  "des Gläubigers": {
+   "fr": "du créancier",
+   "it": "del creditore",
+   "en": "of the creditor"
+  },
+  "des Vertreters": {
+   "fr": "du représentant",
+   "it": "del rappresentante",
+   "en": "of the representative"
+  },
+  "ganz": {
+   "fr": "entièrement",
+   "it": "interamente",
+   "en": "fully"
+  },
+  "ja": {
+   "fr": "oui",
+   "it": "sì",
+   "en": "yes"
+  },
+  "links": {
+   "fr": "gauche",
+   "it": "sinistra",
+   "en": "left"
+  },
+  "länger als 1 Monat": {
+   "fr": "plus d’un mois",
+   "it": "più di un mese",
+   "en": "longer than 1 month"
+  },
+  "m": {
+   "fr": "m",
+   "it": "m",
+   "en": "m"
+  },
+  "männlich": {
+   "fr": "masculin",
+   "it": "maschile",
+   "en": "male"
+  },
+  "nein": {
+   "fr": "non",
+   "it": "no",
+   "en": "no"
+  },
+  "nächste Konsultation": {
+   "fr": "prochaine consultation",
+   "it": "prossima consultazione",
+   "en": "next consultation"
+  },
+  "rechts": {
+   "fr": "droite",
+   "it": "destra",
+   "en": "right"
+  },
+  "seit (Datum)": {
+   "fr": "depuis le (date)",
+   "it": "dal (data)",
+   "en": "since (date)"
+  },
+  "stationär": {
+   "fr": "hospitalier",
+   "it": "stazionario",
+   "en": "inpatient"
+  },
+  "teilweise": {
+   "fr": "partiellement",
+   "it": "parzialmente",
+   "en": "partly"
+  },
+  "unbefristeter Arbeitsvertrag": {
+   "fr": "contrat de travail de durée indéterminée",
+   "it": "contratto di lavoro a tempo indeterminato",
+   "en": "open-ended employment contract"
+  },
+  "unbestimmt": {
+   "fr": "indéterminé",
+   "it": "indeterminato",
+   "en": "undetermined"
+  },
+  "unregelmässig": {
+   "fr": "irrégulier",
+   "it": "irregolare",
+   "en": "irregular"
+  },
+  "vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)": {
+   "fr": "représenté par (nom et prénom ou raison sociale ; adresse ; NPA localité)",
+   "it": "rappresentato da (cognome e nome o ditta; indirizzo; NPA località)",
+   "en": "represented by (surname and first name or company; address; postcode and town)"
+  },
+  "von": {
+   "fr": "du",
+   "it": "dal",
+   "en": "from"
+  },
+  "w": {
+   "fr": "f",
+   "it": "f",
+   "en": "f"
+  },
+  "weiblich": {
+   "fr": "féminin",
+   "it": "femminile",
+   "en": "female"
+  },
+  "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)": {
+   "fr": "Lieu de travail habituel de la personne blessée (secteur d’exploitation)",
+   "it": "Posto di lavoro abituale dell’infortunato/a (ramo d’azienda)",
+   "en": "Usual workplace of the injured person (branch of the business)"
+  }
+ }
+}

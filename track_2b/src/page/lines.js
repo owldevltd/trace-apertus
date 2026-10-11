@@ -13,6 +13,16 @@ const TOLERANCE = 3;
 // Ink above and below the run to this share means it is part of an area (title bar with light text), not a line.
 const MAX_FLANK = 0.5;
 
+// The fringe of a dark line: this many work pixels to either side of it go out of the masks with it. On a
+// photographed page a line is blurred: the rows at its edge are ink only in places, so they are no part of the
+// line found, and what stays of them lies in the boxes as crumbs and glues the label beside a border to it.
+// Where such a row is long enough to be found as a line of its own, it is none: a dark line that lies along a
+// longer one, no further from it than the fringe and nowhere beyond its ends, is that line's edge. Measured 11
+// October 2026 on five made-up photographs of a sheet of boxes (24 form fields): without the fringe 12 to 18 of
+// the 24 were found, with two pixels 24 on every one, with one pixel 23 on one of them. On the rendered pages of
+// the fillable forms nothing changes. Set by the assistant, open.
+const FRINGE = 2;
+
 // Finds the lines of the page and erases them from the ink, tone and solid masks. Original pixels.
 export function findLines( page ) {
     const lines = [];
@@ -41,25 +51,43 @@ export function findLines( page ) {
                 continue;
             }
             lines.push( { x: x * s, y: y * s, w: w * s, h: h * s, dir, light: isLight } );
+            const fx = !isLight && dir === 'v' ? FRINGE : 0;
+            const fy = !isLight && dir === 'h' ? FRINGE : 0;
             for ( const mask of [ ink, tone, solid ] ) {
-                fillRect( mask, x, y, x + w - 1, y + h - 1, 0 );
+                fillRect( mask, Math.max( 0, x - fx ), Math.max( 0, y - fy ), Math.min( mask.width - 1, x + w - 1 + fx ), Math.min( mask.height - 1, y + h - 1 + fy ), 0 );
             }
         }
     }
-    return lines;
+    return lines.filter( ( l ) => l.light || !lines.some( ( o ) => edgeOf( l, o, s ) ) );
 }
 
-// The light fringe of a dark line is not a second line.
+// Is the dark line a the edge of the dark line b? Same direction, b longer, a beside it within the fringe and
+// inside its length.
+function edgeOf( a, b, scale ) {
+    if ( a === b || b.light || a.dir !== b.dir ) {
+        return false;
+    }
+    const f = FRINGE * scale;
+    const [ along, across, length, thick ] = a.dir === 'h' ? [ 'x', 'y', 'w', 'h' ] : [ 'y', 'x', 'h', 'w' ];
+    if ( b[ length ] <= a[ length ] || a[ along ] < b[ along ] - f || a[ along ] + a[ length ] > b[ along ] + b[ length ] + f ) {
+        return false;
+    }
+    const between = Math.max( a[ across ] - b[ across ] - b[ thick ], b[ across ] - a[ across ] - a[ thick ] );
+    return between <= f;
+}
+
+// The light fringe of a dark line is not a second line. Near is measured between the two, not between their
+// upper edges: the fringe under a line six pixels thick starts eight below its top.
 function known( lines, x, y, w, h, dir, scale ) {
     const near = 3 * scale;
     for ( const l of lines ) {
         if ( l.dir !== dir ) {
             continue;
         }
-        if ( dir === 'h' && Math.abs( l.y - y ) <= near && l.x < x + w && l.x + l.w > x ) {
+        if ( dir === 'h' && Math.max( y - l.y - l.h, l.y - y - h ) <= near && l.x < x + w && l.x + l.w > x ) {
             return true;
         }
-        if ( dir === 'v' && Math.abs( l.x - x ) <= near && l.y < y + h && l.y + l.h > y ) {
+        if ( dir === 'v' && Math.max( x - l.x - l.w, l.x - x - w ) <= near && l.y < y + h && l.y + l.h > y ) {
             return true;
         }
     }

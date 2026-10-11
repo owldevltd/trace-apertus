@@ -11,8 +11,10 @@ import { holding } from './dialogue.js';
 
 // The form in the language of the person. Two steps, both only where that language is not the form's.
 //
-// When the form is opened: its questions, the printed labels and the options of its choices are translated
-// once and kept with the form. A translated question is checked like a written one, against the list of the
+// When the form is opened: its questions, the printed labels, the options of its choices and the values a
+// field may take are translated once and kept with the form. A value is shown in the language of the person
+// and written into the form as the entry of the list, in the language of the form: it never goes back
+// through a translation. A translated question is checked like a written one, against the list of the
 // form itself; one that no longer points at its place is dropped and the translated label is asked instead.
 // Measured 9 October 2026 (tests/translate.js): a page's questions come back complete from one call, and of 40
 // questions that hold in German 35 still hold in French, 35 in Italian, 39 in English – the rest had moved
@@ -94,8 +96,9 @@ export async function translateDialogue( job, language, client, log ) {
                 written[ u.id ] = questions[ i ];
             }
         } );
-        // the labels of the units and the options of the choices, each text once
-        const texts = [ ...new Set( here.flatMap( ( u ) => [ u.label, ...( u.kind === 'choice' ? u.fields.map( ( id ) => fields.get( id ).option || fields.get( id ).label ) : [] ) ] ).filter( Boolean ) ) ];
+        // the labels of the units, the options of the choices and the values a field may take, each text once
+        const texts = [ ...new Set( here.flatMap( ( u ) => [ u.label, ...( u.kind === 'choice' ? u.fields.map( ( id ) => fields.get( id ).option || fields.get( id ).label ) : [] ),
+            ...u.fields.flatMap( ( id ) => fields.get( id ).values || [] ) ] ).filter( Boolean ) ) ];
         const labels = texts.length ? await translateList( texts, ( list ) => labelPrompt( list, language ), client, log, 'translate labels page ' + page.n ) : [];
         const said = new Map( texts.map( ( t, i ) => [ t, labels[ i ] ] ) );
         for ( const u of here ) {
@@ -108,6 +111,12 @@ export async function translateDialogue( job, language, client, log ) {
                 if ( Object.keys( options ).length ) {
                     own.options = options;
                 }
+            }
+            // a list keeps its order and its length: an entry that did not come back stands as the form has it,
+            // since the person picks an entry by its place and the form gets the entry in its own language
+            const listed = u.fields.filter( ( id ) => fields.get( id ).values );
+            if ( listed.length ) {
+                own.values = Object.fromEntries( listed.map( ( id ) => [ id, fields.get( id ).values.map( ( v ) => said.get( v ) || v ) ] ) );
             }
             out[ u.id ] = own;
         }
@@ -158,9 +167,10 @@ export function suspect( said, value ) {
     return a !== b && levenshtein( a, b ) <= NEAR ? 'near' : null;
 }
 
-// The fields whose value is still in the language of the person: written, with a value, not translated yet.
+// The fields whose value is still in the language of the person: written, with a value, not translated yet. A
+// field with values holds an entry of its list, which is in the language of the form already.
 export function toTranslate( job ) {
-    return foreign( job ) ? job.fields.filter( ( f ) => f.value && f.kind !== 'checkbox' && f.kind !== 'radio' && f.kind !== 'signature' && !( f.source && f.source.said ) ) : [];
+    return foreign( job ) ? job.fields.filter( ( f ) => f.value && !f.values && f.kind !== 'checkbox' && f.kind !== 'radio' && f.kind !== 'signature' && !( f.source && f.source.said ) ) : [];
 }
 
 // Translates the values of a job into the language of the form, field by field; every field keeps what the
@@ -204,7 +214,7 @@ export function planned( job ) {
     for ( const page of job.pages ) {
         const here = units.filter( ( u ) => u.page === page.n );
         const questions = here.filter( ( u ) => u.question ).length;
-        calls += ( questions ? 1 : 0 ) + ( here.some( ( u ) => u.label || u.kind === 'choice' ) ? 1 : 0 ) + RUNS * Math.ceil( questions / BUNDLE );
+        calls += ( questions ? 1 : 0 ) + ( here.some( ( u ) => u.label || u.kind === 'choice' || u.fields.some( ( id ) => job.fields.find( ( f ) => f.id === id )?.values ) ) ? 1 : 0 ) + RUNS * Math.ceil( questions / BUNDLE );
     }
     return calls;
 }

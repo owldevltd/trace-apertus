@@ -19,11 +19,14 @@
             {{#open}}
             <div class="fedit">
                 <label><span>{{t:edit.label}}</span><input data-set="label" value="{{raw}}" autocomplete="off"></label>
-                <label><span>{{t:edit.kind}}</span><select data-set="kind">{{#kinds}}<option value="{{value}}"{{#on}} selected{{/on}}>{{label}}</option>{{/kinds}}</select></label>
+                <label><span>{{t:edit.kind}}</span><select data-set="kind">{{#kinds}}<option value="{{value}}"{{#on}} selected{{/on}}>{{label}}</option>{{/kinds}}</select>{{#proposed}}<span>{{t:edit.kind.proposed}}</span>{{/proposed}}</label>
                 {{#mark}}
                 <label><span>{{t:edit.option}}</span><input data-set="option" value="{{option}}" autocomplete="off"></label>
                 <label class="tick-line"><input type="checkbox" data-set="join"{{#join}} checked{{/join}}><span>{{t:edit.join}}</span></label>
                 {{/mark}}
+                {{#writing}}
+                <label><span>{{t:edit.values}}</span><textarea data-set="values" rows="3" placeholder="{{t:edit.values.hint}}">{{values}}</textarea></label>
+                {{/writing}}
                 {{#unit}}
                 <label><span>{{t:edit.question}}</span><input data-set="question" value="{{question}}" placeholder="{{t:edit.question.hint}}" autocomplete="off"></label>
                 <label class="tick-line"><input type="checkbox" data-set="required"{{#required}} checked{{/required}}><span>{{t:chat.required}}</span></label>

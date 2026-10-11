@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T22:03:49.711Z",
+ "tag": "fill f1,f2,f3,f4,f5,f6",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 400,
+ "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Ich heisse Anna Keller und bin am 14. März 1988 geboren. Ich bin Schweizerin und arbeite als Buchhalterin. Ich wohne an der Bahnhofstrasse 12 und 8 4 0 0 in Detwil. Meine Telefonnummer ist 0 7 9 4 1 2 3 6 8 5. Ich trete per 31. Dezember 2026 aus der Firma aus. Ich möchte die Versicherung weiterführen und wünsche eine unverbindliche Offerte, unterschrieben am 11. Oktober 2026.\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- f1: Nachname (Wie heisst die versicherte Person mit Nachnamen?) — Vorgabe: Text\n- f2: Vorname (Wie heisst die versicherte Person mit Vornamen?) — Vorgabe: Text\n- f3: Geburtsdatum (Wann ist die versicherte Person geboren?) — Vorgabe: Datum als TT.MM.JJJJ\n- f4: Nationalität (Welche Nationalität hat die versicherte Person?) — Vorgabe: Text\n- f5: Versicherten-Nr. (Wie lautet die Versichertennummer der versicherten Person?) — Vorgabe: Text\n- f6: Beruf (Welchen Beruf übt die versicherte Person aus?) — Vorgabe: Text\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+ "image": 0,
+ "audio": 0,
+ "ms": 481,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-32396887-3e09-433d-998e-ad7c5628d350",
+  "object": "chat.completion",
+  "created": 1791756232,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "f1: Keller [p1]\nf2: Anna [p1]\nf3: 14.03.1988 [p1]\nf4: Schweizerin [p1]\nf5: — [p1]\nf6: Buchhalterin [p1]",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 493,
+   "total_tokens": 556,
+   "completion_tokens": 63,
+   "prompt_tokens_details": {
+    "cached_tokens": 96,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

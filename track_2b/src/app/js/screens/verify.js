@@ -17,10 +17,14 @@ import { switchPane } from '../router.js';
 // unticked.
 
 const PILLS = [ 'fields', 'preview', 'photo' ];
-const KIND = { checkbox: 'type.choice', radio: 'type.choice', signature: 'type.sign', multiline: 'type.long', date: 'type.date', text: 'type.text', number: 'type.number' };
+const KIND = { checkbox: 'type.choice', radio: 'type.choice', signature: 'type.sign', multiline: 'type.long', date: 'type.date', text: 'type.text', number: 'type.number',
+    time: 'type.time', phone: 'type.phone', email: 'type.email', postcode: 'type.postcode', iban: 'type.iban', identifier: 'type.identifier' };
 // the kinds a person can choose from, by what they are called in the mask
-const KINDS = [ [ 'text', 'type.text' ], [ 'multiline', 'type.long' ], [ 'date', 'type.date' ], [ 'number', 'type.number' ], [ 'checkbox', 'type.box' ], [ 'radio', 'type.radio' ], [ 'signature', 'type.sign' ] ];
+const KINDS = [ [ 'text', 'type.text' ], [ 'multiline', 'type.long' ], [ 'date', 'type.date' ], [ 'time', 'type.time' ], [ 'number', 'type.number' ], [ 'phone', 'type.phone' ], [ 'email', 'type.email' ],
+    [ 'postcode', 'type.postcode' ], [ 'iban', 'type.iban' ], [ 'identifier', 'type.identifier' ], [ 'checkbox', 'type.box' ], [ 'radio', 'type.radio' ], [ 'signature', 'type.sign' ] ];
 const MARK = [ 'checkbox', 'radio' ];
+// a field a person writes into can be given values to choose from
+const WRITING = [ 'text', 'multiline', 'number' ];
 
 // a new field where the page has none to take the size from, and the corner a field is sized at, in page pixels
 const FIELD = [ 600, 64 ];
@@ -83,8 +87,14 @@ async function runJob( ctx, create ) {
     state.tab = 'fields';
     const body = ctx.body( 'verify' );
     ctx.bottom( 'verify' ).innerHTML = '';
-    const progress = ( text ) => {
-        body.innerHTML = tpl.render( 'recognizing', { progress: text } );
+    // the line that says what is being done, and a bar for a step that counts its calls to the model: reading a
+    // photographed page takes a call per element, and without the bar minutes of it look like standing still
+    const progress = ( text, share = null ) => {
+        if ( !$( '[data-bar]', body ) ) {
+            body.innerHTML = tpl.render( 'recognizing', { progress: text, bar: { pct: 0 } } );
+        }
+        $( '[data-progress]', body ).textContent = text;
+        $( '[data-bar]', body ).style.width = Math.round( 100 * Math.min( 1, share || 0 ) ) + '%';
     };
     progress( t( 'job.idle' ) );
     if ( ctx.router.top().id !== 'verify' ) {
@@ -93,7 +103,7 @@ async function runJob( ctx, create ) {
     try {
         const id = await create( progress );
         await api.run( id );
-        const { job, run } = await api.wait( id, ( r ) => progress( t( 'job.' + r.step, { n: r.page } ) ) );
+        const { job, run } = await api.wait( id, ( r ) => progress( t( 'job.' + r.step, { n: r.page } ) + ( r.of ? ' ' + t( 'job.count', { a: r.done, b: r.of } ) : '' ), r.of ? r.done / r.of : null ) );
         if ( run.step === 'error' ) {
             throw new Error( run.error || 'pipeline' );
         }
@@ -112,7 +122,8 @@ function begin( ctx ) {
     const { state, t } = ctx;
     const f = state.form;
     const fields = fieldsOf( f ).map( ( fl ) => ( {
-        key: fl.id, id: fl.id, page: fl.page || 1, x: fl.x, y: fl.y, w: fl.w, h: fl.h, label: fl.bare ? '' : fl.label, kind: fl.kind, option: fl.opt || '', group: fl.group || '',
+        key: fl.id, id: fl.id, page: fl.page || 1, x: fl.x, y: fl.y, w: fl.w, h: fl.h, label: fl.bare ? '' : fl.label, kind: fl.kind, proposed: !!fl.proposed, option: fl.opt || '', group: fl.group || '',
+        values: ( fl.choices || [] ).map( ( c ) => c.value ).join( '\n' ),
         doubt: !!fl.doubt, on: true, unit: fl.id in f.asks, question: f.asks[ fl.id ]?.question || '', required: !!f.asks[ fl.id ]?.required,
     } ) );
     let before = null;
@@ -144,7 +155,10 @@ export function render( ctx ) {
         doubt: w.doubt && w.on,
         open: work.sel === w.key,
         kinds: KINDS.map( ( [ value, key ] ) => ( { value, label: t( key ), on: value === w.kind } ) ),
+        proposed: !!w.proposed,
         mark: MARK.includes( w.kind ),
+        writing: WRITING.includes( w.kind ),
+        values: w.values || '',
         option: w.option,
         join: !!w.join,
         unit: w.unit,
@@ -241,7 +255,7 @@ function place( ctx, p ) {
     const [ width, height ] = mid ? [ Math.min( mid.w, FIELD[ 0 ] ), mid.h ] : FIELD;
     const key = 'new' + ( ++work.added );
     work.fields.push( {
-        key, id: null, page, w: width, h: height, label: '', kind: 'text', option: '', group: '', doubt: false, on: true, unit: true, question: '', required: false, join: false,
+        key, id: null, page, w: width, h: height, label: '', kind: 'text', option: '', group: '', values: '', doubt: false, on: true, unit: true, question: '', required: false, join: false,
         x: Math.round( Math.max( 0, Math.min( p.x - width / 2, size.w - width ) ) ),
         y: Math.round( Math.max( 0, Math.min( p.y - tops[ page - 1 ] - height / 2, size.h - height ) ) ),
     } );
@@ -264,6 +278,10 @@ function set( ctx, el ) {
     if ( name === 'label' ) {
         // a label a person wrote is not doubted any more
         w.doubt = false;
+    }
+    if ( name === 'kind' ) {
+        // the kind a person chose is no proposal any more
+        w.proposed = false;
     }
     if ( name === 'label' || name === 'kind' ) {
         render( ctx );
@@ -289,6 +307,8 @@ function edited( work ) {
         fields: work.fields.filter( ( w ) => w.on ).map( ( w ) => ( {
             ...( w.id ? { id: w.id } : {} ), page: w.page, x: w.x, y: w.y, width: w.w, height: w.h, label: w.label, kind: w.kind,
             ...( MARK.includes( w.kind ) ? { option: w.option, group: w.group } : {} ),
+            // the values a writing field may take, one per line as typed; none: the field takes anything
+            ...( WRITING.includes( w.kind ) ? { values: ( w.values || '' ).split( /\r?\n/ ).map( ( x ) => x.trim() ).filter( Boolean ) } : {} ),
             ...( w.unit ? { question: w.question, required: w.required } : {} ),
         } ) ),
     };

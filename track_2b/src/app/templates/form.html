@@ -14,6 +14,7 @@
     {{#isPreview}}<div class="hero"><p class="eyebrow">{{t:preview}}</p>{{pvHint}}</div><div class="pv"><span class="small muted">{{pvMeta}}</span>{{{preview}}}</div>{{/isPreview}}
     {{#isTranscript}}
         {{#transcribing}}<div class="grey row"><div class="spinner"></div><p class="small muted">{{t:rec.transcribing}}</p></div>{{/transcribing}}
+        {{#unheard}}<div class="grey row"><p class="small grow">{{t:job.unanswered}}</p><button class="btn sm press" data-again>{{t:rec.again}}</button></div>{{/unheard}}
         {{^transcript}}{{^transcribing}}<div class="grey centre"><p class="muted">{{t:tr.empty}}</p></div>{{/transcribing}}{{/transcript}}
         {{#transcript}}<div class="seg press"><div class="meta"><span class="num">{{t}}</span><span>{{section}}</span></div>{{summary}}<div class="raw">{{raw}}</div></div>{{/transcript}}
         {{#transcript.length}}<p class="small muted">{{trHint}}</p>{{/transcript.length}}

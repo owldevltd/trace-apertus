@@ -3,7 +3,7 @@
     {{#chip}}<span class="state"><span class="chip {{chip}}">{{chipLabel}}</span></span>{{/chip}}
     <span class="value{{#isEmpty}} empty{{/isEmpty}}">{{shown}}</span>
     {{#said}}<span class="wide said">{{said}}</span>{{/said}}
-    {{#unclear}}<div class="wide suggest"><span class="ico">?</span><span class="grow">{{note}}</span><span class="row gap"><button class="btn sm press" data-confirm="{{id}}">{{t:correct}}</button><button class="btn outline sm press" data-edit="{{id}}">{{t:change}}</button></span></div>{{/unclear}}
+    {{#unclear}}<div class="wide suggest"><span class="ico">?</span><span class="grow">{{note}}</span></div><div class="wide picks">{{#picks}}<button class="opt press{{#on}} on{{/on}}" data-choose="{{id}}" data-value="{{value}}">{{label}}</button>{{/picks}}{{#other}}<button class="btn outline sm press" data-edit="{{id}}">{{other}}</button>{{/other}}</div>{{/unclear}}
     {{#missing}}<div class="wide suggest"><span class="ico">!</span><span class="grow">{{note}}</span><button class="btn sm press" data-edit="{{id}}">{{t:enter}}</button></div>{{/missing}}
     {{#editable}}<div class="wide end"><button class="btn outline sm press" data-edit="{{id}}">{{t:change}}</button></div>{{/editable}}
 </div>

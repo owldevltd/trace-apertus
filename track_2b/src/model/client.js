@@ -1,14 +1,27 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-// The one door to the model. Every call goes through a single queue, one after the other, with a pause between
-// calls and a longer rest every STAGE calls; after a 403 or 429 nothing more is sent. The raw exchange is written
-// per call, with prompt, model, temperature, duration and finish reason, so a run can be read back without the model.
+// The one door to the model. Every call goes through a single queue, one after the other. The queue takes a
+// breath of half a second after every BLOCK calls. When the service turns a call down with a 4xx, the queue waits
+// half a second and sends the same call once more; if that one comes back with a 403 or 429 as well, nothing more
+// is sent. The raw exchange is written per call, with prompt, model, temperature, duration and finish reason, so
+// a run can be read back without the model.
+//
+// Until 11 October 2026 the queue paused two seconds before every call and twenty seconds before every fiftieth,
+// and halted at the first 403 or 429. Measured that day on a photographed page captured through the app, 94
+// calls, 4 min 33 s from the page image to the finished dialogue: 64 s were the model's and 204 s the queue's
+// own pauses; a reading call was answered in 0.33 s on average. The pace below was set by hand the same day. The
+// service names no limit in the headers of its answers.
 
-const PAUSE = 2000;
-const STAGE = 50;
-const STAGE_REST = 20000;
+const BLOCK = 10;
+const PAUSE = 500;
+const REFUSED = 500;
 const TIMEOUT = 180000;
+
+// How long the queue waits before its next call, after this many calls.
+export function rest( calls ) {
+    return calls > 0 && calls % BLOCK === 0 ? PAUSE : 0;
+}
 
 // One client per process: the queue is what keeps the calls sequential across jobs.
 export function createClient( config ) {
@@ -27,8 +40,22 @@ export function createClient( config ) {
         if ( state.halted || !config.apiKey ) {
             return null;
         }
-        if ( state.calls > 0 ) {
-            await sleep( state.calls % STAGE === 0 ? STAGE_REST : PAUSE );
+        let sent = await once( prompt, options );
+        if ( sent.http >= 400 && sent.http < 500 ) {
+            await sleep( REFUSED );
+            sent = await once( prompt, options );
+            if ( sent.http === 403 || sent.http === 429 ) {
+                state.halted = sent.http;
+            }
+        }
+        return sent.result;
+    }
+
+    // one call as it goes out: { http, result }
+    async function once( prompt, options ) {
+        const wait = rest( state.calls );
+        if ( wait ) {
+            await sleep( wait );
         }
         state.calls++;
         const content = [ { type: 'text', text: prompt } ];
@@ -65,9 +92,6 @@ export function createClient( config ) {
         } finally {
             clearTimeout( timer );
         }
-        if ( http === 403 || http === 429 ) {
-            state.halted = http;
-        }
         const text = answer?.choices?.[ 0 ]?.message?.content;
         const result = typeof text === 'string'
             ? { text: text.trim(), http, usage: answer.usage || null, finish: answer.choices[ 0 ].finish_reason || null }
@@ -89,7 +113,7 @@ export function createClient( config ) {
                 answer,
             }, null, 2 ) );
         }
-        return result;
+        return { http, result };
     }
 
     return { ask, state };

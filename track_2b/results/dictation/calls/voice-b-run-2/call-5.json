@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T22:03:56.375Z",
+ "tag": "fill f19",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 400,
+ "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Ich heisse Anna Keller und bin am 14. März 1988 geboren. Ich bin Schweizerin und arbeite als Buchhalterin. Ich wohne an der Bahnhofstrasse 12 und 8 4 0 0 in Detwil. Meine Telefonnummer ist 0 7 9 4 1 2 3 6 8 5. Ich trete per 31. Dezember 2026 aus der Firma aus. Ich möchte die Versicherung weiterführen und wünsche eine unverbindliche Offerte, unterschrieben am 11. Oktober 2026.\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- f19: Datum (An welchem Datum wird die Austrittsmeldung unterschrieben?) — Vorgabe: Datum als TT.MM.JJJJ\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+ "image": 0,
+ "audio": 0,
+ "ms": 219,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-97fd408d-0482-45bc-9161-7af1354f1f32",
+  "object": "chat.completion",
+  "created": 1791756239,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "f19: 11.10.2026 [p1]",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 365,
+   "total_tokens": 385,
+   "completion_tokens": 20,
+   "prompt_tokens_details": {
+    "cached_tokens": 352,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

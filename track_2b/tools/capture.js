@@ -5,6 +5,7 @@ import { createClient } from '../src/model/client.js';
 import { LARGE } from '../src/review/catalogue.js';
 import { loadCatalogue } from '../src/review/hints.js';
 import { bindRequired } from '../src/dialogue/required.js';
+import { predictKinds } from '../src/fields/predictor.js';
 import { close } from '../src/workers.js';
 import { jobDir, loadRun } from '../src/job.js';
 import { runPipeline } from '../src/pipeline.js';
@@ -13,7 +14,8 @@ import { listShipped, startShipped, keepCaptured } from '../src/shipped.js';
 // Captures the shipped forms: runs the pipeline over each one once, as the app does for a photographed form, and
 // keeps what it found beside the form as data/forms/<form>/captured.json (pages, blocks, fields, dialogue). The
 // app then opens a shipped form without recognizing anything. The text comes from the text layer of the PDF; the
-// questions of the dialogue are written and checked by the model, 47 calls for the four forms, and the questions
+// questions of the dialogue are written and checked by the model, 47 calls for the four forms, the kinds of the
+// fields are proposed by it, 7 calls, and the questions
 // at which a form requires an entry are marked from its catalogue, 29 calls. A preparation
 // step, its result is committed; a form's questions are written once and kept, not anew for every job.
 // Needs LLM_API_KEY.
@@ -22,7 +24,10 @@ import { listShipped, startShipped, keepCaptured } from '../src/shipped.js';
 // are bound to the questions (29 calls for the four forms), the questions themselves stay as they are, and
 // --out=<file.md> gets the report of that binding.
 //
-//   node --env-file=.env tools/capture.js [--required [--out=<file.md>]] [<form> …]
+// With --kinds only the kinds are proposed anew on what is kept: what each field the geometry calls text takes,
+// one call per page (7 calls for the four forms); fields, questions and required marks stay as they are.
+//
+//   node --env-file=.env tools/capture.js [--required [--out=<file.md>] | --kinds] [<form> …]
 
 if ( !config.apiKey ) {
     console.log( 'no LLM_API_KEY: the forms would be captured without questions' );
@@ -70,6 +75,27 @@ if ( process.argv.includes( '--required' ) ) {
             + '|---|---:|---:|---:|---:|---:|---|---:|\n' + rows
             + '\n## Every required entry, to read\n\n| form | required entry | bound by | questions | named by both models, dropped by the check back |\n|---|---|---|---|---|\n' + read );
         console.log( 'written ' + outFile );
+    }
+    process.exit( 0 );
+}
+
+if ( process.argv.includes( '--kinds' ) ) {
+    for ( const form of forms ) {
+        const file = path.join( config.dataDir, 'forms', form.id, 'captured.json' );
+        const captured = JSON.parse( await fs.readFile( file, 'utf8' ) );
+        const before = client.state.calls;
+        const changed = await predictKinds( captured, captured.dialogue.units, client, null );
+        if ( client.state.halted ) {
+            console.log( form.id + ': halted by HTTP ' + client.state.halted + ', nothing kept' );
+            process.exit( 1 );
+        }
+        await fs.writeFile( file, JSON.stringify( captured ) + '\n' );
+        const count = {};
+        for ( const f of captured.fields.filter( ( x ) => x.kindBy === 'model' ) ) {
+            count[ f.kind ] = ( count[ f.kind ] || 0 ) + 1;
+        }
+        console.log( form.id.padEnd( 28 ) + ' ' + changed.length + ' fields with another kind, proposed now: ' + ( Object.entries( count ).map( ( [ k, n ] ) => n + ' ' + k ).join( ', ' ) || 'none' )
+            + ', ' + ( client.state.calls - before ) + ' calls' );
     }
     process.exit( 0 );
 }

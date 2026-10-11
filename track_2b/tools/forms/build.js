@@ -16,7 +16,7 @@ const run = promisify( execFile );
 const here = path.dirname( fileURLToPath( import.meta.url ) );
 const root = path.resolve( here, '..', '..' );
 
-const ALL = [ 'arbeitsfaehigkeitszeugnis', 'schadenmeldung-uvg' ];
+const ALL = [ 'arbeitsfaehigkeitszeugnis', 'austrittsmeldung', 'schadenmeldung-uvg' ];
 const ids = process.argv.slice( 2 ).length ? process.argv.slice( 2 ) : ALL;
 
 for ( const id of ids ) {

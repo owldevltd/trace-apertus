@@ -13,8 +13,45 @@ const ROW = 0.7;
 const COLUMN = 1.0;
 const ROW_GAP = 2.0;
 
+// A table is a list of entries when its rows say the same thing again: every cell has a label, and each row
+// carries the labels of the first, column by column ("further claims": ground, amount, interest, nine times).
+// Such a table repeats: it is asked one entry at a time, and a row nobody filled is not shown. A table whose
+// rows each mean something of their own (a wage table with a line per kind of pay) is asked as a whole.
+export function repeats( cells, columns ) {
+    const labels = cells.map( ( f ) => ( f.label || '' ).trim() );
+    return columns > 0 && cells.length > columns && labels.every( ( l, i ) => l !== '' && l === labels[ i % columns ] );
+}
+
+// The rows of a table unit, each the ids of its cells.
+export function rowsOf( unit ) {
+    return Array.from( { length: unit.rows }, ( _, r ) => unit.fields.slice( r * unit.columns, ( r + 1 ) * unit.columns ) );
+}
+
+// A date printed as three boxes in a row, for the day, the month and the year, is one thing to ask and to say:
+// the three are one unit, a table of one row that carries parts "date". The answer is read as one date and
+// code puts its parts into the boxes. Known by the labels, in the four languages of the app.
+const PARTS = [ /^(tag|jour|giorno|day)$/i, /^(monat|mois|mese|month)$/i, /^(jahr|année|annee|anno|year)$/i ];
+
+function dates( inputs, unit ) {
+    const out = [];
+    const rows = [ ...inputs ].sort( ( a, b ) => a.x - b.x );
+    for ( const first of rows.filter( ( f ) => PARTS[ 0 ].test( ( f.label || '' ).trim() ) ) ) {
+        const row = rows.filter( ( f ) => Math.abs( f.y - first.y ) <= ROW * unit && f.x >= first.x );
+        if ( row.length >= 3 && PARTS[ 1 ].test( ( row[ 1 ].label || '' ).trim() ) && PARTS[ 2 ].test( ( row[ 2 ].label || '' ).trim() ) ) {
+            out.push( row.slice( 0, 3 ) );
+        }
+    }
+    return out;
+}
+
+// The first row of a table nothing stands in yet, counted from 1; 0 when every row is taken.
+export function freeRow( job, unit ) {
+    const fields = new Map( job.fields.map( ( f ) => [ f.id, f ] ) );
+    return rowsOf( unit ).findIndex( ( row ) => !row.some( ( id ) => fields.get( id ) && ( fields.get( id ).value || fields.get( id ).source ) ) ) + 1;
+}
+
 // The units of a job in the order of the conversation, which is the order of the paper: q1, q2, …
-// A unit: { id, kind, page, fields: [ field ids ], label, rows?, columns?, skip? }.
+// A unit: { id, kind, page, fields: [ field ids ], label, rows?, columns?, repeat?, parts?, skip? }.
 export function buildUnits( job ) {
     const units = [];
     // a fillable original knows its fields: a place it has no form field for is not asked (a section bar, an
@@ -39,6 +76,10 @@ export function buildUnits( job ) {
         for ( const group of [ ...grouped.values(), ...boxes ] ) {
             take( group.length > 1 ? 'choice' : 'single', group );
         }
+        const written = ( x ) => !taken.has( x ) && x.kind !== 'checkbox' && x.kind !== 'radio';
+        for ( const three of dates( here.filter( written ), page.unit ) ) {
+            take( 'table', three, { rows: 1, columns: 3, parts: 'date' } );
+        }
         for ( const rows of tables( here.filter( ( x ) => !taken.has( x ) ), page.unit ) ) {
             take( 'table', rows.flat(), { rows: rows.length, columns: rows[ 0 ].length } );
         }
@@ -53,6 +94,11 @@ export function buildUnits( job ) {
             if ( u.kind === 'table' ) {
                 unit.rows = u.rows;
                 unit.columns = u.columns;
+                if ( u.parts ) {
+                    unit.parts = u.parts;
+                } else if ( repeats( u.fields, u.columns ) ) {
+                    unit.repeat = true;
+                }
             }
             // a field a person put there is asked: the output draws its value on the page
             if ( fillable && !u.fields.some( ( f ) => f.widget || f.by === 'person' ) ) {

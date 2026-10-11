@@ -1,0 +1,315 @@
+{
+    "about": "What stands printed beside each form field of this form, and which tick boxes belong together: taken from the definition the form is built from (tools/forms/arbeitsfaehigkeitszeugnis.js). Applied by tools/correct.js. Where the model's question was wrong, did not hold or spoke to the wrong person, the question was written by hand (all questions of the form were read on 11 October 2026).",
+    "fields": {
+        "Name Vorname": {
+            "label": "Name / Vorname",
+            "question": "Wie heisst die Arbeitnehmerin oder der Arbeitnehmer, mit Namen und Vornamen?"
+        },
+        "Geburtsdatum": {
+            "label": "Geb.-Dat.",
+            "question": "Wann ist die Person geboren?"
+        },
+        "Geschlecht/1": {
+            "label": "w",
+            "option": "w"
+        },
+        "Geschlecht/2": {
+            "label": "m",
+            "option": "m"
+        },
+        "Adresse Arbeitnehmer": {
+            "label": "Adresse / PLZ",
+            "question": "Wie lautet die Adresse der Person, mit Postleitzahl und Ort?"
+        },
+        "AHV-Nummer": {
+            "label": "AHV-Nr."
+        },
+        "Telefon Arbeitnehmer": {
+            "label": "Telefon"
+        },
+        "E-Mail Arbeitnehmer": {
+            "label": "E-Mail"
+        },
+        "Firmenname": {
+            "label": "Firmenname"
+        },
+        "Kontaktperson": {
+            "label": "Kontaktperson"
+        },
+        "Adresse Arbeitgeber": {
+            "label": "Adresse / PLZ",
+            "question": "Wie lautet die Adresse des Arbeitgebers, mit Postleitzahl und Ort?"
+        },
+        "Telefon Arbeitgeber": {
+            "label": "Telefon",
+            "question": "Welche Telefonnummer hat der Arbeitgeber?"
+        },
+        "E-Mail Arbeitgeber": {
+            "label": "E-Mail"
+        },
+        "Funktion Beruf": {
+            "label": "Funktion / ausgeübter Beruf"
+        },
+        "Eintrittsjahr": {
+            "label": "Eintrittsjahr",
+            "question": "In welchem Jahr ist die Person in den Betrieb eingetreten?"
+        },
+        "Stunden pro Tag": {
+            "label": "Std. / Tag",
+            "question": "Wie viele Stunden arbeitet die Person pro Tag?"
+        },
+        "Arbeitszeit/1": {
+            "label": "Vollzeit (100 %)",
+            "option": "Vollzeit (100 %)"
+        },
+        "Arbeitszeit/2": {
+            "label": "Teilzeit",
+            "option": "Teilzeit"
+        },
+        "Teilzeit Prozent": {
+            "label": "Teilzeit",
+            "question": "Bei Teilzeit: Wie viel Prozent beträgt das Pensum?"
+        },
+        "Wochenarbeitszeit Einsatztage": {
+            "label": "Wochenarbeitszeit / Einsatztage",
+            "question": "Wie viele Stunden arbeitet die Person pro Woche, und an welchen Tagen?"
+        },
+        "Gekündigt per": {
+            "label": "Bei Kündigung: Arbeitsverhältnis gekündigt per"
+        },
+        "Ursache/1": {
+            "label": "Krankheit",
+            "option": "Krankheit"
+        },
+        "Ursache/2": {
+            "label": "Unfall",
+            "option": "Unfall"
+        },
+        "Ursache/3": {
+            "label": "Berufskrankheit",
+            "option": "Berufskrankheit"
+        },
+        "Grundlage volle Arbeitsunfähigkeit/1": {
+            "label": "REP",
+            "option": "REP",
+            "question": "Worauf stützt sich die volle Arbeitsunfähigkeit: auf das Eingliederungsprofil oder auf den Arbeitsplatzbeschrieb?"
+        },
+        "Grundlage volle Arbeitsunfähigkeit/2": {
+            "label": "Arbeitsplatzbeschrieb",
+            "option": "Arbeitsplatzbeschrieb"
+        },
+        "REP vom (volle AU)": {
+            "label": "REP vom",
+            "question": "Von welchem Datum ist das Eingliederungsprofil, auf das sich die volle Arbeitsunfähigkeit stützt?"
+        },
+        "Arbeitsplatzbeschrieb vom (volle AU)": {
+            "label": "Arbeitsplatzbeschrieb vom",
+            "question": "Von welchem Datum ist der Arbeitsplatzbeschrieb, auf den sich die volle Arbeitsunfähigkeit stützt?"
+        },
+        "Volle AU Konsultation 1": {
+            "label": "Konsultationsdatum",
+            "question": "Für welche Zeiträume ist die Person voll arbeitsunfähig? Zu jedem Zeitraum: das Datum der Konsultation, von wann bis wann, und wann die nächste Konsultation ist."
+        },
+        "Volle AU von 1": {
+            "label": "von"
+        },
+        "Volle AU bis 1": {
+            "label": "bis"
+        },
+        "Volle AU Nächste Konsultation 1": {
+            "label": "nächste Konsultation"
+        },
+        "Volle AU Visum 1": {
+            "label": "Visum"
+        },
+        "Volle AU Konsultation 2": {
+            "label": "Konsultationsdatum"
+        },
+        "Volle AU von 2": {
+            "label": "von"
+        },
+        "Volle AU bis 2": {
+            "label": "bis"
+        },
+        "Volle AU Nächste Konsultation 2": {
+            "label": "nächste Konsultation"
+        },
+        "Volle AU Visum 2": {
+            "label": "Visum"
+        },
+        "Volle AU Konsultation 3": {
+            "label": "Konsultationsdatum"
+        },
+        "Volle AU von 3": {
+            "label": "von"
+        },
+        "Volle AU bis 3": {
+            "label": "bis"
+        },
+        "Volle AU Nächste Konsultation 3": {
+            "label": "nächste Konsultation"
+        },
+        "Volle AU Visum 3": {
+            "label": "Visum"
+        },
+        "Arbeitsplatzbezogene Arbeitsunfähigkeit/1": {
+            "label": "ja",
+            "option": "ja"
+        },
+        "Arbeitsplatzbezogene Arbeitsunfähigkeit/2": {
+            "label": "nein",
+            "option": "nein"
+        },
+        "Grundlage Teilarbeitsfähigkeit/1": {
+            "label": "REP",
+            "option": "REP",
+            "question": "Worauf stützt sich die Teilarbeitsfähigkeit: auf das Eingliederungsprofil oder auf den Arbeitsplatzbeschrieb?"
+        },
+        "Grundlage Teilarbeitsfähigkeit/2": {
+            "label": "Arbeitsplatzbeschrieb",
+            "option": "Arbeitsplatzbeschrieb"
+        },
+        "REP vom (Teil-AF)": {
+            "label": "REP vom",
+            "question": "Von welchem Datum ist das Eingliederungsprofil, auf das sich die Teilarbeitsfähigkeit stützt?"
+        },
+        "Arbeitsplatzbeschrieb vom (Teil-AF)": {
+            "label": "Arbeitsplatzbeschrieb vom",
+            "question": "Von welchem Datum ist der Arbeitsplatzbeschrieb, auf den sich die Teilarbeitsfähigkeit stützt?"
+        },
+        "Teil-AF Konsultation 1": {
+            "label": "Konsultationsdatum",
+            "question": "Für welche Zeiträume ist die Person teilweise arbeitsfähig? Zu jedem Zeitraum: das Datum der Konsultation, die Präsenzzeit in Stunden pro Tag und in Prozent des Pensums, die Leistungsfähigkeit in der Präsenzzeit, die Arbeitsfähigkeit gesamt in Prozent, von wann bis wann, und wann die nächste Konsultation ist."
+        },
+        "Teil-AF Präsenzzeit Std 1": {
+            "label": "Präsenzzeit Std. pro Tag"
+        },
+        "Teil-AF Präsenzzeit Prozent 1": {
+            "label": "Präsenzzeit % Pensum"
+        },
+        "Teil-AF Leistungsfähigkeit 1": {
+            "label": "Leistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %"
+        },
+        "Teil-AF Arbeitsfähigkeit 1": {
+            "label": "Arbeitsfähigkeit gesamt %"
+        },
+        "Teil-AF von 1": {
+            "label": "von"
+        },
+        "Teil-AF bis 1": {
+            "label": "bis"
+        },
+        "Teil-AF Nächste Konsultation 1": {
+            "label": "nächste Konsultation"
+        },
+        "Teil-AF Visum 1": {
+            "label": "Visum"
+        },
+        "Teil-AF Konsultation 2": {
+            "label": "Konsultationsdatum"
+        },
+        "Teil-AF Präsenzzeit Std 2": {
+            "label": "Präsenzzeit Std. pro Tag"
+        },
+        "Teil-AF Präsenzzeit Prozent 2": {
+            "label": "Präsenzzeit % Pensum"
+        },
+        "Teil-AF Leistungsfähigkeit 2": {
+            "label": "Leistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %"
+        },
+        "Teil-AF Arbeitsfähigkeit 2": {
+            "label": "Arbeitsfähigkeit gesamt %"
+        },
+        "Teil-AF von 2": {
+            "label": "von"
+        },
+        "Teil-AF bis 2": {
+            "label": "bis"
+        },
+        "Teil-AF Nächste Konsultation 2": {
+            "label": "nächste Konsultation"
+        },
+        "Teil-AF Visum 2": {
+            "label": "Visum"
+        },
+        "Teil-AF Konsultation 3": {
+            "label": "Konsultationsdatum"
+        },
+        "Teil-AF Präsenzzeit Std 3": {
+            "label": "Präsenzzeit Std. pro Tag"
+        },
+        "Teil-AF Präsenzzeit Prozent 3": {
+            "label": "Präsenzzeit % Pensum"
+        },
+        "Teil-AF Leistungsfähigkeit 3": {
+            "label": "Leistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %"
+        },
+        "Teil-AF Arbeitsfähigkeit 3": {
+            "label": "Arbeitsfähigkeit gesamt %"
+        },
+        "Teil-AF von 3": {
+            "label": "von"
+        },
+        "Teil-AF bis 3": {
+            "label": "bis"
+        },
+        "Teil-AF Nächste Konsultation 3": {
+            "label": "nächste Konsultation"
+        },
+        "Teil-AF Visum 3": {
+            "label": "Visum"
+        },
+        "Teil-AF Konsultation 4": {
+            "label": "Konsultationsdatum"
+        },
+        "Teil-AF Präsenzzeit Std 4": {
+            "label": "Präsenzzeit Std. pro Tag"
+        },
+        "Teil-AF Präsenzzeit Prozent 4": {
+            "label": "Präsenzzeit % Pensum"
+        },
+        "Teil-AF Leistungsfähigkeit 4": {
+            "label": "Leistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %"
+        },
+        "Teil-AF Arbeitsfähigkeit 4": {
+            "label": "Arbeitsfähigkeit gesamt %"
+        },
+        "Teil-AF von 4": {
+            "label": "von"
+        },
+        "Teil-AF bis 4": {
+            "label": "bis"
+        },
+        "Teil-AF Nächste Konsultation 4": {
+            "label": "nächste Konsultation"
+        },
+        "Teil-AF Visum 4": {
+            "label": "Visum"
+        },
+        "Wiederaufnahme ab": {
+            "label": "Wiederaufnahme der Arbeit zu 100 % ab",
+            "question": "Ab wann kann die Person wieder zu 100 Prozent arbeiten?"
+        },
+        "Bemerkungen": {
+            "label": "Bemerkungen"
+        },
+        "Kontakt erwünscht/1": {
+            "label": "ja",
+            "option": "ja",
+            "question": "Wünscht die Ärztin oder der Arzt Kontakt mit dem Arbeitgeber?"
+        },
+        "Kontakt erwünscht/2": {
+            "label": "nein",
+            "option": "nein"
+        },
+        "Arzt": {
+            "label": "Arzt / Ärztin (Name, Stempel)"
+        },
+        "Datum": {
+            "label": "Datum"
+        },
+        "Unterschrift": {
+            "label": "Unterschrift"
+        }
+    }
+}

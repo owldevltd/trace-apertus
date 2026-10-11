@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Trace form",
-  "description": "A captured form: its pages and elements, the fields found on it, the form as a conversation, the values dictated into the fields, hints, and what a person decided. Version 2b-0.2 (draft, 2026-10-09).",
+  "description": "A captured form: its pages and elements, the fields found on it, the form as a conversation, the values dictated into the fields, hints, and what a person decided. Version 2b-0.3 (draft, 2026-10-11).",
   "type": "object",
   "required": [
     "schema",
@@ -12,7 +12,7 @@
   ],
   "properties": {
     "schema": {
-      "const": "2b-0.2"
+      "const": "2b-0.3"
     },
     "id": {
       "type": "string",
@@ -191,6 +191,17 @@
                 "type": "integer",
                 "description": "for a table"
               },
+              "repeat": {
+                "type": "boolean",
+                "description": "for a table: its rows are entries of one list, each row with the same labels column by column; asked one entry at a time, and a row nothing stands in is not shown"
+              },
+              "parts": {
+                "type": "string",
+                "enum": [
+                  "date"
+                ],
+                "description": "for a table of one row: its three fields are the day, the month and the year of one date; asked once, the answer read as a date and put into them by code"
+              },
               "question": {
                 "type": "string",
                 "description": "the plain question, present only when it passed the check: every run named this unit, and no other unit of the page is asked with the same words"
@@ -252,6 +263,16 @@
                       "description": "for a choice: the label of each option in this language, by field id",
                       "additionalProperties": {
                         "type": "string"
+                      }
+                    },
+                    "values": {
+                      "type": "object",
+                      "description": "the values of the unit's fields in this language, by field id, in the order of fields[].values",
+                      "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
                       }
                     }
                   },
@@ -326,6 +347,10 @@
           "question": {
             "type": "string",
             "description": "id of the dialogue unit this piece was said or typed in reply to"
+          },
+          "row": {
+            "type": "integer",
+            "description": "for a reply to a list of entries: the first row of the table its entries went into, counted from 1"
           }
         },
         "additionalProperties": false
@@ -482,10 +507,25 @@
             "multiline",
             "number",
             "date",
+            "time",
+            "phone",
+            "email",
+            "postcode",
+            "iban",
+            "identifier",
             "checkbox",
             "radio",
             "signature"
-          ]
+          ],
+          "description": "what the field takes; a value is written and checked by code the way its kind asks for"
+        },
+        "kindBy": {
+          "type": "string",
+          "enum": [
+            "model",
+            "person"
+          ],
+          "description": "who named the kind where the geometry did not: the model proposed it, or a person set it in the mask; a kind a person set is never proposed anew"
         },
         "page": {
           "type": "integer"
@@ -517,6 +557,14 @@
         "option": {
           "type": "string",
           "description": "for a radio or checkbox: what ticking it means, from its label"
+        },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "description": "the values a writing field may take, in the language of the form, set by the person who keeps the form; such a field takes one of them or stays empty"
         },
         "required": {
           "type": "boolean",
@@ -571,9 +619,10 @@
             "derived",
             "cited",
             "composed",
+            "chosen",
             "entered"
           ],
-          "description": "literal: the value stands in the transcript as is; derived: every word of it does, in another order; cited: the model named the piece but the words are not there; composed: the model phrased it; entered: a person typed it"
+          "description": "literal: the value stands in the transcript as is; derived: every word of it does, in another order; cited: the model named the piece but the words are not there; composed: the model phrased it; chosen: the model picked it from the field's values and the entry does not stand in the transcript; entered: a person typed or picked it"
         },
         "approve": {
           "type": "boolean",
@@ -666,12 +715,20 @@
             "vague",
             "incomplete",
             "legal",
-            "format"
+            "format",
+            "double"
           ],
-          "description": "missing: required field empty (code); vague: the model found the entry insufficient against the catalogue; incomplete: the model found that the answer does not cover what the question asks for; legal: the catalogue's requirement for this field; format: the value does not fit the kind (code)"
+          "description": "missing: required field empty (code); vague: the model found the entry insufficient against the catalogue; incomplete: the model found that the answer does not cover what the question asks for; legal: the catalogue's requirement for this field; format: the value does not fit the kind (code); double: the same value came out of a dictation in one go into two fields (code)"
         },
         "text": {
           "type": "string"
+        },
+        "suggestions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "on a vague hint for a field without values: passages of what was said that may fit instead, each standing in the transcript as is"
         },
         "article": {
           "type": "string",

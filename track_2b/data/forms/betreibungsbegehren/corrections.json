@@ -1,0 +1,183 @@
+{
+    "about": "What stands printed beside the form fields of this form where the pipeline found no label or took another one: the two options of the payment details, and the columns of the claim and of the further claims (their headers stand once, above the first claim). Read off the page by hand. Applied by tools/correct.js. Where the model's question was wrong, did not hold or spoke to the wrong person, the question was written by hand (all questions of the form were read on 11 October 2026).",
+    "fields": {
+        "Zahlungsverbindung/1": {
+            "label": "des Gläubigers",
+            "option": "des Gläubigers",
+            "question": "Auf wessen Konto soll gezahlt werden: auf das des Gläubigers oder auf das des Vertreters?"
+        },
+        "Zahlungsverbindung/2": {
+            "label": "des Vertreters",
+            "option": "des Vertreters"
+        },
+        "Betrag1": {
+            "label": "Betrag (CHF)",
+            "kind": "number",
+            "question": "Wie hoch ist die Forderung in Franken?"
+        },
+        "Zins1": {
+            "label": "Zins %",
+            "kind": "number",
+            "question": "Wie viel Prozent Zins werden auf die Forderung verlangt?"
+        },
+        "Datum1": {
+            "label": "seit (Datum)",
+            "kind": "date",
+            "question": "Seit welchem Datum wird der Zins verlangt?"
+        },
+        "Forderung2.0": {
+            "label": "Forderungsgrund oder Forderungsurkunde mit Datum",
+            "question": "Gibt es weitere Forderungen? Wenn ja, zu jeder: der Grund, der Betrag in Franken, der Zins in Prozent und seit wann."
+        },
+        "Betrag2.0": {
+            "label": "Betrag (CHF)",
+            "kind": "number"
+        },
+        "Zins2.0": {
+            "label": "Zins %",
+            "kind": "number"
+        },
+        "Datum2.0": {
+            "label": "seit (Datum)",
+            "kind": "date"
+        },
+        "Forderung2.1": {
+            "label": "Forderungsgrund oder Forderungsurkunde mit Datum"
+        },
+        "Betrag2.1": {
+            "label": "Betrag (CHF)",
+            "kind": "number"
+        },
+        "Zins2.1": {
+            "label": "Zins %",
+            "kind": "number"
+        },
+        "Datum2.1": {
+            "label": "seit (Datum)",
+            "kind": "date"
+        },
+        "Forderung2.2": {
+            "label": "Forderungsgrund oder Forderungsurkunde mit Datum"
+        },
+        "Betrag2.2": {
+            "label": "Betrag (CHF)",
+            "kind": "number"
+        },
+        "Zins2.2": {
+            "label": "Zins %",
+            "kind": "number"
+        },
+        "Datum2.2": {
+            "label": "seit (Datum)",
+            "kind": "date"
+        },
+        "Forderung2.3": {
+            "label": "Forderungsgrund oder Forderungsurkunde mit Datum"
+        },
+        "Betrag2.3": {
+            "label": "Betrag (CHF)",
+            "kind": "number"
+        },
+        "Zins2.3": {
+            "label": "Zins %",
+            "kind": "number"
+        },
+        "Datum2.3": {
+            "label": "seit (Datum)",
+            "kind": "date"
+        },
+        "Forderung2.4": {
+            "label": "Forderungsgrund oder Forderungsurkunde mit Datum"
+        },
+        "Betrag2.4": {
+            "label": "Betrag (CHF)",
+            "kind": "number"
+        },
+        "Zins2.4": {
+            "label": "Zins %",
+            "kind": "number"
+        },
+        "Datum2.4": {
+            "label": "seit (Datum)",
+            "kind": "date"
+        },
+        "Forderung2.5": {
+            "label": "Forderungsgrund oder Forderungsurkunde mit Datum"
+        },
+        "Betrag2.5": {
+            "label": "Betrag (CHF)",
+            "kind": "number"
+        },
+        "Zins2.5": {
+            "label": "Zins %",
+            "kind": "number"
+        },
+        "Datum2.5": {
+            "label": "seit (Datum)",
+            "kind": "date"
+        },
+        "Forderung2.6": {
+            "label": "Forderungsgrund oder Forderungsurkunde mit Datum"
+        },
+        "Betrag2.6": {
+            "label": "Betrag (CHF)",
+            "kind": "number"
+        },
+        "Zins2.6": {
+            "label": "Zins %",
+            "kind": "number"
+        },
+        "Datum2.6": {
+            "label": "seit (Datum)",
+            "kind": "date"
+        },
+        "Forderung2.7": {
+            "label": "Forderungsgrund oder Forderungsurkunde mit Datum"
+        },
+        "Betrag2.7": {
+            "label": "Betrag (CHF)",
+            "kind": "number"
+        },
+        "Zins2.7": {
+            "label": "Zins %",
+            "kind": "number"
+        },
+        "Datum2.7": {
+            "label": "seit (Datum)",
+            "kind": "date"
+        },
+        "Forderung2.8": {
+            "label": "Forderungsgrund oder Forderungsurkunde mit Datum"
+        },
+        "Betrag2.8": {
+            "label": "Betrag (CHF)",
+            "kind": "number"
+        },
+        "Zins2.8": {
+            "label": "Zins %",
+            "kind": "number"
+        },
+        "Datum2.8": {
+            "label": "seit (Datum)",
+            "kind": "date"
+        },
+        "Betreibungsamt": {
+            "question": "Welches Betreibungsamt ist zuständig, und wie lautet seine Adresse?"
+        },
+        "Schuldner Geburtsdatum": {
+            "question": "Wann ist der Schuldner geboren, falls das bekannt ist?"
+        },
+        "Gläubiger": {
+            "question": "Wer ist der Gläubiger, also die Person oder Firma, die das Geld bekommen soll, und wie lautet die Adresse?"
+        },
+        "Rückfragen": {
+            "question": "Unter welcher Telefonnummer oder E-Mail-Adresse ist jemand für Rückfragen erreichbar?"
+        },
+        "Bemerkungen": {
+            "question": "Gibt es Bemerkungen zur Betreibung?"
+        },
+        "Fallreferenz": {
+            "question": "Gibt es eine eigene Fallreferenz, die auf dem Begehren stehen soll?"
+        }
+    }
+}

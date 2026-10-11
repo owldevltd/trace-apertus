@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T22:03:37.506Z",
+ "tag": "fill f13,f14,f15,f16,f17,f18",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 400,
+ "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Ich heiße Anna Keller und bin am 14. März 1988 geboren. Ich bin Schweizerin und arbeite als Buchhalterin. Ich wohne an der Bahnhofstrasse 12 in 8 4 0 0 Winterthur. Meine Telefonnummer ist 0 7 9 4 1 2 3 6 8 5. Ich trete per 31. Dezember 2026 aus der Firma aus. Ich möchte die Versicherung weiterführen und wünsche eine unverbindliche Offerte, unterschrieben am 11. Oktober 2026.\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- f13: männlich (Welches Geschlecht hat die versicherte Person: männlich oder weiblich?) — Vorgabe: Auswahl: ja oder nein\n- f14: weiblich (Welches Geschlecht hat die versicherte Person: männlich oder weiblich?) — Vorgabe: Auswahl: ja oder nein\n- f15: Ich werde/bin aus der Firma austreten/ausgetreten. (Tritt die versicherte Person aus der Firma aus, oder ist sie schon ausgetreten?) — Vorgabe: Kästchen: ja oder nein\n- f16: Austrittsdatum (Per wann tritt die versicherte Person aus der Firma aus?) — Vorgabe: Datum als TT.MM.JJJJ\n- f17: Ich bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte. (Möchte die versicherte Person die Versicherung weiterführen und dafür eine unverbindliche Offerte erhalten?) — Vorgabe: Kästchen: ja oder nein\n- f18: Ich verzichte auf mein Recht, die betreffende Versicherung weiterzuführen. (Verzichtet die versicherte Person auf ihr Recht, die Versicherung weiterzuführen?) — Vorgabe: Kästchen: ja oder nein\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+ "image": 0,
+ "audio": 0,
+ "ms": 511,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-8f7ec74d-38b2-4d3e-b23c-629b186b6260",
+  "object": "chat.completion",
+  "created": 1791756220,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "f13: nein [p1]\nf14: ja [p1]\nf15: ja [p1]\nf16: 31.12.2026 [p1]\nf17: ja [p1]\nf18: nein [p1]",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 609,
+   "total_tokens": 676,
+   "completion_tokens": 67,
+   "prompt_tokens_details": {
+    "cached_tokens": 256,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

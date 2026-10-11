@@ -46,8 +46,18 @@ export function drawPreview( sizes, blocks, fields, values, off = [] ) {
     sizes.forEach( ( s, i ) => {
         svg += '<rect x="0" y="' + offsets[ i ] + '" width="' + s.w + '" height="' + s.h + '" fill="var(--paper)"/>';
     } );
+    // The text of a tick mark's label is placed from the left edge of its line, and that is where the mark
+    // stands: drawn there, the first letters would lie under the mark ("heres Kader"). Such a text starts
+    // behind its mark.
+    const marks = fields.filter( ( f ) => f.kind === 'checkbox' || f.kind === 'radio' );
+    const behind = ( b ) => {
+        const m = b.type === 'text' && marks.find( ( f ) => ( f.page || 1 ) === ( b.page || 1 ) && f.x >= b.x - f.w / 2 && f.x - b.x < f.w && f.y + f.h / 2 > b.y && f.y + f.h / 2 < b.y + b.h && f.x + f.w < b.x + b.w );
+        const x = m ? m.x + m.w + m.h * 0.3 : b.x;
+        return m ? { ...b, x, w: b.x + b.w - x } : b;
+    };
     for ( const b of blocks || [] ) {
-        svg += drawBlock( { ...b, y: b.y + shift( b.page ) } );
+        const at = behind( b );
+        svg += drawBlock( { ...at, y: at.y + shift( at.page ) } );
     }
     for ( const f of fields ) {
         svg += drawField( { ...f, y: f.y + shift( f.page ) }, values ? values[ f.id ] : null, off.includes( f.id ) );

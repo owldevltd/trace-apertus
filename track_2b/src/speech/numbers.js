@@ -1,12 +1,18 @@
 // German number words become digits: "vierzehnten Mai neunzehnhundertachtunddreissig" → "14. Mai 1938".
 // Zero to 9 999, ordinals too ("dritten" → "3."). Articles stay words ("ein Rollator"). Everything else in the
 // text is left as it is. Ported from the evaluation script of the speech measurements (3 October 2026).
+//
+// "eins" is a number and no article. Counted 11 October 2026 in the 281 German transcripts of the speech
+// measurements: it occurs four times, each time said as a number ("halb eins", "mal eins neunhundert…"); in a
+// tester's dictation it stood as a word between digits ("fünf, eins, zwei") and behind a street name.
+// Digits said one after the other are not joined here: what a row of them is depends on the field it goes
+// into (src/fields/kinds.js).
 
 const ONES = { null: 0, ein: 1, eins: 1, eine: 1, zwei: 2, drei: 3, vier: 4, fünf: 5, sechs: 6, sieben: 7, acht: 8, neun: 9 };
 const TEENS = { zehn: 10, elf: 11, zwölf: 12, dreizehn: 13, vierzehn: 14, fünfzehn: 15, sechzehn: 16, siebzehn: 17, achtzehn: 18, neunzehn: 19 };
 const TENS = { zwanzig: 20, dreissig: 30, vierzig: 40, fünfzig: 50, sechzig: 60, siebzig: 70, achtzig: 80, neunzig: 90 };
 const ORDINAL = { erst: 1, dritt: 3, siebt: 7, acht: 8 };
-const ARTICLES = [ 'ein', 'eine', 'einen', 'einem', 'einer', 'eins' ];
+const ARTICLES = [ 'ein', 'eine', 'einen', 'einem', 'einer' ];
 const ENDINGS = [ 'sten', 'ster', 'stes', 'stem', 'ste', 'ten', 'ter', 'tes', 'tem', 'te' ];
 
 function below100( w ) {

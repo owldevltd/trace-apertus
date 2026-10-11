@@ -249,14 +249,19 @@ export async function open( ctx, files ) {
     }
     stop( ctx );
     for ( const file of files ) {
-        if ( !file.type.startsWith( 'image/' ) ) {
-            ctx.toast( ctx.t( 'cam.onlyimages' ) );
-            continue;
-        }
-        const source = await load( file );
-        await ingest( ctx, source );
+        await take( ctx, file );
     }
     ctx.state.reviewing = false;
+}
+
+// A chosen file as a page: an image the browser can open. Anything else is said and left out.
+async function take( ctx, file ) {
+    const source = file.type.startsWith( 'image/' ) ? await load( file ).catch( () => null ) : null;
+    if ( !source ) {
+        ctx.toast( ctx.t( 'cam.onlyimages' ) );
+        return;
+    }
+    await ingest( ctx, source );
 }
 
 function load( file ) {
@@ -292,7 +297,7 @@ export function wire( ctx ) {
         const files = [ ...e.target.files ];
         e.target.value = '';
         for ( const file of files ) {
-            await ingest( ctx, await load( file ) );
+            await take( ctx, file );
         }
     } );
     $( '[data-retake]', s ).addEventListener( 'click', () => {

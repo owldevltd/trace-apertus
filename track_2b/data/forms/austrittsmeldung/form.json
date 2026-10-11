@@ -1,0 +1,11 @@
+{
+    "name": "Austrittsmeldung",
+    "issuer": "Nachbau nach der SWICA-Austrittsmeldung",
+    "language": "de",
+    "pages": 1,
+    "origin": "rebuilt",
+    "model": "SWICA-Austrittsmeldung, Formular 303, Ausgabe 06.2025, first page; the fields of the insured person and their declaration, with a date and a signature added, own layout, built by tools/forms/build.js",
+    "file": "form.pdf",
+    "recipient": "versicherung@example.ch",
+    "subject": "Austrittsmeldung zur Signatur"
+}

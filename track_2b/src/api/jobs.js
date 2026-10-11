@@ -3,12 +3,15 @@ import path from 'node:path';
 import { config } from '../config.js';
 import { createJob, jobDir, saveJob, loadJob, loadRun, listJobs, addPage, record } from '../job.js';
 import { listForms, startShipped, keepOwn } from '../shipped.js';
-import { invalid, applyEdit, rebuild, planned, uncatalogued, runEdit } from '../fields/editor.js';
+import { invalid, applyEdit, rebuild, planned, uncatalogued, unkinded, runEdit } from '../fields/editor.js';
+import { fits } from '../fields/kinds.js';
 import { runPipeline } from '../pipeline.js';
-import { transcribeJob, transcribeAnswer } from '../speech/transcriber.js';
-import { fillJob, fillUnit } from '../fields/filler.js';
-import { hints, loadCatalogue, judgeVague, judgeEnough } from '../review/hints.js';
+import { transcribeJob, transcribeAnswer, UNANSWERED } from '../speech/transcriber.js';
+import { fillJob, fillUnit, fillEntries, spreadDate } from '../fields/filler.js';
+import { day } from '../fields/dates.js';
+import { hints, loadCatalogue, judgeVague, judgeEnough, suggest } from '../review/hints.js';
 import { answered } from '../dialogue/dialogue.js';
+import { rowsOf, freeRow } from '../dialogue/units.js';
 import { LANGUAGE } from '../language.js';
 import { translateJob, translateJobValues, loadTranslation, toTranslate } from '../dialogue/translate.js';
 import { writeOutput } from '../output/pdf.js';
@@ -139,8 +142,11 @@ export function registerJobs( router, client ) {
     // recording sent before), or { skip: true } when there is nothing to say. The values go into the fields of
     // that unit only. A typed answer to a single writing field is the value as it stands; everything else is
     // read by the model, from all that was said in reply to the question so far, so a missing part can be
-    // added. An answer to a single writing field is then judged: does it cover what the place asks for.
-    // Answers at once: one to four calls.
+    // added. A field with values takes an entry of its list: a typed answer that is one stands as it is,
+    // anything else is read against the list. An answer to a single writing field is then judged: does it
+    // cover what the place asks for; and where the catalogue finds a value wanting, what else of the answer
+    // fits is kept with the hint. The check is part of the answer: the person sees its result with the answer
+    // and decides there, not in a step of its own. Answers at once: one to five calls.
     router.add( 'POST', '/api/jobs/:id/answers/:unit', async ( { params, body } ) => {
         const job = await find( params.id );
         const unit = job && job.dialogue && job.dialogue.units.find( ( u ) => u.id === params.unit );
@@ -157,28 +163,54 @@ export function registerJobs( router, client ) {
         } catch {
             return { status: 400, json: { error: 'an answer is JSON' } };
         }
-        const fields = unit.fields.map( ( id ) => job.fields.find( ( f ) => f.id === id ) );
+        // an answer to a list of entries names one entry or several: they go into the rows nothing stands in yet,
+        // from the first on, and only these rows are read and judged; an answer that names a row is for that entry
+        const named = unit.repeat && Number.isInteger( data.row ) && data.row >= 1 && data.row <= unit.rows;
+        const row = unit.repeat && !data.skip ? ( Number.isInteger( data.row ) && data.row >= 1 && data.row <= unit.rows ? data.row : freeRow( job, unit ) ) : 0;
+        if ( unit.repeat && !data.skip && !row ) {
+            return { status: 409, json: { error: 'the list has no free row' } };
+        }
+        const mine = row ? rowsOf( unit )[ row - 1 ] : unit.fields;
+        const told = ( p ) => p.question === unit.id && p.text.trim() !== '' && ( !row || p.row === row );
+        let fields = mine.map( ( id ) => job.fields.find( ( f ) => f.id === id ) );
+        let entered = null;
         const text = typeof data.text === 'string' ? data.text.trim() : '';
         const said = Array.isArray( data.pieces ) ? data.pieces.map( Number ).filter( Boolean ) : [];
-        const writing = fields.length === 1 && fields[ 0 ].kind !== 'checkbox' && fields[ 0 ].kind !== 'radio';
+        const single = fields.length === 1 && fields[ 0 ].kind !== 'checkbox' && fields[ 0 ].kind !== 'radio';
+        // typed, and the field has values: an entry of the list as it is typed is the value; other words are
+        // read against the list like spoken ones
+        const entry = single && text && fields[ 0 ].values ? fields[ 0 ].values.find( ( v ) => v.toLowerCase() === text.toLowerCase() ) : null;
+        const writing = single && ( !fields[ 0 ].values || !!entry );
         if ( data.skip ) {
             for ( const f of fields ) {
                 f.value = '';
                 f.source = { how: 'entered', approve: false };
             }
         } else if ( text && writing ) {
-            fields[ 0 ].value = text;
-            fields[ 0 ].source = { how: 'entered', approve: false };
+            // typed stands as typed; what is none of the field's kind is shown to the person once more
+            fields[ 0 ].value = entry || text;
+            fields[ 0 ].source = { how: 'entered', approve: !fits( fields[ 0 ].kind, fields[ 0 ].value ) };
+        } else if ( text && unit.parts === 'date' && day( text ) ) {
+            // a date typed for the three boxes it is printed with: code puts its parts into them
+            spreadDate( fields, text, { how: 'entered', approve: false } );
         } else if ( text || said.length ) {
             if ( !config.apiKey ) {
                 return { status: 503, json: { error: 'no LLM_API_KEY: only a typed answer to a single field works without the model' } };
             }
             let pieces;
             if ( text ) {
-                pieces = [ { n: nextPiece( job, await audioPieces( job ) ), start: 0, text, raw: text, question: unit.id } ];
+                pieces = [ { n: nextPiece( job, await audioPieces( job ) ), start: 0, text, raw: text, question: unit.id, ...( row ? { row } : {} ) } ];
                 job.transcript = [ ...( job.transcript || [] ), ...pieces ];
             } else {
                 pieces = await transcribeAnswer( job, said, unit.id, client );
+                for ( const p of row ? pieces : [] ) {
+                    p.row = row;
+                }
+            }
+            // the pieces are there and the model gave no answer for them: the question stays open, and the app
+            // asks the person to say it once more
+            if ( !pieces.length && !text && ( await audioPieces( job ) ).some( ( p ) => said.includes( p.n ) ) ) {
+                return { status: 502, json: { error: UNANSWERED } };
             }
             if ( !pieces.length ) {
                 return { status: 400, json: { error: 'no such piece of the recording' } };
@@ -189,13 +221,30 @@ export function registerJobs( router, client ) {
                 await saveJob( job );
                 return { status: 200, json: { job, heard: false } };
             }
-            await fillUnit( job, unit, job.transcript.filter( ( p ) => p.question === unit.id && p.text.trim() !== '' ), client );
+            if ( row && !named ) {
+                entered = await fillEntries( job, unit, heard, client, row );
+                fields = entered.fields;
+                // "none", said to a list nothing stands in: the question is answered, its rows stay empty
+                if ( !entered.entries && row === 1 ) {
+                    fields = unit.fields.map( ( id ) => job.fields.find( ( f ) => f.id === id ) );
+                    for ( const f of fields ) {
+                        f.value = '';
+                        f.source = { how: 'entered', approve: false };
+                    }
+                }
+            } else {
+                await fillUnit( job, unit, job.transcript.filter( told ), client, row ? mine : null );
+            }
         } else {
             return { status: 400, json: { error: 'an answer is text, pieces or skip' } };
         }
         const catalogue = await loadCatalogue( job );
         const judged = catalogue ? await judgeVague( { ...job, fields: fields.filter( ( f ) => f.value ) }, catalogue, client ) : [];
-        if ( writing && fields[ 0 ].value ) {
+        // what was said in reply to this question, or typed into it: where a value is found wanting, what else
+        // of it fits
+        const reply = text && writing ? [ { n: 0, text } ] : ( job.transcript || [] ).filter( told );
+        await suggest( job, judged, reply, client );
+        if ( writing && !fields[ 0 ].values && fields[ 0 ].value ) {
             const said = fields[ 0 ].source.how === 'entered' ? text : job.transcript.filter( ( p ) => p.question === unit.id ).map( ( p ) => p.text ).join( ' ' );
             const enough = await judgeEnough( job, unit, fields[ 0 ], said, client );
             if ( enough ) {
@@ -204,7 +253,7 @@ export function registerJobs( router, client ) {
         }
         settle( job, catalogue, fields.map( ( f ) => f.id ), judged );
         await saveJob( job );
-        return { status: 200, json: { job } };
+        return { status: 200, json: { job, ...( entered ? { entries: entered.entries, left: entered.left } : {} ) } };
     } );
 
     // The form corrected by hand: { name?, fields: [ … ] }, the whole list of fields as the person left it (see
@@ -237,19 +286,20 @@ export function registerJobs( router, client ) {
         const change = applyEdit( job, edit );
         const fresh = rebuild( job, edit, change );
         const labels = config.apiKey ? await uncatalogued( job, change ) : [];
+        const kinds = config.apiKey ? unkinded( job, change ) : null;
         const keep = async ( done ) => {
             record( done, 'edited', change.touched.size + ' fields changed, ' + change.added.length + ' added, ' + change.removed.length + ' taken away' );
             settle( done, await loadCatalogue( done ), [] );
             await keepOwn( done );
             await saveJob( done );
         };
-        if ( !config.apiKey || !( planned( fresh ) + labels.length ) ) {
+        if ( !config.apiKey || !( planned( fresh ) + labels.length + ( kinds ? 1 : 0 ) ) ) {
             await keep( job );
             return { status: 200, json: { job, ready: true } };
         }
         // the fields as corrected are there at once; the questions and the catalogue follow
         await saveJob( job );
-        runEdit( job, fresh, labels, client, keep ).catch( () => {} );
+        runEdit( job, fresh, labels, client, keep, kinds ).catch( () => {} );
         return { status: 202, json: { id: job.id, step: 'edit' } };
     } );
 
@@ -350,6 +400,10 @@ export function registerJobs( router, client ) {
         }
         if ( !DECISIONS.includes( data.decision ) ) {
             return { status: 400, json: { error: 'decision is confirmed, changed or rejected' } };
+        }
+        // a field with values takes an entry of its list: a change to anything else is refused
+        if ( data.decision === 'changed' && field.values && !field.values.includes( String( data.value ?? '' ).trim() ) ) {
+            return { status: 400, json: { error: 'the field takes one of its values', values: field.values } };
         }
         const review = { at: new Date().toISOString(), decision: data.decision, ...( data.by ? { by: String( data.by ) } : {} ) };
         // what the person said before the translation stays with the value: a correction after it is in the

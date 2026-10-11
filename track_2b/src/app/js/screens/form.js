@@ -10,7 +10,11 @@ import * as verify from './verify.js';
 
 // One form: its fields with state and value, the page preview, the transcript, the legal texts. Before
 // dictation the fields are empty and the button says "Start listening"; after it, every entry carries ok,
-// unclear or missing, and unclear or missing ones ask for a decision. A form with a dialogue shows its fields
+// unclear or missing, and unclear or missing ones ask for a decision. That decision is no step of its own: the
+// check runs with the answer (after a dictation in one go, when the recording ends), and the entry shows what
+// there is to choose from, with the value as it stands marked – the values the field may take, or what else of
+// what was said fits where the catalogue found the value wanting. Tapping the marked one confirms it, tapping
+// another changes it. A form with a dialogue shows its fields
 // as a conversation: the question of each unit on the left, in plain words where one holds and with the printed
 // label beside it, and what was said on the right. A bare label had lost its context in the list of fields.
 // The questions can be answered one by one, typed or spoken, and each answer stays with its question; a question
@@ -224,6 +228,8 @@ export function render( ctx, entry ) {
         transcript: f.transcript && f.transcript.length && ( entry.jobId || entry.duration ) ? f.transcript : [],
         trHint: t( entry.jobId ? 'tr.hint' : 'tr.hint.demo' ),
         transcribing: state.transcribing && state.transcribing === entry.jobId,
+        // the model gave no answer for the recording: said here, with a way to ask again
+        unheard: !!entry.unheard && !state.transcribing && entry.status !== 'sent',
         filling: state.transcribing && state.transcribing === entry.jobId && f.transcript && f.transcript.length > 0,
         laws,
         pvHint: filled ? t( 'form.pv.filled' ) : t( 'form.pv.empty' ),
@@ -283,22 +289,43 @@ function conversation( ctx, f, entry ) {
     const hearing = listen.active( ctx );
     const talking = hearing && hearing.entry === entry && hearing.talk;
     const chosen = talking ? hearing.unit : state.asking;
-    const current = entry.status === 'sent' ? null : units.find( ( x ) => x.u.id === chosen ) || open[ 0 ] || null;
+    // a list of entries a person just added to: whether there is another entry is asked before the conversation
+    // goes on, as long as the table has a row left
+    const rowOf = ( x, fl ) => Math.floor( x.fields.indexOf( fl ) / x.u.columns );
+    const taken = ( x ) => new Set( x.fields.filter( ( fl ) => valueOf( fl )?.[ 0 ] || needs( fl ) ).map( ( fl ) => rowOf( x, fl ) ) );
+    const more = entry.status === 'sent' ? null : units.find( ( x ) => x.u.repeat && x.u.id === entry.more && !state.pending.has( x.u.id ) && taken( x ).size < x.u.rows ) || null;
+    // forward only: after an answer the next open question below it is asked. What a person passed by further
+    // up stays open and is theirs to tap; the conversation does not jump back to it.
+    const from = units.findIndex( ( x ) => x.u.id === entry.at );
+    const ahead = from < 0 ? open[ 0 ] : open.find( ( x ) => units.indexOf( x ) > from );
+    const current = entry.status === 'sent' ? null : units.find( ( x ) => x.u.id === chosen ) || more || ahead || null;
     const turns = [];
     let title = null;
     for ( const x of units ) {
         const { u, fields, answered } = x;
         const choice = u.kind === 'choice';
         const writing = fields.length === 1 && fields[ 0 ].kind !== 'checkbox' && fields[ 0 ].kind !== 'radio';
+        // a date printed as three boxes is typed or said as one date
+        const typing = writing || u.parts === 'date';
+        // a question that is one tick box: yes ticks it, no leaves it unticked; the round button beside the
+        // question only ticks the question off
+        const box = fields.length === 1 && !writing;
+        const ticked = box && !!valueOf( fields[ 0 ] )?.[ 0 ];
         // what stands on the right: a single field always; of a choice the ticks and what needs a decision; of a
         // table the cells with a value and the next empty row, to go on writing
         let said = [];
         // a required choice with no tick: said once for the question, not as a box that is missing
         const lacking = choice && fields.some( ( fl ) => valueOf( fl )?.[ 1 ] === 'missing' );
-        if ( answered && !choice && u.kind !== 'table' ) {
+        if ( answered && box ) {
+            said = fields.filter( ( fl ) => valueOf( fl )?.[ 0 ] || valueOf( fl )?.[ 1 ] === 'unclear' );
+        } else if ( answered && !choice && u.kind !== 'table' ) {
             said = fields;
         } else if ( answered && choice ) {
             said = fields.filter( ( fl ) => valueOf( fl )?.[ 0 ] || valueOf( fl )?.[ 1 ] === 'unclear' );
+        } else if ( answered && u.repeat ) {
+            // of a list the entries there are, each with all its cells; a row nothing stands in is not shown
+            const rows = taken( x );
+            said = fields.filter( ( fl ) => rows.has( rowOf( x, fl ) ) );
         } else if ( answered ) {
             const empty = ( fl ) => !valueOf( fl )?.[ 0 ] && !needs( fl );
             const next = Math.floor( fields.findIndex( empty ) / u.columns );
@@ -307,7 +334,7 @@ function conversation( ctx, f, entry ) {
         const answers = said.map( ( fl ) => {
             const view = fieldView( ctx, fl, valueOf( fl ), f, true );
             const i = fields.indexOf( fl );
-            const cell = u.kind === 'table' ? t( 'chat.cell', { r: Math.floor( i / u.columns ) + 1, c: i % u.columns + 1 } ) : '';
+            const cell = u.parts ? '' : u.repeat ? t( 'chat.row', { r: Math.floor( i / u.columns ) + 1 } ) : u.kind === 'table' ? t( 'chat.cell', { r: Math.floor( i / u.columns ) + 1, c: i % u.columns + 1 } ) : '';
             // under its question a single answer needs no label; a cell says which one it is
             return { ...view, label: [ u.kind === 'table' && !fl.bare ? fl.label : '', cell ].filter( Boolean ).join( ' · ' ), law: false };
         } );
@@ -327,8 +354,13 @@ function conversation( ctx, f, entry ) {
             required: u.required ? ( fields.some( ( fl ) => valueOf( fl )?.[ 0 ] ) ? 'plain' : 'bad' ) : '',
             lacking: lacking ? t( 'hint.missing' ) : '',
             options: choice ? fields.map( ( fl ) => ( { id: fl.id, label: ( u.options && u.options[ fl.id ] ) || fl.option || fl.label, on: !!valueOf( fl )?.[ 0 ], can: ( answered || x === current ) && entry.status !== 'sent' } ) ) : [],
+            // a field with values: its list stands at the question, to tap instead of saying it
+            listed: writing && fields[ 0 ].choices && x === current && entry.status !== 'sent'
+                ? fields[ 0 ].choices.map( ( c ) => ( { field: fields[ 0 ].id, value: c.value, label: c.label, on: c.value === valueOf( fields[ 0 ] )?.[ 0 ] } ) ) : [],
+            yesno: box ? [ [ 'yes', ticked ], [ 'no', answered && !ticked && !fields.some( needs ) ] ].map( ( [ say, on ] ) => ( { say, on, unit: u.id, field: fields[ 0 ].id, label: t( say ),
+                can: ( answered || x === current ) && entry.status !== 'sent' } ) ) : [],
             answers,
-            none: answered && !answers.length && !lacking,
+            none: answered && !answers.length && !lacking && !box,
             // ticked off: answered and nothing left to decide; an open question is ticked off by hand
             tick,
             mark: { open: '', look: '!', done: '✓' }[ tick ],
@@ -338,7 +370,9 @@ function conversation( ctx, f, entry ) {
             pending,
             // where the conversation stands the level is drawn; else a place to type, or to start speaking
             live: x === current && talking,
-            compose: x === current && !talking && !pending ? { id: u.id, text: writing, hint: writing ? '' : t( choice ? 'chat.choose' : 'chat.table' ) } : null,
+            // another entry? asked where a person just added one; yes opens the place to answer again
+            more: x === more && x === current && chosen !== u.id && !talking ? { id: u.id } : null,
+            compose: x === current && !talking && !pending && !( x === more && chosen !== u.id ) ? { id: u.id, text: typing, hint: typing ? '' : t( choice || box ? 'chat.choose' : u.repeat ? 'chat.entry' : 'chat.table' ) } : null,
         } );
         title = head;
     }
@@ -366,9 +400,14 @@ export function leave( ctx ) {
 
 function fieldView( ctx, fl, v, f, filled ) {
     const { t } = ctx;
-    const [ val, st, note, said ] = v || [ '', filled ? 'empty' : 'open' ];
+    const [ val, st, note, said, more ] = v || [ '', filled ? 'empty' : 'open' ];
     const chip = CHIP[ st ];
     const mark = fl.kind === 'checkbox' || fl.kind === 'radio';
+    // what the person chooses from when the value asks for a look: the list of the field; else the value as it
+    // stands and the passages suggested instead; a tick stands alone
+    const picks = st !== 'unclear' ? []
+        : fl.choices ? fl.choices.map( ( c ) => ( { value: c.value, label: c.label, on: c.value === val } ) )
+            : [ { value: val, label: mark ? '✓ ' + ( fl.option || fl.label ) : val, on: true }, ...( more || [] ).map( ( s ) => ( { value: s, label: s, on: false } ) ) ];
     const shown = val ? ( mark ? '✓ ' + ( fl.option || fl.label ) : val ) : st === 'sign' ? t( 'v.sign' ) : st === 'missing' ? t( 'v.missing' ) : st === 'open' ? t( 'v.open' ) : t( 'v.left' );
     return {
         id: fl.id,
@@ -384,6 +423,10 @@ function fieldView( ctx, fl, v, f, filled ) {
         // decision says it in its note already
         said: said && st !== 'unclear' ? t( 'v.translated', { q: said } ) : '',
         unclear: st === 'unclear',
+        picks,
+        // something else than what is offered: typed for a field that takes anything, the tick taken away for
+        // a mark; a field with values takes nothing else
+        other: st === 'unclear' && !fl.choices ? t( mark ? 'pick.untick' : 'pick.other' ) : '',
         missing: st === 'missing',
         editable: filled && st !== 'unclear' && st !== 'missing' && st !== 'sign',
     };
@@ -412,18 +455,8 @@ export function wire( ctx ) {
             show( ctx, entry );
         } );
     } );
-    on( body, 'click', '[data-confirm]', ( b ) => {
-        const entry = ctx.state.current;
-        if ( entry.jobId ) {
-            decide( ctx, entry, b.dataset.confirm, { decision: 'confirmed' } );
-            return;
-        }
-        entry.values[ b.dataset.confirm ][ 1 ] = 'ok';
-        entry.values[ b.dataset.confirm ][ 2 ] = '';
-        ctx.store.touch();
-        render( ctx, entry );
-    } );
     on( body, 'click', '[data-edit]', ( b ) => edit( ctx, b.dataset.edit, b.closest( '.field' ) ) );
+    on( body, 'click', '[data-choose]', ( b ) => choose( ctx, b.dataset.choose, b.dataset.value ) );
     on( body, 'click', '[data-save]', ( b ) => {
         const entry = ctx.state.current;
         const v = $( '[data-input]', body ).value.trim();
@@ -462,6 +495,31 @@ export function wire( ctx ) {
     } );
     on( body, 'click', '[data-stop]', () => listen.stop( ctx ) );
     on( body, 'click', '[data-tick]', ( b ) => answer( ctx, ctx.state.current, b.dataset.tick, { skip: true } ) );
+    // a question that is one tick box: yes ticks it; no takes the tick away, or says that it stays unticked
+    on( body, 'click', '[data-say]', ( b ) => {
+        const entry = ctx.state.current;
+        const ticked = !!entry.values?.[ b.dataset.field ]?.[ 0 ];
+        if ( ( b.dataset.say === 'yes' ) !== ticked ) {
+            if ( b.dataset.say === 'yes' || ticked ) {
+                edit( ctx, b.dataset.field, null );
+            }
+        }
+        if ( b.dataset.say === 'no' && !ticked ) {
+            answer( ctx, entry, b.dataset.unit, { skip: true } );
+        }
+    } );
+    // the recording once more to the model, where it gave no answer
+    on( body, 'click', '[data-again]', () => listen.read( ctx, ctx.state.current ) );
+    // another entry of a list: yes asks the same question again, no lets the conversation go on
+    on( body, 'click', '[data-more]', ( b ) => {
+        ctx.state.asking = b.dataset.more;
+        render( ctx, ctx.state.current );
+    } );
+    on( body, 'click', '[data-enough]', () => {
+        ctx.state.current.more = null;
+        ctx.store.touch();
+        render( ctx, ctx.state.current );
+    } );
     const bottom = ctx.bottom( 'form' );
     on( bottom, 'click', '[data-record]', () => listen.start( ctx, ctx.state.current ) );
     on( bottom, 'click', '[data-stop]', () => listen.stop( ctx ) );
@@ -478,11 +536,16 @@ export async function answer( ctx, entry, id, what ) {
     const unit = f.dialogue.find( ( u ) => u.id === id );
     const shown = () => ctx.state.current === entry && ctx.router.top().id === 'form';
     ctx.state.asking = null;
+    // where the conversation stands: the next question is looked for below this one
+    entry.at = id;
+    // an entry added to a list: the person is asked whether there is another one
+    entry.more = unit.repeat && !what.skip ? id : entry.more === id ? null : entry.more;
+    ctx.store.touch();
     if ( entry.jobId ) {
         ctx.state.pending.add( id );
         render( ctx, entry );
         try {
-            const { job, heard } = await queued( ctx, async () => {
+            const { job, heard, entries, left } = await queued( ctx, async () => {
                 if ( !what.sound ) {
                     return api.answer( entry.jobId, id, what );
                 }
@@ -494,8 +557,16 @@ export async function answer( ctx, entry, id, what ) {
             if ( heard === false ) {
                 ctx.toast( ctx.t( 'chat.unheard' ) );
             }
+            // "none" was said to a list: nothing to ask on about; more entries than the form has rows for
+            if ( entries === 0 && entry.more === id ) {
+                entry.more = null;
+                ctx.store.touch();
+            }
+            if ( left ) {
+                ctx.toast( ctx.t( 'chat.full', { n: left } ) );
+            }
         } catch ( error ) {
-            ctx.toast( ctx.t( 'job.failed', { e: error.message } ) );
+            ctx.toast( error.message === 'unanswered' ? ctx.t( 'chat.unanswered' ) : ctx.t( 'job.failed', { e: error.message } ) );
         }
         ctx.state.pending.delete( id );
     } else {
@@ -523,7 +594,22 @@ async function decide( ctx, entry, id, decision ) {
     render( ctx, entry );
 }
 
-// change a value in place: a text box, a text area, or a tick for a mark
+// One of the things offered at an entry was tapped: the value as it stands is confirmed by that, another one
+// takes its place, and an empty one empties the field.
+function choose( ctx, id, value ) {
+    const entry = ctx.state.current;
+    entry.values = entry.values || {};
+    const cur = entry.values[ id ]?.[ 0 ] || '';
+    if ( entry.jobId ) {
+        decide( ctx, entry, id, value === cur && cur ? { decision: 'confirmed' } : value ? { decision: 'changed', value } : { decision: 'rejected' } );
+        return;
+    }
+    entry.values[ id ] = [ value, value ? 'ok' : 'empty', '' ];
+    ctx.store.touch();
+    render( ctx, entry );
+}
+
+// change a value in place: a text box, a text area, a tick for a mark, or the list of a field with values
 function edit( ctx, id, wrap ) {
     const { t, state } = ctx;
     const entry = state.current;
@@ -533,6 +619,14 @@ function edit( ctx, id, wrap ) {
     entry.values = entry.values || {};
     const cur = entry.values[ id ]?.[ 0 ] || '';
     if ( fl.kind === 'checkbox' || fl.kind === 'radio' ) {
+        const unit = f.dialogue ? f.dialogue.find( ( u ) => u.fields.includes( id ) ) : null;
+        entry.at = unit ? unit.id : entry.at;
+        ctx.store.touch();
+        // one answer and the question is answered: the conversation goes on. Tick boxes that go together can
+        // take another tick, so there it stays
+        if ( fl.kind === 'radio' || !unit || unit.fields.length === 1 ) {
+            state.asking = null;
+        }
         // radios of one group exclude each other: ticking one takes the tick from the others
         const others = cur || fl.kind !== 'radio' || !fl.group ? [] : fieldsOf( f ).filter( ( x ) => x.group === fl.group && x.id !== id && entry.values[ x.id ]?.[ 0 ] );
         if ( entry.jobId ) {
@@ -551,6 +645,15 @@ function edit( ctx, id, wrap ) {
         return;
     }
     const value = $( '.value', wrap );
+    if ( fl.choices ) {
+        // a field with values: its list, the entry that stands marked, and a way to leave it empty
+        const wide = $( '.wide', wrap ) || value.insertAdjacentElement( 'afterend', document.createElement( 'div' ) );
+        wide.className = 'wide picks';
+        wide.hidden = false;
+        wide.innerHTML = fl.choices.map( ( c ) => '<button class="opt press' + ( c.value === cur ? ' on' : '' ) + '" data-choose="' + escape( id ) + '" data-value="' + escape( c.value ) + '">' + escape( c.label ) + '</button>' ).join( '' )
+            + '<button class="btn outline sm press" data-choose="' + escape( id ) + '" data-value="">' + escape( t( 'v.left' ) ) + '</button><button class="btn outline sm press" data-cancel>' + escape( t( 'cancel' ) ) + '</button>';
+        return;
+    }
     value.classList.remove( 'empty' );
     value.innerHTML = fl.kind === 'multiline'
         ? '<textarea data-input>' + escape( cur ) + '</textarea>'

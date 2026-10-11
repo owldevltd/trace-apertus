@@ -10,7 +10,7 @@ export function createJob( form ) {
     const id = Date.now().toString( 36 ) + Math.random().toString( 36 ).slice( 2, 6 );
     return {
         id,
-        schema: '2b-0.2',
+        schema: '2b-0.3',
         form,
         pages: [],
         blocks: [],

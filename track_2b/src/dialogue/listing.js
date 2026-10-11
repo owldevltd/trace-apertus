@@ -31,7 +31,7 @@ export function rank( list, field ) {
 // How a unit is named in the list: its id, and what kind of place it is where that is not a single field.
 export function marker( unit, fields ) {
     const mark = unit.kind === 'single' && [ 'checkbox', 'radio' ].includes( fields.find( ( f ) => f.id === unit.fields[ 0 ] )?.kind );
-    const note = unit.kind === 'table' ? ': Tabelle mit ' + unit.rows + ' Zeilen und ' + unit.columns + ' Spalten' : NOTE[ mark ? 'mark' : unit.kind ] || '';
+    const note = unit.parts === 'date' ? ': Datum' : unit.kind === 'table' ? ': Tabelle mit ' + unit.rows + ' Zeilen und ' + unit.columns + ' Spalten' : NOTE[ mark ? 'mark' : unit.kind ] || '';
     return '[' + unit.id + note + ']';
 }
 

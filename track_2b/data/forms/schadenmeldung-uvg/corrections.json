@@ -1,0 +1,444 @@
+{
+    "about": "What stands printed beside each form field of this form, and which tick boxes belong together: taken from the definition the form is built from (tools/forms/schadenmeldung-uvg.js). Applied by tools/correct.js. Where the model's question was wrong, did not hold or spoke to the wrong person, the question was written by hand (all questions of the form were read on 11 October 2026). The boxes of the kind of report and of the position are one choice each, of which one is ticked: set by hand, the form prints tick boxes. Day, month and year of the accident are one question; it is required, as its three boxes were before they became one unit.",
+    "fields": {
+        "Meldung Unfall": {
+            "label": "Unfall",
+            "option": "Unfall",
+            "group": "Meldung",
+            "question": "Was wird gemeldet: ein Unfall, eine Berufskrankheit, ein Zahnschaden oder ein Rückfall?",
+            "kind": "radio"
+        },
+        "Meldung Berufskrankheit": {
+            "label": "Berufskrankheit",
+            "option": "Berufskrankheit",
+            "group": "Meldung",
+            "kind": "radio"
+        },
+        "Meldung Zahnschaden": {
+            "label": "Zahnschaden",
+            "option": "Zahnschaden",
+            "group": "Meldung",
+            "kind": "radio"
+        },
+        "Meldung Rückfall": {
+            "label": "Rückfall",
+            "option": "Rückfall",
+            "group": "Meldung",
+            "kind": "radio"
+        },
+        "Schaden-Nummer": {
+            "label": "Schaden-Nummer"
+        },
+        "Arbeitgeber": {
+            "label": "Name und Adresse mit Postleitzahl"
+        },
+        "Telefon Arbeitgeber": {
+            "label": "Tel.-Nr.",
+            "question": "Welche Telefonnummer hat der Arbeitgeber?"
+        },
+        "E-Mail Arbeitgeber": {
+            "label": "E-Mail"
+        },
+        "Police UVG": {
+            "label": "Police-Nr. UVG",
+            "question": "Wie lautet die Nummer der Unfallversicherungs-Police des Arbeitgebers?"
+        },
+        "Police UVG-Zusatz": {
+            "label": "Police-Nr. UVG-Zusatz",
+            "question": "Wie lautet die Nummer der Zusatzversicherung zur Unfallversicherung, falls es eine gibt?"
+        },
+        "Arbeitsplatz Betriebszweig": {
+            "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+            "question": "Wo arbeitet die verletzte Person üblicherweise, in welchem Betriebszweig?"
+        },
+        "Name Vorname": {
+            "label": "Name und Vorname",
+            "question": "Wie heisst die verletzte Person, mit Namen und Vornamen?"
+        },
+        "Geburtsdatum": {
+            "label": "Geburtsdatum",
+            "question": "Wann ist die verletzte Person geboren?"
+        },
+        "AHV-Nummer": {
+            "label": "AHV-Nummer",
+            "question": "Welche AHV-Nummer hat die verletzte Person?"
+        },
+        "Strasse": {
+            "label": "Strasse",
+            "question": "In welcher Strasse wohnt die verletzte Person, mit Hausnummer?"
+        },
+        "Telefon Verletzte": {
+            "label": "Tel.-Nr.",
+            "question": "Welche Telefonnummer hat die verletzte Person?"
+        },
+        "Zivilstand": {
+            "label": "Zivilstand",
+            "question": "Welchen Zivilstand hat die verletzte Person?"
+        },
+        "Land": {
+            "label": "Land",
+            "question": "In welchem Land wohnt die verletzte Person?"
+        },
+        "PLZ": {
+            "label": "PLZ",
+            "question": "Welche Postleitzahl hat der Wohnort der verletzten Person?"
+        },
+        "Wohnort": {
+            "label": "Wohnort",
+            "question": "In welchem Ort wohnt die verletzte Person?"
+        },
+        "Staatsangehörigkeit Bewilligung": {
+            "label": "Staatsangehörigkeit / Bewilligung",
+            "question": "Welche Staatsangehörigkeit oder welche Bewilligung hat die verletzte Person?"
+        },
+        "E-Mail Verletzte": {
+            "label": "E-Mail",
+            "question": "Welche E-Mail-Adresse hat die verletzte Person?"
+        },
+        "Datum der Anstellung": {
+            "label": "Datum der Anstellung",
+            "question": "Seit wann ist die verletzte Person im Betrieb angestellt?"
+        },
+        "Beruf": {
+            "label": "Ausgeübter Beruf",
+            "question": "Welchen Beruf übt die verletzte Person aus?"
+        },
+        "Stellung Höheres Kader": {
+            "label": "Höheres Kader",
+            "option": "Höheres Kader",
+            "group": "Stellung",
+            "question": "Welche Stellung hat die verletzte Person: höheres Kader, mittleres Kader, Angestellte oder Mitarbeiter, Lehrling oder Praktikant?",
+            "kind": "radio"
+        },
+        "Stellung Mittleres Kader": {
+            "label": "Mittleres Kader",
+            "option": "Mittleres Kader",
+            "group": "Stellung",
+            "kind": "radio"
+        },
+        "Stellung Angestellte/r / Mitarbeiter/in": {
+            "label": "Angestellte/r / Mitarbeiter/in",
+            "option": "Angestellte/r / Mitarbeiter/in",
+            "group": "Stellung",
+            "kind": "radio"
+        },
+        "Stellung Lehrling": {
+            "label": "Lehrling",
+            "option": "Lehrling",
+            "group": "Stellung",
+            "kind": "radio"
+        },
+        "Stellung Praktikant/in": {
+            "label": "Praktikant/in",
+            "option": "Praktikant/in",
+            "group": "Stellung",
+            "kind": "radio"
+        },
+        "Verhältnis unbefristeter Arbeitsvertrag": {
+            "label": "unbefristeter Arbeitsvertrag",
+            "option": "unbefristeter Arbeitsvertrag",
+            "group": "Verhältnis"
+        },
+        "Verhältnis befristeter Arbeitsvertrag": {
+            "label": "befristeter Arbeitsvertrag",
+            "option": "befristeter Arbeitsvertrag",
+            "group": "Verhältnis",
+            "question": "Ist der Arbeitsvertrag der verletzten Person unbefristet, befristet oder gekündigt?"
+        },
+        "Verhältnis Arbeitsverhältnis gekündigt per": {
+            "label": "Arbeitsverhältnis gekündigt per",
+            "option": "Arbeitsverhältnis gekündigt per",
+            "group": "Verhältnis"
+        },
+        "Gekündigt per": {
+            "label": "Arbeitsverhältnis gekündigt per",
+            "question": "Falls das Arbeitsverhältnis gekündigt ist: auf welches Datum?"
+        },
+        "Arbeitszeit Std": {
+            "label": "Arbeitszeit des/der Verletzten (Std./Woche)",
+            "question": "Wie viele Stunden pro Woche arbeitet die verletzte Person?"
+        },
+        "Vollarbeitszeit Std": {
+            "label": "Betriebsübliche Vollarbeitszeit (Std./Woche)",
+            "question": "Wie viele Stunden pro Woche gelten im Betrieb als volle Arbeitszeit?"
+        },
+        "Beschäftigungsgrad Prozent": {
+            "label": "Vertraglicher Beschäftigungsgrad (Prozent)",
+            "question": "Wie hoch ist der vertragliche Beschäftigungsgrad der verletzten Person in Prozent?"
+        },
+        "Arbeitseinsatz unregelmässig": {
+            "label": "unregelmässig",
+            "option": "unregelmässig",
+            "group": "Arbeitseinsatz"
+        },
+        "Arbeitseinsatz Kurzarbeit": {
+            "label": "Kurzarbeit",
+            "option": "Kurzarbeit",
+            "group": "Arbeitseinsatz",
+            "question": "Trifft für den Arbeitseinsatz etwas davon zu: unregelmässig, Kurzarbeit oder Zwischenverdienst?"
+        },
+        "Arbeitseinsatz Zwischenverdienst": {
+            "label": "Zwischenverdienst",
+            "option": "Zwischenverdienst",
+            "group": "Arbeitseinsatz"
+        },
+        "Schadendatum Tag": {
+            "label": "Tag",
+            "question": "An welchem Datum ist der Unfall passiert?",
+            "required": true
+        },
+        "Schadendatum Monat": {
+            "label": "Monat"
+        },
+        "Schadendatum Jahr": {
+            "label": "Jahr"
+        },
+        "Schadendatum Zeit": {
+            "label": "Zeit (Stunden, Minuten)",
+            "question": "Um welche Uhrzeit ist der Unfall passiert?"
+        },
+        "Unfallort": {
+            "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)",
+            "question": "Wo ist der Unfall passiert: der Ort und die genaue Stelle, zum Beispiel Werkstatt oder Strasse?"
+        },
+        "Unfallbeschreibung": {
+            "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge",
+            "question": "Was hat die verletzte Person gerade getan, und wie ist der Unfall abgelaufen?"
+        },
+        "Beteiligte Personen": {
+            "label": "Beteiligte Person(en)",
+            "question": "Wer war am Unfall beteiligt?"
+        },
+        "Polizeirapport/1": {
+            "label": "Ja",
+            "option": "Ja",
+            "question": "Gibt es einen Polizeirapport: ja, nein oder unbekannt?"
+        },
+        "Polizeirapport/2": {
+            "label": "Nein",
+            "option": "Nein"
+        },
+        "Polizeirapport/3": {
+            "label": "Unbekannt",
+            "option": "Unbekannt"
+        },
+        "Polizeirapport aufgenommen durch": {
+            "label": "Wenn ja, aufgenommen durch",
+            "question": "Falls es einen Polizeirapport gibt: Wer hat ihn aufgenommen?"
+        },
+        "Unfallprotokoll/1": {
+            "label": "Ja",
+            "option": "Ja",
+            "question": "Gibt es ein Unfallprotokoll?"
+        },
+        "Unfallprotokoll/2": {
+            "label": "Nein",
+            "option": "Nein"
+        },
+        "Beteiligte Gegenstände": {
+            "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)",
+            "question": "Welche Gegenstände waren am Unfall beteiligt, zum Beispiel eine Maschine, ein Werkzeug oder ein Fahrzeug?"
+        },
+        "Letzter Arbeitstag": {
+            "label": "Letztmals im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)",
+            "question": "Wann hat die verletzte Person vor dem Unfall zuletzt im Betrieb gearbeitet? Wochentag, Datum und Uhrzeit."
+        },
+        "Grund Absenz": {
+            "label": "Grund der Absenz",
+            "question": "Aus welchem Grund war die verletzte Person vor dem Unfall abwesend?"
+        },
+        "Betroffener Körperteil": {
+            "label": "Betroffener Körperteil",
+            "question": "Welcher Körperteil wurde verletzt?"
+        },
+        "Seite/1": {
+            "label": "links",
+            "option": "links",
+            "question": "Auf welcher Körperseite ist die Verletzung: links, rechts oder unbestimmt?"
+        },
+        "Seite/2": {
+            "label": "rechts",
+            "option": "rechts"
+        },
+        "Seite/3": {
+            "label": "unbestimmt",
+            "option": "unbestimmt"
+        },
+        "Art der Schädigung": {
+            "label": "Art der Schädigung",
+            "question": "Welche Art von Schädigung ist es?"
+        },
+        "Arbeit ausgesetzt/1": {
+            "label": "Ja",
+            "option": "Ja",
+            "question": "Musste die Arbeit wegen des Unfalls ausgesetzt werden?"
+        },
+        "Arbeit ausgesetzt/2": {
+            "label": "Nein",
+            "option": "Nein"
+        },
+        "Arbeitsunfähig ab": {
+            "label": "Wenn ja, ab wann?",
+            "question": "Falls die Arbeit ausgesetzt wurde: ab wann?"
+        },
+        "Dauer länger als 1 Monat": {
+            "label": "länger als 1 Monat",
+            "option": "länger als 1 Monat",
+            "group": "Dauer",
+            "question": "Dauert die Arbeitsunfähigkeit voraussichtlich länger als einen Monat?"
+        },
+        "Arbeit wieder aufgenommen ab": {
+            "label": "Falls Arbeit wieder aufgenommen: ab wann?",
+            "question": "Falls die Arbeit schon wieder aufgenommen wurde: ab wann?"
+        },
+        "Wiederaufnahme/1": {
+            "label": "ganz",
+            "option": "ganz",
+            "question": "Wurde die Arbeit ganz oder teilweise wieder aufgenommen?"
+        },
+        "Wiederaufnahme/2": {
+            "label": "teilweise",
+            "option": "teilweise"
+        },
+        "Erstbehandelnder Arzt": {
+            "label": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+            "question": "Welcher Arzt oder welches Spital hat die verletzte Person zuerst behandelt?"
+        },
+        "Nachbehandelnder Arzt": {
+            "label": "Nachbehandelnder Arzt bzw. Spital/Klinik",
+            "question": "Welcher Arzt oder welches Spital behandelt die verletzte Person weiter?"
+        },
+        "Erstbehandlung/1": {
+            "label": "ambulant",
+            "option": "ambulant",
+            "question": "War die erste Behandlung im Spital ambulant oder stationär?"
+        },
+        "Erstbehandlung/2": {
+            "label": "stationär",
+            "option": "stationär"
+        },
+        "Nachbehandlung/1": {
+            "label": "ambulant",
+            "option": "ambulant",
+            "question": "Ist die weitere Behandlung im Spital ambulant oder stationär?"
+        },
+        "Nachbehandlung/2": {
+            "label": "stationär",
+            "option": "stationär"
+        },
+        "Lohn Stunde Grundlohn": {
+            "label": "Vertraglicher Grundlohn inkl. Teuerungszulage (brutto): CHF pro Stunde",
+            "question": "Wie hoch ist der Lohn? Zu jedem Bestandteil den Betrag pro Stunde, pro Monat oder pro Jahr: Grundlohn, Kinder- und Familienzulagen, Ferien- und Feiertagsentschädigung, Gratifikation oder 13. Monatslohn, andere Zulagen."
+        },
+        "Lohn Monat Grundlohn": {
+            "label": "Vertraglicher Grundlohn inkl. Teuerungszulage (brutto): CHF pro Monat"
+        },
+        "Lohn Jahr Grundlohn": {
+            "label": "Vertraglicher Grundlohn inkl. Teuerungszulage (brutto): CHF pro Jahr"
+        },
+        "Lohn Stunde Familienzulagen": {
+            "label": "Kinder-/Familienzulagen: CHF pro Stunde"
+        },
+        "Lohn Monat Familienzulagen": {
+            "label": "Kinder-/Familienzulagen: CHF pro Monat"
+        },
+        "Lohn Jahr Familienzulagen": {
+            "label": "Kinder-/Familienzulagen: CHF pro Jahr"
+        },
+        "Lohn Stunde Ferienentschädigung": {
+            "label": "Ferien-/Feiertagsentschädigung: CHF pro Stunde"
+        },
+        "Lohn Monat Ferienentschädigung": {
+            "label": "Ferien-/Feiertagsentschädigung: CHF pro Monat"
+        },
+        "Lohn Jahr Ferienentschädigung": {
+            "label": "Ferien-/Feiertagsentschädigung: CHF pro Jahr"
+        },
+        "Lohn Stunde Gratifikation": {
+            "label": "Gratifikation / 13. Monatslohn (und weitere): CHF pro Stunde"
+        },
+        "Lohn Monat Gratifikation": {
+            "label": "Gratifikation / 13. Monatslohn (und weitere): CHF pro Monat"
+        },
+        "Lohn Jahr Gratifikation": {
+            "label": "Gratifikation / 13. Monatslohn (und weitere): CHF pro Jahr"
+        },
+        "Lohn Stunde Andere Zulagen": {
+            "label": "Andere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage): CHF pro Stunde"
+        },
+        "Lohn Monat Andere Zulagen": {
+            "label": "Andere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage): CHF pro Monat"
+        },
+        "Lohn Jahr Andere Zulagen": {
+            "label": "Andere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage): CHF pro Jahr"
+        },
+        "Anzahl Kinder": {
+            "label": "Anzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)",
+            "question": "Wie viele Kinder unter 18 Jahren oder in Ausbildung bis 25 Jahre hat die verletzte Person?"
+        },
+        "Bezeichnung Zulagen": {
+            "label": "Bezeichnung der anderen Lohnzulagen"
+        },
+        "Weiterer Arbeitgeber/1": {
+            "label": "Nein",
+            "option": "Nein",
+            "question": "Hat die verletzte Person weitere Arbeitgeber?"
+        },
+        "Weiterer Arbeitgeber/2": {
+            "label": "Ja",
+            "option": "Ja"
+        },
+        "Weiterer Arbeitgeber Adresse": {
+            "label": "Wenn ja, Name und Adresse",
+            "question": "Falls es weitere Arbeitgeber gibt: Name und Adresse?"
+        },
+        "Steuern Quellensteuerpflicht": {
+            "label": "Quellensteuerpflicht",
+            "option": "Quellensteuerpflicht",
+            "group": "Steuern",
+            "question": "Ist die verletzte Person quellensteuerpflichtig?"
+        },
+        "Versicherung Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)": {
+            "label": "Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)",
+            "option": "Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)",
+            "group": "Versicherung",
+            "question": "Ist die verletzte Person freiwillig versichert, als Arbeitgeber oder als Selbständigerwerbende?"
+        },
+        "Versicherung Familienmitglied / Gesellschafter": {
+            "label": "Familienmitglied / Gesellschafter",
+            "option": "Familienmitglied / Gesellschafter",
+            "group": "Versicherung"
+        },
+        "Versicherung Entsandte/r": {
+            "label": "Entsandte/r",
+            "option": "Entsandte/r",
+            "group": "Versicherung"
+        },
+        "Andere Leistungen/1": {
+            "label": "Nein",
+            "option": "Nein",
+            "question": "Hat die verletzte Person Anspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung?"
+        },
+        "Andere Leistungen/2": {
+            "label": "Ja",
+            "option": "Ja"
+        },
+        "Andere Leistungen wo": {
+            "label": "Wenn ja, wo?",
+            "question": "Falls ja: bei welcher anderen Sozialversicherung?"
+        },
+        "Krankenversicherung": {
+            "label": "Name der obligatorischen Krankenversicherung (inkl. Police-Nr.)"
+        },
+        "Ort und Datum": {
+            "label": "Ort und Datum",
+            "question": "An welchem Ort und an welchem Datum wird die Schadenmeldung unterschrieben?"
+        },
+        "Unterschrift Verletzte": {
+            "label": "Unterschrift des/der Verletzten"
+        },
+        "Unterschrift Arbeitgeber": {
+            "label": "Stempel und Unterschrift des Arbeitgebers"
+        }
+    }
+}

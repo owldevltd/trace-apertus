@@ -11,6 +11,7 @@ captured it.
 | `suva-bagatellunfall/` | Bagatellunfall-Meldung UVG (minor accident report) | Suva | original, unchanged, not fillable | 4 |
 | `arbeitsfaehigkeitszeugnis/` | Arbeitsfähigkeitszeugnis (certificate of fitness for work) | rebuilt after the SIM certificate (Swiss Insurance Medicine, edition January 2019) | rebuilt, fillable | 1 |
 | `schadenmeldung-uvg/` | Schadenmeldung UVG (accident report to the insurer) | rebuilt after the Helsana Unfall AG form (edition 12.2016) | rebuilt, fillable | 2 |
+| `austrittsmeldung/` | Austrittsmeldung (notice of leaving a group insurance), the sheet of the walk-through | rebuilt after the first page of the SWICA form 303 (edition 06.2025) | rebuilt, fillable, made to be printed and photographed | 1 |
 
 The two originals are published for anyone to download and fill in; they are included as test material and remain
 the property of their publishers. The two rebuilt forms carry the same fields as their models in our own layout,
@@ -19,7 +20,13 @@ every page say "nachgebaut nach dem Vorbild von …, nicht das Original". They a
 from the definitions beside it (`make forms`), which also renders the pages and writes the reference JSON; the
 build needs poppler (`pdftoppm`, `pdftotext`), the app does not.
 
-The app lists the four forms under "Shipped forms". Each was captured once, when it was put here: `make capture`
+The sheet of the walk-through is the third rebuilt form and does not carry the same fields as its model: it is set
+large, every field is a box of one grid with its label inside, nothing is tinted, and where a dictation or a
+photograph went wrong on the model's layout the sheet was changed, not the app (one telephone field, one dated
+statement, the surname named as such, postcode and town apart, a date and a signature at the foot). Only its footer
+says what it is rebuilt after. Print `austrittsmeldung/form.pdf` to photograph it.
+
+The app lists the five forms under "Shipped forms". Each was captured once, when it was put here: `make capture`
 (`tools/capture.js`) runs the whole pipeline over it, with the words taken from the text layer of the PDF instead
 of read by the model, and keeps the result beside it as `captured.json`: pages, blocks, fields and the dialogue
 with its questions, those the form requires marked from its catalogue (`make required` binds them anew without
@@ -27,7 +34,7 @@ touching the questions). Choosing a form in the app makes a job from that file; 
 Recognizing, with its progress on the screen, is what happens when a person photographs or uploads a new form.
 
 A form a person saves from a capture, or corrects by hand, is kept in the same shape under `storage/forms/<id>/`
-(not in this folder: it is the person's, not the repository's) and stands in the app beside the four as a form of
+(not in this folder: it is the person's, not the repository's) and stands in the app beside the five as a form of
 its own, with the fields, the questions and the catalogue as the person left them.
 
 ## The reference JSON

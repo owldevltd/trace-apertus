@@ -1,0 +1,244 @@
+{
+    "about": "This form is not fillable, so nothing but the page says what its fields are; set by hand, read off the page. Page 1 is the report. Taken away: the frame above the claim number, two empty cells of the layout, and the boxes at the right edge the insurer fills in. Page 3 is the copy of page 1 for the employer's files (the pipeline had made fields of the letters of its watermark), page 4 the pharmacy's slip, which repeats the head of page 1 and is filled in by the pharmacy: neither is asked. Their pages stay empty in the output; a copy that takes the values of the page it repeats is not built. Added: postcode and place, the date and time of the accident (one date instead of the boxes for day, month and year), the two entries of section 8, the kind of injury, place and date, and the signature. The boxes of the position and of the side are one choice each, of which one is ticked. Applied by tools/correct.js. Where the model's question was wrong, did not hold or spoke to the wrong person, the question was written by hand (all questions of the form were read on 11 October 2026).",
+    "copies": [
+        3,
+        4
+    ],
+    "fields": {
+        "f1": {
+            "remove": true
+        },
+        "f7": {
+            "remove": true
+        },
+        "f11": {
+            "remove": true
+        },
+        "f14": {
+            "remove": true
+        },
+        "f15": {
+            "remove": true
+        },
+        "f24": {
+            "remove": true
+        },
+        "f29": {
+            "remove": true
+        },
+        "f4": {
+            "label": "Kunden-Nr. und Betriebsteil",
+            "question": "Wie lauten die Kunden-Nummer und der Betriebsteil des Arbeitgebers bei der Suva?"
+        },
+        "f35": {
+            "label": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+            "question": "Welcher Arzt oder welches Spital hat die verletzte Person zuerst behandelt?"
+        },
+        "f36": {
+            "label": "Zahladresse (Post-/Bankkonto) für Rückerstattungen",
+            "question": "Auf welches Post- oder Bankkonto sollen bereits bezahlte Rechnungen zurückerstattet werden?"
+        },
+        "f19": {
+            "label": "Höheres Kader",
+            "option": "Höheres Kader",
+            "kind": "radio",
+            "group": "Stellung",
+            "question": "Welche Stellung hat die verletzte Person: höheres Kader, mittleres Kader, Angestellte oder Arbeiter, Lehrling oder Praktikant?"
+        },
+        "f20": {
+            "label": "Mittleres Kader",
+            "option": "Mittleres Kader",
+            "kind": "radio",
+            "group": "Stellung"
+        },
+        "f21": {
+            "label": "Angestellte/r / Arbeiter/in",
+            "option": "Angestellte/r / Arbeiter/in",
+            "kind": "radio",
+            "group": "Stellung"
+        },
+        "f22": {
+            "label": "Lehrling",
+            "option": "Lehrling",
+            "kind": "radio",
+            "group": "Stellung"
+        },
+        "f23": {
+            "label": "Praktikant/in",
+            "option": "Praktikant/in",
+            "kind": "radio",
+            "group": "Stellung"
+        },
+        "f30": {
+            "label": "links",
+            "option": "links",
+            "kind": "radio",
+            "group": "Seite",
+            "question": "Auf welcher Körperseite ist die Verletzung: links, rechts oder unbestimmt?"
+        },
+        "f31": {
+            "label": "rechts",
+            "option": "rechts",
+            "kind": "radio",
+            "group": "Seite"
+        },
+        "f32": {
+            "label": "unbestimmt",
+            "option": "unbestimmt",
+            "kind": "radio",
+            "group": "Seite"
+        },
+        "f2": {
+            "question": "Welche Schaden-Nummer hat die Suva vergeben, falls schon eine bekannt ist?"
+        },
+        "f5": {
+            "question": "Wie heisst der Arbeitgeber, und wie lautet seine Adresse mit Postleitzahl?"
+        },
+        "f6": {
+            "question": "Wo arbeitet die verletzte Person üblicherweise, in welchem Betriebszweig?"
+        },
+        "f10": {
+            "question": "Wie heisst die verletzte Person, mit Namen und Vornamen?"
+        },
+        "f8": {
+            "question": "Wann ist die verletzte Person geboren?"
+        },
+        "f9": {
+            "question": "Welche AHV-Nummer hat die verletzte Person?"
+        },
+        "f13": {
+            "question": "In welcher Strasse wohnt die verletzte Person, mit Hausnummer?"
+        },
+        "f12": {
+            "question": "Welche Staatsangehörigkeit hat die verletzte Person?"
+        },
+        "f16": {
+            "question": "Welchen Zivilstand hat die verletzte Person?"
+        },
+        "f144": {
+            "question": "Welche Postleitzahl hat der Wohnort der verletzten Person?"
+        },
+        "f145": {
+            "question": "In welchem Ort wohnt die verletzte Person?"
+        },
+        "f18": {
+            "question": "Seit wann ist die verletzte Person im Betrieb angestellt?"
+        },
+        "f17": {
+            "question": "Welchen Beruf übt die verletzte Person aus?"
+        },
+        "f25": {
+            "question": "Wie viele Stunden pro Woche arbeitet die verletzte Person?"
+        },
+        "f146": {
+            "question": "An welchem Datum ist der Unfall passiert?"
+        },
+        "f147": {
+            "question": "Um welche Uhrzeit ist der Unfall passiert?"
+        },
+        "f26": {
+            "question": "Wo ist der Unfall passiert: der Ort und die genaue Stelle, zum Beispiel Werkstatt oder Strasse?"
+        },
+        "f27": {
+            "question": "Was hat die verletzte Person gerade getan, und wie ist der Unfall abgelaufen? Wer und was war beteiligt?"
+        },
+        "f148": {
+            "question": "Wann hat die verletzte Person vor dem Unfall zuletzt im Betrieb gearbeitet? Wochentag, Datum und Uhrzeit."
+        },
+        "f149": {
+            "question": "Aus welchem Grund war die verletzte Person vor dem Unfall abwesend?"
+        },
+        "f150": {
+            "question": "Welche Art von Schädigung ist es?"
+        },
+        "f34": {
+            "question": "Welcher Arzt oder welches Spital behandelt die verletzte Person weiter?"
+        },
+        "f151": {
+            "question": "An welchem Ort und an welchem Datum wird die Meldung unterschrieben?"
+        }
+    },
+    "add": [
+        {
+            "page": 1,
+            "x": 472,
+            "y": 992,
+            "width": 185,
+            "height": 42,
+            "label": "PLZ",
+            "kind": "postcode"
+        },
+        {
+            "page": 1,
+            "x": 673,
+            "y": 992,
+            "width": 711,
+            "height": 42,
+            "label": "Wohnort",
+            "kind": "text"
+        },
+        {
+            "page": 1,
+            "x": 473,
+            "y": 1290,
+            "width": 660,
+            "height": 42,
+            "label": "Schadendatum (Tag, Monat, Jahr)",
+            "kind": "date"
+        },
+        {
+            "page": 1,
+            "x": 1154,
+            "y": 1290,
+            "width": 500,
+            "height": 42,
+            "label": "Zeit (Stunden, Minuten)",
+            "kind": "time"
+        },
+        {
+            "page": 1,
+            "x": 570,
+            "y": 2300,
+            "width": 560,
+            "height": 40,
+            "label": "Letztmals vor dem Unfall im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)",
+            "kind": "text"
+        },
+        {
+            "page": 1,
+            "x": 1435,
+            "y": 2300,
+            "width": 800,
+            "height": 40,
+            "label": "Grund der Absenz",
+            "kind": "text"
+        },
+        {
+            "page": 1,
+            "x": 775,
+            "y": 2402,
+            "width": 1460,
+            "height": 40,
+            "label": "Art der Schädigung",
+            "kind": "text"
+        },
+        {
+            "page": 1,
+            "x": 472,
+            "y": 2670,
+            "width": 780,
+            "height": 60,
+            "label": "Ort und Datum",
+            "kind": "text"
+        },
+        {
+            "page": 1,
+            "x": 1398,
+            "y": 2660,
+            "width": 840,
+            "height": 110,
+            "label": "Stempel und Unterschrift",
+            "kind": "signature"
+        }
+    ]
+}
