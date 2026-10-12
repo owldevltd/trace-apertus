@@ -1614,6 +1614,22 @@ The long record of all measurements is `docs/evidence.md`.
 - **Finding:** None beyond the rules the test holds.
 - **Run:** `tests/reading.js`, part of `make test`.
 
+### How long do capturing a page and filling a form take, step by step?
+
+- **Question:** Where does the time go between choosing an image and the finished dialogue, and between a dictation
+  or typed answers and the sent PDF?
+- **Test:** The first page of each of the five shipped forms as an image through the upload dialogue of the app; then
+  three shipped forms with a made-up dictation by two synthetic voices and with typed answers, each run up to the sent
+  PDF. 463 calls, one run each, the queue as built.
+- **Result:** Capturing a page: 51 to 88 seconds. Of that the reading 12 to 38 seconds (30 to 81 calls of 0.3
+  seconds), the one call for the catalogue 10 to 26 seconds (15 to 41 % of the capture), questions, checks and kinds
+  9 to 21 seconds, the browser 6 to 10 seconds until the server has the page, geometry and building fields 2 to 6
+  seconds. A dictation of 30 to 40 seconds: 5 to 17 seconds to the sent PDF, 2.5 to 3.5 of them the transcription.
+  Typed answers to 15 to 31 questions: 3 to 14 seconds. Closing the review, writing the PDF and sending: under 0.2
+  seconds.
+- **Finding:** None taken.
+- **Run:** `results/runtime/`
+
 ### Does a job run through the server without the model?
 
 - **Question:** Does the server take a form, run the pipeline and serve the result when no key is set?

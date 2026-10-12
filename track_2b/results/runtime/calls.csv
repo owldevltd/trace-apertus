@@ -1,0 +1,464 @@
+run,call,model,ms,status
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,518,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,283,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,249,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,245,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,238,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,257,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,261,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,250,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,261,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,241,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,262,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,245,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,225,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,229,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,229,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,256,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,316,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,239,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,660,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,262,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,315,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,253,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,475,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,430,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,223,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,235,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,245,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,408,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,479,200
+capture austrittsmeldung-s1,read,swiss-ai/Apertus-v1.5-8B,370,200
+capture austrittsmeldung-s1,catalogue,swiss-ai/Apertus-v1.5-70B,20948,200
+capture austrittsmeldung-s1,questions,swiss-ai/Apertus-v1.5-8B,2769,200
+capture austrittsmeldung-s1,check,swiss-ai/Apertus-v1.5-8B,1196,200
+capture austrittsmeldung-s1,check,swiss-ai/Apertus-v1.5-8B,695,200
+capture austrittsmeldung-s1,check,swiss-ai/Apertus-v1.5-8B,1313,200
+capture austrittsmeldung-s1,check,swiss-ai/Apertus-v1.5-8B,670,200
+capture austrittsmeldung-s1,kinds,swiss-ai/Apertus-v1.5-8B,1365,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,628,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,359,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,284,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,389,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,257,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,409,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,291,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,295,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,347,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,303,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,268,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,460,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,262,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,262,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,265,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,317,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,278,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,300,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,228,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,274,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,267,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,227,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,397,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,253,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,261,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,238,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,237,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,219,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,239,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,254,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,231,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,248,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,247,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,248,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,238,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,266,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,241,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,216,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,224,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,277,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,302,200
+capture betreibungsbegehren-form-1-s1,read,swiss-ai/Apertus-v1.5-8B,255,200
+capture betreibungsbegehren-form-1-s1,catalogue,swiss-ai/Apertus-v1.5-70B,15721,200
+capture betreibungsbegehren-form-1-s1,questions,swiss-ai/Apertus-v1.5-8B,3762,200
+capture betreibungsbegehren-form-1-s1,check,swiss-ai/Apertus-v1.5-8B,1164,200
+capture betreibungsbegehren-form-1-s1,check,swiss-ai/Apertus-v1.5-8B,1108,200
+capture betreibungsbegehren-form-1-s1,check,swiss-ai/Apertus-v1.5-8B,1217,200
+capture betreibungsbegehren-form-1-s1,check,swiss-ai/Apertus-v1.5-8B,1078,200
+capture betreibungsbegehren-form-1-s1,kinds,swiss-ai/Apertus-v1.5-8B,1956,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,688,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,504,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,615,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,242,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,351,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,251,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,259,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,263,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,244,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,261,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,248,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,241,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,317,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,303,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,286,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,260,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,243,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,387,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,241,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,241,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,321,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,326,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,241,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,228,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,301,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,286,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,231,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,610,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,284,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,296,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,284,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,390,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,293,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,304,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,253,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,241,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,257,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,259,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,224,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,250,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,295,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,260,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,289,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,263,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,216,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,283,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,220,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,284,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,254,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,309,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,409,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,368,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,447,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,229,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,439,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,306,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,224,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,237,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,267,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,257,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,254,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,301,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,259,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,416,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,310,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,220,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,265,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,237,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,225,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,303,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,257,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,246,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,291,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,265,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,313,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,219,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,216,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,245,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,662,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,537,200
+capture arbeitsfaehigkeitszeugnis-s1,read,swiss-ai/Apertus-v1.5-8B,353,200
+capture arbeitsfaehigkeitszeugnis-s1,catalogue,swiss-ai/Apertus-v1.5-70B,25800,200
+capture arbeitsfaehigkeitszeugnis-s1,questions,swiss-ai/Apertus-v1.5-8B,6793,200
+capture arbeitsfaehigkeitszeugnis-s1,check,swiss-ai/Apertus-v1.5-8B,1223,200
+capture arbeitsfaehigkeitszeugnis-s1,check,swiss-ai/Apertus-v1.5-8B,1228,200
+capture arbeitsfaehigkeitszeugnis-s1,check,swiss-ai/Apertus-v1.5-8B,1203,200
+capture arbeitsfaehigkeitszeugnis-s1,check,swiss-ai/Apertus-v1.5-8B,452,200
+capture arbeitsfaehigkeitszeugnis-s1,check,swiss-ai/Apertus-v1.5-8B,1202,200
+capture arbeitsfaehigkeitszeugnis-s1,check,swiss-ai/Apertus-v1.5-8B,1215,200
+capture arbeitsfaehigkeitszeugnis-s1,check,swiss-ai/Apertus-v1.5-8B,1215,200
+capture arbeitsfaehigkeitszeugnis-s1,check,swiss-ai/Apertus-v1.5-8B,433,200
+capture arbeitsfaehigkeitszeugnis-s1,kinds,swiss-ai/Apertus-v1.5-8B,2410,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,777,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,544,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,664,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,291,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,252,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,240,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,256,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,239,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,230,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,245,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,281,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,235,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,237,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,258,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,341,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,268,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,267,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,244,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,236,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,247,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,241,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,234,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,234,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,230,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,223,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,234,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,268,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,237,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,247,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,240,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,251,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,242,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,258,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,255,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,276,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,233,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,252,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,242,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,252,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,250,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,308,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,305,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,329,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,282,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,247,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,244,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,244,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,251,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,265,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,224,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,228,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,252,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,291,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,242,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,420,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,423,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,459,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,248,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,263,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,262,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,236,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,221,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,225,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,367,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,218,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,216,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,453,200
+capture schadenmeldung-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,269,200
+capture schadenmeldung-uvg-s1,catalogue,swiss-ai/Apertus-v1.5-70B,9672,200
+capture schadenmeldung-uvg-s1,questions,swiss-ai/Apertus-v1.5-8B,8354,200
+capture schadenmeldung-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1319,200
+capture schadenmeldung-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1263,200
+capture schadenmeldung-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1125,200
+capture schadenmeldung-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,749,200
+capture schadenmeldung-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1192,200
+capture schadenmeldung-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1210,200
+capture schadenmeldung-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1246,200
+capture schadenmeldung-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,823,200
+capture schadenmeldung-uvg-s1,kinds,swiss-ai/Apertus-v1.5-8B,2922,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,876,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,280,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,324,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,704,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,304,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,381,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,275,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,372,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,258,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,400,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,469,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,254,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,266,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,284,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,497,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,264,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,256,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,274,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,318,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,324,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,259,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,253,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,269,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,266,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,368,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,242,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,249,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,319,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,286,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,281,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,260,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,255,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,403,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,283,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,216,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,261,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,244,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,267,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,466,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,259,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,404,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,578,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,612,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,267,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,236,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,280,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,553,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,238,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,255,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,247,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,233,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,210,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,246,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,248,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,284,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,223,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,260,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,229,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,261,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,387,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,380,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,219,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,232,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,246,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,257,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,279,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,1084,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,551,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,676,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,327,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,244,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,391,200
+capture suva-bagatellunfall-uvg-s1,read,swiss-ai/Apertus-v1.5-8B,520,200
+capture suva-bagatellunfall-uvg-s1,catalogue,swiss-ai/Apertus-v1.5-70B,17365,200
+capture suva-bagatellunfall-uvg-s1,questions,swiss-ai/Apertus-v1.5-8B,5390,200
+capture suva-bagatellunfall-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1302,200
+capture suva-bagatellunfall-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1243,200
+capture suva-bagatellunfall-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1004,200
+capture suva-bagatellunfall-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1608,200
+capture suva-bagatellunfall-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,1317,200
+capture suva-bagatellunfall-uvg-s1,check,swiss-ai/Apertus-v1.5-8B,844,200
+capture suva-bagatellunfall-uvg-s1,kinds,swiss-ai/Apertus-v1.5-8B,2033,200
+"austrittsmeldung, dictation, voice-a",read,swiss-ai/Apertus-v1.5-8B,2425,200
+"austrittsmeldung, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,510,200
+"austrittsmeldung, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,467,200
+"austrittsmeldung, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,505,200
+"austrittsmeldung, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,230,200
+"austrittsmeldung, dictation, voice-b",read,swiss-ai/Apertus-v1.5-8B,2034,200
+"austrittsmeldung, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,501,200
+"austrittsmeldung, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,547,200
+"austrittsmeldung, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,521,200
+"austrittsmeldung, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,298,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,399,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,202,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,199,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,181,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,209,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,209,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,205,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,186,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,202,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,214,200
+"austrittsmeldung, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,188,200
+"betreibungsbegehren, dictation, voice-a",read,swiss-ai/Apertus-v1.5-8B,2884,200
+"betreibungsbegehren, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,986,200
+"betreibungsbegehren, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,705,200
+"betreibungsbegehren, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,393,200
+"betreibungsbegehren, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,1519,200
+"betreibungsbegehren, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,1029,200
+"betreibungsbegehren, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,809,200
+"betreibungsbegehren, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,918,200
+"betreibungsbegehren, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,673,200
+"betreibungsbegehren, dictation, voice-a",suggest,swiss-ai/Apertus-v1.5-8B,552,200
+"betreibungsbegehren, dictation, voice-a",suggest,swiss-ai/Apertus-v1.5-8B,320,200
+"betreibungsbegehren, dictation, voice-b",read,swiss-ai/Apertus-v1.5-8B,2751,200
+"betreibungsbegehren, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,989,200
+"betreibungsbegehren, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,707,200
+"betreibungsbegehren, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,370,200
+"betreibungsbegehren, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,1243,200
+"betreibungsbegehren, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,1034,200
+"betreibungsbegehren, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,830,200
+"betreibungsbegehren, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,880,200
+"betreibungsbegehren, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,612,200
+"betreibungsbegehren, dictation, voice-b",suggest,swiss-ai/Apertus-v1.5-8B,279,200
+"betreibungsbegehren, dictation, voice-b",suggest,swiss-ai/Apertus-v1.5-8B,276,200
+"betreibungsbegehren, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,938,200
+"betreibungsbegehren, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,193,200
+"betreibungsbegehren, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,746,200
+"betreibungsbegehren, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,214,200
+"betreibungsbegehren, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,969,200
+"betreibungsbegehren, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,202,200
+"betreibungsbegehren, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,192,200
+"betreibungsbegehren, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,1260,200
+"betreibungsbegehren, typed and clicked",suggest,swiss-ai/Apertus-v1.5-8B,288,200
+"betreibungsbegehren, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,495,200
+"betreibungsbegehren, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,554,200
+"betreibungsbegehren, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,190,200
+"betreibungsbegehren, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,187,200
+"betreibungsbegehren, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,258,200
+"suva-bagatellunfall, dictation, voice-a",read,swiss-ai/Apertus-v1.5-8B,2693,200
+"suva-bagatellunfall, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,632,200
+"suva-bagatellunfall, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,444,200
+"suva-bagatellunfall, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,560,200
+"suva-bagatellunfall, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,725,200
+"suva-bagatellunfall, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,470,200
+"suva-bagatellunfall, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,548,200
+"suva-bagatellunfall, dictation, voice-a",fill,swiss-ai/Apertus-v1.5-8B,242,200
+"suva-bagatellunfall, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,568,200
+"suva-bagatellunfall, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,659,200
+"suva-bagatellunfall, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,811,200
+"suva-bagatellunfall, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,851,200
+"suva-bagatellunfall, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,844,200
+"suva-bagatellunfall, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,752,200
+"suva-bagatellunfall, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,795,200
+"suva-bagatellunfall, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,735,200
+"suva-bagatellunfall, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,870,200
+"suva-bagatellunfall, dictation, voice-a",vague,swiss-ai/Apertus-v1.5-8B,835,200
+"suva-bagatellunfall, dictation, voice-a",suggest,swiss-ai/Apertus-v1.5-8B,306,200
+"suva-bagatellunfall, dictation, voice-b",read,swiss-ai/Apertus-v1.5-8B,2794,200
+"suva-bagatellunfall, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,604,200
+"suva-bagatellunfall, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,477,200
+"suva-bagatellunfall, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,645,200
+"suva-bagatellunfall, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,711,200
+"suva-bagatellunfall, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,485,200
+"suva-bagatellunfall, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,548,200
+"suva-bagatellunfall, dictation, voice-b",fill,swiss-ai/Apertus-v1.5-8B,232,200
+"suva-bagatellunfall, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,606,200
+"suva-bagatellunfall, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,658,200
+"suva-bagatellunfall, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,857,200
+"suva-bagatellunfall, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,1068,200
+"suva-bagatellunfall, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,974,200
+"suva-bagatellunfall, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,979,200
+"suva-bagatellunfall, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,962,200
+"suva-bagatellunfall, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,878,200
+"suva-bagatellunfall, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,944,200
+"suva-bagatellunfall, dictation, voice-b",vague,swiss-ai/Apertus-v1.5-8B,919,200
+"suva-bagatellunfall, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,916,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,203,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,187,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,190,200
+"suva-bagatellunfall, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,728,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,198,200
+"suva-bagatellunfall, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,605,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,195,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,191,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,197,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,487,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,200,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,185,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,191,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,201,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,190,200
+"suva-bagatellunfall, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,739,200
+"suva-bagatellunfall, typed and clicked",suggest,swiss-ai/Apertus-v1.5-8B,304,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,226,200
+"suva-bagatellunfall, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,704,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,202,200
+"suva-bagatellunfall, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,834,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,180,200
+"suva-bagatellunfall, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,822,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,188,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,227,200
+"suva-bagatellunfall, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,749,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,184,200
+"suva-bagatellunfall, typed and clicked",vague,swiss-ai/Apertus-v1.5-8B,813,200
+"suva-bagatellunfall, typed and clicked",enough,swiss-ai/Apertus-v1.5-8B,182,200
