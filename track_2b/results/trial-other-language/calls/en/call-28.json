@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:18:15.480Z",
+  "tag": "sprache gegenüber en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 2020,
+  "prompt": "Du gibst jemandem im Gespräch Auskunft zu deinem Fall. Über den Fall weisst du nur, was du selbst so erzählt hast:\n\nBagatellunfall-Meldung von der Logistik Zugersee AG, Werkstrasse zwölf in Zug, Telefon null vier eins, sieben zwei acht, vierzig zehn. Betroffen ist das Lager. Verletzt ist Sandra Keller, geboren am vierzehnten März achtundachtzig, Werkstrasse zwölf in Zug, Schweizerin, ledig, Lagermitarbeiterin, angestellt seit ersten Februar neunzehn, vierzig Stunden. Der Unfall war gestern um zwanzig nach zwei im Lager an der Werkstrasse. Sie ist beim Abladen einer Palette ausgerutscht und auf das rechte Handgelenk gestürzt. Erstbehandlung im Notfall vom Kantonsspital Zug.\n\nDir werden diese Fragen gestellt:\nA: What is the name and address of your employer, including the postal code?\nB: What is the telephone number of your employer?\nC: What is your customer number?\nD: What is the usual department or branch where the injured person works?\nE: What is the full name of the injured person?\nF: What is the date of birth of the injured person?\nG: What is the AHV number of the injured person?\nH: What is the street address of the injured person?\nI: What is the nationality of the injured person?\nJ: What is the marital status of the injured person?\nK: When did the injured person start working for this employer?\nL: What is the profession or job title of the injured person?\nM: Is the injured person part of the higher management, middle management, regular employee, apprentice, or intern?\nN: How many hours per week does the injured person work?\nO: Tag\nP: What is the month of the accident?\nQ: What is the year of the accident?\nR: What time did the accident occur (hours and minutes)?\nS: What is the location of the accident (place name or postal code) and the specific place or street where it happened?\nT: What activity was the injured person doing at the time of the accident, and what was the sequence of events?\nU: What objects were involved in the accident, such as machines, tools, vehicles, or materials, and please describe them in detail?\nV: Which body part was injured in the accident?\nW: Was the injury on the left side, right side, or is it unclear?\nX: What type of injury or damage occurred?\nY: Who was the first doctor or hospital that treated the injured person?\nZ: Who was the doctor or hospital that provided follow-up treatment?\na: Where and when was the final assessment or conclusion made?\n\nAntworte auf jede Frage auf Englisch, wie man im Gespräch antwortet: kurz und nur mit dem, was du weisst. Weisst du etwas nicht, sag das auf Englisch. Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"antwort\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2719,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-ae4a24eb-45f3-4168-9703-3f0229bfdf70",
+    "object": "chat.completion",
+    "created": 1791551896,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"antwort\": \"Logistik Zugersee AG, Werkstrasse zwölf, 6300 Zug\"}, {\"frage\": \"B\", \"antwort\": \"041 728 4010\"}, {\"frage\": \"C\", \"antwort\": \"Not answerable\"}, {\"frage\": \"D\", \"antwort\": \"Lager\"}, {\"frage\": \"E\", \"antwort\": \"Sandra Keller\"}, {\"frage\": \"F\", \"antwort\": \"14 March 1988\"}, {\"frage\": \"G\", \"antwort\": \"Not answerable\"}, {\"frage\": \"H\", \"antwort\": \"Werkstrasse zwölf, 6300 Zug\"}, {\"frage\": \"I\", \"antwort\": \"Swiss\"}, {\"frage\": \"J\", \"antwort\": \"Single\"}, {\"frage\": \"K\", \"antwort\": \"1 February 2019\"}, {\"frage\": \"L\", \"antwort\": \"Warehouse employee\"}, {\"frage\": \"M\", \"antwort\": \"Regular employee\"}, {\"frage\": \"N\", \"antwort\": \"40 hours\"}, {\"frage\": \"O\", \"antwort\": \"Day\"}, {\"frage\": \"P\", \"antwort\": \"May\"}, {\"frage\": \"Q\", \"antwort\": \"2023\"}, {\"frage\": \"R\", \"antwort\": \"20:10\"}, {\"frage\": \"S\", \"antwort\": \"Werkstrasse, 6300 Zug\"}, {\"frage\": \"T\", \"antwort\": \"Slipped while unloading a pallet and fell on the right wrist\"}, {\"frage\": \"U\", \"antwort\": \"Pallet\"}, {\"frage\": \"V\", \"antwort\": \"Right wrist\"}, {\"frage\": \"W\", \"antwort\": \"Right\"}, {\"frage\": \"X\", \"antwort\": \"Fracture or sprain of the right wrist\"}, {\"frage\": \"Y\", \"antwort\": \"Cantonspital Zug\"}, {\"frage\": \"Z\", \"antwort\": \"Not answerable\"}, {\"frage\": \"a\", \"antwort\": \"Not answerable\"}]}}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 693,
+      "total_tokens": 1138,
+      "completion_tokens": 445,
+      "prompt_tokens_details": {
+        "cached_tokens": 224,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

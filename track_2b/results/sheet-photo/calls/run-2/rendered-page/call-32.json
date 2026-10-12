@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T20:40:17.570Z",
+ "tag": "questions page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1860,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nAustrittsmeldung\nVersicherte Person\nNachname  → [q1]\nVorname  → [q2]\nGeburtsdatum  → [q3]\nNationalität  → [q4]\nVersichert-en-Nr.  → [q5]\nAufenthaltsbewilligung  → [q6]\nBeruf  → [q7]\nStrasse/Nr.  → [q8]\nOrt  → [q9]\nPLZ  → [q10]\nTelefon  → [q11]\nE-Mail  → [q12]\nGeschichte\nmännlich  → [q13: Auswahl]\nweiblich  → [q13: Auswahl]\nDen in der Schweiz oder im Fürstentum Liechtenstein wohnhaften Versicherten steht innerhalb von 90 Tagen nach dem Austritt aus der Firma das Recht zu, in die Einzelf Versicherung überzutreten.\nErklärung der versicherten Person\nIch werde/bin aus der Firma austreten/ausgetreten.  → [q14: Kästchen]\nAustrittsdatum  → [q15]\nIch bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte.  → [q16: Kästchen]\nIch verzichte auf mein Recht, die betreffende Versicherung weiterzuführen.  → [q17: Kästchen]\nUnterschrift\nDatum  → [q18]\nUnterschrift\nMit der Unterschrift wird die Richtigkeit der gemachten Angaben bestätigt.\nNachgebaut nach dem Vorbild der SWICA-Austrittsmeldung – nicht das Original\nSeite 1 / 1\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu jeder Kennung genau eine Frage, so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 2797,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-5e5a8451-e6bf-46e4-8fcb-24c6bf5fb4b2",
+  "object": "chat.completion",
+  "created": 1791751220,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"Wie lautet der Nachname?\"}, {\"kennung\": \"q2\", \"frage\": \"Wie lautet der Vorname?\"}, {\"kennung\": \"q3\", \"frage\": \"Wann wurde die Person geboren?\"}, {\"kennung\": \"q4\", \"frage\": \"Welche Nationalität hat die Person?\"}, {\"kennung\": \"q5\", \"frage\": \"Welche Versicherungsnummer hat die Person?\"}, {\"kennung\": \"q6\", \"frage\": \"Welche Aufenthaltsbewilligung hat die Person?\"}, {\"kennung\": \"q7\", \"frage\": \"Welchen Beruf hat die Person?\"}, {\"kennung\": \"q8\", \"frage\": \"Welche Strasse und Hausnummer hat die Person?\"}, {\"kennung\": \"q9\", \"frage\": \"In welcher Stadt oder Gemeinde wohnt die Person?\"}, {\"kennung\": \"q10\", \"frage\": \"Welche Postleitzahl hat die Adresse?\"}, {\"kennung\": \"q11\", \"frage\": \"Welche Telefonnummer hat die Person?\"}, {\"kennung\": \"q12\", \"frage\": \"Welche E-Mail-Adresse hat die Person?\"}, {\"kennung\": \"q13\", \"frage\": \"Ist die Person männlich oder weiblich?\"}, {\"kennung\": \"q14\", \"frage\": \"Wird die Person aus der Firma austreten oder ist sie bereits ausgetreten?\"}, {\"kennung\": \"q15\", \"frage\": \"Wann ist das Austrittsdatum?\"}, {\"kennung\": \"q16\", \"frage\": \"Interessiert sich die Person für eine Weiterführung der Versicherung und möchte eine unverbindliche Offerte?\"}, {\"kennung\": \"q17\", \"frage\": \"Verzichtet die Person auf das Recht, die betreffende Versicherung weiterzuführen?\"}, {\"kennung\": \"q18\", \"frage\": \"Wann hat die Person unterschrieben?\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 949,
+   "total_tokens": 1398,
+   "completion_tokens": 449,
+   "prompt_tokens_details": {
+    "cached_tokens": 224,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T20:40:51.050Z",
+ "tag": "catalogue Captured form",
+ "model": "swiss-ai/Apertus-v1.5-70B",
+ "temperature": 0,
+ "room": 7000,
+ "prompt": "Hier ist der Text eines Schweizer Formulars. Erstelle einen Katalog der rechtlichen und fachlichen Vorgaben je Feld, das ausgefüllt werden muss:\n- welches Gesetz oder welche Verordnung gilt (Name, SR-Nummer, Artikel), falls es eine gibt\n- was genau angegeben werden muss (Inhalt, Form, Genauigkeit, Fristen)\nNenne nur Quellen, bei denen du sicher bist; sonst schreibe \"keine sichere Quelle\". Erfinde keine Artikelnummern.\nAntworte nur als JSON: {\"formular\": \"...\", \"felder\": [{\"feld\": \"...\", \"vorgabe\": \"...\", \"quelle\": \"...\", \"sicherheit\": \"hoch|mittel|niedrig\"}]}\n\nFormulartext:\nAustriftsmeldung\nVersicherte Person\nNachname\nVorname\nGeburtsdatum\nNationalität\nVersicherten-Nr.\nAufenthaltsbewilligung\nBeruf\nStrasse/Nr.\nPLZ\nOrt\nTelefon\nE-Mail\nGeschichte\nmännlich\nweiblich\nDen in der Schweiz oder im Fürstentum Liechtenstein wohnhaften Versicherten steht innerhalb von 90 Tagen nach dem Austritt aus der Firma das Recht zu, in die Einzelf Versicherung überzutreten.\nErklärung der versicherten Person\nIch werde/bin aus der Firma austreten/ausgetreten.\nAustrittsdatum\nIch bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte.\nIch verzichte auf mein Recht, die betreffende Versicherung weiterzuführen.\nUnterschrift\nDatum\nUnterschrift\nMit der Unterschrift wird die Richtigkeit der gemachten Angaben bestätigt.\nNachgebaut nach dem Vorbild der SWICA-Austrittsmeldung – nicht das Original\nSeite 1 / 1",
+ "image": 0,
+ "audio": 0,
+ "ms": 15649,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-82a2996f-f043-4d1c-ae6c-b97c98b447ab",
+  "object": "chat.completion",
+  "created": 1791751253,
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\n  \"formular\": \"Austriftsmeldung\",\n  \"felder\": [\n    {\n      \"feld\": \"Nachname\",\n      \"vorgabe\": \"Der Nachname der versicherten Person muss vollständig und korrekt angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Vorname\",\n      \"vorgabe\": \"Der Vorname der versicherten Person muss vollständig und korrekt angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Geburtsdatum\",\n      \"vorgabe\": \"Das exakte Geburtsdatum (TT.MM.JJJJ) muss angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Nationalität\",\n      \"vorgabe\": \"Die Nationalität der versicherten Person muss angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Versicherten-Nr.\",\n      \"vorgabe\": \"Die eindeutige Versichertennummer muss korrekt angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Aufenthaltsbewilligung\",\n      \"vorgabe\": \"Falls vorhanden, muss die Aufenthaltsbewilligung (Typ und Nummer) angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Beruf\",\n      \"vorgabe\": \"Der ausgeübte Beruf muss angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Strasse/Nr.\",\n      \"vorgabe\": \"Die vollständige Strassenadresse inklusive Hausnummer muss angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"PLZ\",\n      \"vorgabe\": \"Die korrekte Postleitzahl des Wohnortes muss angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Ort\",\n      \"vorgabe\": \"Der vollständige Wohnort muss angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Telefon\",\n      \"vorgabe\": \"Eine gültige Telefonnummer für Rückfragen muss angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"E-Mail\",\n      \"vorgabe\": \"Eine gültige E-Mail-Adresse muss angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Geschichte (männlich/weiblich)\",\n      \"vorgabe\": \"Das Geschlecht der versicherten Person muss angekreuzt werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Erklärung der versicherten Person (Austritt)\",\n      \"vorgabe\": \"Es muss bestätigt werden, dass die versicherte Person aus der Firma austritt oder bereits ausgetreten ist.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Austrittsdatum\",\n      \"vorgabe\": \"Das genaue Datum des Austritts aus der Firma muss angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Interesse an Weiterführung\",\n      \"vorgabe\": \"Es muss angekreuzt werden, ob eine unverbindliche Offerte für die Weiterführung der Versicherung gewünscht wird oder ob auf das Recht zur Weiterführung verzichtet wird.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Unterschrift\",\n      \"vorgabe\": \"Die Meldung muss eigenhändig von der versicherten Person unterschrieben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    },\n    {\n      \"feld\": \"Datum\",\n      \"vorgabe\": \"Das Datum der Unterzeichnung muss angegeben werden.\",\n      \"quelle\": \"keine sichere Quelle\",\n      \"sicherheit\": \"niedrig\"\n    }\n  ]\n}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+  "usage": {
+   "prompt_tokens": 450,
+   "total_tokens": 1535,
+   "completion_tokens": 1085,
+   "prompt_tokens_details": {
+    "cached_tokens": 256,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

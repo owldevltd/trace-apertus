@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T13:46:31.546Z",
+ "tag": "arten suva-bagatellunfall 1 #B",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 732,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBitte mit Schreibmaschine ausfüllen oder direkt auf www.suva.ch/schadenmeldung\n[q1]\nSchaden-Nummer  → [q2]\nBagatellunfall-Meldung UVG\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q3]\nTel.-Nr.  → [q4]\nKunden-Nr.  → [q5]\nBetriebsteil\n▼ Wird von der Versicherung ausgefüllt\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q6]\nGe\n2. Verletzte/r\nName und Vorname  → [q7]\nGeburtsdatum  → [q8]\nAHV-Nummer  → [q9]\n[q10: Kästchen]\nSt\n[q11]\nStrasse  → [q12]\nStaatsangehörigkeit  → [q13] [q14]\nPLZ\nWohnort\nZivilstand  → [q15]\n[q16: Kästchen]\n3. Anstellung\nDatum der Anstellung  → [q17]\nAusgeübter Beruf  → [q18]\nStellung\nHöheres Kader  → [q19: Kästchen]\nMittleres Kader  → [q20: Kästchen]\nAngestellte/r / Arbeiter/in  → [q21: Kästchen]\nLehrling  → [q22: Auswahl]\nPraktikant/in  → [q22: Auswahl] [q23: Kästchen]\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q24]\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q25]\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q26]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q27]\nB/N/F\n8. Nicht- berufsunfall\nBis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\n[q28: Kästchen]\nbis:\nVerletzung\nlinks  → [q29: Auswahl]\nrechts  → [q29: Auswahl]\nunbestimmt  → [q29: Auswahl]\n9. Verletzung\nBetroffener Körperteil:  → [q30]\nArt der Schädigung:\nArt\n10. Arzt- adressen  → [q31]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q32]\nOrt und Datum\nStempel und Unterschrift\nHinweis für den Arbeitgeber\nDiese Bagatellunfall-Meldung ist auszufüllen, wenn keine Arbeitsunfähigkeit oder eine solche von höchstens 3 Kalendertagen (Unfalltag und die anschliessenden 2 Tage) eintritt. Ausnahmen: Anstelle dieser Bagatellunfall-Meldung ist eine weisse Formulargarnitur auszufüllen bei – Berufskrankheit, – Zahnschaden oder – Rückfall\nDem zugezogenen Arzt bzw. den Ärzten werden wir ein Rechnungsformular zustellen.\nFür Rückerstattungsgesuche von bereits bezahlten Rechnungen bitten wir Sie, Belege beizulegen und nachfolgend die Zahladresse (Post-/Bankkonto) anzugeben.  → [q33]\n913.d – 2005\nVerteiler:\ngrünes Formular gelbes Formular blaues Formular\n➞ Suva (Adresse siehe oben) ➞ Doppel für Ihre Akten ➞ Verletzte/r ➞ Apotheke ➞ Suva\n-----\n\nSage zu jeder der Kennungen unten, welche Art von Angabe an dieser Stelle eingetragen wird. Wähle genau eine dieser Arten:\n- text: ein Name, eine Adresse, ein Wort oder ein Satz\n- nummer: eine Kennnummer oder ein Aktenzeichen, zum Beispiel eine Policen-, Kunden-, Versicherten- oder Schadennummer\n- zahl: eine Menge, ein Betrag oder ein Prozentsatz\n- telefon: eine Telefonnummer\n- email: eine E-Mail-Adresse\n- plz: eine Postleitzahl allein, ohne Ort und Strasse\n- iban: eine IBAN\n- datum: ein Datum\n- uhrzeit: eine Uhrzeit\n\nDie Kennungen: q1, q2, q3, q4, q5, q6, q7, q8, q9, q11, q12, q13, q14, q15, q17, q18, q24, q25, q26, q27, q30, q31, q32, q33\nAntworte nur als JSON, ohne weiteren Text: {\"arten\": [{\"kennung\": \"q1\", \"art\": \"text\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 2678,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-0263edc3-bece-42b7-99e1-6309db082654",
+  "object": "chat.completion",
+  "created": 1791726394,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"arten\": [{\"kennung\": \"q1\", \"art\": \"text\"}, {\"kennung\": \"q2\", \"art\": \"nummer\"}, {\"kennung\": \"q3\", \"art\": \"text\"}, {\"kennung\": \"q4\", \"art\": \"telefon\"}, {\"kennung\": \"q5\", \"art\": \"nummer\"}, {\"kennung\": \"q6\", \"art\": \"text\"}, {\"kennung\": \"q7\", \"art\": \"text\"}, {\"kennung\": \"q8\", \"art\": \"nummer\"}, {\"kennung\": \"q9\", \"art\": \"nummer\"}, {\"kennung\": \"q10\", \"art\": \"text\"}, {\"kennung\": \"q11\", \"art\": \"text\"}, {\"kennung\": \"q12\", \"art\": \"text\"}, {\"kennung\": \"q13\", \"art\": \"text\"}, {\"kennung\": \"q14\", \"art\": \"text\"}, {\"kennung\": \"q15\", \"art\": \"text\"}, {\"kennung\": \"q17\", \"art\": \"datum\"}, {\"kennung\": \"q18\", \"art\": \"text\"}, {\"kennung\": \"q21\", \"art\": \"text\"}, {\"kennung\": \"q22\", \"art\": \"Auswahl\"}, {\"kennung\": \"q23\", \"art\": \"text\"}, {\"kennung\": \"q24\", \"art\": \"zahl\"}, {\"kennung\": \"q25\", \"art\": \"text\"}, {\"kennung\": \"q26\", \"art\": \"text\"}, {\"kennung\": \"q27\", \"art\": \"text\"}, {\"kennung\": \"q29\", \"art\": \"Auswahl\"}, {\"kennung\": \"q30\", \"art\": \"text\"}, {\"kennung\": \"q31\", \"art\": \"text\"}, {\"kennung\": \"q32\", \"art\": \"text\"}, {\"kennung\": \"q33\", \"art\": \"text\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 1398,
+   "total_tokens": 1832,
+   "completion_tokens": 434,
+   "prompt_tokens_details": {
+    "cached_tokens": 1152,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

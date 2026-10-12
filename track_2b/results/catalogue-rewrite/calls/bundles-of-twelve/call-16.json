@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:40:42.659Z",
+  "tag": "umgeschrieben-paeckchen suva-bagatellunfall q25",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Bagatellunfall-Meldung UVG\", jede mit ihrer Kennung:\n\nq25: Wie lautet der Ort (Name oder PLZ) und die Stelle (z. B. Werkstatt, Strasse) des Unfallorts?\nq26: Welche Tätigkeit wurde zur Zeit des Unfalles ausgeöbt; wie lief der Unfallhergang ab, wer war beteiligt, was wurde beschädigt?\nq27: Welche beteiligten Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff) werden genau bezeichnet?\nq28: Welches Datum bis wann wurde zuletzt im Betrieb gearbeitet?\nq29: Ist die Verletzung links, rechts oder unbestimmt?\nq30: Welches betroffene Körperteil wird angegeben?\nq31: Wie lautet die Adresse des nachbehandelnden Arztes bzw. Spitals/Klinik?\nq32: Wie lautet die Adresse des Arztes bzw. Spitals/Klinik?\nq33: Welche Zahladresse (Post- oder Bankkonto) wird für Rückerstattungsgesuche angegeben?\nq34: Welche Schaden-Nummer wird eingetragen?\nq35: Welche Schaden-Nummer wird eingetragen?\nq36: Welche Telefon-Nummer wird eingetragen?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3663,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-4232703c-d268-47b0-ab0c-cbc027f21128",
+    "object": "chat.completion",
+    "created": 1791531643,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q25\", \"frage\": \"Wie heißt der Ort und die genaue Adresse, wo der Unfall passiert ist?\"}, {\"kennung\": \"q26\", \"frage\": \"Welche Arbeit hast du gerade gemacht, wie ist der Unfall passiert, wer war dabei, was ist kaputt gegangen?\"}, {\"kennung\": \"q27\", \"frage\": \"Welche Dinge waren dabei, zum Beispiel Maschine, Werkzeug, Auto oder Material?\"}, {\"kennung\": \"q28\", \"frage\": \"Wann war das letzte Mal, dass du im Betrieb gearbeitet hast?\"}, {\"kennung\": \"q29\", \"frage\": \"Ist die Verletzung links, rechts oder weißt du das nicht?\"}, {\"kennung\": \"q30\", \"frage\": \"Welches Körperteil ist verletzt?\"}, {\"kennung\": \"q31\", \"frage\": \"Wo ist der Arzt oder das Spital, das dich behandelt?\"}, {\"kennung\": \"q32\", \"frage\": \"Wo ist der Arzt oder das Spital, das dich behandelt?\"}, {\"kennung\": \"q33\", \"frage\": \"Welche Zahladresse, wie eine Post- oder Banknummer, geben wir für Rückerstattungen an?\"}, {\"kennung\": \"q34\", \"frage\": \"Welche Schaden-Nummer wird eingetragen?\"}, {\"kennung\": \"q35\", \"frage\": \"Welche Schaden-Nummer wird eingetragen?\"}, {\"kennung\": \"q36\", \"frage\": \"Welche Telefonnummer geben wir an?\")}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 504,
+      "total_tokens": 860,
+      "completion_tokens": 356,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

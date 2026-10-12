@@ -1,0 +1,1426 @@
+[
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q1",
+  "field": "f3",
+  "label": "Name / Vorname",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q2",
+  "field": "f4",
+  "label": "Geb.-Dat.",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q4",
+  "field": "f5",
+  "label": "Adresse / PLZ",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q5",
+  "field": "f6",
+  "label": "AHV-Nr.",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q6",
+  "field": "f7",
+  "label": "Telefon",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q7",
+  "field": "f8",
+  "label": "E-Mail",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q8",
+  "field": "f9",
+  "label": "Firmenname",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q9",
+  "field": "f10",
+  "label": "Kontaktperson",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q10",
+  "field": "f11",
+  "label": "Adresse / PLZ",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q11",
+  "field": "f12",
+  "label": "Telefon",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q12",
+  "field": "f13",
+  "label": "E-Mail",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q13",
+  "field": "f15",
+  "label": "Funktion / ausgeübter Beruf *",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q15",
+  "field": "f17",
+  "label": "Std. / Tag",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q16",
+  "field": "f16",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q18",
+  "field": "f21",
+  "label": "Wochenarbeitszeit / Einsatztage",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q20",
+  "field": "f20",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q21",
+  "field": "f22",
+  "label": "Bei Kündigung: Arbeitsverhältnis gekündigt per",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q23",
+  "field": "f28",
+  "label": "REP vom",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q24",
+  "field": "f29",
+  "label": "Arbeitsplatzbeschrieb vom",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q29",
+  "field": "f49",
+  "label": "REP vom",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q30",
+  "field": "f50",
+  "label": "Arbeitsplatzbeschrieb vom",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q32",
+  "field": "f87",
+  "label": "Wiederaufnahme der Arbeit zu 100 % ab",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q33",
+  "field": "f93",
+  "label": "Bemerkungen",
+  "kind": "multiline"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q34",
+  "field": "f90",
+  "label": "Arzt / Ärztin (Name, Stempel)",
+  "kind": "text"
+ },
+ {
+  "form": "arbeitsfaehigkeitszeugnis",
+  "page": 1,
+  "place": "q36",
+  "field": "f91",
+  "label": "Datum",
+  "kind": "date"
+ },
+ {
+  "form": "betreibungsbegehren",
+  "page": 1,
+  "place": "q5",
+  "field": "f36",
+  "label": "Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "kind": "multiline"
+ },
+ {
+  "form": "betreibungsbegehren",
+  "page": 1,
+  "place": "q6",
+  "field": "f37",
+  "label": "Adresse des Betreibungsamtes",
+  "kind": "multiline"
+ },
+ {
+  "form": "betreibungsbegehren",
+  "page": 1,
+  "place": "q7",
+  "field": "f38",
+  "label": "Geburtsdatum (falls bekannt)",
+  "kind": "date"
+ },
+ {
+  "form": "betreibungsbegehren",
+  "page": 1,
+  "place": "q8",
+  "field": "f39",
+  "label": "Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "kind": "multiline"
+ },
+ {
+  "form": "betreibungsbegehren",
+  "page": 1,
+  "place": "q10",
+  "field": "f40",
+  "label": "vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "kind": "multiline"
+ },
+ {
+  "form": "betreibungsbegehren",
+  "page": 1,
+  "place": "q11",
+  "field": "f7",
+  "label": "IBAN",
+  "kind": "text"
+ },
+ {
+  "form": "betreibungsbegehren",
+  "page": 1,
+  "place": "q12",
+  "field": "f41",
+  "label": "Telefon oder E-Mail",
+  "kind": "text"
+ },
+ {
+  "form": "betreibungsbegehren",
+  "page": 1,
+  "place": "q13",
+  "field": "f8",
+  "label": "Forderungsgrund oder Forderungsurkunde mit Datum",
+  "kind": "multiline"
+ },
+ {
+  "form": "betreibungsbegehren",
+  "page": 1,
+  "place": "q15",
+  "field": "f42",
+  "label": "Bemerkungen",
+  "kind": "multiline"
+ },
+ {
+  "form": "betreibungsbegehren",
+  "page": 1,
+  "place": "q16",
+  "field": "f43",
+  "label": "Ihre Fallreferenz (falls vorhanden)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q4",
+  "field": "f3",
+  "label": "Schaden-Nummer",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q7",
+  "field": "f9",
+  "label": "Name und Adresse mit Postleitzahl",
+  "kind": "multiline"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q8",
+  "field": "f10",
+  "label": "Tel.-Nr.",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q9",
+  "field": "f11",
+  "label": "E-Mail",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q10",
+  "field": "f12",
+  "label": "Police-Nr. UVG",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q11",
+  "field": "f14",
+  "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q12",
+  "field": "f13",
+  "label": "Police-Nr. UVG-Zusatz",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q14",
+  "field": "f16",
+  "label": "Name und Vorname",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q15",
+  "field": "f17",
+  "label": "Geburtsdatum",
+  "kind": "date"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q16",
+  "field": "f18",
+  "label": "AHV-Nummer",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q17",
+  "field": "f19",
+  "label": "Strasse",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q18",
+  "field": "f20",
+  "label": "Tel.-Nr.",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q19",
+  "field": "f21",
+  "label": "Zivilstand",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q20",
+  "field": "f22",
+  "label": "Land",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q21",
+  "field": "f23",
+  "label": "PLZ",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q22",
+  "field": "f24",
+  "label": "Wohnort",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q23",
+  "field": "f25",
+  "label": "Staatsangehörigkeit / Bewilligung",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q24",
+  "field": "f26",
+  "label": "E-Mail",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q26",
+  "field": "f28",
+  "label": "Datum der Anstellung",
+  "kind": "date"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q27",
+  "field": "f29",
+  "label": "Ausgeübter Beruf",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q36",
+  "field": "f39",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q38",
+  "field": "f42",
+  "label": "Arbeitszeit des/der Verletzten (Std./Woche)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q39",
+  "field": "f43",
+  "label": "Betriebsübliche Vollarbeitszeit (Std./Woche)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q40",
+  "field": "f44",
+  "label": "Vertraglicher Beschäftigungsgrad (Prozent)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q45",
+  "field": "f53",
+  "label": "Tag",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q46",
+  "field": "f51",
+  "label": "Monat",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q47",
+  "field": "f52",
+  "label": "Jahr",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q48",
+  "field": "f54",
+  "label": "Zeit (Stunden, Minuten)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q49",
+  "field": "f55",
+  "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q50",
+  "field": "f56",
+  "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge",
+  "kind": "multiline"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q51",
+  "field": "f57",
+  "label": "Beteiligte Person(en)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 1,
+  "place": "q53",
+  "field": "f58",
+  "label": "Wenn ja, aufgenommen durch",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q56",
+  "field": "f65",
+  "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q58",
+  "field": "f68",
+  "label": "Letztmals im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q59",
+  "field": "f67",
+  "label": "Grund der Absenz",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q61",
+  "field": "f70",
+  "label": "Betroffener Körperteil",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q64",
+  "field": "f75",
+  "label": "Art der Schädigung",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q67",
+  "field": "f77",
+  "label": "Wenn ja, ab wann?",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q69",
+  "field": "f81",
+  "label": "Falls Arbeit wieder aufgenommen: ab wann?",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q73",
+  "field": "f87",
+  "label": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q74",
+  "field": "f88",
+  "label": "Nachbehandelnder Arzt bzw. Spital/Klinik",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q82",
+  "field": "f112",
+  "label": "Anzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q83",
+  "field": "f113",
+  "label": "Bezeichnung der anderen Lohnzulagen",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q85",
+  "field": "f115",
+  "label": "Wenn ja, Name und Adresse",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q93",
+  "field": "f123",
+  "label": "Wenn ja, wo?",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q95",
+  "field": "f127",
+  "label": "Name der obligatorischen Krankenversicherung (inkl. Police-Nr.)",
+  "kind": "text"
+ },
+ {
+  "form": "schadenmeldung-uvg",
+  "page": 2,
+  "place": "q96",
+  "field": "f129",
+  "label": "Ort und Datum",
+  "kind": "date"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q1",
+  "field": "f1",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q2",
+  "field": "f2",
+  "label": "Schaden-Nummer",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q3",
+  "field": "f5",
+  "label": "Name und Adresse mit Postleitzahl",
+  "kind": "multiline"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q4",
+  "field": "f3",
+  "label": "Tel.-Nr.",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q5",
+  "field": "f4",
+  "label": "Kunden-Nr.",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q6",
+  "field": "f6",
+  "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q7",
+  "field": "f10",
+  "label": "Name und Vorname",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q8",
+  "field": "f8",
+  "label": "Geburtsdatum",
+  "kind": "date"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q9",
+  "field": "f9",
+  "label": "AHV-Nummer",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q11",
+  "field": "f11",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q12",
+  "field": "f13",
+  "label": "Strasse",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q13",
+  "field": "f12",
+  "label": "Staatsangehörigkeit",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q14",
+  "field": "f14",
+  "label": "Staatsangehörigkeit",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q15",
+  "field": "f16",
+  "label": "Zivilstand",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q17",
+  "field": "f18",
+  "label": "Datum der Anstellung",
+  "kind": "date"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q18",
+  "field": "f17",
+  "label": "Ausgeübter Beruf",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q24",
+  "field": "f25",
+  "label": "Arbeitszeit des/der Verletzten: Stunden je Woche",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q25",
+  "field": "f26",
+  "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q26",
+  "field": "f27",
+  "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge",
+  "kind": "multiline"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q27",
+  "field": "f28",
+  "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q30",
+  "field": "f33",
+  "label": "Betroffener Körperteil:",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q31",
+  "field": "f35",
+  "label": "10. Arzt- adressen",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q32",
+  "field": "f34",
+  "label": "Nachbehandelnder Arzt bzw. Spital/Klinik",
+  "kind": "multiline"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 1,
+  "place": "q33",
+  "field": "f36",
+  "label": "Für Rückerstattungsgesuche von bereits bezahlten Rechnungen bitten wir Sie, Belege beizulegen und nachfolgend die Zahladresse (Post-/Bankkonto) anzugeben.",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q34",
+  "field": "f37",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q35",
+  "field": "f38",
+  "label": "Schaden-Nummer",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q36",
+  "field": "f41",
+  "label": "Name und Adresse mit Postleitzahl",
+  "kind": "multiline"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q37",
+  "field": "f39",
+  "label": "Tel.-Nr.",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q38",
+  "field": "f40",
+  "label": "Kunden-Nr.",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q39",
+  "field": "f42",
+  "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q40",
+  "field": "f45",
+  "label": "Name und Vorname",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q41",
+  "field": "f43",
+  "label": "Geburtsdatum",
+  "kind": "date"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q42",
+  "field": "f46",
+  "label": "Geburtsdatum",
+  "kind": "date"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q43",
+  "field": "f44",
+  "label": "AHV-Nummer",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q44",
+  "field": "f48",
+  "label": "Strasse",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q45",
+  "field": "f47",
+  "label": "Staatsangehörigkeit",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q46",
+  "field": "f49",
+  "label": "Staatsangehörigkeit",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q47",
+  "field": "f50",
+  "label": "Zivilstand",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q48",
+  "field": "f52",
+  "label": "Datum der Anstellung",
+  "kind": "date"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q49",
+  "field": "f51",
+  "label": "Ausgeübter Beruf",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q52",
+  "field": "f58",
+  "label": "Arbeitszeit des/der Verletzten: Stunden je Woche",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q53",
+  "field": "f59",
+  "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q54",
+  "field": "f60",
+  "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q55",
+  "field": "f61",
+  "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q56",
+  "field": "f62",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q57",
+  "field": "f63",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q58",
+  "field": "f64",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q59",
+  "field": "f65",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q60",
+  "field": "f66",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q61",
+  "field": "f67",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q62",
+  "field": "f68",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q63",
+  "field": "f69",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q64",
+  "field": "f70",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q65",
+  "field": "f71",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q66",
+  "field": "f72",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q67",
+  "field": "f73",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q68",
+  "field": "f74",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q69",
+  "field": "f75",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q70",
+  "field": "f76",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q71",
+  "field": "f77",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q72",
+  "field": "f78",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q73",
+  "field": "f79",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q74",
+  "field": "f80",
+  "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q76",
+  "field": "f84",
+  "label": "Betroffener Körperteil:",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q77",
+  "field": "f86",
+  "label": "10. Arzt- adressen",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 3,
+  "place": "q78",
+  "field": "f85",
+  "label": "Nachbehandelnder Arzt bzw. Spital/Klinik",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q79",
+  "field": "f87",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q80",
+  "field": "f88",
+  "label": "Schaden-Nummer",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q81",
+  "field": "f91",
+  "label": "Name und Adresse mit Postleitzahl",
+  "kind": "multiline"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q82",
+  "field": "f89",
+  "label": "Tel.-Nr.",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q83",
+  "field": "f90",
+  "label": "Kunden-Nr.",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q84",
+  "field": "f92",
+  "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q85",
+  "field": "f95",
+  "label": "Name und Vorname",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q86",
+  "field": "f93",
+  "label": "Geburtsdatum",
+  "kind": "date"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q87",
+  "field": "f94",
+  "label": "AHV-Nummer",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q88",
+  "field": "f96",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q89",
+  "field": "f97",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q90",
+  "field": "f98",
+  "label": "Strasse",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q91",
+  "field": "f99",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q92",
+  "field": "f100",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q93",
+  "field": "f101",
+  "label": "",
+  "kind": "multiline"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q95",
+  "field": "f105",
+  "label": "Betroffener Körperteil:",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q96",
+  "field": "f107",
+  "label": "Arzt- adressen",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q97",
+  "field": "f106",
+  "label": "Nachbehandelnder Arzt bzw. Spital/Klinik",
+  "kind": "multiline"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q98",
+  "field": "f108",
+  "label": "Rechnung der Apotheke",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q100",
+  "field": "f109",
+  "label": "Art und Menge",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q101",
+  "field": "f138",
+  "label": "3 Code",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q102",
+  "field": "f139",
+  "label": "3 Code",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q103",
+  "field": "f140",
+  "label": "3 Code",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q104",
+  "field": "f141",
+  "label": "3 Code",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q105",
+  "field": "f142",
+  "label": "3 Code",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q106",
+  "field": "f134",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q107",
+  "field": "f135",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q108",
+  "field": "f136",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q109",
+  "field": "f137",
+  "label": "",
+  "kind": "text"
+ },
+ {
+  "form": "suva-bagatellunfall",
+  "page": 4,
+  "place": "q110",
+  "field": "f143",
+  "label": "Total",
+  "kind": "text"
+ }
+]

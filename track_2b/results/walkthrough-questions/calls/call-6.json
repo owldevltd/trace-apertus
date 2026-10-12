@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T10:24:23.564Z",
+  "tag": "questions page 1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 2490,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q1]\nTel.-Nr.  → [q2]\nKunden-Nr.  → [q3]\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q4]\n2. Verletzte/r\nName und Vorname  → [q5]\nGeburtsdatum  → [q6]\nAHV-Nummer  → [q7]\nStrasse  → [q8]\nStaatsangehörigkeit  → [q9]\nZivilstand  → [q10]\n3. Anstellung\nDatum der Anstellung  → [q11]\nAusgeübter Beruf  → [q12]\nHöheres Kader  → [q13: Auswahl]\nMittleres Kader  → [q13: Auswahl]\nAngestellte/r / Arbeiter/in  → [q13: Auswahl]\nLehrling  → [q13: Auswahl]\nPraktikant/in  → [q13: Auswahl]\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q14]\n4. Schadendatum\nTag  → [q15]\nMonat  → [q16]\nJahr  → [q17]\nZeit (Stunden, Minuten)  → [q18]\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q19]\n6. Sachverhalt\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q20]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q21]\n9. Verletzung\nBetroffener Körperteil  → [q22]\nlinks  → [q23: Auswahl]\nrechts  → [q23: Auswahl]\nunbestimmt  → [q23: Auswahl]\nArt der Schädigung  → [q24]\n10. Arztadressen\nErstbehandelnder Arzt bzw. Spital/Klinik  → [q25]\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q26]\nAbschluss\nOrt und Datum  → [q27]\nStempel und Unterschrift\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu jeder Kennung genau eine Frage, so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 4678,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-32f3a140-ce3d-4cee-9961-8cb571601ca2",
+    "object": "chat.completion",
+    "created": 1791541464,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"Wie heißt der Arbeitgeber und wo befindet er sich mit Postleitzahl?\"}, {\"kennung\": \"q2\", \"frage\": \"Welche Telefonnummer hat der Arbeitgeber?\"}, {\"kennung\": \"q3\", \"frage\": \"Welche Kunden-Nummer hat der Arbeitgeber?\"}, {\"kennung\": \"q4\", \"frage\": \"In welchem Bereich arbeitet die verletzte Person im Betrieb?\"}, {\"kennung\": \"q5\", \"frage\": \"Wie heißen die verletzte Person?\"}, {\"kennung\": \"q6\", \"frage\": \"Wann ist die verletzte Person geboren?\"}, {\"kennung\": \"q7\", \"frage\": \"Welche AHV-Nummer hat die verletzte Person?\"}, {\"kennung\": \"q8\", \"frage\": \"Welche Strasse hat die verletzte Person?\"}, {\"kennung\": \"q9\", \"frage\": \"Welche Staatsangehörigkeit hat die verletzte Person?\"}, {\"kennung\": \"q10\", \"frage\": \"Welcher Zivilstand ist bei der verletzten Person?\"}, {\"kennung\": \"q11\", \"frage\": \"Wann hat die verletzte Person angefangen bei diesem Arbeitgeber zu arbeiten?\"}, {\"kennung\": \"q12\", \"frage\": \"Welchen Beruf übt die verletzte Person aus?\"}, {\"kennung\": \"q13\", \"frage\": \"Ist die verletzte Person höheres Kader, mittleres Kader, Angestellte/r, Arbeiter/in, Lehrling oder Praktikant/in?\"}, {\"kennung\": \"q14\", \"frage\": \"Wie viele Stunden arbeitet die verletzte Person pro Woche?\"}, {\"kennung\": \"q15\", \"frage\": \"Welcher Tag war es, als der Unfall passierte?\"}, {\"kennung\": \"q16\", \"frage\": \"Welcher Monat war es, als der Unfall passierte?\"}, {\"kennung\": \"q17\", \"frage\": \"Welches Jahr war es, als der Unfall passierte?\"}, {\"kennung\": \"q18\", \"frage\": \"Zu welcher Zeit passierte der Unfall in Stunden und Minuten?\"}, {\"kennung\": \"q19\", \"frage\": \"Wo genau ist der Unfall passiert, zum Beispiel Ort und Strasse oder Postleitzahl?\"}, {\"kennung\": \"q20\", \"frage\": \"Was hat die verletzte Person genau zur Zeit des Unfalls gemacht, wie der Unfall verlaufen ist, wer war dabei und was war beteiligt?\"}, {\"kennung\": \"q21\", \"frage\": \"Welche Gegenstände waren am Unfall beteiligt, wie Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff?\"}, {\"kennung\": \"q22\", \"frage\": \"Welcher Körperteil der verletzten Person ist betroffen?\"}, {\"kennung\": \"q23\", \"frage\": \"Ist die Verletzung links, rechts oder unbestimmt?\"}, {\"kennung\": \"q24\", \"frage\": \"Wie ist die Art der Schädigung bei der Verletzung?\"}, {\"kennung\": \"q25\", \"frage\": \"Wer ist der Erstbehandelnde Arzt oder das Spital/Klinik?\"}, {\"kennung\": \"q26\", \"frage\": \"Wer ist der Nachbehandelnde Arzt oder das Spital/Klinik?\"}, {\"kennung\": \"q27\", \"frage\": \"Wo und wann ist der Abschluss passiert?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1126,
+      "total_tokens": 1900,
+      "completion_tokens": 774,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

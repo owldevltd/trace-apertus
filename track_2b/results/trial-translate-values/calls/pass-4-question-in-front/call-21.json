@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:59:37.706Z",
+  "tag": "werte sechs frage it suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Italienisch gemacht, die in ein deutsches Formular gehören. Vor jeder Angabe steht die Frage, auf die sie antwortet; die Frage ist nur zum Verständnis da.\n\nFrage 13: Welcher Monat war es, als der Unfall passierte?\nAngabe 13: 10\n\nFrage 14: Welches Jahr war es, als der Unfall passierte?\nAngabe 14: 2026\n\nFrage 15: Zu welcher Zeit passierte der Unfall in Stunden und Minuten?\nAngabe 15: 14:20\n\nFrage 16: Wo genau ist der Unfall passiert, zum Beispiel Ort und Strasse oder Postleitzahl?\nAngabe 16: Magazzino, Werkstrasse 12, Zug\n\nFrage 17: Was hat die verletzte Person genau zur Zeit des Unfalls gemacht, wie der Unfall verlaufen ist, wer war dabei und was war beteiligt?\nAngabe 17: Scivolata mentre scaricavo un pallet e caduta sul polso destro.\n\nFrage 18: Welche Gegenstände waren am Unfall beteiligt, wie Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff?\nAngabe 18: Pallet\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird; übersetze nur die Angaben, nicht die Fragen. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 846,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-a241bca1-c379-4928-86cc-d63509b83573",
+    "object": "chat.completion",
+    "created": 1791554378,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 13, \"wert\": \"10\"}, {\"nummer\": 14, \"wert\": \"2026\"}, {\"nummer\": 15, \"wert\": \"14:20\"}, {\"nummer\": 16, \"wert\": \"Magazzino, Werkstrasse 12, Zug\"}, {\"nummer\": 17, \"wert\": \"Scivolata mentre scaricavo un pallet e caduta sul polso destro\"}, {\"nummer\": 18, \"wert\": \"Pallet\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 419,
+      "total_tokens": 540,
+      "completion_tokens": 121,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T14:00:19.448Z",
+  "tag": "werte sechs en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Englisch gemacht, die in ein deutsches Formular gehören.\n\nAngabe 19: Wrist\nAngabe 20: Kantonsspital Zug, Emergency\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 355,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-9eff4d66-2cc2-4f20-8a7c-c86a30845a7b",
+    "object": "chat.completion",
+    "created": 1791554420,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 19, \"wert\": \"Wrist\"}, {\"nummer\": 20, \"wert\": \"Kantonsspital Zug, Emergency\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 179,
+      "total_tokens": 218,
+      "completion_tokens": 39,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:39:35.051Z",
+  "tag": "umgeschrieben-paeckchen arbeitsfaehigkeitszeugnis q25",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Arbeitsfähigkeitszeugnis\", jede mit ihrer Kennung:\n\nq25: Wann ist der Arbeitsplatzbeschrieb erstellt worden?\nq26: Wann war die letzte Konsultation? Wann begann und endete die Arbeitsunfähigkeit? Wann ist die nächste Konsultation geplant? Wem gehört das Visum?\nq27: Liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor? Ja oder nein?\nq28: Wird die Beurteilung auf Basis des REP oder des Arbeitsplatzbeschriebs erstellt?\nq29: Wann ist das REP erstellt worden?\nq30: Wann ist der Arbeitsplatzbeschrieb erstellt worden?\nq31: Wie viele Stunden pro Tag ist die Person anwesend? Wie hoch ist der Prozentsatz des Pensums? Wie ist die Leistungsfähigkeit in der Präsenzzeit (25, 50, 75 oder 100 %)? Wie hoch ist die Arbeitsfähigkeit insgesamt in Prozent? Wann ist die nächste Konsultation?\nq32: Ab wann soll die Person wieder zu 100 % arbeiten?\nq33: Wird Kontakt mit dem Arbeitgeber erwünscht? Ja oder nein?\nq34: Wie lautet der Name und der Stempel des Arztes oder der Ärztin?\nq35: Wann ist das Formular unterschrieben worden?\nq36: Welche Bemerkungen gibt es?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3469,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-fd8ee574-7c60-494f-bb88-bf4d21e78be6",
+    "object": "chat.completion",
+    "created": 1791531575,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q25\", \"frage\": \"Wann wurde der Arbeitsplatzbeschrieb erstellt?\"}, {\"kennung\": \"q26\", \"frage\": \"Wann war die letzte Arztbesprechung? Wann begann und endete die Arbeitsunfähigkeit? Wann ist der nächste Arzttermin? Wem gehört das ärztliche Visum?\"}, {\"kennung\": \"q27\", \"frage\": \"Besteht eine arbeitsplatzbezogene Arbeitsunfähigkeit? Ja oder nein?\"}, {\"kennung\": \"q28\", \"frage\": \"Wird die Beurteilung auf Basis des REP oder des Arbeitsplatzbeschriebs erstellt?\"}, {\"kennung\": \"q29\", \"frage\": \"Wann wurde das REP erstellt?\"}, {\"kennung\": \"q30\", \"frage\": \"Wann wurde der Arbeitsplatzbeschrieb erstellt?\"}, {\"kennung\": \"q31\", \"frage\": \"Wie viele Stunden pro Tag ist die Person anwesend? Wie hoch ist der Prozentsatz des Pensums? Wie ist die Leistungsfähigkeit in der Präsenzzeit (25, 50, 75 oder 100 %)? Wie hoch ist die Arbeitsfähigkeit insgesamt in Prozent? Wann ist der nächste Arzttermin?\"}, {\"kennung\": \"q32\", \"frage\": \"Ab wann soll die Person wieder zu 100 % arbeiten?\"}, {\"kennung\": \"q33\", \"frage\": \"Wird Kontakt mit dem Arbeitgeber erwünscht? Ja oder nein?\"}, {\"kennung\": \"q34\", \"frage\": \"Wie lautet der Name und der Stempel des Arztes oder der Ärztin?\"}, {\"kennung\": \"q35\", \"frage\": \"Wann wurde das Formular unterschrieben?\"}, {\"kennung\": \"q36\", \"frage\": \"Welche Bemerkungen gibt es?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 543,
+      "total_tokens": 965,
+      "completion_tokens": 422,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

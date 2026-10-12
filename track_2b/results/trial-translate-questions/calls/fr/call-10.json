@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:56:10.133Z",
+  "tag": "fragen zwölf fr suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Jemand führt ein Gespräch und stellt diese Fragen auf Deutsch. Übersetze jede Frage ins Französisch, für ein Gegenüber, das Französisch spricht: dieselbe Frage in einfachen Worten, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n13: Ist die verletzte Person höheres Kader, mittleres Kader, Angestellte/r, Arbeiter/in, Lehrling oder Praktikant/in?\n14: Wie viele Stunden arbeitet die verletzte Person pro Woche?\n15: Welcher Monat war es, als der Unfall passierte?\n16: Welches Jahr war es, als der Unfall passierte?\n17: Zu welcher Zeit passierte der Unfall in Stunden und Minuten?\n18: Wo genau ist der Unfall passiert, zum Beispiel Ort und Strasse oder Postleitzahl?\n19: Was hat die verletzte Person genau zur Zeit des Unfalls gemacht, wie der Unfall verlaufen ist, wer war dabei und was war beteiligt?\n20: Welche Gegenstände waren am Unfall beteiligt, wie Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff?\n21: Welcher Körperteil der verletzten Person ist betroffen?\n22: Ist die Verletzung links, rechts oder unbestimmt?\n23: Wie ist die Art der Schädigung bei der Verletzung?\n24: Wer ist der Erstbehandelnde Arzt oder das Spital/Klinik?\n\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"nummer\": 1, \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2573,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-1efaab71-7f3c-4f04-9c73-b48aa59f2673",
+    "object": "chat.completion",
+    "created": 1791554171,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"nummer\": 13, \"frage\": \"La personne blessée fait-elle partie du personnel de direction supérieure, du personnel de direction intermédiaire, des employés, des travailleurs, des apprentis ou des stagiaires?\"}, {\"nummer\": 14, \"frage\": \"Combien d'heures la personne blessée travaille-t-elle par semaine?\"}, {\"nummer\": 15, \"frage\": \"Quel mois l'accident s'est-il produit?\"}, {\"nummer\": 16, \"frage\": \"Quelle année l'accident s'est-il produit?\"}, {\"nummer\": 17, \"frage\": \"À quelle heure l'accident s'est-il produit, en heures et minutes?\"}, {\"nummer\": 18, \"frage\": \"Où l'accident s'est-il produit exactement, par exemple lieu et rue ou code postal?\"}, {\"nummer\": 19, \"frage\": \"Que faisait exactement la personne blessée au moment de l'accident, comment l'accident s'est-il déroulé, qui était présent et quoi était impliqué?\"}, {\"nummer\": 20, \"frage\": \"Quels objets étaient impliqués dans l'accident, comme machine, outil, véhicule ou matériau de travail?\"}, {\"nummer\": 21, \"frage\": \"Quel membre du corps de la personne blessée est affecté?\"}, {\"nummer\": 22, \"frage\": \"La blessure est-elle du côté gauche, du côté droit ou indéterminée?\"}, {\"nummer\": 23, \"frage\": \"Quel est le type de dommage de la blessure?\"}, {\"nummer\": 24, \"frage\": \"Quel est le médecin traitant ou l'hôpital/clinique?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 383,
+      "total_tokens": 748,
+      "completion_tokens": 365,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

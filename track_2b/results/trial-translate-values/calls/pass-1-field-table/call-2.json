@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:30:11.735Z",
+  "tag": "zurück 8b ganz fr betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 880,
+  "prompt": "Eine Person hat ein deutsches Formular auf Französisch beantwortet. Unten steht je Feld die deutsche Beschriftung, die Art und der Wert, den die Person angegeben hat.\n\n- amt | Beschriftung: Betreibungsamt | Art: Text | Wert: Office des poursuites Chur\n- schuldner | Beschriftung: Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort) | Art: Text | Wert: Peter Hartmann, Via Nova 14, 7013 Domat/Ems\n- glaeubiger | Beschriftung: Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort) | Art: Text | Wert: Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\n- iban | Beschriftung: IBAN | Art: Text | Wert: CH93 0076 2011 6238 5295 7\n- forderung | Beschriftung: Forderungsgrund oder Forderungsurkunde mit Datum | Art: Text | Wert: Facture n° 2026-118 du 12.06.2026, réparation\n- betrag | Beschriftung: Betrag (CHF) | Art: Text | Wert: 2'340.50\n- zins | Beschriftung: Zins % | Art: Text | Wert: 5\n- zinsseit | Beschriftung: Zins seit (Datum) | Art: Datum als TT.MM.JJJJ | Wert: 13.07.2026\n\nÜbersetze jeden Wert ins Deutsche, so wie er in das deutsche Formular gehört. Namen, Firmen, Adressen, Nummern und Daten bleiben unverändert; ist ein Wert schon deutsch oder braucht keine Übersetzung, gib ihn unverändert zurück. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"feld\": \"name\", \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1460,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-22494d4b-42e9-4816-8050-b7739b4eed92",
+    "object": "chat.completion",
+    "created": 1791552612,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"feld\": \"amt\", \"wert\": \"Office des poursuites Chur\"}, {\"feld\": \"schuldner\", \"wert\": \"Peter Hartmann, Via Nova 14, 7013 Domat/Ems\"}, {\"feld\": \"gl\\\"aebiger\", \"wert\": \"Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\"}, {\"feld\": \"iban\", \"wert\": \"CH93 0076 2011 6238 5295 7\"}, {\"feld\": \"forderung\", \"wert\": \"Facture n° 2026-118 du 12.06.2026, réparation\"}, {\"feld\": \"betrag\", \"wert\": \"2'340.50\"}, {\"feld\": \"zins\", \"wert\": \"5\"}, {\"feld\": \"zinsseit\", \"wert\": \"13.07.2026\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 515,
+      "total_tokens": 736,
+      "completion_tokens": 221,
+      "prompt_tokens_details": {
+        "cached_tokens": 32,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

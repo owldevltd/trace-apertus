@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:31:49.560Z",
+  "tag": "zurück 8b sechs it suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat ein deutsches Formular auf Italienisch beantwortet. Unten steht je Feld die deutsche Beschriftung, die Art und der Wert, den die Person angegeben hat.\n\n- staat | Beschriftung: Staatsangehörigkeit | Art: Text | Wert: Svizzera\n- zivilstand | Beschriftung: Zivilstand | Art: Text | Wert: nubile\n- anstellung | Beschriftung: Datum der Anstellung | Art: Datum als TT.MM.JJJJ | Wert: 01.02.2019\n- beruf | Beschriftung: Ausgeübter Beruf | Art: Text | Wert: Magazziniera\n- stunden | Beschriftung: Arbeitszeit des/der Verletzten: Stunden je Woche | Art: Text | Wert: 40\n- tag | Beschriftung: Tag | Art: Text | Wert: 05\n\nÜbersetze jeden Wert ins Deutsche, so wie er in das deutsche Formular gehört. Namen, Firmen, Adressen, Nummern und Daten bleiben unverändert; ist ein Wert schon deutsch oder braucht keine Übersetzung, gib ihn unverändert zurück. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"feld\": \"name\", \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 721,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-49491fa3-9423-495a-9422-6292e7a81d9f",
+    "object": "chat.completion",
+    "created": 1791552710,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"feld\": \"staat\", \"wert\": \"Schweiz\"}, {\"feld\": \"zivilstand\", \"wert\": \"nubile\"}, {\"feld\": \"anstellung\", \"wert\": \"01.02.2019\"}, {\"feld\": \"beruf\", \"wert\": \"Magazziniera\"}, {\"feld\": \"stunden\", \"wert\": \"40\"}, {\"feld\": \"tag\", \"wert\": \"05\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 344,
+      "total_tokens": 445,
+      "completion_tokens": 101,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

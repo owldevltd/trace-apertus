@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:10:30.743Z",
+  "tag": "sprache füllen de suva-bagatellunfall q5",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Wie heissen die verletzte Person?\nAntwort: Sandra Keller\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- name: Name und Vorname — Vorgabe: Text\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+  "image": 0,
+  "audio": 0,
+  "ms": 179,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-b13c8b0c-5ce6-4c00-a12e-0220e0416c0e",
+    "object": "chat.completion",
+    "created": 1791551431,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "name: Sandra Keller [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 225,
+      "total_tokens": 234,
+      "completion_tokens": 9,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

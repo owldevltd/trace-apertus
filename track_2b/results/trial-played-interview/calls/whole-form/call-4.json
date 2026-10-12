@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:18:53.733Z",
+  "tag": "interview d-8b-whole betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Du gibst in einem Gespräch Auskunft. Du kennst genau diese Angaben, jede hat einen Kennwert:\n- K101: Zins2.6\n- K102: Zins2.8\n- K103: Datum2.1\n- K104: Zins2.0\n- K105: Forderung2.5\n- K106: Forderung2.1\n- K107: Datum2.4\n- K108: Schuldner Geburtsdatum\n- K109: Zins2.5\n- K110: Zins2.4\n- K111: Zins2.2\n- K112: Gläubigervertreter\n- K113: Forderung2.4\n- K114: Fallreferenz\n- K115: Datum2.8\n- K116: Datum2.6\n- K117: Datum2.3\n- K118: Datum2.2\n- K119: Zins2.1\n- K120: Zins2.3\n- K121: Zahlungsverbindung\n- K122: Schuldner\n- K123: Datum2.5\n- K124: Forderung2.8\n- K125: Forderung1\n- K126: Gläubiger\n- K127: Forderung2.7\n- K128: Betreibungsamt\n- K129: Datum2.7\n- K130: IBAN\n- K131: Rückfragen\n- K132: Zins2.7\n- K133: Forderung2.3\n- K134: Forderung2.2\n- K135: Datum2.0\n- K136: Forderung2.6\n- K137: Bemerkungen\n- K138: Forderung2.0\n\nDir werden diese Fragen gestellt:\nA: Wer vertritt den Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)?\nB: Welchen Forderungsgrund oder welche Forderungsurkunde mit Datum ist angegeben?\nC: Wie heisst der Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)?\nD: Welche weiteren Forderungen sollen in der Tabelle mit 9 Zeilen und 3 Spalten aufgeführt werden?\nE: Welche Zahlungsverbindung (IBAN) ist angegeben?\nF: Wie kann man den Gläubiger für Rückfragen erreichen (Telefon oder E-Mail)?\nG: Wird der Gläubiger durch einen Vertreter vertreten?\nH: Gibt es Bemerkungen, die Sie anbringen möchten?\nI: Ist das Geburtsdatum des Schuldners bekannt?\nJ: Wie lautet die Adresse des Betreibungsamtes?\nK: Haben Sie eine Fallreferenz (falls vorhanden)?\nL: Wie heisst der Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)?\n\nNenne zu jeder Frage den Kennwert der einen Angabe, nach der gefragt wird. Passt keine Angabe, schreibe \"-\". Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K101\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1476,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-caf73efc-5c88-4414-be24-598b114d7f1b",
+    "object": "chat.completion",
+    "created": 1791537534,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K112\"}, {\"frage\": \"B\", \"kennwert\": \"K103, K115, K116, K117, K118, K124, K135, K136\"}, {\"frage\": \"C\", \"kennwert\": \"K122\"}, {\"frage\": \"D\", \"kennwert\": \"-\"}, {\"frage\": \"E\", \"kennwert\": \"K130\"}, {\"frage\": \"F\", \"kennwert\": \"-\"}, {\"frage\": \"G\", \"kennwert\": \"K112\"}, {\"frage\": \"H\", \"kennwert\": \"K137\"}, {\"frage\": \"I\", \"kennwert\": \"K108\"}, {\"frage\": \"J\", \"kennwert\": \"-\"}, {\"frage\": \"K\", \"kennwert\": \"K114\"}, {\"frage\": \"L\", \"kennwert\": \"-\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 810,
+      "total_tokens": 1040,
+      "completion_tokens": 230,
+      "prompt_tokens_details": {
+        "cached_tokens": 512,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

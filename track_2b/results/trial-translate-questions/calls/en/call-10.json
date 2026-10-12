@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:58:02.465Z",
+  "tag": "fragen zwölf en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Jemand führt ein Gespräch und stellt diese Fragen auf Deutsch. Übersetze jede Frage ins Englisch, für ein Gegenüber, das Englisch spricht: dieselbe Frage in einfachen Worten, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n13: Ist die verletzte Person höheres Kader, mittleres Kader, Angestellte/r, Arbeiter/in, Lehrling oder Praktikant/in?\n14: Wie viele Stunden arbeitet die verletzte Person pro Woche?\n15: Welcher Monat war es, als der Unfall passierte?\n16: Welches Jahr war es, als der Unfall passierte?\n17: Zu welcher Zeit passierte der Unfall in Stunden und Minuten?\n18: Wo genau ist der Unfall passiert, zum Beispiel Ort und Strasse oder Postleitzahl?\n19: Was hat die verletzte Person genau zur Zeit des Unfalls gemacht, wie der Unfall verlaufen ist, wer war dabei und was war beteiligt?\n20: Welche Gegenstände waren am Unfall beteiligt, wie Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff?\n21: Welcher Körperteil der verletzten Person ist betroffen?\n22: Ist die Verletzung links, rechts oder unbestimmt?\n23: Wie ist die Art der Schädigung bei der Verletzung?\n24: Wer ist der Erstbehandelnde Arzt oder das Spital/Klinik?\n\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"nummer\": 1, \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2020,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-2762f1af-da79-4394-8cd6-2929dcbbaa92",
+    "object": "chat.completion",
+    "created": 1791554283,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"nummer\": 13, \"frage\": \"Is the injured person upper management, middle management, employee, worker, apprentice, or intern?\"}, {\"nummer\": 14, \"frage\": \"How many hours does the injured person work per week?\"}, {\"nummer\": 15, \"frage\": \"Which month was it when the accident happened?\"}, {\"nummer\": 16, \"frage\": \"Which year was it when the accident happened?\"}, {\"nummer\": 17, \"frage\": \"At what time did the accident happen, in hours and minutes?\"}, {\"nummer\": 18, \"frage\": \"Where exactly did the accident happen, for example, location and street or postal code?\"}, {\"nummer\": 19, \"frage\": \"What was the injured person doing exactly at the time of the accident, how the accident occurred, who was involved, and what was involved?\"}, {\"nummer\": 20, \"frage\": \"What objects were involved in the accident, such as machine, tool, vehicle, or work material?\"}, {\"nummer\": 21, \"frage\": \"Which body part of the injured person is affected?\"}, {\"nummer\": 22, \"frage\": \"Is the injury on the left, right, or undetermined?\"}, {\"nummer\": 23, \"frage\": \"What is the nature of the injury?\"}, {\"nummer\": 24, \"frage\": \"Who is the treating doctor or the hospital/clinic?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 381,
+      "total_tokens": 701,
+      "completion_tokens": 320,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

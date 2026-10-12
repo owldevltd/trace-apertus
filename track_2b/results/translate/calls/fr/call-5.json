@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:36:10.001Z",
+ "tag": "check run 2 page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 780,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBetreibungsamt\nBetreibungsamt  → [q1]\nSchuldner\nSchuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q2]\nGeburtsdatum (falls bekannt)  → [q3]\nGläubiger\nGläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q4]\nZahlungsverbindung des Gläubigers  → [q5: Auswahl]\nZahlungsverbindung des Vertreters  → [q5: Auswahl]\nIBAN  → [q6]\nvertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q7]\nFür Rückfragen: Telefon oder E-Mail  → [q8]\nForderung\nForderungsgrund oder Forderungsurkunde mit Datum  → [q9]\nBetrag (CHF)  → [q10]\nZins %  → [q11]\nZins seit (Datum)  → [q12]\nAbschluss\nBemerkungen  → [q13]\nIhre Fallreferenz (falls vorhanden)  → [q14]\nDatum und Unterschrift\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Comment s'appelle le débiteur et où habite-t-il?\nB: Y a-t-il des commentaires sur la clôture?\nC: Comment s'appelle le créancier et où est-il domicilié?\nD: Quel IBAN est indiqué?\nE: Quel est le montant de la créance en francs suisses?\nF: À partir de quelle date l'intérêt est-il exigé?\nG: Comment peut-on joindre le créancier par téléphone ou par e-mail?\nH: Quel moyen de paiement choisit le créancier?\nI: Quelle est la date de naissance du débiteur?\nJ: Quel motif de la créance ou quel document daté est présenté?\nK: Quel taux d'intérêt est exigé?\nL: Quelle est la référence de l'affaire?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 1198,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-82306cb3-5375-4e55-a089-ca3795e30fa5",
+  "object": "chat.completion",
+  "created": 1791556570,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q2\"}, {\"frage\": \"B\", \"kennung\": \"q13\"}, {\"frage\": \"C\", \"kennung\": \"q4\"}, {\"frage\": \"D\", \"kennung\": \"q6\"}, {\"frage\": \"E\", \"kennung\": \"q10\"}, {\"frage\": \"F\", \"kennung\": \"q12\"}, {\"frage\": \"G\", \"kennung\": \"q5\"}, {\"frage\": \"H\", \"kennung\": \"q5\"}, {\"frage\": \"I\", \"kennung\": \"q3\"}, {\"frage\": \"J\", \"kennung\": \"q9\"}, {\"frage\": \"K\", \"kennung\": \"q11\"}, {\"frage\": \"L\", \"kennung\": \"q14\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 694,
+   "total_tokens": 875,
+   "completion_tokens": 181,
+   "prompt_tokens_details": {
+    "cached_tokens": 480,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

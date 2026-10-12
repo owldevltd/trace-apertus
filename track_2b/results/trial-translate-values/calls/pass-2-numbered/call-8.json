@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:38:32.910Z",
+  "tag": "zurück2 8b sechs fr suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 520,
+  "prompt": "Eine Person hat ein deutsches Formular auf Französisch beantwortet. Unten steht je Nummer die deutsche Beschriftung der Stelle und was die Person dort angegeben hat.\n\n19 | Betroffener Körperteil | Poignet\n20 | Erstbehandelnder Arzt bzw. Spital/Klinik | Kantonsspital Zug, Urgence\n\nSchreibe jede Angabe auf Deutsch, so wie sie in das deutsche Formular eingetragen wird. Am Ende steht kein Wort mehr auf Französisch. Eigennamen, Strassen, Orte, Nummern und Daten übernimmst du dabei Zeichen für Zeichen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 369,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-4aeba303-413d-46d4-9442-018ecfec037f",
+    "object": "chat.completion",
+    "created": 1791553113,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 19, \"wert\": \"Poignet\"}, {\"nummer\": 20, \"wert\": \"Kantonsspital Zug, Urgence\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 224,
+      "total_tokens": 264,
+      "completion_tokens": 40,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

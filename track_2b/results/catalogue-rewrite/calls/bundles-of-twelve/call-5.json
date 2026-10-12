@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:39:45.802Z",
+  "tag": "umgeschrieben-paeckchen betreibungsbegehren q13",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 950,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Betreibungsbegehren, Formular 1\", jede mit ihrer Kennung:\n\nq13: Wer vertritt den Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)?\nq14: Welches Telefon oder welche E-Mail hat der Gläubiger für Rückfragen?\nq15: Haben Sie Bemerkungen zum Betreibungsbegehren?\nq16: Haben Sie eine Fallreferenz (falls vorhanden)?\nq17: Auf welche Gesetze und Verordnungen stützen sich die Angaben in diesem Merkblatt?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1885,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-768c6205-2e62-4a54-885e-ba40a399e025",
+    "object": "chat.completion",
+    "created": 1791531586,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q13\", \"frage\": \"Wer ist der Gläubiger? Wie heißt die Person oder Firma? Wo wohnt oder arbeitet sie?\"}, {\"kennung\": \"q14\", \"frage\": \"Wie kann ich den Gläubiger anrufen oder ihm eine E-Mail schreiben?\"}, {\"kennung\": \"q15\", \"frage\": \"Haben Sie etwas zu sagen zu diesem Betreibungsbegehren?\"}, {\"kennung\": \"q16\", \"frage\": \"Haben Sie eine Fallreferenz, falls vorhanden?\"}, {\"kennung\": \"q17\", \"frage\": \"Auf welche Gesetze und Verordnungen stützen sich die Angaben in diesem Merkblatt?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 354,
+      "total_tokens": 514,
+      "completion_tokens": 160,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

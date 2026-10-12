@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T08:43:57.417Z",
+  "tag": "linear prüfen suva-bagatellunfall Lauf 2",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBitte mit Schreibmaschine ausfüllen oder direkt auf www.suva.ch/schadenmeldung\n[q1]\nSchaden-Nummer  → [q2]\nBagatellunfall-Meldung UVG\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q5]\nTel.-Nr.  → [q3]\nKunden-Nr.  → [q4]\nBetriebsteil\n▼ Wird von der Versicherung ausgefüllt\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q6]\nGe\n2. Verletzte/r\nName und Vorname  → [q10]\nGeburtsdatum  → [q8]\nAHV-Nummer  → [q9]\n[q7: Kästchen]\nSt\n[q11]\nStrasse  → [q13]\nStaatsangehörigkeit  → [q12] [q14]\nZi\nPLZ\nWohnort\nZivilstand  → [q16]\n[q15: Kästchen]\n3. Anstellung\nDatum der Anstellung  → [q18]\nAusgeübter Beruf  → [q17]\nStellung\n씲 Höheres Kader  → [q19: Kästchen]\n씲 Mittleres Kader  → [q20: Kästchen]\n씲 Angestellte/r / Arbeiter/in  → [q21: Kästchen]\n씲 Lehrling  → [q22: Auswahl]\n씲 Praktikant/in  → [q22: Auswahl] [q23: Kästchen]\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q24]\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q25]\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q26]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q27]\nB/N/F\n8. Nicht- berufsunfall\nBis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\n[q28: Kästchen]\nbis:\nVerletzung\n씲 links  → [q29: Auswahl]\n씲 rechts  → [q29: Auswahl]\n씲 unbestimmt  → [q29: Auswahl]\n9. Verletzung\nBetroffener Körperteil:  → [q30]\nArt der Schädigung:\nArt\n10. Arzt- adressen  → [q32]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q31]\nOrt und Datum\nStempel und Unterschrift\nHinweis für den Arbeitgeber\nDiese Bagatellunfall-Meldung ist auszufüllen, wenn keine Arbeitsunfähigkeit oder eine solche von höchstens 3 Kalendertagen (Unfalltag und die anschliessenden 2 Tage) eintritt. Ausnahmen: Anstelle dieser Bagatellunfall-Meldung ist eine weisse Formulargarnitur auszufüllen bei – Berufskrankheit, – Zahnschaden oder – Rückfall\nDem zugezogenen Arzt bzw. den Ärzten werden wir ein Rechnungsformular zustellen.\nFür Rückerstattungsgesuche von bereits bezahlten Rechnungen bitten wir Sie, Belege beizulegen und nachfolgend die Zahladresse (Post-/Bankkonto) anzugeben.  → [q33]\n913.d – 2005\nVerteiler:\ngrünes Formular gelbes Formular blaues Formular\n➞ Suva (Adresse siehe oben) ➞ Doppel für Ihre Akten ➞ Verletzte/r ➞ Apotheke ➞ Suva\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Ist etwas angekreuzt? (Kästchen)\nB: Gehört die verletzte Person zum höheren Kader?\nC: Wann ist die verletzte Person geboren? (Tag, Monat, Jahr)\nD: Gehört die verletzte Person zum mittleren Kader?\nE: Wie heisst die verletzte Person mit Vorname und Nachname?\nF: Welche Gegenstände waren am Unfall beteiligt, zum Beispiel Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff?\nG: Was hat die verletzte Person zum Zeitpunkt des Unfalls gemacht und wie ist der Unfall genau abgelaufen?\nH: Bis wann hat die verletzte Person vor dem Unfall im Betrieb gearbeitet? Bitte nennen Sie Wochentag, Datum und Zeit.\nI: Wie viele Stunden arbeitet die verletzte Person pro Woche?\nJ: Welche Postleitzahl hat der Wohnort der verletzten Person?\nK: In welchem Betriebszweig oder an welchem Arbeitsplatz war die verletzte Person tätig?\nL: Ist die verletzte Person Praktikantin?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3486,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-d3c98acc-77fb-41c7-8677-a254846cba96",
+    "object": "chat.completion",
+    "created": 1791535438,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"zuordnung\": [\n    {\"frage\": \"A\", \"kennung\": \"q7\"},\n    {\"frage\": \"B\", \"kennung\": \"q19\"},\n    {\"frage\": \"C\", \"kennung\": \"q8\"},\n    {\"frage\": \"D\", \"kennung\": \"q20\"},\n    {\"frage\": \"E\", \"kennung\": \"q10\"},\n    {\"frage\": \"F\", \"kennung\": \"q27\"},\n    {\"frage\": \"G\", \"kennung\": \"q26\"},\n    {\"frage\": \"H\", \"kennung\": \"q28\"},\n    {\"frage\": \"I\", \"kennung\": \"q24\"},\n    {\"frage\": \"J\", \"kennung\": \"q14\"},\n    {\"frage\": \"K\", \"kennung\": \"q6\"},\n    {\"frage\": \"L\", \"kennung\": \"q23\"}\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1445,
+      "total_tokens": 1645,
+      "completion_tokens": 200,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:34:22.055Z",
+  "tag": "lesen gegenüber en betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 940,
+  "prompt": "Du gibst jemandem im Gespräch Auskunft zu deinem Fall. Über den Fall weisst du nur, was du selbst so erzählt hast:\n\nBetreibungsbegehren ans Betreibungsamt Chur. Gläubigerin ist die Garage Caduff AG, Kasernenstrasse acht, siebentausend Chur. Zahlung bitte aufs Konto, IBAN CH93 0076 2011 6238 5295 7. Schuldner ist Peter Hartmann, Via Nova vierzehn, siebentausenddreizehn Domat Ems. Die Forderung ist die Rechnung Nummer zwanzig sechsundzwanzig strich einhundertachtzehn vom zwölften Juni für die Reparatur, zweitausenddreihundertvierzig Franken fünfzig, fünf Prozent Zins ab dreizehntem Juli.\n\nDir werden diese Fragen gestellt:\nA: Um welches Betreibungsamt handelt es sich?\nB: Wie heisst der Schuldner und wo wohnt er?\nC: Wie heisst der Gläubiger und wo ist er ansässig?\nD: Welche Zahlungsverbindung wählt der Gläubiger?\nE: Welche IBAN wird angegeben?\nF: Welchen Forderungsgrund oder welche Urkunde mit Datum liegt vor?\nG: Wie hoch ist der Betrag der Forderung in Schweizer Franken?\nH: Welcher Zinssatz wird verlangt?\nI: Seit welchem Datum wird Zins verlangt?\n\nAntworte auf jede Frage auf Englisch, wie man im Gespräch antwortet: kurz und nur mit dem, was du weisst. Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"antwort\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1750,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-eacc406c-fd4a-45c0-97a8-25cc6765789b",
+    "object": "chat.completion",
+    "created": 1791552862,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"antwort\": \"Betreibungsamt Chur\"}, {\"frage\": \"B\", \"antwort\": \"Peter Hartmann, Via Nova vierzehn, siebentausenddreizehn Domat Ems\"}, {\"frage\": \"C\", \"antwort\": \"Garage Caduff AG, Kasernenstrasse acht, siebentausend Chur\"}, {\"frage\": \"D\", \"antwort\": \"Zahlung aufs Konto\"}, {\"frage\": \"E\", \"antwort\": \"CH93 0076 2011 6238 5295 7\"}, {\"frage\": \"F\", \"antwort\": \"Rechnung Nummer zwanzig sechsundzwanzig strich einhundertachtzehn vom zwölften Juni\"}, {\"frage\": \"G\", \"antwort\": \"zweitausenddreihundertvierzig Franken fünfzig\"}, {\"frage\": \"H\", \"antwort\": \"fünf Prozent\"}, {\"frage\": \"I\", \"antwort\": \"dreizehntem Juli\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 424,
+      "total_tokens": 640,
+      "completion_tokens": 216,
+      "prompt_tokens_details": {
+        "cached_tokens": 352,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

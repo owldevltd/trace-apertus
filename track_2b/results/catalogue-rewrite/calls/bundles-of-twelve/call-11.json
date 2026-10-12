@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:40:13.595Z",
+  "tag": "umgeschrieben-paeckchen schadenmeldung-uvg q61",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Schadenmeldung UVG\", jede mit ihrer Kennung:\n\nq61: Welcher Körperteil ist betroffen?\nq62: Ist der betroffene Körperteil links, rechts oder unbestimmt?\nq63: Welche Seite des Körpers ist betroffen?\nq64: Wie lautet die Art der Schädigung?\nq65: Welche Art von Arbeitsunfähigkeit wird gemeldet?\nq66: Ab wann ist die Arbeit zufolge Unfalles ausgesetzt?\nq67: Ist die Arbeit zufolge Unfalles ausgesetzt?\nq68: Ist die Arbeit infolge des Unfalles ausgesetzt?\nq69: Ab wann wird die Arbeit wieder aufgenommen?\nq70: Dauert die Arbeitsunfähigkeit länger als einen Monat?\nq71: Wird die Arbeit ganz oder teilweise wieder aufgenommen?\nq72: Wie lautet die Adresse des Erstbehandlers bzw. des Spitals/Klinik?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 4091,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-7c3cefd8-62b2-4686-a570-2671f85565bd",
+    "object": "chat.completion",
+    "created": 1791531613,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q61\", \"frage\": \"Welchen Körperteil hat die Person verletzt?\"}, {\"kennung\": \"q62\", \"frage\": \"Ist der verletzte Körperteil links, rechts oder unbestimmt?\"}, {\"kennung\": \"q63\", \"frage\": \"Welche Seite des Körpers ist verletzt?\"}, {\"kennung\": \"q64\", \"frage\": \"Wie ist die Art der Verletzung?\"}, {\"kennung\": \"q65\", \"frage\": \"Welche Art von Arbeitsunfähigkeit wird gemeldet?\"}, {\"kennung\": \"q66\", \"frage\": \"Ab wann kann die Person wegen des Unfalls nicht mehr arbeiten?\"}, {\"kennung\": \"q67\", \"frage\": \"Ist die Person wegen des Unfalls nicht mehr arbeiten?\"}, {\"kennung\": \"q68\", \"frage\": \"Ist die Person wegen des Unfalls nicht mehr arbeiten?\"}, {\"kennung\": \"q69\", \"frage\": \"Ab wann kann die Person wieder arbeiten?\"}, {\"kennung\": \"q70\", \"frage\": \"Dauert die Arbeitsunfähigkeit länger als einen Monat?\"}, {\"kennung\": \"q71\", \"frage\": \"Wird die Arbeit ganz oder teilweise wieder aufgenommen?\"}, {\"kennung\": \"q72\", \"frage\": \"Wie lautet die Adresse des Arztes oder des Krankenhauses?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 429,
+      "total_tokens": 742,
+      "completion_tokens": 313,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

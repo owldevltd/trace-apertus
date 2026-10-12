@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:39:24.567Z",
+  "tag": "umgeschrieben-paeckchen arbeitsfaehigkeitszeugnis q1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Arbeitsfähigkeitszeugnis\", jede mit ihrer Kennung:\n\nq1: Ist die Person weiblich oder männlich?\nq2: Wie lautet der Name und der Vorname der Person?\nq3: Wie lautet das Geburtsdatum der Person?\nq4: Wie lautet die Adresse und die Postleitzahl der Person?\nq5: Wie lautet die AHV-Nummer der Person?\nq6: Wie lautet die Telefonnummer der Person?\nq7: Wie lautet die E-Mail-Adresse der Person?\nq8: Wie lautet der Firmenname des Arbeitgebers?\nq9: Wie lautet der Name der Kontaktperson beim Arbeitgeber?\nq10: Wie lautet die Adresse und die Postleitzahl des Arbeitgebers?\nq11: Wie lautet die Telefonnummer des Arbeitgebers?\nq12: Wie lautet die E-Mail-Adresse des Arbeitgebers?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3457,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-4f354018-6c93-4636-ab13-5bf1ff13ec94",
+    "object": "chat.completion",
+    "created": 1791531565,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"Ist die Person weiblich oder männlich?\"}, {\"kennung\": \"q2\", \"frage\": \"Wie lautet der Name und der Vorname der Person?\"}, {\"kennung\": \"q3\", \"frage\": \"Wann ist die Person geboren?\"}, {\"kennung\": \"q4\", \"frage\": \"Wie lautet die Adresse und die Postleitzahl der Person?\"}, {\"kennung\": \"q5\", \"frage\": \"Wie lautet die AHV-Nummer der Person?\"}, {\"kennung\": \"q6\", \"frage\": \"Wie lautet die Telefonnummer der Person?\"}, {\"kennung\": \"q7\", \"frage\": \"Wie lautet die E-Mail-Adresse der Person?\"}, {\"kennung\": \"q8\", \"frage\": \"Wie lautet der Firmenname des Arbeitgebers?\"}, {\"kennung\": \"q9\", \"frage\": \"Wie lautet der Name der Kontaktperson beim Arbeitgeber?\"}, {\"kennung\": \"q10\", \"frage\": \"Wie lautet die Adresse und die Postleitzahl des Arbeitgebers?\"}, {\"kennung\": \"q11\", \"frage\": \"Wie lautet die Telefonnummer des Arbeitgebers?\"}, {\"kennung\": \"q12\", \"frage\": \"Wie lautet die E-Mail-Adresse des Arbeitgebers?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 418,
+      "total_tokens": 716,
+      "completion_tokens": 298,
+      "prompt_tokens_details": {
+        "cached_tokens": 32,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

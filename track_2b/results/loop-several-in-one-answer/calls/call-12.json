@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-11T16:26:06.095Z",
+  "tag": "entries q13",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1800,
+  "prompt": "Unten steht eine Frage zu einem Formular und was eine Person darauf geantwortet hat. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Wie viele weitere Forderungen gibt es? Für jede Forderung frage ich nach: Grund oder Urkunde mit Datum, Betrag in CHF, Zinssatz in Prozent und Datum ab wann der Zins gilt.\nAntwort: Nein, keine weiteren.\n-----\n\nDie Frage gehört zu einer Liste mit mehreren gleichen Zeilen. Jeder Eintrag der Liste hat diese Angaben:\n1: Forderungsgrund oder Forderungsurkunde mit Datum\n2: Betrag (CHF)\n3: Zins %\n4: seit (Datum)\n\nLies aus der Antwort ab, wie viele Einträge die Person genannt hat und was zu jedem gehört. Schreibe für jeden Eintrag zuerst eine Zeile mit dem Wort EINTRAG und darunter je Angabe eine Zeile in der Form \"Nummer: Wert\"; fehlt eine Angabe, schreibe als Wert einen Strich (-). Erfinde nichts. Hat die Person keinen Eintrag genannt, antworte nur mit dem Wort KEINE.",
+  "image": 0,
+  "audio": 0,
+  "ms": 142,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-d6c210c6-3d63-4087-b21e-eaaf967cf5f2",
+    "object": "chat.completion",
+    "created": 1791735968,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "KEINE",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 319,
+      "total_tokens": 322,
+      "completion_tokens": 3,
+      "prompt_tokens_details": {
+        "cached_tokens": 160,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

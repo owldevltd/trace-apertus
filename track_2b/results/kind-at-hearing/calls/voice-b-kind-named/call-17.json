@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-11T14:07:15.105Z",
+ "tag": "1 voice-b zeit1 b",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1500,
+ "prompt": "Transkribiere die Aufnahme wortwörtlich. Ausgangssprache ist Deutsch, bitte gib Deutsch zurück. Bekannte Namen und Begriffe, die in der Aufnahme vorkommen können: Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung), Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge, Name der obligatorischen Krankenversicherung (inkl. Police-Nr.), Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende), Letztmals im Betrieb gearbeitet bis (Wochentag, Datum, Zeit), Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse), Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig), Anzahl Kinder (bis 18 J., in Ausbildung bis 25 J.), Betriebsübliche Vollarbeitszeit (Std./Woche), Arbeitszeit des/der Verletzten (Std./Woche), Vertraglicher Beschäftigungsgrad (Prozent), Falls Arbeit wieder aufgenommen: ab wann?, Stempel und Unterschrift des Arbeitgebers, Erstbehandelnder Arzt bzw. Spital/Klinik, Nachbehandelnder Arzt bzw. Spital/Klinik, Bezeichnung der anderen Lohnzulagen, Name und Adresse mit Postleitzahl, Staatsangehörigkeit / Bewilligung, Familienmitglied / Gesellschafter, Nachbau nach der Helsana-Meldung, Arbeitsverhältnis gekündigt per, Unterschrift des/der Verletzten, Angestellte/r / Mitarbeiter/in, unbefristeter Arbeitsvertrag, befristeter Arbeitsvertrag, Wenn ja, aufgenommen durch, Wenn ja, Name und Adresse, Zeit (Stunden, Minuten), Betroffener Körperteil, Police-Nr. UVG-Zusatz, Beteiligte Person(en), Datum der Anstellung, Quellensteuerpflicht, Schadenmeldung UVG, Art der Schädigung, länger als 1 Monat, Zwischenverdienst, Wenn ja, ab wann?, Name und Vorname, Ausgeübter Beruf. In der Aufnahme wird eine Uhrzeit genannt.",
+ "image": 0,
+ "audio": 15021,
+ "ms": 297,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-6fd6f822-f070-428e-a4a2-f9e586919eb7",
+  "object": "chat.completion",
+  "created": 1791727637,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Dreizehn Uhr fünf.",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 585,
+   "total_tokens": 593,
+   "completion_tokens": 8,
+   "prompt_tokens_details": {
+    "cached_tokens": 544,
+    "multimodal_tokens": {
+     "audio": 72
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-11T15:16:55.754Z",
+  "tag": "answer q13",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p2] Frage: Wie viele weitere Forderungen gibt es? Für jede Forderung frage ich nach: Grund oder Urkunde mit Datum, Betrag in CHF, Zinssatz in Prozent und Datum ab wann der Zins gilt.\nAntwort: Die Miete für Juni, 1200 Franken, ohne Zins.\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- f12: Forderungsgrund oder Forderungsurkunde mit Datum — Vorgabe: Text\n- f49: Betrag (CHF) — Vorgabe: Zahl\n- f13: Zins % — Vorgabe: Zahl\n- f14: seit (Datum) — Vorgabe: Datum als TT.MM.JJJJ\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+  "image": 0,
+  "audio": 0,
+  "ms": 356,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-fe4a4acb-4edc-401a-bae5-373674a90076",
+    "object": "chat.completion",
+    "created": 1791731818,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "f12: Die Miete für Juni [p2]\nf49: 1200 [p2]\nf13: -\nf14: - [p2]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 340,
+      "total_tokens": 381,
+      "completion_tokens": 41,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

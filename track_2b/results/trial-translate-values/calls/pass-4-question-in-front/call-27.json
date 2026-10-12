@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:59:55.116Z",
+  "tag": "werte sechs frage en betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Englisch gemacht, die in ein deutsches Formular gehören. Vor jeder Angabe steht die Frage, auf die sie antwortet; die Frage ist nur zum Verständnis da.\n\nFrage 7: Welcher Zinssatz wird verlangt?\nAngabe 7: 5\n\nFrage 8: Seit welchem Datum wird Zins verlangt?\nAngabe 8: 13.07.2026\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird; übersetze nur die Angaben, nicht die Fragen. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 353,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-db0b52d7-23df-4096-8b6c-7dde885e8cad",
+    "object": "chat.completion",
+    "created": 1791554395,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 7, \"wert\": \"5\"}, {\"nummer\": 8, \"wert\": \"13.07.2026\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 244,
+      "total_tokens": 284,
+      "completion_tokens": 40,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

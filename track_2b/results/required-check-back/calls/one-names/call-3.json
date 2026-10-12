@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T19:34:09.261Z",
+  "tag": "back suva-bagatellunfall q53",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 20,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 3 =====\n[q34]\nSchaden-Nummer  → [q35]\nBagatellunfall-Meldung UVG Doppel für den Betrieb\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q36]\nTel.-Nr.  → [q37]\nKunden-Nr.  → [q38]\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q39]\n2. Verletzte/r\nName und Vorname  → [q40]\nGeburtsdatum  → [q41] [q42]\nAHV-Nummer  → [q43]\nStrasse  → [q44]\nStaatsangehörigkeit  → [q45] [q46]\nPLZ\nWohnort\nZivilstand  → [q47]\n3. Anstellung\nDatum der Anstellung  → [q48]\nAusgeübter Beruf  → [q49]\nHöheres Kader  → [q50: Auswahl]\nMittleres Kader  → [q50: Auswahl]\nAngestellte/r / Arbeiter/in  → [q50: Auswahl]\nLehrling  → [q51: Auswahl]\nPraktikant/in  → [q51: Auswahl]\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q52]\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q53]\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q54] [q55]\n[q56]\n[q57]\n[q58]\n[q59]\n[q60]\n[q61]\n[q62]\n[q63]\n[q64]\n[q65]\n[q66]\n[q67]\n[q68]\n[q69]\n[q70]\n[q71]\n[q72]\n[q73]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q74]\n8. Nicht- berufsunfall\nK Bis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\nbis:\nlinks  → [q75: Auswahl]\nrechts  → [q75: Auswahl]\nunbestimmt  → [q75: Auswahl]\n9. Verletzung\nBetroffener Körperteil:  → [q76]\nArt der Schädigung:\n10. Arzt- adressen  → [q77]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q78]\nOrt und Datum\nStempel und Unterschrift\n-----\n\nEs geht um die Stelle [q53]. Welche der folgenden Angaben wird genau an dieser Stelle eingetragen?\nA: Tag – Tag des Unfalls\nB: Monat – Monat des Unfalls\nC: Jahr – Jahr des Unfalls\nD: Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse) – Ort des Unfalls mit Name oder PLZ und die Stelle, an der er geschah\nE: Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge – Hergang des Unfalls: Tätigkeit, Ablauf, beteiligte Personen und Gegenstände, so dass der Hergang abgeklärt werden kann\nF: Betroffener Körperteil – Betroffener Körperteil als Folge des Unfalls\nG: Erstbehandelnder Arzt bzw. Spital/Klinik – Behandelnder Arzt oder Spital der Erstbehandlung\nH: Name und Adresse mit Postleitzahl – Name und Adresse des meldenden Arbeitgebers\nI: Name und Vorname – Name und Vorname der verletzten Person\n\nAntworte nur mit dem Buchstaben. Passt keine der Angaben zu dieser Stelle, antworte mit dem Wort KEINE.",
+  "image": 0,
+  "audio": 0,
+  "ms": 147,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-4e1031af-9c16-4d7a-b565-863134bd6181",
+    "object": "chat.completion",
+    "created": 1791574450,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "D",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1168,
+      "total_tokens": 1170,
+      "completion_tokens": 2,
+      "prompt_tokens_details": {
+        "cached_tokens": 896,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

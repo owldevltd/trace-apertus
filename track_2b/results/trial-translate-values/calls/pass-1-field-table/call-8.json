@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:30:41.040Z",
+  "tag": "zurück 70b ganz fr suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 1600,
+  "prompt": "Eine Person hat ein deutsches Formular auf Französisch beantwortet. Unten steht je Feld die deutsche Beschriftung, die Art und der Wert, den die Person angegeben hat.\n\n- arbeitgeber | Beschriftung: Name und Adresse mit Postleitzahl | Art: Text | Wert: Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\n- tel | Beschriftung: Tel.-Nr. | Art: Text | Wert: 041 728 40 10\n- arbeitsplatz | Beschriftung: Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig) | Art: Text | Wert: Lager\n- name | Beschriftung: Name und Vorname | Art: Text | Wert: Keller Sandra\n- geburt | Beschriftung: Geburtsdatum | Art: Datum als TT.MM.JJJJ | Wert: 14.03.1988\n- strasse | Beschriftung: Strasse | Art: Text | Wert: Werkstrasse 12, 6300 Zug\n- staat | Beschriftung: Staatsangehörigkeit | Art: Text | Wert: Suisse\n- zivilstand | Beschriftung: Zivilstand | Art: Text | Wert: célibataire\n- anstellung | Beschriftung: Datum der Anstellung | Art: Datum als TT.MM.JJJJ | Wert: 01.02.2019\n- beruf | Beschriftung: Ausgeübter Beruf | Art: Text | Wert: Lagermitarbeiterin\n- stunden | Beschriftung: Arbeitszeit des/der Verletzten: Stunden je Woche | Art: Text | Wert: 40\n- tag | Beschriftung: Tag | Art: Text | Wert: 05\n- monat | Beschriftung: Monat | Art: Text | Wert: 10\n- jahr | Beschriftung: Jahr | Art: Text | Wert: 2026\n- zeit | Beschriftung: Zeit (Stunden, Minuten) | Art: Text | Wert: 14:20\n- ort | Beschriftung: Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse) | Art: Text | Wert: Lager, Werkstrasse 12, Zug\n- hergang | Beschriftung: Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge | Art: Text | Wert: En déchargeant une palette, j'ai glissé et je suis tombée sur mon poignet droit.\n- gegenstaende | Beschriftung: Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung) | Art: Text | Wert: Palette\n- koerperteil | Beschriftung: Betroffener Körperteil | Art: Text | Wert: Poignet\n- arzt1 | Beschriftung: Erstbehandelnder Arzt bzw. Spital/Klinik | Art: Text | Wert: Kantonsspital Zug, Urgence\n\nÜbersetze jeden Wert ins Deutsche, so wie er in das deutsche Formular gehört. Namen, Firmen, Adressen, Nummern und Daten bleiben unverändert; ist ein Wert schon deutsch oder braucht keine Übersetzung, gib ihn unverändert zurück. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"feld\": \"name\", \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 7670,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-59cf11e1-af62-438a-ad33-2e714edff5bc",
+    "object": "chat.completion",
+    "created": 1791552641,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"werte\": [\n    {\n      \"feld\": \"arbeitgeber\",\n      \"wert\": \"Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\"\n    },\n    {\n      \"feld\": \"tel\",\n      \"wert\": \"041 728 40 10\"\n    },\n    {\n      \"feld\": \"arbeitsplatz\",\n      \"wert\": \"Lager\"\n    },\n    {\n      \"feld\": \"name\",\n      \"wert\": \"Keller Sandra\"\n    },\n    {\n      \"feld\": \"geburt\",\n      \"wert\": \"14.03.1988\"\n    },\n    {\n      \"feld\": \"strasse\",\n      \"wert\": \"Werkstrasse 12, 6300 Zug\"\n    },\n    {\n      \"feld\": \"staat\",\n      \"wert\": \"Suisse\"\n    },\n    {\n      \"feld\": \"zivilstand\",\n      \"wert\": \"ledig\"\n    },\n    {\n      \"feld\": \"anstellung\",\n      \"wert\": \"01.02.2019\"\n    },\n    {\n      \"feld\": \"beruf\",\n      \"wert\": \"Lagermitarbeiterin\"\n    },\n    {\n      \"feld\": \"stunden\",\n      \"wert\": \"40\"\n    },\n    {\n      \"feld\": \"tag\",\n      \"wert\": \"05\"\n    },\n    {\n      \"feld\": \"monat\",\n      \"wert\": \"10\"\n    },\n    {\n      \"feld\": \"jahr\",\n      \"wert\": \"2026\"\n    },\n    {\n      \"feld\": \"zeit\",\n      \"wert\": \"14:20\"\n    },\n    {\n      \"feld\": \"ort\",\n      \"wert\": \"Lager, Werkstrasse 12, Zug\"\n    },\n    {\n      \"feld\": \"hergang\",\n      \"wert\": \"Beim Entladen einer Palette bin ich ausgerutscht und auf mein rechtes Handgelenk gefallen.\"\n    },\n    {\n      \"feld\": \"gegenstaende\",\n      \"wert\": \"Palette\"\n    },\n    {\n      \"feld\": \"koerperteil\",\n      \"wert\": \"Handgelenk\"\n    },\n    {\n      \"feld\": \"arzt1\",\n      \"wert\": \"Kantonsspital Zug, Notfallstation\"\n    }\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 824,
+      "total_tokens": 1336,
+      "completion_tokens": 512,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:34:43.996Z",
+  "tag": "lesen gegenüber en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1720,
+  "prompt": "Du gibst jemandem im Gespräch Auskunft zu deinem Fall. Über den Fall weisst du nur, was du selbst so erzählt hast:\n\nBagatellunfall-Meldung von der Logistik Zugersee AG, Werkstrasse zwölf in Zug, Telefon null vier eins, sieben zwei acht, vierzig zehn. Betroffen ist das Lager. Verletzt ist Sandra Keller, geboren am vierzehnten März achtundachtzig, Werkstrasse zwölf in Zug, Schweizerin, ledig, Lagermitarbeiterin, angestellt seit ersten Februar neunzehn, vierzig Stunden. Der Unfall war gestern um zwanzig nach zwei im Lager an der Werkstrasse. Sie ist beim Abladen einer Palette ausgerutscht und auf das rechte Handgelenk gestürzt. Erstbehandlung im Notfall vom Kantonsspital Zug.\n\nDir werden diese Fragen gestellt:\nA: Wie heisst der Arbeitgeber und wo befindet er sich mit Postleitzahl?\nB: Welche Telefonnummer hat der Arbeitgeber?\nC: In welchem Bereich arbeitet die verletzte Person im Betrieb?\nD: Wie heissen die verletzte Person?\nE: Wann ist die verletzte Person geboren?\nF: Welche Strasse hat die verletzte Person?\nG: Welche Staatsangehörigkeit hat die verletzte Person?\nH: Welcher Zivilstand ist bei der verletzten Person?\nI: Wann hat die verletzte Person angefangen bei diesem Arbeitgeber zu arbeiten?\nJ: Welchen Beruf übt die verletzte Person aus?\nK: Ist die verletzte Person höheres Kader, mittleres Kader, Angestellte/r, Arbeiter/in, Lehrling oder Praktikant/in?\nL: Wie viele Stunden arbeitet die verletzte Person pro Woche?\nM: Tag\nN: Welcher Monat war es, als der Unfall passierte?\nO: Welches Jahr war es, als der Unfall passierte?\nP: Zu welcher Zeit passierte der Unfall in Stunden und Minuten?\nQ: Wo genau ist der Unfall passiert, zum Beispiel Ort und Strasse oder Postleitzahl?\nR: Was hat die verletzte Person genau zur Zeit des Unfalls gemacht, wie der Unfall verlaufen ist, wer war dabei und was war beteiligt?\nS: Welche Gegenstände waren am Unfall beteiligt, wie Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff?\nT: Welcher Körperteil der verletzten Person ist betroffen?\nU: Ist die Verletzung links, rechts oder unbestimmt?\nV: Wer ist der Erstbehandelnde Arzt oder das Spital/Klinik?\n\nAntworte auf jede Frage auf Englisch, wie man im Gespräch antwortet: kurz und nur mit dem, was du weisst. Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"antwort\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2251,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-732f5704-8f3f-4fda-bb84-690cdb0a6215",
+    "object": "chat.completion",
+    "created": 1791552884,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"antwort\": \"Logistik Zugersee AG, Werkstrasse zwölf, 6301 Zug\"}, {\"frage\": \"B\", \"antwort\": \"041 728 4010\"}, {\"frage\": \"C\", \"antwort\": \"Lager\"}, {\"frage\": \"D\", \"antwort\": \"Sandra Keller\"}, {\"frage\": \"E\", \"antwort\": \"14 March 1988\"}, {\"frage\": \"F\", \"antwort\": \"Werkstrasse zwölf\"}, {\"frage\": \"G\", \"antwort\": \"Swiss\"}, {\"frage\": \"H\", \"antwort\": \"Single\"}, {\"frage\": \"I\", \"antwort\": \"1 February 2019\"}, {\"frage\": \"J\", \"antwort\": \"Warehouse employee\"}, {\"frage\": \"K\", \"antwort\": \"Employee\"}, {\"frage\": \"L\", \"antwort\": \"40\"}, {\"frage\": \"M\", \"antwort\": \"Day\"}, {\"frage\": \"N\", \"antwort\": \"Month\"}, {\"frage\": \"O\", \"antwort\": \"Year\"}, {\"frage\": \"P\", \"antwort\": \"20:10\"}, {\"frage\": \"Q\", \"antwort\": \"Werkstrasse twelve, Zug\"}, {\"frage\": \"R\", \"antwort\": \"Slipped while unloading a pallet and fell on right wrist\"}, {\"frage\": \"S\", \"antwort\": \"Pallet\"}, {\"frage\": \"T\", \"antwort\": \"Right wrist\"}, {\"frage\": \"U\", \"antwort\": \"Right\"}, {\"frage\": \"V\", \"antwort\": \"Cantonspital Zug\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 656,
+      "total_tokens": 1006,
+      "completion_tokens": 350,
+      "prompt_tokens_details": {
+        "cached_tokens": 576,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

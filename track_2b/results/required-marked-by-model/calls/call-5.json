@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T19:42:25.373Z",
+  "tag": "required 70B suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 368,
+  "prompt": "Hier ist der Text eines Schweizer Formulars und darunter der Katalog seiner Angaben mit den Vorgaben.\n\nFormulartext:\nBitte mit Schreibmaschine ausfüllen oder direkt auf www.suva.ch/schadenmeldung\nSchaden-Nummer\nBagatellunfall-Meldung UVG\n1. Arbeitgeber\nName und Adresse mit Postleitzahl\nTel.-Nr.\nKunden-Nr.\nBetriebsteil\n▼ Wird von der Versicherung ausgefüllt\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)\nGe\n2. Verletzte/r\nName und Vorname\nGeburtsdatum\nAHV-Nummer\nSt\nStrasse\nStaatsangehörigkeit\nPLZ\nWohnort\nZivilstand\n3. Anstellung\nDatum der Anstellung\nAusgeübter Beruf\nStellung\nHöheres Kader\nMittleres Kader\nAngestellte/r / Arbeiter/in\nLehrling\nPraktikant/in\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)\nB/N/F\n8. Nicht- berufsunfall\nBis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\nbis:\nVerletzung\nlinks\nrechts\nunbestimmt\n9. Verletzung\nBetroffener Körperteil:\nArt der Schädigung:\nArt\n10. Arzt- adressen\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik\nOrt und Datum\nStempel und Unterschrift\nHinweis für den Arbeitgeber\nDiese Bagatellunfall-Meldung ist auszufüllen, wenn keine Arbeitsunfähigkeit oder eine solche von höchstens 3 Kalendertagen (Unfalltag und die anschliessenden 2 Tage) eintritt. Ausnahmen: Anstelle dieser Bagatellunfall-Meldung ist eine weisse Formulargarnitur auszufüllen bei – Berufskrankheit, – Zahnschaden oder – Rückfall\nDem zugezogenen Arzt bzw. den Ärzten werden wir ein Rechnungsformular zustellen.\nFür Rückerstattungsgesuche von bereits bezahlten Rechnungen bitten wir Sie, Belege beizulegen und nachfolgend die Zahladresse (Post-/Bankkonto) anzugeben.\n913.d – 2005\nVerteiler:\ngrünes Formular gelbes Formular blaues Formular\n➞ Suva (Adresse siehe oben) ➞ Doppel für Ihre Akten ➞ Verletzte/r ➞ Apotheke ➞ Suva\nSuva\nPostfach\nSuva Postfach\nSchaden-Nummer\nBagatellunfall-Meldung UVG Doppel für den Betrieb\n1. Arbeitgeber\nName und Adresse mit Postleitzahl\nTel.-Nr.\nKunden-Nr.\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)\n2. Verletzte/r\nName und Vorname\nGeburtsdatum\nAHV-Nummer\nStrasse\nStaatsangehörigkeit\nPLZ\nWohnort\nZivilstand\n3. Anstellung\nDatum der Anstellung\nAusgeübter Beruf\nHöheres Kader\nMittleres Kader\nAngestellte/r / Arbeiter/in\nLehrling\nPraktikant/in\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)\n8. Nicht- berufsunfall\nK Bis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\nbis:\nlinks\nrechts\nunbestimmt\n9. Verletzung\nBetroffener Körperteil:\nArt der Schädigung:\n10. Arzt- adressen\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik\nOrt und Datum\nStempel und Unterschrift\nSchaden-Nummer\nApothekerschein UVG\nArbeitgeber\nName und Adresse mit Postleitzahl\nTel.-Nr.\nKunden-Nr.\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)\nVerletzte/r\nName und Vorname\nGeburtsdatum\nAHV-Nummer\nStrasse\nPLZ\nWohnort\nSchaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\nHinweise für die/den Verletzte/n\nHinweise für den Apotheker\nDie vom Arzt verordneten Medikamente werden Ihnen vom Apotheker gegen Abgabe dieses Scheines kostenlos abgegeben. Alle Medikamente sind aus der gleichen Apotheke zu beziehen.\nBitte senden Sie diese Rechnung nach Abschluss der Behandlung – spätestens aber 3 Monate nach Unfalldatum – an die oben aufge- führte Adresse. Einen neuen Apothekerschein können Sie bei uns verlangen, wenn – der Platz für das Eintragen der Bezüge nicht ausreicht, – nach Ablauf von 3 Monaten weitere Medikamente benötigt werden.\nlinks\nrechts\nunbestimmt\nVerletzung\nBetroffener Körperteil:\nArt der Schädigung:\nArzt- adressen\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik\nRechnung der Apotheke\nDatum:\nDatum der Abgabe\nArt und Menge\nPreis\nCHF\nRp.\nStempel der Apotheke:\n3 Code\nTotal\nPostkonto-Nr. oder zugeteilte Suva-Nr.\nBitte Rezepte beilegen\nBei Abrechnung über OFAC: 35-1\nGeht an: Verletzte/r ➞ Apotheker ➞ Suva\n\nKatalog:\n1: Schaden-Nummer – Von der Suva zugewiesene Nummer eintragen\n2: 1. Arbeitgeber – Name und Adresse mit Postleitzahl, Tel.-Nr., Kunden-Nr., Betriebsteil, üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)\n3: 2. Verletzte/r – Name und Vorname, Geburtsdatum, Strasse, PLZ, AHV-Nummer\n4: 3. Anstellung – Wohnort, Stellung (auswählen), AHV-Nummer, Staatsangehörigkeit, Zivilstand, Datum der Anstellung, ausgeübter Beruf (auswählen), Arbeitszeit des/der Verletzten: Stunden je Woche\n5: 4. Schaden- datum – Tag des Unfalls eintragen\n6: 5. Unfallort – Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse) angeben\n7: 6. Sachverhalt (Unfallbeschreibung) – Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge detailliert beschreiben\n8: 7. Berufsunfall – Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; genaue Bezeichnung angeben)\n9: 8. Nicht-berufsunfall – Bis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit) eintragen\n10: 9. Verletzung – Betroffener Körperteil, Monat, Jahr, bis: Zeit (Stunden, Minuten), Grund der Absenz (links, rechts, unbestimmt), Art der Schädigung angeben\n11: 10. Arzt- adressen – Erstbehandelnder Arzt bzw. Spital/Klinik, Nachbehandelnder Arzt bzw. Spital/Klinik, Ort und Datum eintragen\n12: Stempel und Unterschrift – Formular mit Stempel und Unterschrift des Arbeitgebers abschliessen\n13: Apothekerschein UVG – Name und Adresse des Arbeitgebers, Tel.-Nr., Kunden-Nr., Betriebsteil, üblicher Arbeitsplatz des/der Verletzten, Name und Vorname, Geburtsdatum, AHV-Nummer, Strasse, PLZ, Schaden- datum (Tag), Wohnort, Monat, Jahr, Zeit (Stunden, Minuten), Betroffener Körperteil, Art der Schädigung, Arzt- adressen (Erst- und Nachbehandler), Rechnung der Apotheke (Datum der Abgabe, Art und Menge, Preis CHF, Datum, Rp.), Stempel der Apotheke\n14: Tag – Tag des Unfalls (UVV Art. 53 Abs. 1 Bst. a)\n15: Monat – Monat des Unfalls (UVV Art. 53 Abs. 1 Bst. a)\n16: Jahr – Jahr des Unfalls (UVV Art. 53 Abs. 1 Bst. a)\n17: Zeit (Stunden, Minuten) – Uhrzeit des Unfalls in Stunden und Minuten (UVV Art. 53 Abs. 1 Bst. a)\n18: Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse) – Ort des Unfalls mit Name oder PLZ und die Stelle, an der er geschah (UVV Art. 53 Abs. 1 Bst. a)\n19: Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge – Hergang des Unfalls: Tätigkeit, Ablauf, beteiligte Personen und Gegenstände, so dass der Hergang abgeklärt werden kann (UVV Art. 53 Abs. 1 Bst. a und Abs. 3 Bst. a)\n20: Betroffener Körperteil – Betroffener Körperteil als Folge des Unfalls (UVV Art. 53 Abs. 1 Bst. a und Abs. 3 Bst. b)\n21: Art der Schädigung – Art der Verletzung oder Schädigung (UVV Art. 53 Abs. 1 Bst. a und Abs. 3 Bst. b)\n22: Erstbehandelnder Arzt bzw. Spital/Klinik – Behandelnder Arzt oder Spital der Erstbehandlung (UVV Art. 53 Abs. 1 Bst. b)\n23: Nachbehandelnder Arzt bzw. Spital/Klinik – Arzt oder Spital der Nachbehandlung, falls eine stattfindet (UVV Art. 53 Abs. 1 Bst. b)\n24: Name und Adresse mit Postleitzahl – Name und Adresse des meldenden Arbeitgebers (UVG Art. 45 Abs. 2; UVV Art. 53 Abs. 3)\n25: Name und Vorname – Name und Vorname der verletzten Person (UVV Art. 53 Abs. 3 Bst. c)\n26: Geburtsdatum – Geburtsdatum der verletzten Person (UVV Art. 53 Abs. 3 Bst. c)\n27: AHV-Nummer – AHV-Nummer der verletzten Person (UVV Art. 53 Abs. 3 Bst. c)\n28: Stempel und Unterschrift – Das Formular trägt Stempel und Unterschrift des Arbeitgebers (UVV Art. 53 Abs. 3)\n\nWelche Angaben des Katalogs sind Pflicht? Pflicht ist eine Angabe nur, wenn das Gesetz sie verlangt oder das Formular ohne sie seinen Zweck nicht erfüllt; was nur in bestimmten Fällen gilt oder die entgegennehmende Stelle ausfüllt, ist keine Pflicht. Nenne nur diese.\nAntworte nur als JSON, ohne weiteren Text: {\"pflicht\": [1, 4]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1697,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-10d62284-3173-4d66-9637-56faf03cfc6d",
+    "object": "chat.completion",
+    "created": 1791574946,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"pflicht\": [1, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 2884,
+      "total_tokens": 2977,
+      "completion_tokens": 93,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

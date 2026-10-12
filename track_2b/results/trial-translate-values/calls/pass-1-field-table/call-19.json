@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:31:32.535Z",
+  "tag": "zurück 8b ganz it suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1600,
+  "prompt": "Eine Person hat ein deutsches Formular auf Italienisch beantwortet. Unten steht je Feld die deutsche Beschriftung, die Art und der Wert, den die Person angegeben hat.\n\n- arbeitgeber | Beschriftung: Name und Adresse mit Postleitzahl | Art: Text | Wert: Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\n- tel | Beschriftung: Tel.-Nr. | Art: Text | Wert: 041 728 40 10\n- arbeitsplatz | Beschriftung: Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig) | Art: Text | Wert: Magazzino\n- name | Beschriftung: Name und Vorname | Art: Text | Wert: Keller Sandra\n- geburt | Beschriftung: Geburtsdatum | Art: Datum als TT.MM.JJJJ | Wert: 14.03.1988\n- strasse | Beschriftung: Strasse | Art: Text | Wert: Werkstrasse 12, 6300 Zug\n- staat | Beschriftung: Staatsangehörigkeit | Art: Text | Wert: Svizzera\n- zivilstand | Beschriftung: Zivilstand | Art: Text | Wert: nubile\n- anstellung | Beschriftung: Datum der Anstellung | Art: Datum als TT.MM.JJJJ | Wert: 01.02.2019\n- beruf | Beschriftung: Ausgeübter Beruf | Art: Text | Wert: Magazziniera\n- stunden | Beschriftung: Arbeitszeit des/der Verletzten: Stunden je Woche | Art: Text | Wert: 40\n- tag | Beschriftung: Tag | Art: Text | Wert: 05\n- monat | Beschriftung: Monat | Art: Text | Wert: 10\n- jahr | Beschriftung: Jahr | Art: Text | Wert: 2026\n- zeit | Beschriftung: Zeit (Stunden, Minuten) | Art: Text | Wert: 14:20\n- ort | Beschriftung: Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse) | Art: Text | Wert: Magazzino, Werkstrasse 12, Zug\n- hergang | Beschriftung: Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge | Art: Text | Wert: Scivolata mentre scaricavo un pallet e caduta sul polso destro.\n- gegenstaende | Beschriftung: Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung) | Art: Text | Wert: Pallet\n- koerperteil | Beschriftung: Betroffener Körperteil | Art: Text | Wert: Polso\n- arzt1 | Beschriftung: Erstbehandelnder Arzt bzw. Spital/Klinik | Art: Text | Wert: Ospedale Cantonale di Zurigo, Pronto Soccorso\n\nÜbersetze jeden Wert ins Deutsche, so wie er in das deutsche Formular gehört. Namen, Firmen, Adressen, Nummern und Daten bleiben unverändert; ist ein Wert schon deutsch oder braucht keine Übersetzung, gib ihn unverändert zurück. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"feld\": \"name\", \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2496,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-0928417f-62f0-4e5e-9843-aaf711362033",
+    "object": "chat.completion",
+    "created": 1791552693,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"feld\": \"arbeitgeber\", \"wert\": \"Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\"}, {\"feld\": \"tel\", \"wert\": \"041 728 40 10\"}, {\"feld\": \"arbeitsplatz\", \"wert\": \"Magazzino\"}, {\"feld\": \"name\", \"wert\": \"Keller Sandra\"}, {\"feld\": \"geburt\", \"wert\": \"14.03.1988\"}, {\"feld\": \"strasse\", \"wert\": \"Werkstrasse 12, 6300 Zug\"}, {\"feld\": \"staat\", \"wert\": \"Svizzera\"}, {\"feld\": \"zivilstand\", \"wert\": \"nubile\"}, {\"feld\": \"anstellung\", \"wert\": \"01.02.2019\"}, {\"feld\": \"beruf\", \"wert\": \"Magazziniera\"}, {\"feld\": \"stunden\", \"wert\": \"40\"}, {\"feld\": \"tag\", \"wert\": \"05\"}, {\"feld\": \"monat\", \"wert\": \"10\"}, {\"feld\": \"jahr\", \"wert\": \"2026\"}, {\"feld\": \"zeit\", \"wert\": \"14:20\"}, {\"feld\": \"ort\", \"wert\": \"Magazzino, Werkstrasse 12, Zug\"}, {\"feld\": \"hergang\", \"wert\": \"Scivolata mentre scaricavo un pallet e caduta sul polso destro.\"}, {\"feld\": \"gegenstaende\", \"wert\": \"Pallet\"}, {\"feld\": \"koerperteil\", \"wert\": \"Polso\"}, {\"feld\": \"arzt1\", \"wert\": \"Ospedale Cantonale di Zurigo, Pronto Soccorso\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 832,
+      "total_tokens": 1222,
+      "completion_tokens": 390,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

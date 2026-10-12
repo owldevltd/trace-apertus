@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:39:54.122Z",
+  "tag": "umgeschrieben-paeckchen schadenmeldung-uvg q13",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Schadenmeldung UVG\", jede mit ihrer Kennung:\n\nq13: Wie viele Verletzte werden gemeldet?\nq14: Wie lautet der Name und die Vorname des Verletzten?\nq15: Wie lautet das Geburtsdatum des Verletzten?\nq16: Wie lautet die AHV-Nummer des Verletzten?\nq17: Wie lautet die Strasse des Wohnortes?\nq18: Wie lautet die Telefonnummer des Verletzten?\nq19: Wie lautet der Zivilstand des Verletzten?\nq20: In welcher Land lebt der Verletzte?\nq21: Wie lautet die Postleitzahl des Wohnortes?\nq22: Wie lautet der Wohnort des Verletzten?\nq23: Wie lautet die Staatsangehörigkeit oder Bewilligung des Verletzten?\nq24: Wie lautet die E-Mail-Adresse des Verletzten?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2631,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-0c0d3408-670e-4904-b892-6fde1012ca65",
+    "object": "chat.completion",
+    "created": 1791531594,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q13\", \"frage\": \"Wie viele Personen sind verletzt?\"}, {\"kennung\": \"q14\", \"frage\": \"Wie heisst die Person?\"}, {\"kennung\": \"q15\", \"frage\": \"Wann ist die Person geboren?\"}, {\"kennung\": \"q16\", \"frage\": \"Welche AHV-Nummer hat die Person?\"}, {\"kennung\": \"q17\", \"frage\": \"Welche Strasse ist die Wohnadresse?\"}, {\"kennung\": \"q18\", \"frage\": \"Welche Telefonnummer hat die Person?\"}, {\"kennung\": \"q19\", \"frage\": \"Welcher Zivilstand hat die Person?\"}, {\"kennung\": \"q20\", \"frage\": \"In welchem Land lebt die Person?\"}, {\"kennung\": \"q21\", \"frage\": \"Welche Postleitzahl hat die Wohnadresse?\"}, {\"kennung\": \"q22\", \"frage\": \"Wo wohnt die Person?\"}, {\"kennung\": \"q23\", \"frage\": \"Welche Staatsangehörigkeit oder Bewilligung hat die Person?\"}, {\"kennung\": \"q24\", \"frage\": \"Welche E-Mail-Adresse hat die Person?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 419,
+      "total_tokens": 707,
+      "completion_tokens": 288,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

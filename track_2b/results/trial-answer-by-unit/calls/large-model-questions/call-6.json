@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:40:38.925Z",
+  "tag": "e2e füllen-repo 70b q9",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Was ist der Grund für die Forderung oder wo finde ich die Urkunde mit Datum?\nAntwort: Rechnung Nummer 20 26 strich 118 vom 12. Juni\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- forderung: Forderungsgrund oder Forderungsurkunde mit Datum — Vorgabe: Text, mehrere Sätze möglich\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+  "image": 0,
+  "audio": 0,
+  "ms": 294,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-9fe2f878-75c0-4a2b-a614-e6b77e63c42a",
+    "object": "chat.completion",
+    "created": 1791538839,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "forderung: Rechnung Nummer 20 26 strich 118 vom 12. Juni [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 268,
+      "total_tokens": 297,
+      "completion_tokens": 29,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T15:20:58.171Z",
+ "tag": "L Z2",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1200,
+ "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Das Zeugnis ist für Margrit Keller, geboren am 14. Mai 1978, Werkstrasse 12 in Zug. Sie arbeitet als Verkäuferin bei der Muster AG. Sie war am 3. Oktober 2026 in der Konsultation und ist vom 3. Oktober 2026 bis zum 17. Oktober 2026 voll arbeitsunfähig, nächste Konsultation am 17. Oktober 2026. Bei der Konsultation vom 17. Oktober 2026 wurde die volle Arbeitsunfähigkeit verlängert, vom 18. Oktober 2026 bis zum 31. Oktober 2026, nächste Konsultation am 31. Oktober 2026.\n-----\n\nIm Formular steht eine Liste mit mehreren gleichen Zeilen. Dazu wird gefragt: «Wann wurde die Konsultation durchgeführt?»\nJeder Eintrag der Liste hat diese Angaben, in dieser Reihenfolge:\n1. Konsultationsdatum\n2. von\n3. bis\n4. nächste Konsultation\n5. Visum\n\nLies aus dem Text ab, welche Einträge für diese Liste gesagt wurden. Schreibe je Eintrag genau eine Zeile, die Angaben in der Reihenfolge oben und durch \" | \" getrennt; fehlt eine Angabe, schreibe dafür einen Strich (-). Erfinde nichts. Wurde kein Eintrag für diese Liste gesagt, antworte nur mit dem Wort KEINE.",
+ "image": 0,
+ "audio": 0,
+ "ms": 815,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-02a7a4db-19bd-4254-83ea-f659dbf9087f",
+  "object": "chat.completion",
+  "created": 1791732060,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "[1] 3. Oktober 2026 | 3. Oktober 2026 | 17. Oktober 2026 | 17. Oktober 2026 | Visum\n[2] 17. Oktober 2026 | 17. Oktober 2026 | 31. Oktober 2026 | 31. Oktober 2026 | Visum",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 435,
+   "total_tokens": 533,
+   "completion_tokens": 98,
+   "prompt_tokens_details": {
+    "cached_tokens": 192,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

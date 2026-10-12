@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:19:53.809Z",
+  "tag": "interview d-8b-bundle arbeitsfaehigkeitszeugnis",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Du gibst in einem Gespräch Auskunft. Du kennst genau diese Angaben, jede hat einen Kennwert:\n- K101: Grundlage volle Arbeitsunfähigkeit\n- K102: Geburtsdatum\n- K103: REP vom (volle AU)\n- K104: Teilzeit Prozent\n- K105: E-Mail Arbeitnehmer\n- K106: Stunden pro Tag\n- K107: Teil-AF Nächste Konsultation 4\n- K108: Adresse Arbeitgeber\n- K109: Arbeitsplatzbeschrieb vom (volle AU)\n- K110: Teil-AF Konsultation 1\n- K111: Wiederaufnahme ab\n- K112: E-Mail Arbeitgeber\n- K113: Teil-AF Arbeitsfähigkeit 1\n- K114: Wochenarbeitszeit Einsatztage\n- K115: Volle AU von 1\n- K116: REP vom (Teil-AF)\n- K117: Volle AU Konsultation 2\n- K118: Volle AU von 3\n- K119: Volle AU bis 1\n- K120: Teil-AF von 2\n- K121: Telefon Arbeitgeber\n- K122: Name Vorname\n- K123: Ursache\n- K124: Volle AU von 2\n- K125: Telefon Arbeitnehmer\n- K126: Volle AU Nächste Konsultation 3\n- K127: Adresse Arbeitnehmer\n- K128: Volle AU Visum 3\n- K129: Teil-AF Präsenzzeit Prozent 3\n- K130: Teil-AF Leistungsfähigkeit 1\n- K131: Arbeitsplatzbeschrieb vom (Teil-AF)\n- K132: Teil-AF bis 3\n- K133: Teil-AF Konsultation 3\n- K134: Teil-AF Nächste Konsultation 3\n- K135: Teil-AF Leistungsfähigkeit 2\n- K136: Teil-AF Nächste Konsultation 2\n- K137: Volle AU Nächste Konsultation 2\n- K138: Teil-AF Konsultation 4\n- K139: Funktion Beruf\n- K140: Teil-AF Präsenzzeit Std 2\n- K141: Teil-AF Visum 1\n- K142: Teil-AF Präsenzzeit Prozent 2\n- K143: Volle AU Visum 2\n- K144: Teil-AF bis 1\n- K145: Teil-AF Leistungsfähigkeit 4\n- K146: Bemerkungen\n- K147: Teil-AF Präsenzzeit Prozent 1\n- K148: Teil-AF von 3\n- K149: Volle AU bis 3\n- K150: Teil-AF Konsultation 2\n- K151: Arzt\n- K152: Teil-AF Visum 2\n- K153: Teil-AF von 1\n- K154: Teil-AF Präsenzzeit Std 3\n- K155: Eintrittsjahr\n- K156: Teil-AF Leistungsfähigkeit 3\n- K157: Volle AU Nächste Konsultation 1\n- K158: Teil-AF Präsenzzeit Std 1\n- K159: Teil-AF Visum 3\n- K160: Teil-AF Arbeitsfähigkeit 3\n- K161: Arbeitsplatzbezogene Arbeitsunfähigkeit\n- K162: Teil-AF Präsenzzeit Std 4\n- K163: AHV-Nummer\n- K164: Teil-AF Arbeitsfähigkeit 2\n- K165: Teil-AF bis 4\n- K166: Teil-AF Arbeitsfähigkeit 4\n- K167: Volle AU Konsultation 1\n- K168: Kontakt erwünscht\n- K169: Teil-AF von 4\n- K170: Teil-AF Nächste Konsultation 1\n- K171: Datum\n- K172: Arbeitszeit\n- K173: Gekündigt per\n- K174: Grundlage Teilarbeitsfähigkeit\n- K175: Teil-AF bis 2\n- K176: Firmenname\n- K177: Kontaktperson\n- K178: Volle AU Visum 1\n- K179: Geschlecht\n- K180: Teil-AF Präsenzzeit Prozent 4\n- K181: Volle AU bis 2\n- K182: Teil-AF Visum 4\n- K183: Volle AU Konsultation 3\n\nDir werden diese Fragen gestellt:\nA: Wodurch ist die Arbeitsunfähigkeit entstanden: durch Krankheit, Unfall oder Berufskrankheit?\nB: Welchen Beruf üben Sie in dieser Firma aus?\nC: In welcher Straße und Postleitzahl wohnen Sie?\nD: Wie viele Stunden arbeiten Sie pro Tag?\nE: Ab wann können Sie die Arbeit wieder zu 100 % aufnehmen?\nF: Welches Datum ist auf dem Zeugnis?\nG: Arbeiten Sie die ganze Zeit vollzeitlich (100 %)?\nH: Welche E-Mail-Adresse hat Ihr Arbeitgeber?\nI: In welcher Straße und Postleitzahl hat Ihr Arbeitgeber seinen Sitz?\nJ: Welche E-Mail-Adresse haben Sie?\nK: Wann war die letzte ärztliche Konsultation?\nL: Welches Geburtsdatum haben Sie?\n\nNenne zu jeder Frage den Kennwert der einen Angabe, nach der gefragt wird. Passt keine Angabe, schreibe \"-\". Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K101\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1550,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-1f67b2fb-55dc-4da1-997f-053e98d9f538",
+    "object": "chat.completion",
+    "created": 1791537594,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K101\"}, {\"frage\": \"B\", \"kennwert\": \"K139\"}, {\"frage\": \"C\", \"kennwert\": \"-\"}, {\"frage\": \"D\", \"kennwert\": \"K106\"}, {\"frage\": \"E\", \"kennwert\": \"-\"}, {\"frage\": \"F\", \"kennwert\": \"K171\"}, {\"frage\": \"G\", \"kennwert\": \"K104\"}, {\"frage\": \"H\", \"kennwert\": \"K105\"}, {\"frage\": \"I\", \"kennwert\": \"K108\"}, {\"frage\": \"J\", \"kennwert\": \"K125\"}, {\"frage\": \"K\", \"kennwert\": \"K110\"}, {\"frage\": \"L\", \"kennwert\": \"K102\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1451,
+      "total_tokens": 1654,
+      "completion_tokens": 203,
+      "prompt_tokens_details": {
+        "cached_tokens": 1184,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

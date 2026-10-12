@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:16:08.503Z",
+  "tag": "sprache füllen it suva-bagatellunfall q13",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: La persona infortunata fa parte di un cader superiore, medio o è impiegata, apprendista o praticante?\nAntwort: Impiegata\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- st-kader1: Höheres Kader — Vorgabe: Kästchen: ja oder nein\n- st-kader2: Mittleres Kader — Vorgabe: Kästchen: ja oder nein\n- st-angestellt: Angestellte/r / Arbeiter/in — Vorgabe: Kästchen: ja oder nein\n- st-lehrling: Lehrling — Vorgabe: Kästchen: ja oder nein\n- st-praktikant: Praktikant/in — Vorgabe: Kästchen: ja oder nein\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.\nDie Antwort im Gespräch ist auf Italienisch. Schreibe jeden Wert auf Deutsch, so wie er in das deutsche Formular gehört; Namen, Adressen und Nummern bleiben, wie sie gesagt wurden.",
+  "image": 0,
+  "audio": 0,
+  "ms": 355,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-47df36ad-9ae0-4f9c-8434-139b5d0cea9a",
+    "object": "chat.completion",
+    "created": 1791551769,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "st-kader1: - [p1]\nst-kader2: -\nst-angestellt: ja [p1]\nst-lehrling: -\nst-praktikant: -",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 391,
+      "total_tokens": 431,
+      "completion_tokens": 40,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

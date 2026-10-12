@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:13:22.031Z",
+  "tag": "d-8b-bundle schadenmeldung-uvg S1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nSchadenmeldung UVG\nMeldung eines Unfalls, einer Berufskrankheit, eines Zahnschadens oder eines Rückfalls durch den Arbeitgeber\nNachgebaut nach dem Vorbild der Schadenmeldung UVG der Helsana Unfall AG (Ausgabe 12.2016) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.  → [q1] [q2]\nArt der Meldung  → [q6]\nSchaden-Nummer  → [q3]\nUnfall  → [q4: Auswahl]\nBerufskrankheit  → [q4: Auswahl]\nZahnschaden  → [q5: Auswahl]\nRückfall  → [q5: Auswahl]\n1 Arbeitgeber\nName und Adresse mit Postleitzahl  → [q7]\nTel.-Nr.  → [q8]\nE-Mail  → [q9]\nPolice-Nr. UVG  → [q10]\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q12]\nPolice-Nr. UVG-Zusatz  → [q11]\n2 Verletzte / Verletzter  → [q13]\nName und Vorname  → [q14]\nGeburtsdatum  → [q15]\nAHV-Nummer  → [q16]\nStrasse  → [q17]\nTel.-Nr.  → [q18]\nZivilstand  → [q19]\nLand  → [q20]\nPLZ  → [q21]\nWohnort  → [q22]\nStaatsangehörigkeit / Bewilligung  → [q23]\nE-Mail  → [q24]\n3 Anstellung  → [q25]\nDatum der Anstellung  → [q26]\nAusgeübter Beruf  → [q27]\nStellung\nHöheres Kader  → [q28: Kästchen]\nMittleres Kader  → [q29: Kästchen]\nAngestellte/r / Mitarbeiter/in  → [q30: Kästchen]\nLehrling  → [q31: Auswahl]\nPraktikant/in  → [q31: Auswahl]\nVerhältnis  → [q36]\nunbefristeter Arbeitsvertrag  → [q32: Auswahl]\nbefristeter Arbeitsvertrag  → [q33: Kästchen]\nArbeitsverhältnis gekündigt per  → [q34: Kästchen]\n[q35]\n[q37]\nArbeitszeit des/der Verletzten (Std./Woche)  → [q38]\nBetriebsübliche Vollarbeitszeit (Std./Woche)  → [q39]\nVertraglicher Beschäftigungsgrad (Prozent)  → [q40]\nArbeitseinsatz\nunregelmässig  → [q41: Auswahl]\nKurzarbeit  → [q42: Auswahl]\nZwischenverdienst  → [q42: Auswahl]\n4 Schadendatum  → [q43] [q44]\nTag  → [q47]\nMonat  → [q45]\nJahr  → [q46]\nZeit (Stunden, Minuten)  → [q48]\n5 Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q49]\n6 Sachverhalt (Unfallbeschreibung, Verdacht auf Berufskrankheit)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge  → [q50]\nBeteiligte Person(en)  → [q51]\nBesteht ein Polizeirapport?  → [q54]\nWenn ja, aufgenommen durch  → [q52]\nJa  → [q53: Auswahl]\nNein  → [q53: Auswahl]\nUnbekannt  → [q53: Auswahl]\nBesteht ein Unfallprotokoll? Wenn ja, bitte Kopie beilegen.\nJa  → [q55: Auswahl]\nNein  → [q55: Auswahl]\nNachgebaut nach dem Vorbild der Helsana-Schadenmeldung UVG – nicht das Original\nSeite 1 / 2\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu diesen Kennungen je genau eine Frage: q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24. Schreibe sie so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1892,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-a81eae7e-4e52-46de-9b4e-ec8160a62a76",
+    "object": "chat.completion",
+    "created": 1791537202,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q13\", \"frage\": \"Wie heissen Sie?\"}, {\"kennung\": \"q14\", \"frage\": \"Wie heissen Sie mit Vornamen?\"}, {\"kennung\": \"q15\", \"frage\": \"Wann sind Sie geboren?\"}, {\"kennung\": \"q16\", \"frage\": \"Welche AHV-Nummer haben Sie?\"}, {\"kennung\": \"q17\", \"frage\": \"Welche Strasse ist Ihre Adresse?\"}, {\"kennung\": \"q18\", \"frage\": \"Welche Telefonnummer haben Sie?\"}, {\"kennung\": \"q19\", \"frage\": \"In welchem Zivilstand befinden Sie sich?\"}, {\"kennung\": \"q20\", \"frage\": \"Welches Land ist Ihre Staatsangehörigkeit oder Bewilligung?\"}, {\"kennung\": \"q21\", \"frage\": \"Welche Postleitzahl hat Ihr Wohnort?\"}, {\"kennung\": \"q22\", \"frage\": \"In welcher Gemeinde wohnen Sie?\"}, {\"kennung\": \"q23\", \"frage\": \"Welche Staatsangehörigkeit oder Bewilligung haben Sie?\"}, {\"kennung\": \"q24\", \"frage\": \"Welche E-Mail-Adresse haben Sie?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1593,
+      "total_tokens": 1882,
+      "completion_tokens": 289,
+      "prompt_tokens_details": {
+        "cached_tokens": 1184,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

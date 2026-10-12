@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:58:41.780Z",
+  "tag": "werte sechs fr betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Französisch gemacht, die in ein deutsches Formular gehören.\n\nAngabe 1: Office des poursuites Chur\nAngabe 2: Peter Hartmann, Via Nova 14, 7013 Domat/Ems\nAngabe 3: Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\nAngabe 4: CH93 0076 2011 6238 5295 7\nAngabe 5: Facture n° 2026-118 du 12.06.2026, réparation\nAngabe 6: 2'340.50\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1396,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-8c7a33ac-9113-41af-84a7-250f840764d2",
+    "object": "chat.completion",
+    "created": 1791554322,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 1, \"wert\": \"Office des poursuites Chur\"}, {\"nummer\": 2, \"wert\": \"Peter Hartmann, Via Nova 14, 7013 Domat/Ems\"}, {\"nummer\": 3, \"wert\": \"Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\"}, {\"nummer\": 4, \"wert\": \"CH93 0076 2011 6238 5295 7\"}, {\"nummer\": 5, \"wert\": \"Facture n° 2026-118 du 12.06.2026, réparation\"}, {\"nummer\": 6, \"wert\": \"2'340.50\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 299,
+      "total_tokens": 476,
+      "completion_tokens": 177,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

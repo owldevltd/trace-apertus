@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:36:40.242Z",
+ "tag": "translate labels page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 2850,
+ "prompt": "Auf einem deutschen Formular stehen diese Beschriftungen. Übersetze jede ins Französisch, kurz, wie eine Beschriftung, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n1: Name und Adresse mit Postleitzahl\n2: Tel.-Nr.\n3: Kunden-Nr.\n4: Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)\n5: Name und Vorname\n6: Geburtsdatum\n7: AHV-Nummer\n8: Strasse\n9: Staatsangehörigkeit\n10: Zivilstand\n11: Datum der Anstellung\n12: Ausgeübter Beruf\n13: Höheres Kader / Mittleres Kader / Angestellte/r / Arbeiter/in / Lehrling / Praktikant/in\n14: Höheres Kader\n15: Mittleres Kader\n16: Angestellte/r / Arbeiter/in\n17: Lehrling\n18: Praktikant/in\n19: Arbeitszeit des/der Verletzten: Stunden je Woche\n20: Tag\n21: Monat\n22: Jahr\n23: Zeit (Stunden, Minuten)\n24: Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)\n25: Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge\n26: Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)\n27: Betroffener Körperteil\n28: links / rechts / unbestimmt\n29: links\n30: rechts\n31: unbestimmt\n32: Art der Schädigung\n33: Erstbehandelnder Arzt bzw. Spital/Klinik\n34: Nachbehandelnder Arzt bzw. Spital/Klinik\n35: Ort und Datum\n\nAntworte nur als JSON, ohne weiteren Text: {\"texte\": [{\"nummer\": 1, \"text\": \"...\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 3907,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-c2937454-6138-4195-aa9f-2f7fda1401a0",
+  "object": "chat.completion",
+  "created": 1791556600,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"texte\": [{\"nummer\": 1, \"text\": \"Nom et adresse avec code postal\"}, {\"nummer\": 2, \"text\": \"N° de téll.\"}, {\"nummer\": 3, \"text\": \"N° de client\"}, {\"nummer\": 4, \"text\": \"Branche habituelle du lieu de travail du lésé\"}, {\"nummer\": 5, \"text\": \"Nom et prénom\"}, {\"nummer\": 6, \"text\": \"Date de naissance\"}, {\"nummer\": 7, \"text\": \"N° AVS\"}, {\"nummer\": 8, \"text\": \"Rue\"}, {\"nummer\": 9, \"text\": \"Nationalité\"}, {\"nummer\": 10, \"text\": \"État civil\"}, {\"nummer\": 11, \"text\": \"Date d'engagement\"}, {\"nummer\": 12, \"text\": \"Métier exercé\"}, {\"nummer\": 13, \"text\": \"Haut cadre / Milieu cadre / Employé / Ouvrier / Apprenti / Stagiaire\"}, {\"nummer\": 14, \"text\": \"Haut cadre\"}, {\"nummer\": 15, \"text\": \"Milieu cadre\"}, {\"nummer\": 16, \"text\": \"Employé / Ouvrier\"}, {\"nummer\": 17, \"text\": \"Apprenti\"}, {\"nummer\": 18, \"text\": \"Stagiaire\"}, {\"nummer\": 19, \"text\": \"Temps de travail du lésé : heures par semaine\"}, {\"nummer\": 20, \"text\": \"Jour\"}, {\"nummer\": 21, \"text\": \"Mois\"}, {\"nummer\": 22, \"text\": \"Année\"}, {\"nummer\": 23, \"text\": \"Temps (heures, minutes)\"}, {\"nummer\": 24, \"text\": \"Lieu (nom ou code postal) et lieu (ex. atelier, rue)\"}, {\"nummer\": 25, \"text\": \"Activité au moment de l'accident ; déroulement de l'accident, personnes impliquées, objets impliqués, véhicules\"}, {\"nummer\": 26, \"text\": \"Objets impliqués (ex. machine, outil, véhicule, produit ; veuillez préciser)\"}, {\"nummer\": 27, \"text\": \"Partie du corps touchée\"}, {\"nummer\": 28, \"text\": \"gauche\"}, {\"nummer\": 29, \"text\": \"droite\"}, {\"nummer\": 30, \"text\": \"indéterminé\"}, {\"nummer\": 31, \"text\": \"indéterminé\"}, {\"nummer\": 32, \"text\": \"Type de lésion\"}, {\"nummer\": 33, \"text\": \"Médecin traitant ou hôpital/clinique\"}, {\"nummer\": 34, \"text\": \"Médecin traitant ou hôpital/clinique suivant\"}, {\"nummer\": 35, \"text\": \"Lieu et date\"}]}}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 504,
+   "total_tokens": 1151,
+   "completion_tokens": 647,
+   "prompt_tokens_details": {
+    "cached_tokens": 480,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:59:59.849Z",
+  "tag": "werte sechs frage en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Englisch gemacht, die in ein deutsches Formular gehören. Vor jeder Angabe steht die Frage, auf die sie antwortet; die Frage ist nur zum Verständnis da.\n\nFrage 1: Wie heisst der Arbeitgeber und wo befindet er sich mit Postleitzahl?\nAngabe 1: Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\n\nFrage 2: Welche Telefonnummer hat der Arbeitgeber?\nAngabe 2: 041 728 40 10\n\nFrage 3: In welchem Bereich arbeitet die verletzte Person im Betrieb?\nAngabe 3: Warehouse\n\nFrage 4: Wie heissen die verletzte Person?\nAngabe 4: Keller Sandra\n\nFrage 5: Wann ist die verletzte Person geboren?\nAngabe 5: 14.03.1988\n\nFrage 6: Welche Strasse hat die verletzte Person?\nAngabe 6: Werkstrasse 12, 6300 Zug\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird; übersetze nur die Angaben, nicht die Fragen. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1042,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-2b7c6fb7-0699-438d-8ea7-0b0e60652302",
+    "object": "chat.completion",
+    "created": 1791554400,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 1, \"wert\": \"Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\"}, {\"nummer\": 2, \"wert\": \"041 728 40 10\"}, {\"nummer\": 3, \"wert\": \"Warehouse\"}, {\"nummer\": 4, \"wert\": \"Keller Sandra\"}, {\"nummer\": 5, \"wert\": \"14.03.1988\"}, {\"nummer\": 6, \"wert\": \"Werkstrasse 12, 6300 Zug\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 387,
+      "total_tokens": 522,
+      "completion_tokens": 135,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

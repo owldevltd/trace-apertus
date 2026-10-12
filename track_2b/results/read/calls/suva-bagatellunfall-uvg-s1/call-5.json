@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-07T09:23:08.373Z",
+ "tag": "suva-bagatellunfall-uvg-s1.png #16",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 800,
+ "prompt": "Das Bild ist ein Ausschnitt aus einem Dokument, ein einzelnes Element. Beantworte zwei Dinge. bildanteile: Hat das Element Bildanteile (Logo, Foto, Zeichnung, Grafik)? text: der Text im Element, exakt wiedergegeben, ohne Kästchen und Kreise; steht kein Text darin, \"\". Antworte nur als JSON: {\"bildanteile\": true oder false, \"text\": \"...\"}",
+ "image": 3665,
+ "audio": 0,
+ "ms": 230,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-58d9d81d-04f5-4f21-8894-ab49da05b5b4",
+  "object": "chat.completion",
+  "created": 1791364989,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"bildanteile\": false, \"text\": \"1. Arbeitgeber\"}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 433,
+   "total_tokens": 450,
+   "completion_tokens": 17,
+   "prompt_tokens_details": {
+    "cached_tokens": 416,
+    "multimodal_tokens": {
+     "image": 278
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

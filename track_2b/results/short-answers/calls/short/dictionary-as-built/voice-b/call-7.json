@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-11T21:40:49.042Z",
+ "tag": "audio #7",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1500,
+ "prompt": "Transkribiere die Aufnahme wortwörtlich. Ausgangssprache ist Deutsch, bitte gib Deutsch zurück. Bekannte Namen und Begriffe, die in der Aufnahme vorkommen können: Ich bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte., Ich verzichte auf mein Recht, die betreffende Versicherung weiterzuführen., Ich werde/bin aus der Firma austreten/ausgetreten., Nachbau nach der SWICA-Austrittsmeldung, Aufenthaltsbewilligung, Austrittsmeldung, Versicherten-Nr., Austrittsdatum, Geburtsdatum, Nationalität, Unterschrift, Strasse/Nr., Nachname, männlich, weiblich, Vorname, Telefon, E-Mail, Beruf, Datum, PLZ, Ort.",
+ "image": 0,
+ "audio": 14733,
+ "ms": 293,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-6d0490b7-2b71-4419-b35a-ebe1e0b548a3",
+  "object": "chat.completion",
+  "created": 1791754852,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "acht vier null null",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 304,
+   "total_tokens": 309,
+   "completion_tokens": 5,
+   "prompt_tokens_details": {
+    "cached_tokens": 32,
+    "multimodal_tokens": {
+     "audio": 71
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

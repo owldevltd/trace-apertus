@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:43:00.637Z",
+  "tag": "wer arbeitsfaehigkeitszeugnis",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 2240,
+  "prompt": "Unten steht ein Schweizer Formular als Text, ungefähr so angeordnet wie auf dem Papier, Seite für Seite. Jede Stelle, die ausgefüllt wird, trägt eine Kennung in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 1 =====\n       Arbeitsfähigkeitszeugnis\n       Beurteilung der Arbeitsfähigkeit und der Reintegration bei\n       Krankheit oder Unfall\n\n       Nachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses (Swiss Insurance Medicine, Ausgabe\n       Januar 2019) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des\n       Projekts Trace.\n\n       Von der Arbeitgeberin / dem Arbeitgeber auszufüllen (evtl. von der\n       Patientin / dem Patienten)\n\n       Arbeitnehmerin /\n       Arbeitnehmer\n       Name /                                               Geb.-Dat.                  Geschlecht\n       Vorname\n       [q2] ____                                            [q3] ____                  w  [q1] ( )  m  [q1] ( )\n\n       Adresse /                                            AHV-Nr.                    Telefon\n       PLZ\n\n       [q4] ____                                            [q5] ____                  [q6] ____\n\n       E-Mail\n\n       [q7] ____\n\n       Arbeitgeberin /\n       Arbeitgeber\n       Firmenname                                           Kontaktperson\n       [q8] ____                                            [q9] ____\n\n       Adresse /                                            Telefon                    E-Mail\n       PLZ\n\n       [q10] ____                                           [q11] ____                 [q12] ____\n\n       Anstellung\n       Funktion /                                           Eintrittsjahr  [q13] [ ]   Std. / Tag\n       ausgeübter Beruf\n       *\n       [q14] ____                                           [q15] ____                 [q16] ____\n\n       Arbeitszeit  [q17] ( )  Teilzeit  [q18] ( )  [q19] ____  %  Wochenarbeitszeit /  [q20] ____\n       Vollzeit (100                                        Einsatztage\n       %)\n\n       Bei Kündigung:\n       Arbeitsverhältnis gekündigt\n       per\n       [q21] ____\n\n       Von der Ärztin / dem Arzt\n       auszufüllen\n\n       Ursache\n       Krankheit  [q22] ( )  Unfall  [q22] ( )  Berufskrankheit  [q22] ( )\n\n       Volle\n       Arbeitsunfähigkeit\n       Basierend                                            REP vom                    Arbeitsplatzbeschrieb\n       auf *                                                                           vom\n       REP  [q23] ( )  Arbeitsplatzbeschrieb  [q23] ( )     [q24] ____                 [q25] ____\n\n        Konsultationsdatum        Arbeitsunfähigkeit  von             bis              nächste           Visum\n                                                                                       Konsultation\n       [q26] ____                 100 %             [q26] ____       [q26] ____        [q26] ____        [q26] ____\n       [q26] ____                 100 %             [q26] ____       [q26] ____        [q26] ____        [q26] ____\n       [q26] ____                 100 %             [q26] ____       [q26] ____        [q26] ____        [q26] ____\n\n       Es liegt eine\n       arbeitsplatzbezogene\n       Arbeitsunfähigkeit vor\n       ja  [q27] ( )  nein  [q27] ( )\n\n       Teilarbeitsfähigkeit / Reintegration (Beurteilung für den\n       Reintegrationsprozess)\n       Basierend  [q28] ( )  Arbeitsplatzbeschrieb  [q28] ( )  [q29] ____  REP vom     [q30] ____  Arbeitsplatzbeschrieb\n       auf * REP                                                                       vom\n\n        Konsultationsdatum  Präsenzzeit  Präsenzzeit  Leistungsfähigkeit  Arbeits-  von  bis  nächste  Konsultation  Visum\n                         Std. pro Tag  % Pensum  in der      fähigkeit\n                                           Präsenzzeit       gesamt %\n                                           25 / 50 / 75\n                                           / 100 %\n       [q31] ____        [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____\n       [q31] ____        [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____\n       [q31] ____        [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____\n       [q31] ____        [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____\n\n       Wiederaufnahme der\n       Arbeit zu 100 % ab\n\n       [q32] ____\n\n       Bemerkungen und\n       Unterschrift\n\n       Bemerkungen\n       [q36] ____\n       Kontakt mit Arbeitgeberin /                          Arzt / Ärztin\n       Arbeitgeber erwünscht                                (Name, Stempel)\n       ja  [q33] ( )  nein  [q33] ( )                       [q34] ____\n\n       Datum                      Unterschrift\n\n       [q35] ____                 (Unterschrift)\n\n       * Bitte beifügen: Arbeitsplatzbeschrieb / Stellenprofil oder REP\n       (Ressourcenorientiertes Eingliederungsprofil).\n\n       Nachgebaut nach dem Vorbild des                                                                     Seite 1 / 1\n       SIM-Arbeitsfähigkeitszeugnisses – nicht das\n       Original\n-----\n\nWas auf dem Formular an den Stellen steht:\n- q1: \"w\", \"m\"\n- q2: \"Name / Vorname\"\n- q3: \"Geb.-Dat.\"\n- q4: \"Adresse / PLZ\"\n- q5: \"AHV-Nr.\"\n- q6: \"Telefon\"\n- q7: \"E-Mail\"\n- q8: \"Firmenname\"\n- q9: \"Kontaktperson\"\n- q10: \"Adresse / PLZ\"\n- q11: \"Telefon\"\n- q12: \"E-Mail\"\n- q13: \"Eintrittsjahr\"\n- q14: \"Funktion / ausgeübter Beruf *\"\n- q15: keine Beschriftung an der Stelle, siehe Umgebung\n- q16: \"Std. / Tag\"\n- q17: \"Arbeitszeit Vollzeit (100 %)\"\n- q18: \"Teilzeit\"\n- q19: keine Beschriftung an der Stelle, siehe Umgebung\n- q20: \"Wochenarbeitszeit / Einsatztage\"\n- q21: \"Bei Kündigung: Arbeitsverhältnis gekündigt per\"\n- q22: \"Krankheit\", \"Unfall\", \"Berufskrankheit\"\n- q23: \"REP\", \"Arbeitsplatzbeschrieb\"\n- q24: \"REP vom\"\n- q25: \"Arbeitsplatzbeschrieb vom\"\n- q26: \"Konsultationsdatum\", \"von\", \"bis\", \"nächste Konsultation\", \"Visum\"\n- q27: \"ja\", \"nein\"\n- q28: \"Basierend auf * REP\"\n- q29: \"REP vom\"\n- q30: \"Arbeitsplatzbeschrieb vom\"\n- q31: \"Präsenzzeit Std. pro Tag\", \"Präsenzzeit % Pensum\", \"Leistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %\", \"Arbeits- fähigkeit gesamt %\", \"Konsultation\"\n- q32: \"Wiederaufnahme der Arbeit zu 100 % ab\"\n- q33: \"ja\", \"nein\"\n- q34: \"Arzt / Ärztin (Name, Stempel)\"\n- q35: \"Datum\"\n- q36: \"Bemerkungen\"\n\nEin Formular wird oft nicht von einer Partei allein ausgefüllt. 1. Nenne die Parteien, die auf diesem Formular etwas ausfüllen, so wie das Formular sie nennt. 2. Schreibe zu jeder Kennung, welche dieser Parteien die Stelle ausfüllt. Sagt das Formular es nicht, schreibe \"unklar\". Erfinde keine Partei.\nAntworte nur als JSON, ohne weiteren Text: {\"parteien\": [\"...\"], \"stellen\": [{\"kennung\": \"q1\", \"wer\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 4992,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-a7051cf4-198a-4b82-a78e-b138aa71d940",
+    "object": "chat.completion",
+    "created": 1791531781,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"parteien\": [\"Arbeitnehmerin / Arbeitnehmer\", \"Arbeitgeberin / Arbeitgeber\", \"Ärztin / Arzt\"], \"stellen\": [{\"kennung\": \"q1\", \"wer\": \"Arbeitnehmerin / Arbeitnehmer\"}, {\"kennung\": \"q2\", \"wer\": \"Arbeitnehmerin / Arbeitnehmer\"}, {\"kennung\": \"q3\", \"wer\": \"Arbeitnehmerin / Arbeitnehmer\"}, {\"kennung\": \"q4\", \"wer\": \"Arbeitgeberin / Arbeitgeber\"}, {\"kennung\": \"q5\", \"wer\": \"Arbeitgeberin / Arbeitgeber\"}, {\"kennung\": \"q6\", \"wer\": \"Arbeitgeberin / Arbeitgeber\"}, {\"kennung\": \"q7\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}, {\"kennung\": \"q8\", \"wer\": \"Arbeitgeberin / Arbeitgeber\"}, {\"kennung\": \"q9\", \"wer\": \"Arbeitgeberin / Arbeitgeber\"}, {\"kennung\": \"q10\", \"wer\": \"Arbeitgeberin / Arbeitgeber\"}, {\"kennung\": \"q11\", \"wer\": \"Arbeitgeberin / Arbeitgeber\"}, {\"kennung\": \"q12\", \"wer\": \"Arbeitgeberin / Arbeitgeber\"}, {\"kennung\": \"q13\", \"wer\": \"Arbeitgeberin / Arbeitgeber\"}, {\"kennung\": \"q14\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}, {\"kennung\": \"q15\", \"wer\": \"unklar\"}, {\"kennung\": \"q16\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}, {\"kennung\": \"q17\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}, {\"kennung\": \"q18\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}, {\"kennung\": \"q19\", \"wer\": \"unklar\"}, {\"kennung\": \"q20\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}, {\"kennung\": \"q21\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}, {\"kennung\": \"q22\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q23\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q24\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q25\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q26\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q27\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q28\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q29\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q30\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q31\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q32\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}, {\"kennung\": \"q33\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}, {\"kennung\": \"q34\", \"wer\": \"Ärztin / Arzt\"}, {\"kennung\": \"q35\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}, {\"kennung\": \"q36\", \"wer\": \"Arbeitnehmerin / Arbeitgeber\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 2220,
+      "total_tokens": 2983,
+      "completion_tokens": 763,
+      "prompt_tokens_details": {
+        "cached_tokens": 32,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

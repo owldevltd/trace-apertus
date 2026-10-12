@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:17:26.672Z",
+  "tag": "sprache füllen en betreibungsbegehren q4",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: What is the name, first name, company, address, postal code, and town of the creditor?\nAntwort: The creditor is Garage Caduff AG, Kasernenstrasse eight, 7000 Chur.\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- glaeubiger: Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort) — Vorgabe: Text, mehrere Sätze möglich\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.\nDie Antwort im Gespräch ist auf Englisch. Schreibe jeden Wert auf Deutsch, so wie er in das deutsche Formular gehört; Namen, Adressen und Nummern bleiben, wie sie gesagt wurden.",
+  "image": 0,
+  "audio": 0,
+  "ms": 463,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-0a9f2f9d-84af-4174-a337-81226fb4eac4",
+    "object": "chat.completion",
+    "created": 1791551847,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "name: Garage Caduff AG [p1]\nfirst name: — [p1]\ncompany: Garage Caduff AG [p1]\naddress: Kasernenstrasse eight [p1]\npostal code: — [p1]\ntown: Chur [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 322,
+      "total_tokens": 379,
+      "completion_tokens": 57,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

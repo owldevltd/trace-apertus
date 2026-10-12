@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T19:28:13.296Z",
+  "tag": "mark 70B suva-bagatellunfall page 4",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 556,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 4 =====\n[q79]\nSchaden-Nummer  → [q80]\nApothekerschein UVG\nArbeitgeber\nName und Adresse mit Postleitzahl  → [q81]\nTel.-Nr.  → [q82]\nKunden-Nr.  → [q83]\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q84]\nVerletzte/r\nName und Vorname  → [q85]\nGeburtsdatum  → [q86]\nAHV-Nummer  → [q87]\n[q88]\n[q89]\nStrasse  → [q90]\n[q91]\n[q92]\nPLZ\nWohnort\n[q93]\nSchaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\nHinweise für die/den Verletzte/n\nHinweise für den Apotheker\nDie vom Arzt verordneten Medikamente werden Ihnen vom Apotheker gegen Abgabe dieses Scheines kostenlos abgegeben. Alle Medikamente sind aus der gleichen Apotheke zu beziehen.\nBitte senden Sie diese Rechnung nach Abschluss der Behandlung – spätestens aber 3 Monate nach Unfalldatum – an die oben aufge- führte Adresse. Einen neuen Apothekerschein können Sie bei uns verlangen, wenn – der Platz für das Eintragen der Bezüge nicht ausreicht, – nach Ablauf von 3 Monaten weitere Medikamente benötigt werden.\nlinks  → [q94: Auswahl]\nrechts  → [q94: Auswahl]\nunbestimmt  → [q94: Auswahl]\nVerletzung\nBetroffener Körperteil:  → [q95]\nArt der Schädigung:\nArzt- adressen  → [q96]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q97]\nRechnung der Apotheke  → [q98]\nDatum:\nDatum der Abgabe  → [q99: Tabelle mit 6 Zeilen und 4 Spalten]\nArt und Menge  → [q100] [q99: Tabelle mit 6 Zeilen und 4 Spalten]\nPreis\nCHF  → [q99: Tabelle mit 6 Zeilen und 4 Spalten]\nRp.  → [q99: Tabelle mit 6 Zeilen und 4 Spalten]\n[q99: Tabelle mit 6 Zeilen und 4 Spalten]\nStempel der Apotheke:\n[q99: Tabelle mit 6 Zeilen und 4 Spalten]\n3 Code  → [q101] [q102] [q103] [q104] [q105]\n[q106]\n[q107]\n[q108]\n[q109]\nTotal  → [q110]\nPostkonto-Nr. oder zugeteilte Suva-Nr.\nBitte Rezepte beilegen\nBei Abrechnung über OFAC: 35-1\nGeht an: Verletzte/r ➞ Apotheker ➞ Suva\n-----\n\nWelche dieser Stellen müssen ausgefüllt sein, damit das Formular seinen Zweck erfüllt und angenommen werden kann? Nenne nur die unverzichtbaren Stellen, nicht alle. Was nur in bestimmten Fällen gilt, eine freie Bemerkung ist oder von der Stelle ausgefüllt wird, die das Formular entgegennimmt, gehört nicht dazu.\nAntworte nur als JSON, ohne weiteren Text: {\"pflicht\": [\"q1\", \"q5\"]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1932,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-ada8e9a7-1be2-4963-ad69-f4ed7d34e25d",
+    "object": "chat.completion",
+    "created": 1791574094,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"pflicht\": [\"q80\", \"q81\", \"q82\", \"q83\", \"q84\", \"q85\", \"q86\", \"q87\", \"q90\", \"q91\", \"q92\", \"q93\", \"q95\", \"q96\", \"q97\", \"q98\", \"q99\", \"q101\", \"q102\", \"q103\", \"q104\", \"q105\", \"q110\"]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1005,
+      "total_tokens": 1131,
+      "completion_tokens": 126,
+      "prompt_tokens_details": {
+        "cached_tokens": 896,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

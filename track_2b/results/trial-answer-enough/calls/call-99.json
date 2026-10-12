@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T11:56:55.073Z",
+  "tag": "genug Lauf 2 betreibungsbegehren q1 voll",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 150,
+  "prompt": "In einem Gespräch wird ein Schweizer Formular ausgefüllt. Jemand stellt eine Frage, die andere Person antwortet.\n\nFrage: Um welches Betreibungsamt handelt es sich?\nAuf dem Formular steht an dieser Stelle: Betreibungsamt (Text, mehrere Angaben möglich)\nAntwort: Betreibungsamt Chur\n\nIst die Stelle mit dieser Antwort ausreichend beantwortet?\n- ja: alles, was die Stelle verlangt, wurde gesagt\n- unvollständig: etwas Passendes wurde gesagt, aber ein Teil fehlt noch\n- nein: nichts Passendes wurde gesagt\nAntworte nur als JSON, ohne weiteren Text: {\"urteil\": \"ja|unvollständig|nein\", \"fehlt\": \"was noch fehlt, sonst leer\"}",
+  "image": 0,
+  "audio": 0,
+  "ms": 203,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-c33cbd40-8e6b-47e8-ae9e-a4b3aad6668e",
+    "object": "chat.completion",
+    "created": 1791547015,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"urteil\": \"ja\", \"fehlt\": \"\"}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 223,
+      "total_tokens": 237,
+      "completion_tokens": 14,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

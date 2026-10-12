@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:35:26.059Z",
+  "tag": "lesen füllen en suva-bagatellunfall q21",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Welche Gegenstände waren am Unfall beteiligt, wie Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff?\nAntwort: Pallet\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- gegenstaende: Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung) — Vorgabe: Text\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.\nDie Antwort im Gespräch ist auf Englisch. Schreibe den Wert so, wie er gesagt wurde, auf Englisch; übersetze nichts.",
+  "image": 0,
+  "audio": 0,
+  "ms": 249,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-36374d9d-867a-4443-9b2e-39b69f4f8479",
+    "object": "chat.completion",
+    "created": 1791552926,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "gegenstaende: Pallet [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 286,
+      "total_tokens": 297,
+      "completion_tokens": 11,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

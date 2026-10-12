@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:46:08.337Z",
+  "tag": "einzeln it suva-bagatellunfall geburt",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 200,
+  "prompt": "Übersetze die Angabe unten vom Italienisch ins Deutsche. Sie steht in einem Formular bei «Geburtsdatum». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der deutschen Angabe, ohne weiteren Text.\n\nAngabe: 14.03.1988",
+  "image": 0,
+  "audio": 0,
+  "ms": 181,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-da169eb9-a72e-4849-93fc-a3b4ba201134",
+    "object": "chat.completion",
+    "created": 1791553568,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "14.03.1988",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 147,
+      "completion_tokens": 11,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

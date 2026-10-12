@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T20:42:55.917Z",
+ "tag": "kinds page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 552,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nAustriftsmeldung\nVersicherte Person\nNachname  → [q1]\nVorname  → [q2]\nGeburtsdatum  → [q3]\nNationalität  → [q4]\nVersicherten-Nr.  → [q5]\nAufenthaltsbewilligung  → [q6]\nBeruf  → [q7]\nStrasse/Nr.  → [q8]\nPLZ  → [q9]\nOrt  → [q10]\nTelefon  → [q11]\nE-Mail  → [q12]\nGeschichte\nmännlich  → [q13: Auswahl]\nweiblich  → [q13: Auswahl]\nDen in der Schweiz oder im Fürstentum Liechtenstein wohnhaften Versicherten steht innerhalb von 90 Tagen nach dem Austritt aus der Firma das Recht zu, in die Einzelfversicherung überzutreten.\nErklärung der versicherten Person\nIch werde/bin aus der Firma austreten/ausgetreten.  → [q14: Kästchen]\nAustrittsdatum  → [q15]\nIch bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte  → [q16: Kästchen]\nIch verzichte auf mein Recht, die betreffende Versicherung weiterzuführen.  → [q17: Kästchen]\nUnterschrift\nDatum  → [q18]\nUnterschrift\nMit der Unterschrift wird die Richtigkeit der gemachten Angaben bestätigt.\nNachgebaut nach dem Vorbild der SWICA-Ausrüstung – nicht das Original\nSeite 1 / 1\n-----\n\nSage zu jeder der Kennungen unten, welche Art von Angabe an dieser Stelle eingetragen wird. Wähle genau eine dieser Arten:\n- text: ein Name, eine Adresse, ein Wort oder ein Satz\n- nummer: eine Kennnummer oder ein Aktenzeichen, zum Beispiel eine Policen-, Kunden-, Versicherten- oder Schadennummer\n- zahl: eine Menge, ein Betrag oder ein Prozentsatz\n- telefon: eine Telefonnummer\n- email: eine E-Mail-Adresse\n- plz: eine Postleitzahl allein, ohne Ort und Strasse\n- iban: eine IBAN\n- datum: ein Datum\n- uhrzeit: eine Uhrzeit\n\nDie Kennungen: q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q15, q18\nAntworte nur als JSON, ohne weiteren Text: {\"arten\": [{\"kennung\": \"q1\", \"art\": \"text\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 1341,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-a6f927c2-a4c9-4511-89c7-32b702705ad2",
+  "object": "chat.completion",
+  "created": 1791751378,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"arten\": [{\"kennung\": \"q1\", \"art\": \"text\"}, {\"kennung\": \"q2\", \"art\": \"text\"}, {\"kennung\": \"q3\", \"art\": \"text\"}, {\"kennung\": \"q4\", \"art\": \"text\"}, {\"kennung\": \"q5\", \"art\": \"nummer\"}, {\"kennung\": \"q6\", \"art\": \"text\"}, {\"kennung\": \"q7\", \"art\": \"text\"}, {\"kennung\": \"q8\", \"art\": \"text\"}, {\"kennung\": \"q9\", \"art\": \"plz\"}, {\"kennung\": \"q10\", \"art\": \"text\"}, {\"kennung\": \"q11\", \"art\": \"telefon\"}, {\"kennung\": \"q12\", \"art\": \"email\"}, {\"kennung\": \"q15\", \"art\": \"datum\"}, {\"kennung\": \"q18\", \"art\": \"datum\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 774,
+   "total_tokens": 983,
+   "completion_tokens": 209,
+   "prompt_tokens_details": {
+    "cached_tokens": 544,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T16:22:18.544Z",
+ "tag": "entries Z2",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1200,
+ "prompt": "Unten steht eine Frage zu einem Formular und was eine Person darauf geantwortet hat. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Wann wurde die Konsultation durchgeführt?\nAntwort: Bei der Konsultation am 3. Oktober 2026: voll arbeitsunfähig vom 3. Oktober 2026 bis zum 17. Oktober 2026, nächste Konsultation am 17. Oktober 2026. Bei der Konsultation am 17. Oktober 2026 verlängert: vom 18. Oktober 2026 bis zum 31. Oktober 2026, nächste Konsultation am 31. Oktober 2026.\n-----\n\nDie Frage gehört zu einer Liste mit mehreren gleichen Zeilen. Jeder Eintrag der Liste hat diese Angaben:\n1: Konsultationsdatum\n2: von\n3: bis\n4: nächste Konsultation\n5: Visum\n\nLies aus der Antwort ab, wie viele Einträge die Person genannt hat und was zu jedem gehört. Schreibe für jeden Eintrag zuerst eine Zeile mit dem Wort EINTRAG und darunter je Angabe eine Zeile in der Form \"Nummer: Wert\"; fehlt eine Angabe, schreibe als Wert einen Strich (-). Erfinde nichts. Hat die Person keinen Eintrag genannt, antworte nur mit dem Wort KEINE.",
+ "image": 0,
+ "audio": 0,
+ "ms": 869,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-2068a942-33ba-4e33-8927-bf78a96cfffd",
+  "object": "chat.completion",
+  "created": 1791735741,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "EINTRAG\n1: 3. Oktober 2026\n2: 3. Oktober 2026\n3: 17. Oktober 2026\n4: 17. Oktober 2026\n5: -\nEINTRAG\n1: 17. Oktober 2026\n2: 18. Oktober 2026\n3: 31. Oktober 2026\n4: 31. Oktober 2026\n5: -",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 389,
+   "total_tokens": 508,
+   "completion_tokens": 119,
+   "prompt_tokens_details": {
+    "cached_tokens": 96,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

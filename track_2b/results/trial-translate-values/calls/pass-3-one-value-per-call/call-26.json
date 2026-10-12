@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:45:35.275Z",
+  "tag": "einzeln fr suva-bagatellunfall gegenstaende",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 200,
+  "prompt": "Übersetze die Angabe unten vom Französisch ins Deutsche. Sie steht in einem Formular bei «Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der deutschen Angabe, ohne weiteren Text.\n\nAngabe: Palette",
+  "image": 0,
+  "audio": 0,
+  "ms": 122,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-60a59682-bdf8-4752-9f2d-b91604e95add",
+    "object": "chat.completion",
+    "created": 1791553535,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Palette",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 147,
+      "total_tokens": 149,
+      "completion_tokens": 2,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

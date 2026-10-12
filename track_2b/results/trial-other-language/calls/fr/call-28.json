@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:12:57.279Z",
+  "tag": "sprache gegenüber fr suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 2020,
+  "prompt": "Du gibst jemandem im Gespräch Auskunft zu deinem Fall. Über den Fall weisst du nur, was du selbst so erzählt hast:\n\nBagatellunfall-Meldung von der Logistik Zugersee AG, Werkstrasse zwölf in Zug, Telefon null vier eins, sieben zwei acht, vierzig zehn. Betroffen ist das Lager. Verletzt ist Sandra Keller, geboren am vierzehnten März achtundachtzig, Werkstrasse zwölf in Zug, Schweizerin, ledig, Lagermitarbeiterin, angestellt seit ersten Februar neunzehn, vierzig Stunden. Der Unfall war gestern um zwanzig nach zwei im Lager an der Werkstrasse. Sie ist beim Abladen einer Palette ausgerutscht und auf das rechte Handgelenk gestürzt. Erstbehandlung im Notfall vom Kantonsspital Zug.\n\nDir werden diese Fragen gestellt:\nA: Quel est le nom et l'adresse complète de l'employeur, y compris le code postal?\nB: Quel est le numéro de téléphone de l'employeur?\nC: Quel est le numéro de client?\nD: Dans quel secteur ou département travaille habituellement la personne blessée?\nE: Quel est le nom et le prénom de la personne blessée?\nF: Quel est la date de naissance de la personne blessée?\nG: Quel est le numéro AVS de la personne blessée?\nH: Quelle est la rue où habite la personne blessée?\nI: De quelle nationalité est la personne blessée?\nJ: Quel est l'état civil de la personne blessée?\nK: À quelle date la personne blessée a-t-elle commencé son emploi?\nL: Quel est le métier exercé par la personne blessée?\nM: La personne blessée fait-elle partie du personnel de cadre supérieur, du personnel de cadre intermédiaire, des employés, des apprentis ou des stagiaires?\nN: Arbeitszeit des/der Verletzten: Stunden je Woche\nO: Tag\nP: Quel est le mois de l'accident?\nQ: Quel est l'année de l'accident?\nR: À quelle heure précise s'est produit l'accident (heures et minutes)?\nS: Quel est le lieu de l'accident (nom ou code postal) et l'endroit précis (atelier, rue, etc.)?\nT: Quelle était l'activité de la personne blessée au moment de l'accident ? Comment s'est déroulé l'accident ? Quelles personnes et quels objets ou véhicules étaient impliqués?\nU: Quels objets ou équipements (machine, outil, véhicule, produit, etc.) étaient impliqués dans l'accident ? Veuillez donner des détails précis.\nV: Quel est le membre du corps concerné par la blessure ?\nW: La blessure concerne-t-elle le côté gauche, le côté droit ou est-elle indéterminée ?\nX: Quel est le type de dommage subi par la personne blessée ?\nY: Quel est le nom du médecin ou de l'hôpital/clinique qui a traité la personne blessée en premier ?\nZ: Quel est le nom du médecin ou de l'hôpital/clinique qui a pris en charge le suivi de la personne blessée ?\na: Dans quelle ville et quelle date l'accident a-t-il été finalisé ?\n\nAntworte auf jede Frage auf Französisch, wie man im Gespräch antwortet: kurz und nur mit dem, was du weisst. Weisst du etwas nicht, sag das auf Französisch. Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"antwort\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2794,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-4f754f61-347c-4924-bf26-ab681657d72d",
+    "object": "chat.completion",
+    "created": 1791551577,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"antwort\": \"Logistik Zugersee AG, Werkstrasse zwölf, 6300 Zug\"}, {\"frage\": \"B\", \"antwort\": \"041 728 4010\"}, {\"frage\": \"C\", \"antwort\": \"Nicht bekannt\"}, {\"frage\": \"D\", \"antwort\": \"Lager\"}, {\"frage\": \"E\", \"antwort\": \"Sandra Keller\"}, {\"frage\": \"F\", \"antwort\": \"14 mars 1988\"}, {\"frage\": \"G\", \"antwort\": \"Nicht bekannt\"}, {\"frage\": \"H\", \"antwort\": \"Werkstrasse zwölf, 6300 Zug\"}, {\"frage\": \"I\", \"antwort\": \"Suisse\"}, {\"frage\": \"J\", \"antwort\": \"Ledig\"}, {\"frage\": \"K\", \"antwort\": \"Premier février 2019\"}, {\"frage\": \"L\", \"antwort\": \"Lagermitarbeiterin\"}, {\"frage\": \"M\", \"antwort\": \"Employés\"}, {\"frage\": \"N\", \"antwort\": \"40\"}, {\"frage\": \"O\", \"antwort\": \"20\"}, {\"frage\": \"P\", \"antwort\": \"Mai\"}, {\"frage\": \"Q\", \"antwort\": \"2023\"}, {\"frage\": \"R\", \"antwort\": \"20:02\"}, {\"frage\": \"S\", \"antwort\": \"Werkstrasse, Zug\"}, {\"frage\": \"T\", \"antwort\": \"Abladen einer Palette, ausgerutscht und auf das rechte Handgelenk gestürzt\"}, {\"frage\": \"U\", \"antwort\": \"Palette, keine Maschine oder Fahrzeug\"}, {\"frage\": \"V\", \"antwort\": \"Rechtes Handgelenk\"}, {\"frage\": \"W\", \"antwort\": \"Recht\"}, {\"frage\": \"X\", \"antwort\": \"Fracture du poignet droit\"}, {\"frage\": \"Y\", \"antwort\": \"Kantonsspital Zug\"}, {\"frage\": \"Z\", \"antwort\": \"Nicht bekannt\"}, {\"frage\": \"a\", \"antwort\": \"Nicht bekannt\"}]}}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 801,
+      "total_tokens": 1256,
+      "completion_tokens": 455,
+      "prompt_tokens_details": {
+        "cached_tokens": 224,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

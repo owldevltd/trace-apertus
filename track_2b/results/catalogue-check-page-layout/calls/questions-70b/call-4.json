@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T08:24:10.231Z",
+  "tag": "rückprobe einheiten-etikett-interview-70b arbeitsfaehigkeitszeugnis Lauf 2",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht eine Seite eines Schweizer Formulars als Text, ungefähr so angeordnet wie auf dem Papier. Jede Stelle, die ausgefüllt wird, trägt die Kennung ihrer Frage in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 1 =====\n       Arbeitsfähigkeitszeugnis\n       Beurteilung der Arbeitsfähigkeit und der Reintegration bei\n       Krankheit oder Unfall\n\n       Nachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses (Swiss Insurance Medicine, Ausgabe\n       Januar 2019) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des\n       Projekts Trace.\n\n       Von der Arbeitgeberin / dem Arbeitgeber auszufüllen (evtl. von der\n       Patientin / dem Patienten)\n\n       Arbeitnehmerin /\n       Arbeitnehmer\n       Name /                                               Geb.-Dat.                  Geschlecht\n       Vorname\n       [q2] ____                                            [q3] ____                  w  [q1] ( )  m  [q1] ( )\n\n       Adresse /                                            AHV-Nr.                    Telefon\n       PLZ\n\n       [q4] ____                                            [q5] ____                  [q6] ____\n\n       E-Mail\n\n       [q7] ____\n\n       Arbeitgeberin /\n       Arbeitgeber\n       Firmenname                                           Kontaktperson\n       [q8] ____                                            [q9] ____\n\n       Adresse /                                            Telefon                    E-Mail\n       PLZ\n\n       [q10] ____                                           [q11] ____                 [q12] ____\n\n       Anstellung\n       Funktion /                                           Eintrittsjahr  [q13] [ ]   Std. / Tag\n       ausgeübter Beruf\n       *\n       [q14] ____                                           [q15] ____                 [q16] ____\n\n       Arbeitszeit  [q17] ( )  Teilzeit  [q18] ( )  [q19] ____  %  Wochenarbeitszeit /  [q20] ____\n       Vollzeit (100                                        Einsatztage\n       %)\n\n       Bei Kündigung:\n       Arbeitsverhältnis gekündigt\n       per\n       [q21] ____\n\n       Von der Ärztin / dem Arzt\n       auszufüllen\n\n       Ursache\n       Krankheit  [q22] ( )  Unfall  [q22] ( )  Berufskrankheit  [q22] ( )\n\n       Volle\n       Arbeitsunfähigkeit\n       Basierend                                            REP vom                    Arbeitsplatzbeschrieb\n       auf *                                                                           vom\n       REP  [q23] ( )  Arbeitsplatzbeschrieb  [q23] ( )     [q24] ____                 [q25] ____\n\n        Konsultationsdatum        Arbeitsunfähigkeit  von             bis              nächste           Visum\n                                                                                       Konsultation\n       [q26] ____                 100 %             [q26] ____       [q26] ____        [q26] ____        [q26] ____\n       [q26] ____                 100 %             [q26] ____       [q26] ____        [q26] ____        [q26] ____\n       [q26] ____                 100 %             [q26] ____       [q26] ____        [q26] ____        [q26] ____\n\n       Es liegt eine\n       arbeitsplatzbezogene\n       Arbeitsunfähigkeit vor\n       ja  [q27] ( )  nein  [q27] ( )\n\n       Teilarbeitsfähigkeit / Reintegration (Beurteilung für den\n       Reintegrationsprozess)\n       Basierend  [q28] ( )  Arbeitsplatzbeschrieb  [q28] ( )  [q29] ____  REP vom     [q30] ____  Arbeitsplatzbeschrieb\n       auf * REP                                                                       vom\n\n        Konsultationsdatum  Präsenzzeit  Präsenzzeit  Leistungsfähigkeit  Arbeits-  von  bis  nächste  Konsultation  Visum\n                         Std. pro Tag  % Pensum  in der      fähigkeit\n                                           Präsenzzeit       gesamt %\n                                           25 / 50 / 75\n                                           / 100 %\n       [q31] ____        [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____\n       [q31] ____        [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____\n       [q31] ____        [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____\n       [q31] ____        [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____  [q31] ____\n\n       Wiederaufnahme der\n       Arbeit zu 100 % ab\n\n       [q32] ____\n\n       Bemerkungen und\n       Unterschrift\n\n       Bemerkungen\n       [q36] ____\n       Kontakt mit Arbeitgeberin /                          Arzt / Ärztin\n       Arbeitgeber erwünscht                                (Name, Stempel)\n       ja  [q33] ( )  nein  [q33] ( )                       [q34] ____\n\n       Datum                      Unterschrift\n\n       [q35] ____                 (Unterschrift)\n\n       * Bitte beifügen: Arbeitsplatzbeschrieb / Stellenprofil oder REP\n       (Ressourcenorientiertes Eingliederungsprofil).\n\n       Nachgebaut nach dem Vorbild des                                                                     Seite 1 / 1\n       SIM-Arbeitsfähigkeitszeugnisses – nicht das\n       Original\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Unter welcher Telefonnummer ist Ihr Arbeitgeber erreichbar?\nB: Wann sind Sie geboren?\nC: Wie heissen Sie mit Vor- und Nachname?\nD: Wurde Ihr Arbeitsverhältnis gekündigt? Wenn ja, wann?\nE: Basiert die Beurteilung auf einem REP oder einem Arbeitsplatzbeschrieb?\nF: An welchen Daten waren Sie in den letzten Konsultationen? Von wann bis wann war die Arbeitsunfähigkeit jeweils 100 %? Wann war die nächste Konsultation und wann war das Visum gültig?\nG: Wie lautet Ihre AHV-Nummer?\nH: Wer ist die Kontaktperson bei Ihrem Arbeitgeber?\nI: Wünschen Sie Kontakt mit Ihrer Arbeitgeberin oder Ihrem Arbeitgeber?\nJ: In welcher Gemeinde und mit welcher Postleitzahl befindet sich Ihr Arbeitsplatz?\nK: Liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor?\nL: Seit wann gilt der aktuelle Arbeitsplatzbeschrieb?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3515,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-cf714f9b-8322-45ac-8608-89faa063b7db",
+    "object": "chat.completion",
+    "created": 1791534250,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"zuordnung\": [\n    {\"frage\": \"A\", \"kennung\": \"q6\"},\n    {\"frage\": \"B\", \"kennung\": \"q3\"},\n    {\"frage\": \"C\", \"kennung\": \"q2\"},\n    {\"frage\": \"D\", \"kennung\": \"q21\"},\n    {\"frage\": \"E\", \"kennung\": \"q23\"},\n    {\"frage\": \"F\", \"kennung\": \"q26\"},\n    {\"frage\": \"G\", \"kennung\": \"q5\"},\n    {\"frage\": \"H\", \"kennung\": \"q9\"},\n    {\"frage\": \"I\", \"kennung\": \"q33\"},\n    {\"frage\": \"J\", \"kennung\": \"q4\"},\n    {\"frage\": \"K\", \"kennung\": \"q27\"},\n    {\"frage\": \"L\", \"kennung\": \"q28\"}\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1847,
+      "total_tokens": 2044,
+      "completion_tokens": 197,
+      "prompt_tokens_details": {
+        "cached_tokens": 1568,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

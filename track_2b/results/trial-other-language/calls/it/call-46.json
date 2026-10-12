@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:16:19.596Z",
+  "tag": "sprache füllen it suva-bagatellunfall q18",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: A che ora è avvenuto l'incidente (ore e minuti)?\nAntwort: 20:02\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- zeit: Zeit (Stunden, Minuten) — Vorgabe: Text\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.\nDie Antwort im Gespräch ist auf Italienisch. Schreibe jeden Wert auf Deutsch, so wie er in das deutsche Formular gehört; Namen, Adressen und Nummern bleiben, wie sie gesagt wurden.",
+  "image": 0,
+  "audio": 0,
+  "ms": 190,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-b17c41d2-45a2-4a3f-b1ab-b01f20463ed2",
+    "object": "chat.completion",
+    "created": 1791551780,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "zeit: 20:02 [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 280,
+      "total_tokens": 293,
+      "completion_tokens": 13,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

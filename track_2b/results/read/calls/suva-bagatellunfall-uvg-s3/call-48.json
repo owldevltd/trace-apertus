@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-07T09:27:39.052Z",
+ "tag": "suva-bagatellunfall-uvg-s3.png #130",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 800,
+ "prompt": "Das Bild ist ein Ausschnitt aus einem Dokument, ein einzelnes Element. Beantworte zwei Dinge. bildanteile: Hat das Element Bildanteile (Logo, Foto, Zeichnung, Grafik)? text: der Text im Element, exakt wiedergegeben, ohne Kästchen und Kreise; steht kein Text darin, \"\". Antworte nur als JSON: {\"bildanteile\": true oder false, \"text\": \"...\"}",
+ "image": 5483,
+ "audio": 0,
+ "ms": 447,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-aabd0ea5-09de-4438-bf92-e66c20f240fb",
+  "object": "chat.completion",
+  "created": 1791365259,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"bildanteile\": false, \"text\": \"Art der Schädigung:\"}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 434,
+   "total_tokens": 453,
+   "completion_tokens": 19,
+   "prompt_tokens_details": {
+    "cached_tokens": 32,
+    "multimodal_tokens": {
+     "image": 279
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

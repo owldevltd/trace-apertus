@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T08:24:59.374Z",
+  "tag": "rückprobe einheiten-etikett-interview-70b schadenmeldung-uvg Lauf 1",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht eine Seite eines Schweizer Formulars als Text, ungefähr so angeordnet wie auf dem Papier. Jede Stelle, die ausgefüllt wird, trägt die Kennung ihrer Frage in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 1 =====\n       Schadenmeldung UVG\n       Meldung eines Unfalls, einer Berufskrankheit, eines Zahnschadens oder eines Rückfalls\n       durch den Arbeitgeber\n\n       [q1] ____  Nachgebaut nach dem Vorbild der Schadenmeldung UVG der Helsana Unfall AG (Ausgabe 12.2016) mit denselben  [q2] ____\n       Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.\n        Art der                                                                Schaden-Nummer\n        Meldung\n       [q6] ____  Unfall  [q4] [ ]  Berufskrankheit  [q4] [ ]  Zahnschaden  [q5] [ ]  Rückfall  [q5] [ ]  [q3] ____\n\n        1\n        Arbeitgeber\n\n        Name und Adresse mit\n        Postleitzahl\n       [q7] ____\n\n        Tel.-Nr.                           E-Mail                              Police-Nr.\n                                                                               UVG\n       [q8] ____                           [q9] ____                          [q10] ____\n        Police-Nr.                         Üblicher Arbeitsplatz des/der\n        UVG-Zusatz                         Verletzten (Betriebszweig)\n       [q11] ____                          [q12] ____\n\n        2 Verletzte /\n        Verletzter\n       [q13] ____\n        Name und                                             Geburtsdatum              AHV-Nummer\n        Vorname\n       [q14] ____                                            [q15] ____                [q16] ____\n\n        Strasse                                              Tel.-Nr.                  Zivilstand\n       [q17] ____                                            [q18] ____                [q19] ____\n\n        Land             PLZ               Wohnort                             Staatsangehörigkeit\n                                                                               / Bewilligung\n       [q20] ____        [q21] ____        [q22] ____                         [q23] ____\n\n        E-Mail\n       [q24] ____\n\n        3 Anstellung\n       [q25] ____\n        Datum der                          Ausgeübter\n        Anstellung                         Beruf\n       [q26] ____                          [q27] ____\n\n        Stellung\n        Höheres  [q28] [ ]  Mittleres  [q29] [ ]  Angestellte/r /  [q30] [ ]  Lehrling  [q31] [ ]  Praktikant/in  [q31] [ ]\n        Kader         Kader          Mitarbeiter/in\n\n        Verhältnis\n        unbefristeter  [q32] [ ]  [q32] [ ]  befristeter  [q33] [ ]  Arbeitsverhältnis  [q34] [ ]  [q35] ____\n        Arbeitsvertrag        Arbeitsvertrag       gekündigt per\n       [q36] ____                          [q37] ____\n        Arbeitszeit des/der                Betriebsübliche                    Vertraglicher\n        Verletzten (Std./Woche)            Vollarbeitszeit                    Beschäftigungsgrad\n                                           (Std./Woche)                       (Prozent)\n       [q38] ____                          [q39] ____                         [q40] ____\n\n        Arbeitseinsatz\n        unregelmässig  [q41] [ ]  [q41] [ ]  Kurzarbeit  [q42] [ ]  Zwischenverdienst  [q42] [ ]\n\n        4\n        Schadendatum\n       [q43] ____        [q44] ____\n        Tag              Monat                      Jahr              Zeit (Stunden,\n                                                                      Minuten)\n       [q47] ____        [q45] ____                 [q46] ____       [q48] ____\n\n        5 Unfallort\n\n        Ort (Name oder PLZ) und Stelle\n        (z. B. Werkstatt, Strasse)\n       [q49] ____\n\n        6 Sachverhalt (Unfallbeschreibung, Verdacht auf\n        Berufskrankheit)\n\n        Tätigkeit zur Zeit des Unfalles; Unfallhergang,\n        beteiligte Gegenstände, Fahrzeuge\n       [q50] ____\n\n        Beteiligte\n        Person(en)\n       [q51] ____\n\n        Besteht ein                                          Wenn ja,\n        Polizeirapport?                                      aufgenommen durch\n       [q54] ____  Ja  [q53] ( )  Nein  [q53] ( )  Unbekannt  [q53] ( )  [q52] ____\n\n        Besteht ein Unfallprotokoll? Wenn\n        ja, bitte Kopie beilegen.\n        Ja  [q55] ( )  Nein  [q55] ( )\n\n       Nachgebaut nach dem Vorbild der                                                                     Seite 1 / 2\n       Helsana-Schadenmeldung UVG – nicht das Original\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: In welchem Monat ist der Schaden passiert?\nB: Wie viele Stunden pro Woche beträgt die betriebsübliche Vollarbeitszeit?\nC: Wo war der Verletzte üblicherweise tätig (Betriebszweig)?\nD: Wenn ein Polizeirapport erstellt wurde, von wem wurde er aufgenommen?\nE: In welchem Land lebt der Verletzte?\nF: An welchem Tag ist der Schaden passiert?\nG: Ist das Arbeitsverhältnis befristet?\nH: Wurde ein Polizeirapport erstellt?\nI: Welche Art von Meldung ist das?\nJ: Wie lautet die Telefonnummer des Arbeitgebers?\nK: Ist das Arbeitsverhältnis unbefristet?\nL: Was hat der Verletzte zum Zeitpunkt des Unfalls gemacht? Beschreibe bitte auch, was genau passiert ist und welche Gegenstände oder Fahrzeuge beteiligt waren.\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3191,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-3a4525bd-4e9e-4c3a-971f-19080d0f3b56",
+    "object": "chat.completion",
+    "created": 1791534299,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"zuordnung\": [\n    {\"frage\": \"A\", \"kennung\": \"q45\"},\n    {\"frage\": \"B\", \"kennung\": \"q39\"},\n    {\"frage\": \"C\", \"kennung\": \"q12\"},\n    {\"frage\": \"D\", \"kennung\": \"q52\"},\n    {\"frage\": \"E\", \"kennung\": \"q20\"},\n    {\"frage\": \"F\", \"kennung\": \"q47\"},\n    {\"frage\": \"G\", \"kennung\": \"q33\"},\n    {\"frage\": \"H\", \"kennung\": \"q54\"},\n    {\"frage\": \"I\", \"kennung\": \"q6\"},\n    {\"frage\": \"J\", \"kennung\": \"q10\"},\n    {\"frage\": \"K\", \"kennung\": \"q32\"},\n    {\"frage\": \"L\", \"kennung\": \"q50\"}\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1514,
+      "total_tokens": 1716,
+      "completion_tokens": 202,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -46,7 +46,7 @@ capture:
 	node --env-file=.env tools/capture.js
 
 # Binds the required entries of the catalogues to the questions of the captured forms anew, without touching the
-# questions, and writes how every entry was bound. Needs LLM_API_KEY in .env. 29 calls, 14 of them to the large model.
+# questions, and writes how every entry was bound. Needs LLM_API_KEY in .env. 29 calls, 7 of them to the large model.
 # The report lands in storage/bench/; the committed run is in results/required.md.
 required:
 	@test -f .env || { echo "copy .env.example to .env and set LLM_API_KEY"; exit 1; }

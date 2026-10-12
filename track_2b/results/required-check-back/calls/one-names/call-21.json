@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T19:34:49.254Z",
+  "tag": "back schadenmeldung-uvg q77",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 20,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 2 =====\nSchadenmeldung UVG – Fortsetzung\n7 Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q56]\n8 Nichtberufsunfall\nLetztmals im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)  → [q58]\nGrund der Absenz  → [q59]\n9 Verletzung\nBetroffener Körperteil  → [q61]\nSeite\nlinks  → [q63: Auswahl]\nrechts  → [q63: Auswahl]\nunbestimmt  → [q63: Auswahl]\nArt der Schädigung  → [q64]\n10 Arbeitsunfähigkeit\nArbeit zufolge Unfalles ausgesetzt?\nWenn ja, ab wann?  → [q67]\nJa  → [q68: Auswahl]\nNein  → [q68: Auswahl]\nVoraussichtliche Dauer\nFalls Arbeit wieder aufgenommen: ab wann?  → [q69]\nWiederaufnahme\nlänger als 1 Monat  → [q70: Auswahl]\nganz  → [q71: Auswahl]\nteilweise  → [q71: Auswahl]\n11 Arztadressen\nErstbehandelnder Arzt bzw. Spital/Klinik  → [q73]\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q74]\nErstbehandlung, falls Spital/Klinik\nNachbehandlung, falls Spital/Klinik\nambulant  → [q77: Auswahl]\nstationär  → [q77: Auswahl]\nambulant  → [q78: Auswahl]\nstationär  → [q78: Auswahl]\n12 Lohn\nLohnbestandteil\nCHF pro Stunde  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nCHF pro Monat  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nCHF pro Jahr  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nVertraglicher Grundlohn inkl. Teuerungszulage (brutto)\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nKinder-/Familienzulagen\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nFerien-/Feiertagsentschädigung\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nGratifikation / 13. Monatslohn (und weitere)\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nAndere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage)\nAnzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)  → [q82]\nBezeichnung der anderen Lohnzulagen  → [q83]\n13 Sonderfälle\nWeitere(r) Arbeitgeber\nWenn ja, Name und Adresse  → [q85]\nSteuern\nNein  → [q86: Auswahl]\nJa  → [q86: Auswahl]\nQuellensteuerpflicht  → [q87: Kästchen]\nBesondere Versicherungsverhältnisse\nFreiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)  → [q88: Kästchen]\nFamilienmitglied / Gesellschafter  → [q89: Kästchen]\nEntsandte/r  → [q90: Kästchen]\n14 Andere Sozialversicherungsleistungen\nAnspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung?\nWenn ja, wo?  → [q93]\nNein  → [q94: Auswahl]\nJa  → [q94: Auswahl]\nName der obligatorischen Krankenversicherung (inkl. Police-Nr.)  → [q95]\nUnterschriften\nOrt und Datum  → [q96]\nUnterschrift des/der Verletzten\nStempel und Unterschrift des Arbeitgebers\nNachgebaut nach dem Vorbild der Helsana-Schadenmeldung UVG – nicht das Original\nSeite 2 / 2\n-----\n\nEs geht um die Stelle [q77]. Welche der folgenden Angaben wird genau an dieser Stelle eingetragen?\nA: Art der Meldung – Auswahl aus: Unfall, Berufskrankheit, Zahnschaden, Rückfall\nB: Name und Adresse mit Postleitzahl – Vollständige Geschäftsadresse des Arbeitgebers inkl. PLZ\nC: Name und Vorname – Vollständiger Name des Verletzten\nD: Arbeitszeit des/der Verletzten (Std./Woche) – Wöchentliche Arbeitszeit der verletzten Person bei diesem Arbeitgeber in Stunden; ab acht Stunden pro Woche sind auch Nichtberufsunfälle versichert\nE: Schadendatum (Tag, Monat, Jahr, Zeit) – Datum und Uhrzeit des Ereignisses im Format TT.MM.JJJJ, HH:MM\nF: Unfallort (Ort und Stelle) – Ort (Name oder PLZ) und genaue Stelle (z. B. Werkstatt, Strasse)\nG: Sachverhalt (Unfallbeschreibung) – Tätigkeit zur Zeit des Unfalles, Unfallhergang, beteiligte Gegenstände/Fahrzeuge\nH: Erstbehandelnder Arzt bzw. Spital/Klinik – Name und Adresse der Einrichtung sowie Fachrichtung\nI: Betroffener Körperteil – Verletzter Körperteil und Seite (links, rechts, unbestimmt)\nJ: Art der Schädigung – Beschreibung der Verletzung (z. B. Schnitt, Bruch, Verbrennung)\nK: Arbeit zufolge Unfalles ausgesetzt? (Ja/Nein) – Angabe, ob Arbeitsunfähigkeit vorliegt\nL: Lohnbestandteile (CHF pro Stunde/Monat/Jahr) – Vertraglicher Grundlohn, Familienzulagen, Ferien- und Feiertagsentschädigung, Gratifikation / 13. Monatslohn und andere Zulagen, je pro Stunde, Monat oder Jahr (brutto)\nM: Unterschriften – Ort und Datum, Unterschrift der verletzten Person, Stempel und Unterschrift des Arbeitgebers\n\nAntworte nur mit dem Buchstaben. Passt keine der Angaben zu dieser Stelle, antworte mit dem Wort KEINE.",
+  "image": 0,
+  "audio": 0,
+  "ms": 838,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-aafeffbd-4850-4793-92e0-b257ed45848e",
+    "object": "chat.completion",
+    "created": 1791574490,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "L",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1580,
+      "total_tokens": 1582,
+      "completion_tokens": 2,
+      "prompt_tokens_details": {
+        "cached_tokens": 1120,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

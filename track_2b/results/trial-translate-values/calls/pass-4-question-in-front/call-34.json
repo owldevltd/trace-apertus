@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T14:00:14.169Z",
+  "tag": "werte sechs en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Englisch gemacht, die in ein deutsches Formular gehören.\n\nAngabe 13: 10\nAngabe 14: 2026\nAngabe 15: 14:20\nAngabe 16: Warehouse, Werkstrasse 12, Zug\nAngabe 17: Slipped while unloading a pallet and fell onto the right wrist.\nAngabe 18: Pallet\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 863,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-f0a5922f-aca7-4853-8fbd-6e4e1e399f4f",
+    "object": "chat.completion",
+    "created": 1791554414,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 13, \"wert\": \"10\"}, {\"nummer\": 14, \"wert\": \"2026\"}, {\"nummer\": 15, \"wert\": \"14:20\"}, {\"nummer\": 16, \"wert\": \"Warehouse, Werkstrasse 12, Zug\"}, {\"nummer\": 17, \"wert\": \"Slipped while unloading a pallet and fell onto the right wrist.\"}, {\"nummer\": 18, \"wert\": \"Pallet\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 240,
+      "total_tokens": 358,
+      "completion_tokens": 118,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

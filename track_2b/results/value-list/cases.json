@@ -1,0 +1,29 @@
+{
+ "form": "schadenmeldung-uvg",
+ "field": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+ "values": [
+  "Büro",
+  "Werkstatt",
+  "Lager",
+  "Baustelle",
+  "Verkauf",
+  "Aussendienst"
+ ],
+ "answers": [
+  {
+   "case": "A",
+   "list": true,
+   "typed": "Ich arbeite als Projektleiter im Büro."
+  },
+  {
+   "case": "B",
+   "list": true,
+   "typed": "Ich bin meistens draussen bei den Kunden unterwegs."
+  },
+  {
+   "case": "C",
+   "list": false,
+   "typed": "Ich arbeite als Projektleiter im Büro."
+  }
+ ]
+}

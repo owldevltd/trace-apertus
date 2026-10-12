@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:17:50.227Z",
+  "tag": "8b-bundles betreibungsbegehren f25,f26,f27,f28,f29,f30",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Unten steht ein Schweizer Formular als Text, ungefähr so angeordnet wie auf dem Papier. Jedes Feld, das ausgefüllt wird, steht an seinem Platz mit seiner Kennung in eckigen Klammern: [f12] ____ ist ein Feld zum Schreiben, [f13] [ ] ein Kästchen zum Ankreuzen, [f14] ( ) eine Auswahl, [f15] (Unterschrift) eine Unterschrift. Es ist Seite 1 von 2.\n\n-----\n        Betreibungsbegehren                             Bitte in Blockschrift ausfüllen und Hinweise auf der\n                                                        Rückseite beachten\n                                                       [f1] ____            Durch das Amt       [f2] ____\n                                                                            auszufüllen\n\n                                                        Eingang  [f3] ____        Betreibung    [f4] ____\n                                                                                  Nr.\n\n        Schuldner (Name und Vorname bzw. Firma;                  Adresse des\n        Adresse; PLZ Ort)                                        Betreibungsamtes\n       [f36] ____  [f38] ____  Geburtsdatum                      [f37] ____\n        (falls bekannt)\n        Gläubiger (Name und Vorname bzw. Firma;\n        Adresse; PLZ Ort)\n\n       [f39] ____                                       Zahlungsverbindung   des Gläubigers  [f5] [ ]  [f6] [ ]\n                                                                             des Vertreters\n        vertreten durch (Name und Vorname              [f7] ____  IBAN\n        bzw. Firma; Adresse; PLZ Ort)\n       [f40] ____                                       Für  Telefon oder  [f41] ____\n                                                        Rückfragen  E-Mail\n\n       Forderungsgrund oder Forderungsurkunde mit                              Betrag (CHF)    Zins % seit\n       Datum                                                                                   (Datum)\n       [f8] ____\n       Weitere\n       Forderungen\n       [f9] ____                                                                              [f10] ____  [f11] ____\n       [f12] ____                                                                              [f13] ____  [f14] ____\n       [f15] ____                                                                              [f16] ____  [f17] ____\n       [f18] ____                                                                              [f19] ____  [f20] ____\n       [f21] ____                                                                              [f22] ____  [f23] ____\n       [f24] ____                                                                             [f25] ____  [f26] ____\n       [f27] ____                                                                              [f28] ____  [f29] ____\n       [f30] ____                                                                              [f31] ____  [f32] ____\n       [f33] ____                                                                              [f34] ____  [f35] ____\n\n        Bemerkungen                                           Ihre Fallreferenz (falls\n                                                              vorhanden)\n       [f42] ____                                             [f43] ____  Datum und\n                                                              Unterschrift\n-----\n\nStelle zu jedem dieser Felder eine klare, vollständige Frage, wie eine freundliche Person im Gespräch, die ohne das Formular verständlich ist (wer oder was ist gemeint, zu welchem Abschnitt gehört es): f25, f26, f27, f28, f29, f30. Wo die Antwort naheliegt, biete sie in der Frage an (zum Beispiel beim Datum des Ausfüllens: \"… soll ich das Datum von heute einfügen?\") und hänge dann [heute] an die Zeile. Antworte mit genau einer Zeile je Feld, in der Form \"f12: Frage\", ohne weiteren Text.",
+  "image": 0,
+  "audio": 0,
+  "ms": 1015,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-0965b458-087e-4656-b07e-0d2500d2e03f",
+    "object": "chat.completion",
+    "created": 1791530270,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "f25: Welche Telefonnummer soll ich für Rückfragen des Gläubigers eintragen? [heute]\nf26: Welche E-Mail-Adresse soll ich für Rückfragen des Gläubigers angeben? [heute]\nf27: Welche weitere Forderung soll ich unter \"Weitere Forderungen\" angeben? [heute]\nf28: Welche Art von Zahlungsverbindung soll ich für den Gläubiger angeben? [heute]\nf29: Welche Art von Zahlungsverbindung soll ich für den Vertreter des Gläubigers angeben? [heute]\nf30: Welche Bemerkungen soll ich im Abschnitt \"Bemerkungen\" eintragen? [heute]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 899,
+      "total_tokens": 1052,
+      "completion_tokens": 153,
+      "prompt_tokens_details": {
+        "cached_tokens": 768,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

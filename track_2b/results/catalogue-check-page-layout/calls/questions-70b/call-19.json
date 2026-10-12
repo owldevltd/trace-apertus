@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T08:25:19.129Z",
+  "tag": "rückprobe einheiten-etikett-interview-70b schadenmeldung-uvg Lauf 1",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht eine Seite eines Schweizer Formulars als Text, ungefähr so angeordnet wie auf dem Papier. Jede Stelle, die ausgefüllt wird, trägt die Kennung ihrer Frage in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 2 =====\n       Schadenmeldung UVG – Fortsetzung\n\n        7\n        Berufsunfall\n\n        Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug,\n        Arbeitsstoff; bitte genaue Bezeichnung)\n       [q56] ____\n\n        8\n        Nichtberufsunfall\n       [q57] ____\n        Letztmals im Betrieb gearbeitet bis                  Grund der\n        (Wochentag, Datum, Zeit)                             Absenz\n       [q59] ____                                            [q58] ____\n\n       [q60] ____  9 Verletzung\n        Betroffener                                          Seite\n        Körperteil\n       [q61] ____                                           [q63] ____  links  [q62] ( )  rechts  [q62] ( )  unbestimmt  [q62] ( )\n\n        Art der\n        Schädigung\n       [q64] ____\n\n       [q65] ____  10\n        Arbeitsunfähigkeit\n        Arbeit zufolge                              Wenn ja, ab\n        Unfalles ausgesetzt?                        wann?\n       [q68] ____  Ja  [q67] ( )  Nein  [q67] ( )   [q66] ____\n\n        Voraussichtliche                   Falls Arbeit wieder                Wiederaufnahme\n        Dauer                              aufgenommen: ab wann?\n        länger als 1  [q70] [ ]  [q70] [ ]  [q69] ____                         ganz  [q71] ( )  teilweise  [q71] ( )\n        Monat\n\n        11\n        Arztadressen\n       [q72] ____\n        Erstbehandelnder Arzt                                Nachbehandelnder Arzt\n        bzw. Spital/Klinik                                   bzw. Spital/Klinik\n       [q73] ____                                            [q74] ____\n\n        Erstbehandlung,                                      Nachbehandlung,\n        falls Spital/Klinik                                  falls Spital/Klinik\n       [q77] ____  ambulant  [q75] ( )  stationär  [q75] ( )  [q78] ____  ambulant  [q76] ( )  stationär  [q76] ( )\n\n        12 Lohn\n\n        Lohnbestandteil                                      CHF pro          CHF pro           CHF pro Jahr\n                                                             Stunde           Monat\n        Vertraglicher Grundlohn inkl.                        [q79] ____       [q79] ____        [q79] ____\n        Teuerungszulage (brutto)\n        Kinder-/Familienzulagen                              [q79] ____       [q79] ____        [q79] ____\n        Ferien-/Feiertagsentschädigung                       [q79] ____       [q79] ____        [q79] ____\n        Gratifikation / 13.                                  [q79] ____       [q79] ____        [q79] ____\n        Monatslohn (und weitere)\n       [q80] ____  Andere Lohnzulagen (Akkord, Provision,  [q81] ____  [q79] ____  [q79] ____   [q79] ____\n        Naturallohn, Schichtzulage)\n        Anzahl Kinder (bis 18 J., in       Bezeichnung der anderen\n        Ausbildung bis 25 J.)              Lohnzulagen\n       [q82] ____                          [q83] ____\n\n        13\n        Sonderfälle\n       [q84] ____\n        Weitere(r)                Wenn ja, Name und                                    Steuern\n        Arbeitgeber               Adresse\n        Nein  [q86] ( )  Ja  [q86] ( )  [q85] ____                                     Quellensteuerpflicht  [q87] [ ]\n\n        Besondere\n        Versicherungsverhältnisse\n        Freiwillige Versicherung (Arbeitgeber /  [q88] [ ]  Familienmitglied /  [q89] [ ]  Entsandte/r  [q90] [ ]\n        Selbständigerwerbende)                        Gesellschafter\n\n        14 Andere\n        Sozialversicherungsleistungen\n       [q91] ____\n        Anspruch auf Taggeld oder Rente bei einer            Wenn ja, wo?\n        anderen Sozialversicherung?\n       [q94] ____  Nein  [q93] ( )  Ja  [q93] ( )            [q92] ____\n\n        Name der obligatorischen\n        Krankenversicherung (inkl.\n        Police-Nr.)\n       [q95] ____\n\n        Unterschriften\n       (Unterschrift)\n        Ort und                            Unterschrift                        Stempel und Unterschrift\n        Datum                              des/der Verletzten                  des Arbeitgebers\n       [q96] ____                          (Unterschrift)                     (Unterschrift)\n\n       Nachgebaut nach dem Vorbild der                                                                     Seite 2 / 2\n       Helsana-Schadenmeldung UVG – nicht das Original\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Wie heisst die obligatorische Krankenversicherung inklusive Police-Nummer?\nB: Gibt es besondere Fälle oder Anmerkungen zu vermerken?\nC: Wie hoch ist der Lohn pro Stunde, pro Monat und pro Jahr für den vertraglichen Grundlohn inklusive Teuerungszulage?\nD: Ist eine Quellensteuerpflicht gegeben?\nE: Wann hat der Verletzte zuletzt im Betrieb gearbeitet (Wochentag, Datum, Zeit)?\nF: Wo und wann wurde die Meldung unterschrieben?\nG: Wenn die Arbeit wieder aufgenommen wird, ab wann ist das geplant?\nH: Ist der Verletzte wegen des Unfalls ganz oder teilweise arbeitsunfähig?\nI: Wo wurde der Verletzte zuerst behandelt (Arzt oder Spital)?\nJ: Wie heissen die anderen Lohnzulagen genau?\nK: Welche anderen Lohnzulagen wie Akkord, Provision, Naturallohn oder Schichtzulage gibt es?\nL: War die Nachbehandlung ambulant oder stationär?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3268,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-0c0c54d0-ca33-42b0-9f84-c727424125dd",
+    "object": "chat.completion",
+    "created": 1791534319,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"zuordnung\": [\n    {\"frage\": \"A\", \"kennung\": \"q95\"},\n    {\"frage\": \"B\", \"kennung\": \"q84\"},\n    {\"frage\": \"C\", \"kennung\": \"q79\"},\n    {\"frage\": \"D\", \"kennung\": \"q87\"},\n    {\"frage\": \"E\", \"kennung\": \"q59\"},\n    {\"frage\": \"F\", \"kennung\": \"q96\"},\n    {\"frage\": \"G\", \"kennung\": \"q66\"},\n    {\"frage\": \"H\", \"kennung\": \"q67\"},\n    {\"frage\": \"I\", \"kennung\": \"q75\"},\n    {\"frage\": \"J\", \"kennung\": \"q83\"},\n    {\"frage\": \"K\", \"kennung\": \"q80\"},\n    {\"frage\": \"L\", \"kennung\": \"q78\"}\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1604,
+      "total_tokens": 1807,
+      "completion_tokens": 203,
+      "prompt_tokens_details": {
+        "cached_tokens": 1312,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

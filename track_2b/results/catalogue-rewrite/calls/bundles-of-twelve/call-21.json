@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:41:08.601Z",
+  "tag": "umgeschrieben-paeckchen suva-bagatellunfall q85",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Bagatellunfall-Meldung UVG\", jede mit ihrer Kennung:\n\nq85: Welches Geburtsdatum wird eingetragen?\nq86: Welche AHV-Nummer wird eingetragen?\nq87: Wie lautet der Name und der Vorname des Verletzten?\nq88: Welches Geburtsdatum wird eingetragen?\nq89: Welche Staatsangehörigkeit wird eingetragen?\nq90: Wie lautet die Strasse des Wohnorts?\nq91: Welche Information wird an dieser Stelle eingetragen?\nq92: Welche Information wird an dieser Stelle eingetragen?\nq93: Welche Information wird an dieser Stelle eingetragen?\nq94: Ist die Verletzung links, rechts oder unbestimmt?\nq95: Welches betroffene Körperteil wird angegeben?\nq96: Wie lautet die Adresse des nachbehandelnden Arztes bzw. Spitals/Klinik?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1897,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-bdfb0b62-8935-47e6-8b94-07caba04023c",
+    "object": "chat.completion",
+    "created": 1791531668,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q85\", \"frage\": \"Wann ist die Person geboren?\"}, {\"kennung\": \"q86\", \"frage\": \"Welche AHV-Nummer hat die Person?\"}, {\"kennung\": \"q87\", \"frage\": \"Wie heisst die Person, Vorname und Nachname?\"}, {\"kennung\": \"q88\", \"frage\": \"Wann ist die Person geboren?\"}, {\"kennung\": \"q89\", \"frage\": \"Welche Staatsangehörigkeit hat die Person?\"}, {\"kennung\": \"q90\", \"frage\": \"Welche Strasse ist der Wohnort?\"}, {\"kennung\": \"q91\", \"frage\": \"Welche Information wird hier eingetragen?\"}, {\"kennung\": \"q92\", \"frage\": \"Welche Information wird hier eingetragen?\"}, {\"kennung\": \"q93\", \"frage\": \"Welche Information wird hier eingetragen?\"}, {\"kennung\": \"q94\", \"frage\": \"Ist die Verletzung links, rechts oder unbestimmt?\"}, {\"kennung\": \"q95\", \"frage\": \"Welches betroffene Körperteil wird angegeben?\"}, {\"kennung\": \"q96\", \"frage\": \"Wie lautet die Adresse des Arztes oder des Spitals?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 427,
+      "total_tokens": 724,
+      "completion_tokens": 297,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

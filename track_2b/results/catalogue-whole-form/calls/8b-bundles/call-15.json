@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:17:33.431Z",
+  "tag": "8b-bundles arbeitsfaehigkeitszeugnis f85,f86,f87,f88,f89,f90",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Unten steht ein Schweizer Formular als Text, ungefähr so angeordnet wie auf dem Papier. Jedes Feld, das ausgefüllt wird, steht an seinem Platz mit seiner Kennung in eckigen Klammern: [f12] ____ ist ein Feld zum Schreiben, [f13] [ ] ein Kästchen zum Ankreuzen, [f14] ( ) eine Auswahl, [f15] (Unterschrift) eine Unterschrift. Es ist Seite 1 von 1.\n\n-----\n       Arbeitsfähigkeitszeugnis\n       Beurteilung der Arbeitsfähigkeit und der Reintegration bei\n       Krankheit oder Unfall\n\n       Nachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses (Swiss Insurance Medicine, Ausgabe\n       Januar 2019) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des\n       Projekts Trace.\n\n       Von der Arbeitgeberin / dem Arbeitgeber auszufüllen (evtl. von der\n       Patientin / dem Patienten)\n\n       Arbeitnehmerin /\n       Arbeitnehmer\n       Name /                                               Geb.-Dat.                  Geschlecht\n       Vorname\n       [f3] ____                                            [f4] ____                  w  [f1] ( )  m  [f2] ( )\n\n       Adresse /                                            AHV-Nr.                    Telefon\n       PLZ\n\n       [f5] ____                                            [f6] ____                  [f7] ____\n\n       E-Mail\n\n       [f8] ____\n\n       Arbeitgeberin /\n       Arbeitgeber\n       Firmenname                                           Kontaktperson\n       [f9] ____                                            [f10] ____\n\n       Adresse /                                            Telefon                    E-Mail\n       PLZ\n\n       [f11] ____                                           [f12] ____                 [f13] ____\n\n       Anstellung\n       Funktion /                                           Eintrittsjahr  [f14] [ ]   Std. / Tag\n       ausgeübter Beruf\n       *\n       [f15] ____                                           [f16] ____                 [f17] ____\n\n       Arbeitszeit  [f18] ( )  Teilzeit  [f19] ( )  [f20] ____  %  Wochenarbeitszeit /  [f21] ____\n       Vollzeit (100                                        Einsatztage\n       %)\n\n       Bei Kündigung:\n       Arbeitsverhältnis gekündigt\n       per\n       [f22] ____\n\n       Von der Ärztin / dem Arzt\n       auszufüllen\n\n       Ursache\n       Krankheit  [f23] ( )  Unfall  [f24] ( )  Berufskrankheit  [f25] ( )\n\n       Volle\n       Arbeitsunfähigkeit\n       Basierend                                            REP vom                    Arbeitsplatzbeschrieb\n       auf *                                                                           vom\n       REP  [f26] ( )  Arbeitsplatzbeschrieb  [f27] ( )     [f28] ____                 [f29] ____\n\n        Konsultationsdatum        Arbeitsunfähigkeit  von             bis              nächste           Visum\n                                                                                       Konsultation\n       [f30] ____                 100 %             [f31] ____       [f32] ____        [f33] ____        [f34] ____\n       [f35] ____                 100 %             [f36] ____       [f37] ____        [f38] ____        [f39] ____\n       [f40] ____                 100 %             [f41] ____       [f42] ____        [f43] ____        [f44] ____\n\n       Es liegt eine\n       arbeitsplatzbezogene\n       Arbeitsunfähigkeit vor\n       ja  [f45] ( )  nein  [f46] ( )\n\n       Teilarbeitsfähigkeit / Reintegration (Beurteilung für den\n       Reintegrationsprozess)\n       Basierend  [f47] ( )  Arbeitsplatzbeschrieb  [f48] ( )  [f49] ____  REP vom     [f50] ____  Arbeitsplatzbeschrieb\n       auf * REP                                                                       vom\n\n        Konsultationsdatum  Präsenzzeit  Präsenzzeit  Leistungsfähigkeit  Arbeits-  von  bis  nächste  Konsultation  Visum\n                         Std. pro Tag  % Pensum  in der      fähigkeit\n                                           Präsenzzeit       gesamt %\n                                           25 / 50 / 75\n                                           / 100 %\n       [f51] ____        [f52] ____  [f53] ____  [f54] ____  [f55] ____  [f56] ____  [f57] ____  [f58] ____  [f59] ____\n       [f60] ____        [f61] ____  [f62] ____  [f63] ____  [f64] ____  [f65] ____  [f66] ____  [f67] ____  [f68] ____\n       [f69] ____        [f70] ____  [f71] ____  [f72] ____  [f73] ____  [f74] ____  [f75] ____  [f76] ____  [f77] ____\n       [f78] ____        [f79] ____  [f80] ____  [f81] ____  [f82] ____  [f83] ____  [f84] ____  [f85] ____  [f86] ____\n\n       Wiederaufnahme der\n       Arbeit zu 100 % ab\n\n       [f87] ____\n\n       Bemerkungen und\n       Unterschrift\n\n       Bemerkungen\n       [f93] ____\n       Kontakt mit Arbeitgeberin /                          Arzt / Ärztin\n       Arbeitgeber erwünscht                                (Name, Stempel)\n       ja  [f88] ( )  nein  [f89] ( )                       [f90] ____\n\n       Datum                      Unterschrift\n\n       [f91] ____                 [f92] (Unterschrift)\n\n       * Bitte beifügen: Arbeitsplatzbeschrieb / Stellenprofil oder REP\n       (Ressourcenorientiertes Eingliederungsprofil).\n\n       Nachgebaut nach dem Vorbild des                                                                     Seite 1 / 1\n       SIM-Arbeitsfähigkeitszeugnisses – nicht das\n       Original\n-----\n\nStelle zu jedem dieser Felder eine klare, vollständige Frage, wie eine freundliche Person im Gespräch, die ohne das Formular verständlich ist (wer oder was ist gemeint, zu welchem Abschnitt gehört es): f85, f86, f87, f88, f89, f90. Wo die Antwort naheliegt, biete sie in der Frage an (zum Beispiel beim Datum des Ausfüllens: \"… soll ich das Datum von heute einfügen?\") und hänge dann [heute] an die Zeile. Antworte mit genau einer Zeile je Feld, in der Form \"f12: Frage\", ohne weiteren Text.",
+  "image": 0,
+  "audio": 0,
+  "ms": 897,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-347a3d89-4518-4b3b-99fc-997885d611fd",
+    "object": "chat.completion",
+    "created": 1791530253,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "f85: Wie viele Einsatztage sind für die angegebene Arbeitszeit vorgesehen? [heute]\nf86: Wie viele Prozent der Wochenarbeitszeit sind angegeben? [heute]\nf87: An welchem Datum soll die Wiederaufnahme der Arbeit zu 100 % erfolgen? [heute]\nf88: Soll ein Kontakt mit dem Arbeitgeber erwünscht sein? ja / nein\nf89: Soll ein Kontakt mit dem Arbeitgeber erwünscht sein? ja / nein\nf90: Wie lautet der Name der Ärztin oder des Arztes? [Stempel]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1726,
+      "total_tokens": 1855,
+      "completion_tokens": 129,
+      "prompt_tokens_details": {
+        "cached_tokens": 1600,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T13:46:19.160Z",
+ "tag": "arten betreibungsbegehren 1 #B",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 480,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBitte in Blockschrift ausfüllen und Hinweise auf der Rückseite beachten\nBetreibungsbegehren\nDurch das Amt auszufüllen\nEingang\nBetreibung Nr.\nSchuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q5]\nAdresse des Betreibungsamtes  → [q6]\nGeburtsdatum (falls bekannt)  → [q7]\nGläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q8]\ndes Gläubigers des Vertreters  → [q9: Auswahl]\nZahlungsverbindung\nvertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q10]\nIBAN  → [q11]\nFür Rückfragen\nTelefon oder E-Mail  → [q12]\nForderungsgrund oder Forderungsurkunde mit Datum  → [q13]\nBetrag (CHF)\nZins % seit (Datum)\nWeitere Forderungen  → [q14: Tabelle mit 9 Zeilen und 3 Spalten]\n[q14: Tabelle mit 9 Zeilen und 3 Spalten]\nBemerkungen  → [q15]\nIhre Fallreferenz (falls vorhanden)  → [q16]\nDatum und Unterschrift\n-----\n\nSage zu jeder der Kennungen unten, welche Art von Angabe an dieser Stelle eingetragen wird. Wähle genau eine dieser Arten:\n- text: ein Name, eine Adresse, ein Wort oder ein Satz\n- nummer: eine Kennnummer oder ein Aktenzeichen, zum Beispiel eine Policen-, Kunden-, Versicherten- oder Schadennummer\n- zahl: eine Menge, ein Betrag oder ein Prozentsatz\n- telefon: eine Telefonnummer\n- email: eine E-Mail-Adresse\n- plz: eine Postleitzahl allein, ohne Ort und Strasse\n- iban: eine IBAN\n- datum: ein Datum\n- uhrzeit: eine Uhrzeit\n\nDie Kennungen: q5, q6, q7, q8, q10, q11, q12, q13, q15, q16\nAntworte nur als JSON, ohne weiteren Text: {\"arten\": [{\"kennung\": \"q1\", \"art\": \"text\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 1044,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-65f6557f-d388-4659-9d52-ad88474c76f1",
+  "object": "chat.completion",
+  "created": 1791726381,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"arten\": [{\"kennung\": \"q5\", \"art\": \"text\"}, {\"kennung\": \"q6\", \"art\": \"text\"}, {\"kennung\": \"q7\", \"art\": \"datum\"}, {\"kennung\": \"q8\", \"art\": \"text\"}, {\"kennung\": \"q10\", \"art\": \"text\"}, {\"kennung\": \"q11\", \"art\": \"iban\"}, {\"kennung\": \"q12\", \"art\": \"telefon\"}, {\"kennung\": \"q13\", \"art\": \"zahl\"}, {\"kennung\": \"q15\", \"art\": \"text\"}, {\"kennung\": \"q16\", \"art\": \"text\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 710,
+   "total_tokens": 864,
+   "completion_tokens": 154,
+   "prompt_tokens_details": {
+    "cached_tokens": 512,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

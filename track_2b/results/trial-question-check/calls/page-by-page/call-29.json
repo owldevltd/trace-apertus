@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:27:01.839Z",
+  "tag": "prüfen d-8b-page schadenmeldung-uvg Lauf 2",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 2 =====\nSchadenmeldung UVG – Fortsetzung\n7 Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q56]\n8 Nichtberufsunfall  → [q57]\nLetztmals im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)  → [q59]\nGrund der Absenz  → [q58]\n9 Verletzung  → [q60]\nBetroffener Körperteil  → [q61]\nSeite  → [q63]\nlinks  → [q62: Auswahl]\nrechts  → [q62: Auswahl]\nunbestimmt  → [q62: Auswahl]\nArt der Schädigung  → [q64]\n10 Arbeitsunfähigkeit  → [q65]\nArbeit zufolge Unfalles ausgesetzt?  → [q68]\nWenn ja, ab wann?  → [q66]\nJa  → [q67: Auswahl]\nNein  → [q67: Auswahl]\nVoraussichtliche Dauer\nFalls Arbeit wieder aufgenommen: ab wann?  → [q69]\nWiederaufnahme\nlänger als 1 Monat  → [q70: Auswahl]\nganz  → [q71: Auswahl]\nteilweise  → [q71: Auswahl]\n11 Arztadressen  → [q72]\nErstbehandelnder Arzt bzw. Spital/Klinik  → [q73]\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q74]\nErstbehandlung, falls Spital/Klinik  → [q77]\nNachbehandlung, falls Spital/Klinik  → [q78]\nambulant  → [q75: Auswahl]\nstationär  → [q75: Auswahl]\nambulant  → [q76: Auswahl]\nstationär  → [q76: Auswahl]\n12 Lohn\nLohnbestandteil\nCHF pro Stunde  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nCHF pro Monat  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nCHF pro Jahr  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nVertraglicher Grundlohn inkl. Teuerungszulage (brutto)\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nKinder-/Familienzulagen\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nFerien-/Feiertagsentschädigung\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nGratifikation / 13. Monatslohn (und weitere)\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nAndere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage)  → [q80] [q81]\nAnzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)  → [q82]\nBezeichnung der anderen Lohnzulagen  → [q83]\n13 Sonderfälle  → [q84]\nWeitere(r) Arbeitgeber\nWenn ja, Name und Adresse  → [q85]\nSteuern\nNein  → [q86: Auswahl]\nJa  → [q86: Auswahl]\nQuellensteuerpflicht  → [q87: Kästchen]\nBesondere Versicherungsverhältnisse\nFreiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)  → [q88: Kästchen]\nFamilienmitglied / Gesellschafter  → [q89: Kästchen]\nEntsandte/r  → [q90: Kästchen]\n14 Andere Sozialversicherungsleistungen  → [q91]\nAnspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung?  → [q94]\nWenn ja, wo?  → [q92]\nNein  → [q93: Auswahl]\nJa  → [q93: Auswahl]\nName der obligatorischen Krankenversicherung (inkl. Police-Nr.)  → [q95]\nUnterschriften\nOrt und Datum  → [q96]\nUnterschrift des/der Verletzten\nStempel und Unterschrift des Arbeitgebers\nNachgebaut nach dem Vorbild der Helsana-Schadenmeldung UVG – nicht das Original\nSeite 2 / 2\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Welche Seite des Körpers ist betroffen: links, rechts oder unbestimmt?\nB: Wird die Wiederaufnahme der Arbeit länger als einen Monat dauern?\nC: Ist die Person wegen des Unfalls nicht arbeiten können?\nD: Wie heißt die obligatorische Krankenversicherung inklusive Police-Nummer?\nE: Wenn ja, bei welcher anderen Sozialversicherung besteht Anspruch auf Taggeld oder Rente?\nF: Welche anderen Lohnzulagen gibt es, zum Beispiel Akkord, Provision oder Schichtzulage?\nG: Wie hoch ist der Lohn pro Stunde, pro Monat und pro Jahr, inklusive Teuerungszulage?\nH: Ist die Person ein Familienmitglied oder Gesellschafter?\nI: War die Nachbehandlung in einem Spital oder einer Klinik oder ambulant?\nJ: Wenn ja, ab wann kann die Person wieder arbeiten?\nK: Ist die Person freiwillig versichert, zum Beispiel als Arbeitgeber oder Selbständiger?\nL: Sind Steuern zu zahlen?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1303,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-92c69f14-1193-4722-9e85-b46c2a1cc2e0",
+    "object": "chat.completion",
+    "created": 1791538022,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q62\"}, {\"frage\": \"B\", \"kennung\": \"q70\"}, {\"frage\": \"C\", \"kennung\": \"q68\"}, {\"frage\": \"D\", \"kennung\": \"q95\"}, {\"frage\": \"E\", \"kennung\": \"q92\"}, {\"frage\": \"F\", \"kennung\": \"q81\"}, {\"frage\": \"G\", \"kennung\": \"q79\"}, {\"frage\": \"H\", \"kennung\": \"q89\"}, {\"frage\": \"I\", \"kennung\": \"q76\"}, {\"frage\": \"J\", \"kennung\": \"q66\"}, {\"frage\": \"K\", \"kennung\": \"q88\"}, {\"frage\": \"L\", \"kennung\": \"q86\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1482,
+      "total_tokens": 1670,
+      "completion_tokens": 188,
+      "prompt_tokens_details": {
+        "cached_tokens": 1216,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

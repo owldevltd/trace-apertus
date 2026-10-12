@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-07T09:24:58.584Z",
+ "tag": "betreibungsbegehren-form-1-s1.png #37",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 800,
+ "prompt": "Das Bild ist ein Ausschnitt aus einem Dokument, ein einzelnes Element. Beantworte zwei Dinge. bildanteile: Hat das Element Bildanteile (Logo, Foto, Zeichnung, Grafik)? text: der Text im Element, exakt wiedergegeben, ohne Kästchen und Kreise; steht kein Text darin, \"\". Antworte nur als JSON: {\"bildanteile\": true oder false, \"text\": \"...\"}",
+ "image": 5196,
+ "audio": 0,
+ "ms": 236,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-6c5e02f8-8439-48c1-9743-d42f85d9db4a",
+  "object": "chat.completion",
+  "created": 1791365099,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"bildanteile\": false, \"text\": \"Weitere Forderungen\"}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 407,
+   "total_tokens": 424,
+   "completion_tokens": 17,
+   "prompt_tokens_details": {
+    "cached_tokens": 32,
+    "multimodal_tokens": {
+     "image": 252
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

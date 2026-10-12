@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T19:34:35.461Z",
+  "tag": "back arbeitsfaehigkeitszeugnis q35",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 20,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nArbeitsfähigkeitszeugnis\nBeurteilung der Arbeitsfähigkeit und der Reintegration bei Krankheit oder Unfall\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses (Swiss Insurance Medicine, Ausgabe Januar 2019) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.\nVon der Arbeitgeberin / dem Arbeitgeber auszufüllen (evtl. von der Patientin / dem Patienten)\nArbeitnehmerin / Arbeitnehmer\nName / Vorname  → [q1]\nGeb.-Dat.  → [q2]\nGeschlecht\nw  → [q3: Auswahl]\nm  → [q3: Auswahl]\nAdresse / PLZ  → [q4]\nAHV-Nr.  → [q5]\nTelefon  → [q6]\nE-Mail  → [q7]\nArbeitgeberin / Arbeitgeber\nFirmenname  → [q8]\nKontaktperson  → [q9]\nAdresse / PLZ  → [q10]\nTelefon  → [q11]\nE-Mail  → [q12]\nAnstellung\nFunktion / ausgeübter Beruf *  → [q13]\nEintrittsjahr\nStd. / Tag  → [q15]\n[q16]\nArbeitszeit Vollzeit (100 %)  → [q17: Kästchen]\nWochenarbeitszeit / Einsatztage  → [q18]\nTeilzeit  → [q19: Kästchen]\n[q20]\n%\nBei Kündigung: Arbeitsverhältnis gekündigt per  → [q21]\nVon der Ärztin / dem Arzt auszufüllen\nUrsache\nKrankheit  → [q22: Auswahl]\nUnfall  → [q22: Auswahl]\nBerufskrankheit  → [q22: Auswahl]\nVolle Arbeitsunfähigkeit\nBasierend auf *\nREP vom  → [q23]\nArbeitsplatzbeschrieb vom  → [q24]\nREP  → [q25: Auswahl]\nArbeitsplatzbeschrieb  → [q25: Auswahl]\nKonsultationsdatum  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nArbeitsunfähigkeit\nbis  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nnächste Konsultation  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nVisum  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nvon  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\n[q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\n[q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\nEs liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor\nja  → [q27: Auswahl]\nnein  → [q27: Auswahl]\nTeilarbeitsfähigkeit / Reintegration (Beurteilung für den Reintegrationsprozess)\nBasierend auf REP  → [q28: Auswahl]\n*  → [q28: Auswahl]\nREP vom  → [q29]\nArbeitsplatzbeschrieb vom  → [q30]\nArbeitsplatzbeschrieb\nKonsultationsdatum\nPräsenzzeit Std. pro Tag  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nPräsenzzeit % Pensum  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nLeistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nArbeits- fähigkeit gesamt %  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nbis\nnächste\nVisum\nvon\nKonsultation  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\n[q31: Tabelle mit 4 Zeilen und 9 Spalten]\nWiederaufnahme der Arbeit zu 100 % ab  → [q32]\nBemerkungen und Unterschrift\nBemerkungen  → [q33]\nArzt / Ärztin (Name, Stempel)  → [q34]\nKontakt mit Arbeitgeberin / Arbeitgeber erwünscht\nja  → [q35: Auswahl]\nnein  → [q35: Auswahl]\nDatum  → [q36]\nUnterschrift\n* Bitte beifügen: Arbeitsplatzbeschrieb / Stellenprofil oder REP (Ressourcenorientiertes Eingliederungsprofil).\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses – nicht das Original\nSeite 1 / 1\n-----\n\nEs geht um die Stelle [q35]. Welche der folgenden Angaben wird genau an dieser Stelle eingetragen?\nA: Arbeitnehmerin / Arbeitnehmer: Name / Vorname – Vollständiger Name der versicherten Person\nB: Funktion / ausgeübter Beruf * – Ausgeübter Beruf bzw. Funktion; Massstab der Beurteilung ist die Arbeit im bisherigen Beruf oder Aufgabenbereich\nC: Ursache – Krankheit, Unfall oder Berufskrankheit ankreuzen; die Ursache entscheidet über den zuständigen Versicherer\nD: Arbeitsunfähigkeit: von / bis – Beginn und Ende der vollen Arbeitsunfähigkeit (Datum von – bis)\nE: Datum – Datum der Ausstellung des Zeugnisses\nF: Arzt / Ärztin (Name, Stempel) – Name des ausstellenden Arztes und Stempel\nG: Unterschrift – Unterschrift des Arztes\n\nAntworte nur mit dem Buchstaben. Passt keine der Angaben zu dieser Stelle, antworte mit dem Wort KEINE.",
+  "image": 0,
+  "audio": 0,
+  "ms": 161,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-cb77f809-7e1d-457a-93b1-c7c2ebdb8022",
+    "object": "chat.completion",
+    "created": 1791574476,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "C",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1516,
+      "total_tokens": 1518,
+      "completion_tokens": 2,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

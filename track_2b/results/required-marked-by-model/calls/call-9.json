@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T19:43:17.224Z",
+  "tag": "required 8B arbeitsfaehigkeitszeugnis",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 434,
+  "prompt": "Hier ist der Text eines Schweizer Formulars und darunter der Katalog seiner Angaben mit den Vorgaben.\n\nFormulartext:\nArbeitsfähigkeitszeugnis\nBeurteilung der Arbeitsfähigkeit und der Reintegration bei Krankheit oder Unfall\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses (Swiss Insurance Medicine, Ausgabe Januar 2019) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.\nVon der Arbeitgeberin / dem Arbeitgeber auszufüllen (evtl. von der Patientin / dem Patienten)\nArbeitnehmerin / Arbeitnehmer\nName / Vorname\nGeb.-Dat.\nGeschlecht\nw\nm\nAdresse / PLZ\nAHV-Nr.\nTelefon\nE-Mail\nArbeitgeberin / Arbeitgeber\nFirmenname\nKontaktperson\nAdresse / PLZ\nTelefon\nE-Mail\nAnstellung\nFunktion / ausgeübter Beruf *\nEintrittsjahr\nStd. / Tag\nArbeitszeit Vollzeit (100 %)\nWochenarbeitszeit / Einsatztage\nTeilzeit\n%\nBei Kündigung: Arbeitsverhältnis gekündigt per\nVon der Ärztin / dem Arzt auszufüllen\nUrsache\nKrankheit\nUnfall\nBerufskrankheit\nVolle Arbeitsunfähigkeit\nBasierend auf *\nREP vom\nArbeitsplatzbeschrieb vom\nREP\nArbeitsplatzbeschrieb\nKonsultationsdatum\nArbeitsunfähigkeit\nbis\nnächste Konsultation\nVisum\nvon\n100 %\n100 %\n100 %\nEs liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor\nja\nnein\nTeilarbeitsfähigkeit / Reintegration (Beurteilung für den Reintegrationsprozess)\nBasierend auf REP\n*\nREP vom\nArbeitsplatzbeschrieb vom\nArbeitsplatzbeschrieb\nKonsultationsdatum\nPräsenzzeit Std. pro Tag\nPräsenzzeit % Pensum\nLeistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %\nArbeits- fähigkeit gesamt %\nbis\nnächste\nVisum\nvon\nKonsultation\nWiederaufnahme der Arbeit zu 100 % ab\nBemerkungen und Unterschrift\nBemerkungen\nArzt / Ärztin (Name, Stempel)\nKontakt mit Arbeitgeberin / Arbeitgeber erwünscht\nja\nnein\nDatum\nUnterschrift\n* Bitte beifügen: Arbeitsplatzbeschrieb / Stellenprofil oder REP (Ressourcenorientiertes Eingliederungsprofil).\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses – nicht das Original\nSeite 1 / 1\n\nKatalog:\n1: Arbeitnehmerin / Arbeitnehmer: Name / Vorname – Vollständiger Name der versicherten Person\n2: Arbeitnehmerin / Arbeitnehmer: Geb.-Dat. – Geburtsdatum im Format TT.MM.JJJJ\n3: Arbeitnehmerin / Arbeitnehmer: Geschlecht – Angabe 'w' für weiblich oder 'm' für männlich\n4: Arbeitnehmerin / Arbeitnehmer: Adresse / PLZ – Vollständige Wohnadresse inklusive Postleitzahl\n5: Arbeitnehmerin / Arbeitnehmer: AHV-Nr. – AHV-Versichertennummer der Person (13-stellig, 756.…) (AHVG Art. 50c Abs. 1)\n6: Arbeitgeberin / Arbeitgeber: Firmenname – Name des Arbeitgebers\n7: Arbeitgeberin / Arbeitgeber: Kontaktperson – Name der Ansprechperson beim Arbeitgeber\n8: Arbeitgeberin / Arbeitgeber: Adresse / PLZ – Vollständige Geschäftsadresse inklusive Postleitzahl\n9: Arbeitgeberin / Arbeitgeber: Telefon – Kontakttelefonnummer des Arbeitgebers\n10: Arbeitgeberin / Arbeitgeber: E-Mail – E-Mail-Adresse des Arbeitgebers\n11: Eintrittsjahr – Jahr des Eintritts beim Arbeitgeber; das Dienstjahr bestimmt die Sperrfrist bei Krankheit oder Unfall (OR Art. 336c Abs. 1 Bst. b)\n12: Std. / Tag – Anzahl Stunden pro Arbeitstag\n13: Bei Kündigung: Arbeitsverhältnis gekündigt per – Datum, auf das das Arbeitsverhältnis gekündigt ist, falls gekündigt; die Arbeitsunfähigkeit kann die Kündigungsfrist unterbrechen (OR Art. 336c Abs. 2)\n14: Funktion / ausgeübter Beruf * – Ausgeübter Beruf bzw. Funktion; Massstab der Beurteilung ist die Arbeit im bisherigen Beruf oder Aufgabenbereich (ATSG Art. 6)\n15: Arbeitszeit: Wochenarbeitszeit / Einsatztage – Wochenstunden und Einsatztage pro Woche (UVG Art. 17 Abs. 1)\n16: Arbeitszeit: Vollzeit (100 %) / Teilzeit – Angabe ob Vollzeit oder Teilzeit mit Prozentangabe (UVG Art. 17 Abs. 1)\n17: Ursache – Krankheit, Unfall oder Berufskrankheit ankreuzen; die Ursache entscheidet über den zuständigen Versicherer (ATSG Art. 3 Abs. 1, ATSG Art. 4, UVG Art. 9 Abs. 1)\n18: Volle Arbeitsunfähigkeit – Angabe ob eine volle Arbeitsunfähigkeit vorliegt (ATSG Art. 6, UVG Art. 16 Abs. 1)\n19: Basierend auf * – Ankreuzen, ob die Beurteilung auf dem REP oder auf dem Arbeitsplatzbeschrieb beruht\n20: REP vom – Datum des Ressourcenorientierten Eingliederungsprofils (falls REP ausgewählt)\n21: Arbeitsplatzbeschrieb vom – Datum des beigefügten Arbeitsplatzbeschriebs (falls verwendet)\n22: Konsultationsdatum – Datum der ärztlichen Konsultation (ATSG Art. 43 Abs. 2)\n23: Arbeitsunfähigkeit: von / bis – Beginn und Ende der vollen Arbeitsunfähigkeit (Datum von – bis) (ATSG Art. 6, OR Art. 324a Abs. 1, UVG Art. 16 Abs. 2)\n24: nächste Konsultation – Datum der nächsten ärztlichen Nachkontrolle (ATSG Art. 43 Abs. 2)\n25: Arbeitsunfähigkeit 100 % / Visum – In dieser Tabelle gilt volle Arbeitsunfähigkeit (100 %); Visum der Ärztin / des Arztes je Zeile (UVG Art. 17 Abs. 1, KVG Art. 72 Abs. 2)\n26: Es liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor – Ja/Nein-Angabe zur arbeitsplatzbezogenen Einschränkung\n27: Teilarbeitsfähigkeit / Reintegration: Präsenzzeit Std. pro Tag – Stundenanzahl pro Tag bei eingeschränkter Arbeitsfähigkeit (ATSG Art. 6, IVG Art. 7 Abs. 1)\n28: Teilarbeitsfähigkeit / Reintegration: Präsenzzeit % Pensum – Prozentuale Arbeitszeit bei eingeschränkter Arbeitsfähigkeit (ATSG Art. 6, IVG Art. 7 Abs. 1)\n29: Teilarbeitsfähigkeit / Reintegration: Leistungsfähigkeit in der Präsenzzeit – Auswahl aus '25 / 50 / 75 / 100 %' (ATSG Art. 6)\n30: Teilarbeitsfähigkeit / Reintegration: Arbeitsfähigkeit gesamt % – Gesamtprozentuale Arbeitsfähigkeit (ATSG Art. 6, UVG Art. 17 Abs. 1, KVG Art. 72 Abs. 2 und 4)\n31: Teilarbeitsfähigkeit / Reintegration: von / bis – Gültigkeitszeitraum der teilweisen Arbeitsfähigkeit (Datum von – Datum bis) (OR Art. 324a Abs. 1, UVG Art. 16 Abs. 2)\n32: Teilarbeitsfähigkeit / Reintegration: nächste Konsultation – Datum der nächsten Nachkontrolle für Reintegration (ATSG Art. 43 Abs. 2)\n33: Teilarbeitsfähigkeit / Reintegration: Visum – Visum der Ärztin / des Arztes je Zeile\n34: Wiederaufnahme der Arbeit zu 100 % ab – Datum der geplanten vollständigen Wiederaufnahme der Arbeit (IVG Art. 7 Abs. 2)\n35: Bemerkungen – Hinweise für den Arbeitsplatz (Einschränkungen, Hilfsmittel); keine Diagnose, das Zeugnis geht an den Arbeitgeber (OR Art. 328b)\n36: Kontakt mit Arbeitgeberin / Arbeitgeber erwünscht – Ja/Nein-Angabe zur gewünschten Kommunikation\n37: Datum – Datum der Ausstellung des Zeugnisses\n38: Arzt / Ärztin (Name, Stempel) – Name des ausstellenden Arztes und Stempel (ATSG Art. 28 Abs. 3)\n39: Unterschrift – Unterschrift des Arztes\n\nWelche Angaben des Katalogs sind Pflicht? Pflicht ist eine Angabe nur, wenn das Gesetz sie verlangt oder das Formular ohne sie seinen Zweck nicht erfüllt; was nur in bestimmten Fällen gilt oder die entgegennehmende Stelle ausfüllt, ist keine Pflicht. Nenne nur diese.\nAntworte nur als JSON, ohne weiteren Text: {\"pflicht\": [1, 4]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 274,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-fc203567-8582-40f0-8bc0-bfd2a5c8bc4c",
+    "object": "chat.completion",
+    "created": 1791574998,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"pflicht\": [1, 4]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 2214,
+      "total_tokens": 2224,
+      "completion_tokens": 10,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

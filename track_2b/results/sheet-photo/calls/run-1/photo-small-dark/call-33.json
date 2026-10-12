@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T20:32:56.219Z",
+ "tag": "check run 1 page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 500,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nAustriftsmeldung\nVersicherte Person\nNachname  → [q1]\nVorname  → [q2]\nGeburtsdatum  → [q3]\nNationalität  → [q4]\nVersicherten-Nr.  → [q5]\nAufenthaltsbewilligung  → [q6]\n[q7]\nStrasse/Nr.  → [q8]\nPLZ  → [q9]\nOrt  → [q10]\nTelefon  → [q11]\nE-Mail  → [q12]\nGeschichte\nmännlich  → [q13: Auswahl]\nweiblich  → [q13: Auswahl]\nDen in der Schweiz oder im Fürstentum Liechtenstein wohnhaften Versicherten steht innerhalb von 90 Tagen nach dem Austritt aus der Firma das Recht zu, in die Einzelfversicherung überzutreten.\nErklärung der versicherten Person Ich werde/bin aus der Firma austreten/ausgetreten.  → [q14: Kästchen]\nAustrttsdatum  → [q15]\nIch bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte.  → [q16: Kästchen]\nIch verzichte auf mein Recht, die betreffende Versicherung weiterzuführen.  → [q17: Kästchen]\nUnterschrift\nUnterschrift\nMit der Unterschrift wird die Richtigkeit der gemachten Angaben bestätigt.\nNachgebaut nach dem Vorbild der SWICA-Ausrüstung – nicht das Original\nSeite 1 / 1\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Verzichtet die versicherte Person auf ihr Recht, die betreffende Versicherung weiterzuführen?\nB: Welche Versicherten-Nummer hat die Person?\nC: Wird die versicherte Person aus der Firma austreten oder ist sie bereits ausgetreten?\nD: Wann tritt die versicherte Person aus der Firma aus?\nE: Interessiert sich die versicherte Person für eine Weiterführung der Versicherung und möchte eine unverbindliche Offerte?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 655,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-4659f6b1-7436-4e6d-bcde-ab03802f25d8",
+  "object": "chat.completion",
+  "created": 1791750779,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q17\"}, {\"frage\": \"B\", \"kennung\": \"q5\"}, {\"frage\": \"C\", \"kennung\": \"q14\"}, {\"frage\": \"D\", \"kennung\": \"q15\"}, {\"frage\": \"E\", \"kennung\": \"q16\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 707,
+   "total_tokens": 789,
+   "completion_tokens": 82,
+   "prompt_tokens_details": {
+    "cached_tokens": 544,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

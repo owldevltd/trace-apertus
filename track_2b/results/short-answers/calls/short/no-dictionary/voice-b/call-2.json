@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-11T21:43:07.105Z",
+ "tag": "C voice-b #2",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1500,
+ "prompt": "Transkribiere die Aufnahme wortwörtlich. Ausgangssprache ist Deutsch, bitte gib Deutsch zurück.",
+ "image": 0,
+ "audio": 11277,
+ "ms": 153,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-eade1bda-8b9b-46d8-8c3f-571d9d8f4c67",
+  "object": "chat.completion",
+  "created": 1791754990,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Hallo.",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 140,
+   "total_tokens": 144,
+   "completion_tokens": 4,
+   "prompt_tokens_details": {
+    "cached_tokens": 128,
+    "multimodal_tokens": {
+     "audio": 54
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

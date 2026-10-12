@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:40:26.949Z",
+  "tag": "umgeschrieben-paeckchen schadenmeldung-uvg q85",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Schadenmeldung UVG\", jede mit ihrer Kennung:\n\nq85: Wenn ja, wie lautet der Name und die Adresse?\nq86: Gibt es keine besonderen Versicherungsverhältnisse?\nq87: Besteht eine Quellensteuerpflicht?\nq88: Besteht eine freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)?\nq89: Besteht eine freiwillige Versicherung (Familienmitglied / Gesellschafter)?\nq90: Besteht eine freiwillige Versicherung (Entsandte/r)?\nq91: Gibt es Ansprüche auf Taggeld oder Rente bei einer anderen Sozialversicherung?\nq92: Wenn ja, wo gibt es Ansprüche?\nq93: Gibt es keine Ansprüche auf Taggeld oder Rente bei einer anderen Sozialversicherung?\nq94: Besteht ein Anspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung?\nq95: Wie lautet der Name der obligatorischen Krankenversicherung inklusive Police-Nummer?\nq96: Wie lautet der Ort und das Datum der Unterschrift?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3409,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-9be8cc23-6128-4248-bf47-5fbc8e20bd66",
+    "object": "chat.completion",
+    "created": 1791531627,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q85\", \"frage\": \"Wenn ja, wie heißt die Person und wo wohnt sie?\"}, {\"kennung\": \"q86\", \"frage\": \"Gibt es besondere Versicherungsverhältnisse?\"}, {\"kennung\": \"q87\", \"frage\": \"Besteht eine Quellensteuerpflicht?\"}, {\"kennung\": \"q88\", \"frage\": \"Besteht eine freiwillige Versicherung vom Arbeitgeber oder als Selbständiger?\"}, {\"kennung\": \"q89\", \"frage\": \"Besteht eine freiwillige Versicherung für ein Familienmitglied oder einen Gesellschafter?\"}, {\"kennung\": \"q90\", \"frage\": \"Besteht eine freiwillige Versicherung für eine entsandte Person?\"}, {\"kennung\": \"q91\", \"frage\": \"Gibt es Ansprüche auf Taggeld oder Rente bei einer anderen Sozialversicherung?\"}, {\"kennung\": \"q92\", \"frage\": \"Wo gibt es Ansprüche auf Taggeld oder Rente bei einer anderen Sozialversicherung?\"}, {\"kennung\": \"q93\", \"frage\": \"Gibt es keine Ansprüche auf Taggeld oder Rente bei einer anderen Sozialversicherung?\"}, {\"kennung\": \"q94\", \"frage\": \"Besteht ein Anspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung?\"}, {\"kennung\": \"q95\", \"frage\": \"Wie heißt die obligatorische Krankenversicherung inklusive der Police-Nummer?\"}, {\"kennung\": \"q96\", \"frage\": \"Wo und wann hat die Person unterschrieben?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 468,
+      "total_tokens": 823,
+      "completion_tokens": 355,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

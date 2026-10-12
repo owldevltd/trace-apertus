@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:56:39.794Z",
+  "tag": "fragen zwölf it betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Jemand führt ein Gespräch und stellt diese Fragen auf Deutsch. Übersetze jede Frage ins Italienisch, für ein Gegenüber, das Italienisch spricht: dieselbe Frage in einfachen Worten, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n1: Um welches Betreibungsamt handelt es sich?\n2: Wie heisst der Schuldner und wo wohnt er?\n3: Wann ist das Geburtsdatum des Schuldners?\n4: Wie heisst der Gläubiger und wo ist er ansässig?\n5: Welche Zahlungsverbindung wählt der Gläubiger?\n6: Welche IBAN wird angegeben?\n7: Wer vertritt den Gläubiger?\n8: Wie kann man bei Rückfragen telefonisch oder per E-Mail erreichen?\n9: Welchen Forderungsgrund oder welche Urkunde mit Datum liegt vor?\n10: Wie hoch ist der Betrag der Forderung in Schweizer Franken?\n11: Welcher Zinssatz wird verlangt?\n12: Seit welchem Datum wird Zins verlangt?\n\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"nummer\": 1, \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1792,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-190b362f-8e03-40a3-b630-fabc549facbb",
+    "object": "chat.completion",
+    "created": 1791554200,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"nummer\": 1, \"frage\": \"Di quale Ufficio di esecuzione si tratta?\"}, {\"nummer\": 2, \"frage\": \"Come si chiama il debitore e dove risiede?\"}, {\"nummer\": 3, \"frage\": \"Quando è il giorno di nascita del debitore?\"}, {\"nummer\": 4, \"frage\": \"Come si chiama il creditore e dove è domiciliato?\"}, {\"nummer\": 5, \"frage\": \"Quale collegamento di pagamento sceglie il creditore?\"}, {\"nummer\": 6, \"frage\": \"Quale IBAN viene indicato?\"}, {\"nummer\": 7, \"frage\": \"Chi rappresenta il creditore?\"}, {\"nummer\": 8, \"frage\": \"Come si può contattare per domande telefoniche o per e-mail?\"}, {\"nummer\": 9, \"frage\": \"Qual è il motivo della richiesta o quale documento con data è presente?\"}, {\"nummer\": 10, \"frage\": \"Qual è l'importo della richiesta in franchi svizzeri?\"}, {\"nummer\": 11, \"frage\": \"Qual è il tasso di interesse richiesto?\"}, {\"nummer\": 12, \"frage\": \"Da quando viene richiesto l'interesse?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 310,
+      "total_tokens": 592,
+      "completion_tokens": 282,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

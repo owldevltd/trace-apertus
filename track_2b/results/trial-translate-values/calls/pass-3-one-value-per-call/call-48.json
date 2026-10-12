@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:46:23.544Z",
+  "tag": "einzeln it suva-bagatellunfall tag",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 200,
+  "prompt": "Übersetze die Angabe unten vom Italienisch ins Deutsche. Sie steht in einem Formular bei «Tag». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der deutschen Angabe, ohne weiteren Text.\n\nAngabe: 05",
+  "image": 0,
+  "audio": 0,
+  "ms": 160,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-df41ead6-c119-47df-97b2-5607ab8a406f",
+    "object": "chat.completion",
+    "created": 1791553584,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "05",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 124,
+      "total_tokens": 127,
+      "completion_tokens": 3,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

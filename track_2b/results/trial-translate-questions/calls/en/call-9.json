@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:57:58.771Z",
+  "tag": "fragen zwölf en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Jemand führt ein Gespräch und stellt diese Fragen auf Deutsch. Übersetze jede Frage ins Englisch, für ein Gegenüber, das Englisch spricht: dieselbe Frage in einfachen Worten, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n1: Wie heisst der Arbeitgeber und wo befindet er sich mit Postleitzahl?\n2: Welche Telefonnummer hat der Arbeitgeber?\n3: Welche Kunden-Nummer hat der Arbeitgeber?\n4: In welchem Bereich arbeitet die verletzte Person im Betrieb?\n5: Wie heissen die verletzte Person?\n6: Wann ist die verletzte Person geboren?\n7: Welche AHV-Nummer hat die verletzte Person?\n8: Welche Strasse hat die verletzte Person?\n9: Welche Staatsangehörigkeit hat die verletzte Person?\n10: Welcher Zivilstand ist bei der verletzten Person?\n11: Wann hat die verletzte Person angefangen bei diesem Arbeitgeber zu arbeiten?\n12: Welchen Beruf übt die verletzte Person aus?\n\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"nummer\": 1, \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1691,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-40856b56-e6e3-43a1-810a-6e6ffd2d3d3f",
+    "object": "chat.completion",
+    "created": 1791554279,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"nummer\": 1, \"frage\": \"What is the name of the employer and where is it located with the postal code?\"}, {\"nummer\": 2, \"frage\": \"What is the telephone number of the employer?\"}, {\"nummer\": 3, \"frage\": \"What is the customer number of the employer?\"}, {\"nummer\": 4, \"frage\": \"In which area does the injured person work in the company?\"}, {\"nummer\": 5, \"frage\": \"What is the name of the injured person?\"}, {\"nummer\": 6, \"frage\": \"When was the injured person born?\"}, {\"nummer\": 7, \"frage\": \"What is the AHV number of the injured person?\"}, {\"nummer\": 8, \"frage\": \"What street does the injured person live on?\"}, {\"nummer\": 9, \"frage\": \"What nationality does the injured person have?\"}, {\"nummer\": 10, \"frage\": \"What is the marital status of the injured person?\"}, {\"nummer\": 11, \"frage\": \"When did the injured person start working at this employer?\"}, {\"nummer\": 12, \"frage\": \"What profession does the injured person practice?\"]}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 315,
+      "total_tokens": 578,
+      "completion_tokens": 263,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

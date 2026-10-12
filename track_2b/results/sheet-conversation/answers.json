@@ -1,0 +1,167 @@
+[
+ {
+  "form_field": "Nachname",
+  "said": "Keller",
+  "expected": {
+   "Nachname": [
+    "Keller"
+   ]
+  }
+ },
+ {
+  "form_field": "Vorname",
+  "said": "Anna",
+  "expected": {
+   "Vorname": [
+    "Anna"
+   ]
+  }
+ },
+ {
+  "form_field": "Geburtsdatum",
+  "said": "Am vierzehnten März neunzehnhundertachtundachtzig",
+  "expected": {
+   "Geburtsdatum": [
+    "14.03.1988"
+   ]
+  }
+ },
+ {
+  "form_field": "Nationalität",
+  "said": "Schweiz",
+  "expected": {
+   "Nationalität": [
+    "Schweiz"
+   ]
+  }
+ },
+ {
+  "form_field": "Versichertennummer",
+  "said": "",
+  "expected": {
+   "Versichertennummer": [
+    ""
+   ]
+  }
+ },
+ {
+  "form_field": "Aufenthaltsbewilligung",
+  "said": "",
+  "expected": {
+   "Aufenthaltsbewilligung": [
+    ""
+   ]
+  }
+ },
+ {
+  "form_field": "Beruf",
+  "said": "Buchhalterin",
+  "expected": {
+   "Beruf": [
+    "Buchhalterin"
+   ]
+  }
+ },
+ {
+  "form_field": "Strasse Nummer",
+  "said": "Bahnhofstrasse zwölf",
+  "expected": {
+   "Strasse Nummer": [
+    "Bahnhofstrasse 12"
+   ]
+  }
+ },
+ {
+  "form_field": "PLZ",
+  "said": "acht vier null null",
+  "expected": {
+   "PLZ": [
+    "8400"
+   ]
+  }
+ },
+ {
+  "form_field": "Ort",
+  "said": "Winterthur",
+  "expected": {
+   "Ort": [
+    "Winterthur"
+   ]
+  }
+ },
+ {
+  "form_field": "Telefon",
+  "said": "null sieben neun, vier eins zwei, drei sechs, acht fünf",
+  "expected": {
+   "Telefon": [
+    "079 412 36 85"
+   ]
+  }
+ },
+ {
+  "form_field": "E-Mail",
+  "said": "",
+  "expected": {
+   "E-Mail": [
+    ""
+   ]
+  }
+ },
+ {
+  "form_field": "Geschlecht",
+  "said": "weiblich",
+  "expected": {
+   "Geschlecht männlich": [
+    ""
+   ],
+   "Geschlecht weiblich": [
+    "x"
+   ]
+  }
+ },
+ {
+  "form_field": "Austritt aus der Firma",
+  "said": "Ja",
+  "expected": {
+   "Austritt aus der Firma": [
+    "x"
+   ]
+  }
+ },
+ {
+  "form_field": "Austrittsdatum",
+  "said": "Per einunddreissigsten Dezember zweitausendsechsundzwanzig",
+  "expected": {
+   "Austrittsdatum": [
+    "31.12.2026"
+   ]
+  }
+ },
+ {
+  "form_field": "Offerte gewünscht",
+  "said": "Ja, gerne",
+  "expected": {
+   "Offerte gewünscht": [
+    "x"
+   ]
+  }
+ },
+ {
+  "form_field": "Verzicht",
+  "said": "Nein",
+  "expected": {
+   "Verzicht": [
+    ""
+   ]
+  }
+ },
+ {
+  "form_field": "Datum",
+  "said": "Am elften Oktober zweitausendsechsundzwanzig",
+  "expected": {
+   "Datum": [
+    "11.10.2026"
+   ]
+  }
+ }
+]

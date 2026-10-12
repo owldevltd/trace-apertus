@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:19:00.658Z",
+  "tag": "interview d-8b-whole schadenmeldung-uvg",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Du gibst in einem Gespräch Auskunft. Du kennst genau diese Angaben, jede hat einen Kennwert:\n- K101: Staatsangehörigkeit Bewilligung\n- K102: Verhältnis befristeter Arbeitsvertrag\n- K103: Unfallbeschreibung\n- K104: Gekündigt per\n- K105: Unfallprotokoll\n- K106: Schadendatum Jahr\n- K107: Wohnort\n- K108: Geburtsdatum\n- K109: Telefon Verletzte\n- K110: Stellung Lehrling\n- K111: Meldung Berufskrankheit\n- K112: Zivilstand\n- K113: Police UVG\n- K114: Stellung Höheres Kader\n- K115: Stellung Praktikant/in\n- K116: Beteiligte Personen\n- K117: Arbeitgeber\n- K118: Beruf\n- K119: PLZ\n- K120: Arbeitseinsatz Kurzarbeit\n- K121: Schaden-Nummer\n- K122: Meldung Zahnschaden\n- K123: Datum der Anstellung\n- K124: Verhältnis Arbeitsverhältnis gekündigt per\n- K125: Arbeitseinsatz Zwischenverdienst\n- K126: Stellung Angestellte/r / Mitarbeiter/in\n- K127: E-Mail Arbeitgeber\n- K128: E-Mail Verletzte\n- K129: Schadendatum Monat\n- K130: AHV-Nummer\n- K131: Beschäftigungsgrad Prozent\n- K132: Meldung Unfall\n- K133: Strasse\n- K134: Schadendatum Zeit\n- K135: Name Vorname\n- K136: Arbeitszeit Std\n- K137: Polizeirapport aufgenommen durch\n- K138: Verhältnis unbefristeter Arbeitsvertrag\n- K139: Schadendatum Tag\n- K140: Stellung Mittleres Kader\n- K141: Telefon Arbeitgeber\n- K142: Police UVG-Zusatz\n- K143: Vollarbeitszeit Std\n- K144: Polizeirapport\n- K145: Arbeitsplatz Betriebszweig\n- K146: Unfallort\n- K147: Meldung Rückfall\n- K148: Land\n- K149: Arbeitseinsatz unregelmässig\n\nDir werden diese Fragen gestellt:\nA: Wurde ein Unfall gemeldet?\nB: Wo genau ist der Unfall passiert (Ort und Stelle)?\nC: Wie viele Stunden sind die betriebsübliche Vollzeit pro Woche?\nD: Welche Postleitzahl hat der Wohnort der verletzten Person?\nE: Ist der Arbeitsvertrag unbefristet?\nF: Welche Staatsangehörigkeit oder Bewilligung hat die verletzte Person?\nG: Wo wohnt die verletzte Person?\nH: Welche Police-Nummer für die UVG-Zusatzversicherung wird angegeben?\nI: Ist die verletzte Person Teil des höheren Kaders?\nJ: Wie heißen die verletzten Personen?\nK: Welche Schadenummer wird angegeben?\nL: Wurde ein Polizeirapport erstellt? Wenn ja, wurde er aufgenommen?\n\nNenne zu jeder Frage den Kennwert der einen Angabe, nach der gefragt wird. Passt keine Angabe, schreibe \"-\". Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K101\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1386,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-75b4f9ed-6ea6-4785-8c14-5bd0772a8b52",
+    "object": "chat.completion",
+    "created": 1791537541,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K101\"}, {\"frage\": \"B\", \"kennwert\": \"K146\"}, {\"frage\": \"C\", \"kennwert\": \"K143\"}, {\"frage\": \"D\", \"kennwert\": \"K117\"}, {\"frage\": \"E\", \"kennwert\": \"K138\"}, {\"frage\": \"F\", \"kennwert\": \"K101\"}, {\"frage\": \"G\", \"kennwert\": \"K107\"}, {\"frage\": \"H\", \"kennwert\": \"K142\"}, {\"frage\": \"I\", \"kennwert\": \"K114\"}, {\"frage\": \"J\", \"kennwert\": \"K135\"}, {\"frage\": \"K\", \"kennwert\": \"K121\"}, {\"frage\": \"L\", \"kennwert\": \"K148, K137\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 894,
+      "total_tokens": 1110,
+      "completion_tokens": 216,
+      "prompt_tokens_details": {
+        "cached_tokens": 640,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

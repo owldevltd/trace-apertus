@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:40:19.690Z",
+  "tag": "umgeschrieben-paeckchen schadenmeldung-uvg q73",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Schadenmeldung UVG\", jede mit ihrer Kennung:\n\nq73: Wie lautet die Adresse des Nachbehandlers bzw. des Spitals/Klinik?\nq74: Wie lautet die Adresse des Nachbehandlers bzw. des Spitals/Klinik?\nq75: War die Erstbehandlung ambulant oder stationär?\nq76: War die Nachbehandlung ambulant oder stationär?\nq77: War die Erstbehandlung ambulant oder stationär, falls Spital/Klinik?\nq78: War die Nachbehandlung ambulant oder stationär, falls Spital/Klinik?\nq79: Wie hoch ist der Lohn pro Stunde, pro Monat oder pro Jahr?\nq80: Welche anderen Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage) werden angegeben?\nq81: Welche anderen Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage) werden angegeben?\nq82: Wie viele Kinder hat der Verletzte (bis 18 Jahre, in Ausbildung bis 25 Jahre)?\nq83: Welche Bezeichnung der anderen Lohnzulagen wird angegeben?\nq84: Gibt es besondere Versicherungsverhältnisse?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 5256,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-f291c13e-08fe-4ca6-a3be-7e3175d34263",
+    "object": "chat.completion",
+    "created": 1791531620,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q73\", \"frage\": \"Wie lautet die Adresse des Arztes oder des Krankenhauses, wo die Behandlung stattgefunden hat?\"}, {\"kennung\": \"q74\", \"frage\": \"Wie lautet die Adresse des Arztes oder des Krankenhauses, wo die Behandlung stattgefunden hat?\"}, {\"kennung\": \"q75\", \"frage\": \"War die erste Behandlung beim Arzt oder im Krankenhaus ambulant oder stationär?\"}, {\"kennung\": \"q76\", \"frage\": \"War die Nachbehandlung beim Arzt oder im Krankenhaus ambulant oder stationär?\"}, {\"kennung\": \"q77\", \"frage\": \"War die erste Behandlung beim Arzt oder im Krankenhaus ambulant oder stationär?\"}, {\"kennung\": \"q78\", \"frage\": \"War die Nachbehandlung beim Arzt oder im Krankenhaus ambulant oder stationär?\"}, {\"kennung\": \"q79\", \"frage\": \"Wie hoch ist der Lohn pro Stunde, pro Monat oder pro Jahr?\"}, {\"kennung\": \"q80\", \"frage\": \"Welche anderen Lohnzulagen wie Akkord, Provision, Naturallohn oder Schichtzulage werden gezahlt?\"}, {\"kennung\": \"q81\", \"frage\": \"Welche anderen Lohnzulagen wie Akkord, Provision, Naturallohn oder Schichtzulage werden gezahlt?\"}, {\"kennung\": \"q82\", \"frage\": \"Wie viele Kinder hat die betroffene Person, bis zu 18 oder 25 Jahren?\"}, {\"kennung\": \"q83\", \"frage\": \"Welche Bezeichnung für andere Lohnzulagen wird angegeben?\"}, {\"kennung\": \"q84\", \"frage\": \"Gibt es besondere Versicherungsverhältnisse?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 503,
+      "total_tokens": 897,
+      "completion_tokens": 394,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

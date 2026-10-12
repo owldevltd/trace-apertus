@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:57:43.107Z",
+  "tag": "zurück einfach betreibungsbegehren S1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht eine Seite eines Schweizer Formulars als Text, ungefähr so angeordnet wie auf dem Papier. Jede Stelle, die ausgefüllt wird, trägt die Kennung ihrer Frage in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 1 =====\n        Betreibungsbegehren                             Bitte in Blockschrift ausfüllen und Hinweise auf der\n                                                        Rückseite beachten\n                                                       [q1] ____            Durch das Amt       [q2] ____\n                                                                            auszufüllen\n\n                                                        Eingang  [q3] ____        Betreibung    [q4] ____\n                                                                                  Nr.\n\n        Schuldner (Name und Vorname bzw. Firma;                  Adresse des\n        Adresse; PLZ Ort)                                        Betreibungsamtes\n       [q9] ____  [q11] ____  Geburtsdatum                       [q10] ____\n        (falls bekannt)\n        Gläubiger (Name und Vorname bzw. Firma;\n        Adresse; PLZ Ort)\n\n       [q12] ____                                       Zahlungsverbindung   des Gläubigers  [q5] [ ]  [q5] [ ]\n                                                                             des Vertreters\n        vertreten durch (Name und Vorname              [q6] ____  IBAN\n        bzw. Firma; Adresse; PLZ Ort)\n       [q13] ____                                       Für  Telefon oder  [q14] ____\n                                                        Rückfragen  E-Mail\n\n       Forderungsgrund oder Forderungsurkunde mit                              Betrag (CHF)    Zins % seit\n       Datum                                                                                   (Datum)\n       [q7] ____\n       Weitere\n       Forderungen\n       [q8] ____                                                                              [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                              [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n\n        Bemerkungen                                           Ihre Fallreferenz (falls\n                                                              vorhanden)\n       [q15] ____                                             [q16] ____  Datum und\n                                                              Unterschrift\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Wer vertritt den Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)?\nB: Welche Nummer hat die Betreibung?\nC: Wann wurde das Formular beim Amt eingegangen?\nD: Welche weiteren Forderungen haben Sie? Bitte geben Sie bis zu neun Zeilen an, jede Zeile enthält Betrag, Zins und Zinsdatum.\nE: Bitte füllen Sie das Formular in Blockschrift aus und lesen Sie die Hinweise auf der Rückseite.\nF: Wie heißt der Schuldner (Name und Vorname bzw. Firma) und wo wohnt er (Adresse, PLZ, Ort)?\nG: Wie heißt der Gläubiger (Name und Vorname bzw. Firma) und wo wohnt er (Adresse, PLZ, Ort)?\nH: Welche Adresse hat das Betreibungsamt?\nI: Wann wurde der Schuldner geboren (falls bekannt)?\nJ: Welche IBAN hat der Gläubiger oder sein Vertreter?\nK: Haben Sie Bemerkungen zum Betreibungsbegehren?\nL: Welches Amt soll dieses Formular ausfüllen?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1310,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-5d9182ea-6dbf-4279-8df4-15b8fea199c4",
+    "object": "chat.completion",
+    "created": 1791532663,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q6\"}, {\"frage\": \"B\", \"kennung\": \"q4\"}, {\"frage\": \"C\", \"kennung\": \"q3\"}, {\"frage\": \"D\", \"kennung\": \"q8\"}, {\"frage\": \"E\", \"kennung\": \"q1\"}, {\"frage\": \"F\", \"kennung\": \"q9\"}, {\"frage\": \"G\", \"kennung\": \"q12\"}, {\"frage\": \"H\", \"kennung\": \"q10\"}, {\"frage\": \"I\", \"kennung\": \"q11\"}, {\"frage\": \"J\", \"kennung\": \"q5\"}, {\"frage\": \"K\", \"kennung\": \"q15\"}, {\"frage\": \"L\", \"kennung\": \"q2\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1027,
+      "total_tokens": 1207,
+      "completion_tokens": 180,
+      "prompt_tokens_details": {
+        "cached_tokens": 704,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:57:31.083Z",
+  "tag": "brücke hin betreibungsbegehren S1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Unten steht eine Seite eines Schweizer Formulars als Text, ungefähr so angeordnet wie auf dem Papier. Jede Stelle, die ausgefüllt wird, trägt die Kennung ihrer Frage in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 1 =====\n        Betreibungsbegehren                             Bitte in Blockschrift ausfüllen und Hinweise auf der\n                                                        Rückseite beachten\n                                                       [q1] ____            Durch das Amt       [q2] ____\n                                                                            auszufüllen\n\n                                                        Eingang  [q3] ____        Betreibung    [q4] ____\n                                                                                  Nr.\n\n        Schuldner (Name und Vorname bzw. Firma;                  Adresse des\n        Adresse; PLZ Ort)                                        Betreibungsamtes\n       [q9] ____  [q11] ____  Geburtsdatum                       [q10] ____\n        (falls bekannt)\n        Gläubiger (Name und Vorname bzw. Firma;\n        Adresse; PLZ Ort)\n\n       [q12] ____                                       Zahlungsverbindung   des Gläubigers  [q5] [ ]  [q5] [ ]\n                                                                             des Vertreters\n        vertreten durch (Name und Vorname              [q6] ____  IBAN\n        bzw. Firma; Adresse; PLZ Ort)\n       [q13] ____                                       Für  Telefon oder  [q14] ____\n                                                        Rückfragen  E-Mail\n\n       Forderungsgrund oder Forderungsurkunde mit                              Betrag (CHF)    Zins % seit\n       Datum                                                                                   (Datum)\n       [q7] ____\n       Weitere\n       Forderungen\n       [q8] ____                                                                              [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                              [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n\n        Bemerkungen                                           Ihre Fallreferenz (falls\n                                                              vorhanden)\n       [q15] ____                                             [q16] ____  Datum und\n                                                              Unterschrift\n-----\n\nZu diesen Stellen gibt es schon Fragen in der Sprache des Formulars:\nq1: Bitte füllen Sie das Formular in Blockschrift aus und lesen Sie die Hinweise auf der Rückseite.\nq2: Welches Amt soll dieses Formular ausfüllen?\nq3: Wann wurde das Formular beim Amt eingegangen?\nq4: Welche Nummer hat die Betreibung?\nq5: Welche Zahlungsverbindung hat der Gläubiger oder sein Vertreter?\nq6: Welche IBAN hat der Gläubiger oder sein Vertreter?\nq7: Welchen Forderungsgrund oder welche Forderungsurkunde mit Datum geben Sie an?\nq8: Welche weiteren Forderungen haben Sie? Bitte geben Sie bis zu neun Zeilen an, jede Zeile enthält Betrag, Zins und Zinsdatum.\nq9: Wie heißt der Schuldner (Name und Vorname bzw. Firma) und wo wohnt er (Adresse, PLZ, Ort)?\nq10: Welche Adresse hat das Betreibungsamt?\nq11: Wann wurde der Schuldner geboren (falls bekannt)?\nq12: Wie heißt der Gläubiger (Name und Vorname bzw. Firma) und wo wohnt er (Adresse, PLZ, Ort)?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- sage, um wen oder was es geht; schau dafür auf dem Formular auf die Überschrift des Abschnitts und auf das, was neben der Stelle steht\n- die Frage muss weiter nach genau dem fragen, was an ihrer Stelle einzutragen ist: nichts anderes, nichts weglassen, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2534,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-918a7349-1e29-4005-9440-9dc3c463a5e7",
+    "object": "chat.completion",
+    "created": 1791532651,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"Bitte füllen Sie das Formular in Blockschrift aus und lesen Sie die Hinweise auf der Rückseite.\"}, {\"kennung\": \"q2\", \"frage\": \"Welches Amt soll dieses Formular ausfüllen?\"}, {\"kennung\": \"q3\", \"frage\": \"Wann wurde das Formular beim Amt eingegangen?\"}, {\"kennung\": \"q4\", \"frage\": \"Welche Nummer hat die Betreibung?\"}, {\"kennung\": \"q5\", \"frage\": \"Welche Zahlungsverbindung hat der Gläubiger oder sein Vertreter?\"}, {\"kennung\": \"q6\", \"frage\": \"Welche IBAN hat der Gläubiger oder sein Vertreter?\"}, {\"kennung\": \"q7\", \"frage\": \"Welchen Forderungsgrund oder welche Forderungsurkunde mit Datum geben Sie an?\"}, {\"kennung\": \"q8\", \"frage\": \"Welche weiteren Forderungen haben Sie? Bitte geben Sie bis zu neun Zeilen an, jede Zeile enthält Betrag, Zins und Zinsdatum.\"}, {\"kennung\": \"q9\", \"frage\": \"Wie heißt der Schuldner (Name und Vorname bzw. Firma) und wo wohnt er (Adresse, PLZ, Ort)?\"}, {\"kennung\": \"q10\", \"frage\": \"Welche Adresse hat das Betreibungsamt?\"}, {\"kennung\": \"q11\", \"frage\": \"Wann wurde der Schuldner geboren (falls bekannt)?\"}, {\"kennung\": \"q12\", \"frage\": \"Wie heißt der Gläubiger (Name und Vorname bzw. Firma) und wo wohnt er (Adresse, PLZ, Ort)?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1192,
+      "total_tokens": 1580,
+      "completion_tokens": 388,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T14:00:08.528Z",
+  "tag": "werte sechs en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Englisch gemacht, die in ein deutsches Formular gehören.\n\nAngabe 7: Switzerland\nAngabe 8: single\nAngabe 9: 01.02.2019\nAngabe 10: Warehouse worker\nAngabe 11: 40\nAngabe 12: 05\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 703,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-e06c075e-44b1-4854-a92b-24043f02a733",
+    "object": "chat.completion",
+    "created": 1791554409,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 7, \"wert\": \"Switzerland\"}, {\"nummer\": 8, \"wert\": \"single\"}, {\"nummer\": 9, \"wert\": \"01.02.2019\"}, {\"nummer\": 10, \"wert\": \"Warehouse worker\"}, {\"nummer\": 11, \"wert\": \"40\"}, {\"nummer\": 12, \"wert\": \"05\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 218,
+      "total_tokens": 314,
+      "completion_tokens": 96,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

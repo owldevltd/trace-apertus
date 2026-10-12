@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T19:28:49.039Z",
+  "tag": "mark 70B schadenmeldung-uvg page 1",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 660,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nSchadenmeldung UVG\nMeldung eines Unfalls, einer Berufskrankheit, eines Zahnschadens oder eines Rückfalls durch den Arbeitgeber\nNachgebaut nach dem Vorbild der Schadenmeldung UVG der Helsana Unfall AG (Ausgabe 12.2016) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.\nArt der Meldung\nSchaden-Nummer  → [q4]\nUnfall  → [q5: Auswahl]\nBerufskrankheit  → [q5: Auswahl]\nZahnschaden  → [q6: Auswahl]\nRückfall  → [q6: Auswahl]\n1 Arbeitgeber\nName und Adresse mit Postleitzahl  → [q7]\nTel.-Nr.  → [q8]\nE-Mail  → [q9]\nPolice-Nr. UVG  → [q10]\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q11]\nPolice-Nr. UVG-Zusatz  → [q12]\n2 Verletzte / Verletzter\nName und Vorname  → [q14]\nGeburtsdatum  → [q15]\nAHV-Nummer  → [q16]\nStrasse  → [q17]\nTel.-Nr.  → [q18]\nZivilstand  → [q19]\nLand  → [q20]\nPLZ  → [q21]\nWohnort  → [q22]\nStaatsangehörigkeit / Bewilligung  → [q23]\nE-Mail  → [q24]\n3 Anstellung\nDatum der Anstellung  → [q26]\nAusgeübter Beruf  → [q27]\nStellung\nHöheres Kader  → [q28: Kästchen]\nMittleres Kader  → [q29: Kästchen]\nAngestellte/r / Mitarbeiter/in  → [q30: Kästchen]\nLehrling  → [q31: Auswahl]\nPraktikant/in  → [q31: Auswahl]\nVerhältnis\nunbefristeter Arbeitsvertrag  → [q33: Auswahl]\nbefristeter Arbeitsvertrag  → [q34: Kästchen]\nArbeitsverhältnis gekündigt per  → [q35: Kästchen]\n[q36]\nArbeitszeit des/der Verletzten (Std./Woche)  → [q38]\nBetriebsübliche Vollarbeitszeit (Std./Woche)  → [q39]\nVertraglicher Beschäftigungsgrad (Prozent)  → [q40]\nArbeitseinsatz\nunregelmässig  → [q41: Auswahl]\nKurzarbeit  → [q42: Auswahl]\nZwischenverdienst  → [q42: Auswahl]\n4 Schadendatum\nTag  → [q45]\nMonat  → [q46]\nJahr  → [q47]\nZeit (Stunden, Minuten)  → [q48]\n5 Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q49]\n6 Sachverhalt (Unfallbeschreibung, Verdacht auf Berufskrankheit)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge  → [q50]\nBeteiligte Person(en)  → [q51]\nBesteht ein Polizeirapport?\nWenn ja, aufgenommen durch  → [q53]\nJa  → [q54: Auswahl]\nNein  → [q54: Auswahl]\nUnbekannt  → [q54: Auswahl]\nBesteht ein Unfallprotokoll? Wenn ja, bitte Kopie beilegen.\nJa  → [q55: Auswahl]\nNein  → [q55: Auswahl]\nNachgebaut nach dem Vorbild der Helsana-Schadenmeldung UVG – nicht das Original\nSeite 1 / 2\n-----\n\nWelche dieser Stellen müssen ausgefüllt sein, damit das Formular seinen Zweck erfüllt und angenommen werden kann? Nenne nur die unverzichtbaren Stellen, nicht alle. Was nur in bestimmten Fällen gilt, eine freie Bemerkung ist oder von der Stelle ausgefüllt wird, die das Formular entgegennimmt, gehört nicht dazu.\nAntworte nur als JSON, ohne weiteren Text: {\"pflicht\": [\"q1\", \"q5\"]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1965,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-031c8b64-47fe-4766-93fc-3c1b1174dcb7",
+    "object": "chat.completion",
+    "created": 1791574129,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"pflicht\": [\"q4\", \"q7\", \"q14\", \"q15\", \"q16\", \"q17\", \"q18\", \"q19\", \"q20\", \"q21\", \"q22\", \"q23\", \"q24\", \"q26\", \"q27\", \"q38\", \"q39\", \"q40\", \"q45\", \"q46\", \"q47\", \"q48\", \"q49\", \"q50\", \"q51\"]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1180,
+      "total_tokens": 1308,
+      "completion_tokens": 128,
+      "prompt_tokens_details": {
+        "cached_tokens": 1056,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

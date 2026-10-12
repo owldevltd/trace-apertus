@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:57:11.891Z",
+  "tag": "fragen zwölf it suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Jemand führt ein Gespräch und stellt diese Fragen auf Deutsch. Übersetze jede Frage ins Italienisch, für ein Gegenüber, das Italienisch spricht: dieselbe Frage in einfachen Worten, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n25: Wer ist der Nachbehandelnde Arzt oder das Spital/Klinik?\n26: Wo und wann ist der Abschluss passiert?\n\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"nummer\": 1, \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 462,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-636f3c41-728a-4337-a117-b051537eb784",
+    "object": "chat.completion",
+    "created": 1791554232,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"nummer\": 25, \"frage\": \"Chi è il medico curante o l'ospedale/clinica?\"}, {\"nummer\": 26, \"frage\": \"Dove e quando è avvenuta la conclusione?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 174,
+      "total_tokens": 231,
+      "completion_tokens": 57,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

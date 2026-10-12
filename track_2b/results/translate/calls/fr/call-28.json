@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:37:26.209Z",
+ "tag": "translate value beruf",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 200,
+ "prompt": "Übersetze die Angabe unten vom Französisch ins Deutsch. Sie steht in einem Formular bei «Ausgeübter Beruf». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der Angabe auf Deutsch, ohne weiteren Text.\n\nAngabe: Lagermitarbeiterin",
+ "image": 0,
+ "audio": 0,
+ "ms": 158,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-a03e388b-ec95-440b-b88e-2dd6231f34ad",
+  "object": "chat.completion",
+  "created": 1791556646,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Lagerangestellte",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 131,
+   "total_tokens": 137,
+   "completion_tokens": 6,
+   "prompt_tokens_details": {
+    "cached_tokens": 128,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

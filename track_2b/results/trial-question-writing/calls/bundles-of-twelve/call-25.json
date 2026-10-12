@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:14:31.922Z",
+  "tag": "d-8b-bundle suva-bagatellunfall S4",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1160,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 4 =====\n[q79]\nSchaden-Nummer  → [q80]\nApothekerschein UVG\nArbeitgeber\nName und Adresse mit Postleitzahl  → [q83]\nTel.-Nr.  → [q81]\nKunden-Nr.  → [q82]\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q84]\nVerletzte/r\nName und Vorname  → [q87]\nGeburtsdatum  → [q85]\nAHV-Nummer  → [q86]\n[q88]\n[q89]\nStrasse  → [q90]\n[q91]\n[q92]\nPLZ\nWohnort\n[q93]\nSchaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\nHinweise für die/den Verletzte/n\nHinweise für den Apotheker\nDie vom Arzt verordneten Medikamente werden Ihnen vom Apotheker gegen Abgabe dieses Scheines kostenlos abgegeben. Alle Medikamente sind aus der gleichen Apotheke zu beziehen.\nBitte senden Sie diese Rechnung nach Abschluss der Behandlung – spätestens aber 3 Monate nach Unfalldatum – an die oben aufge- führte Adresse. Einen neuen Apothekerschein können Sie bei uns verlangen, wenn – der Platz für das Eintragen der Bezüge nicht ausreicht, – nach Ablauf von 3 Monaten weitere Medikamente benötigt werden.\n씲 links  → [q94: Auswahl]\n씲 rechts  → [q94: Auswahl]\n씲 unbestimmt  → [q94: Auswahl]\nVerletzung\nBetroffener Körperteil:  → [q95]\nArt der Schädigung:\nArzt- adressen  → [q97]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q96]\nRechnung der Apotheke  → [q98]\nDatum:\nDatum der Abgabe  → [q100: Tabelle mit 6 Zeilen und 4 Spalten]\nArt und Menge  → [q99] [q100: Tabelle mit 6 Zeilen und 4 Spalten]\nPreis\nCHF  → [q100: Tabelle mit 6 Zeilen und 4 Spalten]\nRp.  → [q100: Tabelle mit 6 Zeilen und 4 Spalten]\n[q100: Tabelle mit 6 Zeilen und 4 Spalten]\nStempel der Apotheke:\n[q100: Tabelle mit 6 Zeilen und 4 Spalten]\n3 Code  → [q105] [q106] [q107] [q108] [q109]\n[q101]\n[q102]\n[q103]\n[q104]\nTotal  → [q110]\nPostkonto-Nr. oder zugeteilte Suva-Nr.\nBitte Rezepte beilegen\nBei Abrechnung über OFAC: 35-1\nGeht an: Verletzte/r ➞ Apotheker ➞ Suva\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu diesen Kennungen je genau eine Frage: q103, q104, q105, q106, q107, q108, q109, q110. Schreibe sie so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1555,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-6d8af044-776e-4fa2-aec7-ced2a6cfdac9",
+    "object": "chat.completion",
+    "created": 1791537272,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q103\", \"frage\": \"Welches Datum ist hier für die Abgabe der Medikamente vorgesehen?\"}, {\"kennung\": \"q104\", \"frage\": \"Welches Datum wurde für die Abgabe der Medikamente festgelegt?\"}, {\"kennung\": \"q105\", \"frage\": \"Welchen 3-stelligen Code soll hier eingetragen werden?\"}, {\"kennung\": \"q106\", \"frage\": \"Welchen weiteren 3-stelligen Code soll hier eingetragen werden?\"}, {\"kennung\": \"q107\", \"frage\": \"Welchen weiteren 3-stelligen Code soll hier eingetragen werden?\"}, {\"kennung\": \"q108\", \"frage\": \"Welchen weiteren 3-stelligen Code soll hier eingetragen werden?\"}, {\"kennung\": \"q109\", \"frage\": \"Welchen weiteren 3-stelligen Code soll hier eingetragen werden?\"}, {\"kennung\": \"q110\", \"frage\": \"Wie hoch ist die Gesamtkosten für die Medikamente?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1365,
+      "total_tokens": 1610,
+      "completion_tokens": 245,
+      "prompt_tokens_details": {
+        "cached_tokens": 960,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

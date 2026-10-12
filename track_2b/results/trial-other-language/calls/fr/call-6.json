@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:11:37.724Z",
+  "tag": "sprache gegenüber fr betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Du gibst jemandem im Gespräch Auskunft zu deinem Fall. Über den Fall weisst du nur, was du selbst so erzählt hast:\n\nBetreibungsbegehren ans Betreibungsamt Chur. Gläubigerin ist die Garage Caduff AG, Kasernenstrasse acht, siebentausend Chur. Zahlung bitte aufs Konto, IBAN CH93 0076 2011 6238 5295 7. Schuldner ist Peter Hartmann, Via Nova vierzehn, siebentausenddreizehn Domat Ems. Die Forderung ist die Rechnung Nummer zwanzig sechsundzwanzig strich einhundertachtzehn vom zwölften Juni für die Reparatur, zweitausenddreihundertvierzig Franken fünfzig, fünf Prozent Zins ab dreizehntem Juli.\n\nDir werden diese Fragen gestellt:\nA: De quel bureau de poursuite s'agit-il ?\nB: Quel est le nom et le prénom du débiteur, ou le nom de l'entreprise, ainsi que son adresse et son code postal et sa localité ?\nC: Quelle est la date de naissance du débiteur, si vous la connaissez ?\nD: Quel est le nom et le prénom du créancier, ou le nom de l'entreprise, ainsi que son adresse et son code postal et sa localité ?\nE: Quel moyen de paiement le créancier utilise-t-il ?\nF: Quel est le numéro IBAN ?\nG: vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\nH: Quel est le numéro de téléphone ou l'adresse e-mail pour toute question ?\nI: Quel est le motif de la créance ou le document de créance avec sa date ?\nJ: Quel est le montant de la créance en francs suisses ?\nK: Quel est le taux d'intérêt en pourcentage ?\nL: Depuis quelle date le taux d'intérêt s'applique-t-il ?\nM: Quelles sont les observations ou remarques concernant cette affaire ?\nN: Quel est votre référence de dossier, si vous en avez une ?\n\nAntworte auf jede Frage auf Französisch, wie man im Gespräch antwortet: kurz und nur mit dem, was du weisst. Weisst du etwas nicht, sag das auf Französisch. Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"antwort\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2651,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-a1452824-5da5-443c-8126-bb3244071890",
+    "object": "chat.completion",
+    "created": 1791551498,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"antwort\": \"Il s'agit du bureau de poursuite de Chur.\"}, {\"frage\": \"B\", \"antwort\": \"Le débiteur est Peter Hartmann, Via Nova 14, 7313 Domat Ems.\"}, {\"frage\": \"C\", \"antwort\": \"Je ne connais pas la date de naissance du débiteur.\"}, {\"frage\": \"D\", \"antwort\": \"Le créancier est la Garage Caduff AG, Kasernenstrasse 8, 7000 Chur.\"}, {\"frage\": \"E\", \"antwort\": \"Le créancier demande un paiement sur le compte IBAN CH93 0076 2011 6238 5295 7.\"}, {\"frage\": \"F\", \"antwort\": \"Le numéro IBAN est CH93 0076 2011 6238 5295 7.\"}, {\"frage\": \"G\", \"antwort\": \"Je ne connais pas le représentant.\"}, {\"frage\": \"H\", \"antwort\": \"Je ne connais pas le numéro de téléphone ou l'adresse e-mail.\"}, {\"frage\": \"I\", \"antwort\": \"Le motif de la créance est la facture numéro 2026-118 du 12 juin pour la réparation.\"}, {\"frage\": \"J\", \"antwort\": \"Le montant de la créance est de 2340,50 francs suisses.\"}, {\"frage\": \"K\", \"antwort\": \"Le taux d'intérêt est de 5%.\"}, {\"frage\": \"L\", \"antwort\": \"Le taux d'intérêt s'applique à partir du 13 juillet.\"}, {\"frage\": \"M\", \"antwort\": \"Je n'ai pas d'observations ou remarques supplémentaires.\"}, {\"frage\": \"N\", \"antwort\": \"Je n'ai pas de référence de dossier.\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 558,
+      "total_tokens": 977,
+      "completion_tokens": 419,
+      "prompt_tokens_details": {
+        "cached_tokens": 224,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

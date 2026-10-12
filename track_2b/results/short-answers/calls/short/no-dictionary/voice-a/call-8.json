@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-11T21:43:02.777Z",
+ "tag": "C voice-a #10",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1500,
+ "prompt": "Transkribiere die Aufnahme wortwörtlich. Ausgangssprache ist Deutsch, bitte gib Deutsch zurück.",
+ "image": 0,
+ "audio": 12429,
+ "ms": 156,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-a727ba89-625b-4111-ab79-6937b9be1f04",
+  "object": "chat.completion",
+  "created": 1791754985,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Für Toto.",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 145,
+   "total_tokens": 149,
+   "completion_tokens": 4,
+   "prompt_tokens_details": {
+    "cached_tokens": 128,
+    "multimodal_tokens": {
+     "audio": 59
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

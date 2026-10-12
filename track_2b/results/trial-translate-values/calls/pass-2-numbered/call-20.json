@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:39:24.611Z",
+  "tag": "zurück2 70b en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 1600,
+  "prompt": "Eine Person hat ein deutsches Formular auf Englisch beantwortet. Unten steht je Nummer die deutsche Beschriftung der Stelle und was die Person dort angegeben hat.\n\n1 | Name und Adresse mit Postleitzahl | Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\n2 | Tel.-Nr. | 041 728 40 10\n3 | Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig) | Warehouse\n4 | Name und Vorname | Keller Sandra\n5 | Geburtsdatum | 14.03.1988\n6 | Strasse | Werkstrasse 12, 6300 Zug\n7 | Staatsangehörigkeit | Switzerland\n8 | Zivilstand | single\n9 | Datum der Anstellung | 01.02.2019\n10 | Ausgeübter Beruf | Warehouse worker\n11 | Arbeitszeit des/der Verletzten: Stunden je Woche | 40\n12 | Tag | 05\n13 | Monat | 10\n14 | Jahr | 2026\n15 | Zeit (Stunden, Minuten) | 14:20\n16 | Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse) | Warehouse, Werkstrasse 12, Zug\n17 | Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge | Slipped while unloading a pallet and fell onto the right wrist.\n18 | Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung) | Pallet\n19 | Betroffener Körperteil | Wrist\n20 | Erstbehandelnder Arzt bzw. Spital/Klinik | Kantonsspital Zug, Emergency\n\nSchreibe jede Angabe auf Deutsch, so wie sie in das deutsche Formular eingetragen wird. Am Ende steht kein Wort mehr auf Englisch. Eigennamen, Strassen, Orte, Nummern und Daten übernimmst du dabei Zeichen für Zeichen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 9196,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-f7ce8a1f-e6f8-49f4-85cd-b35cdb4f327f",
+    "object": "chat.completion",
+    "created": 1791553165,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"werte\": [\n    {\n      \"nummer\": 1,\n      \"wert\": \"Name und Adresse mit Postleitzahl\\nLogistik Zugersee AG, Werkstrasse 12, 6300 Zug\"\n    },\n    {\n      \"nummer\": 2,\n      \"wert\": \"Tel.-Nr.\\n041 728 40 10\"\n    },\n    {\n      \"nummer\": 3,\n      \"wert\": \"Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)\\nWarehouse\"\n    },\n    {\n      \"nummer\": 4,\n      \"wert\": \"Name und Vorname\\nKeller Sandra\"\n    },\n    {\n      \"nummer\": 5,\n      \"wert\": \"Geburtsdatum\\n14.03.1988\"\n    },\n    {\n      \"nummer\": 6,\n      \"wert\": \"Strasse\\nWerkstrasse 12, 6300 Zug\"\n    },\n    {\n      \"nummer\": 7,\n      \"wert\": \"Staatsangehörigkeit\\nSwitzerland\"\n    },\n    {\n      \"nummer\": 8,\n      \"wert\": \"Zivilstand\\nsingle\"\n    },\n    {\n      \"nummer\": 9,\n      \"wert\": \"Datum der Anstellung\\n01.02.2019\"\n    },\n    {\n      \"nummer\": 10,\n      \"wert\": \"Ausgeübter Beruf\\nWarehouse worker\"\n    },\n    {\n      \"nummer\": 11,\n      \"wert\": \"Arbeitszeit des/der Verletzten: Stunden je Woche\\n40\"\n    },\n    {\n      \"nummer\": 12,\n      \"wert\": \"Tag\\n05\"\n    },\n    {\n      \"nummer\": 13,\n      \"wert\": \"Monat\\n10\"\n    },\n    {\n      \"nummer\": 14,\n      \"wert\": \"Jahr\\n2026\"\n    },\n    {\n      \"nummer\": 15,\n      \"wert\": \"Zeit (Stunden, Minuten)\\n14:20\"\n    },\n    {\n      \"nummer\": 16,\n      \"wert\": \"Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)\\nWarehouse, Werkstrasse 12, Zug\"\n    },\n    {\n      \"nummer\": 17,\n      \"wert\": \"Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge\\nSlipped while unloading a pallet and fell onto the right wrist.\"\n    },\n    {\n      \"nummer\": 19,\n      \"wert\": \"Betroffener Körperteil\\nWrist\"\n    },\n    {\n      \"nummer\": 20,\n      \"wert\": \"Erstbehandelnder Arzt bzw. Spital/Klinik\\nKantonsspital Zug, Emergency\"\n    }\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 567,
+      "total_tokens": 1202,
+      "completion_tokens": 635,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T08:24:37.384Z",
+  "tag": "rückprobe einheiten-etikett-interview-70b betreibungsbegehren Lauf 2",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht eine Seite eines Schweizer Formulars als Text, ungefähr so angeordnet wie auf dem Papier. Jede Stelle, die ausgefüllt wird, trägt die Kennung ihrer Frage in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 1 =====\n        Betreibungsbegehren                             Bitte in Blockschrift ausfüllen und Hinweise auf der\n                                                        Rückseite beachten\n                                                       [q1] ____            Durch das Amt       [q2] ____\n                                                                            auszufüllen\n\n                                                        Eingang  [q3] ____        Betreibung    [q4] ____\n                                                                                  Nr.\n\n        Schuldner (Name und Vorname bzw. Firma;                  Adresse des\n        Adresse; PLZ Ort)                                        Betreibungsamtes\n       [q9] ____  [q11] ____  Geburtsdatum                       [q10] ____\n        (falls bekannt)\n        Gläubiger (Name und Vorname bzw. Firma;\n        Adresse; PLZ Ort)\n\n       [q12] ____                                       Zahlungsverbindung   des Gläubigers  [q5] [ ]  [q5] [ ]\n                                                                             des Vertreters\n        vertreten durch (Name und Vorname              [q6] ____  IBAN\n        bzw. Firma; Adresse; PLZ Ort)\n       [q13] ____                                       Für  Telefon oder  [q14] ____\n                                                        Rückfragen  E-Mail\n\n       Forderungsgrund oder Forderungsurkunde mit                              Betrag (CHF)    Zins % seit\n       Datum                                                                                   (Datum)\n       [q7] ____\n       Weitere\n       Forderungen\n       [q8] ____                                                                              [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                              [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n\n        Bemerkungen                                           Ihre Fallreferenz (falls\n                                                              vorhanden)\n       [q15] ____                                             [q16] ____  Datum und\n                                                              Unterschrift\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Gehört die Zahlungsverbindung dem Gläubiger oder seinem Vertreter?\nB: Wann sind Sie geboren?\nC: Haben Sie noch besondere Hinweise oder Anmerkungen zu diesem Fall?\nD: Wie lautet Ihre IBAN?\nE: Wie lautet die Adresse des Betreibungsamtes?\nF: Wann ist das Betreibungsbegehren eingegangen?\nG: Wird der Gläubiger von jemandem vertreten? Wenn ja, wie heisst und wo wohnt der Vertreter?\nH: Wie heisst der Gläubiger und wo ist er erreichbar? Bitte nennen Sie den Namen, die Adresse und die Postleitzahl.\nI: Wird dieses Feld vom Amt ausgefüllt?\nJ: Wie kann man Sie für Rückfragen erreichen? Bitte geben Sie Ihre Telefonnummer oder E-Mail-Adresse an.\nK: Bitte schreiben Sie alles in Druckbuchstaben und beachten Sie die Hinweise auf der Rückseite.\nL: Haben Sie eine Fallnummer, die Sie bereits vom Amt erhalten haben?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3171,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-a3419d55-ca35-4924-b056-18ad47680aae",
+    "object": "chat.completion",
+    "created": 1791534277,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"zuordnung\": [\n    {\"frage\": \"A\", \"kennung\": \"q5\"},\n    {\"frage\": \"B\", \"kennung\": \"q11\"},\n    {\"frage\": \"C\", \"kennung\": \"q15\"},\n    {\"frage\": \"D\", \"kennung\": \"q6\"},\n    {\"frage\": \"E\", \"kennung\": \"q10\"},\n    {\"frage\": \"F\", \"kennung\": \"q3\"},\n    {\"frage\": \"G\", \"kennung\": \"q13\"},\n    {\"frage\": \"H\", \"kennung\": \"q12\"},\n    {\"frage\": \"I\", \"kennung\": \"q2\"},\n    {\"frage\": \"J\", \"kennung\": \"q14\"},\n    {\"frage\": \"K\", \"kennung\": \"null\"},\n    {\"frage\": \"L\", \"kennung\": \"q16\"}\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1003,
+      "total_tokens": 1200,
+      "completion_tokens": 197,
+      "prompt_tokens_details": {
+        "cached_tokens": 704,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

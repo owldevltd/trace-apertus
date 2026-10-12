@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-07T09:26:18.044Z",
+ "tag": "suva-bagatellunfall-uvg-s1.png #67",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 800,
+ "prompt": "Das Bild ist ein Ausschnitt aus einem Dokument, ein einzelnes Element. Beantworte zwei Dinge. bildanteile: Hat das Element Bildanteile (Logo, Foto, Zeichnung, Grafik)? text: der Text im Element, exakt wiedergegeben, ohne Kästchen und Kreise; steht kein Text darin, \"\". Antworte nur als JSON: {\"bildanteile\": true oder false, \"text\": \"...\"}",
+ "image": 2034,
+ "audio": 0,
+ "ms": 262,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-37cd7fb7-6a7f-4537-939a-015461b9a77c",
+  "object": "chat.completion",
+  "created": 1791365178,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"bildanteile\": true, \"text\": \"Lehrling\"}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 422,
+   "total_tokens": 438,
+   "completion_tokens": 16,
+   "prompt_tokens_details": {
+    "cached_tokens": 416,
+    "multimodal_tokens": {
+     "image": 267
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

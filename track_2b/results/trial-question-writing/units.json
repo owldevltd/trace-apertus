@@ -1,0 +1,3165 @@
+{
+ "arbeitsfaehigkeitszeugnis": [
+  {
+   "id": "q1",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "w",
+    "m"
+   ],
+   "formFields": [
+    "Geschlecht",
+    "Geschlecht"
+   ]
+  },
+  {
+   "id": "q2",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Name / Vorname"
+   ],
+   "formFields": [
+    "Name Vorname"
+   ]
+  },
+  {
+   "id": "q3",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Geb.-Dat."
+   ],
+   "formFields": [
+    "Geburtsdatum"
+   ]
+  },
+  {
+   "id": "q4",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Adresse / PLZ"
+   ],
+   "formFields": [
+    "Adresse Arbeitnehmer"
+   ]
+  },
+  {
+   "id": "q5",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "AHV-Nr."
+   ],
+   "formFields": [
+    "AHV-Nummer"
+   ]
+  },
+  {
+   "id": "q6",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Telefon"
+   ],
+   "formFields": [
+    "Telefon Arbeitnehmer"
+   ]
+  },
+  {
+   "id": "q7",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "E-Mail"
+   ],
+   "formFields": [
+    "E-Mail Arbeitnehmer"
+   ]
+  },
+  {
+   "id": "q8",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Firmenname"
+   ],
+   "formFields": [
+    "Firmenname"
+   ]
+  },
+  {
+   "id": "q9",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Kontaktperson"
+   ],
+   "formFields": [
+    "Kontaktperson"
+   ]
+  },
+  {
+   "id": "q10",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Adresse / PLZ"
+   ],
+   "formFields": [
+    "Adresse Arbeitgeber"
+   ]
+  },
+  {
+   "id": "q11",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Telefon"
+   ],
+   "formFields": [
+    "Telefon Arbeitgeber"
+   ]
+  },
+  {
+   "id": "q12",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "E-Mail"
+   ],
+   "formFields": [
+    "E-Mail Arbeitgeber"
+   ]
+  },
+  {
+   "id": "q13",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "Eintrittsjahr"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q14",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Funktion / ausgeübter Beruf *"
+   ],
+   "formFields": [
+    "Funktion Beruf"
+   ]
+  },
+  {
+   "id": "q15",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    "Eintrittsjahr"
+   ]
+  },
+  {
+   "id": "q16",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Std. / Tag"
+   ],
+   "formFields": [
+    "Stunden pro Tag"
+   ]
+  },
+  {
+   "id": "q17",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "Arbeitszeit Vollzeit (100 %)"
+   ],
+   "formFields": [
+    "Arbeitszeit"
+   ]
+  },
+  {
+   "id": "q18",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "Teilzeit"
+   ],
+   "formFields": [
+    "Arbeitszeit"
+   ]
+  },
+  {
+   "id": "q19",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    "Teilzeit Prozent"
+   ]
+  },
+  {
+   "id": "q20",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Wochenarbeitszeit / Einsatztage"
+   ],
+   "formFields": [
+    "Wochenarbeitszeit Einsatztage"
+   ]
+  },
+  {
+   "id": "q21",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Bei Kündigung: Arbeitsverhältnis gekündigt per"
+   ],
+   "formFields": [
+    "Gekündigt per"
+   ]
+  },
+  {
+   "id": "q22",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "Krankheit",
+    "Unfall",
+    "Berufskrankheit"
+   ],
+   "formFields": [
+    "Ursache",
+    "Ursache",
+    "Ursache"
+   ]
+  },
+  {
+   "id": "q23",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "REP",
+    "Arbeitsplatzbeschrieb"
+   ],
+   "formFields": [
+    "Grundlage volle Arbeitsunfähigkeit",
+    "Grundlage volle Arbeitsunfähigkeit"
+   ]
+  },
+  {
+   "id": "q24",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "REP vom"
+   ],
+   "formFields": [
+    "REP vom (volle AU)"
+   ]
+  },
+  {
+   "id": "q25",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Arbeitsplatzbeschrieb vom"
+   ],
+   "formFields": [
+    "Arbeitsplatzbeschrieb vom (volle AU)"
+   ]
+  },
+  {
+   "id": "q26",
+   "kind": "table",
+   "page": 1,
+   "labels": [
+    "Konsultationsdatum",
+    "von",
+    "bis",
+    "nächste Konsultation",
+    "Visum",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "formFields": [
+    "Volle AU Konsultation 1",
+    "Volle AU von 1",
+    "Volle AU bis 1",
+    "Volle AU Nächste Konsultation 1",
+    "Volle AU Visum 1",
+    "Volle AU Konsultation 2",
+    "Volle AU von 2",
+    "Volle AU bis 2",
+    "Volle AU Nächste Konsultation 2",
+    "Volle AU Visum 2",
+    "Volle AU Konsultation 3",
+    "Volle AU von 3",
+    "Volle AU bis 3",
+    "Volle AU Nächste Konsultation 3",
+    "Volle AU Visum 3"
+   ],
+   "rows": 3,
+   "columns": 5
+  },
+  {
+   "id": "q27",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "ja",
+    "nein"
+   ],
+   "formFields": [
+    "Arbeitsplatzbezogene Arbeitsunfähigkeit",
+    "Arbeitsplatzbezogene Arbeitsunfähigkeit"
+   ]
+  },
+  {
+   "id": "q28",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "Basierend auf * REP",
+    "Basierend auf * REP"
+   ],
+   "formFields": [
+    "Grundlage Teilarbeitsfähigkeit",
+    "Grundlage Teilarbeitsfähigkeit"
+   ]
+  },
+  {
+   "id": "q29",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "REP vom"
+   ],
+   "formFields": [
+    "REP vom (Teil-AF)"
+   ]
+  },
+  {
+   "id": "q30",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Arbeitsplatzbeschrieb vom"
+   ],
+   "formFields": [
+    "Arbeitsplatzbeschrieb vom (Teil-AF)"
+   ]
+  },
+  {
+   "id": "q31",
+   "kind": "table",
+   "page": 1,
+   "labels": [
+    "",
+    "Präsenzzeit Std. pro Tag",
+    "Präsenzzeit % Pensum",
+    "Leistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %",
+    "Arbeits- fähigkeit gesamt %",
+    "",
+    "",
+    "Konsultation",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "formFields": [
+    "Teil-AF Konsultation 1",
+    "Teil-AF Präsenzzeit Std 1",
+    "Teil-AF Präsenzzeit Prozent 1",
+    "Teil-AF Leistungsfähigkeit 1",
+    "Teil-AF Arbeitsfähigkeit 1",
+    "Teil-AF von 1",
+    "Teil-AF bis 1",
+    "Teil-AF Nächste Konsultation 1",
+    "Teil-AF Visum 1",
+    "Teil-AF Konsultation 2",
+    "Teil-AF Präsenzzeit Std 2",
+    "Teil-AF Präsenzzeit Prozent 2",
+    "Teil-AF Leistungsfähigkeit 2",
+    "Teil-AF Arbeitsfähigkeit 2",
+    "Teil-AF von 2",
+    "Teil-AF bis 2",
+    "Teil-AF Nächste Konsultation 2",
+    "Teil-AF Visum 2",
+    "Teil-AF Konsultation 3",
+    "Teil-AF Präsenzzeit Std 3",
+    "Teil-AF Präsenzzeit Prozent 3",
+    "Teil-AF Leistungsfähigkeit 3",
+    "Teil-AF Arbeitsfähigkeit 3",
+    "Teil-AF von 3",
+    "Teil-AF bis 3",
+    "Teil-AF Nächste Konsultation 3",
+    "Teil-AF Visum 3",
+    "Teil-AF Konsultation 4",
+    "Teil-AF Präsenzzeit Std 4",
+    "Teil-AF Präsenzzeit Prozent 4",
+    "Teil-AF Leistungsfähigkeit 4",
+    "Teil-AF Arbeitsfähigkeit 4",
+    "Teil-AF von 4",
+    "Teil-AF bis 4",
+    "Teil-AF Nächste Konsultation 4",
+    "Teil-AF Visum 4"
+   ],
+   "rows": 4,
+   "columns": 9
+  },
+  {
+   "id": "q32",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Wiederaufnahme der Arbeit zu 100 % ab"
+   ],
+   "formFields": [
+    "Wiederaufnahme ab"
+   ]
+  },
+  {
+   "id": "q33",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "ja",
+    "nein"
+   ],
+   "formFields": [
+    "Kontakt erwünscht",
+    "Kontakt erwünscht"
+   ]
+  },
+  {
+   "id": "q34",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Arzt / Ärztin (Name, Stempel)"
+   ],
+   "formFields": [
+    "Arzt"
+   ]
+  },
+  {
+   "id": "q35",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Datum"
+   ],
+   "formFields": [
+    "Datum"
+   ]
+  },
+  {
+   "id": "q36",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Bemerkungen"
+   ],
+   "formFields": [
+    "Bemerkungen"
+   ]
+  }
+ ],
+ "betreibungsbegehren": [
+  {
+   "id": "q1",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Bitte in Blockschrift ausfüllen und Hinweise auf der Rückseite beachten"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q2",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Durch das Amt auszufüllen"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q3",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Eingang"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q4",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Betreibung Nr."
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q5",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "des Gläubigers des Vertreters",
+    "des Gläubigers des Vertreters"
+   ],
+   "formFields": [
+    "Zahlungsverbindung",
+    "Zahlungsverbindung"
+   ]
+  },
+  {
+   "id": "q6",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "IBAN"
+   ],
+   "formFields": [
+    "IBAN"
+   ]
+  },
+  {
+   "id": "q7",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Forderungsgrund oder Forderungsurkunde mit Datum"
+   ],
+   "formFields": [
+    "Forderung1"
+   ]
+  },
+  {
+   "id": "q8",
+   "kind": "table",
+   "page": 1,
+   "labels": [
+    "Weitere Forderungen",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "formFields": [
+    "Forderung2.0",
+    "Zins2.0",
+    "Datum2.0",
+    "Forderung2.1",
+    "Zins2.1",
+    "Datum2.1",
+    "Forderung2.2",
+    "Zins2.2",
+    "Datum2.2",
+    "Forderung2.3",
+    "Zins2.3",
+    "Datum2.3",
+    "Forderung2.4",
+    "Zins2.4",
+    "Datum2.4",
+    "Forderung2.5",
+    "Zins2.5",
+    "Datum2.5",
+    "Forderung2.6",
+    "Zins2.6",
+    "Datum2.6",
+    "Forderung2.7",
+    "Zins2.7",
+    "Datum2.7",
+    "Forderung2.8",
+    "Zins2.8",
+    "Datum2.8"
+   ],
+   "rows": 9,
+   "columns": 3
+  },
+  {
+   "id": "q9",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)"
+   ],
+   "formFields": [
+    "Schuldner"
+   ]
+  },
+  {
+   "id": "q10",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Adresse des Betreibungsamtes"
+   ],
+   "formFields": [
+    "Betreibungsamt"
+   ]
+  },
+  {
+   "id": "q11",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Geburtsdatum (falls bekannt)"
+   ],
+   "formFields": [
+    "Schuldner Geburtsdatum"
+   ]
+  },
+  {
+   "id": "q12",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)"
+   ],
+   "formFields": [
+    "Gläubiger"
+   ]
+  },
+  {
+   "id": "q13",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)"
+   ],
+   "formFields": [
+    "Gläubigervertreter"
+   ]
+  },
+  {
+   "id": "q14",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Telefon oder E-Mail"
+   ],
+   "formFields": [
+    "Rückfragen"
+   ]
+  },
+  {
+   "id": "q15",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Bemerkungen"
+   ],
+   "formFields": [
+    "Bemerkungen"
+   ]
+  },
+  {
+   "id": "q16",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Ihre Fallreferenz (falls vorhanden)"
+   ],
+   "formFields": [
+    "Fallreferenz"
+   ]
+  },
+  {
+   "id": "q17",
+   "kind": "mark",
+   "page": 2,
+   "labels": [
+    "Die Angaben des vorliegenden Merkblatts stützen sich auf die Vorgaben des Bundesgesetzes über Schuldbetreibung und Konkurs (SchKG, SR 281.1) sowie auf die dazu ergangenen Verordnungen und Weisungen. Bei besonderen und komplexen Fällen wird"
+   ],
+   "formFields": [
+    ""
+   ]
+  }
+ ],
+ "schadenmeldung-uvg": [
+  {
+   "id": "q1",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Nachgebaut nach dem Vorbild der Schadenmeldung UVG der Helsana Unfall AG (Ausgabe 12.2016) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace."
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q2",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Nachgebaut nach dem Vorbild der Schadenmeldung UVG der Helsana Unfall AG (Ausgabe 12.2016) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace."
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q3",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Schaden-Nummer"
+   ],
+   "formFields": [
+    "Schaden-Nummer"
+   ]
+  },
+  {
+   "id": "q4",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "Unfall",
+    "Berufskrankheit"
+   ],
+   "formFields": [
+    "Meldung Unfall",
+    "Meldung Berufskrankheit"
+   ]
+  },
+  {
+   "id": "q5",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "Zahnschaden",
+    "Rückfall"
+   ],
+   "formFields": [
+    "Meldung Zahnschaden",
+    "Meldung Rückfall"
+   ]
+  },
+  {
+   "id": "q6",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Art der Meldung"
+   ],
+   "formFields": [
+    "Meldung Unfall"
+   ]
+  },
+  {
+   "id": "q7",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Name und Adresse mit Postleitzahl"
+   ],
+   "formFields": [
+    "Arbeitgeber"
+   ]
+  },
+  {
+   "id": "q8",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Tel.-Nr."
+   ],
+   "formFields": [
+    "Telefon Arbeitgeber"
+   ]
+  },
+  {
+   "id": "q9",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "E-Mail"
+   ],
+   "formFields": [
+    "E-Mail Arbeitgeber"
+   ]
+  },
+  {
+   "id": "q10",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Police-Nr. UVG"
+   ],
+   "formFields": [
+    "Police UVG"
+   ]
+  },
+  {
+   "id": "q11",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Police-Nr. UVG-Zusatz"
+   ],
+   "formFields": [
+    "Police UVG-Zusatz"
+   ]
+  },
+  {
+   "id": "q12",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)"
+   ],
+   "formFields": [
+    "Arbeitsplatz Betriebszweig"
+   ]
+  },
+  {
+   "id": "q13",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "2 Verletzte / Verletzter"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q14",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Name und Vorname"
+   ],
+   "formFields": [
+    "Name Vorname"
+   ]
+  },
+  {
+   "id": "q15",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Geburtsdatum"
+   ],
+   "formFields": [
+    "Geburtsdatum"
+   ]
+  },
+  {
+   "id": "q16",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "AHV-Nummer"
+   ],
+   "formFields": [
+    "AHV-Nummer"
+   ]
+  },
+  {
+   "id": "q17",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Strasse"
+   ],
+   "formFields": [
+    "Strasse"
+   ]
+  },
+  {
+   "id": "q18",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Tel.-Nr."
+   ],
+   "formFields": [
+    "Telefon Verletzte"
+   ]
+  },
+  {
+   "id": "q19",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Zivilstand"
+   ],
+   "formFields": [
+    "Zivilstand"
+   ]
+  },
+  {
+   "id": "q20",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Land"
+   ],
+   "formFields": [
+    "Land"
+   ]
+  },
+  {
+   "id": "q21",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "PLZ"
+   ],
+   "formFields": [
+    "PLZ"
+   ]
+  },
+  {
+   "id": "q22",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Wohnort"
+   ],
+   "formFields": [
+    "Wohnort"
+   ]
+  },
+  {
+   "id": "q23",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Staatsangehörigkeit / Bewilligung"
+   ],
+   "formFields": [
+    "Staatsangehörigkeit Bewilligung"
+   ]
+  },
+  {
+   "id": "q24",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "E-Mail"
+   ],
+   "formFields": [
+    "E-Mail Verletzte"
+   ]
+  },
+  {
+   "id": "q25",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "3 Anstellung"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q26",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Datum der Anstellung"
+   ],
+   "formFields": [
+    "Datum der Anstellung"
+   ]
+  },
+  {
+   "id": "q27",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Ausgeübter Beruf"
+   ],
+   "formFields": [
+    "Beruf"
+   ]
+  },
+  {
+   "id": "q28",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "Höheres Kader"
+   ],
+   "formFields": [
+    "Stellung Höheres Kader"
+   ]
+  },
+  {
+   "id": "q29",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "Mittleres Kader"
+   ],
+   "formFields": [
+    "Stellung Mittleres Kader"
+   ]
+  },
+  {
+   "id": "q30",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "Angestellte/r / Mitarbeiter/in"
+   ],
+   "formFields": [
+    "Stellung Angestellte/r / Mitarbeiter/in"
+   ]
+  },
+  {
+   "id": "q31",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "Lehrling",
+    "Praktikant/in"
+   ],
+   "formFields": [
+    "Stellung Lehrling",
+    "Stellung Praktikant/in"
+   ]
+  },
+  {
+   "id": "q32",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "unbefristeter Arbeitsvertrag",
+    "unbefristeter Arbeitsvertrag"
+   ],
+   "formFields": [
+    "Verhältnis unbefristeter Arbeitsvertrag",
+    "Verhältnis unbefristeter Arbeitsvertrag"
+   ]
+  },
+  {
+   "id": "q33",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "befristeter Arbeitsvertrag"
+   ],
+   "formFields": [
+    "Verhältnis befristeter Arbeitsvertrag"
+   ]
+  },
+  {
+   "id": "q34",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "Arbeitsverhältnis gekündigt per"
+   ],
+   "formFields": [
+    "Verhältnis Arbeitsverhältnis gekündigt per"
+   ]
+  },
+  {
+   "id": "q35",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    "Gekündigt per"
+   ]
+  },
+  {
+   "id": "q36",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Verhältnis"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q37",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q38",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Arbeitszeit des/der Verletzten (Std./Woche)"
+   ],
+   "formFields": [
+    "Arbeitszeit Std"
+   ]
+  },
+  {
+   "id": "q39",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Betriebsübliche Vollarbeitszeit (Std./Woche)"
+   ],
+   "formFields": [
+    "Vollarbeitszeit Std"
+   ]
+  },
+  {
+   "id": "q40",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Vertraglicher Beschäftigungsgrad (Prozent)"
+   ],
+   "formFields": [
+    "Beschäftigungsgrad Prozent"
+   ]
+  },
+  {
+   "id": "q41",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "unregelmässig",
+    "unregelmässig"
+   ],
+   "formFields": [
+    "Arbeitseinsatz unregelmässig",
+    "Arbeitseinsatz unregelmässig"
+   ]
+  },
+  {
+   "id": "q42",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "Kurzarbeit",
+    "Zwischenverdienst"
+   ],
+   "formFields": [
+    "Arbeitseinsatz Kurzarbeit",
+    "Arbeitseinsatz Zwischenverdienst"
+   ]
+  },
+  {
+   "id": "q43",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "4 Schadendatum"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q44",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "4 Schadendatum"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q45",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Monat"
+   ],
+   "formFields": [
+    "Schadendatum Monat"
+   ]
+  },
+  {
+   "id": "q46",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Jahr"
+   ],
+   "formFields": [
+    "Schadendatum Jahr"
+   ]
+  },
+  {
+   "id": "q47",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Tag"
+   ],
+   "formFields": [
+    "Schadendatum Tag"
+   ]
+  },
+  {
+   "id": "q48",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Zeit (Stunden, Minuten)"
+   ],
+   "formFields": [
+    "Schadendatum Zeit"
+   ]
+  },
+  {
+   "id": "q49",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)"
+   ],
+   "formFields": [
+    "Unfallort"
+   ]
+  },
+  {
+   "id": "q50",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge"
+   ],
+   "formFields": [
+    "Unfallbeschreibung"
+   ]
+  },
+  {
+   "id": "q51",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Beteiligte Person(en)"
+   ],
+   "formFields": [
+    "Beteiligte Personen"
+   ]
+  },
+  {
+   "id": "q52",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Wenn ja, aufgenommen durch"
+   ],
+   "formFields": [
+    "Polizeirapport aufgenommen durch"
+   ]
+  },
+  {
+   "id": "q53",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "Ja",
+    "Nein",
+    "Unbekannt"
+   ],
+   "formFields": [
+    "Polizeirapport",
+    "Polizeirapport",
+    "Polizeirapport"
+   ]
+  },
+  {
+   "id": "q54",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Besteht ein Polizeirapport?"
+   ],
+   "formFields": [
+    "Polizeirapport"
+   ]
+  },
+  {
+   "id": "q55",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "Ja",
+    "Nein"
+   ],
+   "formFields": [
+    "Unfallprotokoll",
+    "Unfallprotokoll"
+   ]
+  },
+  {
+   "id": "q56",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)"
+   ],
+   "formFields": [
+    "Beteiligte Gegenstände"
+   ]
+  },
+  {
+   "id": "q57",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "8 Nichtberufsunfall"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q58",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Grund der Absenz"
+   ],
+   "formFields": [
+    "Grund Absenz"
+   ]
+  },
+  {
+   "id": "q59",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Letztmals im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)"
+   ],
+   "formFields": [
+    "Letzter Arbeitstag"
+   ]
+  },
+  {
+   "id": "q60",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "9 Verletzung"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q61",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Betroffener Körperteil"
+   ],
+   "formFields": [
+    "Betroffener Körperteil"
+   ]
+  },
+  {
+   "id": "q62",
+   "kind": "choice",
+   "page": 2,
+   "labels": [
+    "links",
+    "rechts",
+    "unbestimmt"
+   ],
+   "formFields": [
+    "Seite",
+    "Seite",
+    "Seite"
+   ]
+  },
+  {
+   "id": "q63",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Seite"
+   ],
+   "formFields": [
+    "Seite"
+   ]
+  },
+  {
+   "id": "q64",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Art der Schädigung"
+   ],
+   "formFields": [
+    "Art der Schädigung"
+   ]
+  },
+  {
+   "id": "q65",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "10 Arbeitsunfähigkeit"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q66",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Wenn ja, ab wann?"
+   ],
+   "formFields": [
+    "Arbeitsunfähig ab"
+   ]
+  },
+  {
+   "id": "q67",
+   "kind": "choice",
+   "page": 2,
+   "labels": [
+    "Ja",
+    "Nein"
+   ],
+   "formFields": [
+    "Arbeit ausgesetzt",
+    "Arbeit ausgesetzt"
+   ]
+  },
+  {
+   "id": "q68",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Arbeit zufolge Unfalles ausgesetzt?"
+   ],
+   "formFields": [
+    "Arbeit ausgesetzt"
+   ]
+  },
+  {
+   "id": "q69",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Falls Arbeit wieder aufgenommen: ab wann?"
+   ],
+   "formFields": [
+    "Arbeit wieder aufgenommen ab"
+   ]
+  },
+  {
+   "id": "q70",
+   "kind": "choice",
+   "page": 2,
+   "labels": [
+    "länger als 1 Monat",
+    "länger als 1 Monat"
+   ],
+   "formFields": [
+    "Dauer länger als 1 Monat",
+    "Dauer länger als 1 Monat"
+   ]
+  },
+  {
+   "id": "q71",
+   "kind": "choice",
+   "page": 2,
+   "labels": [
+    "ganz",
+    "teilweise"
+   ],
+   "formFields": [
+    "Wiederaufnahme",
+    "Wiederaufnahme"
+   ]
+  },
+  {
+   "id": "q72",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "11 Arztadressen"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q73",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Erstbehandelnder Arzt bzw. Spital/Klinik"
+   ],
+   "formFields": [
+    "Erstbehandelnder Arzt"
+   ]
+  },
+  {
+   "id": "q74",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Nachbehandelnder Arzt bzw. Spital/Klinik"
+   ],
+   "formFields": [
+    "Nachbehandelnder Arzt"
+   ]
+  },
+  {
+   "id": "q75",
+   "kind": "choice",
+   "page": 2,
+   "labels": [
+    "ambulant",
+    "stationär"
+   ],
+   "formFields": [
+    "Erstbehandlung",
+    "Erstbehandlung"
+   ]
+  },
+  {
+   "id": "q76",
+   "kind": "choice",
+   "page": 2,
+   "labels": [
+    "ambulant",
+    "stationär"
+   ],
+   "formFields": [
+    "Nachbehandlung",
+    "Nachbehandlung"
+   ]
+  },
+  {
+   "id": "q77",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Erstbehandlung, falls Spital/Klinik"
+   ],
+   "formFields": [
+    "Erstbehandlung"
+   ]
+  },
+  {
+   "id": "q78",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Nachbehandlung, falls Spital/Klinik"
+   ],
+   "formFields": [
+    "Nachbehandlung"
+   ]
+  },
+  {
+   "id": "q79",
+   "kind": "table",
+   "page": 2,
+   "labels": [
+    "CHF pro Stunde",
+    "CHF pro Monat",
+    "CHF pro Jahr",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "formFields": [
+    "Lohn Stunde Grundlohn",
+    "Lohn Monat Grundlohn",
+    "Lohn Jahr Grundlohn",
+    "Lohn Stunde Familienzulagen",
+    "Lohn Monat Familienzulagen",
+    "Lohn Jahr Familienzulagen",
+    "Lohn Stunde Ferienentschädigung",
+    "Lohn Monat Ferienentschädigung",
+    "Lohn Jahr Ferienentschädigung",
+    "Lohn Stunde Gratifikation",
+    "Lohn Monat Gratifikation",
+    "Lohn Jahr Gratifikation",
+    "Lohn Stunde Andere Zulagen",
+    "Lohn Monat Andere Zulagen",
+    "Lohn Jahr Andere Zulagen"
+   ],
+   "rows": 5,
+   "columns": 3
+  },
+  {
+   "id": "q80",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Andere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage)"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q81",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Andere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage)"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q82",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Anzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)"
+   ],
+   "formFields": [
+    "Anzahl Kinder"
+   ]
+  },
+  {
+   "id": "q83",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Bezeichnung der anderen Lohnzulagen"
+   ],
+   "formFields": [
+    "Bezeichnung Zulagen"
+   ]
+  },
+  {
+   "id": "q84",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "13 Sonderfälle"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q85",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Wenn ja, Name und Adresse"
+   ],
+   "formFields": [
+    "Weiterer Arbeitgeber Adresse"
+   ]
+  },
+  {
+   "id": "q86",
+   "kind": "choice",
+   "page": 2,
+   "labels": [
+    "Nein",
+    "Ja"
+   ],
+   "formFields": [
+    "Weiterer Arbeitgeber",
+    "Weiterer Arbeitgeber"
+   ]
+  },
+  {
+   "id": "q87",
+   "kind": "mark",
+   "page": 2,
+   "labels": [
+    "Quellensteuerpflicht"
+   ],
+   "formFields": [
+    "Steuern Quellensteuerpflicht"
+   ]
+  },
+  {
+   "id": "q88",
+   "kind": "mark",
+   "page": 2,
+   "labels": [
+    "Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)"
+   ],
+   "formFields": [
+    "Versicherung Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)"
+   ]
+  },
+  {
+   "id": "q89",
+   "kind": "mark",
+   "page": 2,
+   "labels": [
+    "Familienmitglied / Gesellschafter"
+   ],
+   "formFields": [
+    "Versicherung Familienmitglied / Gesellschafter"
+   ]
+  },
+  {
+   "id": "q90",
+   "kind": "mark",
+   "page": 2,
+   "labels": [
+    "Entsandte/r"
+   ],
+   "formFields": [
+    "Versicherung Entsandte/r"
+   ]
+  },
+  {
+   "id": "q91",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "14 Andere Sozialversicherungsleistungen"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q92",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Wenn ja, wo?"
+   ],
+   "formFields": [
+    "Andere Leistungen wo"
+   ]
+  },
+  {
+   "id": "q93",
+   "kind": "choice",
+   "page": 2,
+   "labels": [
+    "Nein",
+    "Ja"
+   ],
+   "formFields": [
+    "Andere Leistungen",
+    "Andere Leistungen"
+   ]
+  },
+  {
+   "id": "q94",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Anspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung?"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q95",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Name der obligatorischen Krankenversicherung (inkl. Police-Nr.)"
+   ],
+   "formFields": [
+    "Krankenversicherung"
+   ]
+  },
+  {
+   "id": "q96",
+   "kind": "single",
+   "page": 2,
+   "labels": [
+    "Ort und Datum"
+   ],
+   "formFields": [
+    "Ort und Datum"
+   ]
+  }
+ ],
+ "suva-bagatellunfall": [
+  {
+   "id": "q1",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q2",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Schaden-Nummer"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q3",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Tel.-Nr."
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q4",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Kunden-Nr."
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q5",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Name und Adresse mit Postleitzahl"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q6",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q7",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q8",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Geburtsdatum"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q9",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "AHV-Nummer"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q10",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Name und Vorname"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q11",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q12",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Staatsangehörigkeit"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q13",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Strasse"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q14",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Staatsangehörigkeit"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q15",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q16",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Zivilstand"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q17",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Ausgeübter Beruf"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q18",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Datum der Anstellung"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q19",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "씲 Höheres Kader"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q20",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "씲 Mittleres Kader"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q21",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "씲 Angestellte/r / Arbeiter/in"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q22",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "씲 Lehrling",
+    "씲 Praktikant/in"
+   ],
+   "formFields": [
+    "",
+    ""
+   ]
+  },
+  {
+   "id": "q23",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    "씲 Praktikant/in"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q24",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Arbeitszeit des/der Verletzten: Stunden je Woche"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q25",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q26",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q27",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q28",
+   "kind": "mark",
+   "page": 1,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q29",
+   "kind": "choice",
+   "page": 1,
+   "labels": [
+    "씲 links",
+    "씲 rechts",
+    "씲 unbestimmt"
+   ],
+   "formFields": [
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": "q30",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Betroffener Körperteil:"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q31",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Nachbehandelnder Arzt bzw. Spital/Klinik"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q32",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "10. Arzt- adressen"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q33",
+   "kind": "single",
+   "page": 1,
+   "labels": [
+    "Für Rückerstattungsgesuche von bereits bezahlten Rechnungen bitten wir Sie, Belege beizulegen und nachfolgend die Zahladresse (Post-/Bankkonto) anzugeben."
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q34",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q35",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Schaden-Nummer"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q36",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Tel.-Nr."
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q37",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Kunden-Nr."
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q38",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Name und Adresse mit Postleitzahl"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q39",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q40",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Geburtsdatum"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q41",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "AHV-Nummer"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q42",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Name und Vorname"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q43",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Geburtsdatum"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q44",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Staatsangehörigkeit"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q45",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Strasse"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q46",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Staatsangehörigkeit"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q47",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Zivilstand"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q48",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Ausgeübter Beruf"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q49",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Datum der Anstellung"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q50",
+   "kind": "choice",
+   "page": 3,
+   "labels": [
+    "씲 Höheres Kader",
+    "씲 Mittleres Kader",
+    "씲 Angestellte/r / Arbeiter/in"
+   ],
+   "formFields": [
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": "q51",
+   "kind": "choice",
+   "page": 3,
+   "labels": [
+    "씲 Lehrling",
+    "씲 Praktikant/in"
+   ],
+   "formFields": [
+    "",
+    ""
+   ]
+  },
+  {
+   "id": "q52",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Arbeitszeit des/der Verletzten: Stunden je Woche"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q53",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q54",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q55",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q56",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q57",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q58",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q59",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q60",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q61",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q62",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q63",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q64",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q65",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q66",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q67",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q68",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q69",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q70",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q71",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q72",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q73",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q74",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q75",
+   "kind": "choice",
+   "page": 3,
+   "labels": [
+    "씲 links",
+    "씲 rechts",
+    "씲 unbestimmt"
+   ],
+   "formFields": [
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": "q76",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Betroffener Körperteil:"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q77",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "Nachbehandelnder Arzt bzw. Spital/Klinik"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q78",
+   "kind": "single",
+   "page": 3,
+   "labels": [
+    "10. Arzt- adressen"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q79",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q80",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Schaden-Nummer"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q81",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Tel.-Nr."
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q82",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Kunden-Nr."
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q83",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Name und Adresse mit Postleitzahl"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q84",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q85",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Geburtsdatum"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q86",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "AHV-Nummer"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q87",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Name und Vorname"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q88",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q89",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q90",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Strasse"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q91",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q92",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q93",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q94",
+   "kind": "choice",
+   "page": 4,
+   "labels": [
+    "씲 links",
+    "씲 rechts",
+    "씲 unbestimmt"
+   ],
+   "formFields": [
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": "q95",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Betroffener Körperteil:"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q96",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Nachbehandelnder Arzt bzw. Spital/Klinik"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q97",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Arzt- adressen"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q98",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Rechnung der Apotheke"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q99",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Art und Menge"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q100",
+   "kind": "table",
+   "page": 4,
+   "labels": [
+    "Datum der Abgabe",
+    "Art und Menge",
+    "CHF",
+    "Rp.",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "formFields": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "rows": 6,
+   "columns": 4
+  },
+  {
+   "id": "q101",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q102",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q103",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q104",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    ""
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q105",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "3 Code"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q106",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "3 Code"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q107",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "3 Code"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q108",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "3 Code"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q109",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "3 Code"
+   ],
+   "formFields": [
+    ""
+   ]
+  },
+  {
+   "id": "q110",
+   "kind": "single",
+   "page": 4,
+   "labels": [
+    "Total"
+   ],
+   "formFields": [
+    ""
+   ]
+  }
+ ]
+}

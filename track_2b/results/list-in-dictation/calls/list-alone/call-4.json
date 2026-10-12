@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T15:20:53.104Z",
+ "tag": "L B3",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 960,
+ "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Der Schuldner ist Urs Meier, Musterstrasse 1 in 8000 Zürich. Gläubiger bin ich, Hans Rietli, Brandschenkestrasse 1, 8002 Zürich. Die Forderung ist eine Rechnung vom 3. Mai 2025 über 3000 Franken, mit 5 Prozent Zins seit dem 1. Juni 2025. Dazu kommen drei weitere Forderungen. Erstens eine Mahngebühr von 40 Franken vom 20. Juni 2025. Zweitens die Miete für Juli 2025, 1200 Franken, mit 5 Prozent Zins seit dem 1. August 2025. Drittens die Nebenkostenabrechnung 2024 über 350 Franken, mit 5 Prozent Zins seit dem 15. März 2025.\n-----\n\nIm Formular steht eine Liste mit mehreren gleichen Zeilen. Dazu wird gefragt: «Wie viele weitere Forderungen gibt es? Für jede Forderung frage ich nach: Grund oder Urkunde mit Datum, Betrag in CHF, Zinssatz in Prozent und Datum ab wann der Zins gilt.»\nJeder Eintrag der Liste hat diese Angaben, in dieser Reihenfolge:\n1. Forderungsgrund oder Forderungsurkunde mit Datum\n2. Betrag (CHF)\n3. Zins %\n4. seit (Datum)\n\nLies aus dem Text ab, welche Einträge für diese Liste gesagt wurden. Schreibe je Eintrag genau eine Zeile, die Angaben in der Reihenfolge oben und durch \" | \" getrennt; fehlt eine Angabe, schreibe dafür einen Strich (-). Erfinde nichts. Wurde kein Eintrag für diese Liste gesagt, antworte nur mit dem Wort KEINE.",
+ "image": 0,
+ "audio": 0,
+ "ms": 698,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-ca260201-5294-4be3-a22d-08239dedde23",
+  "object": "chat.completion",
+  "created": 1791732055,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Erste Forderung | Mahngebühr | 40 | 5 | 20. Juni 2025\nZweite Forderung | Miete Juli 2025 | 1200 | 5 | 1. August 2025\nDritte Forderung | Nebenkostenabrechnung 2024 | 350 | 5 | 15. März 2025",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 503,
+   "total_tokens": 600,
+   "completion_tokens": 97,
+   "prompt_tokens_details": {
+    "cached_tokens": 192,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

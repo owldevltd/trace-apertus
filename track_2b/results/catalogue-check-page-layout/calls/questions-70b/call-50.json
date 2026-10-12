@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T08:27:52.060Z",
+  "tag": "rückprobe einheiten-etikett-interview-70b suva-bagatellunfall Lauf 2",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 620,
+  "prompt": "Unten steht eine Seite eines Schweizer Formulars als Text, ungefähr so angeordnet wie auf dem Papier. Jede Stelle, die ausgefüllt wird, trägt die Kennung ihrer Frage in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 4 =====\n                                                                          [q79] ____\n                                                                           Schaden-Nummer\n         Apothekerschein UVG                                              [q80] ____\n\n            Arbeitgeber  Name und Adresse mit                       Tel.-Nr.          Kunden-Nr.    Betriebsteil\n                       Postleitzahl\n         [q83] ____                                                [q81] ____  [q84] ____  Üblicher Arbeitsplatz des/der  [q82] ____\n                                                                    Verletzten (Betriebszweig)\n            Verletzte/r  Name und                                   Geburtsdatum      AHV-Nummer\n                       Vorname\n                       [q87] ____                                  [q85] ____        [q86] ____\n                       Strasse  [q90] ____                         [q88] ____        [q89] ____\n                       PLZ       Wohnort                           [q91] ____        [q92] ____\n         [q93] ____\n            Schaden-   Tag   Monat            Jahr      Zeit (Stunden,\n            datum                                       Minuten)\n\n         Hinweise für die/den Verletzte/n                   Hinweise für den Apotheker\n\n         Die vom Arzt verordneten Medikamente werden        Bitte senden Sie diese Rechnung nach Abschluss\n         Ihnen vom Apotheker gegen Abgabe dieses            der Behandlung – spätestens aber 3 Monate nach\n         Scheines kostenlos abgegeben. Alle Medikamente     Unfalldatum – an die oben aufge- führte Adresse.\n         sind aus der gleichen Apotheke zu beziehen.        Einen neuen Apothekerschein können Sie bei uns\n                                                            verlangen, wenn – der Platz für das Eintragen\n                                                            der Bezüge nicht ausreicht, – nach Ablauf von 3\n                                                            Monaten weitere Medikamente benötigt werden.\n\n            Verletzung  Betroffener   [q95] ____                                씲 links  [q94] [ ]  씲 rechts  [q94] [ ]  씲 unbestimmt  [q94] [ ]\n                       Körperteil:\n                       Art der\n                       Schädigung:\n         [q97] ____  Arzt-  Erstbehandelnder Arzt bzw.             [q96] ____  Nachbehandelnder Arzt bzw.\n            adressen   Spital/Klinik                                Spital/Klinik\n\n         [q98] ____  Rechnung der Apotheke\n         Datum der  [q99] ____  Art und    Preis  CHF  Rp.  Datum:\n         Abgabe    Menge\n         [q100] ____  [q100] ____         [q100] ____  [q100] ____\n         [q100] ____  [q100] ____         [q100] ____  [q100] ____  Stempel der\n                                                            Apotheke:\n         [q100] ____  [q100] ____         [q100] ____  [q100] ____\n         [q100] ____  [q100] ____         [q100] ____  [q100] ____\n         [q100] ____  [q100] ____         [q100] ____  [q100] ____\n         [q100] ____  [q101] ____  [q100] ____  [q102] ____  [q100] ____  [q103] ____  [q100] ____  [q104] ____  [q105] ____  3 Code  [q106] ____  [q107] ____  [q108] ____\n         Bitte Rezepte                Total  [q110] ____    [q109] ____  Postkonto-Nr. oder\n         beilegen                                            zugeteilte Suva-Nr.\n\n         Geht an: Verletzte/r ➞ Apotheker                    Bei Abrechnung über\n         ➞ Suva                                              OFAC: 35-1\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Hier ist nichts einzutragen, bitte weiter zur nächsten Frage.\nB: Bitte geben Sie für jede Medikamentenabgabe an: Datum der Abgabe, Art und Menge, Betrag in CHF und Rappen\nC: Welcher Körperteil ist verletzt?\nD: Hier ist nichts einzutragen, bitte weiter zur nächsten Frage.\nE: Hier ist nichts einzutragen, bitte weiter zur nächsten Frage.\nF: Hier ist nichts einzutragen, bitte weiter zur nächsten Frage.\nG: Wann sind Sie geboren?\nH: Wo ist der übliche Arbeitsplatz im Betrieb?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2253,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-2b902267-c5b1-468f-b994-a628d28b5c53",
+    "object": "chat.completion",
+    "created": 1791534472,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"zuordnung\": [\n    {\"frage\": \"A\", \"kennung\": \"q79\"},\n    {\"frage\": \"B\", \"kennung\": \"q100\"},\n    {\"frage\": \"C\", \"kennung\": \"q95\"},\n    {\"frage\": \"D\", \"kennung\": \"q80\"},\n    {\"frage\": \"E\", \"kennung\": \"q83\"},\n    {\"frage\": \"F\", \"kennung\": \"q87\"},\n    {\"frage\": \"G\", \"kennung\": \"q85\"},\n    {\"frage\": \"H\", \"kennung\": \"q82\"}\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1310,
+      "total_tokens": 1450,
+      "completion_tokens": 140,
+      "prompt_tokens_details": {
+        "cached_tokens": 1120,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

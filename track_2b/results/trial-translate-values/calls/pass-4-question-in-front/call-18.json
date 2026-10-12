@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:59:28.069Z",
+  "tag": "werte sechs it suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Italienisch gemacht, die in ein deutsches Formular gehören.\n\nAngabe 1: Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\nAngabe 2: 041 728 40 10\nAngabe 3: Magazzino\nAngabe 4: Keller Sandra\nAngabe 5: 14.03.1988\nAngabe 6: Werkstrasse 12, 6300 Zug\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1572,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-4d23d653-6c9e-4c03-9019-ffa6accdefa0",
+    "object": "chat.completion",
+    "created": 1791554368,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 1, \"wert\": \"Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\"}, {\"nummer\": 2, \"wert\": \"041 728 40 10\"}, {\"nummer\": 3, \"wert\": \"Magazzino\"}, {\"nummer\": 4, \"wert\": \"Keller Sandra\"}, {\"nummer\": 5, \"wert\": \"14.03.1988\"}, {\"nummer\": 6, \"wert\": \"Werkstrasse 12, 6300 Zug\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 257,
+      "total_tokens": 393,
+      "completion_tokens": 136,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

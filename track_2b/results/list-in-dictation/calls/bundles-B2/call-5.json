@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T15:20:47.157Z",
+ "tag": "T B2 f27,f54,f28,f29,f30,f55",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 400,
+ "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Der Schuldner ist Urs Meier, Musterstrasse 1 in 8000 Zürich. Gläubiger bin ich, Hans Rietli, Brandschenkestrasse 1, 8002 Zürich. Die Forderung ist eine Rechnung vom 3. Mai 2025 über 3000 Franken, mit 5 Prozent Zins seit dem 1. Juni 2025. Dazu kommen zwei weitere Forderungen: eine Mahngebühr von 40 Franken vom 20. Juni 2025 und die Miete für Juli 2025, 1200 Franken, mit 5 Prozent Zins seit dem 1. August 2025.\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- f27: Forderungsgrund oder Forderungsurkunde mit Datum — Vorgabe: Text\n- f54: Betrag (CHF) — Vorgabe: Zahl\n- f28: Zins % — Vorgabe: Zahl\n- f29: seit (Datum) — Vorgabe: Datum als TT.MM.JJJJ\n- f30: Forderungsgrund oder Forderungsurkunde mit Datum — Vorgabe: Text\n- f55: Betrag (CHF) — Vorgabe: Zahl\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+ "image": 0,
+ "audio": 0,
+ "ms": 1273,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-3a125839-4da4-4ebc-9408-bc9a50100f55",
+  "object": "chat.completion",
+  "created": 1791732049,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "f27: Rechnung vom 3. Mai 2025 über 3000 Franken, Mahngebühr vom 20. Juni 2025 von 40 Franken, Miete für Juli 2025 von 1200 Franken [p1]\nf54: 3000, 40, 1200 [p1]\nf28: 5 [p1]\nf29: 01.06.2025, 01.08.2025 [p1]\nf30: Rechnung vom 3. Mai 2025, Mahngebühr vom 20. Juni 2025, Miete für Juli 2025 [p1]\nf55: 3000, 40, 1200 [p1]",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 467,
+   "total_tokens": 666,
+   "completion_tokens": 199,
+   "prompt_tokens_details": {
+    "cached_tokens": 256,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:41:18.061Z",
+  "tag": "umgeschrieben-paeckchen suva-bagatellunfall q109",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 740,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Bagatellunfall-Meldung UVG\", jede mit ihrer Kennung:\n\nq109: Welcher 3-Code wird eingetragen?\nq110: Wie lautet die Summe (Total)?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 506,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-dd8bc3c2-8035-41a3-936d-516935f56eca",
+    "object": "chat.completion",
+    "created": 1791531678,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q109\", \"frage\": \"Welchen 3-Code soll ich eintragen?\"}, {\"kennung\": \"q110\", \"frage\": \"Wie lautet die Summe, die ich angeben muss?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 276,
+      "total_tokens": 338,
+      "completion_tokens": 62,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

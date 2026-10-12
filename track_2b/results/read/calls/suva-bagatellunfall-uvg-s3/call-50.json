@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-07T09:27:48.875Z",
+ "tag": "suva-bagatellunfall-uvg-s3.png #134",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 800,
+ "prompt": "Das Bild ist ein Ausschnitt aus einem Dokument, ein einzelnes Element. Beantworte zwei Dinge. bildanteile: Hat das Element Bildanteile (Logo, Foto, Zeichnung, Grafik)? text: der Text im Element, exakt wiedergegeben, ohne Kästchen und Kreise; steht kein Text darin, \"\". Antworte nur als JSON: {\"bildanteile\": true oder false, \"text\": \"...\"}",
+ "image": 8093,
+ "audio": 0,
+ "ms": 310,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-0d278a4b-154e-4c1a-aa1b-dd82fbef6a90",
+  "object": "chat.completion",
+  "created": 1791365269,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"bildanteile\": false, \"text\": \"Erstbehandelnder Arzt bzw. Spital/Klinik\"}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 426,
+   "total_tokens": 453,
+   "completion_tokens": 27,
+   "prompt_tokens_details": {
+    "cached_tokens": 32,
+    "multimodal_tokens": {
+     "image": 271
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

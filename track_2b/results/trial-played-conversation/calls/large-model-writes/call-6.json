@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:34:55.429Z",
+  "tag": "e2e gegenüber 70b",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Du gibst jemandem im Gespräch Auskunft zu deinem Fall. Über den Fall weisst du nur, was du selbst so erzählt hast:\n\nBetreibungsbegehren ans Betreibungsamt Chur. Gläubigerin ist die Garage Caduff AG, Kasernenstrasse acht, siebentausend Chur. Zahlung bitte aufs Konto, IBAN CH93 0076 2011 6238 5295 7. Schuldner ist Peter Hartmann, Via Nova vierzehn, siebentausenddreizehn Domat Ems. Die Forderung ist die Rechnung Nummer zwanzig sechsundzwanzig strich einhundertachtzehn vom zwölften Juni für die Reparatur, zweitausenddreihundertvierzig Franken fünfzig, fünf Prozent Zins ab dreizehntem Juli.\n\nDir werden diese Fragen gestellt:\nA: Betreibungsamt\nB: Wie heißen Sie mit Nachnamen und Vornamen und wo wohnen Sie?\nC: Wissen Sie Ihr Geburtsdatum?\nD: Wie heißt der Gläubiger mit Nachnamen und Vornamen bzw. Firma und wo ist er ansässig?\nE: Wie kann der Gläubiger bezahlt werden? (IBAN, Postkonto, Bankkonto oder anderes)\nF: Was ist die IBAN-Nummer?\nG: Wird der Schuldner durch jemanden vertreten? Wenn ja, wie heißt die Person und wo ist sie erreichbar?\nH: Wie kann man Sie für Rückfragen erreichen? (Telefonnummer oder E-Mail-Adresse)\nI: Was ist der Grund für die Forderung oder wo finde ich die Urkunde mit Datum?\nJ: Wie hoch ist der geforderte Betrag in Schweizer Franken?\nK: Welchen Zinssatz verlangt der Gläubiger in Prozent?\nL: Zins seit (Datum)\nM: Gibt es noch etwas Wichtiges zu ergänzen?\nN: Ihre Fallreferenz (falls vorhanden)\n\nAntworte auf jede Frage, wie man im Gespräch antwortet: kurz und nur mit dem, was du weisst. Weisst du etwas nicht, sag \"Das weiss ich nicht.\". Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"antwort\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2013,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-abee684c-12df-4d97-874e-76ae41300b58",
+    "object": "chat.completion",
+    "created": 1791538495,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"antwort\": \"Betreibungsamt Chur\"}, {\"frage\": \"B\", \"antwort\": \"Peter Hartmann, Via Nova vierzehn, siebentausenddreizehn Domat Ems\"}, {\"frage\": \"C\", \"antwort\": \"Das weiss ich nicht.\"}, {\"frage\": \"D\", \"antwort\": \"Garage Caduff AG, Kasernenstrasse acht, siebentausend Chur\"}, {\"frage\": \"E\", \"antwort\": \"IBAN CH93 0076 2011 6238 5295 7\"}, {\"frage\": \"F\", \"antwort\": \"CH93 0076 2011 6238 5295 7\"}, {\"frage\": \"G\", \"antwort\": \"Das weiss ich nicht.\"}, {\"frage\": \"H\", \"antwort\": \"Das weiss ich nicht.\"}, {\"frage\": \"I\", \"antwort\": \"Rechnung Nummer zwanzig sechsundzwanzig strich einhundertachtzehn vom zwölften Juni\"}, {\"frage\": \"J\", \"antwort\": \"zweitausenddreihundertvierzig Franken fünfzig\"}, {\"frage\": \"K\", \"antwort\": \"fünf Prozent\"}, {\"frage\": \"L\", \"antwort\": \"dreizehntem Juli\"}, {\"frage\": \"M\", \"antwort\": \"Das weiss ich nicht.\"}, {\"frage\": \"N\", \"antwort\": \"Das weiss ich nicht.\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 545,
+      "total_tokens": 867,
+      "completion_tokens": 322,
+      "prompt_tokens_details": {
+        "cached_tokens": 224,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

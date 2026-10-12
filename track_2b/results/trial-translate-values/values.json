@@ -1,0 +1,842 @@
+[
+ {
+  "language": "fr",
+  "form": "betreibungsbegehren",
+  "field": "amt",
+  "label": "Betreibungsamt",
+  "number": 1,
+  "german": "Betreibungsamt Chur",
+  "given": "Office des poursuites Chur",
+  "isLanguage": true
+ },
+ {
+  "language": "fr",
+  "form": "betreibungsbegehren",
+  "field": "schuldner",
+  "label": "Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "number": 2,
+  "german": "Peter Hartmann, Via Nova 14, 7013 Domat/Ems",
+  "given": "Peter Hartmann, Via Nova 14, 7013 Domat/Ems",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "betreibungsbegehren",
+  "field": "glaeubiger",
+  "label": "Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "number": 3,
+  "german": "Garage Caduff AG, Kasernenstrasse 8, 7000 Chur",
+  "given": "Garage Caduff AG, Kasernenstrasse 8, 7000 Chur",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "betreibungsbegehren",
+  "field": "iban",
+  "label": "IBAN",
+  "number": 4,
+  "german": "CH93 0076 2011 6238 5295 7",
+  "given": "CH93 0076 2011 6238 5295 7",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "betreibungsbegehren",
+  "field": "forderung",
+  "label": "Forderungsgrund oder Forderungsurkunde mit Datum",
+  "number": 5,
+  "german": "Rechnung Nr. 2026-118 vom 12.06.2026, Reparatur",
+  "given": "Facture n° 2026-118 du 12.06.2026, réparation",
+  "isLanguage": true
+ },
+ {
+  "language": "fr",
+  "form": "betreibungsbegehren",
+  "field": "betrag",
+  "label": "Betrag (CHF)",
+  "number": 6,
+  "german": "2'340.50",
+  "given": "2'340.50",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "betreibungsbegehren",
+  "field": "zins",
+  "label": "Zins %",
+  "number": 7,
+  "german": "5",
+  "given": "5",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "betreibungsbegehren",
+  "field": "zinsseit",
+  "label": "Zins seit (Datum)",
+  "number": 8,
+  "german": "13.07.2026",
+  "given": "13.07.2026",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "arbeitgeber",
+  "label": "Name und Adresse mit Postleitzahl",
+  "number": 1,
+  "german": "Logistik Zugersee AG, Werkstrasse 12, 6300 Zug",
+  "given": "Logistik Zugersee AG, Werkstrasse 12, 6300 Zug",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "tel",
+  "label": "Tel.-Nr.",
+  "number": 2,
+  "german": "041 728 40 10",
+  "given": "041 728 40 10",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "arbeitsplatz",
+  "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+  "number": 3,
+  "german": "Lager",
+  "given": "Lager",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "name",
+  "label": "Name und Vorname",
+  "number": 4,
+  "german": "Keller Sandra",
+  "given": "Keller Sandra",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "geburt",
+  "label": "Geburtsdatum",
+  "number": 5,
+  "german": "14.03.1988",
+  "given": "14.03.1988",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "strasse",
+  "label": "Strasse",
+  "number": 6,
+  "german": "Werkstrasse 12, 6300 Zug",
+  "given": "Werkstrasse 12, 6300 Zug",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "staat",
+  "label": "Staatsangehörigkeit",
+  "number": 7,
+  "german": "Schweiz",
+  "given": "Suisse",
+  "isLanguage": true
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "zivilstand",
+  "label": "Zivilstand",
+  "number": 8,
+  "german": "ledig",
+  "given": "célibataire",
+  "isLanguage": true
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "anstellung",
+  "label": "Datum der Anstellung",
+  "number": 9,
+  "german": "01.02.2019",
+  "given": "01.02.2019",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "beruf",
+  "label": "Ausgeübter Beruf",
+  "number": 10,
+  "german": "Lagermitarbeiterin",
+  "given": "Lagermitarbeiterin",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "stunden",
+  "label": "Arbeitszeit des/der Verletzten: Stunden je Woche",
+  "number": 11,
+  "german": "40",
+  "given": "40",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "tag",
+  "label": "Tag",
+  "number": 12,
+  "german": "05",
+  "given": "05",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "monat",
+  "label": "Monat",
+  "number": 13,
+  "german": "10",
+  "given": "10",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "jahr",
+  "label": "Jahr",
+  "number": 14,
+  "german": "2026",
+  "given": "2026",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "zeit",
+  "label": "Zeit (Stunden, Minuten)",
+  "number": 15,
+  "german": "14:20",
+  "given": "14:20",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "ort",
+  "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)",
+  "number": 16,
+  "german": "Lager, Werkstrasse 12, Zug",
+  "given": "Lager, Werkstrasse 12, Zug",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "hergang",
+  "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge",
+  "number": 17,
+  "german": "Beim Abladen einer Palette ausgerutscht und auf das rechte Handgelenk gestürzt.",
+  "given": "En déchargeant une palette, j'ai glissé et je suis tombée sur mon poignet droit.",
+  "isLanguage": true
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "gegenstaende",
+  "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)",
+  "number": 18,
+  "german": "Palette",
+  "given": "Palette",
+  "isLanguage": false
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "koerperteil",
+  "label": "Betroffener Körperteil",
+  "number": 19,
+  "german": "Handgelenk",
+  "given": "Poignet",
+  "isLanguage": true
+ },
+ {
+  "language": "fr",
+  "form": "suva-bagatellunfall",
+  "field": "arzt1",
+  "label": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+  "number": 20,
+  "german": "Kantonsspital Zug, Notfall",
+  "given": "Kantonsspital Zug, Urgence",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "betreibungsbegehren",
+  "field": "amt",
+  "label": "Betreibungsamt",
+  "number": 1,
+  "german": "Betreibungsamt Chur",
+  "given": "Ufficio di esecuzione Chur",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "betreibungsbegehren",
+  "field": "schuldner",
+  "label": "Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "number": 2,
+  "german": "Peter Hartmann, Via Nova 14, 7013 Domat/Ems",
+  "given": "Peter Hartmann, Via Nova 14, 7013 Domat/Ems",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "betreibungsbegehren",
+  "field": "glaeubiger",
+  "label": "Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "number": 3,
+  "german": "Garage Caduff AG, Kasernenstrasse 8, 7000 Chur",
+  "given": "Garage Caduff AG, Kasernenstrasse 8, 7000 Chur",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "betreibungsbegehren",
+  "field": "iban",
+  "label": "IBAN",
+  "number": 4,
+  "german": "CH93 0076 2011 6238 5295 7",
+  "given": "CH93 0076 2011 6238 5295 7",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "betreibungsbegehren",
+  "field": "forderung",
+  "label": "Forderungsgrund oder Forderungsurkunde mit Datum",
+  "number": 5,
+  "german": "Rechnung Nr. 2026-118 vom 12.06.2026, Reparatur",
+  "given": "Fattura n. 2026-118 del 12.06.2026, riparazione",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "betreibungsbegehren",
+  "field": "betrag",
+  "label": "Betrag (CHF)",
+  "number": 6,
+  "german": "2'340.50",
+  "given": "2'340.50",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "betreibungsbegehren",
+  "field": "zins",
+  "label": "Zins %",
+  "number": 7,
+  "german": "5",
+  "given": "5",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "betreibungsbegehren",
+  "field": "zinsseit",
+  "label": "Zins seit (Datum)",
+  "number": 8,
+  "german": "13.07.2026",
+  "given": "13.07.2026",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "arbeitgeber",
+  "label": "Name und Adresse mit Postleitzahl",
+  "number": 1,
+  "german": "Logistik Zugersee AG, Werkstrasse 12, 6300 Zug",
+  "given": "Logistik Zugersee AG, Werkstrasse 12, 6300 Zug",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "tel",
+  "label": "Tel.-Nr.",
+  "number": 2,
+  "german": "041 728 40 10",
+  "given": "041 728 40 10",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "arbeitsplatz",
+  "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+  "number": 3,
+  "german": "Lager",
+  "given": "Magazzino",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "name",
+  "label": "Name und Vorname",
+  "number": 4,
+  "german": "Keller Sandra",
+  "given": "Keller Sandra",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "geburt",
+  "label": "Geburtsdatum",
+  "number": 5,
+  "german": "14.03.1988",
+  "given": "14.03.1988",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "strasse",
+  "label": "Strasse",
+  "number": 6,
+  "german": "Werkstrasse 12, 6300 Zug",
+  "given": "Werkstrasse 12, 6300 Zug",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "staat",
+  "label": "Staatsangehörigkeit",
+  "number": 7,
+  "german": "Schweiz",
+  "given": "Svizzera",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "zivilstand",
+  "label": "Zivilstand",
+  "number": 8,
+  "german": "ledig",
+  "given": "nubile",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "anstellung",
+  "label": "Datum der Anstellung",
+  "number": 9,
+  "german": "01.02.2019",
+  "given": "01.02.2019",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "beruf",
+  "label": "Ausgeübter Beruf",
+  "number": 10,
+  "german": "Lagermitarbeiterin",
+  "given": "Magazziniera",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "stunden",
+  "label": "Arbeitszeit des/der Verletzten: Stunden je Woche",
+  "number": 11,
+  "german": "40",
+  "given": "40",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "tag",
+  "label": "Tag",
+  "number": 12,
+  "german": "05",
+  "given": "05",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "monat",
+  "label": "Monat",
+  "number": 13,
+  "german": "10",
+  "given": "10",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "jahr",
+  "label": "Jahr",
+  "number": 14,
+  "german": "2026",
+  "given": "2026",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "zeit",
+  "label": "Zeit (Stunden, Minuten)",
+  "number": 15,
+  "german": "14:20",
+  "given": "14:20",
+  "isLanguage": false
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "ort",
+  "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)",
+  "number": 16,
+  "german": "Lager, Werkstrasse 12, Zug",
+  "given": "Magazzino, Werkstrasse 12, Zug",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "hergang",
+  "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge",
+  "number": 17,
+  "german": "Beim Abladen einer Palette ausgerutscht und auf das rechte Handgelenk gestürzt.",
+  "given": "Scivolata mentre scaricavo un pallet e caduta sul polso destro.",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "gegenstaende",
+  "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)",
+  "number": 18,
+  "german": "Palette",
+  "given": "Pallet",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "koerperteil",
+  "label": "Betroffener Körperteil",
+  "number": 19,
+  "german": "Handgelenk",
+  "given": "Polso",
+  "isLanguage": true
+ },
+ {
+  "language": "it",
+  "form": "suva-bagatellunfall",
+  "field": "arzt1",
+  "label": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+  "number": 20,
+  "german": "Kantonsspital Zug, Notfall",
+  "given": "Ospedale Cantonale di Zurigo, Pronto Soccorso",
+  "isLanguage": true
+ },
+ {
+  "language": "en",
+  "form": "betreibungsbegehren",
+  "field": "amt",
+  "label": "Betreibungsamt",
+  "number": 1,
+  "german": "Betreibungsamt Chur",
+  "given": "Betreibungsamt Chur",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "betreibungsbegehren",
+  "field": "schuldner",
+  "label": "Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "number": 2,
+  "german": "Peter Hartmann, Via Nova 14, 7013 Domat/Ems",
+  "given": "Peter Hartmann, Via Nova 14, 7013 Domat/Ems",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "betreibungsbegehren",
+  "field": "glaeubiger",
+  "label": "Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "number": 3,
+  "german": "Garage Caduff AG, Kasernenstrasse 8, 7000 Chur",
+  "given": "Garage Caduff AG, Kasernenstrasse 8, 7000 Chur",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "betreibungsbegehren",
+  "field": "iban",
+  "label": "IBAN",
+  "number": 4,
+  "german": "CH93 0076 2011 6238 5295 7",
+  "given": "CH93 0076 2011 6238 5295 7",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "betreibungsbegehren",
+  "field": "forderung",
+  "label": "Forderungsgrund oder Forderungsurkunde mit Datum",
+  "number": 5,
+  "german": "Rechnung Nr. 2026-118 vom 12.06.2026, Reparatur",
+  "given": "Invoice No. 2026-118 dated 12.06.2026, Repair",
+  "isLanguage": true
+ },
+ {
+  "language": "en",
+  "form": "betreibungsbegehren",
+  "field": "betrag",
+  "label": "Betrag (CHF)",
+  "number": 6,
+  "german": "2'340.50",
+  "given": "2'340.50",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "betreibungsbegehren",
+  "field": "zins",
+  "label": "Zins %",
+  "number": 7,
+  "german": "5",
+  "given": "5",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "betreibungsbegehren",
+  "field": "zinsseit",
+  "label": "Zins seit (Datum)",
+  "number": 8,
+  "german": "13.07.2026",
+  "given": "13.07.2026",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "arbeitgeber",
+  "label": "Name und Adresse mit Postleitzahl",
+  "number": 1,
+  "german": "Logistik Zugersee AG, Werkstrasse 12, 6300 Zug",
+  "given": "Logistik Zugersee AG, Werkstrasse 12, 6300 Zug",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "tel",
+  "label": "Tel.-Nr.",
+  "number": 2,
+  "german": "041 728 40 10",
+  "given": "041 728 40 10",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "arbeitsplatz",
+  "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+  "number": 3,
+  "german": "Lager",
+  "given": "Warehouse",
+  "isLanguage": true
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "name",
+  "label": "Name und Vorname",
+  "number": 4,
+  "german": "Keller Sandra",
+  "given": "Keller Sandra",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "geburt",
+  "label": "Geburtsdatum",
+  "number": 5,
+  "german": "14.03.1988",
+  "given": "14.03.1988",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "strasse",
+  "label": "Strasse",
+  "number": 6,
+  "german": "Werkstrasse 12, 6300 Zug",
+  "given": "Werkstrasse 12, 6300 Zug",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "staat",
+  "label": "Staatsangehörigkeit",
+  "number": 7,
+  "german": "Schweiz",
+  "given": "Switzerland",
+  "isLanguage": true
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "zivilstand",
+  "label": "Zivilstand",
+  "number": 8,
+  "german": "ledig",
+  "given": "single",
+  "isLanguage": true
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "anstellung",
+  "label": "Datum der Anstellung",
+  "number": 9,
+  "german": "01.02.2019",
+  "given": "01.02.2019",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "beruf",
+  "label": "Ausgeübter Beruf",
+  "number": 10,
+  "german": "Lagermitarbeiterin",
+  "given": "Warehouse worker",
+  "isLanguage": true
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "stunden",
+  "label": "Arbeitszeit des/der Verletzten: Stunden je Woche",
+  "number": 11,
+  "german": "40",
+  "given": "40",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "tag",
+  "label": "Tag",
+  "number": 12,
+  "german": "05",
+  "given": "05",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "monat",
+  "label": "Monat",
+  "number": 13,
+  "german": "10",
+  "given": "10",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "jahr",
+  "label": "Jahr",
+  "number": 14,
+  "german": "2026",
+  "given": "2026",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "zeit",
+  "label": "Zeit (Stunden, Minuten)",
+  "number": 15,
+  "german": "14:20",
+  "given": "14:20",
+  "isLanguage": false
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "ort",
+  "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)",
+  "number": 16,
+  "german": "Lager, Werkstrasse 12, Zug",
+  "given": "Warehouse, Werkstrasse 12, Zug",
+  "isLanguage": true
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "hergang",
+  "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge",
+  "number": 17,
+  "german": "Beim Abladen einer Palette ausgerutscht und auf das rechte Handgelenk gestürzt.",
+  "given": "Slipped while unloading a pallet and fell onto the right wrist.",
+  "isLanguage": true
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "gegenstaende",
+  "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)",
+  "number": 18,
+  "german": "Palette",
+  "given": "Pallet",
+  "isLanguage": true
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "koerperteil",
+  "label": "Betroffener Körperteil",
+  "number": 19,
+  "german": "Handgelenk",
+  "given": "Wrist",
+  "isLanguage": true
+ },
+ {
+  "language": "en",
+  "form": "suva-bagatellunfall",
+  "field": "arzt1",
+  "label": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+  "number": 20,
+  "german": "Kantonsspital Zug, Notfall",
+  "given": "Kantonsspital Zug, Emergency",
+  "isLanguage": true
+ }
+]

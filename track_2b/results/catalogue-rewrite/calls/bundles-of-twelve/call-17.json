@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:40:48.325Z",
+  "tag": "umgeschrieben-paeckchen suva-bagatellunfall q37",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Bagatellunfall-Meldung UVG\", jede mit ihrer Kennung:\n\nq37: Welche Kunden-Nummer wird eingetragen?\nq38: Wie lautet der Name und die Adresse mit Postleitzahl des Arbeitgebers?\nq39: Welcher übliche Arbeitsplatz des Verletzten (Betriebszweig) wird eingetragen?\nq40: Welches Geburtsdatum wird eingetragen?\nq41: Welche AHV-Nummer wird eingetragen?\nq42: Wie lautet der Name und der Vorname des Verletzten?\nq43: Welches Geburtsdatum wird eingetragen?\nq44: Welche Staatsangehörigkeit wird eingetragen?\nq45: Wie lautet die Strasse des Wohnorts?\nq46: Welche Staatsangehörigkeit wird eingetragen?\nq47: Welcher Zivilstand wird eingetragen?\nq48: Welcher ausgeübte Beruf wird eingetragen?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3101,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-c0b5913a-e4d7-4446-8260-e6cc72ae5c92",
+    "object": "chat.completion",
+    "created": 1791531648,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q37\", \"frage\": \"Welche Kunden-Nummer wird eingetragen?\"}, {\"kennung\": \"q38\", \"frage\": \"Wie lautet der Name und die Adresse mit Postleitzahl des Arbeitgebers?\"}, {\"kennung\": \"q39\", \"frage\": \"Welcher übliche Arbeitsplatz des Verletzten (Betriebszweig) wird eingetragen?\"}, {\"kennung\": \"q40\", \"frage\": \"Wann ist die Person geboren?\"}, {\"kennung\": \"q41\", \"frage\": \"Welche AHV-Nummer wird eingetragen?\"}, {\"kennung\": \"q42\", \"frage\": \"Wie lautet der Name und der Vorname des Verletzten?\"}, {\"kennung\": \"q43\", \"frage\": \"Wann ist die Person geboren?\"}, {\"kennung\": \"q44\", \"frage\": \"Welche Staatsangehörigkeit wird eingetragen?\"}, {\"kennung\": \"q45\", \"frage\": \"Wie lautet die Strasse des Wohnorts?\"}, {\"kennung\": \"q46\", \"frage\": \"Welche Staatsangehörigkeit wird eingetragen?\"}, {\"kennung\": \"q47\", \"frage\": \"Welcher Zivilstand wird eingetragen?\"}, {\"kennung\": \"q48\", \"frage\": \"Welcher ausgeübte Beruf wird eingetragen?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 430,
+      "total_tokens": 742,
+      "completion_tokens": 312,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

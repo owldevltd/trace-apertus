@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T11:53:07.000Z",
+  "tag": "genug Lauf 1 betreibungsbegehren q2 gekürzt",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 150,
+  "prompt": "In einem Gespräch wird ein Schweizer Formular ausgefüllt. Jemand stellt eine Frage, die andere Person antwortet.\n\nFrage: Wie heisst der Schuldner und wo wohnt er?\nAuf dem Formular steht an dieser Stelle: Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort) (Text, mehrere Angaben möglich)\nAntwort: Peter Hartmann\n\nIst die Stelle mit dieser Antwort ausreichend beantwortet?\n- ja: alles, was die Stelle verlangt, wurde gesagt\n- unvollständig: etwas Passendes wurde gesagt, aber ein Teil fehlt noch\n- nein: nichts Passendes wurde gesagt\nAntworte nur als JSON, ohne weiteren Text: {\"urteil\": \"ja|unvollständig|nein\", \"fehlt\": \"was noch fehlt, sonst leer\"}",
+  "image": 0,
+  "audio": 0,
+  "ms": 247,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-517a0506-4ca6-49c4-bbe3-5584bcd9de48",
+    "object": "chat.completion",
+    "created": 1791546787,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"urteil\": \"unvollständig\", \"fehlt\": \"Adresse; PLZ Ort\"}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 236,
+      "total_tokens": 259,
+      "completion_tokens": 23,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

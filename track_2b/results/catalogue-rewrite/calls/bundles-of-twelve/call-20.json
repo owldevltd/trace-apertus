@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:41:03.334Z",
+  "tag": "umgeschrieben-paeckchen suva-bagatellunfall q73",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Bagatellunfall-Meldung UVG\", jede mit ihrer Kennung:\n\nq73: Welche Information wird an dieser Stelle eingetragen?\nq74: Welche beteiligten Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff) werden genau bezeichnet?\nq75: Ist die Verletzung links, rechts oder unbestimmt?\nq76: Welches betroffene Körperteil wird angegeben?\nq77: Wie lautet die Adresse des nachbehandelnden Arztes bzw. Spitals/Klinik?\nq78: Wie lautet die Adresse des Arztes bzw. Spitals/Klinik?\nq79: Welche Schaden-Nummer wird eingetragen?\nq80: Welche Schaden-Nummer wird eingetragen?\nq81: Welche Telefon-Nummer wird eingetragen?\nq82: Welche Kunden-Nummer wird eingetragen?\nq83: Wie lautet der Name und die Adresse mit Postleitzahl des Arbeitgebers?\nq84: Welcher übliche Arbeitsplatz des Verletzten (Betriebszweig) wird eingetragen?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3265,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-63a6fb16-4022-4bce-942a-d19001ce9f4c",
+    "object": "chat.completion",
+    "created": 1791531663,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q73\", \"frage\": \"Welche Information wird hier eingetragen?\"}, {\"kennung\": \"q74\", \"frage\": \"Welche Gegenstände, wie Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff, sind dabei?\"}, {\"kennung\": \"q75\", \"frage\": \"Ist die Verletzung links, rechts oder nicht festgelegt?\"}, {\"kennung\": \"q76\", \"frage\": \"Welches Körperteil ist verletzt?\"}, {\"kennung\": \"q77\", \"frage\": \"Wie lautet die Adresse des Arztes oder des Spitals?\"}, {\"kennung\": \"q78\", \"frage\": \"Wie lautet die Adresse des Arztes oder des Spitals?\"}, {\"kennung\": \"q79\", \"frage\": \"Welche Schaden-Nummer wird eingetragen?\"}, {\"kennung\": \"q80\", \"frage\": \"Welche Schaden-Nummer wird eingetragen?\"}, {\"kennung\": \"q81\", \"frage\": \"Welche Telefon-Nummer wird eingetragen?\"}, {\"kennung\": \"q82\", \"frage\": \"Welche Kunden-Nummer wird eingetragen?\"}, {\"kennung\": \"q83\", \"frage\": \"Wie lautet der Name und die Adresse mit Postleitzahl des Arbeitgebers?\"}, {\"kennung\": \"q84\", \"frage\": \"Welcher übliche Arbeitsplatz des Verletzten, wie der Betriebszweig, wird eingetragen?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 469,
+      "total_tokens": 803,
+      "completion_tokens": 334,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

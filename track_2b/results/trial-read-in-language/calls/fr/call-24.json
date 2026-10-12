@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:34:05.909Z",
+  "tag": "lesen füllen fr suva-bagatellunfall q17",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Welches Jahr war es, als der Unfall passierte?\nAntwort: 2023\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- jahr: Jahr — Vorgabe: Text\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.\nDie Antwort im Gespräch ist auf Französisch. Schreibe den Wert so, wie er gesagt wurde, auf Französisch; übersetze nichts.",
+  "image": 0,
+  "audio": 0,
+  "ms": 198,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-2a83c4e8-9be2-499a-af17-874f1865569c",
+    "object": "chat.completion",
+    "created": 1791552846,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "jahr: 2023 [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 258,
+      "total_tokens": 270,
+      "completion_tokens": 12,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

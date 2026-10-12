@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:39:04.049Z",
+ "tag": "there it suva-bagatellunfall",
+ "model": "swiss-ai/Apertus-v1.5-70B",
+ "temperature": 0,
+ "room": 1600,
+ "prompt": "Unten stehen Angaben aus einem ausgefüllten deutschen Formular, je Feld die Beschriftung und der Wert.\n\n- arbeitgeber | Beschriftung: Name und Adresse mit Postleitzahl | Wert: Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\n- tel | Beschriftung: Tel.-Nr. | Wert: 041 728 40 10\n- arbeitsplatz | Beschriftung: Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig) | Wert: Lager\n- name | Beschriftung: Name und Vorname | Wert: Keller Sandra\n- geburt | Beschriftung: Geburtsdatum | Wert: 14.03.1988\n- strasse | Beschriftung: Strasse | Wert: Werkstrasse 12, 6300 Zug\n- staat | Beschriftung: Staatsangehörigkeit | Wert: Schweiz\n- zivilstand | Beschriftung: Zivilstand | Wert: ledig\n- anstellung | Beschriftung: Datum der Anstellung | Wert: 01.02.2019\n- beruf | Beschriftung: Ausgeübter Beruf | Wert: Lagermitarbeiterin\n- stunden | Beschriftung: Arbeitszeit des/der Verletzten: Stunden je Woche | Wert: 40\n- tag | Beschriftung: Tag | Wert: 05\n- monat | Beschriftung: Monat | Wert: 10\n- jahr | Beschriftung: Jahr | Wert: 2026\n- zeit | Beschriftung: Zeit (Stunden, Minuten) | Wert: 14:20\n- ort | Beschriftung: Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse) | Wert: Lager, Werkstrasse 12, Zug\n- hergang | Beschriftung: Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge | Wert: Beim Abladen einer Palette ausgerutscht und auf das rechte Handgelenk gestürzt.\n- gegenstaende | Beschriftung: Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung) | Wert: Palette\n- koerperteil | Beschriftung: Betroffener Körperteil | Wert: Handgelenk\n- arzt1 | Beschriftung: Erstbehandelnder Arzt bzw. Spital/Klinik | Wert: Kantonsspital Zug, Notfall\n\nGib jeden Wert so wieder, wie ihn eine Person angeben würde, die Italienisch spricht: übersetze, was Sprache ist, ins Italienisch. Namen, Firmen, Adressen, Nummern und Daten bleiben unverändert.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"feld\": \"name\", \"wert\": \"...\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 7424,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-05acdffc-7471-423a-8d38-87dd89f45957",
+  "object": "chat.completion",
+  "created": 1791556744,
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\n  \"werte\": [\n    {\n      \"feld\": \"arbeitgeber\",\n      \"wert\": \"Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\"\n    },\n    {\n      \"feld\": \"tel\",\n      \"wert\": \"041 728 40 10\"\n    },\n    {\n      \"feld\": \"arbeitsplatz\",\n      \"wert\": \"Magazzino\"\n    },\n    {\n      \"feld\": \"name\",\n      \"wert\": \"Keller Sandra\"\n    },\n    {\n      \"feld\": \"geburt\",\n      \"wert\": \"14.03.1988\"\n    },\n    {\n      \"feld\": \"strasse\",\n      \"wert\": \"Werkstrasse 12, 6300 Zug\"\n    },\n    {\n      \"feld\": \"staat\",\n      \"wert\": \"Svizzera\"\n    },\n    {\n      \"feld\": \"zivilstand\",\n      \"wert\": \"nubile\"\n    },\n    {\n      \"feld\": \"anstellung\",\n      \"wert\": \"01.02.2019\"\n    },\n    {\n      \"feld\": \"beruf\",\n      \"wert\": \"Magazziniera\"\n    },\n    {\n      \"feld\": \"stunden\",\n      \"wert\": \"40\"\n    },\n    {\n      \"feld\": \"tag\",\n      \"wert\": \"05\"\n    },\n    {\n      \"feld\": \"monat\",\n      \"wert\": \"10\"\n    },\n    {\n      \"feld\": \"jahr\",\n      \"wert\": \"2026\"\n    },\n    {\n      \"feld\": \"zeit\",\n      \"wert\": \"14:20\"\n    },\n    {\n      \"feld\": \"ort\",\n      \"wert\": \"Magazzino, Werkstrasse 12, Zug\"\n    },\n    {\n      \"feld\": \"hergang\",\n      \"wert\": \"Scivolata mentre scaricavo una paletta e caduta sul polso destro.\"\n    },\n    {\n      \"feld\": \"gegenstaende\",\n      \"wert\": \"Paletta\"\n    },\n    {\n      \"feld\": \"koerperteil\",\n      \"wert\": \"Polso\"\n    },\n    {\n      \"feld\": \"arzt1\",\n      \"wert\": \"Ospedale Cantonale di Zug, Pronto Soccorso\"\n    }\n  ]\n}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+  "usage": {
+   "prompt_tokens": 700,
+   "total_tokens": 1212,
+   "completion_tokens": 512,
+   "prompt_tokens_details": {
+    "cached_tokens": 672,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

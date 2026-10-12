@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:12:18.684Z",
+  "tag": "sprache füllen fr betreibungsbegehren q9",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Quel est le motif de la créance ou le document de créance avec sa date ?\nAntwort: Le motif de la créance est la facture numéro 2026-118 du 12 juin pour la réparation.\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- forderung: Forderungsgrund oder Forderungsurkunde mit Datum — Vorgabe: Text, mehrere Sätze möglich\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.\nDie Antwort im Gespräch ist auf Französisch. Schreibe jeden Wert auf Deutsch, so wie er in das deutsche Formular gehört; Namen, Adressen und Nummern bleiben, wie sie gesagt wurden.",
+  "image": 0,
+  "audio": 0,
+  "ms": 683,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-d15b5307-b3f3-4493-a398-6e6cb91d6d2e",
+    "object": "chat.completion",
+    "created": 1791551539,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "forderung: Le motif de la créance est la facture numéro 2026-118 du 12 juin pour la réparation [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 317,
+      "total_tokens": 354,
+      "completion_tokens": 37,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

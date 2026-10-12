@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:34:59.452Z",
+  "tag": "e2e füllen 70b",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "In einem Gespräch wurden diese Fragen gestellt und so beantwortet:\n\n[q1] Frage: Betreibungsamt\n[q1] Antwort: Betreibungsamt Chur\n\n[q2] Frage: Wie heißen Sie mit Nachnamen und Vornamen und wo wohnen Sie?\n[q2] Antwort: Peter Hartmann, Via Nova 14, 7013 Domat Ems\n\n[q4] Frage: Wie heißt der Gläubiger mit Nachnamen und Vornamen bzw. Firma und wo ist er ansässig?\n[q4] Antwort: Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\n\n[q6] Frage: Was ist die IBAN-Nummer?\n[q6] Antwort: CH93 0076 2011 6238 5295 7\n\n[q9] Frage: Was ist der Grund für die Forderung oder wo finde ich die Urkunde mit Datum?\n[q9] Antwort: Rechnung Nummer 20 26 strich 118 vom 12. Juni\n\n[q10] Frage: Wie hoch ist der geforderte Betrag in Schweizer Franken?\n[q10] Antwort: 2340 Franken 50\n\nLies aus jeder Antwort ab, was in die Stelle dieser Frage gehört:\n- q1: Betreibungsamt — Vorgabe: Text, mehrere Angaben möglich\n- q2: Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort) — Vorgabe: Text, mehrere Angaben möglich\n- q4: Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort) — Vorgabe: Text, mehrere Angaben möglich\n- q6: IBAN — Vorgabe: Text\n- q9: Forderungsgrund oder Forderungsurkunde mit Datum — Vorgabe: Text, mehrere Angaben möglich\n- q10: Betrag (CHF) — Vorgabe: Text\n\nNimm den Wert nur aus der Antwort mit derselben Kennung. Wurde nichts gesagt, schreibe einen Strich (-). Erfinde nichts. Antworte mit genau einer Zeile je Kennung, in der Form \"q1: wert\", ohne weiteren Text.",
+  "image": 0,
+  "audio": 0,
+  "ms": 957,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-0f530921-c212-470a-b2b1-3adceedd1eba",
+    "object": "chat.completion",
+    "created": 1791538499,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "q1: Betreibungsamt Chur\nq2: Peter Hartmann, Via Nova 14, 7013 Domat Ems\nq4: Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\nq6: CH93 0076 2011 6238 5295 7\nq9: Rechnung Nummer 20 26 strich 118 vom 12. Juni\nq10: 2340 Franken 50",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 547,
+      "total_tokens": 670,
+      "completion_tokens": 123,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

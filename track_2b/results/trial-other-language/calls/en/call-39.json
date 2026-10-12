@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:18:42.312Z",
+  "tag": "sprache füllen en suva-bagatellunfall q11",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: When did the injured person start working for this employer?\nAntwort: 1 February 2019\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- anstellung: Datum der Anstellung — Vorgabe: Datum als TT.MM.JJJJ\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.\nDie Antwort im Gespräch ist auf Englisch. Schreibe jeden Wert auf Deutsch, so wie er in das deutsche Formular gehört; Namen, Adressen und Nummern bleiben, wie sie gesagt wurden.",
+  "image": 0,
+  "audio": 0,
+  "ms": 231,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-36662184-ef8f-4b71-a575-a0e4bb3f99c9",
+    "object": "chat.completion",
+    "created": 1791551922,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "anstellung: 1. Februar 2019 [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 283,
+      "total_tokens": 300,
+      "completion_tokens": 17,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

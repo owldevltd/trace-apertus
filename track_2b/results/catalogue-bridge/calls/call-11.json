@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:57:35.621Z",
+  "tag": "brücke hin betreibungsbegehren S1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 880,
+  "prompt": "Unten steht eine Seite eines Schweizer Formulars als Text, ungefähr so angeordnet wie auf dem Papier. Jede Stelle, die ausgefüllt wird, trägt die Kennung ihrer Frage in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 1 =====\n        Betreibungsbegehren                             Bitte in Blockschrift ausfüllen und Hinweise auf der\n                                                        Rückseite beachten\n                                                       [q1] ____            Durch das Amt       [q2] ____\n                                                                            auszufüllen\n\n                                                        Eingang  [q3] ____        Betreibung    [q4] ____\n                                                                                  Nr.\n\n        Schuldner (Name und Vorname bzw. Firma;                  Adresse des\n        Adresse; PLZ Ort)                                        Betreibungsamtes\n       [q9] ____  [q11] ____  Geburtsdatum                       [q10] ____\n        (falls bekannt)\n        Gläubiger (Name und Vorname bzw. Firma;\n        Adresse; PLZ Ort)\n\n       [q12] ____                                       Zahlungsverbindung   des Gläubigers  [q5] [ ]  [q5] [ ]\n                                                                             des Vertreters\n        vertreten durch (Name und Vorname              [q6] ____  IBAN\n        bzw. Firma; Adresse; PLZ Ort)\n       [q13] ____                                       Für  Telefon oder  [q14] ____\n                                                        Rückfragen  E-Mail\n\n       Forderungsgrund oder Forderungsurkunde mit                              Betrag (CHF)    Zins % seit\n       Datum                                                                                   (Datum)\n       [q7] ____\n       Weitere\n       Forderungen\n       [q8] ____                                                                              [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                              [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n       [q8] ____                                                                               [q8] ____  [q8] ____\n\n        Bemerkungen                                           Ihre Fallreferenz (falls\n                                                              vorhanden)\n       [q15] ____                                             [q16] ____  Datum und\n                                                              Unterschrift\n-----\n\nZu diesen Stellen gibt es schon Fragen in der Sprache des Formulars:\nq13: Wer vertritt den Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)?\nq14: Welches Telefon oder welche E-Mail hat der Gläubiger für Rückfragen?\nq15: Haben Sie Bemerkungen zum Betreibungsbegehren?\nq16: Haben Sie eine Fallreferenz (falls vorhanden)?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- sage, um wen oder was es geht; schau dafür auf dem Formular auf die Überschrift des Abschnitts und auf das, was neben der Stelle steht\n- die Frage muss weiter nach genau dem fragen, was an ihrer Stelle einzutragen ist: nichts anderes, nichts weglassen, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3049,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-b5757c7e-eedd-491a-af69-8b4d63ff827e",
+    "object": "chat.completion",
+    "created": 1791532655,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"Durch welches Amt wird dieses Formular ausgefüllt?\"}, {\"kennung\": \"q2\", \"frage\": \"Welches Betreibungsamt führt die Betreibung durch?\"}, {\"kennung\": \"q3\", \"frage\": \"Wann wurde das Formular beim Amt eingereicht?\"}, {\"kennung\": \"q4\", \"frage\": \"Welche Nummer hat die Betreibung?\"}, {\"kennung\": \"q5\", \"frage\": \"Welche Zahlungsverbindung hat der Gläubiger?\"}, {\"kennung\": \"q6\", \"frage\": \"Wie lautet der Name des Vertreters des Gläubigers?\"}, {\"kennung\": \"q7\", \"frage\": \"Welchen Forderungsgrund oder welche Forderungsurkunde wird angegeben?\"}, {\"kennung\": \"q8\", \"frage\": \"Welche weiteren Forderungen werden aufgeführt?\"}, {\"kennung\": \"q9\", \"frage\": \"Wie heißt der Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)?\"}, {\"kennung\": \"q10\", \"frage\": \"Welche Adresse des Betreibungsamtes ist angegeben?\"}, {\"kennung\": \"q11\", \"frage\": \"Wie heißt der Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)?\"}, {\"kennung\": \"q12\", \"frage\": \"Wie heißt der Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)?\"}, {\"kennung\": \"q13\", \"frage\": \"Wer vertritt den Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)?\"}, {\"kennung\": \"q14\", \"frage\": \"Welches Telefon oder welche E-Mail hat der Gläubiger für Rückfragen?\"}, {\"kennung\": \"q15\", \"frage\": \"Haben Sie Bemerkungen zum Betreibungsbegehren?\"}, {\"kennung\": \"q16\", \"frage\": \"Haben Sie eine Fallreferenz (falls vorhanden)?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1021,
+      "total_tokens": 1489,
+      "completion_tokens": 468,
+      "prompt_tokens_details": {
+        "cached_tokens": 704,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

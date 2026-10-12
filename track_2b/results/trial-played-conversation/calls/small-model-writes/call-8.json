@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:34:34.790Z",
+  "tag": "e2e füllen 8b",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "In einem Gespräch wurden diese Fragen gestellt und so beantwortet:\n\n[q11] Frage: Welcher Zinssatz wird verlangt?\n[q11] Antwort: 5 Prozent\n\n[q12] Frage: Seit welchem Datum wird Zins verlangt?\n[q12] Antwort: 13. Juli\n\nLies aus jeder Antwort ab, was in die Stelle dieser Frage gehört:\n- q11: Zins % — Vorgabe: Text\n- q12: Zins seit (Datum) — Vorgabe: Datum als TT.MM.JJJJ\n\nNimm den Wert nur aus der Antwort mit derselben Kennung. Wurde nichts gesagt, schreibe einen Strich (-). Erfinde nichts. Antworte mit genau einer Zeile je Kennung, in der Form \"q1: wert\", ohne weiteren Text.",
+  "image": 0,
+  "audio": 0,
+  "ms": 254,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-7e3a4fac-3c24-4b2c-bc7f-fbad0836c540",
+    "object": "chat.completion",
+    "created": 1791538475,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "q11: 5 Prozent\nq12: 13.07.2024",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 241,
+      "total_tokens": 265,
+      "completion_tokens": 24,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

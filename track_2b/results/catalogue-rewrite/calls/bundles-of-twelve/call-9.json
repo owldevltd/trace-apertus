@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:40:03.310Z",
+  "tag": "umgeschrieben-paeckchen schadenmeldung-uvg q37",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Schadenmeldung UVG\", jede mit ihrer Kennung:\n\nq37: Wie lautet das Verhältnis zum Arbeitgeber?\nq38: Wie viele Stunden pro Woche arbeitet der Verletzte?\nq39: Wie viele Stunden pro Woche beträgt die übliche Vollarbeitszeit?\nq40: Wie hoch ist der Vertragliche Beschäftigungsgrad in Prozent?\nq41: Ist die Arbeitszeit unregelmässig?\nq42: Ist es Kurzarbeit oder Zwischenverdienst?\nq43: Wie lautet das Schadendatum?\nq44: Wie lautet das Schadendatum?\nq45: Wie lautet der Monat des Schadendatums?\nq46: Wie lautet das Jahr des Schadendatums?\nq47: Wie lautet der Tag des Schadendatums?\nq48: Wie lautet die Zeit des Schadendatums (Stunden, Minuten)?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2827,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-ec611847-e170-43de-89a6-96091e396563",
+    "object": "chat.completion",
+    "created": 1791531603,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q37\", \"frage\": \"Wie steht die Person zum Arbeitgeber?\", \"kennung\": \"q38\", \"frage\": \"Wie viele Stunden pro Woche arbeitet die Person?\", \"kennung\": \"q39\", \"frage\": \"Wie viele Stunden pro Woche sind die üblichen Arbeitsstunden?\", \"kennung\": \"q40\", \"frage\": \"Wie hoch ist der Vertragliche Beschäftigungsgrad in Prozent?\", \"kennung\": \"q41\", \"frage\": \"Ist die Arbeitszeit unregelmäßig?\", \"kennung\": \"q42\", \"frage\": \"Ist es Kurzarbeit oder Zwischenverdienst?\", \"kennung\": \"q43\", \"frage\": \"Wann ist der Schaden passiert?\", \"kennung\": \"q44\", \"frage\": \"Wann ist der Schaden passiert?\", \"kennung\": \"q45\", \"frage\": \"Welcher Monat ist das Schadendatum?\", \"kennung\": \"q46\", \"frage\": \"Welches Jahr ist das Schadendatum?\", \"kennung\": \"q47\", \"frage\": \"Welcher Tag ist das Schadendatum?\", \"kennung\": \"q48\", \"frage\": \"Welche Uhrzeit ist das Schadendatum? (Stunden, Minuten)\"]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 422,
+      "total_tokens": 714,
+      "completion_tokens": 292,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

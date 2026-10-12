@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:39:30.998Z",
+ "tag": "translate value hergang",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 200,
+ "prompt": "Übersetze die Angabe unten vom Italienisch ins Deutsch. Sie steht in einem Formular bei «Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der Angabe auf Deutsch, ohne weiteren Text.\n\nAngabe: Scivolata mentre scaricavo una paletta e caduta sul polso destro.",
+ "image": 0,
+ "audio": 0,
+ "ms": 338,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-52d3b2e0-594f-4ad4-94d2-e57e26af3b68",
+  "object": "chat.completion",
+  "created": 1791556771,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Ausrutscher, während ich eine Schaufel entleerte, und Sturz auf das rechte Handgelenk.",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 162,
+   "total_tokens": 189,
+   "completion_tokens": 27,
+   "prompt_tokens_details": {
+    "cached_tokens": 160,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

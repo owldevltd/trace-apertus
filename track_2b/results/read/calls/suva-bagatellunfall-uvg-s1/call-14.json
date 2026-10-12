@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-07T09:24:10.916Z",
+ "tag": "suva-bagatellunfall-uvg-s1.png #30",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 800,
+ "prompt": "Das Bild ist ein Ausschnitt aus einem Dokument, ein einzelnes Element. Beantworte zwei Dinge. bildanteile: Hat das Element Bildanteile (Logo, Foto, Zeichnung, Grafik)? text: der Text im Element, exakt wiedergegeben, ohne Kästchen und Kreise; steht kein Text darin, \"\". Antworte nur als JSON: {\"bildanteile\": true oder false, \"text\": \"...\"}",
+ "image": 4836,
+ "audio": 0,
+ "ms": 219,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-6d89fd23-fc4a-4472-a1c0-3f48c8730883",
+  "object": "chat.completion",
+  "created": 1791365051,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"bildanteile\": false, \"text\": \"Name und Vornahme\"}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 407,
+   "total_tokens": 425,
+   "completion_tokens": 18,
+   "prompt_tokens_details": {
+    "cached_tokens": 384,
+    "multimodal_tokens": {
+     "image": 252
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

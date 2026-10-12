@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-11T21:44:21.230Z",
+ "tag": "B voice-b #2",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1500,
+ "prompt": "Transkribiere die Aufnahme wortwörtlich. Ausgangssprache ist Deutsch, bitte gib Deutsch zurück. Bekannte Namen und Begriffe, die in der Aufnahme vorkommen können: Nachbau nach der SWICA-Austrittsmeldung, Aufenthaltsbewilligung, Austrittsmeldung, Austrittsdatum, Geburtsdatum, Nationalität, Unterschrift, Nachname, männlich, weiblich, Vorname, Telefon, E-Mail, Beruf, Datum, PLZ, Ort.",
+ "image": 0,
+ "audio": 22509,
+ "ms": 178,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-db08e3c5-bb70-4f3f-be20-8e11c9ab55c4",
+  "object": "chat.completion",
+  "created": 1791755064,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Hanna",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 282,
+   "total_tokens": 285,
+   "completion_tokens": 3,
+   "prompt_tokens_details": {
+    "cached_tokens": 192,
+    "multimodal_tokens": {
+     "audio": 110
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

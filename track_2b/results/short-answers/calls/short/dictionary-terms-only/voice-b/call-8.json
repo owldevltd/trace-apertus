@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-11T21:43:09.823Z",
+ "tag": "B voice-b #10",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1500,
+ "prompt": "Transkribiere die Aufnahme wortwörtlich. Ausgangssprache ist Deutsch, bitte gib Deutsch zurück. Bekannte Namen und Begriffe, die in der Aufnahme vorkommen können: Nachbau nach der SWICA-Austrittsmeldung, Aufenthaltsbewilligung, Austrittsmeldung, Austrittsdatum, Geburtsdatum, Nationalität, Unterschrift, Nachname, männlich, weiblich, Vorname, Telefon, E-Mail, Beruf, Datum, PLZ, Ort.",
+ "image": 0,
+ "audio": 11565,
+ "ms": 173,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-d71274d9-dfb6-475f-a8cb-83de3eae63b5",
+  "object": "chat.completion",
+  "created": 1791754992,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Winterthur",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 228,
+   "total_tokens": 231,
+   "completion_tokens": 3,
+   "prompt_tokens_details": {
+    "cached_tokens": 128,
+    "multimodal_tokens": {
+     "audio": 56
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

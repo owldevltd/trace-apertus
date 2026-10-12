@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T08:41:39.373Z",
+  "tag": "linear prüfen schadenmeldung-uvg Lauf 2",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nSchadenmeldung UVG\nMeldung eines Unfalls, einer Berufskrankheit, eines Zahnschadens oder eines Rückfalls durch den Arbeitgeber\nNachgebaut nach dem Vorbild der Schadenmeldung UVG der Helsana Unfall AG (Ausgabe 12.2016) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.  → [q1] [q2]\nArt der Meldung  → [q6]\nSchaden-Nummer  → [q3]\nUnfall  → [q4: Auswahl]\nBerufskrankheit  → [q4: Auswahl]\nZahnschaden  → [q5: Auswahl]\nRückfall  → [q5: Auswahl]\n1 Arbeitgeber\nName und Adresse mit Postleitzahl  → [q7]\nTel.-Nr.  → [q8]\nE-Mail  → [q9]\nPolice-Nr. UVG  → [q10]\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q12]\nPolice-Nr. UVG-Zusatz  → [q11]\n2 Verletzte / Verletzter  → [q13]\nName und Vorname  → [q14]\nGeburtsdatum  → [q15]\nAHV-Nummer  → [q16]\nStrasse  → [q17]\nTel.-Nr.  → [q18]\nZivilstand  → [q19]\nLand  → [q20]\nPLZ  → [q21]\nWohnort  → [q22]\nStaatsangehörigkeit / Bewilligung  → [q23]\nE-Mail  → [q24]\n3 Anstellung  → [q25]\nDatum der Anstellung  → [q26]\nAusgeübter Beruf  → [q27]\nStellung\nHöheres Kader  → [q28: Kästchen]\nMittleres Kader  → [q29: Kästchen]\nAngestellte/r / Mitarbeiter/in  → [q30: Kästchen]\nLehrling  → [q31: Auswahl]\nPraktikant/in  → [q31: Auswahl]\nVerhältnis  → [q36]\nunbefristeter Arbeitsvertrag  → [q32: Auswahl]\nbefristeter Arbeitsvertrag  → [q33: Kästchen]\nArbeitsverhältnis gekündigt per  → [q34: Kästchen]\n[q35]\n[q37]\nArbeitszeit des/der Verletzten (Std./Woche)  → [q38]\nBetriebsübliche Vollarbeitszeit (Std./Woche)  → [q39]\nVertraglicher Beschäftigungsgrad (Prozent)  → [q40]\nArbeitseinsatz\nunregelmässig  → [q41: Auswahl]\nKurzarbeit  → [q42: Auswahl]\nZwischenverdienst  → [q42: Auswahl]\n4 Schadendatum  → [q43] [q44]\nTag  → [q47]\nMonat  → [q45]\nJahr  → [q46]\nZeit (Stunden, Minuten)  → [q48]\n5 Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q49]\n6 Sachverhalt (Unfallbeschreibung, Verdacht auf Berufskrankheit)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge  → [q50]\nBeteiligte Person(en)  → [q51]\nBesteht ein Polizeirapport?  → [q54]\nWenn ja, aufgenommen durch  → [q52]\nJa  → [q53: Auswahl]\nNein  → [q53: Auswahl]\nUnbekannt  → [q53: Auswahl]\nBesteht ein Unfallprotokoll? Wenn ja, bitte Kopie beilegen.\nJa  → [q55: Auswahl]\nNein  → [q55: Auswahl]\nNachgebaut nach dem Vorbild der Helsana-Schadenmeldung UVG – nicht das Original\nSeite 1 / 2\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Wie lautet die Telefonnummer des Arbeitgebers?\nB: Was hat die verletzte Person zur Zeit des Unfalls gemacht? Beschreiben Sie bitte den Unfallhergang und beteiligte Gegenstände oder Fahrzeuge.\nC: Wie viele verletzte Personen sind zu melden?\nD: Was ist passiert? War es ein Zahnschaden oder ein Rückfall?\nE: In welchem Jahr ist der Schaden passiert?\nF: In welchem Monat ist der Schaden passiert?\nG: Wie lautet die Police-Nr. UVG?\nH: Besteht ein Polizeirapport?\nI: Was ist passiert? War es ein Unfall, eine Berufskrankheit, ein Zahnschaden oder ein Rückfall?\nJ: Wie war das Arbeitsverhältnis geregelt?\nK: Wie lautet die Police-Nr. UVG-Zusatz?\nL: Wie viele Stunden betrug die betriebsübliche Vollarbeitszeit pro Woche?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3190,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-067f6508-fd9b-4c94-a31f-cdca6bd2494d",
+    "object": "chat.completion",
+    "created": 1791535299,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"zuordnung\": [\n    {\"frage\": \"A\", \"kennung\": \"q8\"},\n    {\"frage\": \"B\", \"kennung\": \"q50\"},\n    {\"frage\": \"C\", \"kennung\": \"q13\"},\n    {\"frage\": \"D\", \"kennung\": \"q4\"},\n    {\"frage\": \"E\", \"kennung\": \"q46\"},\n    {\"frage\": \"F\", \"kennung\": \"q45\"},\n    {\"frage\": \"G\", \"kennung\": \"q10\"},\n    {\"frage\": \"H\", \"kennung\": \"q54\"},\n    {\"frage\": \"I\", \"kennung\": \"q4\"},\n    {\"frage\": \"J\", \"kennung\": \"q36\"},\n    {\"frage\": \"K\", \"kennung\": \"q11\"},\n    {\"frage\": \"L\", \"kennung\": \"q39\"}\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1404,
+      "total_tokens": 1604,
+      "completion_tokens": 200,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

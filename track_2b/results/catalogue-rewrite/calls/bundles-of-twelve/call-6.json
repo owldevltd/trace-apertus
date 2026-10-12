@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:39:49.715Z",
+  "tag": "umgeschrieben-paeckchen schadenmeldung-uvg q1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Schadenmeldung UVG\", jede mit ihrer Kennung:\n\nq1: Wie lautet der Hinweis über die Herkunft und den Zweck dieses Formulars?\nq2: Wie lautet der Hinweis über die Herkunft und den Zweck dieses Formulars?\nq3: Welchen Zweck hat die Schaden-Nummer?\nq4: Handelt es sich um einen Unfall oder eine Berufskrankheit?\nq5: Handelt es sich um einen Zahnschaden oder einen Rückfall?\nq6: Welche Art von Schaden wird gemeldet?\nq7: Wie lautet die Adresse des Arbeitgebers inklusive Postleitzahl?\nq8: Welche Telefonnummer hat der Arbeitgeber?\nq9: Welche E-Mail-Adresse hat der Arbeitgeber?\nq10: Welche Police-Nummer hat die UVG-Versicherung?\nq11: Welche Police-Nummer hat die UVG-Zusatzversicherung?\nq12: Welcher übliche Arbeitsplatz des Verletzten wird angegeben (z. B. Betriebszweig)?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2405,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-49f29d5e-9a1c-4701-9ca9-5800042c65ce",
+    "object": "chat.completion",
+    "created": 1791531590,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"Wie wird hier erklärt, woher dieses Formular kommt und wozu es dient?\"}, {\"kennung\": \"q2\", \"frage\": \"Wie wird hier erklärt, woher dieses Formular kommt und wozu es dient?\"}, {\"kennung\": \"q3\", \"frage\": \"Wozu dient die Schaden-Nummer?\"}, {\"kennung\": \"q4\", \"frage\": \"Ist es ein Unfall oder eine Berufskrankheit?\"}, {\"kennung\": \"q5\", \"frage\": \"Ist es ein Zahnschaden oder ein Rückfall?\"}, {\"kennung\": \"q6\", \"frage\": \"Welchen Schaden melden Sie?\"}, {\"kennung\": \"q7\", \"frage\": \"Wie lautet die Adresse des Arbeitgebers, einschließlich der Postleitzahl?\"}, {\"kennung\": \"q8\", \"frage\": \"Welche Telefonnummer hat der Arbeitgeber?\"}, {\"kennung\": \"q9\", \"frage\": \"Welche E-Mail-Adresse hat der Arbeitgeber?\"}, {\"kennung\": \"q10\", \"frage\": \"Welche Police-Nummer hat die UVG-Versicherung?\"}, {\"kennung\": \"q11\", \"frage\": \"Welche Police-Nummer hat die UVG-Zusatzversicherung?\"}, {\"kennung\": \"q12\", \"frage\": \"Wo arbeitet der Verletzte normalerweise, zum Beispiel in welchem Bereich?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 453,
+      "total_tokens": 781,
+      "completion_tokens": 328,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

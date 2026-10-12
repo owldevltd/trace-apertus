@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T12:32:04.666Z",
+ "tag": "enough q17",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 150,
+ "prompt": "In einem Gespräch wird ein Schweizer Formular ausgefüllt. Jemand stellt eine Frage, die andere Person antwortet.\n\nFrage: Welches Jahr war es, als der Unfall passierte?\nAuf dem Formular steht an dieser Stelle: Jahr (Text)\nAntwort: Das weiss ich nicht.\n\nIst die Stelle mit dieser Antwort ausreichend beantwortet?\n- ja: alles, was die Stelle verlangt, wurde gesagt\n- unvollständig: etwas Passendes wurde gesagt, aber ein Teil fehlt noch\n- nein: nichts Passendes wurde gesagt\nAntworte nur als JSON, ohne weiteren Text: {\"urteil\": \"ja|unvollständig|nein\", \"fehlt\": \"was noch fehlt, sonst leer\"}",
+ "image": 0,
+ "audio": 0,
+ "ms": 299,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-9f9f8821-eb9f-4ecf-81c9-d81442c76f05",
+  "object": "chat.completion",
+  "created": 1791549125,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"urteil\": \"unvollständig\", \"fehlt\": \"das Jahr\"}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 217,
+   "total_tokens": 236,
+   "completion_tokens": 19,
+   "prompt_tokens_details": {
+    "cached_tokens": 96,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

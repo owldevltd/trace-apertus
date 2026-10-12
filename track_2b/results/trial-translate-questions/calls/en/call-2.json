@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:57:35.716Z",
+  "tag": "fragen zwölf en betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Jemand führt ein Gespräch und stellt diese Fragen auf Deutsch. Übersetze jede Frage ins Englisch, für ein Gegenüber, das Englisch spricht: dieselbe Frage in einfachen Worten, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n1: Um welches Betreibungsamt handelt es sich?\n2: Wie heisst der Schuldner und wo wohnt er?\n3: Wann ist das Geburtsdatum des Schuldners?\n4: Wie heisst der Gläubiger und wo ist er ansässig?\n5: Welche Zahlungsverbindung wählt der Gläubiger?\n6: Welche IBAN wird angegeben?\n7: Wer vertritt den Gläubiger?\n8: Wie kann man bei Rückfragen telefonisch oder per E-Mail erreichen?\n9: Welchen Forderungsgrund oder welche Urkunde mit Datum liegt vor?\n10: Wie hoch ist der Betrag der Forderung in Schweizer Franken?\n11: Welcher Zinssatz wird verlangt?\n12: Seit welchem Datum wird Zins verlangt?\n\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"nummer\": 1, \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1659,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-f0d5a9d2-695a-4e77-afa9-fd491932cc7f",
+    "object": "chat.completion",
+    "created": 1791554256,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"nummer\": 1, \"frage\": \"Which enforcement office is involved?\"}, {\"nummer\": 2, \"frage\": \"What is the debtor's name and where does he live?\"}, {\"nummer\": 3, \"frage\": \"What is the debtor's date of birth?\"}, {\"nummer\": 4, \"frage\": \"What is the creditor's name and where is he based?\"}, {\"nummer\": 5, \"frage\": \"Which payment method does the creditor choose?\"}, {\"nummer\": 6, \"frage\": \"Which IBAN is provided?\"}, {\"nummer\": 7, \"frage\": \"Who represents the creditor?\"}, {\"nummer\": 8, \"frage\": \"How can one reach the creditor for follow-up questions by phone or email?\"}, {\"nummer\": 9, \"frage\": \"What is the claim basis or document with a date?\"}, {\"nummer\": 10, \"frage\": \"What is the amount of the claim in Swiss francs?\"}, {\"nummer\": 11, \"frage\": \"What interest rate is being demanded?\"}, {\"nummer\": 12, \"frage\": \"From which date is interest being demanded?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 308,
+      "total_tokens": 566,
+      "completion_tokens": 258,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

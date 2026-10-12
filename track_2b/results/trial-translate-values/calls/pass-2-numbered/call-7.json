@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:38:29.784Z",
+  "tag": "zurück2 8b sechs fr suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 760,
+  "prompt": "Eine Person hat ein deutsches Formular auf Französisch beantwortet. Unten steht je Nummer die deutsche Beschriftung der Stelle und was die Person dort angegeben hat.\n\n13 | Monat | 10\n14 | Jahr | 2026\n15 | Zeit (Stunden, Minuten) | 14:20\n16 | Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse) | Lager, Werkstrasse 12, Zug\n17 | Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge | En déchargeant une palette, j'ai glissé et je suis tombée sur mon poignet droit.\n18 | Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung) | Palette\n\nSchreibe jede Angabe auf Deutsch, so wie sie in das deutsche Formular eingetragen wird. Am Ende steht kein Wort mehr auf Französisch. Eigennamen, Strassen, Orte, Nummern und Daten übernimmst du dabei Zeichen für Zeichen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1124,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-a20aa112-711c-4709-919c-a7879b95c16a",
+    "object": "chat.completion",
+    "created": 1791553110,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 13, \"wert\": \"Monat\"}, {\"nummer\": 14, \"wert\": \"Jahr\"}, {\"nummer\": 15, \"wert\": \"Zeit (Stunden, Minuten)\"}, {\"nummer\": 16, \"wert\": \"Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)\"}, {\"nummer\": 17, \"wert\": \"Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge\"}, {\"nummer\": 18, \"wert\": \"Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 339,
+      "total_tokens": 498,
+      "completion_tokens": 159,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

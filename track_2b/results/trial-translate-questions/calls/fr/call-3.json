@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:55:46.362Z",
+  "tag": "fragen zwölf fr betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Jemand führt ein Gespräch und stellt diese Fragen auf Deutsch. Übersetze jede Frage ins Französisch, für ein Gegenüber, das Französisch spricht: dieselbe Frage in einfachen Worten, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n13: Gibt es Bemerkungen zum Abschluss?\n14: Welche Fallreferenz ist vorhanden?\n\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"nummer\": 1, \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 430,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-c14ee36e-f6e1-4c6c-bad2-083b6fc0b35f",
+    "object": "chat.completion",
+    "created": 1791554147,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"nummer\": 13, \"frage\": \"Y a-t-il des observations pour conclure?\"}, {\"nummer\": 14, \"frage\": \"Quelle référence de cas est disponible?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 165,
+      "total_tokens": 214,
+      "completion_tokens": 49,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

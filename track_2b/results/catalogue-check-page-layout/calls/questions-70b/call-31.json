@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T08:26:18.351Z",
+  "tag": "rückprobe einheiten-etikett-interview-70b suva-bagatellunfall Lauf 1",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht eine Seite eines Schweizer Formulars als Text, ungefähr so angeordnet wie auf dem Papier. Jede Stelle, die ausgefüllt wird, trägt die Kennung ihrer Frage in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 1 =====\n                    Bitte mit Schreibmaschine ausfüllen oder direkt auf\n                    www.suva.ch/schadenmeldung\n\n                                                                          ____\n                                                                           Schaden-Nummer\n         Bagatellunfall-Meldung UVG                                       [q2] ____\n\n          1.           Name und Adresse mit                         Tel.-Nr.          Kunden-Nr.    Betriebsteil\n          Arbeitgeber  Postleitzahl\n         [q5] ____                                                 [q3] ____  [q6] ____  Üblicher Arbeitsplatz des/der  [q4] ____  ▼ Wird von\n                                                                    Verletzten (Betriebszweig)                 der\n                                                                                                               Versicherung\n                                                                                                               ausgefüllt\n          2.           [q10] ____  Name und                        [q8] ____  Geburtsdatum  [q9] ____  AHV-Nummer  Ge  [q7] [ ]\n          Verletzte/r  Vorname\n                       Strasse  [q13] ____                         [q11] ____        [q12] ____  Staatsangehörigkeit  St\n                       PLZ       Wohnort                           [q16] ____  Zivilstand  [q14] ____          Zi  [q15] [ ]\n          3.           Datum der                                    Ausgeübter\n          Anstellung   Anstellung                                   Beruf\n                       [q18] ____                                  [q17] ____\n                       Stellung:  Arbeitszeit des/der Verletzten:  씲 Höheres  [q19] [ ]  씲 Mittleres  [q20] [ ]  [q24] ____  씲 Angestellte/r /  [q21] [ ]  씲 Lehrling  [q22] [ ]  씲  [q22] [ ]  Stellung  [q23] [ ]\n                       Stunden je Woche  Kader  Kader          Arbeiter/in                      Praktikant/in\n         4. Schaden-   Tag   Monat            Jahr      Zeit (Stunden,\n         datum                                          Minuten)\n          5. Unfallort  Ort (Name oder PLZ) und Stelle (z. B.\n                       Werkstatt, Strasse)\n         [q25] ____\n          6.           Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen,  [q26] ____\n          Sachverhalt  beteiligte Gegenstände, Fahrzeuge\n          (Unfallbe-\n          schreibung)\n\n          7.           Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug,\n          Berufsunfall  Arbeitsstoff; bitte genaue Bezeichnung)\n         [q27] ____\n          8. Nicht-    Bis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb  bis:                [q28] [ ]  B/N/F\n          berufsunfall  gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\n          9.           Betroffener    [q30] ____                                씲 links  [q29] [ ]  씲 rechts  [q29] [ ]  씲 unbestimmt  [q29] [ ]  Verletzung\n          Verletzung   Körperteil:\n                       Art der\n                       Schädigung:\n                                                                                                               Art\n         [q32] ____  10. Arzt-  Erstbehandelnder Arzt bzw.         [q31] ____  Nachbehandelnder Arzt bzw.\n         adressen      Spital/Klinik                                Spital/Klinik\n\n                       Ort und                                      Stempel und\n                       Datum                                        Unterschrift\n\n         Hinweis für den Arbeitgeber\n\n         Diese Bagatellunfall-Meldung ist auszufüllen, wenn keine Arbeitsunfähigkeit oder eine solche von\n         höchstens 3 Kalendertagen (Unfalltag und die anschliessenden 2 Tage) eintritt. Ausnahmen: Anstelle\n         dieser Bagatellunfall-Meldung ist eine weisse Formulargarnitur auszufüllen bei – Berufskrankheit,\n         – Zahnschaden oder – Rückfall\n\n         Dem zugezogenen Arzt bzw. den Ärzten werden wir ein\n         Rechnungsformular zustellen.\n\n         Für Rückerstattungsgesuche von bereits bezahlten Rechnungen bitten wir Sie, Belege beizulegen\n         und nachfolgend die Zahladresse (Post-/Bankkonto) anzugeben.\n         [q33] ____\n   913.d – 2005  Verteiler:  grünes  ➞ Suva (Adresse siehe oben)\n                    Formular     ➞ Doppel für Ihre Akten ➞\n                    gelbes       Verletzte/r ➞ Apotheke ➞\n                    Formular     Suva\n                    blaues\n                    Formular\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Hier ist nichts einzutragen, bitte weiter zur nächsten Frage.\nB: Wo ist der übliche Arbeitsplatz im Betrieb?\nC: Was haben Sie genau gemacht und wie ist der Unfall passiert?\nD: Wie lautet Ihre AHV-Nummer?\nE: Welche Staatsangehörigkeit haben Sie?\nF: Wann sind Sie geboren?\nG: Sind Sie ledig, verheiratet oder verwitwet?\nH: Sind Sie Praktikant/in?\nI: Sind Sie Lehrling oder Praktikant/in?\nJ: Was ist Ihre Telefonnummer?\nK: Wie viele Stunden arbeiten Sie pro Woche?\nL: Wo und an welcher Stelle ist der Unfall passiert?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3287,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-46399848-9390-4eae-a685-85516b5bff8b",
+    "object": "chat.completion",
+    "created": 1791534378,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"zuordnung\": [\n    {\"frage\": \"A\", \"kennung\": \"q10\"},\n    {\"frage\": \"B\", \"kennung\": \"q4\"},\n    {\"frage\": \"C\", \"kennung\": \"q26\"},\n    {\"frage\": \"D\", \"kennung\": \"q12\"},\n    {\"frage\": \"E\", \"kennung\": \"q14\"},\n    {\"frage\": \"F\", \"kennung\": \"q11\"},\n    {\"frage\": \"G\", \"kennung\": \"q16\"},\n    {\"frage\": \"H\", \"kennung\": \"q22\"},\n    {\"frage\": \"I\", \"kennung\": \"q22\"},\n    {\"frage\": \"J\", \"kennung\": \"q3\"},\n    {\"frage\": \"K\", \"kennung\": \"q18\"},\n    {\"frage\": \"L\", \"kennung\": \"q25\"}\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1439,
+      "total_tokens": 1640,
+      "completion_tokens": 201,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

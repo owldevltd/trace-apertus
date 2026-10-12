@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:49:07.919Z",
+  "tag": "prüfen d-70b-whole-r2 betreibungsbegehren Lauf 1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 460,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBitte in Blockschrift ausfüllen und Hinweise auf der Rückseite beachten  → [q1]\nBetreibungsbegehren\nDurch das Amt auszufüllen  → [q2]\nEingang  → [q3]\nBetreibung Nr.  → [q4]\nSchuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q9]\nAdresse des Betreibungsamtes  → [q10]\nGeburtsdatum (falls bekannt)  → [q11]\nGläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q12]\ndes Gläubigers des Vertreters  → [q5: Auswahl]\nZahlungsverbindung\nvertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q13]\nIBAN  → [q6]\nFür Rückfragen\nTelefon oder E-Mail  → [q14]\nForderungsgrund oder Forderungsurkunde mit Datum  → [q7]\nBetrag (CHF)\nZins % seit (Datum)\nWeitere Forderungen  → [q8: Tabelle mit 9 Zeilen und 3 Spalten]\n[q8: Tabelle mit 9 Zeilen und 3 Spalten]\nBemerkungen  → [q15]\nIhre Fallreferenz (falls vorhanden)  → [q16]\nDatum und Unterschrift\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Wie lautet die Adresse des Betreibungsamtes?\nB: Wann ist das Formular beim Amt eingegangen?\nC: Wie heisst der Gläubiger mit Vorname und Nachname und wo wohnt er?\nD: Worum geht es bei der Forderung oder welche Urkunde liegt dem zugrunde?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 516,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-257966ff-bd9d-4622-99e8-d3ca5ed2ca5a",
+    "object": "chat.completion",
+    "created": 1791539348,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q10\"}, {\"frage\": \"B\", \"kennung\": \"q3\"}, {\"frage\": \"C\", \"kennung\": \"q12\"}, {\"frage\": \"D\", \"kennung\": \"q7\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 654,
+      "total_tokens": 719,
+      "completion_tokens": 65,
+      "prompt_tokens_details": {
+        "cached_tokens": 544,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

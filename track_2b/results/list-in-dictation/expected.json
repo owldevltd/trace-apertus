@@ -1,0 +1,120 @@
+{
+ "B0": {
+  "columns": [
+   "Forderungsgrund oder Forderungsurkunde mit Datum",
+   "Betrag (CHF)",
+   "Zins %",
+   "seit (Datum)"
+  ],
+  "entries": []
+ },
+ "B1": {
+  "columns": [
+   "Forderungsgrund oder Forderungsurkunde mit Datum",
+   "Betrag (CHF)",
+   "Zins %",
+   "seit (Datum)"
+  ],
+  "entries": [
+   [
+    "Mahngebühr",
+    "40",
+    "",
+    ""
+   ]
+  ]
+ },
+ "B2": {
+  "columns": [
+   "Forderungsgrund oder Forderungsurkunde mit Datum",
+   "Betrag (CHF)",
+   "Zins %",
+   "seit (Datum)"
+  ],
+  "entries": [
+   [
+    "Mahngebühr",
+    "40",
+    "",
+    ""
+   ],
+   [
+    "Miete",
+    "1200",
+    "5",
+    "01.08.2025"
+   ]
+  ]
+ },
+ "B3": {
+  "columns": [
+   "Forderungsgrund oder Forderungsurkunde mit Datum",
+   "Betrag (CHF)",
+   "Zins %",
+   "seit (Datum)"
+  ],
+  "entries": [
+   [
+    "Mahngebühr",
+    "40",
+    "",
+    ""
+   ],
+   [
+    "Miete",
+    "1200",
+    "5",
+    "01.08.2025"
+   ],
+   [
+    "Nebenkosten",
+    "350",
+    "5",
+    "15.03.2025"
+   ]
+  ]
+ },
+ "Z1": {
+  "columns": [
+   "Konsultationsdatum",
+   "von",
+   "bis",
+   "nächste Konsultation",
+   "Visum"
+  ],
+  "entries": [
+   [
+    "03.10.2026",
+    "03.10.2026",
+    "17.10.2026",
+    "17.10.2026",
+    ""
+   ]
+  ]
+ },
+ "Z2": {
+  "columns": [
+   "Konsultationsdatum",
+   "von",
+   "bis",
+   "nächste Konsultation",
+   "Visum"
+  ],
+  "entries": [
+   [
+    "03.10.2026",
+    "03.10.2026",
+    "17.10.2026",
+    "17.10.2026",
+    ""
+   ],
+   [
+    "17.10.2026",
+    "18.10.2026",
+    "31.10.2026",
+    "31.10.2026",
+    ""
+   ]
+  ]
+ }
+}

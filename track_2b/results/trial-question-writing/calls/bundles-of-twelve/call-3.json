@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:13:03.559Z",
+  "tag": "d-8b-bundle arbeitsfaehigkeitszeugnis S1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nArbeitsfähigkeitszeugnis\nBeurteilung der Arbeitsfähigkeit und der Reintegration bei Krankheit oder Unfall\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses (Swiss Insurance Medicine, Ausgabe Januar 2019) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.\nVon der Arbeitgeberin / dem Arbeitgeber auszufüllen (evtl. von der Patientin / dem Patienten)\nArbeitnehmerin / Arbeitnehmer\nName / Vorname  → [q2]\nGeb.-Dat.  → [q3]\nGeschlecht\nw  → [q1: Auswahl]\nm  → [q1: Auswahl]\nAdresse / PLZ  → [q4]\nAHV-Nr.  → [q5]\nTelefon  → [q6]\nE-Mail  → [q7]\nArbeitgeberin / Arbeitgeber\nFirmenname  → [q8]\nKontaktperson  → [q9]\nAdresse / PLZ  → [q10]\nTelefon  → [q11]\nE-Mail  → [q12]\nAnstellung\nFunktion / ausgeübter Beruf *  → [q14]\nEintrittsjahr  → [q13: Kästchen]\nStd. / Tag  → [q16]\n[q15]\nArbeitszeit Vollzeit (100 %)  → [q17: Kästchen]\nWochenarbeitszeit / Einsatztage  → [q20]\nTeilzeit  → [q18: Kästchen]\n[q19]\n%\nBei Kündigung: Arbeitsverhältnis gekündigt per  → [q21]\nVon der Ärztin / dem Arzt auszufüllen\nUrsache\nKrankheit  → [q22: Auswahl]\nUnfall  → [q22: Auswahl]\nBerufskrankheit  → [q22: Auswahl]\nVolle Arbeitsunfähigkeit\nBasierend auf *\nREP vom  → [q24]\nArbeitsplatzbeschrieb vom  → [q25]\nREP  → [q23: Auswahl]\nArbeitsplatzbeschrieb  → [q23: Auswahl]\nKonsultationsdatum  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nArbeitsunfähigkeit\nbis  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nnächste Konsultation  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nVisum  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nvon  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\n[q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\n[q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\nEs liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor\nja  → [q27: Auswahl]\nnein  → [q27: Auswahl]\nTeilarbeitsfähigkeit / Reintegration (Beurteilung für den Reintegrationsprozess)\nBasierend auf * REP  → [q28: Auswahl]\nREP vom  → [q29]\nArbeitsplatzbeschrieb vom  → [q30]\nArbeitsplatzbeschrieb\nKonsultationsdatum\nPräsenzzeit Std. pro Tag  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nPräsenzzeit % Pensum  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nLeistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nArbeits- fähigkeit gesamt %  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nbis\nnächste\nVisum\nvon\nKonsultation  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\n[q31: Tabelle mit 4 Zeilen und 9 Spalten]\nWiederaufnahme der Arbeit zu 100 % ab  → [q32]\nBemerkungen und Unterschrift\nBemerkungen  → [q36]\nArzt / Ärztin (Name, Stempel)  → [q34]\nKontakt mit Arbeitgeberin / Arbeitgeber erwünscht\nja  → [q33: Auswahl]\nnein  → [q33: Auswahl]\nDatum  → [q35]\nUnterschrift\n* Bitte beifügen: Arbeitsplatzbeschrieb / Stellenprofil oder REP (Ressourcenorientiertes Eingliederungsprofil).\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses – nicht das Original\nSeite 1 / 1\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu diesen Kennungen je genau eine Frage: q25, q26, q27, q28, q29, q30, q31, q32, q33, q34, q35, q36. Schreibe sie so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2544,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-c4136291-f7a4-478a-8bc7-6358b45dd3d0",
+    "object": "chat.completion",
+    "created": 1791537183,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q25\", \"frage\": \"Wann wurde der aktuelle Arbeitsplatzbeschrieb erstellt?\"}, {\"kennung\": \"q26\", \"frage\": \"Wann war die letzte ärztliche Konsultation?\"}, {\"kennung\": \"q27\", \"frage\": \"Wird eine arbeitsplatzbezogene Teil-Arbeitsfähigkeit festgestellt?\"}, {\"kennung\": \"q28\", \"frage\": \"Welche Grundlage wird für die Beurteilung der Teil-Arbeitsfähigkeit herangezogen?\"}, {\"kennung\": \"q29\", \"frage\": \"Wann wurde das Ressourcenorientierte Eingliederungsprofil erstellt?\"}, {\"kennung\": \"q30\", \"frage\": \"Wann wurde der aktuelle Arbeitsplatzbeschrieb erstellt?\"}, {\"kennung\": \"q31\", \"frage\": \"Wie viele Tage pro Woche sind Sie im Durchschnitt anwesend? Wie viele Stunden pro Tag? Wie leistungsfähig sind Sie in dieser Zeit? Wie hoch ist Ihre Gesamt-Arbeitsfähigkeit? Wann ist die nächste Konsultation?\"}, {\"kennung\": \"q32\", \"frage\": \"Ab wann können Sie die Arbeit wieder zu 100 % aufnehmen?\"}, {\"kennung\": \"q33\", \"frage\": \"Wünschen Sie, dass die Arbeitgeberin oder der Arbeitgeber kontaktiert wird?\"}, {\"kennung\": \"q34\", \"frage\": \"Wie lautet der Name und die Unterschrift der Ärztin oder des Arztes?\"}, {\"kennung\": \"q35\", \"frage\": \"Welches Datum ist auf dem Zeugnis?\"}, {\"kennung\": \"q36\", \"frage\": \"Haben Sie Bemerkungen oder zusätzliche Informationen, die Sie angeben möchten?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1748,
+      "total_tokens": 2146,
+      "completion_tokens": 398,
+      "prompt_tokens_details": {
+        "cached_tokens": 1344,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

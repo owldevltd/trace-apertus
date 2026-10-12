@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T12:28:40.912Z",
+ "tag": "check run 2 page 3",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 780,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 3 =====\n[q34]\nSchaden-Nummer  → [q35]\nBagatellunfall-Meldung UVG Doppel für den Betrieb\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q36]\nTel.-Nr.  → [q37]\nKunden-Nr.  → [q38]\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q39]\n2. Verletzte/r\nName und Vorname  → [q40]\nGeburtsdatum  → [q41] [q42]\nAHV-Nummer  → [q43]\nStrasse  → [q44]\nStaatsangehörigkeit  → [q45] [q46]\nPLZ\nWohnort\nZivilstand  → [q47]\n3. Anstellung\nDatum der Anstellung  → [q48]\nAusgeübter Beruf  → [q49]\nHöheres Kader  → [q50: Auswahl]\nMittleres Kader  → [q50: Auswahl]\nAngestellte/r / Arbeiter/in  → [q50: Auswahl]\nLehrling  → [q51: Auswahl]\nPraktikant/in  → [q51: Auswahl]\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q52]\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q53]\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q54] [q55]\n[q56]\n[q57]\n[q58]\n[q59]\n[q60]\n[q61]\n[q62]\n[q63]\n[q64]\n[q65]\n[q66]\n[q67]\n[q68]\n[q69]\n[q70]\n[q71]\n[q72]\n[q73]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q74]\n8. Nicht- berufsunfall\nK Bis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\nbis:\nlinks  → [q75: Auswahl]\nrechts  → [q75: Auswahl]\nunbestimmt  → [q75: Auswahl]\n9. Verletzung\nBetroffener Körperteil:  → [q76]\nArt der Schädigung:\n10. Arzt- adressen  → [q77]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q78]\nOrt und Datum\nStempel und Unterschrift\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Wie lautet der betroffene Körperteil?\nB: Wie lautet die Telefonnummer des Arbeitgebers?\nC: Wie lautet die Strasse des Wohnorts der verletzten Person?\nD: In welchem Betriebsteil arbeitet die verletzte Person normalerweise?\nE: Wie lautet der betroffene Körperteil?\nF: Wie lautet die Adresse des Arztes oder des Spitals?\nG: Wie lautet die Bagatellunfall-Meldung UVG?\nH: Welche Tätigkeit verrichtete die verletzte Person zur Zeit des Unfalles? Wie lief der Unfall ab? Wer war beteiligt? Welche Gegenstände oder Fahrzeuge waren beteiligt?\nI: Wann wurde die verletzte Person angestellt?\nJ: Welche Staatsangehörigkeit hat die verletzte Person?\nK: Wie lautet die AHV-Nummer der verletzten Person?\nL: Welchen Beruf übt die verletzte Person aus?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 1239,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-19f9967a-df57-4342-bdc8-307994de5975",
+  "object": "chat.completion",
+  "created": 1791548921,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q76\"}, {\"frage\": \"B\", \"kennung\": \"q37\"}, {\"frage\": \"C\", \"kennung\": \"q44\"}, {\"frage\": \"D\", \"kennung\": \"q39\"}, {\"frage\": \"E\", \"kennung\": \"q76\"}, {\"frage\": \"F\", \"kennung\": \"q77\"}, {\"frage\": \"G\", \"kennung\": \"q35\"}, {\"frage\": \"H\", \"kennung\": \"q54\"}, {\"frage\": \"I\", \"kennung\": \"q48\"}, {\"frage\": \"J\", \"kennung\": \"q45\"}, {\"frage\": \"K\", \"kennung\": \"q43\"}, {\"frage\": \"L\", \"kennung\": \"q49\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 1172,
+   "total_tokens": 1360,
+   "completion_tokens": 188,
+   "prompt_tokens_details": {
+    "cached_tokens": 928,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

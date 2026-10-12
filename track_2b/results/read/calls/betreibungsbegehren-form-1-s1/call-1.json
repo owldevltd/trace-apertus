@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-07T09:22:35.594Z",
+ "tag": "betreibungsbegehren-form-1-s1.png #0",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 800,
+ "prompt": "Das Bild ist ein Ausschnitt aus einem Dokument, ein einzelnes Element. Beantworte zwei Dinge. bildanteile: Hat das Element Bildanteile (Logo, Foto, Zeichnung, Grafik)? text: der Text im Element, exakt wiedergegeben, ohne Kästchen und Kreise; steht kein Text darin, \"\". Antworte nur als JSON: {\"bildanteile\": true oder false, \"text\": \"...\"}",
+ "image": 13976,
+ "audio": 0,
+ "ms": 905,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-2c21dc11-eff5-4146-9ccb-266d27721203",
+  "object": "chat.completion",
+  "created": 1791364956,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"bildanteile\": false, \"text\": \"Bitte in Blockschrift ausfüllen und Hinweise auf der Rückseite beachten\"}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 395,
+   "total_tokens": 425,
+   "completion_tokens": 30,
+   "prompt_tokens_details": {
+    "cached_tokens": 0,
+    "multimodal_tokens": {
+     "image": 240
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

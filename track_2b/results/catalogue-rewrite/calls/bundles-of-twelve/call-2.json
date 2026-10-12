@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:39:30.026Z",
+  "tag": "umgeschrieben-paeckchen arbeitsfaehigkeitszeugnis q13",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Arbeitsfähigkeitszeugnis\", jede mit ihrer Kennung:\n\nq13: In welchem Jahr ist die Person in das Unternehmen eingetreten?\nq14: Welche Funktion oder welchen Beruf übt die Person aus?\nq15: Wie viele Stunden pro Tag arbeitet die Person?\nq16: Arbeitet die Person in Vollzeit (100 %) oder Teilzeit?\nq17: Arbeiten Sie in Vollzeit (100 %)?\nq18: Arbeiten Sie in Teilzeit?\nq19: Wie viele Prozent beträgt die Wochenarbeitszeit?\nq20: Wie viele Einsatztage hat die Person pro Woche?\nq21: Wann wurde das Arbeitsverhältnis gekündigt?\nq22: Liegt die Arbeitsunfähigkeit aufgrund von Krankheit, Unfall oder Berufskrankheit vor?\nq23: Wird das REP (Ressourcenorientiertes Eingliederungsprofil) oder der Arbeitsplatzbeschrieb verwendet?\nq24: Wann ist das REP erstellt worden?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3022,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-f0e41331-5fad-4ffd-9ca3-b753a834bba8",
+    "object": "chat.completion",
+    "created": 1791531570,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q13\", \"frage\": \"In welchem Jahr ist die Person in das Unternehmen eingetreten?\"}, {\"kennung\": \"q14\", \"frage\": \"Welche Funktion oder welchen Beruf hat die Person?\"}, {\"kennung\": \"q15\", \"frage\": \"Wie viele Stunden arbeitet die Person pro Tag?\"}, {\"kennung\": \"q16\", \"frage\": \"Arbeitet die Person in Vollzeit oder Teilzeit?\"}, {\"kennung\": \"q17\", \"frage\": \"Arbeiten Sie in Vollzeit?\"}, {\"kennung\": \"q18\", \"frage\": \"Arbeiten Sie in Teilzeit?\"}, {\"kennung\": \"q19\", \"frage\": \"Wie viele Prozent beträgt die Wochenarbeitszeit?\"}, {\"kennung\": \"q20\", \"frage\": \"Wie viele Einsatztage hat die Person pro Woche?\"}, {\"kennung\": \"q21\", \"frage\": \"Wann wurde das Arbeitsverhältnis gekündigt?\"}, {\"kennung\": \"q22\", \"frage\": \"Liegt die Arbeitsunfähigkeit wegen Krankheit, Unfall oder Berufskrankheit vor?\"}, {\"kennung\": \"q23\", \"frage\": \"Wird das REP oder der Arbeitsplatzbeschrieb verwendet?\"}, {\"kennung\": \"q24\", \"frage\": \"Wann wurde das REP erstellt?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 451,
+      "total_tokens": 760,
+      "completion_tokens": 309,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

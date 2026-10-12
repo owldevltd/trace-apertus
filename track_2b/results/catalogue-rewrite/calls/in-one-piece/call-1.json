@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:31:51.803Z",
+  "tag": "umschreiben arbeitsfaehigkeitszeugnis",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 3120,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Arbeitsfähigkeitszeugnis\", jede mit ihrer Kennung:\n\nq1: Ist die Person weiblich oder männlich?\nq2: Wie lautet der Name und der Vorname der Person?\nq3: Wie lautet das Geburtsdatum der Person?\nq4: Wie lautet die Adresse und die Postleitzahl der Person?\nq5: Wie lautet die AHV-Nummer der Person?\nq6: Wie lautet die Telefonnummer der Person?\nq7: Wie lautet die E-Mail-Adresse der Person?\nq8: Wie lautet der Firmenname des Arbeitgebers?\nq9: Wie lautet der Name der Kontaktperson beim Arbeitgeber?\nq10: Wie lautet die Adresse und die Postleitzahl des Arbeitgebers?\nq11: Wie lautet die Telefonnummer des Arbeitgebers?\nq12: Wie lautet die E-Mail-Adresse des Arbeitgebers?\nq13: In welchem Jahr ist die Person in das Unternehmen eingetreten?\nq14: Welche Funktion oder welchen Beruf übt die Person aus?\nq15: Wie viele Stunden pro Tag arbeitet die Person?\nq16: Arbeitet die Person in Vollzeit (100 %) oder Teilzeit?\nq17: Arbeiten Sie in Vollzeit (100 %)?\nq18: Arbeiten Sie in Teilzeit?\nq19: Wie viele Prozent beträgt die Wochenarbeitszeit?\nq20: Wie viele Einsatztage hat die Person pro Woche?\nq21: Wann wurde das Arbeitsverhältnis gekündigt?\nq22: Liegt die Arbeitsunfähigkeit aufgrund von Krankheit, Unfall oder Berufskrankheit vor?\nq23: Wird das REP (Ressourcenorientiertes Eingliederungsprofil) oder der Arbeitsplatzbeschrieb verwendet?\nq24: Wann ist das REP erstellt worden?\nq25: Wann ist der Arbeitsplatzbeschrieb erstellt worden?\nq26: Wann war die letzte Konsultation? Wann begann und endete die Arbeitsunfähigkeit? Wann ist die nächste Konsultation geplant? Wem gehört das Visum?\nq27: Liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor? Ja oder nein?\nq28: Wird die Beurteilung auf Basis des REP oder des Arbeitsplatzbeschriebs erstellt?\nq29: Wann ist das REP erstellt worden?\nq30: Wann ist der Arbeitsplatzbeschrieb erstellt worden?\nq31: Wie viele Stunden pro Tag ist die Person anwesend? Wie hoch ist der Prozentsatz des Pensums? Wie ist die Leistungsfähigkeit in der Präsenzzeit (25, 50, 75 oder 100 %)? Wie hoch ist die Arbeitsfähigkeit insgesamt in Prozent? Wann ist die nächste Konsultation?\nq32: Ab wann soll die Person wieder zu 100 % arbeiten?\nq33: Wird Kontakt mit dem Arbeitgeber erwünscht? Ja oder nein?\nq34: Wie lautet der Name und der Stempel des Arztes oder der Ärztin?\nq35: Wann ist das Formular unterschrieben worden?\nq36: Welche Bemerkungen gibt es?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 6565,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-9db13e51-913a-417e-8ea3-ff06cde91076",
+    "object": "chat.completion",
+    "created": 1791531112,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"Ist die Person weiblich oder männlich?\"}, {\"kennung\": \"q2\", \"frage\": \"Wie lautet der Name und der Vorname der Person?\"}, {\"kennung\": \"q3\", \"frage\": \"Wann ist die Person geboren?\"}, {\"kennung\": \"q4\", \"frage\": \"Wie lautet die Adresse und die Postleitzahl der Person?\"}, {\"kennung\": \"q5\", \"frage\": \"Wie lautet die AHV-Nummer der Person?\"}, {\"kennung\": \"q6\", \"frage\": \"Wie lautet die Telefonnummer der Person?\"}, {\"kennung\": \"q7\", \"frage\": \"Wie lautet die E-Mail-Adresse der Person?\"}, {\"kennung\": \"q8\", \"frage\": \"Wie lautet der Firmenname des Arbeitgebers?\"}, {\"kennung\": \"q9\", \"frage\": \"Wie lautet der Name der Kontaktperson beim Arbeitgeber?\"}, {\"kennung\": \"q10\", \"frage\": \"Wie lautet die Adresse und die Postleitzahl des Arbeitgebers?\"}, {\"kennung\": \"q11\", \"frage\": \"Wie lautet die Telefonnummer des Arbeitgebers?\"}, {\"kennung\": \"q12\", \"frage\": \"Wie lautet die E-Mail-Adresse des Arbeitgebers?\"}, {\"kennung\": \"q13\", \"frage\": \"In welchem Jahr ist die Person in das Unternehmen eingetreten?\"}, {\"kennung\": \"q14\", \"frage\": \"Welche Funktion oder welchen Beruf übt die Person aus?\"}, {\"kennung\": \"q15\", \"frage\": \"Wie viele Stunden pro Tag arbeitet die Person?\"}, {\"kennung\": \"q16\", \"frage\": \"Arbeitet die Person in Vollzeit (100 %) oder Teilzeit?\"}, {\"kennung\": \"q17\", \"frage\": \"Arbeiten Sie in Vollzeit (100 %)?\"}, {\"kennung\": \"q18\", \"frage\": \"Arbeiten Sie in Teilzeit?\"}, {\"kennung\": \"q19\", \"frage\": \"Wie viele Prozent beträgt die Wochenarbeitszeit?\"}, {\"kennung\": \"q20\", \"frage\": \"Wie viele Einsatztage hat die Person pro Woche?\"}, {\"kennung\": \"q21\", \"frage\": \"Wann wurde das Arbeitsverhältnis gekündigt?\"}, {\"kennung\": \"q22\", \"frage\": \"Liegt die Arbeitsunfähigkeit aufgrund von Krankheit, Unfall oder Berufskrankheit vor?\"}, {\"kennung\": \"q23\", \"frage\": \"Wird das REP (Ressourcenorientiertes Eingliederungsprofil) oder der Arbeitsplatzbeschrieb verwendet?\"}, {\"kennung\": \"q24\", \"frage\": \"Wann ist das REP erstellt worden?\"}, {\"kennung\": \"q25\", \"frage\": \"Wann ist der Arbeitsplatzbeschrieb erstellt worden?\"}, {\"kennung\": \"q26\", \"frage\": \"Wann war die letzte Konsultation? Wann begann und endete die Arbeitsunfähigkeit? Wann ist die nächste Konsultation geplant? Wem gehört das Visum?\"}, {\"kennung\": \"q27\", \"frage\": \"Liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor? Ja oder nein?\"}, {\"kennung\": \"q28\", \"frage\": \"Wird die Beurteilung auf Basis des REP oder des Arbeitsplatzbeschriebs erstellt?\"}, {\"kennung\": \"q29\", \"frage\": \"Wann ist das REP erstellt worden?\"}, {\"kennung\": \"q30\", \"frage\": \"Wann ist der Arbeitsplatzbeschrieb erstellt worden?\"}, {\"kennung\": \"q31\", \"frage\": \"Wie viele Stunden pro Tag ist die Person anwesend? Wie hoch ist der Prozentsatz des Pensums? Wie ist die Leistungsfähigkeit in der Präsenzzeit (25, 50, 75 oder 100 %)? Wie hoch ist die Arbeitsfähigkeit insgesamt in Prozent? Wann ist die nächste Konsultation?\"}, {\"kennung\": \"q32\", \"frage\": \"Ab wann soll die Person wieder zu 100 % arbeiten?\"}, {\"kennung\": \"q33\", \"frage\": \"Wird Kontakt mit dem Arbeitgeber erwünscht? Ja oder nein?\"}, {\"kennung\": \"q34\", \"frage\": \"Wie lautet der Name und der Stempel des Arztes oder der Ärztin?\"}, {\"kennung\": \"q35\", \"frage\": \"Wann ist das Formular unterschrieben worden?\"}, {\"kennung\": \"q36\", \"frage\": \"Welche Bemerkungen gibt es?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 922,
+      "total_tokens": 1970,
+      "completion_tokens": 1048,
+      "prompt_tokens_details": {
+        "cached_tokens": 32,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

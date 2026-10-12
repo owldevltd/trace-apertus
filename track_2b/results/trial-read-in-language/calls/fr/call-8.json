@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:33:10.005Z",
+  "tag": "lesen füllen fr betreibungsbegehren q11",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Welcher Zinssatz wird verlangt?\nAntwort: 5%\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- zins: Zins % — Vorgabe: Text\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.\nDie Antwort im Gespräch ist auf Französisch. Schreibe den Wert so, wie er gesagt wurde, auf Französisch; übersetze nichts.",
+  "image": 0,
+  "audio": 0,
+  "ms": 183,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-b9168201-8312-4cd9-b8a5-b8286d24da7e",
+    "object": "chat.completion",
+    "created": 1791552790,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "zins: 5% [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 255,
+      "total_tokens": 266,
+      "completion_tokens": 11,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

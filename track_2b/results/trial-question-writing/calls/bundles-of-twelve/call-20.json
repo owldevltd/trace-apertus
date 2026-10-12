@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:14:08.918Z",
+  "tag": "d-8b-bundle suva-bagatellunfall S3",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 3 =====\n[q34]\nSchaden-Nummer  → [q35]\nBagatellunfall-Meldung UVG Doppel für den Betrieb\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q38]\nTel.-Nr.  → [q36]\nKunden-Nr.  → [q37]\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q39]\n2. Verletzte/r\nName und Vorname  → [q42]\nGeburtsdatum  → [q40] [q43]\nAHV-Nummer  → [q41]\nStrasse  → [q45]\nStaatsangehörigkeit  → [q44] [q46]\nPLZ\nWohnort\nZivilstand  → [q47]\n3. Anstellung\nDatum der Anstellung  → [q49]\nAusgeübter Beruf  → [q48]\n씲 Höheres Kader  → [q50: Auswahl]\n씲 Mittleres Kader  → [q50: Auswahl]\n씲 Angestellte/r / Arbeiter/in  → [q50: Auswahl]\n씲 Lehrling  → [q51: Auswahl]\n씲 Praktikant/in  → [q51: Auswahl]\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q52]\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q53]\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q54] [q55]\n[q56]\n[q57]\n[q58]\n[q59]\n[q60]\n[q61]\n[q62]\n[q63]\n[q64]\n[q65]\n[q66]\n[q67]\n[q68]\n[q69]\n[q70]\n[q71]\n[q72]\n[q73]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q74]\n8. Nicht- berufsunfall\nK Bis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\nbis:\n씲 links  → [q75: Auswahl]\n씲 rechts  → [q75: Auswahl]\n씲 unbestimmt  → [q75: Auswahl]\n9. Verletzung\nBetroffener Körperteil:  → [q76]\nArt der Schädigung:\n10. Arzt- adressen  → [q78]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q77]\nOrt und Datum\nStempel und Unterschrift\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu diesen Kennungen je genau eine Frage: q46, q47, q48, q49, q50, q51, q52, q53, q54, q55, q56, q57. Schreibe sie so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3950,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-c0e351f6-522a-40e7-9084-2dec5d3f0de8",
+    "object": "chat.completion",
+    "created": 1791537249,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q46\", \"frage\": \"In welchem Land lebt die betroffene Person?\"}, {\"kennung\": \"q47\", \"frage\": \"Welchen Familienstand hat die betroffene Person?\"}, {\"kennung\": \"q48\", \"frage\": \"Welchen Beruf übt die betroffene Person aus?\"}, {\"kennung\": \"q49\", \"frage\": \"Wann hat die betroffene Person ihre Arbeit begonnen?\"}, {\"kennung\": \"q50\", \"frage\": \"Welche Rolle hat die betroffene Person im Betrieb? (Möglichkeiten: Höheres Kader, Mittleres Kader, Angestellte/r / Arbeiter/in, Lehrling, Praktikant/in)\"}, {\"kennung\": \"q51\", \"frage\": \"Welche Rolle hat die betroffene Person im Betrieb? (Möglichkeiten: Lehrling, Praktikant/in)\"}, {\"kennung\": \"q52\", \"frage\": \"Wie viele Stunden arbeitet die betroffene Person pro Woche?\"}, {\"kennung\": \"q53\", \"frage\": \"Wo genau ist der Unfall passiert? (Ort und ggf. genaue Stelle wie Werkstatt oder Strasse)\"}, {\"kennung\": \"q54\", \"frage\": \"Was geschah genau beim Unfall? (Beschreibung der Tätigkeit, Unfallhergang, beteiligte Personen und Gegenstände)\"}, {\"kennung\": \"q55\", \"frage\": \"Wer war noch mehr am Unfall beteiligt? (Beschreibung der beteiligten Personen und Gegenstände)\"}, {\"kennung\": \"q56\", \"frage\": \"KEINE\"}, {\"kennung\": \"q57\", \"frage\": \"KEINE\"}, {\"kennung\": \"q58\", \"frage\": \"KEINE\"}, {\"kennung\": \"q59\", \"frage\": \"KEINE\"}, {\"kennung\": \"q60\", \"frage\": \"KEINE\"}, {\"kennung\": \"q61\", \"frage\": \"KEINE\"}, {\"kennung\": \"q62\", \"frage\": \"KEINE\"}, {\"kennung\": \"q63\", \"frage\": \"KEINE\"}, {\"kennung\": \"q64\", \"frage\": \"KEINE\"}, {\"kennung\": \"q65\", \"frage\": \"KEINE\"}, {\"kennung\": \"q66\", \"frage\": \"KEINE\"}, {\"kennung\": \"q67\", \"frage\": \"KEINE\"}, {\"kennung\": \"q68\", \"frage\": \"KEINE\"}, {\"kennung\": \"q69\", \"frage\": \"KEINE\"}, {\"kennung\": \"q70\", \"frage\": \"KEINE\"}, {\"kennung\": \"q71\", \"frage\": \"KEINE\"}, {\"kennung\": \"q72\", \"frage\": \"KEINE\"}, {\"kennung\": \"q73\", \"frage\": \"KEINE\"}]}}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1369,
+      "total_tokens": 2007,
+      "completion_tokens": 638,
+      "prompt_tokens_details": {
+        "cached_tokens": 960,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

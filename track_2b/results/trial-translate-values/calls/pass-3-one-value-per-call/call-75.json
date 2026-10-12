@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:47:41.343Z",
+  "tag": "einzeln en suva-bagatellunfall stunden",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 200,
+  "prompt": "Übersetze die Angabe unten vom Englisch ins Deutsche. Sie steht in einem Formular bei «Arbeitszeit des/der Verletzten: Stunden je Woche». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der deutschen Angabe, ohne weiteren Text.\n\nAngabe: 40",
+  "image": 0,
+  "audio": 0,
+  "ms": 141,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-c8e5521e-24c4-4c93-82cc-0b5f7a94ff33",
+    "object": "chat.completion",
+    "created": 1791553661,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "40",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 138,
+      "completion_tokens": 3,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

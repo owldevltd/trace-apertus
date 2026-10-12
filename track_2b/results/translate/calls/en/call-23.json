@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:40:56.693Z",
+ "tag": "translate value arbeitsplatz",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 200,
+ "prompt": "Übersetze die Angabe unten vom Englisch ins Deutsch. Sie steht in einem Formular bei «Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der Angabe auf Deutsch, ohne weiteren Text.\n\nAngabe: Warehouse",
+ "image": 0,
+ "audio": 0,
+ "ms": 140,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-e21ba4fd-eb96-4bc2-b033-aedb6e38349b",
+  "object": "chat.completion",
+  "created": 1791556857,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Lagerhaus",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 139,
+   "total_tokens": 143,
+   "completion_tokens": 4,
+   "prompt_tokens_details": {
+    "cached_tokens": 128,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

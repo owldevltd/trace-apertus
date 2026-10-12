@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:39:43.733Z",
+ "tag": "translate labels page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1520,
+ "prompt": "Auf einem deutschen Formular stehen diese Beschriftungen. Übersetze jede ins Englisch, kurz, wie eine Beschriftung, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n1: Betreibungsamt\n2: Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\n3: Geburtsdatum (falls bekannt)\n4: Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\n5: Zahlungsverbindung des Gläubigers / Zahlungsverbindung des Vertreters\n6: des Gläubigers\n7: des Vertreters\n8: IBAN\n9: vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\n10: Für Rückfragen: Telefon oder E-Mail\n11: Forderungsgrund oder Forderungsurkunde mit Datum\n12: Betrag (CHF)\n13: Zins %\n14: Zins seit (Datum)\n15: Bemerkungen\n16: Ihre Fallreferenz (falls vorhanden)\n\nAntworte nur als JSON, ohne weiteren Text: {\"texte\": [{\"nummer\": 1, \"text\": \"...\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 1941,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-71bfba59-1e5c-4176-a4b1-3a4258cc7d90",
+  "object": "chat.completion",
+  "created": 1791556784,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"texte\": [{\"nummer\": 1, \"text\": \"Office of Debt Collection\"}, {\"nummer\": 2, \"text\": \"Debtor (Name and First Name or Company; Address; ZIP Code City)\"}, {\"nummer\": 3, \"text\": \"Date of Birth (if known)\"}, {\"nummer\": 4, \"text\": \"Creditor (Name and First Name or Company; Address; ZIP Code City)\"}, {\"nummer\": 5, \"text\": \"Creditor's Payment Details / Representative's Payment Details\"}, {\"nummer\": 6, \"text\": \"Creditor's\"}, {\"nummer\": 7, \"text\": \"Representative's\"}, {\"nummer\": 8, \"text\": \"IBAN\"}, {\"nummer\": 9, \"text\": \"Represented by (Name and First Name or Company; Address; ZIP Code City)\"}, {\"nummer\": 10, \"text\": \"For inquiries: Phone or E-Mail\"}, {\"nummer\": 11, \"text\": \"Reason for Claim or Claim Document with Date\"}, {\"nummer\": 12, \"text\": \"Amount (CHF)\"}, {\"nummer\": 13, \"text\": \"Interest %\"}, {\"nummer\": 14, \"text\": \"Interest since (Date)\"}, {\"nummer\": 15, \"text\": \"Remarks\"}, {\"nummer\": 16, \"text\": \"Your Case Reference (if available)\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 316,
+   "total_tokens": 623,
+   "completion_tokens": 307,
+   "prompt_tokens_details": {
+    "cached_tokens": 288,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

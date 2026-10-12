@@ -1,0 +1,94 @@
+{
+ "amt": {
+  "label": "Betreibungsamt",
+  "kind": "multiline",
+  "expected": "Betreibungsamt Chur",
+  "state": "ok"
+ },
+ "schuldner": {
+  "label": "Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "kind": "multiline",
+  "expected": "Peter Hartmann, Via Nova 14, 7013 Domat/Ems",
+  "state": "ok"
+ },
+ "sgeburt": {
+  "label": "Geburtsdatum (falls bekannt)",
+  "kind": "date",
+  "expected": "",
+  "state": "missing"
+ },
+ "glaeubiger": {
+  "label": "Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "kind": "multiline",
+  "expected": "Garage Caduff AG, Kasernenstrasse 8, 7000 Chur",
+  "state": "ok"
+ },
+ "zahlung-g": {
+  "label": "Zahlungsverbindung des Gläubigers",
+  "kind": "radio",
+  "option": "des Gläubigers",
+  "expected": "x",
+  "state": "unclear"
+ },
+ "zahlung-v": {
+  "label": "Zahlungsverbindung des Vertreters",
+  "kind": "radio",
+  "option": "des Vertreters",
+  "expected": "",
+  "state": "empty"
+ },
+ "iban": {
+  "label": "IBAN",
+  "kind": "text",
+  "expected": "CH93 0076 2011 6238 5295 7",
+  "state": "ok"
+ },
+ "vertreter": {
+  "label": "vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+  "kind": "multiline",
+  "expected": "",
+  "state": "empty"
+ },
+ "rueckfragen": {
+  "label": "Für Rückfragen: Telefon oder E-Mail",
+  "kind": "text",
+  "expected": "",
+  "state": "empty"
+ },
+ "forderung": {
+  "label": "Forderungsgrund oder Forderungsurkunde mit Datum",
+  "kind": "multiline",
+  "expected": "Rechnung Nr. 2026-118 vom 12.06.2026, Reparatur",
+  "state": "ok"
+ },
+ "betrag": {
+  "label": "Betrag (CHF)",
+  "kind": "text",
+  "expected": "2'340.50",
+  "state": "ok"
+ },
+ "zins": {
+  "label": "Zins %",
+  "kind": "text",
+  "expected": "5",
+  "state": "ok"
+ },
+ "zinsseit": {
+  "label": "Zins seit (Datum)",
+  "kind": "date",
+  "expected": "13.07.2026",
+  "state": "ok"
+ },
+ "bemerkung": {
+  "label": "Bemerkungen",
+  "kind": "multiline",
+  "expected": "",
+  "state": "empty"
+ },
+ "fallreferenz": {
+  "label": "Ihre Fallreferenz (falls vorhanden)",
+  "kind": "text",
+  "expected": "",
+  "state": "empty"
+ }
+}

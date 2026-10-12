@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:35:28.309Z",
+  "tag": "lesen füllen en suva-bagatellunfall q22",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Welcher Körperteil der verletzten Person ist betroffen?\nAntwort: Right wrist\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- koerperteil: Betroffener Körperteil — Vorgabe: Text\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.\nDie Antwort im Gespräch ist auf Englisch. Schreibe den Wert so, wie er gesagt wurde, auf Englisch; übersetze nichts.",
+  "image": 0,
+  "audio": 0,
+  "ms": 252,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-620e590f-65ec-4ca8-af7c-4b3790dbcd05",
+    "object": "chat.completion",
+    "created": 1791552928,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "koerperteil: Right wrist [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 260,
+      "total_tokens": 272,
+      "completion_tokens": 12,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

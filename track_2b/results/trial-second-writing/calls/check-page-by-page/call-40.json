@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:48:18.756Z",
+  "tag": "prüfen d-8b-page-r2 suva-bagatellunfall Lauf 2",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBitte mit Schreibmaschine ausfüllen oder direkt auf www.suva.ch/schadenmeldung\n[q1]\nSchaden-Nummer  → [q2]\nBagatellunfall-Meldung UVG\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q5]\nTel.-Nr.  → [q3]\nKunden-Nr.  → [q4]\nBetriebsteil\n▼ Wird von der Versicherung ausgefüllt\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q6]\nGe\n2. Verletzte/r\nName und Vorname  → [q10]\nGeburtsdatum  → [q8]\nAHV-Nummer  → [q9]\n[q7: Kästchen]\nSt\n[q11]\nStrasse  → [q13]\nStaatsangehörigkeit  → [q12] [q14]\nZi\nPLZ\nWohnort\nZivilstand  → [q16]\n[q15: Kästchen]\n3. Anstellung\nDatum der Anstellung  → [q18]\nAusgeübter Beruf  → [q17]\nStellung\n씲 Höheres Kader  → [q19: Kästchen]\n씲 Mittleres Kader  → [q20: Kästchen]\n씲 Angestellte/r / Arbeiter/in  → [q21: Kästchen]\n씲 Lehrling  → [q22: Auswahl]\n씲 Praktikant/in  → [q22: Auswahl] [q23: Kästchen]\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q24]\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q25]\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q26]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q27]\nB/N/F\n8. Nicht- berufsunfall\nBis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\n[q28: Kästchen]\nbis:\nVerletzung\n씲 links  → [q29: Auswahl]\n씲 rechts  → [q29: Auswahl]\n씲 unbestimmt  → [q29: Auswahl]\n9. Verletzung\nBetroffener Körperteil:  → [q30]\nArt der Schädigung:\nArt\n10. Arzt- adressen  → [q32]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q31]\nOrt und Datum\nStempel und Unterschrift\nHinweis für den Arbeitgeber\nDiese Bagatellunfall-Meldung ist auszufüllen, wenn keine Arbeitsunfähigkeit oder eine solche von höchstens 3 Kalendertagen (Unfalltag und die anschliessenden 2 Tage) eintritt. Ausnahmen: Anstelle dieser Bagatellunfall-Meldung ist eine weisse Formulargarnitur auszufüllen bei – Berufskrankheit, – Zahnschaden oder – Rückfall\nDem zugezogenen Arzt bzw. den Ärzten werden wir ein Rechnungsformular zustellen.\nFür Rückerstattungsgesuche von bereits bezahlten Rechnungen bitten wir Sie, Belege beizulegen und nachfolgend die Zahladresse (Post-/Bankkonto) anzugeben.  → [q33]\n913.d – 2005\nVerteiler:\ngrünes Formular gelbes Formular blaues Formular\n➞ Suva (Adresse siehe oben) ➞ Doppel für Ihre Akten ➞ Verletzte/r ➞ Apotheke ➞ Suva\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Wie lautet die Strasse?\nB: Wie lautet der Name und der Vorname des Verletzten?\nC: Ist das Kästchen gesetzt?\nD: Wie lautet die Staatsangehörigkeit?\nE: Welche beteiligten Gegenstände waren am Unfall beteiligt (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff)?\nF: Wie lautet die Staatsangehörigkeit?\nG: Wie lautet die AHV-Nummer?\nH: Wie lautet der Zivilstand?\nI: Ist das Kästchen gesetzt?\nJ: Wie lautet die PLZ?\nK: Wie lautet der Ort (Name oder PLZ) und die Stelle (z. B. Werkstatt, Strasse) des Unfallorts?\nL: Ist das Kästchen für Mittleres Kader gesetzt?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1207,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-6456af86-f212-4c0e-97cb-965c8491b377",
+    "object": "chat.completion",
+    "created": 1791539299,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q13\"}, {\"frage\": \"B\", \"kennung\": \"q10\"}, {\"frage\": \"C\", \"kennung\": \"q7\"}, {\"frage\": \"D\", \"kennung\": \"q12\"}, {\"frage\": \"E\", \"kennung\": \"q27\"}, {\"frage\": \"F\", \"kennung\": \"q12\"}, {\"frage\": \"G\", \"kennung\": \"q9\"}, {\"frage\": \"H\", \"kennung\": \"q16\"}, {\"frage\": \"I\", \"kennung\": \"q15\"}, {\"frage\": \"J\", \"kennung\": \"q14\"}, {\"frage\": \"K\", \"kennung\": \"q25\"}, {\"frage\": \"L\", \"kennung\": \"q20\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1377,
+      "total_tokens": 1563,
+      "completion_tokens": 186,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

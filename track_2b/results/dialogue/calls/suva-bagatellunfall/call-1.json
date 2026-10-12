@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T12:27:38.938Z",
+ "tag": "questions page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 2910,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBitte mit Schreibmaschine ausfüllen oder direkt auf www.suva.ch/schadenmeldung\n[q1]\nSchaden-Nummer  → [q2]\nBagatellunfall-Meldung UVG\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q3]\nTel.-Nr.  → [q4]\nKunden-Nr.  → [q5]\nBetriebsteil\n▼ Wird von der Versicherung ausgefüllt\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q6]\nGe\n2. Verletzte/r\nName und Vorname  → [q7]\nGeburtsdatum  → [q8]\nAHV-Nummer  → [q9]\n[q10: Kästchen]\nSt\n[q11]\nStrasse  → [q12]\nStaatsangehörigkeit  → [q13] [q14]\nPLZ\nWohnort\nZivilstand  → [q15]\n[q16: Kästchen]\n3. Anstellung\nDatum der Anstellung  → [q17]\nAusgeübter Beruf  → [q18]\nStellung\nHöheres Kader  → [q19: Kästchen]\nMittleres Kader  → [q20: Kästchen]\nAngestellte/r / Arbeiter/in  → [q21: Kästchen]\nLehrling  → [q22: Auswahl]\nPraktikant/in  → [q22: Auswahl] [q23: Kästchen]\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q24]\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q25]\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q26]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q27]\nB/N/F\n8. Nicht- berufsunfall\nBis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\n[q28: Kästchen]\nbis:\nVerletzung\nlinks  → [q29: Auswahl]\nrechts  → [q29: Auswahl]\nunbestimmt  → [q29: Auswahl]\n9. Verletzung\nBetroffener Körperteil:  → [q30]\nArt der Schädigung:\nArt\n10. Arzt- adressen  → [q31]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q32]\nOrt und Datum\nStempel und Unterschrift\nHinweis für den Arbeitgeber\nDiese Bagatellunfall-Meldung ist auszufüllen, wenn keine Arbeitsunfähigkeit oder eine solche von höchstens 3 Kalendertagen (Unfalltag und die anschliessenden 2 Tage) eintritt. Ausnahmen: Anstelle dieser Bagatellunfall-Meldung ist eine weisse Formulargarnitur auszufüllen bei – Berufskrankheit, – Zahnschaden oder – Rückfall\nDem zugezogenen Arzt bzw. den Ärzten werden wir ein Rechnungsformular zustellen.\nFür Rückerstattungsgesuche von bereits bezahlten Rechnungen bitten wir Sie, Belege beizulegen und nachfolgend die Zahladresse (Post-/Bankkonto) anzugeben.  → [q33]\n913.d – 2005\nVerteiler:\ngrünes Formular gelbes Formular blaues Formular\n➞ Suva (Adresse siehe oben) ➞ Doppel für Ihre Akten ➞ Verletzte/r ➞ Apotheke ➞ Suva\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu jeder Kennung genau eine Frage, so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 5697,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-d04f7f12-16b9-4dee-91e1-bc0196a509ed",
+  "object": "chat.completion",
+  "created": 1791548859,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"Welche Schaden-Nummer soll eingetragen werden?\"}, {\"kennung\": \"q2\", \"frage\": \"Welche Schaden-Nummer wurde Ihrem Schaden zugewiesen?\"}, {\"kennung\": \"q3\", \"frage\": \"Wie lautet der Name und die Adresse mit Postleitzahl des Arbeitgebers?\"}, {\"kennung\": \"q4\", \"frage\": \"Welche Telefonnummer hat der Arbeitgeber?\"}, {\"kennung\": \"q5\", \"frage\": \"Welche Kunden-Nummer wurde Ihrem Vertrag zugewiesen?\"}, {\"kennung\": \"q6\", \"frage\": \"Welcher Betriebsteil war zum Unfallzeitpunkt aktiv?\"}, {\"kennung\": \"q7\", \"frage\": \"Wie heissen Sie und wie lautet Ihr Vorname?\"}, {\"kennung\": \"q8\", \"frage\": \"Wann sind Sie geboren?\"}, {\"kennung\": \"q9\", \"frage\": \"Welche AHV-Nummer haben Sie?\"}, {\"kennung\": \"q10\", \"frage\": \"Welche Kästchen sollen angekreuzt werden?\"}, {\"kennung\": \"q11\", \"frage\": \"Welche Strasse ist Ihr Wohnort?\"}, {\"kennung\": \"q12\", \"frage\": \"Welche Hausnummer hat die Strasse Ihres Wohnorts?\"}, {\"kennung\": \"q13\", \"frage\": \"Welche Staatsangehörigkeit haben Sie?\"}, {\"kennung\": \"q14\", \"frage\": \"Welche Staatsangehörigkeit haben Sie?\"}, {\"kennung\": \"q15\", \"frage\": \"Welchen Zivilstand haben Sie?\"}, {\"kennung\": \"q16\", \"frage\": \"Welche Kästchen sollen angekreuzt werden?\"}, {\"kennung\": \"q17\", \"frage\": \"Wann haben Sie bei diesem Arbeitgeber angefangen zu arbeiten?\"}, {\"kennung\": \"q18\", \"frage\": \"Welchen Beruf üben Sie aus?\"}, {\"kennung\": \"q19\", \"frage\": \"Welche Stellung haben Sie im Unternehmen (höheres Kader)?\"}, {\"kennung\": \"q20\", \"frage\": \"Welche Stellung haben Sie im Unternehmen (mittleres Kader)?\"}, {\"kennung\": \"q21\", \"frage\": \"Welche Stellung haben Sie im Unternehmen (angestellte/r / Arbeiter/in)?\"}, {\"kennung\": \"q22\", \"frage\": \"Welche Stellung haben Sie im Unternehmen (Lehrling)?\"}, {\"kennung\": \"q23\", \"frage\": \"Welche Stellung haben Sie im Unternehmen (Praktikant/in)?\"}, {\"kennung\": \"q24\", \"frage\": \"Wie viele Stunden arbeitet die betroffene Person pro Woche?\"}, {\"kennung\": \"q25\", \"frage\": \"Wo genau ist der Unfall passiert (Ort und Stelle wie Werkstatt oder Strasse)?\"}, {\"kennung\": \"q26\", \"frage\": \"Was ist passiert? Beschreiben Sie die Tätigkeit zur Unfallzeit, den Unfallhergang und alle beteiligten Personen oder Gegenstände.\"}, {\"kennung\": \"q27\", \"frage\": \"Welche Gegenstände waren am Unfall beteiligt (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff)?\"}, {\"kennung\": \"q28\", \"frage\": \"Wann war die letzte Arbeit im Betrieb vor dem Unfall (Wochentag, Datum, Zeit)?\"}, {\"kennung\": \"q29\", \"frage\": \"Welchen Körperteil wurde verletzt (links, rechts oder unbestimmt)?\"}, {\"kennung\": \"q30\", \"frage\": \"Welcher Körperteil wurde verletzt?\"}, {\"kennung\": \"q31\", \"frage\": \"Wie lautet die Adresse des behandelnden Arztes oder des Spitals?\"}, {\"kennung\": \"q32\", \"frage\": \"Wie lautet die Adresse des nachbehandelnden Arztes oder des Spitals?\"}, {\"kennung\": \"q33\", \"frage\": \"Welche Zahladresse (Post- oder Bankkonto) soll für Rückerstattungen angegeben werden?\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 1527,
+   "total_tokens": 2462,
+   "completion_tokens": 935,
+   "prompt_tokens_details": {
+    "cached_tokens": 192,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

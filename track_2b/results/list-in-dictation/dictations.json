@@ -1,0 +1,32 @@
+[
+ {
+  "id": "B0",
+  "form": "betreibungsbegehren",
+  "text": "Der Schuldner ist Urs Meier, Musterstrasse 1 in 8000 Zürich. Gläubiger bin ich, Hans Rietli, Brandschenkestrasse 1, 8002 Zürich. Die Forderung ist eine Rechnung vom 3. Mai 2025 über 3000 Franken, mit 5 Prozent Zins seit dem 1. Juni 2025. Weitere Forderungen gibt es keine."
+ },
+ {
+  "id": "B1",
+  "form": "betreibungsbegehren",
+  "text": "Der Schuldner ist Urs Meier, Musterstrasse 1 in 8000 Zürich. Gläubiger bin ich, Hans Rietli, Brandschenkestrasse 1, 8002 Zürich. Die Forderung ist eine Rechnung vom 3. Mai 2025 über 3000 Franken, mit 5 Prozent Zins seit dem 1. Juni 2025. Dazu kommt eine weitere Forderung: eine Mahngebühr von 40 Franken vom 20. Juni 2025."
+ },
+ {
+  "id": "B2",
+  "form": "betreibungsbegehren",
+  "text": "Der Schuldner ist Urs Meier, Musterstrasse 1 in 8000 Zürich. Gläubiger bin ich, Hans Rietli, Brandschenkestrasse 1, 8002 Zürich. Die Forderung ist eine Rechnung vom 3. Mai 2025 über 3000 Franken, mit 5 Prozent Zins seit dem 1. Juni 2025. Dazu kommen zwei weitere Forderungen: eine Mahngebühr von 40 Franken vom 20. Juni 2025 und die Miete für Juli 2025, 1200 Franken, mit 5 Prozent Zins seit dem 1. August 2025."
+ },
+ {
+  "id": "B3",
+  "form": "betreibungsbegehren",
+  "text": "Der Schuldner ist Urs Meier, Musterstrasse 1 in 8000 Zürich. Gläubiger bin ich, Hans Rietli, Brandschenkestrasse 1, 8002 Zürich. Die Forderung ist eine Rechnung vom 3. Mai 2025 über 3000 Franken, mit 5 Prozent Zins seit dem 1. Juni 2025. Dazu kommen drei weitere Forderungen. Erstens eine Mahngebühr von 40 Franken vom 20. Juni 2025. Zweitens die Miete für Juli 2025, 1200 Franken, mit 5 Prozent Zins seit dem 1. August 2025. Drittens die Nebenkostenabrechnung 2024 über 350 Franken, mit 5 Prozent Zins seit dem 15. März 2025."
+ },
+ {
+  "id": "Z1",
+  "form": "arbeitsfaehigkeitszeugnis",
+  "text": "Das Zeugnis ist für Margrit Keller, geboren am 14. Mai 1978, Werkstrasse 12 in Zug. Sie arbeitet als Verkäuferin bei der Muster AG. Sie war am 3. Oktober 2026 in der Konsultation und ist vom 3. Oktober 2026 bis zum 17. Oktober 2026 voll arbeitsunfähig. Die nächste Konsultation ist am 17. Oktober 2026."
+ },
+ {
+  "id": "Z2",
+  "form": "arbeitsfaehigkeitszeugnis",
+  "text": "Das Zeugnis ist für Margrit Keller, geboren am 14. Mai 1978, Werkstrasse 12 in Zug. Sie arbeitet als Verkäuferin bei der Muster AG. Sie war am 3. Oktober 2026 in der Konsultation und ist vom 3. Oktober 2026 bis zum 17. Oktober 2026 voll arbeitsunfähig, nächste Konsultation am 17. Oktober 2026. Bei der Konsultation vom 17. Oktober 2026 wurde die volle Arbeitsunfähigkeit verlängert, vom 18. Oktober 2026 bis zum 31. Oktober 2026, nächste Konsultation am 31. Oktober 2026."
+ }
+]

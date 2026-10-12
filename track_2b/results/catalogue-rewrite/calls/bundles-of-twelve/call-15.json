@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:40:37.712Z",
+  "tag": "umgeschrieben-paeckchen suva-bagatellunfall q13",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Bagatellunfall-Meldung UVG\", jede mit ihrer Kennung:\n\nq13: Wie lautet die Strasse des Wohnorts?\nq14: Welche Staatsangehörigkeit wird eingetragen?\nq15: Welche Information wird an dieser Stelle eingetragen?\nq16: Welcher Zivilstand wird eingetragen?\nq17: Welcher ausgeübte Beruf wird eingetragen?\nq18: Welches Datum der Anstellung wird eingetragen?\nq19: Welche Tätigkeit wird als ßöhres Kader bezeichnet?\nq20: Welche Tätigkeit wird als ßöhres Kader bezeichnet?\nq21: Welche Tätigkeit wird als Angestellte/r / Arbeiter/in bezeichnet?\nq22: Ist die Person Lehrling oder Praktikant/in?\nq23: Ist die Person Praktikant/in?\nq24: Wie viele Stunden arbeitet der/die Verletzte pro Woche?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2944,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-b108c068-6450-4b26-beba-8e4a70f2f064",
+    "object": "chat.completion",
+    "created": 1791531638,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q13\", \"frage\": \"Welche Strasse ist der Wohnort?\"}, {\"kennung\": \"q14\", \"frage\": \"Welche Staatsangehörigkeit hat die Person?\"}, {\"kennung\": \"q15\", \"frage\": \"Welche Information wird hier eingetragen?\"}, {\"kennung\": \"q16\", \"frage\": \"Welcher Zivilstand wird eingetragen?\"}, {\"kennung\": \"q17\", \"frage\": \"Welchen Beruf übt die Person aus?\"}, {\"kennung\": \"q18\", \"frage\": \"Welches Datum der Anstellung wird eingetragen?\"}, {\"kennung\": \"q19\", \"frage\": \"Welche Tätigkeit wird als ßöhres Kader bezeichnet?\"}, {\"kennung\": \"q20\", \"frage\": \"Welche Tätigkeit wird als ßöhres Kader bezeichnet?\"}, {\"kennung\": \"q21\", \"frage\": \"Welche Tätigkeit wird als Angestellte/r / Arbeiter/in bezeichnet?\"}, {\"kennung\": \"q22\", \"frage\": \"Ist die Person Lehrling oder Praktikant/in?\"}, {\"kennung\": \"q23\", \"frage\": \"Ist die Person Praktikant/in?\"}, {\"kennung\": \"q24\", \"frage\": \"Wie viele Stunden arbeitet die verletzte Person pro Woche?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 425,
+      "total_tokens": 735,
+      "completion_tokens": 310,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

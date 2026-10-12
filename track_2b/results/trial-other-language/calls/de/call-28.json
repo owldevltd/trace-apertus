@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:10:46.222Z",
+  "tag": "sprache füllen de suva-bagatellunfall q12",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Welchen Beruf übt die verletzte Person aus?\nAntwort: Lagermitarbeiterin\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- beruf: Ausgeübter Beruf — Vorgabe: Text\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+  "image": 0,
+  "audio": 0,
+  "ms": 232,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-79e13efb-04da-406f-92d7-cc6475966f1c",
+    "object": "chat.completion",
+    "created": 1791551446,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "beruf: Lagermitarbeiterin [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 233,
+      "total_tokens": 246,
+      "completion_tokens": 13,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:39:13.476Z",
+ "tag": "translate value arbeitgeber",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 200,
+ "prompt": "Übersetze die Angabe unten vom Italienisch ins Deutsch. Sie steht in einem Formular bei «Name und Adresse mit Postleitzahl». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der Angabe auf Deutsch, ohne weiteren Text.\n\nAngabe: Logistik Zugersee AG, Werkstrasse 12, 6300 Zug",
+ "image": 0,
+ "audio": 0,
+ "ms": 342,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-9c652c5d-e0aa-4eb8-9d1b-d58c5eeb79b9",
+  "object": "chat.completion",
+  "created": 1791556754,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Logistik Zugersee AG, Werkstrasse 12, 6300 Zug",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 150,
+   "total_tokens": 171,
+   "completion_tokens": 21,
+   "prompt_tokens_details": {
+    "cached_tokens": 128,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

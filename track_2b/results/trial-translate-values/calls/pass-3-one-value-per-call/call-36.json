@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:45:57.392Z",
+  "tag": "einzeln it betreibungsbegehren zinsseit",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 200,
+  "prompt": "Übersetze die Angabe unten vom Italienisch ins Deutsche. Sie steht in einem Formular bei «Zins seit (Datum)». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der deutschen Angabe, ohne weiteren Text.\n\nAngabe: 13.07.2026",
+  "image": 0,
+  "audio": 0,
+  "ms": 193,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-9ff699be-36b6-421b-bf09-d5cc9070c497",
+    "object": "chat.completion",
+    "created": 1791553558,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "13.07.2026",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 148,
+      "completion_tokens": 11,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

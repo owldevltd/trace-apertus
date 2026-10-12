@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:18:43.836Z",
+  "tag": "dialog 70b",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 1560,
+  "prompt": "Unten steht ein Schweizer Formular als Text, ungefähr so angeordnet wie auf dem Papier. Jedes Feld, das ausgefüllt wird, steht an seinem Platz mit seiner Kennung in eckigen Klammern: [name] ____ ist ein Feld zum Schreiben, [name] [ ] ein Kästchen zum Ankreuzen, [name] ( ) eine Auswahl, [name] (Unterschrift) eine Unterschrift.\n\n-----\n        Betreibungsbegehren                             Bitte in Blockschrift ausfüllen und Hinweise auf der\n                                                        Rückseite beachten\n                                                                            Durch das Amt\n                                                                            auszufüllen\n\n                                                        Eingang                   Betreibung\n                                                                                  Nr.\n\n        Schuldner (Name und Vorname bzw. Firma;                  Adresse des\n        Adresse; PLZ Ort)                                        Betreibungsamtes\n       [schuldner] ____  [sgeburt] ____  Geburtsdatum            [amt] ____\n        (falls bekannt)\n        Gläubiger (Name und Vorname bzw. Firma;\n        Adresse; PLZ Ort)\n       [glaeubiger] ____                                Zahlungsverbindung   des Gläubigers  [zahlung-g] ( )  [zahlung-v] ( )\n                                                                             des Vertreters\n        vertreten durch (Name und Vorname               IBAN   [iban] ____\n        bzw. Firma; Adresse; PLZ Ort)\n       [vertreter] ____                                 Für  Telefon oder  [rueckfragen] ____\n                                                        Rückfragen  E-Mail\n\n       Forderungsgrund oder Forderungsurkunde mit                              Betrag (CHF)    Zins % seit\n       Datum                                                                                   (Datum)\n       [forderung] ____                                                        [betrag] ____   [zins] ____  [zinsseit] ____\n\n       Weitere\n       Forderungen\n\n        Bemerkungen                                           Ihre Fallreferenz (falls\n                                                              vorhanden)\n       [bemerkung] ____                                       [fallreferenz] ____  [unterschrift] (Unterschrift)  Datum und\n                                                              Unterschrift\n-----\n\nForme das Formular in einen Fragebogen um, wie ihn eine freundliche Person im Gespräch stellen würde: zu jedem Feld eine klare, vollständige Frage, die ohne das Formular verständlich ist (wer oder was ist gemeint, zu welchem Abschnitt gehört es), in der Reihenfolge des Formulars. Kästchen und Auswahlen, die zusammengehören, werden eine Frage mit ihren Möglichkeiten. Wo die Antwort naheliegt, biete sie in der Frage an (zum Beispiel beim Datum des Ausfüllens: \"… soll ich das Datum von heute einfügen?\") und trage dann bei \"angebot\" den Wert \"heute\" ein, sonst null. Erfinde keine Felder und lasse keines aus; für Unterschriften stelle keine Frage.\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"felder\": [\"name\"], \"frage\": \"...\", \"angebot\": null}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 7690,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-d6f5b2a3-a1d4-4317-9cd9-3e9aad1abd26",
+    "object": "chat.completion",
+    "created": 1791530324,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"fragen\": [\n    {\n      \"felder\": [\"schuldner\"],\n      \"frage\": \"Wie heissen Sie (Name und Vorname) und wo wohnen Sie (Adresse, PLZ und Ort)?\",\n      \"angebot\": null\n    },\n    {\n      \"felder\": [\"sgeburt\"],\n      \"frage\": \"Falls bekannt: Wann sind Sie geboren (Geburtsdatum)?\",\n      \"angebot\": null\n    },\n    {\n      \"felder\": [\"amt\"],\n      \"frage\": \"An welches Betreibungsamt richtet sich dieses Begehren (Name und Adresse des Amtes)?\",\n      \"angebot\": null\n    },\n    {\n      \"felder\": [\"glaeubiger\"],\n      \"frage\": \"Wer ist der Gläubiger (Name und Vorname bzw. Firma sowie Adresse, PLZ und Ort)?\",\n      \"angebot\": null\n    },\n    {\n      \"felder\": [\"zahlung-g\", \"zahlung-v\"],\n      \"frage\": \"Wie kann der Gläubiger bezahlt werden? (IBAN und optional Telefon oder E-Mail für Rückfragen)\",\n      \"angebot\": null\n    },\n    {\n      \"felder\": [\"vertreter\"],\n      \"frage\": \"Wird der Gläubiger durch einen Vertreter vertreten? Falls ja, Name und Adresse des Vertreters?\",\n      \"angebot\": null\n    },\n    {\n      \"felder\": [\"forderung\"],\n      \"frage\": \"Worum geht es in der Forderung bzw. wo finde ich die Forderungsurkunde mit Datum?\",\n      \"angebot\": null\n    },\n    {\n      \"felder\": [\"betrag\", \"zins\", \"zinsseit\"],\n      \"frage\": \"Wie hoch ist der Forderungsbetrag in CHF, der Zinssatz in Prozent und seit wann läuft der Zins?\",\n      \"angebot\": null\n    },\n    {\n      \"felder\": [\"bemerkung\"],\n      \"frage\": \"Gibt es weitere Bemerkungen oder Informationen, die wir berücksichtigen sollten?\",\n      \"angebot\": null\n    },\n    {\n      \"felder\": [\"fallreferenz\"],\n      \"frage\": \"Falls vorhanden: Welche Fallreferenz wurde Ihnen bereits mitgeteilt?\",\n      \"angebot\": null\n    }\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 705,
+      "total_tokens": 1208,
+      "completion_tokens": 503,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

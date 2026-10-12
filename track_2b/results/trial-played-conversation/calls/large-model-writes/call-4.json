@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:34:49.941Z",
+  "tag": "e2e prüfen 70b",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBetreibungsamt\nBetreibungsamt  → [q1]\nSchuldner\nSchuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q2]\nGeburtsdatum (falls bekannt)  → [q3]\nGläubiger\nGläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q4]\nZahlungsverbindung des Gläubigers  → [q5: Auswahl]\nZahlungsverbindung des Vertreters  → [q5: Auswahl]\nIBAN  → [q6]\nvertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q7]\nFür Rückfragen: Telefon oder E-Mail  → [q8]\nForderung\nForderungsgrund oder Forderungsurkunde mit Datum  → [q9]\nBetrag (CHF)  → [q10]\nZins %  → [q11]\nZins seit (Datum)  → [q12]\nAbschluss\nBemerkungen  → [q13]\nIhre Fallreferenz (falls vorhanden)  → [q14]\nDatum und Unterschrift\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Was ist der Grund für die Forderung oder wo finde ich die Urkunde mit Datum?\nB: Wie heißt das Betreibungsamt?\nC: Wie heißt der Gläubiger mit Nachnamen und Vornamen bzw. Firma und wo ist er ansässig?\nD: Wird der Schuldner durch jemanden vertreten? Wenn ja, wie heißt die Person und wo ist sie erreichbar?\nE: Wie heißen Sie mit Nachnamen und Vornamen und wo wohnen Sie?\nF: Wie kann der Gläubiger bezahlt werden? (IBAN, Postkonto, Bankkonto oder anderes)\nG: Wie kann man Sie für Rückfragen erreichen? (Telefonnummer oder E-Mail-Adresse)\nH: Wie hoch ist der geforderte Betrag in Schweizer Franken?\nI: Welchen Zinssatz verlangt der Gläubiger in Prozent?\nJ: Seit wann läuft der Zins?\nK: Gibt es noch etwas Wichtiges zu ergänzen?\nL: Haben Sie eine Fallnummer, die Sie bereits vom Amt erhalten haben?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1098,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-845c0f63-77bd-4ccd-b0fe-104fe8900327",
+    "object": "chat.completion",
+    "created": 1791538490,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q9\"}, {\"frage\": \"B\", \"kennung\": \"q1\"}, {\"frage\": \"C\", \"kennung\": \"q4\"}, {\"frage\": \"D\", \"kennung\": \"q7\"}, {\"frage\": \"E\", \"kennung\": \"q2\"}, {\"frage\": \"F\", \"kennung\": \"q5\"}, {\"frage\": \"G\", \"kennung\": \"q8\"}, {\"frage\": \"H\", \"kennung\": \"q10\"}, {\"frage\": \"I\", \"kennung\": \"q11\"}, {\"frage\": \"J\", \"kennung\": \"q14\"}, {\"frage\": \"K\", \"kennung\": \"q13\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 756,
+      "total_tokens": 922,
+      "completion_tokens": 166,
+      "prompt_tokens_details": {
+        "cached_tokens": 480,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

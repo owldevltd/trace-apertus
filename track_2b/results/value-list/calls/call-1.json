@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T13:30:19.218Z",
+ "tag": "pick q11 f14",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 20,
+ "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text.\n\n-----\n[p1] Frage: Welcher Betriebszweig war der übliche Arbeitsplatz des Verletzten?\nAntwort: Ich arbeite als Projektleiter im Büro.\n-----\n\nEs geht um das Feld «Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)». Dafür sind nur diese Werte erlaubt:\n1: Büro\n2: Werkstatt\n3: Lager\n4: Baustelle\n5: Verkauf\n6: Aussendienst\n\nWelcher dieser Werte wurde gesagt? Antworte nur mit der Nummer, ohne weiteren Text. Wurde keiner davon gesagt, antworte mit 0.",
+ "image": 0,
+ "audio": 0,
+ "ms": 538,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-f898d585-9dcb-4f8e-9a26-3ce15a2cee40",
+  "object": "chat.completion",
+  "created": 1791725422,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "1",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 209,
+   "total_tokens": 211,
+   "completion_tokens": 2,
+   "prompt_tokens_details": {
+    "cached_tokens": 64,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

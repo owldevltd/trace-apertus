@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T11:52:37.015Z",
+  "tag": "rest gegenüber",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Du gibst jemandem im Gespräch Auskunft zu deinem Fall. Über den Fall weisst du nur, was du selbst so erzählt hast:\n\nBetreibungsbegehren ans Betreibungsamt Chur. Gläubigerin ist die Garage Caduff AG, Kasernenstrasse acht, siebentausend Chur. Zahlung bitte aufs Konto, IBAN CH93 0076 2011 6238 5295 7. Schuldner ist Peter Hartmann, Via Nova vierzehn, siebentausenddreizehn Domat Ems. Die Forderung ist die Rechnung Nummer zwanzig sechsundzwanzig strich einhundertachtzehn vom zwölften Juni für die Reparatur, zweitausenddreihundertvierzig Franken fünfzig, fünf Prozent Zins ab dreizehntem Juli.\n\nDir werden diese Fragen gestellt:\nA: Um welches Betreibungsamt handelt es sich?\nB: Wie heisst der Schuldner und wo wohnt er?\nC: Wann ist das Geburtsdatum des Schuldners?\nD: Wie heisst der Gläubiger und wo ist er ansässig?\n\nAntworte auf jede Frage, wie man im Gespräch antwortet: kurz und nur mit dem, was du weisst. Weisst du etwas nicht, sag \"Das weiss ich nicht.\". Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"antwort\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 717,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-1be29640-fbfc-4778-9283-a109c5069b48",
+    "object": "chat.completion",
+    "created": 1791546757,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"antwort\": \"Betreibungsamt Chur\"}, {\"frage\": \"B\", \"antwort\": \"Peter Hartmann, Via Nova vierzehn, siebentausenddreizehn Domat Ems\"}, {\"frage\": \"C\", \"antwort\": \"Das weiss ich nicht.\"}, {\"frage\": \"D\", \"antwort\": \"Garage Caduff AG, Kasernenstrasse acht, siebentausend Chur\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 370,
+      "total_tokens": 468,
+      "completion_tokens": 98,
+      "prompt_tokens_details": {
+        "cached_tokens": 288,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

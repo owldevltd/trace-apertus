@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T13:45:11.399Z",
+ "tag": "arten suva-bagatellunfall 4 #2",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 840,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 4 =====\n[q79]\nSchaden-Nummer  → [q80]\nApothekerschein UVG\nArbeitgeber\nName und Adresse mit Postleitzahl  → [q81]\nTel.-Nr.  → [q82]\nKunden-Nr.  → [q83]\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q84]\nVerletzte/r\nName und Vorname  → [q85]\nGeburtsdatum  → [q86]\nAHV-Nummer  → [q87]\n[q88]\n[q89]\nStrasse  → [q90]\n[q91]\n[q92]\nPLZ\nWohnort\n[q93]\nSchaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\nHinweise für die/den Verletzte/n\nHinweise für den Apotheker\nDie vom Arzt verordneten Medikamente werden Ihnen vom Apotheker gegen Abgabe dieses Scheines kostenlos abgegeben. Alle Medikamente sind aus der gleichen Apotheke zu beziehen.\nBitte senden Sie diese Rechnung nach Abschluss der Behandlung – spätestens aber 3 Monate nach Unfalldatum – an die oben aufge- führte Adresse. Einen neuen Apothekerschein können Sie bei uns verlangen, wenn – der Platz für das Eintragen der Bezüge nicht ausreicht, – nach Ablauf von 3 Monaten weitere Medikamente benötigt werden.\nlinks  → [q94: Auswahl]\nrechts  → [q94: Auswahl]\nunbestimmt  → [q94: Auswahl]\nVerletzung\nBetroffener Körperteil:  → [q95]\nArt der Schädigung:\nArzt- adressen  → [q96]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q97]\nRechnung der Apotheke  → [q98]\nDatum:\nDatum der Abgabe  → [q99: Tabelle mit 6 Zeilen und 4 Spalten]\nArt und Menge  → [q100] [q99: Tabelle mit 6 Zeilen und 4 Spalten]\nPreis\nCHF  → [q99: Tabelle mit 6 Zeilen und 4 Spalten]\nRp.  → [q99: Tabelle mit 6 Zeilen und 4 Spalten]\n[q99: Tabelle mit 6 Zeilen und 4 Spalten]\nStempel der Apotheke:\n[q99: Tabelle mit 6 Zeilen und 4 Spalten]\n3 Code  → [q101] [q102] [q103] [q104] [q105]\n[q106]\n[q107]\n[q108]\n[q109]\nTotal  → [q110]\nPostkonto-Nr. oder zugeteilte Suva-Nr.\nBitte Rezepte beilegen\nBei Abrechnung über OFAC: 35-1\nGeht an: Verletzte/r ➞ Apotheker ➞ Suva\n-----\n\nSage zu jeder der Kennungen unten, welche Art von Angabe an dieser Stelle eingetragen wird. Wähle genau eine dieser Arten:\n- text: ein Name, eine Adresse, ein Wort oder ein Satz\n- zahl: eine Zahl, eine Nummer oder ein Betrag\n- telefon: eine Telefonnummer\n- email: eine E-Mail-Adresse\n- plz: eine Postleitzahl\n- iban: eine IBAN\n- datum: ein Datum\n- uhrzeit: eine Uhrzeit\n\nDie Kennungen: q79, q80, q81, q82, q83, q84, q85, q86, q87, q88, q89, q90, q91, q92, q93, q95, q96, q97, q98, q100, q101, q102, q103, q104, q105, q106, q107, q108, q109, q110\nAntworte nur als JSON, ohne weiteren Text: {\"arten\": [{\"kennung\": \"q1\", \"art\": \"text\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 3200,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-f19811fe-dfb1-4a2f-988d-2cc06582cd10",
+  "object": "chat.completion",
+  "created": 1791726313,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"arten\": [{\"kennung\": \"q79\", \"art\": \"text\"}, {\"kennung\": \"q80\", \"art\": \"text\"}, {\"kennung\": \"q81\", \"art\": \"text\"}, {\"kennung\": \"q82\", \"art\": \"telefon\"}, {\"kennung\": \"q83\", \"art\": \"text\"}, {\"kennung\": \"q84\", \"art\": \"text\"}, {\"kennung\": \"q85\", \"art\": \"text\"}, {\"kennung\": \"q86\", \"art\": \"datum\"}, {\"kennung\": \"q87\", \"art\": \"text\"}, {\"kennung\": \"q88\", \"art\": \"text\"}, {\"kennung\": \"q89\", \"art\": \"text\"}, {\"kennung\": \"q90\", \"art\": \"text\"}, {\"kennung\": \"q91\", \"art\": \"text\"}, {\"kennung\": \"q92\", \"art\": \"text\"}, {\"kennung\": \"q93\", \"art\": \"text\"}, {\"kennung\": \"q95\", \"art\": \"text\"}, {\"kennung\": \"q96\", \"art\": \"text\"}, {\"kennung\": \"q97\", \"art\": \"text\"}, {\"kennung\": \"q98\", \"art\": \"text\"}, {\"kennung\": \"q100\", \"art\": \"text\"}, {\"kennung\": \"q101\", \"art\": \"zahl\"}, {\"kennung\": \"q102\", \"art\": \"zahl\"}, {\"kennung\": \"q103\", \"art\": \"zahl\"}, {\"kennung\": \"q104\", \"art\": \"zahl\"}, {\"kennung\": \"q105\", \"art\": \"zahl\"}, {\"kennung\": \"q106\", \"art\": \"text\"}, {\"kennung\": \"q107\", \"art\": \"text\"}, {\"kennung\": \"q108\", \"art\": \"text\"}, {\"kennung\": \"q109\", \"art\": \"text\"}, {\"kennung\": \"q110\", \"art\": \"zahl\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 1186,
+   "total_tokens": 1654,
+   "completion_tokens": 468,
+   "prompt_tokens_details": {
+    "cached_tokens": 1184,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

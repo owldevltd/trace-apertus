@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:39:38.986Z",
+  "tag": "zurück2 8b sechs en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 760,
+  "prompt": "Eine Person hat ein deutsches Formular auf Englisch beantwortet. Unten steht je Nummer die deutsche Beschriftung der Stelle und was die Person dort angegeben hat.\n\n7 | Staatsangehörigkeit | Switzerland\n8 | Zivilstand | single\n9 | Datum der Anstellung | 01.02.2019\n10 | Ausgeübter Beruf | Warehouse worker\n11 | Arbeitszeit des/der Verletzten: Stunden je Woche | 40\n12 | Tag | 05\n\nSchreibe jede Angabe auf Deutsch, so wie sie in das deutsche Formular eingetragen wird. Am Ende steht kein Wort mehr auf Englisch. Eigennamen, Strassen, Orte, Nummern und Daten übernimmst du dabei Zeichen für Zeichen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 900,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-437e7002-e478-4495-a4da-41bdd4a64860",
+    "object": "chat.completion",
+    "created": 1791553179,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 7, \"wert\": \"Staatsangehörigkeit\\nSwitzerland\"}, {\"nummer\": 8, \"wert\": \"Zivilstand\\nsingle\"}, {\"nummer\": 9, \"wert\": \"Datum der Anstellung\\n01.02.2019\"}, {\"nummer\": 10, \"wert\": \"Ausgeübter Beruf\\nWarehouse worker\"}, {\"nummer\": 11, \"wert\": \"Arbeitszeit des/der Verletzten: Stunden je Woche\\n40\"}, {\"nummer\": 12, \"wert\": \"Tag\\n05\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 261,
+      "total_tokens": 394,
+      "completion_tokens": 133,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,154 @@
+[
+ {
+  "id": "tel1",
+  "kind": "phone",
+  "form": "schadenmeldung-uvg",
+  "label": "Tel.-Nr.",
+  "spoken": "null sieben neun, vier fünf sechs, eins zwei, drei vier.",
+  "value": "0794561234"
+ },
+ {
+  "id": "tel2",
+  "kind": "phone",
+  "form": "schadenmeldung-uvg",
+  "label": "Tel.-Nr.",
+  "spoken": "null vier vier, fünfhundertzwölf, achtunddreißig, neunzig.",
+  "value": "0445123890"
+ },
+ {
+  "id": "tel3",
+  "kind": "phone",
+  "form": "schadenmeldung-uvg",
+  "label": "Tel.-Nr.",
+  "spoken": "Die Telefonnummer ist null drei eins, drei zwei acht, vier sieben, eins fünf.",
+  "value": "0313284715"
+ },
+ {
+  "id": "plz1",
+  "kind": "postcode",
+  "form": "schadenmeldung-uvg",
+  "label": "PLZ",
+  "spoken": "drei null null eins.",
+  "value": "3001"
+ },
+ {
+  "id": "plz2",
+  "kind": "postcode",
+  "form": "schadenmeldung-uvg",
+  "label": "PLZ",
+  "spoken": "dreitausendsechshundert.",
+  "value": "3600"
+ },
+ {
+  "id": "plz3",
+  "kind": "postcode",
+  "form": "schadenmeldung-uvg",
+  "label": "PLZ",
+  "spoken": "Die Postleitzahl ist acht null null zwei.",
+  "value": "8002"
+ },
+ {
+  "id": "nr1",
+  "kind": "identifier",
+  "form": "schadenmeldung-uvg",
+  "label": "Police-Nr. UVG",
+  "spoken": "neun drei acht, fünf vier zwei, fünf eins zwei.",
+  "value": "938542512"
+ },
+ {
+  "id": "nr2",
+  "kind": "identifier",
+  "form": "schadenmeldung-uvg",
+  "label": "AHV-Nummer",
+  "spoken": "sieben fünf sechs, Punkt, eins zwei drei vier, Punkt, fünf sechs sieben acht, Punkt, neun sieben.",
+  "value": "756.1234.5678.97"
+ },
+ {
+  "id": "nr3",
+  "kind": "identifier",
+  "form": "schadenmeldung-uvg",
+  "label": "Schaden-Nummer",
+  "spoken": "Die Schadennummer ist vier vier sieben null eins acht.",
+  "value": "447018"
+ },
+ {
+  "id": "mail1",
+  "kind": "email",
+  "form": "schadenmeldung-uvg",
+  "label": "E-Mail",
+  "spoken": "office ät musterbau Punkt c h.",
+  "value": "office@musterbau.ch"
+ },
+ {
+  "id": "mail2",
+  "kind": "email",
+  "form": "schadenmeldung-uvg",
+  "label": "E-Mail",
+  "spoken": "h Punkt keller ät beispiel Punkt c h.",
+  "value": "h.keller@beispiel.ch"
+ },
+ {
+  "id": "zahl1",
+  "kind": "number",
+  "form": "schadenmeldung-uvg",
+  "label": "Arbeitszeit des/der Verletzten (Std./Woche)",
+  "spoken": "zweiundvierzig Stunden.",
+  "value": "42"
+ },
+ {
+  "id": "zahl2",
+  "kind": "number",
+  "form": "schadenmeldung-uvg",
+  "label": "Vertraglicher Beschäftigungsgrad (Prozent)",
+  "spoken": "achtzig Prozent.",
+  "value": "80"
+ },
+ {
+  "id": "zahl3",
+  "kind": "number",
+  "form": "schadenmeldung-uvg",
+  "label": "Anzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)",
+  "spoken": "Ich habe zwei Kinder.",
+  "value": "2"
+ },
+ {
+  "id": "dat1",
+  "kind": "date",
+  "form": "schadenmeldung-uvg",
+  "label": "Geburtsdatum",
+  "spoken": "vierzehnter Mai neunzehnhundertachtunddreißig.",
+  "value": "14.05.1938"
+ },
+ {
+  "id": "dat2",
+  "kind": "date",
+  "form": "schadenmeldung-uvg",
+  "label": "Datum der Anstellung",
+  "spoken": "am ersten Oktober zweitausendfünf.",
+  "value": "01.10.2005"
+ },
+ {
+  "id": "zeit1",
+  "kind": "time",
+  "form": "schadenmeldung-uvg",
+  "label": "Zeit (Stunden, Minuten)",
+  "spoken": "dreizehn Uhr fünf.",
+  "value": "13:05"
+ },
+ {
+  "id": "zeit2",
+  "kind": "time",
+  "form": "schadenmeldung-uvg",
+  "label": "Zeit (Stunden, Minuten)",
+  "spoken": "um vierzehn Uhr dreißig.",
+  "value": "14:30"
+ },
+ {
+  "id": "iban1",
+  "kind": "iban",
+  "form": "betreibungsbegehren",
+  "label": "IBAN",
+  "spoken": "C H neun drei, null null sieben sechs, zwei null eins eins, sechs zwei drei acht, fünf zwei neun fünf, sieben.",
+  "value": "CH9300762011623852957"
+ }
+]

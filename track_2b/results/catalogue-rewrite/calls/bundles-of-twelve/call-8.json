@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:39:58.755Z",
+  "tag": "umgeschrieben-paeckchen schadenmeldung-uvg q25",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Schadenmeldung UVG\", jede mit ihrer Kennung:\n\nq25: Wie lautet die Nummer der Anstellung?\nq26: Wie lautet das Datum der Anstellung?\nq27: Wie lautet der ausgeübte Beruf?\nq28: Ist es Höheres Kader?\nq29: Ist es Mittleres Kader?\nq30: Ist es Angestellte/r / Mitarbeiter/in?\nq31: Ist es Lehrling oder Praktikant/in?\nq32: Ist es ein unbefristeter Arbeitsvertrag?\nq33: Ist es ein befristeter Arbeitsvertrag?\nq34: Wann wurde das Arbeitsverhältnis gekündigt?\nq35: Welche Art von Arbeitsverhältnis wurde gekündigt?\nq36: Wie lautet das Verhältnis zum Arbeitgeber?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2552,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-488bf8e2-e671-4708-ae03-170043de388f",
+    "object": "chat.completion",
+    "created": 1791531599,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q25\", \"frage\": \"Welche Nummer hat die Anstellung?\"}, {\"kennung\": \"q26\", \"frage\": \"Wann ist die Person angestellt worden?\"}, {\"kennung\": \"q27\", \"frage\": \"Welchen Beruf übt die Person aus?\"}, {\"kennung\": \"q28\", \"frage\": \"Ist es Höheres Kader?\"}, {\"kennung\": \"q29\", \"frage\": \"Ist es Mittleres Kader?\"}, {\"kennung\": \"q30\", \"frage\": \"Ist es Angestellte/r oder Mitarbeiter/in?\"}, {\"kennung\": \"q31\", \"frage\": \"Ist es Lehrling oder Praktikant/in?\"}, {\"kennung\": \"q32\", \"frage\": \"Ist der Arbeitsvertrag unbefristet?\"}, {\"kennung\": \"q33\", \"frage\": \"Ist der Arbeitsvertrag befristet?\"}, {\"kennung\": \"q34\", \"frage\": \"Wann wurde das Arbeitsverhältnis gekündigt?\"}, {\"kennung\": \"q35\", \"frage\": \"Welche Art von Arbeitsverhältnis wurde gekündigt?\"}, {\"kennung\": \"q36\", \"frage\": \"Wie ist das Verhältnis zur Firma?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 404,
+      "total_tokens": 692,
+      "completion_tokens": 288,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

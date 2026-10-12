@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:32:16.324Z",
+  "tag": "zurück 8b sechs en betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat ein deutsches Formular auf Englisch beantwortet. Unten steht je Feld die deutsche Beschriftung, die Art und der Wert, den die Person angegeben hat.\n\n- zins | Beschriftung: Zins % | Art: Text | Wert: 5\n- zinsseit | Beschriftung: Zins seit (Datum) | Art: Datum als TT.MM.JJJJ | Wert: 13.07.2026\n\nÜbersetze jeden Wert ins Deutsche, so wie er in das deutsche Formular gehört. Namen, Firmen, Adressen, Nummern und Daten bleiben unverändert; ist ein Wert schon deutsch oder braucht keine Übersetzung, gib ihn unverändert zurück. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"feld\": \"name\", \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 390,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-26ee26d4-a300-41e5-8d84-d8cc009da894",
+    "object": "chat.completion",
+    "created": 1791552736,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"feld\": \"zins\", \"wert\": \"5 %\"}, {\"feld\": \"zinsseit\", \"wert\": \"13.07.2026\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 251,
+      "total_tokens": 294,
+      "completion_tokens": 43,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:19:45.815Z",
+  "tag": "interview d-8b-page schadenmeldung-uvg",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Du gibst in einem Gespräch Auskunft. Du kennst genau diese Angaben, jede hat einen Kennwert:\n- K101: Arbeitsunfähig ab\n- K102: Seite\n- K103: Steuern Quellensteuerpflicht\n- K104: Lohn Monat Andere Zulagen\n- K105: Betroffener Körperteil\n- K106: Versicherung Familienmitglied / Gesellschafter\n- K107: Letzter Arbeitstag\n- K108: Arbeit wieder aufgenommen ab\n- K109: Lohn Jahr Familienzulagen\n- K110: Krankenversicherung\n- K111: Erstbehandelnder Arzt\n- K112: Andere Leistungen wo\n- K113: Erstbehandlung\n- K114: Lohn Monat Grundlohn\n- K115: Weiterer Arbeitgeber Adresse\n- K116: Andere Leistungen\n- K117: Lohn Stunde Grundlohn\n- K118: Weiterer Arbeitgeber\n- K119: Lohn Jahr Ferienentschädigung\n- K120: Bezeichnung Zulagen\n- K121: Lohn Stunde Familienzulagen\n- K122: Lohn Stunde Gratifikation\n- K123: Nachbehandelnder Arzt\n- K124: Grund Absenz\n- K125: Lohn Stunde Ferienentschädigung\n- K126: Ort und Datum\n- K127: Arbeit ausgesetzt\n- K128: Versicherung Entsandte/r\n- K129: Lohn Jahr Andere Zulagen\n- K130: Lohn Monat Familienzulagen\n- K131: Lohn Monat Ferienentschädigung\n- K132: Lohn Monat Gratifikation\n- K133: Wiederaufnahme\n- K134: Lohn Stunde Andere Zulagen\n- K135: Beteiligte Gegenstände\n- K136: Art der Schädigung\n- K137: Nachbehandlung\n- K138: Versicherung Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)\n- K139: Anzahl Kinder\n- K140: Dauer länger als 1 Monat\n- K141: Lohn Jahr Gratifikation\n- K142: Lohn Jahr Grundlohn\n\nDir werden diese Fragen gestellt:\nA: War die Behandlung ambulant oder stationär?\nB: Ist die Person ein Familienmitglied oder Gesellschafter?\nC: Welche Seite des Körpers ist betroffen: links, rechts oder unbestimmt?\nD: Wird die Wiederaufnahme der Arbeit ganz, teilweise oder auf andere Weise stattfinden?\nE: Ist die Antwort auf die Frage nach der Arbeitsunfähigkeit Ja oder Nein?\nF: Wenn die Person wieder arbeiten kann, ab wann soll das wieder beginnen?\nG: War die Nachbehandlung in einem Spital oder einer Klinik oder ambulant?\nH: Falls die Person wegen des Unfalls nicht arbeiten kann, ab wann ist das der Fall?\nI: Warum war die betroffene Person nicht arbeiten können?\nJ: Ist die Person einer Quellensteuerpflicht unterworfen?\nK: Wie viele Kinder hat die Person, die jünger als 18 Jahre oder in Ausbildung bis 25 Jahre sind?\nL: Wird die Wiederaufnahme der Arbeit länger als einen Monat dauern?\n\nNenne zu jeder Frage den Kennwert der einen Angabe, nach der gefragt wird. Passt keine Angabe, schreibe \"-\". Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K101\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1386,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-55c3bf26-29a7-4ac1-ab5f-861d6882539d",
+    "object": "chat.completion",
+    "created": 1791537586,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K101\"}, {\"frage\": \"B\", \"kennwert\": \"K106\"}, {\"frage\": \"C\", \"kennwert\": \"K105\"}, {\"frage\": \"D\", \"kennwert\": \"K133\"}, {\"frage\": \"E\", \"kennwert\": \"K101\"}, {\"frage\": \"F\", \"kennwert\": \"K107\"}, {\"frage\": \"G\", \"kennwert\": \"K113\"}, {\"frage\": \"H\", \"kennwert\": \"K101\"}, {\"frage\": \"I\", \"kennwert\": \"K124\"}, {\"frage\": \"J\", \"kennwert\": \"K103\"}, {\"frage\": \"K\", \"kennwert\": \"K139\"}, {\"frage\": \"L\", \"kennwert\": \"K140\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 880,
+      "total_tokens": 1092,
+      "completion_tokens": 212,
+      "prompt_tokens_details": {
+        "cached_tokens": 576,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

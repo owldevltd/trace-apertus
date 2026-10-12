@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T10:24:42.348Z",
+  "tag": "check run 2 page 1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q1]\nTel.-Nr.  → [q2]\nKunden-Nr.  → [q3]\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q4]\n2. Verletzte/r\nName und Vorname  → [q5]\nGeburtsdatum  → [q6]\nAHV-Nummer  → [q7]\nStrasse  → [q8]\nStaatsangehörigkeit  → [q9]\nZivilstand  → [q10]\n3. Anstellung\nDatum der Anstellung  → [q11]\nAusgeübter Beruf  → [q12]\nHöheres Kader  → [q13: Auswahl]\nMittleres Kader  → [q13: Auswahl]\nAngestellte/r / Arbeiter/in  → [q13: Auswahl]\nLehrling  → [q13: Auswahl]\nPraktikant/in  → [q13: Auswahl]\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q14]\n4. Schadendatum\nTag  → [q15]\nMonat  → [q16]\nJahr  → [q17]\nZeit (Stunden, Minuten)  → [q18]\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q19]\n6. Sachverhalt\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q20]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q21]\n9. Verletzung\nBetroffener Körperteil  → [q22]\nlinks  → [q23: Auswahl]\nrechts  → [q23: Auswahl]\nunbestimmt  → [q23: Auswahl]\nArt der Schädigung  → [q24]\n10. Arztadressen\nErstbehandelnder Arzt bzw. Spital/Klinik  → [q25]\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q26]\nAbschluss\nOrt und Datum  → [q27]\nStempel und Unterschrift\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Welche AHV-Nummer hat die verletzte Person?\nB: Welchen Beruf übt die verletzte Person aus?\nC: Wer ist der Erstbehandelnde Arzt oder das Spital/Klinik?\nD: Welches Jahr war es, als der Unfall passierte?\nE: Zu welcher Zeit passierte der Unfall in Stunden und Minuten?\nF: Wie ist die Art der Schädigung bei der Verletzung?\nG: Wie viele Stunden arbeitet die verletzte Person pro Woche?\nH: In welchem Bereich arbeitet die verletzte Person im Betrieb?\nI: Welche Gegenstände waren am Unfall beteiligt, wie Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff?\nJ: Welcher Zivilstand ist bei der verletzten Person?\nK: Welcher Körperteil der verletzten Person ist betroffen?\nL: Welche Strasse hat die verletzte Person?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1219,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-33e8c786-98de-4fa4-b8f3-9372760bd253",
+    "object": "chat.completion",
+    "created": 1791541482,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q7\"}, {\"frage\": \"B\", \"kennung\": \"q12\"}, {\"frage\": \"C\", \"kennung\": \"q25\"}, {\"frage\": \"D\", \"kennung\": \"q17\"}, {\"frage\": \"E\", \"kennung\": \"q18\"}, {\"frage\": \"F\", \"kennung\": \"q24\"}, {\"frage\": \"G\", \"kennung\": \"q14\"}, {\"frage\": \"H\", \"kennung\": \"q4\"}, {\"frage\": \"I\", \"kennung\": \"q21\"}, {\"frage\": \"J\", \"kennung\": \"q10\"}, {\"frage\": \"K\", \"kennung\": \"q22\"}, {\"frage\": \"L\", \"kennung\": \"q8\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 985,
+      "total_tokens": 1170,
+      "completion_tokens": 185,
+      "prompt_tokens_details": {
+        "cached_tokens": 736,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

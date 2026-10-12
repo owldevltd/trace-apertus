@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:49:12.704Z",
+  "tag": "prüfen d-70b-whole-r2 betreibungsbegehren Lauf 2",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBitte in Blockschrift ausfüllen und Hinweise auf der Rückseite beachten  → [q1]\nBetreibungsbegehren\nDurch das Amt auszufüllen  → [q2]\nEingang  → [q3]\nBetreibung Nr.  → [q4]\nSchuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q9]\nAdresse des Betreibungsamtes  → [q10]\nGeburtsdatum (falls bekannt)  → [q11]\nGläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q12]\ndes Gläubigers des Vertreters  → [q5: Auswahl]\nZahlungsverbindung\nvertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q13]\nIBAN  → [q6]\nFür Rückfragen\nTelefon oder E-Mail  → [q14]\nForderungsgrund oder Forderungsurkunde mit Datum  → [q7]\nBetrag (CHF)\nZins % seit (Datum)\nWeitere Forderungen  → [q8: Tabelle mit 9 Zeilen und 3 Spalten]\n[q8: Tabelle mit 9 Zeilen und 3 Spalten]\nBemerkungen  → [q15]\nIhre Fallreferenz (falls vorhanden)  → [q16]\nDatum und Unterschrift\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Bitte schreiben Sie alles in Blockschrift aus.\nB: Wann ist das Formular beim Amt eingegangen?\nC: Gibt es noch etwas Wichtiges zu ergänzen?\nD: Wird der Gläubiger durch jemanden vertreten? Wenn ja, wer ist der Vertreter?\nE: Wer vertritt den Gläubiger? Wie heisst und wo wohnt dieser Vertreter?\nF: Wie lautet die IBAN des Gläubigers?\nG: Bitte nennen Sie alle weiteren Forderungen, den jeweiligen Betrag in CHF, den Zins in Prozent seit welchem Datum und ergänzen Sie gegebenenfalls Bemerkungen.\nH: Wissen Sie das Geburtsdatum des Schuldners?\nI: Haben Sie eine Fallnummer, die Sie nennen können?\nJ: Wie heisst der Gläubiger mit Vorname und Nachname und wo wohnt er?\nK: Wie heisst der Schuldner mit Vorname und Nachname und wo wohnt er?\nL: Wird dieses Formular vom Amt ausgefüllt?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1235,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-3a973d76-e68a-4473-872c-f51ed4a7b44d",
+    "object": "chat.completion",
+    "created": 1791539353,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}, {\"frage\": \"B\", \"kennung\": \"q3\"}, {\"frage\": \"C\", \"kennung\": \"q15\"}, {\"frage\": \"D\", \"kennung\": \"q5\"}, {\"frage\": \"E\", \"kennung\": \"q13\"}, {\"frage\": \"F\", \"kennung\": \"q6\"}, {\"frage\": \"G\", \"kennung\": \"q8\"}, {\"frage\": \"H\", \"kennung\": \"q11\"}, {\"frage\": \"I\", \"kennung\": \"q16\"}, {\"frage\": \"J\", \"kennung\": \"q12\"}, {\"frage\": \"K\", \"kennung\": \"q9\"}, {\"frage\": \"L\", \"kennung\": \"q2\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 798,
+      "total_tokens": 978,
+      "completion_tokens": 180,
+      "prompt_tokens_details": {
+        "cached_tokens": 512,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

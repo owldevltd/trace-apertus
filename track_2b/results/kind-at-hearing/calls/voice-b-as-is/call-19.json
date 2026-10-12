@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-11T14:07:31.929Z",
+ "tag": "1 voice-b iban1 a",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1500,
+ "prompt": "Transkribiere die Aufnahme wortwörtlich. Ausgangssprache ist Deutsch, bitte gib Deutsch zurück. Bekannte Namen und Begriffe, die in der Aufnahme vorkommen können: vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort), Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort), Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort), Forderungsgrund oder Forderungsurkunde mit Datum, Betreibungsamt, official form under the SchKG, Ihre Fallreferenz (falls vorhanden), Betreibungsbegehren, Formular 1, des Gläubigers des Vertreters, Adresse des Betreibungsamtes, Geburtsdatum (falls bekannt), Weitere Forderungen, Telefon oder E-Mail, Bemerkungen, IBAN.",
+ "image": 0,
+ "audio": 65709,
+ "ms": 861,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-54bec414-4e44-47fc-9ceb-d5787bf41170",
+  "object": "chat.completion",
+  "created": 1791727654,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Sie haben ein, drei, null, sieben, sechs, zwei, null, eins, eins, sechs, zwei, drei, acht, fünf, zwei, neun, fünf, sieben.",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 568,
+   "total_tokens": 607,
+   "completion_tokens": 39,
+   "prompt_tokens_details": {
+    "cached_tokens": 32,
+    "multimodal_tokens": {
+     "audio": 326
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

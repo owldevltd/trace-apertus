@@ -1,0 +1,37 @@
+[
+ {
+  "id": "B0",
+  "form": "betreibungsbegehren",
+  "text": "Nein, keine."
+ },
+ {
+  "id": "B1",
+  "form": "betreibungsbegehren",
+  "text": "Eine Mahngebühr von 40 Franken vom 20. Juni 2025."
+ },
+ {
+  "id": "B1b",
+  "form": "betreibungsbegehren",
+  "text": "Die Miete für Juli 2025, das sind 1200 Franken, und dazu kommen 5 Prozent Zins seit dem 1. August 2025."
+ },
+ {
+  "id": "B2",
+  "form": "betreibungsbegehren",
+  "text": "Zwei: eine Mahngebühr von 40 Franken vom 20. Juni 2025 und die Miete für Juli 2025, 1200 Franken, mit 5 Prozent Zins seit dem 1. August 2025."
+ },
+ {
+  "id": "B3",
+  "form": "betreibungsbegehren",
+  "text": "Erstens eine Mahngebühr von 40 Franken. Zweitens die Miete für Juli 2025, 1200 Franken, 5 Prozent Zins seit dem 1. August 2025. Drittens die Nebenkostenabrechnung 2024 über 350 Franken, 5 Prozent seit dem 15. März 2025."
+ },
+ {
+  "id": "Z1",
+  "form": "arbeitsfaehigkeitszeugnis",
+  "text": "Konsultation am 3. Oktober 2026, voll arbeitsunfähig vom 3. Oktober 2026 bis zum 17. Oktober 2026, nächste Konsultation am 17. Oktober 2026."
+ },
+ {
+  "id": "Z2",
+  "form": "arbeitsfaehigkeitszeugnis",
+  "text": "Bei der Konsultation am 3. Oktober 2026: voll arbeitsunfähig vom 3. Oktober 2026 bis zum 17. Oktober 2026, nächste Konsultation am 17. Oktober 2026. Bei der Konsultation am 17. Oktober 2026 verlängert: vom 18. Oktober 2026 bis zum 31. Oktober 2026, nächste Konsultation am 31. Oktober 2026."
+ }
+]

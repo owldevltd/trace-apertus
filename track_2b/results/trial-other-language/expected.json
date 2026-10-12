@@ -1,0 +1,304 @@
+{
+ "betreibungsbegehren": {
+  "amt": {
+   "label": "Betreibungsamt",
+   "kind": "multiline",
+   "expected": "Betreibungsamt Chur",
+   "state": "ok"
+  },
+  "schuldner": {
+   "label": "Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+   "kind": "multiline",
+   "expected": "Peter Hartmann, Via Nova 14, 7013 Domat/Ems",
+   "state": "ok"
+  },
+  "sgeburt": {
+   "label": "Geburtsdatum (falls bekannt)",
+   "kind": "date",
+   "expected": "",
+   "state": "missing"
+  },
+  "glaeubiger": {
+   "label": "Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+   "kind": "multiline",
+   "expected": "Garage Caduff AG, Kasernenstrasse 8, 7000 Chur",
+   "state": "ok"
+  },
+  "zahlung-g": {
+   "label": "Zahlungsverbindung des Gläubigers",
+   "kind": "radio",
+   "option": "des Gläubigers",
+   "expected": "x",
+   "state": "unclear"
+  },
+  "zahlung-v": {
+   "label": "Zahlungsverbindung des Vertreters",
+   "kind": "radio",
+   "option": "des Vertreters",
+   "expected": "",
+   "state": "empty"
+  },
+  "iban": {
+   "label": "IBAN",
+   "kind": "text",
+   "expected": "CH93 0076 2011 6238 5295 7",
+   "state": "ok"
+  },
+  "vertreter": {
+   "label": "vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+   "kind": "multiline",
+   "expected": "",
+   "state": "empty"
+  },
+  "rueckfragen": {
+   "label": "Für Rückfragen: Telefon oder E-Mail",
+   "kind": "text",
+   "expected": "",
+   "state": "empty"
+  },
+  "forderung": {
+   "label": "Forderungsgrund oder Forderungsurkunde mit Datum",
+   "kind": "multiline",
+   "expected": "Rechnung Nr. 2026-118 vom 12.06.2026, Reparatur",
+   "state": "ok"
+  },
+  "betrag": {
+   "label": "Betrag (CHF)",
+   "kind": "text",
+   "expected": "2'340.50",
+   "state": "ok"
+  },
+  "zins": {
+   "label": "Zins %",
+   "kind": "text",
+   "expected": "5",
+   "state": "ok"
+  },
+  "zinsseit": {
+   "label": "Zins seit (Datum)",
+   "kind": "date",
+   "expected": "13.07.2026",
+   "state": "ok"
+  },
+  "bemerkung": {
+   "label": "Bemerkungen",
+   "kind": "multiline",
+   "expected": "",
+   "state": "empty"
+  },
+  "fallreferenz": {
+   "label": "Ihre Fallreferenz (falls vorhanden)",
+   "kind": "text",
+   "expected": "",
+   "state": "empty"
+  }
+ },
+ "suva-bagatellunfall": {
+  "arbeitgeber": {
+   "label": "Name und Adresse mit Postleitzahl",
+   "kind": "multiline",
+   "expected": "Logistik Zugersee AG, Werkstrasse 12, 6300 Zug",
+   "state": "ok"
+  },
+  "tel": {
+   "label": "Tel.-Nr.",
+   "kind": "text",
+   "expected": "041 728 40 10",
+   "state": "ok"
+  },
+  "kunde": {
+   "label": "Kunden-Nr.",
+   "kind": "text",
+   "expected": "",
+   "state": "missing"
+  },
+  "arbeitsplatz": {
+   "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)",
+   "kind": "text",
+   "expected": "Lager",
+   "state": "ok"
+  },
+  "name": {
+   "label": "Name und Vorname",
+   "kind": "text",
+   "expected": "Keller Sandra",
+   "state": "ok"
+  },
+  "geburt": {
+   "label": "Geburtsdatum",
+   "kind": "date",
+   "expected": "14.03.1988",
+   "state": "ok"
+  },
+  "ahv": {
+   "label": "AHV-Nummer",
+   "kind": "text",
+   "expected": "",
+   "state": "missing"
+  },
+  "strasse": {
+   "label": "Strasse",
+   "kind": "text",
+   "expected": "Werkstrasse 12, 6300 Zug",
+   "state": "ok"
+  },
+  "staat": {
+   "label": "Staatsangehörigkeit",
+   "kind": "text",
+   "expected": "Schweiz",
+   "state": "ok"
+  },
+  "zivilstand": {
+   "label": "Zivilstand",
+   "kind": "text",
+   "expected": "ledig",
+   "state": "ok"
+  },
+  "anstellung": {
+   "label": "Datum der Anstellung",
+   "kind": "date",
+   "expected": "01.02.2019",
+   "state": "ok"
+  },
+  "beruf": {
+   "label": "Ausgeübter Beruf",
+   "kind": "text",
+   "expected": "Lagermitarbeiterin",
+   "state": "ok"
+  },
+  "st-kader1": {
+   "label": "Höheres Kader",
+   "kind": "checkbox",
+   "option": "Höheres Kader",
+   "expected": "",
+   "state": "empty"
+  },
+  "st-kader2": {
+   "label": "Mittleres Kader",
+   "kind": "checkbox",
+   "option": "Mittleres Kader",
+   "expected": "",
+   "state": "empty"
+  },
+  "st-angestellt": {
+   "label": "Angestellte/r / Arbeiter/in",
+   "kind": "checkbox",
+   "option": "Angestellte/r / Arbeiter/in",
+   "expected": "x",
+   "state": "unclear"
+  },
+  "st-lehrling": {
+   "label": "Lehrling",
+   "kind": "checkbox",
+   "option": "Lehrling",
+   "expected": "",
+   "state": "empty"
+  },
+  "st-praktikant": {
+   "label": "Praktikant/in",
+   "kind": "checkbox",
+   "option": "Praktikant/in",
+   "expected": "",
+   "state": "empty"
+  },
+  "stunden": {
+   "label": "Arbeitszeit des/der Verletzten: Stunden je Woche",
+   "kind": "text",
+   "expected": "40",
+   "state": "ok"
+  },
+  "tag": {
+   "label": "Tag",
+   "kind": "text",
+   "expected": "05",
+   "state": "ok"
+  },
+  "monat": {
+   "label": "Monat",
+   "kind": "text",
+   "expected": "10",
+   "state": "ok"
+  },
+  "jahr": {
+   "label": "Jahr",
+   "kind": "text",
+   "expected": "2026",
+   "state": "ok"
+  },
+  "zeit": {
+   "label": "Zeit (Stunden, Minuten)",
+   "kind": "text",
+   "expected": "14:20",
+   "state": "ok"
+  },
+  "ort": {
+   "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)",
+   "kind": "text",
+   "expected": "Lager, Werkstrasse 12, Zug",
+   "state": "ok"
+  },
+  "hergang": {
+   "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge",
+   "kind": "multiline",
+   "expected": "Beim Abladen einer Palette ausgerutscht und auf das rechte Handgelenk gestürzt.",
+   "state": "ok"
+  },
+  "gegenstaende": {
+   "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)",
+   "kind": "text",
+   "expected": "Palette",
+   "state": "unclear"
+  },
+  "koerperteil": {
+   "label": "Betroffener Körperteil",
+   "kind": "text",
+   "expected": "Handgelenk",
+   "state": "ok"
+  },
+  "seite-links": {
+   "label": "links",
+   "kind": "checkbox",
+   "option": "links",
+   "expected": "",
+   "state": "empty"
+  },
+  "seite-rechts": {
+   "label": "rechts",
+   "kind": "checkbox",
+   "option": "rechts",
+   "expected": "x",
+   "state": "ok"
+  },
+  "seite-unbestimmt": {
+   "label": "unbestimmt",
+   "kind": "checkbox",
+   "option": "unbestimmt",
+   "expected": "",
+   "state": "empty"
+  },
+  "schaedigung": {
+   "label": "Art der Schädigung",
+   "kind": "text",
+   "expected": "",
+   "state": "missing"
+  },
+  "arzt1": {
+   "label": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+   "kind": "multiline",
+   "expected": "Kantonsspital Zug, Notfall",
+   "state": "ok"
+  },
+  "arzt2": {
+   "label": "Nachbehandelnder Arzt bzw. Spital/Klinik",
+   "kind": "multiline",
+   "expected": "",
+   "state": "empty"
+  },
+  "ortdatum": {
+   "label": "Ort und Datum",
+   "kind": "text",
+   "expected": "",
+   "state": "empty"
+  }
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T19:51:56.357Z",
+ "tag": "required small page 2",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 820,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 2 =====\nSchadenmeldung UVG – Fortsetzung\n7 Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q56]\n8 Nichtberufsunfall\nLetztmals im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)  → [q58]\nGrund der Absenz  → [q59]\n9 Verletzung\nBetroffener Körperteil  → [q61]\nSeite\nlinks  → [q63: Auswahl]\nrechts  → [q63: Auswahl]\nunbestimmt  → [q63: Auswahl]\nArt der Schädigung  → [q64]\n10 Arbeitsunfähigkeit\nArbeit zufolge Unfalles ausgesetzt?\nWenn ja, ab wann?  → [q67]\nJa  → [q68: Auswahl]\nNein  → [q68: Auswahl]\nVoraussichtliche Dauer\nFalls Arbeit wieder aufgenommen: ab wann?  → [q69]\nWiederaufnahme\nlänger als 1 Monat  → [q70: Auswahl]\nganz  → [q71: Auswahl]\nteilweise  → [q71: Auswahl]\n11 Arztadressen\nErstbehandelnder Arzt bzw. Spital/Klinik  → [q73]\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q74]\nErstbehandlung, falls Spital/Klinik\nNachbehandlung, falls Spital/Klinik\nambulant  → [q77: Auswahl]\nstationär  → [q77: Auswahl]\nambulant  → [q78: Auswahl]\nstationär  → [q78: Auswahl]\n12 Lohn\nLohnbestandteil\nCHF pro Stunde  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nCHF pro Monat  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nCHF pro Jahr  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nVertraglicher Grundlohn inkl. Teuerungszulage (brutto)\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nKinder-/Familienzulagen\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nFerien-/Feiertagsentschädigung\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nGratifikation / 13. Monatslohn (und weitere)\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nAndere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage)\nAnzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)  → [q82]\nBezeichnung der anderen Lohnzulagen  → [q83]\n13 Sonderfälle\nWeitere(r) Arbeitgeber\nWenn ja, Name und Adresse  → [q85]\nSteuern\nNein  → [q86: Auswahl]\nJa  → [q86: Auswahl]\nQuellensteuerpflicht  → [q87: Kästchen]\nBesondere Versicherungsverhältnisse\nFreiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)  → [q88: Kästchen]\nFamilienmitglied / Gesellschafter  → [q89: Kästchen]\nEntsandte/r  → [q90: Kästchen]\n14 Andere Sozialversicherungsleistungen\nAnspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung?\nWenn ja, wo?  → [q93]\nNein  → [q94: Auswahl]\nJa  → [q94: Auswahl]\nName der obligatorischen Krankenversicherung (inkl. Police-Nr.)  → [q95]\nUnterschriften\nOrt und Datum  → [q96]\nUnterschrift des/der Verletzten\nStempel und Unterschrift des Arbeitgebers\nNachgebaut nach dem Vorbild der Helsana-Schadenmeldung UVG – nicht das Original\nSeite 2 / 2\n-----\n\nFür dieses Formular gelten die folgenden Pflichtangaben:\n1: Art der Meldung – Auswahl aus: Unfall, Berufskrankheit, Zahnschaden, Rückfall\n2: Name und Adresse mit Postleitzahl – Vollständige Geschäftsadresse des Arbeitgebers inkl. PLZ\n3: Name und Vorname – Vollständiger Name des Verletzten\n4: Arbeitszeit des/der Verletzten (Std./Woche) – Wöchentliche Arbeitszeit der verletzten Person bei diesem Arbeitgeber in Stunden; ab acht Stunden pro Woche sind auch Nichtberufsunfälle versichert\n5: Schadendatum (Tag, Monat, Jahr, Zeit) – Datum und Uhrzeit des Ereignisses im Format TT.MM.JJJJ, HH:MM\n6: Unfallort (Ort und Stelle) – Ort (Name oder PLZ) und genaue Stelle (z. B. Werkstatt, Strasse)\n7: Sachverhalt (Unfallbeschreibung) – Tätigkeit zur Zeit des Unfalles, Unfallhergang, beteiligte Gegenstände/Fahrzeuge\n8: Erstbehandelnder Arzt bzw. Spital/Klinik – Name und Adresse der Einrichtung sowie Fachrichtung\n9: Betroffener Körperteil – Verletzter Körperteil und Seite (links, rechts, unbestimmt)\n10: Art der Schädigung – Beschreibung der Verletzung (z. B. Schnitt, Bruch, Verbrennung)\n11: Arbeit zufolge Unfalles ausgesetzt? (Ja/Nein) – Angabe, ob Arbeitsunfähigkeit vorliegt\n12: Lohnbestandteile (CHF pro Stunde/Monat/Jahr) – Vertraglicher Grundlohn, Familienzulagen, Ferien- und Feiertagsentschädigung, Gratifikation / 13. Monatslohn und andere Zulagen, je pro Stunde, Monat oder Jahr (brutto)\n13: Unterschriften – Ort und Datum, Unterschrift der verletzten Person, Stempel und Unterschrift des Arbeitgebers\n\nNenne zu jeder Pflichtangabe die Kennung der Stelle auf dieser Seite, an der sie eingetragen wird. Gehört sie zu mehreren Stellen, nenne alle; steht sie auf dieser Seite nicht, gib eine leere Liste. Rate nicht.\nAntworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"nummer\": 1, \"kennungen\": [\"q5\"]}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 1806,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-7ced4fbf-f196-4928-926a-8482f4817d92",
+  "object": "chat.completion",
+  "created": 1791575517,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"zuordnung\": [{\"nummer\": 1, \"kennungen\": [\"q5\"]}, {\"nummer\": 2, \"kennungen\": [\"q6\"]}, {\"nummer\": 3, \"kennungen\": [\"q7\"]}, {\"nummer\": 4, \"kennungen\": [\"q8\"]}, {\"nummer\": 5, \"kennungen\": [\"q9\"]}, {\"nummer\": 6, \"kennungen\": [\"q10\"]}, {\"nummer\": 7, \"kennungen\": [\"q11\"]}, {\"nummer\": 8, \"kennungen\": [\"q12\"]}, {\"nummer\": 9, \"kennungen\": [\"q61\", \"q63\"]}, {\"nummer\": 10, \"kennungen\": [\"q64\", \"q63\"]}, {\"nummer\": 11, \"kennungen\": [\"q67\", \"q68\"]}, {\"nummer\": 12, \"kennungen\": [\"q79\", \"q79\", \"q79\", \"q79\", \"q79\", \"q79\"]}, {\"nummer\": 13, \"kennungen\": [\"q96\", \"q96\"]}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 1629,
+   "total_tokens": 1901,
+   "completion_tokens": 272,
+   "prompt_tokens_details": {
+    "cached_tokens": 1600,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

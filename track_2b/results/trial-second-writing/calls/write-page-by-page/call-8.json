@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:31:55.665Z",
+  "tag": "d-8b-page-r2 suva-bagatellunfall S4",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 2840,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 4 =====\n[q79]\nSchaden-Nummer  → [q80]\nApothekerschein UVG\nArbeitgeber\nName und Adresse mit Postleitzahl  → [q83]\nTel.-Nr.  → [q81]\nKunden-Nr.  → [q82]\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q84]\nVerletzte/r\nName und Vorname  → [q87]\nGeburtsdatum  → [q85]\nAHV-Nummer  → [q86]\n[q88]\n[q89]\nStrasse  → [q90]\n[q91]\n[q92]\nPLZ\nWohnort\n[q93]\nSchaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\nHinweise für die/den Verletzte/n\nHinweise für den Apotheker\nDie vom Arzt verordneten Medikamente werden Ihnen vom Apotheker gegen Abgabe dieses Scheines kostenlos abgegeben. Alle Medikamente sind aus der gleichen Apotheke zu beziehen.\nBitte senden Sie diese Rechnung nach Abschluss der Behandlung – spätestens aber 3 Monate nach Unfalldatum – an die oben aufge- führte Adresse. Einen neuen Apothekerschein können Sie bei uns verlangen, wenn – der Platz für das Eintragen der Bezüge nicht ausreicht, – nach Ablauf von 3 Monaten weitere Medikamente benötigt werden.\n씲 links  → [q94: Auswahl]\n씲 rechts  → [q94: Auswahl]\n씲 unbestimmt  → [q94: Auswahl]\nVerletzung\nBetroffener Körperteil:  → [q95]\nArt der Schädigung:\nArzt- adressen  → [q97]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q96]\nRechnung der Apotheke  → [q98]\nDatum:\nDatum der Abgabe  → [q100: Tabelle mit 6 Zeilen und 4 Spalten]\nArt und Menge  → [q99] [q100: Tabelle mit 6 Zeilen und 4 Spalten]\nPreis\nCHF  → [q100: Tabelle mit 6 Zeilen und 4 Spalten]\nRp.  → [q100: Tabelle mit 6 Zeilen und 4 Spalten]\n[q100: Tabelle mit 6 Zeilen und 4 Spalten]\nStempel der Apotheke:\n[q100: Tabelle mit 6 Zeilen und 4 Spalten]\n3 Code  → [q105] [q106] [q107] [q108] [q109]\n[q101]\n[q102]\n[q103]\n[q104]\nTotal  → [q110]\nPostkonto-Nr. oder zugeteilte Suva-Nr.\nBitte Rezepte beilegen\nBei Abrechnung über OFAC: 35-1\nGeht an: Verletzte/r ➞ Apotheker ➞ Suva\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu jeder Kennung genau eine Frage, so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 6773,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-c39bcc38-a704-4c31-b6e5-7d59207b0922",
+    "object": "chat.completion",
+    "created": 1791538316,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q79\", \"frage\": \"Welche Schaden-Nummer wird eingetragen?\"}, {\"kennung\": \"q80\", \"frage\": \"Welchen Apothekerschein UVG hat die Apotheke?\"}, {\"kennung\": \"q81\", \"frage\": \"Welche Telefonnummer hat die Apotheke?\"}, {\"kennung\": \"q82\", \"frage\": \"Welche Kunden-Nummer hat die versicherte Person?\"}, {\"kennung\": \"q83\", \"frage\": \"Wie lautet der Name und die Adresse mit Postleitzahl der versicherten Person?\"}, {\"kennung\": \"q84\", \"frage\": \"Welcher Betriebsteil ist betroffen?\"}, {\"kennung\": \"q85\", \"frage\": \"Wie lautet das Geburtsdatum der verletzten Person?\"}, {\"kennung\": \"q86\", \"frage\": \"Welche AHV-Nummer hat die verletzte Person?\"}, {\"kennung\": \"q87\", \"frage\": \"Wie heissen Name und Vorname der verletzten Person?\"}, {\"kennung\": \"q88\", \"frage\": \"Welche Bemerkung soll eingetragen werden?\"}, {\"kennung\": \"q89\", \"frage\": \"Welche Bemerkung soll eingetragen werden?\"}, {\"kennung\": \"q90\", \"frage\": \"Welche Strasse ist angegeben?\"}, {\"kennung\": \"q91\", \"frage\": \"Welche Nummer hat die Strasse?\"}, {\"kennung\": \"q92\", \"frage\": \"Welche PLZ ist angegeben?\"}, {\"kennung\": \"q93\", \"frage\": \"Welcher Wohnort ist angegeben?\"}, {\"kennung\": \"q94\", \"frage\": \"Welche Option soll für links, rechts oder unbestimmt gewählt werden?\"}, {\"kennung\": \"q95\", \"frage\": \"Welcher betroffene Körperteil ist verletzt?\"}, {\"kennung\": \"q96\", \"frage\": \"Welcher Erstbehandelnde Arzt oder welches Spital/Klinik ist angegeben?\"}, {\"kennung\": \"q97\", \"frage\": \"Welche Adresse des Arztes ist angegeben?\"}, {\"kennung\": \"q98\", \"frage\": \"Welche Rechnung der Apotheke soll eingetragen werden?\"}, {\"kennung\": \"q99\", \"frage\": \"Welche Art und Menge der Medikamente soll eingetragen werden?\"}, {\"kennung\": \"q100\", \"frage\": \"Welche sechs Zeilen und vier Spalten mit Art und Menge, Preis in CHF und Rp. sollen eingetragen werden?\"}, {\"kennung\": \"q101\", \"frage\": \"Welches Datum soll eingetragen werden?\"}, {\"kennung\": \"q102\", \"frage\": \"Welches Datum der Abgabe soll eingetragen werden?\"}, {\"kennung\": \"q103\", \"frage\": \"Welches Datum soll eingetragen werden?\"}, {\"kennung\": \"q104\", \"frage\": \"Welches Datum soll eingetragen werden?\"}, {\"kennung\": \"q105\", \"frage\": \"Welche drei Codes sollen eingetragen werden?\"}, {\"kennung\": \"q106\", \"frage\": \"Welcher Code soll eingetragen werden?\"}, {\"kennung\": \"q107\", \"frage\": \"Welcher Code soll eingetragen werden?\"}, {\"kennung\": \"q108\", \"frage\": \"Welcher Code soll eingetragen werden?\"}, {\"kennung\": \"q109\", \"frage\": \"Welcher Code soll eingetragen werden?\"}, {\"kennung\": \"q110\", \"frage\": \"Welches Total soll eingetragen werden?\"}, {\"kennung\": \"q100\", \"frage\": \"Welche Tabelle mit sechs Zeilen und vier Spalten mit Art und Menge, Preis in CHF und Rp. soll eingetragen werden?\"}, {\"kennung\": \"q100\", \"frage\": \"Welche Tabelle mit sechs Zeilen und vier Spalten mit Art und Menge, Preis in CHF und Rp. soll eingetragen werden?\"}, {\"kennung\": \"q100\", \"frage\": \"Welche Tabelle mit sechs Zeilen und vier Spalten mit Art und Menge, Preis in CHF und Rp. soll eingetragen werden?\"}, {\"kennung\": \"q100\", \"frage\": \"Welche Tabelle mit sechs Zeilen und vier Spalten mit Art und Menge, Preis in CHF und Rp. soll eingetragen werden?\"}, {\"kennung\": \"q100\", \"frage\": \"Welche Tabelle mit sechs Zeilen und vier Spalten mit Art und Menge, Preis in CHF und Rp. soll eingetragen werden?\"}, {\"kennung\": \"q100\", \"frage\": \"Welche Tabelle mit sechs Zeilen und vier Spalten mit Art und Menge, Preis in CHF und Rp. soll eingetragen werden?\"}, {\"kennung\": \"q105\", \"frage\": \"KEINE\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1320,
+      "total_tokens": 2455,
+      "completion_tokens": 1135,
+      "prompt_tokens_details": {
+        "cached_tokens": 1312,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

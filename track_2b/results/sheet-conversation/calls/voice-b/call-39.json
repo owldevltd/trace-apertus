@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T22:04:26.573Z",
+ "tag": "answer q18",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 400,
+ "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p15] Frage: An welchem Datum wird die Austrittsmeldung unterschrieben?\nAntwort: Am 11. Oktober 2026.\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- f19: Datum — Vorgabe: Datum als TT.MM.JJJJ\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+ "image": 0,
+ "audio": 0,
+ "ms": 253,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-99f36f08-18da-4400-9f7c-0363afc5b000",
+  "object": "chat.completion",
+  "created": 1791756269,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "f19: 11.10.2026 [p15]",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 248,
+   "total_tokens": 269,
+   "completion_tokens": 21,
+   "prompt_tokens_details": {
+    "cached_tokens": 224,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

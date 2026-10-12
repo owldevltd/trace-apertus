@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:37:43.243Z",
+ "tag": "translate labels page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1520,
+ "prompt": "Auf einem deutschen Formular stehen diese Beschriftungen. Übersetze jede ins Italienisch, kurz, wie eine Beschriftung, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n1: Betreibungsamt\n2: Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\n3: Geburtsdatum (falls bekannt)\n4: Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\n5: Zahlungsverbindung des Gläubigers / Zahlungsverbindung des Vertreters\n6: des Gläubigers\n7: des Vertreters\n8: IBAN\n9: vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\n10: Für Rückfragen: Telefon oder E-Mail\n11: Forderungsgrund oder Forderungsurkunde mit Datum\n12: Betrag (CHF)\n13: Zins %\n14: Zins seit (Datum)\n15: Bemerkungen\n16: Ihre Fallreferenz (falls vorhanden)\n\nAntworte nur als JSON, ohne weiteren Text: {\"texte\": [{\"nummer\": 1, \"text\": \"...\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 2111,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-4438a4a5-87bb-43de-a2f7-738b5750e615",
+  "object": "chat.completion",
+  "created": 1791556663,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"texte\": [{\"nummer\": 1, \"text\": \"Ufficio di esecuzione\"}, {\"nummer\": 2, \"text\": \"Debitore (Nome e cognome o Ditta; Indirizzo; CAP Località)\"}, {\"nummer\": 3, \"text\": \"Data di nascita (se nota)\"}, {\"nummer\": 4, \"text\": \"Creditore (Nome e cognome o Ditta; Indirizzo; CAP Località)\"}, {\"nummer\": 5, \"text\": \"Coordinate bancarie del creditore / Coordinate bancarie del rappresentante\"}, {\"nummer\": 6, \"text\": \"del creditore\"}, {\"nummer\": 7, \"text\": \"del rappresentante\"}, {\"nummer\": 8, \"text\": \"IBAN\"}, {\"nummer\": 9, \"text\": \"Rappresentato da (Nome e cognome o Ditta; Indirizzo; CAP Località)\"}, {\"nummer\": 10, \"text\": \"Per eventuali chiarimenti: Telefono o E-mail\"}, {\"nummer\": 11, \"text\": \"Motivo della pretesa o documento di pretesa con data\"}, {\"nummer\": 12, \"text\": \"Importo (CHF)\"}, {\"nummer\": 13, \"text\": \"Tasso di interesse %\"}, {\"nummer\": 14, \"text\": \"Da (Data)\"}, {\"nummer\": 15, \"text\": \"Note\"}, {\"nummer\": 16, \"text\": \"Vostra referenza del caso (se presente)\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 317,
+   "total_tokens": 652,
+   "completion_tokens": 335,
+   "prompt_tokens_details": {
+    "cached_tokens": 288,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

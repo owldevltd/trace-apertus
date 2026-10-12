@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T20:40:22.256Z",
+ "tag": "check run 2 page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 780,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nAustrittsmeldung\nVersicherte Person\nNachname  → [q1]\nVorname  → [q2]\nGeburtsdatum  → [q3]\nNationalität  → [q4]\nVersichert-en-Nr.  → [q5]\nAufenthaltsbewilligung  → [q6]\nBeruf  → [q7]\nStrasse/Nr.  → [q8]\nOrt  → [q9]\nPLZ  → [q10]\nTelefon  → [q11]\nE-Mail  → [q12]\nGeschichte\nmännlich  → [q13: Auswahl]\nweiblich  → [q13: Auswahl]\nDen in der Schweiz oder im Fürstentum Liechtenstein wohnhaften Versicherten steht innerhalb von 90 Tagen nach dem Austritt aus der Firma das Recht zu, in die Einzelf Versicherung überzutreten.\nErklärung der versicherten Person\nIch werde/bin aus der Firma austreten/ausgetreten.  → [q14: Kästchen]\nAustrittsdatum  → [q15]\nIch bin an einer Weiterführung der Versicherung interessiert und wünsche eine unverbindliche Offerte.  → [q16: Kästchen]\nIch verzichte auf mein Recht, die betreffende Versicherung weiterzuführen.  → [q17: Kästchen]\nUnterschrift\nDatum  → [q18]\nUnterschrift\nMit der Unterschrift wird die Richtigkeit der gemachten Angaben bestätigt.\nNachgebaut nach dem Vorbild der SWICA-Austrittsmeldung – nicht das Original\nSeite 1 / 1\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Ist die Person männlich oder weiblich?\nB: Welchen Beruf hat die Person?\nC: Wird die Person aus der Firma austreten oder ist sie bereits ausgetreten?\nD: Welche E-Mail-Adresse hat die Person?\nE: Welche Nationalität hat die Person?\nF: Welche Versicherungsnummer hat die Person?\nG: Welche Aufenthaltsbewilligung hat die Person?\nH: Welche Postleitzahl hat die Adresse?\nI: Wann hat die Person unterschrieben?\nJ: Interessiert sich die Person für eine Weiterführung der Versicherung und möchte eine unverbindliche Offerte?\nK: Wann ist das Austrittsdatum?\nL: Verzichtet die Person auf das Recht, die betreffende Versicherung weiterzuführen?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 1202,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-bd0003e6-84da-47a7-bd2e-e7deaadea53b",
+  "object": "chat.completion",
+  "created": 1791751225,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q13\"}, {\"frage\": \"B\", \"kennung\": \"q7\"}, {\"frage\": \"C\", \"kennung\": \"q14\"}, {\"frage\": \"D\", \"kennung\": \"q12\"}, {\"frage\": \"E\", \"kennung\": \"q4\"}, {\"frage\": \"F\", \"kennung\": \"q5\"}, {\"frage\": \"G\", \"kennung\": \"q6\"}, {\"frage\": \"H\", \"kennung\": \"q10\"}, {\"frage\": \"I\", \"kennung\": \"q18\"}, {\"frage\": \"J\", \"kennung\": \"q16\"}, {\"frage\": \"K\", \"kennung\": \"q15\"}, {\"frage\": \"L\", \"kennung\": \"q17\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 791,
+   "total_tokens": 975,
+   "completion_tokens": 184,
+   "prompt_tokens_details": {
+    "cached_tokens": 544,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

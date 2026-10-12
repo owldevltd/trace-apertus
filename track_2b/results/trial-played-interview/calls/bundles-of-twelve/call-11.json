@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:20:29.240Z",
+  "tag": "interview d-8b-bundle schadenmeldung-uvg",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 620,
+  "prompt": "Du gibst in einem Gespräch Auskunft. Du kennst genau diese Angaben, jede hat einen Kennwert:\n- K101: Arbeitsunfähig ab\n- K102: Seite\n- K103: Steuern Quellensteuerpflicht\n- K104: Lohn Monat Andere Zulagen\n- K105: Betroffener Körperteil\n- K106: Versicherung Familienmitglied / Gesellschafter\n- K107: Letzter Arbeitstag\n- K108: Arbeit wieder aufgenommen ab\n- K109: Lohn Jahr Familienzulagen\n- K110: Krankenversicherung\n- K111: Erstbehandelnder Arzt\n- K112: Andere Leistungen wo\n- K113: Erstbehandlung\n- K114: Lohn Monat Grundlohn\n- K115: Weiterer Arbeitgeber Adresse\n- K116: Andere Leistungen\n- K117: Lohn Stunde Grundlohn\n- K118: Weiterer Arbeitgeber\n- K119: Lohn Jahr Ferienentschädigung\n- K120: Bezeichnung Zulagen\n- K121: Lohn Stunde Familienzulagen\n- K122: Lohn Stunde Gratifikation\n- K123: Nachbehandelnder Arzt\n- K124: Grund Absenz\n- K125: Lohn Stunde Ferienentschädigung\n- K126: Ort und Datum\n- K127: Arbeit ausgesetzt\n- K128: Versicherung Entsandte/r\n- K129: Lohn Jahr Andere Zulagen\n- K130: Lohn Monat Familienzulagen\n- K131: Lohn Monat Ferienentschädigung\n- K132: Lohn Monat Gratifikation\n- K133: Wiederaufnahme\n- K134: Lohn Stunde Andere Zulagen\n- K135: Beteiligte Gegenstände\n- K136: Art der Schädigung\n- K137: Nachbehandlung\n- K138: Versicherung Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)\n- K139: Anzahl Kinder\n- K140: Dauer länger als 1 Monat\n- K141: Lohn Jahr Gratifikation\n- K142: Lohn Jahr Grundlohn\n\nDir werden diese Fragen gestellt:\nA: War die Erstbehandlung ambulant oder stationär?\nB: Welchen Arzt oder welches Spital/Klinik haben Sie nachbehandelt?\nC: Welchen Gegenstand oder welche Sache war an dem Unfall beteiligt, zum Beispiel eine Maschine, ein Werkzeug oder ein Fahrzeug?\nD: Wann war die letzte Arbeit im Betrieb, also der Tag, das Datum und die Uhrzeit?\nE: Bei welcher anderen Sozialversicherung haben Sie Anspruch auf Taggeld oder Rente?\nF: Ist die Antwort Ja oder Nein, ob die Person wegen des Unfalls nicht arbeiten kann?\nG: Welchen Arzt oder welches Spital/Klinik haben Sie zuerst behandelt?\nH: Gibt es weitere Arbeitgeber, bei denen Sie arbeiten oder gearbeitet haben, und wenn ja, wie heißen sie und wo liegen sie?\n\nNenne zu jeder Frage den Kennwert der einen Angabe, nach der gefragt wird. Passt keine Angabe, schreibe \"-\". Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K101\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 998,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-61d53d24-fe18-45a0-9d54-e86375594d90",
+    "object": "chat.completion",
+    "created": 1791537629,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K113\"}, {\"frage\": \"B\", \"kennwert\": \"K123\"}, {\"frage\": \"C\", \"kennwert\": \"K135\"}, {\"frage\": \"D\", \"kennwert\": \"K107\"}, {\"frage\": \"E\", \"kennwert\": \"K138\"}, {\"frage\": \"F\", \"kennwert\": \"K101\"}, {\"frage\": \"G\", \"kennwert\": \"K111\"}, {\"frage\": \"H\", \"kennwert\": \"K115, K118\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 840,
+      "total_tokens": 988,
+      "completion_tokens": 148,
+      "prompt_tokens_details": {
+        "cached_tokens": 608,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

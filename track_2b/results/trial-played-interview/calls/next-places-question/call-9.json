@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:15:39.226Z",
+  "tag": "interview k-shift schadenmeldung-uvg",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Du gibst in einem Gespräch Auskunft. Du kennst genau diese Angaben, jede hat einen Kennwert:\n- K101: Arbeitsunfähig ab\n- K102: Seite\n- K103: Steuern Quellensteuerpflicht\n- K104: Lohn Monat Andere Zulagen\n- K105: Betroffener Körperteil\n- K106: Versicherung Familienmitglied / Gesellschafter\n- K107: Letzter Arbeitstag\n- K108: Arbeit wieder aufgenommen ab\n- K109: Lohn Jahr Familienzulagen\n- K110: Krankenversicherung\n- K111: Erstbehandelnder Arzt\n- K112: Andere Leistungen wo\n- K113: Erstbehandlung\n- K114: Lohn Monat Grundlohn\n- K115: Weiterer Arbeitgeber Adresse\n- K116: Andere Leistungen\n- K117: Lohn Stunde Grundlohn\n- K118: Weiterer Arbeitgeber\n- K119: Lohn Jahr Ferienentschädigung\n- K120: Bezeichnung Zulagen\n- K121: Lohn Stunde Familienzulagen\n- K122: Lohn Stunde Gratifikation\n- K123: Nachbehandelnder Arzt\n- K124: Grund Absenz\n- K125: Lohn Stunde Ferienentschädigung\n- K126: Ort und Datum\n- K127: Arbeit ausgesetzt\n- K128: Versicherung Entsandte/r\n- K129: Lohn Jahr Andere Zulagen\n- K130: Lohn Monat Familienzulagen\n- K131: Lohn Monat Ferienentschädigung\n- K132: Lohn Monat Gratifikation\n- K133: Wiederaufnahme\n- K134: Lohn Stunde Andere Zulagen\n- K135: Beteiligte Gegenstände\n- K136: Art der Schädigung\n- K137: Nachbehandlung\n- K138: Versicherung Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)\n- K139: Anzahl Kinder\n- K140: Dauer länger als 1 Monat\n- K141: Lohn Jahr Gratifikation\n- K142: Lohn Jahr Grundlohn\n\nDir werden diese Fragen gestellt:\nA: Bezieht die verletzte Person Taggeld oder Rente von einer anderen Sozialversicherung? Ja oder Nein?\nB: Welche Verletzung liegt vor?\nC: Wie lange wird die Arbeit voraussichtlich ganz ausgesetzt sein? Länger als einen Monat oder nicht?\nD: Hat die verletzte Person eine freiwillige Versicherung als Arbeitgeber oder Selbständigerwerbende?\nE: Wie hoch ist der Lohnbestandteil pro Stunde, pro Monat und pro Jahr? Bitte geben Sie die Beträge für alle drei Zeilen an.\nF: Handelt es sich um eine entsandte Person?\nG: Handelt es sich um einen Nichtberufsunfall?\nH: Welche anderen Lohnzulagen gibt es, zum Beispiel Akkord, Provision, Naturallohn oder Schichtzulage?\nI: Bis zu welchem Datum, Wochentag und Uhrzeit war die verletzte Person zuletzt im Betrieb?\nJ: Wie heisst der erstbehandelnde Arzt oder das Spital, das die verletzte Person behandelt hat?\nK: Gibt es besondere Umstände, die für diesen Fall relevant sind?\nL: Müssen Steuern abgezogen werden? Ja oder Nein?\n\nNenne zu jeder Frage den Kennwert der einen Angabe, nach der gefragt wird. Passt keine Angabe, schreibe \"-\". Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K101\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1502,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-dc49b758-89c1-4937-8a73-f793c6115749",
+    "object": "chat.completion",
+    "created": 1791537339,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K103\"}, {\"frage\": \"B\", \"kennwert\": \"K136\"}, {\"frage\": \"C\", \"kennwert\": \"K140\"}, {\"frage\": \"D\", \"kennwert\": \"K138\"}, {\"frage\": \"E\", \"kennwert\": \"K114\", \"K117\", \"K142\"}, {\"frage\": \"F\", \"kennwert\": \"K128\"}, {\"frage\": \"G\", \"kennwert\": \"-\"}, {\"frage\": \"H\", \"kennwert\": \"K120\"}, {\"frage\": \"I\", \"kennwert\": \"K126\"}, {\"frage\": \"J\", \"kennwert\": \"K111\"}, {\"frage\": \"K\", \"kennwert\": \"-\"}, {\"frage\": \"L\", \"kennwert\": \"K103\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 926,
+      "total_tokens": 1142,
+      "completion_tokens": 216,
+      "prompt_tokens_details": {
+        "cached_tokens": 576,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

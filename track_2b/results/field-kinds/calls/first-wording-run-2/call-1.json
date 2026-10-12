@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T13:44:15.976Z",
+ "tag": "arten arbeitsfaehigkeitszeugnis 1 #2",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 750,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nArbeitsfähigkeitszeugnis\nBeurteilung der Arbeitsfähigkeit und der Reintegration bei Krankheit oder Unfall\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses (Swiss Insurance Medicine, Ausgabe Januar 2019) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.\nVon der Arbeitgeberin / dem Arbeitgeber auszufüllen (evtl. von der Patientin / dem Patienten)\nArbeitnehmerin / Arbeitnehmer\nName / Vorname  → [q1]\nGeb.-Dat.  → [q2]\nGeschlecht\nw  → [q3: Auswahl]\nm  → [q3: Auswahl]\nAdresse / PLZ  → [q4]\nAHV-Nr.  → [q5]\nTelefon  → [q6]\nE-Mail  → [q7]\nArbeitgeberin / Arbeitgeber\nFirmenname  → [q8]\nKontaktperson  → [q9]\nAdresse / PLZ  → [q10]\nTelefon  → [q11]\nE-Mail  → [q12]\nAnstellung\nFunktion / ausgeübter Beruf *  → [q13]\nEintrittsjahr\nStd. / Tag  → [q15]\n[q16]\nArbeitszeit Vollzeit (100 %)  → [q17: Kästchen]\nWochenarbeitszeit / Einsatztage  → [q18]\nTeilzeit  → [q19: Kästchen]\n[q20]\n%\nBei Kündigung: Arbeitsverhältnis gekündigt per  → [q21]\nVon der Ärztin / dem Arzt auszufüllen\nUrsache\nKrankheit  → [q22: Auswahl]\nUnfall  → [q22: Auswahl]\nBerufskrankheit  → [q22: Auswahl]\nVolle Arbeitsunfähigkeit\nBasierend auf *\nREP vom  → [q23]\nArbeitsplatzbeschrieb vom  → [q24]\nREP  → [q25: Auswahl]\nArbeitsplatzbeschrieb  → [q25: Auswahl]\nKonsultationsdatum  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nArbeitsunfähigkeit\nbis  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nnächste Konsultation  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nVisum  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nvon  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\n[q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\n[q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\nEs liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor\nja  → [q27: Auswahl]\nnein  → [q27: Auswahl]\nTeilarbeitsfähigkeit / Reintegration (Beurteilung für den Reintegrationsprozess)\nBasierend auf REP  → [q28: Auswahl]\n*  → [q28: Auswahl]\nREP vom  → [q29]\nArbeitsplatzbeschrieb vom  → [q30]\nArbeitsplatzbeschrieb\nKonsultationsdatum\nPräsenzzeit Std. pro Tag  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nPräsenzzeit % Pensum  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nLeistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nArbeits- fähigkeit gesamt %  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nbis\nnächste\nVisum\nvon\nKonsultation  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\n[q31: Tabelle mit 4 Zeilen und 9 Spalten]\nWiederaufnahme der Arbeit zu 100 % ab  → [q32]\nBemerkungen und Unterschrift\nBemerkungen  → [q33]\nArzt / Ärztin (Name, Stempel)  → [q34]\nKontakt mit Arbeitgeberin / Arbeitgeber erwünscht\nja  → [q35: Auswahl]\nnein  → [q35: Auswahl]\nDatum  → [q36]\nUnterschrift\n* Bitte beifügen: Arbeitsplatzbeschrieb / Stellenprofil oder REP (Ressourcenorientiertes Eingliederungsprofil).\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses – nicht das Original\nSeite 1 / 1\n-----\n\nSage zu jeder der Kennungen unten, welche Art von Angabe an dieser Stelle eingetragen wird. Wähle genau eine dieser Arten:\n- text: ein Name, eine Adresse, ein Wort oder ein Satz\n- zahl: eine Zahl, eine Nummer oder ein Betrag\n- telefon: eine Telefonnummer\n- email: eine E-Mail-Adresse\n- plz: eine Postleitzahl\n- iban: eine IBAN\n- datum: ein Datum\n- uhrzeit: eine Uhrzeit\n\nDie Kennungen: q1, q2, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q15, q16, q18, q20, q21, q23, q24, q29, q30, q32, q33, q34, q36\nAntworte nur als JSON, ohne weiteren Text: {\"arten\": [{\"kennung\": \"q1\", \"art\": \"text\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 2611,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-d57e4fe0-0422-4520-b92f-458dbe72a9f3",
+  "object": "chat.completion",
+  "created": 1791726258,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"arten\": [{\"kennung\": \"q1\", \"art\": \"text\"}, {\"kennung\": \"q2\", \"art\": \"text\"}, {\"kennung\": \"q4\", \"art\": \"text\"}, {\"kennung\": \"q5\", \"art\": \"text\"}, {\"kennung\": \"q6\", \"art\": \"telefon\"}, {\"kennung\": \"q7\", \"art\": \"email\"}, {\"kennung\": \"q8\", \"art\": \"text\"}, {\"kennung\": \"q9\", \"art\": \"text\"}, {\"kennung\": \"q10\", \"art\": \"text\"}, {\"kennung\": \"q11\", \"art\": \"telefon\"}, {\"kennung\": \"q12\", \"art\": \"email\"}, {\"kennung\": \"q13\", \"art\": \"text\"}, {\"kennung\": \"q15\", \"art\": \"zahl\"}, {\"kennung\": \"q16\", \"art\": \"text\"}, {\"kennung\": \"q18\", \"art\": \"zahl\"}, {\"kennung\": \"q20\", \"art\": \"text\"}, {\"kennung\": \"q21\", \"art\": \"datum\"}, {\"kennung\": \"q23\", \"art\": \"text\"}, {\"kennung\": \"q24\", \"art\": \"text\"}, {\"kennung\": \"q29\", \"art\": \"text\"}, {\"kennung\": \"q30\", \"art\": \"text\"}, {\"kennung\": \"q32\", \"art\": \"datum\"}, {\"kennung\": \"q33\", \"art\": \"text\"}, {\"kennung\": \"q34\", \"art\": \"text\"}, {\"kennung\": \"q36\", \"art\": \"datum\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 1532,
+   "total_tokens": 1907,
+   "completion_tokens": 375,
+   "prompt_tokens_details": {
+    "cached_tokens": 1504,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

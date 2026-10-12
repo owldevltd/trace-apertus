@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:55:59.967Z",
+  "tag": "fragen ganz fr suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 2220,
+  "prompt": "Jemand führt ein Gespräch und stellt diese Fragen auf Deutsch. Übersetze jede Frage ins Französisch, für ein Gegenüber, das Französisch spricht: dieselbe Frage in einfachen Worten, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n1: Wie heisst der Arbeitgeber und wo befindet er sich mit Postleitzahl?\n2: Welche Telefonnummer hat der Arbeitgeber?\n3: Welche Kunden-Nummer hat der Arbeitgeber?\n4: In welchem Bereich arbeitet die verletzte Person im Betrieb?\n5: Wie heissen die verletzte Person?\n6: Wann ist die verletzte Person geboren?\n7: Welche AHV-Nummer hat die verletzte Person?\n8: Welche Strasse hat die verletzte Person?\n9: Welche Staatsangehörigkeit hat die verletzte Person?\n10: Welcher Zivilstand ist bei der verletzten Person?\n11: Wann hat die verletzte Person angefangen bei diesem Arbeitgeber zu arbeiten?\n12: Welchen Beruf übt die verletzte Person aus?\n13: Ist die verletzte Person höheres Kader, mittleres Kader, Angestellte/r, Arbeiter/in, Lehrling oder Praktikant/in?\n14: Wie viele Stunden arbeitet die verletzte Person pro Woche?\n15: Welcher Monat war es, als der Unfall passierte?\n16: Welches Jahr war es, als der Unfall passierte?\n17: Zu welcher Zeit passierte der Unfall in Stunden und Minuten?\n18: Wo genau ist der Unfall passiert, zum Beispiel Ort und Strasse oder Postleitzahl?\n19: Was hat die verletzte Person genau zur Zeit des Unfalls gemacht, wie der Unfall verlaufen ist, wer war dabei und was war beteiligt?\n20: Welche Gegenstände waren am Unfall beteiligt, wie Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff?\n21: Welcher Körperteil der verletzten Person ist betroffen?\n22: Ist die Verletzung links, rechts oder unbestimmt?\n23: Wie ist die Art der Schädigung bei der Verletzung?\n24: Wer ist der Erstbehandelnde Arzt oder das Spital/Klinik?\n25: Wer ist der Nachbehandelnde Arzt oder das Spital/Klinik?\n26: Wo und wann ist der Abschluss passiert?\n\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"nummer\": 1, \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 4356,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-6e26abbc-f8dd-4775-899a-c836652b1f6a",
+    "object": "chat.completion",
+    "created": 1791554160,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"nummer\": 1, \"frage\": \"Comment s'appelle l'employeur et où se trouve-t-il avec le code postal?\"}, {\"nummer\": 2, \"frage\": \"Quel est le numéro de téléphone de l'employeur?\"}, {\"nummer\": 3, \"frage\": \"Quel est le numéro de client de l'employeur?\"}, {\"nummer\": 4, \"frage\": \"Dans quel domaine travaille la personne blessée dans l'entreprise?\"}, {\"nummer\": 5, \"frage\": \"Comment s'appelle la personne blessée?\"}, {\"nummer\": 6, \"frage\": \"Quand la personne blessée est-elle née?\"}, {\"nummer\": 7, \"frage\": \"Quel est le numéro AVS de la personne blessée?\"}, {\"nummer\": 8, \"frage\": \"Quelle est la rue de la personne blessée?\"}, {\"nummer\": 9, \"frage\": \"Quelle est la nationalité de la personne blessée?\"}, {\"nummer\": 10, \"frage\": \"Quel est l'état civil de la personne blessée?\"}, {\"nummer\": 11, \"frage\": \"Quand la personne blessée a-t-elle commencé à travailler chez cet employeur?\"}, {\"nummer\": 12, \"frage\": \"Quel métier exerce la personne blessée?\"}, {\"nummer\": 13, \"frage\": \"La personne blessée est-elle cadre supérieur, cadre intermédiaire, employé(e), ouvrier(ère), apprenti(e) ou stagiaire?\"}, {\"nummer\": 14, \"frage\": \"Combien d'heures la personne blessée travaille-t-elle par semaine?\"}, {\"nummer\": 15, \"frage\": \"Quel mois était-ce lorsque l'accident s'est produit?\"}, {\"nummer\": 16, \"frage\": \"Quelle année était-ce lorsque l'accident s'est produit?\"}, {\"nummer\": 17, \"frage\": \"À quelle heure l'accident s'est-il produit, en heures et minutes?\"}, {\"nummer\": 18, \"frage\": \"Où l'accident s'est-il produit exactement, par exemple lieu et rue ou code postal?\"}, {\"nummer\": 19, \"frage\": \"Que faisait exactement la personne blessée au moment de l'accident, comment l'accident s'est-il déroulé, qui était présent et quoi était impliqué?\"}, {\"nummer\": 20, \"frage\": \"Quels objets étaient impliqués dans l'accident, comme machine, outil, véhicule ou substance de travail?\"}, {\"nummer\": 21, \"frage\": \"Quel membre du corps de la personne blessée est concerné?\"}, {\"nummer\": 22, \"frage\": \"La blessure est-elle du côté gauche, du côté droit ou indéterminée?\"}, {\"nummer\": 23, \"frage\": \"Quel est le type de dommage de la blessure?\"}, {\"nummer\": 24, \"frage\": \"Qui est le médecin traitant ou l'hôpital/clinique?\"}, {\"nummer\": 25, \"frage\": \"Qui est le médecin de suivi ou l'hôpital/clinique?\"}, {\"nummer\": 26, \"frage\": \"Où et quand l'accident a-t-il été clôturé?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 588,
+      "total_tokens": 1283,
+      "completion_tokens": 695,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

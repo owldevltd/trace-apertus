@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:59:48.425Z",
+  "tag": "werte sechs frage en betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Englisch gemacht, die in ein deutsches Formular gehören. Vor jeder Angabe steht die Frage, auf die sie antwortet; die Frage ist nur zum Verständnis da.\n\nFrage 1: Um welches Betreibungsamt handelt es sich?\nAngabe 1: Betreibungsamt Chur\n\nFrage 2: Wie heisst der Schuldner und wo wohnt er?\nAngabe 2: Peter Hartmann, Via Nova 14, 7013 Domat/Ems\n\nFrage 3: Wie heisst der Gläubiger und wo ist er ansässig?\nAngabe 3: Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\n\nFrage 4: Welche IBAN wird angegeben?\nAngabe 4: CH93 0076 2011 6238 5295 7\n\nFrage 5: Welchen Forderungsgrund oder welche Urkunde mit Datum liegt vor?\nAngabe 5: Invoice No. 2026-118 dated 12.06.2026, Repair\n\nFrage 6: Wie hoch ist der Betrag der Forderung in Schweizer Franken?\nAngabe 6: 2'340.50\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird; übersetze nur die Angaben, nicht die Fragen. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1187,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-5e5f223f-b618-461e-a0a5-1c783ae2d8fd",
+    "object": "chat.completion",
+    "created": 1791554389,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 1, \"wert\": \"Betreibungsamt Chur\"}, {\"nummer\": 2, \"wert\": \"Peter Hartmann, Via Nova 14, 7013 Domat/Ems\"}, {\"nummer\": 3, \"wert\": \"Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\"}, {\"nummer\": 4, \"wert\": \"CH93 0076 2011 6238 5295 7\"}, {\"nummer\": 5, \"wert\": \"Invoice No. 2026-118 dated 12.06.2026, Repair\"}, {\"nummer\": 6, \"wert\": \"2'340.50\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 432,
+      "total_tokens": 607,
+      "completion_tokens": 175,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

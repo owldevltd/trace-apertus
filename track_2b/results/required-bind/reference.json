@@ -1,0 +1,1859 @@
+{
+ "betreibungsbegehren": {
+  "entries": [
+   {
+    "entry": "Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+    "units": [
+     "q5"
+    ],
+    "bound_by_label": [
+     "q5"
+    ]
+   },
+   {
+    "entry": "Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)",
+    "units": [
+     "q8"
+    ],
+    "bound_by_label": [
+     "q8"
+    ]
+   },
+   {
+    "entry": "Forderungsgrund oder Forderungsurkunde mit Datum",
+    "units": [
+     "q13"
+    ],
+    "bound_by_label": [
+     "q13"
+    ]
+   },
+   {
+    "entry": "Betrag (CHF)",
+    "units": [
+     "q14"
+    ],
+    "bound_by_label": []
+   }
+  ],
+  "units": {
+   "q1": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "Bitte in Blockschrift ausfüllen und Hinweise auf der Rückseite beachten"
+   },
+   "q2": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "Durch das Amt auszufüllen"
+   },
+   "q3": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "Eingang"
+   },
+   "q4": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "Betreibung Nr."
+   },
+   "q5": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)"
+   },
+   "q6": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Adresse des Betreibungsamtes"
+   },
+   "q7": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Geburtsdatum (falls bekannt)"
+   },
+   "q8": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)"
+   },
+   "q9": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "des Gläubigers des Vertreters"
+   },
+   "q10": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)"
+   },
+   "q11": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "IBAN"
+   },
+   "q12": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Telefon oder E-Mail"
+   },
+   "q13": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Forderungsgrund oder Forderungsurkunde mit Datum"
+   },
+   "q14": {
+    "page": 1,
+    "kind": "table",
+    "asked": true,
+    "label": "Weitere Forderungen"
+   },
+   "q15": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Bemerkungen"
+   },
+   "q16": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Ihre Fallreferenz (falls vorhanden)"
+   },
+   "q17": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "Die Angaben des vorliegenden Merkblatts stützen sich auf die Vorgaben des Bundesgesetzes über Schuldbetreibung und Konkurs (SchKG, SR 281.1) sowie auf die dazu ergangenen Verordnungen und Weisungen. Bei besonderen und komplexen Fällen wird"
+   }
+  }
+ },
+ "suva-bagatellunfall": {
+  "entries": [
+   {
+    "entry": "Tag",
+    "units": [],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Monat",
+    "units": [],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Jahr",
+    "units": [],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)",
+    "units": [
+     "q25",
+     "q53"
+    ],
+    "bound_by_label": [
+     "q25",
+     "q53"
+    ]
+   },
+   {
+    "entry": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge",
+    "units": [
+     "q26",
+     "q54",
+     "q55"
+    ],
+    "bound_by_label": [
+     "q26",
+     "q54",
+     "q55"
+    ]
+   },
+   {
+    "entry": "Betroffener Körperteil",
+    "units": [
+     "q30",
+     "q76",
+     "q95"
+    ],
+    "bound_by_label": [
+     "q30",
+     "q76",
+     "q95"
+    ]
+   },
+   {
+    "entry": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+    "units": [
+     "q31",
+     "q77",
+     "q96"
+    ],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Name und Adresse mit Postleitzahl",
+    "units": [
+     "q3",
+     "q36",
+     "q81"
+    ],
+    "bound_by_label": [
+     "q3",
+     "q36",
+     "q81"
+    ]
+   },
+   {
+    "entry": "Name und Vorname",
+    "units": [
+     "q7",
+     "q40",
+     "q85"
+    ],
+    "bound_by_label": [
+     "q7",
+     "q40",
+     "q85"
+    ]
+   }
+  ],
+  "units": {
+   "q1": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q2": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Schaden-Nummer"
+   },
+   "q3": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Name und Adresse mit Postleitzahl"
+   },
+   "q4": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Tel.-Nr."
+   },
+   "q5": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Kunden-Nr."
+   },
+   "q6": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)"
+   },
+   "q7": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Name und Vorname"
+   },
+   "q8": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Geburtsdatum"
+   },
+   "q9": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "AHV-Nummer"
+   },
+   "q10": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q11": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q12": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Strasse"
+   },
+   "q13": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Staatsangehörigkeit"
+   },
+   "q14": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Staatsangehörigkeit"
+   },
+   "q15": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Zivilstand"
+   },
+   "q16": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q17": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Datum der Anstellung"
+   },
+   "q18": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Ausgeübter Beruf"
+   },
+   "q19": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Höheres Kader"
+   },
+   "q20": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Mittleres Kader"
+   },
+   "q21": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Angestellte/r / Arbeiter/in"
+   },
+   "q22": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "Lehrling / Praktikant/in"
+   },
+   "q23": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Praktikant/in"
+   },
+   "q24": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Arbeitszeit des/der Verletzten: Stunden je Woche"
+   },
+   "q25": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)"
+   },
+   "q26": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge"
+   },
+   "q27": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)"
+   },
+   "q28": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q29": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "links / rechts / unbestimmt"
+   },
+   "q30": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Betroffener Körperteil:"
+   },
+   "q31": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "10. Arzt- adressen"
+   },
+   "q32": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Nachbehandelnder Arzt bzw. Spital/Klinik"
+   },
+   "q33": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Für Rückerstattungsgesuche von bereits bezahlten Rechnungen bitten wir Sie, Belege beizulegen und nachfolgend die Zahladresse (Post-/Bankkonto) anzugeben."
+   },
+   "q34": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q35": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Schaden-Nummer"
+   },
+   "q36": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Name und Adresse mit Postleitzahl"
+   },
+   "q37": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Tel.-Nr."
+   },
+   "q38": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Kunden-Nr."
+   },
+   "q39": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)"
+   },
+   "q40": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Name und Vorname"
+   },
+   "q41": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Geburtsdatum"
+   },
+   "q42": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Geburtsdatum"
+   },
+   "q43": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "AHV-Nummer"
+   },
+   "q44": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Strasse"
+   },
+   "q45": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Staatsangehörigkeit"
+   },
+   "q46": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Staatsangehörigkeit"
+   },
+   "q47": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Zivilstand"
+   },
+   "q48": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Datum der Anstellung"
+   },
+   "q49": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Ausgeübter Beruf"
+   },
+   "q50": {
+    "page": 3,
+    "kind": "choice",
+    "asked": true,
+    "label": "Höheres Kader / Mittleres Kader / Angestellte/r / Arbeiter/in"
+   },
+   "q51": {
+    "page": 3,
+    "kind": "choice",
+    "asked": true,
+    "label": "Lehrling / Praktikant/in"
+   },
+   "q52": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Arbeitszeit des/der Verletzten: Stunden je Woche"
+   },
+   "q53": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)"
+   },
+   "q54": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge"
+   },
+   "q55": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge"
+   },
+   "q56": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q57": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q58": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q59": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q60": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q61": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q62": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q63": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q64": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q65": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q66": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q67": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q68": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q69": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q70": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q71": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q72": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q73": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q74": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)"
+   },
+   "q75": {
+    "page": 3,
+    "kind": "choice",
+    "asked": true,
+    "label": "links / rechts / unbestimmt"
+   },
+   "q76": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Betroffener Körperteil:"
+   },
+   "q77": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "10. Arzt- adressen"
+   },
+   "q78": {
+    "page": 3,
+    "kind": "single",
+    "asked": true,
+    "label": "Nachbehandelnder Arzt bzw. Spital/Klinik"
+   },
+   "q79": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q80": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Schaden-Nummer"
+   },
+   "q81": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Name und Adresse mit Postleitzahl"
+   },
+   "q82": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Tel.-Nr."
+   },
+   "q83": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Kunden-Nr."
+   },
+   "q84": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)"
+   },
+   "q85": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Name und Vorname"
+   },
+   "q86": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Geburtsdatum"
+   },
+   "q87": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "AHV-Nummer"
+   },
+   "q88": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q89": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q90": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Strasse"
+   },
+   "q91": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q92": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q93": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q94": {
+    "page": 4,
+    "kind": "choice",
+    "asked": true,
+    "label": "links / rechts / unbestimmt"
+   },
+   "q95": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Betroffener Körperteil:"
+   },
+   "q96": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Arzt- adressen"
+   },
+   "q97": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Nachbehandelnder Arzt bzw. Spital/Klinik"
+   },
+   "q98": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Rechnung der Apotheke"
+   },
+   "q99": {
+    "page": 4,
+    "kind": "table",
+    "asked": true,
+    "label": "Datum der Abgabe / Art und Menge / CHF / Rp."
+   },
+   "q100": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Art und Menge"
+   },
+   "q101": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "3 Code"
+   },
+   "q102": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "3 Code"
+   },
+   "q103": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "3 Code"
+   },
+   "q104": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "3 Code"
+   },
+   "q105": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "3 Code"
+   },
+   "q106": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q107": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q108": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q109": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q110": {
+    "page": 4,
+    "kind": "single",
+    "asked": true,
+    "label": "Total"
+   }
+  }
+ },
+ "arbeitsfaehigkeitszeugnis": {
+  "entries": [
+   {
+    "entry": "Arbeitnehmerin / Arbeitnehmer: Name / Vorname",
+    "units": [
+     "q1"
+    ],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Funktion / ausgeübter Beruf *",
+    "units": [
+     "q13"
+    ],
+    "bound_by_label": [
+     "q13"
+    ]
+   },
+   {
+    "entry": "Ursache",
+    "units": [
+     "q22"
+    ],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Arbeitsunfähigkeit: von / bis",
+    "units": [
+     "q26"
+    ],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Datum",
+    "units": [
+     "q36"
+    ],
+    "bound_by_label": [
+     "q36"
+    ]
+   },
+   {
+    "entry": "Arzt / Ärztin (Name, Stempel)",
+    "units": [
+     "q34"
+    ],
+    "bound_by_label": [
+     "q34"
+    ]
+   },
+   {
+    "entry": "Unterschrift",
+    "units": [],
+    "bound_by_label": []
+   }
+  ],
+  "units": {
+   "q1": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Name / Vorname"
+   },
+   "q2": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Geb.-Dat."
+   },
+   "q3": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "w / m"
+   },
+   "q4": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Adresse / PLZ"
+   },
+   "q5": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "AHV-Nr."
+   },
+   "q6": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Telefon"
+   },
+   "q7": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "E-Mail"
+   },
+   "q8": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Firmenname"
+   },
+   "q9": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Kontaktperson"
+   },
+   "q10": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Adresse / PLZ"
+   },
+   "q11": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Telefon"
+   },
+   "q12": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "E-Mail"
+   },
+   "q13": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Funktion / ausgeübter Beruf *"
+   },
+   "q14": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "Eintrittsjahr"
+   },
+   "q15": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Std. / Tag"
+   },
+   "q16": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q17": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Arbeitszeit Vollzeit (100 %)"
+   },
+   "q18": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Wochenarbeitszeit / Einsatztage"
+   },
+   "q19": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Teilzeit"
+   },
+   "q20": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q21": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Bei Kündigung: Arbeitsverhältnis gekündigt per"
+   },
+   "q22": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "Krankheit / Unfall / Berufskrankheit"
+   },
+   "q23": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "REP vom"
+   },
+   "q24": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Arbeitsplatzbeschrieb vom"
+   },
+   "q25": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "REP / Arbeitsplatzbeschrieb"
+   },
+   "q26": {
+    "page": 1,
+    "kind": "table",
+    "asked": true,
+    "label": "Konsultationsdatum / von / bis / nächste Konsultation / Visum"
+   },
+   "q27": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "ja / nein"
+   },
+   "q28": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "Basierend auf REP / *"
+   },
+   "q29": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "REP vom"
+   },
+   "q30": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Arbeitsplatzbeschrieb vom"
+   },
+   "q31": {
+    "page": 1,
+    "kind": "table",
+    "asked": true,
+    "label": "Präsenzzeit Std. pro Tag / Präsenzzeit % Pensum / Leistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 % / Arbeits- fähigkeit gesamt % / Konsultation"
+   },
+   "q32": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Wiederaufnahme der Arbeit zu 100 % ab"
+   },
+   "q33": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Bemerkungen"
+   },
+   "q34": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Arzt / Ärztin (Name, Stempel)"
+   },
+   "q35": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "ja / nein"
+   },
+   "q36": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Datum"
+   }
+  }
+ },
+ "schadenmeldung-uvg": {
+  "entries": [
+   {
+    "entry": "Art der Meldung",
+    "units": [
+     "q5",
+     "q6"
+    ],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Name und Adresse mit Postleitzahl",
+    "units": [
+     "q7"
+    ],
+    "bound_by_label": [
+     "q7"
+    ]
+   },
+   {
+    "entry": "Name und Vorname",
+    "units": [
+     "q14"
+    ],
+    "bound_by_label": [
+     "q14"
+    ]
+   },
+   {
+    "entry": "Arbeitszeit des/der Verletzten (Std./Woche)",
+    "units": [
+     "q38"
+    ],
+    "bound_by_label": [
+     "q38"
+    ]
+   },
+   {
+    "entry": "Schadendatum (Tag, Monat, Jahr, Zeit)",
+    "units": [
+     "q45",
+     "q46",
+     "q47",
+     "q48"
+    ],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Unfallort (Ort und Stelle)",
+    "units": [
+     "q49"
+    ],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Sachverhalt (Unfallbeschreibung)",
+    "units": [
+     "q50"
+    ],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Erstbehandelnder Arzt bzw. Spital/Klinik",
+    "units": [
+     "q73"
+    ],
+    "bound_by_label": [
+     "q73"
+    ]
+   },
+   {
+    "entry": "Betroffener Körperteil",
+    "units": [
+     "q61"
+    ],
+    "bound_by_label": [
+     "q61"
+    ]
+   },
+   {
+    "entry": "Art der Schädigung",
+    "units": [
+     "q64"
+    ],
+    "bound_by_label": [
+     "q64"
+    ]
+   },
+   {
+    "entry": "Arbeit zufolge Unfalles ausgesetzt? (Ja/Nein)",
+    "units": [
+     "q68"
+    ],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Lohnbestandteile (CHF pro Stunde/Monat/Jahr)",
+    "units": [
+     "q79"
+    ],
+    "bound_by_label": []
+   },
+   {
+    "entry": "Unterschriften",
+    "units": [],
+    "bound_by_label": []
+   }
+  ],
+  "units": {
+   "q1": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "Nachgebaut nach dem Vorbild der Schadenmeldung UVG der Helsana Unfall AG (Ausgabe 12.2016) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace."
+   },
+   "q2": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "Nachgebaut nach dem Vorbild der Schadenmeldung UVG der Helsana Unfall AG (Ausgabe 12.2016) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace."
+   },
+   "q3": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "Art der Meldung"
+   },
+   "q4": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Schaden-Nummer"
+   },
+   "q5": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "Unfall / Berufskrankheit"
+   },
+   "q6": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "Zahnschaden / Rückfall"
+   },
+   "q7": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Name und Adresse mit Postleitzahl"
+   },
+   "q8": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Tel.-Nr."
+   },
+   "q9": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "E-Mail"
+   },
+   "q10": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Police-Nr. UVG"
+   },
+   "q11": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)"
+   },
+   "q12": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Police-Nr. UVG-Zusatz"
+   },
+   "q13": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "2 Verletzte / Verletzter"
+   },
+   "q14": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Name und Vorname"
+   },
+   "q15": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Geburtsdatum"
+   },
+   "q16": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "AHV-Nummer"
+   },
+   "q17": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Strasse"
+   },
+   "q18": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Tel.-Nr."
+   },
+   "q19": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Zivilstand"
+   },
+   "q20": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Land"
+   },
+   "q21": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "PLZ"
+   },
+   "q22": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Wohnort"
+   },
+   "q23": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Staatsangehörigkeit / Bewilligung"
+   },
+   "q24": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "E-Mail"
+   },
+   "q25": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "3 Anstellung"
+   },
+   "q26": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Datum der Anstellung"
+   },
+   "q27": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Ausgeübter Beruf"
+   },
+   "q28": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Höheres Kader"
+   },
+   "q29": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Mittleres Kader"
+   },
+   "q30": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Angestellte/r / Mitarbeiter/in"
+   },
+   "q31": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "Lehrling / Praktikant/in"
+   },
+   "q32": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "Verhältnis"
+   },
+   "q33": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "unbefristeter Arbeitsvertrag"
+   },
+   "q34": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "befristeter Arbeitsvertrag"
+   },
+   "q35": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Arbeitsverhältnis gekündigt per"
+   },
+   "q36": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": ""
+   },
+   "q37": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": ""
+   },
+   "q38": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Arbeitszeit des/der Verletzten (Std./Woche)"
+   },
+   "q39": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Betriebsübliche Vollarbeitszeit (Std./Woche)"
+   },
+   "q40": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Vertraglicher Beschäftigungsgrad (Prozent)"
+   },
+   "q41": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "unregelmässig"
+   },
+   "q42": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "Kurzarbeit / Zwischenverdienst"
+   },
+   "q43": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "4 Schadendatum"
+   },
+   "q44": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "4 Schadendatum"
+   },
+   "q45": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Tag"
+   },
+   "q46": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Monat"
+   },
+   "q47": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Jahr"
+   },
+   "q48": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Zeit (Stunden, Minuten)"
+   },
+   "q49": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)"
+   },
+   "q50": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge"
+   },
+   "q51": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Beteiligte Person(en)"
+   },
+   "q52": {
+    "page": 1,
+    "kind": "single",
+    "asked": false,
+    "label": "Besteht ein Polizeirapport?"
+   },
+   "q53": {
+    "page": 1,
+    "kind": "single",
+    "asked": true,
+    "label": "Wenn ja, aufgenommen durch"
+   },
+   "q54": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "Ja / Nein / Unbekannt"
+   },
+   "q55": {
+    "page": 1,
+    "kind": "choice",
+    "asked": true,
+    "label": "Ja / Nein"
+   },
+   "q56": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)"
+   },
+   "q57": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "8 Nichtberufsunfall"
+   },
+   "q58": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Letztmals im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)"
+   },
+   "q59": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Grund der Absenz"
+   },
+   "q60": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "9 Verletzung"
+   },
+   "q61": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Betroffener Körperteil"
+   },
+   "q62": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "Seite"
+   },
+   "q63": {
+    "page": 2,
+    "kind": "choice",
+    "asked": true,
+    "label": "links / rechts / unbestimmt"
+   },
+   "q64": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Art der Schädigung"
+   },
+   "q65": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "10 Arbeitsunfähigkeit"
+   },
+   "q66": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "Arbeit zufolge Unfalles ausgesetzt?"
+   },
+   "q67": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Wenn ja, ab wann?"
+   },
+   "q68": {
+    "page": 2,
+    "kind": "choice",
+    "asked": true,
+    "label": "Ja / Nein"
+   },
+   "q69": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Falls Arbeit wieder aufgenommen: ab wann?"
+   },
+   "q70": {
+    "page": 2,
+    "kind": "choice",
+    "asked": true,
+    "label": "länger als 1 Monat"
+   },
+   "q71": {
+    "page": 2,
+    "kind": "choice",
+    "asked": true,
+    "label": "ganz / teilweise"
+   },
+   "q72": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "11 Arztadressen"
+   },
+   "q73": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Erstbehandelnder Arzt bzw. Spital/Klinik"
+   },
+   "q74": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Nachbehandelnder Arzt bzw. Spital/Klinik"
+   },
+   "q75": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "Erstbehandlung, falls Spital/Klinik"
+   },
+   "q76": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "Nachbehandlung, falls Spital/Klinik"
+   },
+   "q77": {
+    "page": 2,
+    "kind": "choice",
+    "asked": true,
+    "label": "ambulant / stationär"
+   },
+   "q78": {
+    "page": 2,
+    "kind": "choice",
+    "asked": true,
+    "label": "ambulant / stationär"
+   },
+   "q79": {
+    "page": 2,
+    "kind": "table",
+    "asked": true,
+    "label": "CHF pro Stunde / CHF pro Monat / CHF pro Jahr"
+   },
+   "q80": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "Andere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage)"
+   },
+   "q81": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "Andere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage)"
+   },
+   "q82": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Anzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)"
+   },
+   "q83": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Bezeichnung der anderen Lohnzulagen"
+   },
+   "q84": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "13 Sonderfälle"
+   },
+   "q85": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Wenn ja, Name und Adresse"
+   },
+   "q86": {
+    "page": 2,
+    "kind": "choice",
+    "asked": true,
+    "label": "Nein / Ja"
+   },
+   "q87": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Quellensteuerpflicht"
+   },
+   "q88": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Freiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)"
+   },
+   "q89": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Familienmitglied / Gesellschafter"
+   },
+   "q90": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Entsandte/r"
+   },
+   "q91": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "14 Andere Sozialversicherungsleistungen"
+   },
+   "q92": {
+    "page": 2,
+    "kind": "single",
+    "asked": false,
+    "label": "Anspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung?"
+   },
+   "q93": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Wenn ja, wo?"
+   },
+   "q94": {
+    "page": 2,
+    "kind": "choice",
+    "asked": true,
+    "label": "Nein / Ja"
+   },
+   "q95": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Name der obligatorischen Krankenversicherung (inkl. Police-Nr.)"
+   },
+   "q96": {
+    "page": 2,
+    "kind": "single",
+    "asked": true,
+    "label": "Ort und Datum"
+   }
+  }
+ }
+}

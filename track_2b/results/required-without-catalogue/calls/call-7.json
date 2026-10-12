@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T19:28:04.182Z",
+  "tag": "mark 70B suva-bagatellunfall page 3",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 660,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 3 =====\n[q34]\nSchaden-Nummer  → [q35]\nBagatellunfall-Meldung UVG Doppel für den Betrieb\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q36]\nTel.-Nr.  → [q37]\nKunden-Nr.  → [q38]\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q39]\n2. Verletzte/r\nName und Vorname  → [q40]\nGeburtsdatum  → [q41] [q42]\nAHV-Nummer  → [q43]\nStrasse  → [q44]\nStaatsangehörigkeit  → [q45] [q46]\nPLZ\nWohnort\nZivilstand  → [q47]\n3. Anstellung\nDatum der Anstellung  → [q48]\nAusgeübter Beruf  → [q49]\nHöheres Kader  → [q50: Auswahl]\nMittleres Kader  → [q50: Auswahl]\nAngestellte/r / Arbeiter/in  → [q50: Auswahl]\nLehrling  → [q51: Auswahl]\nPraktikant/in  → [q51: Auswahl]\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q52]\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q53]\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q54] [q55]\n[q56]\n[q57]\n[q58]\n[q59]\n[q60]\n[q61]\n[q62]\n[q63]\n[q64]\n[q65]\n[q66]\n[q67]\n[q68]\n[q69]\n[q70]\n[q71]\n[q72]\n[q73]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q74]\n8. Nicht- berufsunfall\nK Bis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\nbis:\nlinks  → [q75: Auswahl]\nrechts  → [q75: Auswahl]\nunbestimmt  → [q75: Auswahl]\n9. Verletzung\nBetroffener Körperteil:  → [q76]\nArt der Schädigung:\n10. Arzt- adressen  → [q77]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q78]\nOrt und Datum\nStempel und Unterschrift\n-----\n\nWelche dieser Stellen müssen ausgefüllt sein, damit das Formular seinen Zweck erfüllt und angenommen werden kann? Nenne nur die unverzichtbaren Stellen, nicht alle. Was nur in bestimmten Fällen gilt, eine freie Bemerkung ist oder von der Stelle ausgefüllt wird, die das Formular entgegennimmt, gehört nicht dazu.\nAntworte nur als JSON, ohne weiteren Text: {\"pflicht\": [\"q1\", \"q5\"]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1949,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-a6883401-1004-43c1-a4b8-f46ab74f21f6",
+    "object": "chat.completion",
+    "created": 1791574085,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"pflicht\": [\"q35\", \"q36\", \"q37\", \"q38\", \"q39\", \"q40\", \"q41\", \"q42\", \"q43\", \"q44\", \"q45\", \"q46\", \"q47\", \"q48\", \"q49\", \"q50\", \"q52\", \"q53\", \"q54\", \"q55\", \"q74\", \"q76\", \"q77\", \"q78\"]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 999,
+      "total_tokens": 1124,
+      "completion_tokens": 125,
+      "prompt_tokens_details": {
+        "cached_tokens": 896,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:14:56.732Z",
+  "tag": "interview k-label schadenmeldung-uvg",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Du gibst in einem Gespräch Auskunft. Du kennst genau diese Angaben, jede hat einen Kennwert:\n- K101: Staatsangehörigkeit Bewilligung\n- K102: Verhältnis befristeter Arbeitsvertrag\n- K103: Unfallbeschreibung\n- K104: Gekündigt per\n- K105: Unfallprotokoll\n- K106: Schadendatum Jahr\n- K107: Wohnort\n- K108: Geburtsdatum\n- K109: Telefon Verletzte\n- K110: Stellung Lehrling\n- K111: Meldung Berufskrankheit\n- K112: Zivilstand\n- K113: Police UVG\n- K114: Stellung Höheres Kader\n- K115: Stellung Praktikant/in\n- K116: Beteiligte Personen\n- K117: Arbeitgeber\n- K118: Beruf\n- K119: PLZ\n- K120: Arbeitseinsatz Kurzarbeit\n- K121: Schaden-Nummer\n- K122: Meldung Zahnschaden\n- K123: Datum der Anstellung\n- K124: Verhältnis Arbeitsverhältnis gekündigt per\n- K125: Arbeitseinsatz Zwischenverdienst\n- K126: Stellung Angestellte/r / Mitarbeiter/in\n- K127: E-Mail Arbeitgeber\n- K128: E-Mail Verletzte\n- K129: Schadendatum Monat\n- K130: AHV-Nummer\n- K131: Beschäftigungsgrad Prozent\n- K132: Meldung Unfall\n- K133: Strasse\n- K134: Schadendatum Zeit\n- K135: Name Vorname\n- K136: Arbeitszeit Std\n- K137: Polizeirapport aufgenommen durch\n- K138: Verhältnis unbefristeter Arbeitsvertrag\n- K139: Schadendatum Tag\n- K140: Stellung Mittleres Kader\n- K141: Telefon Arbeitgeber\n- K142: Police UVG-Zusatz\n- K143: Vollarbeitszeit Std\n- K144: Polizeirapport\n- K145: Arbeitsplatz Betriebszweig\n- K146: Unfallort\n- K147: Meldung Rückfall\n- K148: Land\n- K149: Arbeitseinsatz unregelmässig\n\nDir werden diese Fragen gestellt:\nA: Name und Vorname\nB: Zeit (Stunden, Minuten)\nC: Datum der Anstellung\nD: Kurzarbeit / Zwischenverdienst\nE: Wohnort\nF: Tel.-Nr.\nG: Tel.-Nr.\nH: Arbeitsverhältnis gekündigt per\nI: Police-Nr. UVG\nJ: Höheres Kader\nK: Unfall / Berufskrankheit\nL: Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge\n\nNenne zu jeder Frage den Kennwert der einen Angabe, nach der gefragt wird. Passt keine Angabe, schreibe \"-\". Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K101\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1336,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-eb7c1b4f-51e9-4dc6-8c09-7239c23d9d22",
+    "object": "chat.completion",
+    "created": 1791537297,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"kennwert\": \"K135\"}, {\"frage\": \"B\", \"kennwert\": \"-\"}, {\"frage\": \"C\", \"kennwert\": \"K123\"}, {\"frage\": \"D\", \"kennwert\": \"K125\"}, {\"frage\": \"E\", \"kennwert\": \"K107\"}, {\"frage\": \"F\", \"kennwert\": \"K109\"}, {\"frage\": \"G\", \"kennwert\": \"K128\"}, {\"frage\": \"H\", \"kennwert\": \"K124\"}, {\"frage\": \"I\", \"kennwert\": \"K113\"}, {\"frage\": \"J\", \"kennwert\": \"K114\"}, {\"frage\": \"K\", \"kennwert\": \"K111\"}, {\"frage\": \"L\", \"kennwert\": \"K116\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 824,
+      "total_tokens": 1031,
+      "completion_tokens": 207,
+      "prompt_tokens_details": {
+        "cached_tokens": 640,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

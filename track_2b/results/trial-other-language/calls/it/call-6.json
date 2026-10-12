@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:14:36.345Z",
+  "tag": "sprache gegenüber it betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Du gibst jemandem im Gespräch Auskunft zu deinem Fall. Über den Fall weisst du nur, was du selbst so erzählt hast:\n\nBetreibungsbegehren ans Betreibungsamt Chur. Gläubigerin ist die Garage Caduff AG, Kasernenstrasse acht, siebentausend Chur. Zahlung bitte aufs Konto, IBAN CH93 0076 2011 6238 5295 7. Schuldner ist Peter Hartmann, Via Nova vierzehn, siebentausenddreizehn Domat Ems. Die Forderung ist die Rechnung Nummer zwanzig sechsundzwanzig strich einhundertachtzehn vom zwölften Juni für die Reparatur, zweitausenddreihundertvierzig Franken fünfzig, fünf Prozent Zins ab dreizehntem Juli.\n\nDir werden diese Fragen gestellt:\nA: Di quale Ufficio di esecuzione si tratta?\nB: Come si chiama il debitore e qual è il suo indirizzo?\nC: Qual è la data di nascita del debitore, se nota?\nD: Come si chiama il creditore e qual è il suo indirizzo?\nE: Qual è la forma di pagamento del creditore?\nF: Qual è il numero IBAN?\nG: vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\nH: Qual è il numero di telefono o l'indirizzo e-mail per eventuali domande?\nI: Qual è il motivo della richiesta o il documento di riferimento con data?\nJ: Qual è l'importo della richiesta in franchi svizzeri?\nK: Qual è il tasso di interesse applicato?\nL: Da quando è previsto l'interesse?\nM: Quali sono le osservazioni o note relative al caso?\nN: Qual è il riferimento del caso, se disponibile?\n\nAntworte auf jede Frage auf Italienisch, wie man im Gespräch antwortet: kurz und nur mit dem, was du weisst. Weisst du etwas nicht, sag das auf Italienisch. Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"antwort\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2462,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-fe45ea93-664b-4b5d-b073-1fb605a48dec",
+    "object": "chat.completion",
+    "created": 1791551676,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"antwort\": \"L'Ufficio di esecuzione è quello di Chur.\"}, {\"frage\": \"B\", \"antwort\": \"Il debitore si chiama Peter Hartmann e il suo indirizzo è Via Nova 14, 7313 Domat Ems.\"}, {\"frage\": \"C\", \"antwort\": \"La data di nascita del debitore non è nota.\"}, {\"frage\": \"D\", \"antwort\": \"Il creditore si chiama Garage Caduff AG e il suo indirizzo è Kasernenstrasse 8, 7000 Chur.\"}, {\"frage\": \"E\", \"antwort\": \"La forma di pagamento è sul conto IBAN.\"}, {\"frage\": \"F\", \"antwort\": \"L'IBAN è CH93 0076 2011 6238 5295 7.\"}, {\"frage\": \"G\", \"antwort\": \"Non sono rappresentato da nessun nome o firma.\"}, {\"frage\": \"H\", \"antwort\": \"Non è noto un numero di telefono o un indirizzo e-mail.\"}, {\"frage\": \"I\", \"antwort\": \"Il motivo della richiesta è la fattura numero 2026-118 del 12 giugno.\"}, {\"frage\": \"J\", \"antwort\": \"L'importo della richiesta è di 2340.50 franchi svizzeri.\"}, {\"frage\": \"K\", \"antwort\": \"Il tasso di interesse è del cinque percento.\"}, {\"frage\": \"L\", \"antwort\": \"L'interesse è previsto dal 13 luglio.\"}, {\"frage\": \"M\", \"antwort\": \"Non ci sono osservazioni o note aggiuntive.\"}, {\"frage\": \"N\", \"antwort\": \"Non è disponibile un riferimento del caso.\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 523,
+      "total_tokens": 926,
+      "completion_tokens": 403,
+      "prompt_tokens_details": {
+        "cached_tokens": 224,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

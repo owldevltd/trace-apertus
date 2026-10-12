@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:34:12.513Z",
+  "tag": "lesen füllen fr suva-bagatellunfall q20",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 400,
+  "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Frage: Was hat die verletzte Person genau zur Zeit des Unfalls gemacht, wie der Unfall verlaufen ist, wer war dabei und was war beteiligt?\nAntwort: Déversement d'une palette, glissée et tombée sur le poignet droit\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- hergang: Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge — Vorgabe: Text, mehrere Sätze möglich\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.\nDie Antwort im Gespräch ist auf Französisch. Schreibe den Wert so, wie er gesagt wurde, auf Französisch; übersetze nichts.",
+  "image": 0,
+  "audio": 0,
+  "ms": 282,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-b71d44d3-049f-4f84-8286-2f00b4d8674e",
+    "object": "chat.completion",
+    "created": 1791552853,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "hergang: Déversement d'une palette, glissée et tombée sur le poignet droit [p1]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 313,
+      "total_tokens": 338,
+      "completion_tokens": 25,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

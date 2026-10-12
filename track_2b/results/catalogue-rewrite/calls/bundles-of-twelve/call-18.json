@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:40:53.428Z",
+  "tag": "umgeschrieben-paeckchen suva-bagatellunfall q49",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Bagatellunfall-Meldung UVG\", jede mit ihrer Kennung:\n\nq49: Welches Datum der Anstellung wird eingetragen?\nq50: Ist die Person ßöhres Kader, ßöhres Kader oder Angestellte/r / Arbeiter/in?\nq51: Ist die Person Lehrling oder Praktikant/in?\nq52: Wie viele Stunden arbeitet der/die Verletzte pro Woche?\nq53: Wie lautet der Ort (Name oder PLZ) und die Stelle (z. B. Werkstatt, Strasse) des Unfallorts?\nq54: Welche Tätigkeit wurde zur Zeit des Unfalles ausgeöbt; wie lief der Unfallhergang ab, wer war beteiligt, was wurde beschädigt?\nq55: Welche Tätigkeit wurde zur Zeit des Unfalles ausgeöbt; wie lief der Unfallhergang ab, wer war beteiligt, was wurde beschädigt?\nq56: Welche Information wird an dieser Stelle eingetragen?\nq57: Welche Information wird an dieser Stelle eingetragen?\nq58: Welche Information wird an dieser Stelle eingetragen?\nq59: Welche Information wird an dieser Stelle eingetragen?\nq60: Welche Information wird an dieser Stelle eingetragen?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 4176,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-dc6a41ed-e793-43a1-88eb-b9e5fc855d55",
+    "object": "chat.completion",
+    "created": 1791531653,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q49\", \"frage\": \"Wann ist die Person angestellt worden?\"}, {\"kennung\": \"q50\", \"frage\": \"Ist die Person Kader, Kader oder Angestellte oder Arbeiter?\"}, {\"kennung\": \"q51\", \"frage\": \"Ist die Person Lehrling oder Praktikant?\"}, {\"kennung\": \"q52\", \"frage\": \"Wie viele Stunden arbeitet die Person pro Woche?\"}, {\"kennung\": \"q53\", \"frage\": \"Wie heißt der Ort und wo genau ist der Unfall passiert?\"}, {\"kennung\": \"q54\", \"frage\": \"Welche Arbeit hat die Person gerade gemacht, was ist passiert, wer war dabei, was ist kaputt gegangen?\"}, {\"kennung\": \"q55\", \"frage\": \"Welche Arbeit hat die Person gerade gemacht, was ist passiert, wer war dabei, was ist kaputt gegangen?\"}, {\"kennung\": \"q56\", \"frage\": \"Welche Information wird hier eingetragen?\"}, {\"kennung\": \"q57\", \"frage\": \"Welche Information wird hier eingetragen?\"}, {\"kennung\": \"q58\", \"frage\": \"Welche Information wird hier eingetragen?\"}, {\"kennung\": \"q59\", \"frage\": \"Welche Information wird hier eingetragen?\"}, {\"kennung\": \"q60\", \"frage\": \"Welche Information wird hier eingetragen?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 491,
+      "total_tokens": 815,
+      "completion_tokens": 324,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

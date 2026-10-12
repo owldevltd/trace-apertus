@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T10:24:18.030Z",
+  "tag": "check run 2 page 1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBetreibungsamt\nBetreibungsamt  → [q1]\nSchuldner\nSchuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q2]\nGeburtsdatum (falls bekannt)  → [q3]\nGläubiger\nGläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q4]\nZahlungsverbindung des Gläubigers  → [q5: Auswahl]\nZahlungsverbindung des Vertreters  → [q5: Auswahl]\nIBAN  → [q6]\nvertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q7]\nFür Rückfragen: Telefon oder E-Mail  → [q8]\nForderung\nForderungsgrund oder Forderungsurkunde mit Datum  → [q9]\nBetrag (CHF)  → [q10]\nZins %  → [q11]\nZins seit (Datum)  → [q12]\nAbschluss\nBemerkungen  → [q13]\nIhre Fallreferenz (falls vorhanden)  → [q14]\nDatum und Unterschrift\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Wie heisst der Schuldner und wo wohnt er?\nB: Gibt es Bemerkungen zum Abschluss?\nC: Wie heisst der Gläubiger und wo ist er ansässig?\nD: Welche IBAN wird angegeben?\nE: Wie hoch ist der Betrag der Forderung in Schweizer Franken?\nF: Seit welchem Datum wird Zins verlangt?\nG: Wie kann man bei Rückfragen telefonisch oder per E-Mail erreichen?\nH: Welche Zahlungsverbindung wählt der Gläubiger?\nI: Wann ist das Geburtsdatum des Schuldners?\nJ: Welchen Forderungsgrund oder welche Urkunde mit Datum liegt vor?\nK: Welcher Zinssatz wird verlangt?\nL: Welche Fallreferenz ist vorhanden?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1189,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-e9a6869b-13b1-4795-84ea-d34fccebf059",
+    "object": "chat.completion",
+    "created": 1791541458,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q2\"}, {\"frage\": \"B\", \"kennung\": \"q13\"}, {\"frage\": \"C\", \"kennung\": \"q4\"}, {\"frage\": \"D\", \"kennung\": \"q6\"}, {\"frage\": \"E\", \"kennung\": \"q10\"}, {\"frage\": \"F\", \"kennung\": \"q12\"}, {\"frage\": \"G\", \"kennung\": \"q8\"}, {\"frage\": \"H\", \"kennung\": \"q5\"}, {\"frage\": \"I\", \"kennung\": \"q3\"}, {\"frage\": \"J\", \"kennung\": \"q9\"}, {\"frage\": \"K\", \"kennung\": \"q11\"}, {\"frage\": \"L\", \"kennung\": \"q14\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 694,
+      "total_tokens": 875,
+      "completion_tokens": 181,
+      "prompt_tokens_details": {
+        "cached_tokens": 480,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

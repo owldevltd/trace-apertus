@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:46:17.010Z",
+  "tag": "einzeln it suva-bagatellunfall anstellung",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 200,
+  "prompt": "Übersetze die Angabe unten vom Italienisch ins Deutsche. Sie steht in einem Formular bei «Datum der Anstellung». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der deutschen Angabe, ohne weiteren Text.\n\nAngabe: 01.02.2019",
+  "image": 0,
+  "audio": 0,
+  "ms": 202,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-b6cc8839-bf21-4e0f-9b52-29d36f234c19",
+    "object": "chat.completion",
+    "created": 1791553577,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "01.02.2019",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 146,
+      "completion_tokens": 11,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

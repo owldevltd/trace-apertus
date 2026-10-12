@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T19:27:45.589Z",
+  "tag": "bind 8B suva-bagatellunfall page 4",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 660,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 4 =====\n[q79]\nSchaden-Nummer  → [q80]\nApothekerschein UVG\nArbeitgeber\nName und Adresse mit Postleitzahl  → [q81]\nTel.-Nr.  → [q82]\nKunden-Nr.  → [q83]\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q84]\nVerletzte/r\nName und Vorname  → [q85]\nGeburtsdatum  → [q86]\nAHV-Nummer  → [q87]\n[q88]\n[q89]\nStrasse  → [q90]\n[q91]\n[q92]\nPLZ\nWohnort\n[q93]\nSchaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\nHinweise für die/den Verletzte/n\nHinweise für den Apotheker\nDie vom Arzt verordneten Medikamente werden Ihnen vom Apotheker gegen Abgabe dieses Scheines kostenlos abgegeben. Alle Medikamente sind aus der gleichen Apotheke zu beziehen.\nBitte senden Sie diese Rechnung nach Abschluss der Behandlung – spätestens aber 3 Monate nach Unfalldatum – an die oben aufge- führte Adresse. Einen neuen Apothekerschein können Sie bei uns verlangen, wenn – der Platz für das Eintragen der Bezüge nicht ausreicht, – nach Ablauf von 3 Monaten weitere Medikamente benötigt werden.\nlinks  → [q94: Auswahl]\nrechts  → [q94: Auswahl]\nunbestimmt  → [q94: Auswahl]\nVerletzung\nBetroffener Körperteil:  → [q95]\nArt der Schädigung:\nArzt- adressen  → [q96]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q97]\nRechnung der Apotheke  → [q98]\nDatum:\nDatum der Abgabe  → [q99: Tabelle mit 6 Zeilen und 4 Spalten]\nArt und Menge  → [q100] [q99: Tabelle mit 6 Zeilen und 4 Spalten]\nPreis\nCHF  → [q99: Tabelle mit 6 Zeilen und 4 Spalten]\nRp.  → [q99: Tabelle mit 6 Zeilen und 4 Spalten]\n[q99: Tabelle mit 6 Zeilen und 4 Spalten]\nStempel der Apotheke:\n[q99: Tabelle mit 6 Zeilen und 4 Spalten]\n3 Code  → [q101] [q102] [q103] [q104] [q105]\n[q106]\n[q107]\n[q108]\n[q109]\nTotal  → [q110]\nPostkonto-Nr. oder zugeteilte Suva-Nr.\nBitte Rezepte beilegen\nBei Abrechnung über OFAC: 35-1\nGeht an: Verletzte/r ➞ Apotheker ➞ Suva\n-----\n\nFür dieses Formular gelten die folgenden Pflichtangaben:\n1: Tag – Tag des Unfalls\n2: Monat – Monat des Unfalls\n3: Jahr – Jahr des Unfalls\n4: Ort (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse) – Ort des Unfalls mit Name oder PLZ und die Stelle, an der er geschah\n5: Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge – Hergang des Unfalls: Tätigkeit, Ablauf, beteiligte Personen und Gegenstände, so dass der Hergang abgeklärt werden kann\n6: Betroffener Körperteil – Betroffener Körperteil als Folge des Unfalls\n7: Erstbehandelnder Arzt bzw. Spital/Klinik – Behandelnder Arzt oder Spital der Erstbehandlung\n8: Name und Adresse mit Postleitzahl – Name und Adresse des meldenden Arbeitgebers\n9: Name und Vorname – Name und Vorname der verletzten Person\n\nNenne zu jeder Pflichtangabe die Kennung der Stelle auf dieser Seite, an der sie eingetragen wird. Gehört sie zu mehreren Stellen, nenne alle; steht sie auf dieser Seite nicht, gib eine leere Liste. Rate nicht.\nAntworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"nummer\": 1, \"kennungen\": [\"q5\"]}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1368,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-b5f636b4-a560-4f4d-8270-b8950b94b940",
+    "object": "chat.completion",
+    "created": 1791574066,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"zuordnung\": [{\"nummer\": 1, \"kennungen\": [\"q5\"]}, {\"nummer\": 2, \"kennungen\": [\"q5\"]}, {\"nummer\": 3, \"kennungen\": [\"q5\"]}, {\"nummer\": 4, \"kennungen\": [\"q90\", \"q91\", \"q92\"]}, {\"nummer\": 5, \"kennungen\": [\"q80\", \"q81\", \"q82\", \"q83\", \"q84\", \"q85\", \"q86\", \"q87\"]}, {\"nummer\": 6, \"kennungen\": [\"q95\"]}, {\"nummer\": 7, \"kennungen\": [\"q96\"]}, {\"nummer\": 8, \"kennungen\": [\"q80\"]}, {\"nummer\": 9, \"kennungen\": [\"q85\"]}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1219,
+      "total_tokens": 1421,
+      "completion_tokens": 202,
+      "prompt_tokens_details": {
+        "cached_tokens": 160,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

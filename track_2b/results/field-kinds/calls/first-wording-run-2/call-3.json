@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T13:44:32.558Z",
+ "tag": "arten schadenmeldung-uvg 1 #2",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 876,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nSchadenmeldung UVG\nMeldung eines Unfalls, einer Berufskrankheit, eines Zahnschadens oder eines Rückfalls durch den Arbeitgeber\nNachgebaut nach dem Vorbild der Schadenmeldung UVG der Helsana Unfall AG (Ausgabe 12.2016) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.\nArt der Meldung\nSchaden-Nummer  → [q4]\nUnfall  → [q5: Auswahl]\nBerufskrankheit  → [q5: Auswahl]\nZahnschaden  → [q6: Auswahl]\nRückfall  → [q6: Auswahl]\n1 Arbeitgeber\nName und Adresse mit Postleitzahl  → [q7]\nTel.-Nr.  → [q8]\nE-Mail  → [q9]\nPolice-Nr. UVG  → [q10]\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q11]\nPolice-Nr. UVG-Zusatz  → [q12]\n2 Verletzte / Verletzter\nName und Vorname  → [q14]\nGeburtsdatum  → [q15]\nAHV-Nummer  → [q16]\nStrasse  → [q17]\nTel.-Nr.  → [q18]\nZivilstand  → [q19]\nLand  → [q20]\nPLZ  → [q21]\nWohnort  → [q22]\nStaatsangehörigkeit / Bewilligung  → [q23]\nE-Mail  → [q24]\n3 Anstellung\nDatum der Anstellung  → [q26]\nAusgeübter Beruf  → [q27]\nStellung\nHöheres Kader  → [q28: Kästchen]\nMittleres Kader  → [q29: Kästchen]\nAngestellte/r / Mitarbeiter/in  → [q30: Kästchen]\nLehrling  → [q31: Auswahl]\nPraktikant/in  → [q31: Auswahl]\nVerhältnis\nunbefristeter Arbeitsvertrag  → [q33: Auswahl]\nbefristeter Arbeitsvertrag  → [q34: Kästchen]\nArbeitsverhältnis gekündigt per  → [q35: Kästchen]\n[q36]\nArbeitszeit des/der Verletzten (Std./Woche)  → [q38]\nBetriebsübliche Vollarbeitszeit (Std./Woche)  → [q39]\nVertraglicher Beschäftigungsgrad (Prozent)  → [q40]\nArbeitseinsatz\nunregelmässig  → [q41: Auswahl]\nKurzarbeit  → [q42: Auswahl]\nZwischenverdienst  → [q42: Auswahl]\n4 Schadendatum\nTag  → [q45]\nMonat  → [q46]\nJahr  → [q47]\nZeit (Stunden, Minuten)  → [q48]\n5 Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q49]\n6 Sachverhalt (Unfallbeschreibung, Verdacht auf Berufskrankheit)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Gegenstände, Fahrzeuge  → [q50]\nBeteiligte Person(en)  → [q51]\nBesteht ein Polizeirapport?\nWenn ja, aufgenommen durch  → [q53]\nJa  → [q54: Auswahl]\nNein  → [q54: Auswahl]\nUnbekannt  → [q54: Auswahl]\nBesteht ein Unfallprotokoll? Wenn ja, bitte Kopie beilegen.\nJa  → [q55: Auswahl]\nNein  → [q55: Auswahl]\nNachgebaut nach dem Vorbild der Helsana-Schadenmeldung UVG – nicht das Original\nSeite 1 / 2\n-----\n\nSage zu jeder der Kennungen unten, welche Art von Angabe an dieser Stelle eingetragen wird. Wähle genau eine dieser Arten:\n- text: ein Name, eine Adresse, ein Wort oder ein Satz\n- zahl: eine Zahl, eine Nummer oder ein Betrag\n- telefon: eine Telefonnummer\n- email: eine E-Mail-Adresse\n- plz: eine Postleitzahl\n- iban: eine IBAN\n- datum: ein Datum\n- uhrzeit: eine Uhrzeit\n\nDie Kennungen: q4, q7, q8, q9, q10, q11, q12, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q26, q27, q36, q38, q39, q40, q45, q46, q47, q48, q49, q50, q51, q53\nAntworte nur als JSON, ohne weiteren Text: {\"arten\": [{\"kennung\": \"q1\", \"art\": \"text\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 2966,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-c313727f-36d0-4ac3-a276-6a4656222818",
+  "object": "chat.completion",
+  "created": 1791726275,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"arten\": [{\"kennung\": \"q4\", \"art\": \"text\"}, {\"kennung\": \"q7\", \"art\": \"text\"}, {\"kennung\": \"q8\", \"art\": \"telefon\"}, {\"kennung\": \"q9\", \"art\": \"email\"}, {\"kennung\": \"q10\", \"art\": \"text\"}, {\"kennung\": \"q11\", \"art\": \"text\"}, {\"kennung\": \"q12\", \"art\": \"text\"}, {\"kennung\": \"q14\", \"art\": \"text\"}, {\"kennung\": \"q15\", \"art\": \"datum\"}, {\"kennung\": \"q16\", \"art\": \"text\"}, {\"kennung\": \"q17\", \"art\": \"text\"}, {\"kennung\": \"q18\", \"art\": \"telefon\"}, {\"kennung\": \"q19\", \"art\": \"text\"}, {\"kennung\": \"q20\", \"art\": \"text\"}, {\"kennung\": \"q21\", \"art\": \"text\"}, {\"kennung\": \"q22\", \"art\": \"text\"}, {\"kennung\": \"q23\", \"art\": \"text\"}, {\"kennung\": \"q24\", \"art\": \"email\"}, {\"kennung\": \"q26\", \"art\": \"datum\"}, {\"kennung\": \"q27\", \"art\": \"text\"}, {\"kennung\": \"q36\", \"art\": \"text\"}, {\"kennung\": \"q38\", \"art\": \"zahl\"}, {\"kennung\": \"q39\", \"art\": \"zahl\"}, {\"kennung\": \"q40\", \"art\": \"zahl\"}, {\"kennung\": \"q45\", \"art\": \"zahl\"}, {\"kennung\": \"q46\", \"art\": \"zahl\"}, {\"kennung\": \"q47\", \"art\": \"zahl\"}, {\"kennung\": \"q48\", \"art\": \"uhrzeit\"}, {\"kennung\": \"q49\", \"art\": \"text\"}, {\"kennung\": \"q50\", \"art\": \"text\"}, {\"kennung\": \"q51\", \"art\": \"text\"}, {\"kennung\": \"q53\", \"art\": \"text\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 1354,
+   "total_tokens": 1839,
+   "completion_tokens": 485,
+   "prompt_tokens_details": {
+    "cached_tokens": 1344,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

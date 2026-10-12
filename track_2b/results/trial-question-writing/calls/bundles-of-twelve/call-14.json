@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:13:45.488Z",
+  "tag": "d-8b-bundle schadenmeldung-uvg S2",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 2 =====\nSchadenmeldung UVG – Fortsetzung\n7 Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q56]\n8 Nichtberufsunfall  → [q57]\nLetztmals im Betrieb gearbeitet bis (Wochentag, Datum, Zeit)  → [q59]\nGrund der Absenz  → [q58]\n9 Verletzung  → [q60]\nBetroffener Körperteil  → [q61]\nSeite  → [q63]\nlinks  → [q62: Auswahl]\nrechts  → [q62: Auswahl]\nunbestimmt  → [q62: Auswahl]\nArt der Schädigung  → [q64]\n10 Arbeitsunfähigkeit  → [q65]\nArbeit zufolge Unfalles ausgesetzt?  → [q68]\nWenn ja, ab wann?  → [q66]\nJa  → [q67: Auswahl]\nNein  → [q67: Auswahl]\nVoraussichtliche Dauer\nFalls Arbeit wieder aufgenommen: ab wann?  → [q69]\nWiederaufnahme\nlänger als 1 Monat  → [q70: Auswahl]\nganz  → [q71: Auswahl]\nteilweise  → [q71: Auswahl]\n11 Arztadressen  → [q72]\nErstbehandelnder Arzt bzw. Spital/Klinik  → [q73]\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q74]\nErstbehandlung, falls Spital/Klinik  → [q77]\nNachbehandlung, falls Spital/Klinik  → [q78]\nambulant  → [q75: Auswahl]\nstationär  → [q75: Auswahl]\nambulant  → [q76: Auswahl]\nstationär  → [q76: Auswahl]\n12 Lohn\nLohnbestandteil\nCHF pro Stunde  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nCHF pro Monat  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nCHF pro Jahr  → [q79: Tabelle mit 5 Zeilen und 3 Spalten]\nVertraglicher Grundlohn inkl. Teuerungszulage (brutto)\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nKinder-/Familienzulagen\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nFerien-/Feiertagsentschädigung\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nGratifikation / 13. Monatslohn (und weitere)\n[q79: Tabelle mit 5 Zeilen und 3 Spalten]\nAndere Lohnzulagen (Akkord, Provision, Naturallohn, Schichtzulage)  → [q80] [q81]\nAnzahl Kinder (bis 18 J., in Ausbildung bis 25 J.)  → [q82]\nBezeichnung der anderen Lohnzulagen  → [q83]\n13 Sonderfälle  → [q84]\nWeitere(r) Arbeitgeber\nWenn ja, Name und Adresse  → [q85]\nSteuern\nNein  → [q86: Auswahl]\nJa  → [q86: Auswahl]\nQuellensteuerpflicht  → [q87: Kästchen]\nBesondere Versicherungsverhältnisse\nFreiwillige Versicherung (Arbeitgeber / Selbständigerwerbende)  → [q88: Kästchen]\nFamilienmitglied / Gesellschafter  → [q89: Kästchen]\nEntsandte/r  → [q90: Kästchen]\n14 Andere Sozialversicherungsleistungen  → [q91]\nAnspruch auf Taggeld oder Rente bei einer anderen Sozialversicherung?  → [q94]\nWenn ja, wo?  → [q92]\nNein  → [q93: Auswahl]\nJa  → [q93: Auswahl]\nName der obligatorischen Krankenversicherung (inkl. Police-Nr.)  → [q95]\nUnterschriften\nOrt und Datum  → [q96]\nUnterschrift des/der Verletzten\nStempel und Unterschrift des Arbeitgebers\nNachgebaut nach dem Vorbild der Helsana-Schadenmeldung UVG – nicht das Original\nSeite 2 / 2\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu diesen Kennungen je genau eine Frage: q80, q81, q82, q83, q84, q85, q86, q87, q88, q89, q90, q91. Schreibe sie so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2243,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-fe92ef45-2291-4508-aded-46f975ba25cd",
+    "object": "chat.completion",
+    "created": 1791537225,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q80\", \"frage\": \"Welche anderen Lohnzulagen gibt es, wie Akkord, Provision oder Schichtzulage?\"}, {\"kennung\": \"q81\", \"frage\": \"Wie heißen die anderen Lohnzulagen, die Sie zusätzlich erhalten?\"}, {\"kennung\": \"q82\", \"frage\": \"Wie viele Kinder haben Sie, die noch nicht 18 Jahre alt sind oder noch in Ausbildung sind?\"}, {\"kennung\": \"q83\", \"frage\": \"Wie heißen die anderen Lohnzulagen, die Sie zusätzlich erhalten?\"}, {\"kennung\": \"q84\", \"frage\": \"Gibt es besondere Fälle, die wir berücksichtigen sollten?\"}, {\"kennung\": \"q85\", \"frage\": \"Gibt es weitere Arbeitgeber, bei denen Sie arbeiten oder gearbeitet haben, und wenn ja, wie heißen sie und wo liegen sie?\"}, {\"kennung\": \"q86\", \"frage\": \"Haben Sie Steuern zu zahlen?\"}, {\"kennung\": \"q87\", \"frage\": \"Müssen Sie Quellensteuern zahlen?\"}, {\"kennung\": \"q88\", \"frage\": \"Ist jemand freiwillig versichert, zum Beispiel Ihr Arbeitgeber oder Sie selbst als Selbständiger?\"}, {\"kennung\": \"q89\", \"frage\": \"Ist jemand ein Familienmitglied oder Gesellschafter?\"}, {\"kennung\": \"q90\", \"frage\": \"Ist jemand entsandt?\"}, {\"kennung\": \"q91\", \"frage\": \"Gibt es andere Sozialversicherungsleistungen, die Sie erhalten?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1646,
+      "total_tokens": 2005,
+      "completion_tokens": 359,
+      "prompt_tokens_details": {
+        "cached_tokens": 1248,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:34:35.097Z",
+  "tag": "e2e schreiben 70b",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 1580,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBetreibungsamt\nBetreibungsamt  → [q1]\nSchuldner\nSchuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q2]\nGeburtsdatum (falls bekannt)  → [q3]\nGläubiger\nGläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q4]\nZahlungsverbindung des Gläubigers  → [q5: Auswahl]\nZahlungsverbindung des Vertreters  → [q5: Auswahl]\nIBAN  → [q6]\nvertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q7]\nFür Rückfragen: Telefon oder E-Mail  → [q8]\nForderung\nForderungsgrund oder Forderungsurkunde mit Datum  → [q9]\nBetrag (CHF)  → [q10]\nZins %  → [q11]\nZins seit (Datum)  → [q12]\nAbschluss\nBemerkungen  → [q13]\nIhre Fallreferenz (falls vorhanden)  → [q14]\nDatum und Unterschrift\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu jeder Kennung genau eine Frage, so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 7402,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-229417a2-55ec-4dd7-9afb-c182e95f75ba",
+    "object": "chat.completion",
+    "created": 1791538475,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"fragen\": [\n    {\n      \"kennung\": \"q1\",\n      \"frage\": \"Wie heißt das Betreibungsamt?\"\n    },\n    {\n      \"kennung\": \"q2\",\n      \"frage\": \"Wie heißen Sie mit Nachnamen und Vornamen und wo wohnen Sie?\"\n    },\n    {\n      \"kennung\": \"q3\",\n      \"frage\": \"Wissen Sie Ihr Geburtsdatum?\"\n    },\n    {\n      \"kennung\": \"q4\",\n      \"frage\": \"Wie heißt der Gläubiger mit Nachnamen und Vornamen bzw. Firma und wo ist er ansässig?\"\n    },\n    {\n      \"kennung\": \"q5\",\n      \"frage\": \"Wie kann der Gläubiger bezahlt werden? (IBAN, Postkonto, Bankkonto oder anderes)\"\n    },\n    {\n      \"kennung\": \"q6\",\n      \"frage\": \"Was ist die IBAN-Nummer?\"\n    },\n    {\n      \"kennung\": \"q7\",\n      \"frage\": \"Wird der Schuldner durch jemanden vertreten? Wenn ja, wie heißt die Person und wo ist sie erreichbar?\"\n    },\n    {\n      \"kennung\": \"q8\",\n      \"frage\": \"Wie kann man Sie für Rückfragen erreichen? (Telefonnummer oder E-Mail-Adresse)\"\n    },\n    {\n      \"kennung\": \"q9\",\n      \"frage\": \"Was ist der Grund für die Forderung oder wo finde ich die Urkunde mit Datum?\"\n    },\n    {\n      \"kennung\": \"q10\",\n      \"frage\": \"Wie hoch ist der geforderte Betrag in Schweizer Franken?\"\n    },\n    {\n      \"kennung\": \"q11\",\n      \"frage\": \"Welchen Zinssatz verlangt der Gläubiger in Prozent?\"\n    },\n    {\n      \"kennung\": \"q12\",\n      \"frage\": \"Seit wann läuft der Zins?\"\n    },\n    {\n      \"kennung\": \"q13\",\n      \"frage\": \"Gibt es noch etwas Wichtiges zu ergänzen?\"\n    },\n    {\n      \"kennung\": \"q14\",\n      \"frage\": \"Haben Sie eine Fallnummer, die Sie bereits vom Amt erhalten haben?\"\n    }\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 856,
+      "total_tokens": 1342,
+      "completion_tokens": 486,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:30:59.393Z",
+  "tag": "zurück 8b sechs fr suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat ein deutsches Formular auf Französisch beantwortet. Unten steht je Feld die deutsche Beschriftung, die Art und der Wert, den die Person angegeben hat.\n\n- koerperteil | Beschriftung: Betroffener Körperteil | Art: Text | Wert: Poignet\n- arzt1 | Beschriftung: Erstbehandelnder Arzt bzw. Spital/Klinik | Art: Text | Wert: Kantonsspital Zug, Urgence\n\nÜbersetze jeden Wert ins Deutsche, so wie er in das deutsche Formular gehört. Namen, Firmen, Adressen, Nummern und Daten bleiben unverändert; ist ein Wert schon deutsch oder braucht keine Übersetzung, gib ihn unverändert zurück. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"feld\": \"name\", \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 383,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-57a168f0-5c1b-40d2-b2d1-048b59943466",
+    "object": "chat.completion",
+    "created": 1791552660,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"feld\": \"koerperteil\", \"wert\": \"Poignet\"}, {\"feld\": \"arzt1\", \"wert\": \"Kantonsspital Zug, Urgence\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 250,
+      "total_tokens": 293,
+      "completion_tokens": 43,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T12:25:56.695Z",
+ "tag": "questions page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 3050,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nArbeitsfähigkeitszeugnis\nBeurteilung der Arbeitsfähigkeit und der Reintegration bei Krankheit oder Unfall\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses (Swiss Insurance Medicine, Ausgabe Januar 2019) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.\nVon der Arbeitgeberin / dem Arbeitgeber auszufüllen (evtl. von der Patientin / dem Patienten)\nArbeitnehmerin / Arbeitnehmer\nName / Vorname  → [q1]\nGeb.-Dat.  → [q2]\nGeschlecht\nw  → [q3: Auswahl]\nm  → [q3: Auswahl]\nAdresse / PLZ  → [q4]\nAHV-Nr.  → [q5]\nTelefon  → [q6]\nE-Mail  → [q7]\nArbeitgeberin / Arbeitgeber\nFirmenname  → [q8]\nKontaktperson  → [q9]\nAdresse / PLZ  → [q10]\nTelefon  → [q11]\nE-Mail  → [q12]\nAnstellung\nFunktion / ausgeübter Beruf *  → [q13]\nEintrittsjahr\nStd. / Tag  → [q15]\n[q16]\nArbeitszeit Vollzeit (100 %)  → [q17: Kästchen]\nWochenarbeitszeit / Einsatztage  → [q18]\nTeilzeit  → [q19: Kästchen]\n[q20]\n%\nBei Kündigung: Arbeitsverhältnis gekündigt per  → [q21]\nVon der Ärztin / dem Arzt auszufüllen\nUrsache\nKrankheit  → [q22: Auswahl]\nUnfall  → [q22: Auswahl]\nBerufskrankheit  → [q22: Auswahl]\nVolle Arbeitsunfähigkeit\nBasierend auf *\nREP vom  → [q23]\nArbeitsplatzbeschrieb vom  → [q24]\nREP  → [q25: Auswahl]\nArbeitsplatzbeschrieb  → [q25: Auswahl]\nKonsultationsdatum  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nArbeitsunfähigkeit\nbis  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nnächste Konsultation  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nVisum  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nvon  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\n[q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\n[q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\nEs liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor\nja  → [q27: Auswahl]\nnein  → [q27: Auswahl]\nTeilarbeitsfähigkeit / Reintegration (Beurteilung für den Reintegrationsprozess)\nBasierend auf REP  → [q28: Auswahl]\n*  → [q28: Auswahl]\nREP vom  → [q29]\nArbeitsplatzbeschrieb vom  → [q30]\nArbeitsplatzbeschrieb\nKonsultationsdatum\nPräsenzzeit Std. pro Tag  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nPräsenzzeit % Pensum  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nLeistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nArbeits- fähigkeit gesamt %  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nbis\nnächste\nVisum\nvon\nKonsultation  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\n[q31: Tabelle mit 4 Zeilen und 9 Spalten]\nWiederaufnahme der Arbeit zu 100 % ab  → [q32]\nBemerkungen und Unterschrift\nBemerkungen  → [q33]\nArzt / Ärztin (Name, Stempel)  → [q34]\nKontakt mit Arbeitgeberin / Arbeitgeber erwünscht\nja  → [q35: Auswahl]\nnein  → [q35: Auswahl]\nDatum  → [q36]\nUnterschrift\n* Bitte beifügen: Arbeitsplatzbeschrieb / Stellenprofil oder REP (Ressourcenorientiertes Eingliederungsprofil).\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses – nicht das Original\nSeite 1 / 1\n-----\n\nDu bist die Person, die das Gespräch führt, wie in einem Interview: du fragst, dein Gegenüber antwortet, und du selbst schreibst die Antworten danach ins Formular. Du sprichst also nicht als das Formular.\nSchreibe zu jeder Kennung genau eine Frage, so wie man sie im Gespräch einem Menschen stellt, der das Formular nicht vor sich hat und mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze; keine Abkürzungen, keine Klammern, keine Amtssprache\n- sage, um wen oder was es geht, statt das Wort vom Formular zu wiederholen (statt \"Wohnsitzgemeinde\" zum Beispiel \"In welcher Gemeinde wohnen Sie?\"); schau dafür auf die Zeilen davor\n- frage nach der Sache selbst; bitte dein Gegenüber nie, etwas einzutragen, anzukreuzen oder auszufüllen, und sprich nicht vom Formular, von Feldern, Zeilen, Spalten oder Kästchen\n- du weisst nicht, wer dein Gegenüber ist: handelt eine Stelle von einer bestimmten Person oder Partei, dann frage nach dieser in der dritten Person und nenne sie mit einfachen Worten; sprich dein Gegenüber nur dort als diese Person an, wo das Formular selbst es so anspricht\n- bei einer Auswahl nenne die Möglichkeiten, die auf dem Formular stehen\n- bei einer Tabelle frage nach allen Einträgen und sage, was zu jedem Eintrag gehört\n- erfinde nichts, was nicht auf dem Formular steht, und lasse keine Kennung aus; gibt es zu einer Kennung nichts zu fragen, schreibe als Frage genau das Wort KEINE\nAntworte nur als JSON, ohne weiteren Text: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 8244,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-98136a9a-6ac4-4261-9f29-525abfcc622b",
+  "object": "chat.completion",
+  "created": 1791548757,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"Wie lautet der Name und der Vorname der Person?\"}, {\"kennung\": \"q2\", \"frage\": \"In welchem Jahr und welchem Monat wurde die Person geboren?\"}, {\"kennung\": \"q3\", \"frage\": \"Welches Geschlecht hat die Person?\"}, {\"kennung\": \"q4\", \"frage\": \"In welcher Straße und Postleitzahl wohnt die Person?\"}, {\"kennung\": \"q5\", \"frage\": \"Welche AHV-Nummer hat die Person?\"}, {\"kennung\": \"q6\", \"frage\": \"Welche Telefonnummer hat die Person?\"}, {\"kennung\": \"q7\", \"frage\": \"Welche E-Mail-Adresse hat die Person?\"}, {\"kennung\": \"q8\", \"frage\": \"Wie heißt das Unternehmen, bei dem die Person arbeitet?\"}, {\"kennung\": \"q9\", \"frage\": \"Wie heißt die Kontaktperson beim Arbeitgeber?\"}, {\"kennung\": \"q10\", \"frage\": \"In welcher Straße und Postleitzahl hat das Unternehmen seinen Sitz?\"}, {\"kennung\": \"q11\", \"frage\": \"Welche Telefonnummer hat das Unternehmen?\"}, {\"kennung\": \"q12\", \"frage\": \"Welche E-Mail-Adresse hat das Unternehmen?\"}, {\"kennung\": \"q13\", \"frage\": \"Welchen Beruf übt die Person aus?\"}, {\"kennung\": \"q15\", \"frage\": \"Seit welchem Jahr arbeitet die Person bei diesem Arbeitgeber?\"}, {\"kennung\": \"q16\", \"frage\": \"KEINE\"}, {\"kennung\": \"q17\", \"frage\": \"Ist die Person in Vollzeit (100 %) angestellt?\"}, {\"kennung\": \"q18\", \"frage\": \"Wie viele Stunden pro Woche arbeitet die Person?\"}, {\"kennung\": \"q19\", \"frage\": \"Ist die Person in Teilzeit angestellt?\"}, {\"kennung\": \"q20\", \"frage\": \"KEINE\"}, {\"kennung\": \"q21\", \"frage\": \"Per welchem Datum wurde das Arbeitsverhältnis gekündigt?\"}, {\"kennung\": \"q22\", \"frage\": \"Wodurch wurde die Arbeitsunfähigkeit verursacht: durch Krankheit, Unfall oder Berufskrankheit?\"}, {\"kennung\": \"q23\", \"frage\": \"Wann wurde das Ressourcenorientierte Eingliederungsprofil (REP) erstellt?\"}, {\"kennung\": \"q24\", \"frage\": \"Wann wurde der Arbeitsplatzbeschrieb erstellt?\"}, {\"kennung\": \"q25\", \"frage\": \"Wurde das REP oder der Arbeitsplatzbeschrieb erstellt?\"}, {\"kennung\": \"q26\", \"frage\": \"Wann wurde die Konsultation durchgeführt? Bitte geben Sie Datum, Monat und Jahr an.\"}, {\"kennung\": \"q26\", \"frage\": \"Wie lange dauert die Arbeitsunfähigkeit? Bitte geben Sie den Zeitraum von und bis an.\"}, {\"kennung\": \"q26\", \"frage\": \"Wann ist die nächste Konsultation geplant? Bitte geben Sie Datum, Monat und Jahr an.\"}, {\"kennung\": \"q26\", \"frage\": \"Wann wurde das Visum erteilt? Bitte geben Sie Datum, Monat und Jahr an.\"}, {\"kennung\": \"q26\", \"frage\": \"Ab wann ist die Person wieder zu 100 % arbeitsfähig? Bitte geben Sie Datum, Monat und Jahr an.\"}, {\"kennung\": \"q26\", \"frage\": \"KEINE\"}, {\"kennung\": \"q26\", \"frage\": \"KEINE\"}, {\"kennung\": \"q26\", \"frage\": \"KEINE\"}, {\"kennung\": \"q27\", \"frage\": \"Ist eine arbeitsplatzbezogene Arbeitsunfähigkeit festgestellt worden?\"}, {\"kennung\": \"q28\", \"frage\": \"Basierend auf welchem Dokument wird die Beurteilung getroffen: auf dem REP oder auf *?\"}, {\"kennung\": \"q29\", \"frage\": \"Wann wurde das REP erstellt?\"}, {\"kennung\": \"q30\", \"frage\": \"Wann wurde der Arbeitsplatzbeschrieb erstellt?\"}, {\"kennung\": \"q31\", \"frage\": \"Wie viele Stunden pro Tag arbeitet die Person im Durchschnitt während der Präsenzzeit?\"}, {\"kennung\": \"q31\", \"frage\": \"Wie hoch ist der Prozentsatz des Pensums, den die Person während der Präsenzzeit erreicht?\"}, {\"kennung\": \"q31\", \"frage\": \"Wie leistungsfähig ist die Person während der Präsenzzeit: 25, 50, 75 oder 100 %?\"}, {\"kennung\": \"q31\", \"frage\": \"Wie hoch ist die Gesamtarbeitsfähigkeit der Person in Prozent?\"}, {\"kennung\": \"q31\", \"frage\": \"Wann ist die nächste Konsultation geplant? Bitte geben Sie Datum, Monat und Jahr an.\"}, {\"kennung\": \"q31\", \"frage\": \"KEINE\"}, {\"kennung\": \"q31\", \"frage\": \"KEINE\"}, {\"kennung\": \"q32\", \"frage\": \"Ab wann kann die Person wieder zu 100 % arbeiten? Bitte geben Sie Datum, Monat und Jahr an.\"}, {\"kennung\": \"q33\", \"frage\": \"Gibt es Bemerkungen oder zusätzliche Informationen?\"}, {\"kennung\": \"q34\", \"frage\": \"Wie heißt der Arzt oder die Ärztin, die das Zeugnis ausgestellt hat?\"}, {\"kennung\": \"q35\", \"frage\": \"Wünscht der Arbeitgeber Kontakt mit der Person?\"}, {\"kennung\": \"q36\", \"frage\": \"Welches Datum hat das Zeugnis?\"}, {\"kennung\": \"q36\", \"frage\": \"Welche Unterschrift hat das Zeugnis?\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 1694,
+   "total_tokens": 3015,
+   "completion_tokens": 1321,
+   "prompt_tokens_details": {
+    "cached_tokens": 192,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

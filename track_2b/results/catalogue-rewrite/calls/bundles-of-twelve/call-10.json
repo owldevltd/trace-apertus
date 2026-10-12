@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:40:08.139Z",
+  "tag": "umgeschrieben-paeckchen schadenmeldung-uvg q49",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Schadenmeldung UVG\", jede mit ihrer Kennung:\n\nq49: Wie lautet der Ort (Name oder PLZ) und die Stelle (z. B. Werkstatt, Strasse) des Unfallorts?\nq50: Was war die Tätigkeit zur Zeit des Unfalles? Wie lief der Unfall ab? Welche Gegenstände oder Fahrzeuge waren beteiligt?\nq51: Wer waren die Beteiligten am Unfall?\nq52: Wurde der Unfall durch die Polizei aufgenommen? Wenn ja, wer hat ihn aufgenommen?\nq53: Wurde ein Polizeirapport erstellt? Wenn nein, ist er unbekannt?\nq54: Wurde ein Unfallprotokoll erstellt? Wenn ja, bitte eine Kopie beilegen.\nq55: Wurde ein Unfallprotokoll erstellt? Wenn nein, ist es nicht erstellt?\nq56: Welche beteiligten Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff) werden genannt?\nq57: Handelt es sich um einen Nichtberufsunfall?\nq58: Welcher Grund für die Absenz wird angegeben?\nq59: Wann war das letzte Mal im Betrieb gearbeitet (Wochentag, Datum, Zeit)?\nq60: Welche Verletzung wird gemeldet?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3451,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-b812eb2e-8fcf-4c42-b277-5902a37e5143",
+    "object": "chat.completion",
+    "created": 1791531608,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q49\", \"frage\": \"Wie heißt der Ort und die genaue Adresse, an dem der Unfall passiert ist?\"}, {\"kennung\": \"q50\", \"frage\": \"Was hast du genau gemacht, als der Unfall passiert ist? Wie lief das zu? Welche Dinge oder Fahrzeuge waren dabei?\"}, {\"kennung\": \"q51\", \"frage\": \"Wer waren die anderen Personen, die beim Unfall dabei waren?\"}, {\"kennung\": \"q52\", \"frage\": \"Hat die Polizei den Unfall aufgenommen? Wenn ja, wer hat das gemacht?\"}, {\"kennung\": \"q53\", \"frage\": \"Ist ein Polizeirapport gemacht worden? Wenn nicht, ist er uns nicht bekannt?\"}, {\"kennung\": \"q54\", \"frage\": \"Ist ein Unfallprotokoll gemacht worden? Wenn ja, kannst du eine Kopie davon mitgeben?\"}, {\"kennung\": \"q55\", \"frage\": \"Ist kein Unfallprotokoll gemacht worden?\"}, {\"kennung\": \"q56\", \"frage\": \"Welche Dinge, wie zum Beispiel Maschinen, Werkzeuge, Fahrzeuge oder Stoffe, waren beim Unfall dabei?\"}, {\"kennung\": \"q57\", \"frage\": \"War es ein Unfall, der nicht im Beruf passiert ist?\"}, {\"kennung\": \"q58\", \"frage\": \"Welchen Grund gibst du für die Pause an?\"}, {\"kennung\": \"q59\", \"frage\": \"Wann war das letzte Mal, dass du im Betrieb gearbeitet hast? Welchen Tag, welches Datum und zu welcher Zeit?\"}, {\"kennung\": \"q60\", \"frage\": \"Welche Verletzung wird gemeldet?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 507,
+      "total_tokens": 883,
+      "completion_tokens": 376,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:17:15.694Z",
+  "tag": "sprache gegenüber en betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1240,
+  "prompt": "Du gibst jemandem im Gespräch Auskunft zu deinem Fall. Über den Fall weisst du nur, was du selbst so erzählt hast:\n\nBetreibungsbegehren ans Betreibungsamt Chur. Gläubigerin ist die Garage Caduff AG, Kasernenstrasse acht, siebentausend Chur. Zahlung bitte aufs Konto, IBAN CH93 0076 2011 6238 5295 7. Schuldner ist Peter Hartmann, Via Nova vierzehn, siebentausenddreizehn Domat Ems. Die Forderung ist die Rechnung Nummer zwanzig sechsundzwanzig strich einhundertachtzehn vom zwölften Juni für die Reparatur, zweitausenddreihundertvierzig Franken fünfzig, fünf Prozent Zins ab dreizehntem Juli.\n\nDir werden diese Fragen gestellt:\nA: Which office is handling this case?\nB: What is the name, first name, company, address, postal code, and town of the debtor?\nC: What is the date of birth of the debtor, if known?\nD: What is the name, first name, company, address, postal code, and town of the creditor?\nE: What payment method does the creditor use?\nF: What is the IBAN number?\nG: vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\nH: What is the phone number or email for any questions?\nI: What is the reason for the claim or the document number and date of the claim?\nJ: What is the amount in Swiss francs?\nK: What is the interest rate?\nL: From what date is the interest calculated?\nM: What are the comments or notes about the case?\nN: What is your case reference, if available?\n\nAntworte auf jede Frage auf Englisch, wie man im Gespräch antwortet: kurz und nur mit dem, was du weisst. Weisst du etwas nicht, sag das auf Englisch. Antworte nur als JSON, ohne weiteren Text: {\"antworten\": [{\"frage\": \"A\", \"antwort\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 2167,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-a1edaf71-fd5e-4d2a-be63-6638514b0a34",
+    "object": "chat.completion",
+    "created": 1791551836,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"antworten\": [{\"frage\": \"A\", \"antwort\": \"The case is being handled by the Betreibungsamt Chur.\"}, {\"frage\": \"B\", \"antwort\": \"The debtor is Peter Hartmann, Via Nova fourteen, 7313 Domat Ems.\"}, {\"frage\": \"C\", \"antwort\": \"The date of birth of the debtor is not known.\"}, {\"frage\": \"D\", \"antwort\": \"The creditor is Garage Caduff AG, Kasernenstrasse eight, 7000 Chur.\"}, {\"frage\": \"E\", \"antwort\": \"The creditor requests payment to the specified IBAN account.\"}, {\"frage\": \"F\", \"antwort\": \"The IBAN number is CH93 0076 2011 6238 5295 7.\"}, {\"frage\": \"G\", \"antwort\": \"Not applicable (no representative information provided).\"}, {\"frage\": \"H\", \"antwort\": \"No phone number or email provided for questions.\"}, {\"frage\": \"I\", \"antwort\": \"The reason for the claim is a repair invoice number twenty-six one hundred eighteen from June twelfth.\"}, {\"frage\": \"J\", \"antwort\": \"The amount is two thousand three hundred forty francs and fifty centimes.\"}, {\"frage\": \"K\", \"antwort\": \"The interest rate is five percent.\"}, {\"frage\": \"L\", \"antwort\": \"Interest is calculated from July thirteenth.\"}, {\"frage\": \"M\", \"antwort\": \"No additional comments or notes provided.\"}, {\"frage\": \"N\", \"antwort\": \"No case reference available.\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 508,
+      "total_tokens": 858,
+      "completion_tokens": 350,
+      "prompt_tokens_details": {
+        "cached_tokens": 224,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

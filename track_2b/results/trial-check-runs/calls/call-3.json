@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T09:40:52.833Z",
+  "tag": "prüfen d-8b-whole-r2 arbeitsfaehigkeitszeugnis Lauf 1",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 740,
+  "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nArbeitsfähigkeitszeugnis\nBeurteilung der Arbeitsfähigkeit und der Reintegration bei Krankheit oder Unfall\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses (Swiss Insurance Medicine, Ausgabe Januar 2019) mit denselben Feldern in eigener Gestaltung – nicht das Original. Testmaterial des Projekts Trace.\nVon der Arbeitgeberin / dem Arbeitgeber auszufüllen (evtl. von der Patientin / dem Patienten)\nArbeitnehmerin / Arbeitnehmer\nName / Vorname  → [q2]\nGeb.-Dat.  → [q3]\nGeschlecht\nw  → [q1: Auswahl]\nm  → [q1: Auswahl]\nAdresse / PLZ  → [q4]\nAHV-Nr.  → [q5]\nTelefon  → [q6]\nE-Mail  → [q7]\nArbeitgeberin / Arbeitgeber\nFirmenname  → [q8]\nKontaktperson  → [q9]\nAdresse / PLZ  → [q10]\nTelefon  → [q11]\nE-Mail  → [q12]\nAnstellung\nFunktion / ausgeübter Beruf *  → [q14]\nEintrittsjahr  → [q13: Kästchen]\nStd. / Tag  → [q16]\n[q15]\nArbeitszeit Vollzeit (100 %)  → [q17: Kästchen]\nWochenarbeitszeit / Einsatztage  → [q20]\nTeilzeit  → [q18: Kästchen]\n[q19]\n%\nBei Kündigung: Arbeitsverhältnis gekündigt per  → [q21]\nVon der Ärztin / dem Arzt auszufüllen\nUrsache\nKrankheit  → [q22: Auswahl]\nUnfall  → [q22: Auswahl]\nBerufskrankheit  → [q22: Auswahl]\nVolle Arbeitsunfähigkeit\nBasierend auf *\nREP vom  → [q24]\nArbeitsplatzbeschrieb vom  → [q25]\nREP  → [q23: Auswahl]\nArbeitsplatzbeschrieb  → [q23: Auswahl]\nKonsultationsdatum  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nArbeitsunfähigkeit\nbis  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nnächste Konsultation  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nVisum  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\nvon  → [q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\n[q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\n[q26: Tabelle mit 3 Zeilen und 5 Spalten]\n100 %\nEs liegt eine arbeitsplatzbezogene Arbeitsunfähigkeit vor\nja  → [q27: Auswahl]\nnein  → [q27: Auswahl]\nTeilarbeitsfähigkeit / Reintegration (Beurteilung für den Reintegrationsprozess)\nBasierend auf * REP  → [q28: Auswahl]\nREP vom  → [q29]\nArbeitsplatzbeschrieb vom  → [q30]\nArbeitsplatzbeschrieb\nKonsultationsdatum\nPräsenzzeit Std. pro Tag  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nPräsenzzeit % Pensum  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nLeistungsfähigkeit in der Präsenzzeit 25 / 50 / 75 / 100 %  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nArbeits- fähigkeit gesamt %  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\nbis\nnächste\nVisum\nvon\nKonsultation  → [q31: Tabelle mit 4 Zeilen und 9 Spalten]\n[q31: Tabelle mit 4 Zeilen und 9 Spalten]\nWiederaufnahme der Arbeit zu 100 % ab  → [q32]\nBemerkungen und Unterschrift\nBemerkungen  → [q36]\nArzt / Ärztin (Name, Stempel)  → [q34]\nKontakt mit Arbeitgeberin / Arbeitgeber erwünscht\nja  → [q33: Auswahl]\nnein  → [q33: Auswahl]\nDatum  → [q35]\nUnterschrift\n* Bitte beifügen: Arbeitsplatzbeschrieb / Stellenprofil oder REP (Ressourcenorientiertes Eingliederungsprofil).\nNachgebaut nach dem Vorbild des SIM-Arbeitsfähigkeitszeugnisses – nicht das Original\nSeite 1 / 1\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Wie viele Stunden arbeitet die Person pro Tag?\nB: Ist die Anstellung eine Teilzeitanstellung?\nC: Wie heißt die Ärztin oder der Arzt, der oder die das Zeugnis ausfüllt?\nD: Ab welchem Datum soll die Person die Arbeit zu 100 % wieder aufnehmen?\nE: In welchem Jahr und welchem Monat wurde die Person geboren?\nF: In welcher Straße und Postleitzahl befindet sich die Adresse des Arbeitgebers?\nG: Wie heißt das Unternehmen, bei dem die Person arbeitet?\nH: Welches Datum ist auf dem Zeugnis zu vermerken?\nI: Welche E-Mail-Adresse hat die Person?\nJ: Wünscht der Arbeitgeber Kontakt mit der Ärztin oder dem Arzt: ja oder nein?\nK: Per welches Datum wurde das Arbeitsverhältnis gekündigt?\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1227,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-941b32e9-5369-4e1e-8923-6c8cd93a85fc",
+    "object": "chat.completion",
+    "created": 1791538853,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q31: Tabelle mit 4 Zeilen und 9 Spalten\"}, {\"frage\": \"B\", \"kennung\": \"q18: Kästchen\"}, {\"frage\": \"C\", \"kennung\": \"q34\"}, {\"frage\": \"D\", \"kennung\": \"q32\"}, {\"frage\": \"E\", \"kennung\": \"q3\"}, {\"frage\": \"F\", \"kennung\": \"q10\"}, {\"frage\": \"G\", \"kennung\": \"q8\"}, {\"frage\": \"H\", \"kennung\": \"q35\"}, {\"frage\": \"I\", \"kennung\": \"q7\"}, {\"frage\": \"J\", \"kennung\": \"q33: Auswahl\"}, {\"frage\": \"K\", \"kennung\": \"q21\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 1549,
+      "total_tokens": 1736,
+      "completion_tokens": 187,
+      "prompt_tokens_details": {
+        "cached_tokens": 1312,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

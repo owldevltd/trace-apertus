@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:36:00.472Z",
+ "tag": "translate labels page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1520,
+ "prompt": "Auf einem deutschen Formular stehen diese Beschriftungen. Übersetze jede ins Französisch, kurz, wie eine Beschriftung, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n1: Betreibungsamt\n2: Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\n3: Geburtsdatum (falls bekannt)\n4: Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\n5: Zahlungsverbindung des Gläubigers / Zahlungsverbindung des Vertreters\n6: des Gläubigers\n7: des Vertreters\n8: IBAN\n9: vertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\n10: Für Rückfragen: Telefon oder E-Mail\n11: Forderungsgrund oder Forderungsurkunde mit Datum\n12: Betrag (CHF)\n13: Zins %\n14: Zins seit (Datum)\n15: Bemerkungen\n16: Ihre Fallreferenz (falls vorhanden)\n\nAntworte nur als JSON, ohne weiteren Text: {\"texte\": [{\"nummer\": 1, \"text\": \"...\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 2009,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-71e81338-bcfc-46ad-9540-23d98189da2e",
+  "object": "chat.completion",
+  "created": 1791556561,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"texte\": [{\"nummer\": 1, \"text\": \"Office des poursuites\"}, {\"nummer\": 2, \"text\": \"Débiteur (Nom et prénom ou entreprise; adresse; code postal localité)\"}, {\"nummer\": 3, \"text\": \"Date de naissance (si connue)\"}, {\"nummer\": 4, \"text\": \"Créancier (Nom et prénom ou entreprise; adresse; code postal localité)\"}, {\"nummer\": 5, \"text\": \"Ressort du paiement du créancier / Ressort du paiement du représentant\"}, {\"nummer\": 6, \"text\": \"du créancier\"}, {\"nummer\": 7, \"text\": \"du représentant\"}, {\"nummer\": 8, \"text\": \"IBAN\"}, {\"nummer\": 9, \"text\": \"représenté par (Nom et prénom ou entreprise; adresse; code postal localité)\"}, {\"nummer\": 10, \"text\": \"Pour toute question: téléphone ou e-mail\"}, {\"nummer\": 11, \"text\": \"Motif de la créance ou document de créance avec date\"}, {\"nummer\": 12, \"text\": \"Montant (CHF)\"}, {\"nummer\": 13, \"text\": \"Taux d'intérêt %\"}, {\"nummer\": 14, \"text\": \"Depuis (date)\"}, {\"nummer\": 15, \"text\": \"Remarques\"}, {\"nummer\": 16, \"text\": \"Votre référence de dossier (si disponible)\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 317,
+   "total_tokens": 639,
+   "completion_tokens": 322,
+   "prompt_tokens_details": {
+    "cached_tokens": 288,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

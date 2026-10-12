@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:41:12.501Z",
+  "tag": "umgeschrieben-paeckchen suva-bagatellunfall q97",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Bagatellunfall-Meldung UVG\", jede mit ihrer Kennung:\n\nq97: Wie lautet die Adresse des Arztes bzw. Spitals/Klinik?\nq98: Wie lautet die Rechnung der Apotheke?\nq99: Wie lautet die Art und Menge der abgegebenen Medikamente?\nq100: Wie lautet das Datum der Abgabe, die Art und Menge, der Preis in CHF und der Preis in Rp.?\nq101: Welche Information wird an dieser Stelle eingetragen?\nq102: Welche Information wird an dieser Stelle eingetragen?\nq103: Welche Information wird an dieser Stelle eingetragen?\nq104: Welche Information wird an dieser Stelle eingetragen?\nq105: Welcher 3-Code wird eingetragen?\nq106: Welcher 3-Code wird eingetragen?\nq107: Welcher 3-Code wird eingetragen?\nq108: Welcher 3-Code wird eingetragen?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3557,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-b9d52383-f172-4d66-b43a-7ff2b684295a",
+    "object": "chat.completion",
+    "created": 1791531672,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q97\", \"frage\": \"Wie lautet die Adresse des Arztes oder des Spitals/Klinik?\"}, {\"kennung\": \"q98\", \"frage\": \"Wie lautet die Rechnung der Apotheke?\"}, {\"kennung\": \"q99\", \"frage\": \"Wie lautet die Art und Menge der abgegebenen Medikamente?\"}, {\"kennung\": \"q100\", \"frage\": \"Wie lautet das Datum der Abgabe, die Art und Menge, der Preis in CHF und der Preis in Rp.?\"}, {\"kennung\": \"q101\", \"frage\": \"Welche Information wird an dieser Stelle eingetragen?\"}, {\"kennung\": \"q102\", \"frage\": \"Welche Information wird an dieser Stelle eingetragen?\"}, {\"kennung\": \"q103\", \"frage\": \"Welche Information wird an dieser Stelle eingetragen?\"}, {\"kennung\": \"q104\", \"frage\": \"Welche Information wird an dieser Stelle eingetragen?\"}, {\"kennung\": \"q105\", \"frage\": \"Welcher 3-Code wird eingetragen?\"}, {\"kennung\": \"q106\", \"frage\": \"Welcher 3-Code wird eingetragen?\"}, {\"kennung\": \"q107\", \"frage\": \"Welcher 3-Code wird eingetragen?\"}, {\"kennung\": \"q108\", \"frage\": \"Welcher 3-Code wird eingetragen?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 451,
+      "total_tokens": 789,
+      "completion_tokens": 338,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

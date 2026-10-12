@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:39:18.698Z",
+  "tag": "zurück2 8b sechs en betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 760,
+  "prompt": "Eine Person hat ein deutsches Formular auf Englisch beantwortet. Unten steht je Nummer die deutsche Beschriftung der Stelle und was die Person dort angegeben hat.\n\n1 | Betreibungsamt | Betreibungsamt Chur\n2 | Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort) | Peter Hartmann, Via Nova 14, 7013 Domat/Ems\n3 | Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort) | Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\n4 | IBAN | CH93 0076 2011 6238 5295 7\n5 | Forderungsgrund oder Forderungsurkunde mit Datum | Invoice No. 2026-118 dated 12.06.2026, Repair\n6 | Betrag (CHF) | 2'340.50\n\nSchreibe jede Angabe auf Deutsch, so wie sie in das deutsche Formular eingetragen wird. Am Ende steht kein Wort mehr auf Englisch. Eigennamen, Strassen, Orte, Nummern und Daten übernimmst du dabei Zeichen für Zeichen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1543,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-6c7bbce3-76f5-4cee-a21c-45259e2fe36f",
+    "object": "chat.completion",
+    "created": 1791553159,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 1, \"wert\": \"Betreibungsamt Chur\"}, {\"nummer\": 2, \"wert\": \"Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort): Peter Hartmann, Via Nova 14, 7013 Domat/Ems\"}, {\"nummer\": 3, \"wert\": \"Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort): Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\"}, {\"nummer\": 4, \"wert\": \"IBAN: CH93 0076 2011 6238 5295 7\"}, {\"nummer\": 5, \"wert\": \"Forderungsgrund oder Forderungsurkunde mit Datum: Invoice No. 2026-118 dated 12.06.2026, Repair\"}, {\"nummer\": 6, \"wert\": \"Betrag (CHF): 2'340.50\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 374,
+      "total_tokens": 609,
+      "completion_tokens": 235,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

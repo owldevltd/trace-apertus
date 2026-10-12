@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T08:27:26.674Z",
+  "tag": "rückprobe einheiten-etikett-interview-70b suva-bagatellunfall Lauf 2",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 780,
+  "prompt": "Unten steht eine Seite eines Schweizer Formulars als Text, ungefähr so angeordnet wie auf dem Papier. Jede Stelle, die ausgefüllt wird, trägt die Kennung ihrer Frage in eckigen Klammern: [q7] ____ ist eine Stelle zum Schreiben, [q8] [ ] ein Kästchen, [q9] ( ) eine Auswahl. Stellen mit derselben Kennung gehören zusammen.\n\n-----\n===== Seite 3 =====\n                                                                          [q34] ____\n         Bagatellunfall-Meldung UVG Doppel                                [q35] ____  Schaden-Nummer\n         für den Betrieb\n\n          1.           Name und Adresse mit                         Tel.-Nr.          Kunden-Nr.    Betriebsteil\n          Arbeitgeber  Postleitzahl\n         [q38] ____                                                [q36] ____  [q39] ____  Üblicher Arbeitsplatz des/der  [q37] ____\n                                                                    Verletzten (Betriebszweig)\n          2.           Name und                                     Geburtsdatum      AHV-Nummer\n          Verletzte/r  Vorname\n                       [q42] ____                                  [q40] ____        [q41] ____\n                       Strasse  [q45] ____                         [q43] ____        [q44] ____  Staatsangehörigkeit\n                       PLZ       Wohnort                           [q47] ____  Zivilstand  [q46] ____\n          3.           Datum der                                    Ausgeübter\n          Anstellung   Anstellung                                   Beruf\n                       [q49] ____                                  [q48] ____\n                       Stellung:  씲 Höheres  [q50] [ ]  씲 Mittleres  [q50] [ ]  씲 Angestellte/r /  [q50] [ ]  씲 Lehrling  [q51] [ ]  씲  [q51] [ ]\n                               Kader           Kader           Arbeiter/in                      Praktikant/in\n                       Arbeitszeit des/der Verletzten:    [q52] ____\n                       Stunden je Woche\n         4. Schaden-   Tag   Monat            Jahr      Zeit (Stunden,\n         datum                                          Minuten)\n          5. Unfallort  Ort (Name oder PLZ) und Stelle (z. B.\n                       Werkstatt, Strasse)\n         [q53] ____\n          6.           Tätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen,  [q55] ____  [q54] ____\n          Sachverhalt  beteiligte Gegenstände, Fahrzeuge\n          (Unfallbe-\n          schreibung)\n                                                               [q56] ____  [q57] ____\n                                                                 [q58] ____  [q59] ____\n                                                     [q60] ____   [q61] ____\n                                                                    [q62] ____\n                                                   [q63] ____\n                                                     [q64] ____\n                                        [q65] ____    [q66] ____\n                                                        [q67] ____\n                                       [q68] ____  [q69] ____\n                                       [q70] ____  [q71] ____\n                             [q72] ____  [q73] ____\n          7.           Beteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug,\n          Berufsunfall  Arbeitsstoff; bitte genaue Bezeichnung)\n         [q74] ____\n          8. Nicht-    K Bis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb  bis:\n          berufsunfall  gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\n          9.           Betroffener    [q76] ____                                씲 links  [q75] [ ]  씲 rechts  [q75] [ ]  씲 unbestimmt  [q75] [ ]\n          Verletzung   Körperteil:\n                       Art der\n                       Schädigung:\n         [q78] ____  10. Arzt-  Erstbehandelnder Arzt bzw.         [q77] ____  Nachbehandelnder Arzt bzw.\n         adressen      Spital/Klinik                                Spital/Klinik\n                       Ort und                                      Stempel und\n                       Datum                                        Unterschrift\n-----\n\nJemand stellt im Gespräch diese Fragen. Jede gehört zu genau einer Kennung auf dieser Seite:\nA: Bitte geben Sie Name und Adresse mit Postleitzahl an.\nB: Hier ist nichts einzutragen, bitte weiter zur nächsten Frage.\nC: Hier ist nichts einzutragen, bitte weiter zur nächsten Frage.\nD: Welche Gegenstände waren beim Unfall beteiligt, zum Beispiel Maschine, Werkzeug oder Fahrzeug?\nE: Welche Staatsangehörigkeit haben Sie?\nF: Was haben Sie genau gemacht und wie ist der Unfall passiert?\nG: Welchen Beruf üben Sie aus?\nH: Hier ist nichts einzutragen, bitte weiter zur nächsten Frage.\nI: Wie lautet Ihre AHV-Nummer?\nJ: Wie lautet die Schaden-Nummer?\nK: Hier ist nichts einzutragen, bitte weiter zur nächsten Frage.\nL: Hier ist nichts einzutragen, bitte weiter zur nächsten Frage.\n\nSchreibe zu jeder Frage die Kennung der Stelle, an der die Antwort eingetragen wird. Antworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"frage\": \"A\", \"kennung\": \"q1\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 3441,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-4575e809-09a3-449b-b72d-ba1fca695728",
+    "object": "chat.completion",
+    "created": 1791534447,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"zuordnung\": [\n    {\"frage\": \"A\", \"kennung\": \"q38\"},\n    {\"frage\": \"B\", \"kennung\": \"q35\"},\n    {\"frage\": \"C\", \"kennung\": \"q46\"},\n    {\"frage\": \"D\", \"kennung\": \"q74\"},\n    {\"frage\": \"E\", \"kennung\": \"q47\"},\n    {\"frage\": \"F\", \"kennung\": \"q55\"},\n    {\"frage\": \"G\", \"kennung\": \"q48\"},\n    {\"frage\": \"H\", \"kennung\": \"q51\"},\n    {\"frage\": \"I\", \"kennung\": \"q41\"},\n    {\"frage\": \"J\", \"kennung\": \"q36\"},\n    {\"frage\": \"K\", \"kennung\": \"q51\"},\n    {\"frage\": \"L\", \"kennung\": \"q75\"}\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 1295,
+      "total_tokens": 1498,
+      "completion_tokens": 203,
+      "prompt_tokens_details": {
+        "cached_tokens": 1056,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

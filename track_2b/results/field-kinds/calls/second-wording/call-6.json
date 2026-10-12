@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T13:46:36.228Z",
+ "tag": "arten suva-bagatellunfall 3 #B",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1056,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 3 =====\n[q34]\nSchaden-Nummer  → [q35]\nBagatellunfall-Meldung UVG Doppel für den Betrieb\n1. Arbeitgeber\nName und Adresse mit Postleitzahl  → [q36]\nTel.-Nr.  → [q37]\nKunden-Nr.  → [q38]\nBetriebsteil\nÜblicher Arbeitsplatz des/der Verletzten (Betriebszweig)  → [q39]\n2. Verletzte/r\nName und Vorname  → [q40]\nGeburtsdatum  → [q41] [q42]\nAHV-Nummer  → [q43]\nStrasse  → [q44]\nStaatsangehörigkeit  → [q45] [q46]\nPLZ\nWohnort\nZivilstand  → [q47]\n3. Anstellung\nDatum der Anstellung  → [q48]\nAusgeübter Beruf  → [q49]\nHöheres Kader  → [q50: Auswahl]\nMittleres Kader  → [q50: Auswahl]\nAngestellte/r / Arbeiter/in  → [q50: Auswahl]\nLehrling  → [q51: Auswahl]\nPraktikant/in  → [q51: Auswahl]\nStellung:\nArbeitszeit des/der Verletzten: Stunden je Woche  → [q52]\n4. Schaden- datum\nTag\nMonat\nJahr\nZeit (Stunden, Minuten)\n5. Unfallort\nOrt (Name oder PLZ) und Stelle (z. B. Werkstatt, Strasse)  → [q53]\n6. Sachverhalt (Unfallbe- schreibung)\nTätigkeit zur Zeit des Unfalles; Unfallhergang, beteiligte Personen, beteiligte Gegenstände, Fahrzeuge  → [q54] [q55]\n[q56]\n[q57]\n[q58]\n[q59]\n[q60]\n[q61]\n[q62]\n[q63]\n[q64]\n[q65]\n[q66]\n[q67]\n[q68]\n[q69]\n[q70]\n[q71]\n[q72]\n[q73]\n7. Berufsunfall\nBeteiligte Gegenstände (z. B. Maschine, Werkzeug, Fahrzeug, Arbeitsstoff; bitte genaue Bezeichnung)  → [q74]\n8. Nicht- berufsunfall\nK Bis wann hat der/die Verletzte vor dem Unfall letztmals im Betrieb gearbeitet (Wochentag, Datum, Zeit)? bis: Grund der Absenz:\nbis:\nlinks  → [q75: Auswahl]\nrechts  → [q75: Auswahl]\nunbestimmt  → [q75: Auswahl]\n9. Verletzung\nBetroffener Körperteil:  → [q76]\nArt der Schädigung:\n10. Arzt- adressen  → [q77]\nErstbehandelnder Arzt bzw. Spital/Klinik\nNachbehandelnder Arzt bzw. Spital/Klinik  → [q78]\nOrt und Datum\nStempel und Unterschrift\n-----\n\nSage zu jeder der Kennungen unten, welche Art von Angabe an dieser Stelle eingetragen wird. Wähle genau eine dieser Arten:\n- text: ein Name, eine Adresse, ein Wort oder ein Satz\n- nummer: eine Kennnummer oder ein Aktenzeichen, zum Beispiel eine Policen-, Kunden-, Versicherten- oder Schadennummer\n- zahl: eine Menge, ein Betrag oder ein Prozentsatz\n- telefon: eine Telefonnummer\n- email: eine E-Mail-Adresse\n- plz: eine Postleitzahl allein, ohne Ort und Strasse\n- iban: eine IBAN\n- datum: ein Datum\n- uhrzeit: eine Uhrzeit\n\nDie Kennungen: q34, q35, q36, q37, q38, q39, q40, q41, q42, q43, q44, q45, q46, q47, q48, q49, q52, q53, q54, q55, q56, q57, q58, q59, q60, q61, q62, q63, q64, q65, q66, q67, q68, q69, q70, q71, q72, q73, q74, q76, q77, q78\nAntworte nur als JSON, ohne weiteren Text: {\"arten\": [{\"kennung\": \"q1\", \"art\": \"text\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 3850,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-cfa9b0be-1e3e-4c5c-b884-797b2190058f",
+  "object": "chat.completion",
+  "created": 1791726398,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"arten\": [{\"kennung\": \"q34\", \"art\": \"nummer\"}, {\"kennung\": \"q35\", \"art\": \"nummer\"}, {\"kennung\": \"q36\", \"art\": \"text\"}, {\"kennung\": \"q37\", \"art\": \"telefon\"}, {\"kennung\": \"q38\", \"art\": \"nummer\"}, {\"kennung\": \"q39\", \"art\": \"text\"}, {\"kennung\": \"q40\", \"art\": \"text\"}, {\"kennung\": \"q41\", \"art\": \"datum\"}, {\"kennung\": \"q42\", \"art\": \"datum\"}, {\"kennung\": \"q43\", \"art\": \"nummer\"}, {\"kennung\": \"q44\", \"art\": \"text\"}, {\"kennung\": \"q45\", \"art\": \"text\"}, {\"kennung\": \"q46\", \"art\": \"text\"}, {\"kennung\": \"q47\", \"art\": \"text\"}, {\"kennung\": \"q48\", \"art\": \"datum\"}, {\"kennung\": \"q49\", \"art\": \"text\"}, {\"kennung\": \"q52\", \"art\": \"zahl\"}, {\"kennung\": \"q53\", \"art\": \"text\"}, {\"kennung\": \"q54\", \"art\": \"text\"}, {\"kennung\": \"q55\", \"art\": \"text\"}, {\"kennung\": \"q56\", \"art\": \"text\"}, {\"kennung\": \"q57\", \"art\": \"text\"}, {\"kennung\": \"q58\", \"art\": \"text\"}, {\"kennung\": \"q59\", \"art\": \"text\"}, {\"kennung\": \"q60\", \"art\": \"text\"}, {\"kennung\": \"q61\", \"art\": \"text\"}, {\"kennung\": \"q62\", \"art\": \"text\"}, {\"kennung\": \"q63\", \"art\": \"text\"}, {\"kennung\": \"q64\", \"art\": \"text\"}, {\"kennung\": \"q65\", \"art\": \"text\"}, {\"kennung\": \"q66\", \"art\": \"text\"}, {\"kennung\": \"q67\", \"art\": \"text\"}, {\"kennung\": \"q68\", \"art\": \"text\"}, {\"kennung\": \"q69\", \"art\": \"text\"}, {\"kennung\": \"q70\", \"art\": \"text\"}, {\"kennung\": \"q71\", \"art\": \"text\"}, {\"kennung\": \"q72\", \"art\": \"text\"}, {\"kennung\": \"q73\", \"art\": \"text\"}, {\"kennung\": \"q74\", \"art\": \"text\"}, {\"kennung\": \"q76\", \"art\": \"text\"}, {\"kennung\": \"q77\", \"art\": \"text\"}, {\"kennung\": \"q78\", \"art\": \"text\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 1255,
+   "total_tokens": 1892,
+   "completion_tokens": 637,
+   "prompt_tokens_details": {
+    "cached_tokens": 928,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T19:51:42.984Z",
+ "tag": "required large page 1",
+ "model": "swiss-ai/Apertus-v1.5-70B",
+ "temperature": 0,
+ "room": 460,
+ "prompt": "Unten steht ein Schweizer Formular als Text, Zeile für Zeile in der Reihenfolge des Papiers. Hinter dem Text, zu dem eine Stelle zum Ausfüllen gehört, steht nach einem Pfeil die Kennung dieser Stelle in eckigen Klammern, zum Beispiel [q7]. \"[q9: Auswahl]\" ist eine Auswahl aus den Möglichkeiten, hinter denen dieselbe Kennung steht; \"[q8: Tabelle mit 9 Zeilen und 3 Spalten]\" ist eine Tabelle. Eine Kennung, die allein in einer Zeile steht, ist eine Stelle ohne eigene Beschriftung.\n\n-----\n===== Seite 1 =====\nBitte in Blockschrift ausfüllen und Hinweise auf der Rückseite beachten\nBetreibungsbegehren\nDurch das Amt auszufüllen\nEingang\nBetreibung Nr.\nSchuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q5]\nAdresse des Betreibungsamtes  → [q6]\nGeburtsdatum (falls bekannt)  → [q7]\nGläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q8]\ndes Gläubigers des Vertreters  → [q9: Auswahl]\nZahlungsverbindung\nvertreten durch (Name und Vorname bzw. Firma; Adresse; PLZ Ort)  → [q10]\nIBAN  → [q11]\nFür Rückfragen\nTelefon oder E-Mail  → [q12]\nForderungsgrund oder Forderungsurkunde mit Datum  → [q13]\nBetrag (CHF)\nZins % seit (Datum)\nWeitere Forderungen  → [q14: Tabelle mit 9 Zeilen und 3 Spalten]\n[q14: Tabelle mit 9 Zeilen und 3 Spalten]\nBemerkungen  → [q15]\nIhre Fallreferenz (falls vorhanden)  → [q16]\nDatum und Unterschrift\n-----\n\nFür dieses Formular gelten die folgenden Pflichtangaben:\n1: Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort) – Name, Vorname (bei natürlichen Personen) oder Firma (bei juristischen Personen), vollständige Adresse (Strasse, Hausnummer, PLZ, Ort) des Schuldners angeben\n2: Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort) – Name, Vorname (bei natürlichen Personen) oder Firma (bei juristischen Personen), vollständige Adresse (Strasse, Hausnummer, PLZ, Ort) des Gläubigers angeben\n3: Forderungsgrund oder Forderungsurkunde mit Datum – Grund der Forderung so angeben, dass für den Schuldner erkennbar ist, für welchen Anspruch er betrieben wird. Dies kann durch einen Text (z.B. \"Offene Rechnung für Malerarbeiten vom 22.05.2012\") oder durch Angabe einer zugrundeliegenden Urkunde mit Datum (z.B. \"Konventionalstrafe gemäss Zusammenarbeitsvertrag vom 12.06.2012\") geschehen.\n4: Betrag (CHF) – Betrag der Forderung in Schweizer Franken exakt angeben\n\nNenne zu jeder Pflichtangabe die Kennung der Stelle auf dieser Seite, an der sie eingetragen wird. Gehört sie zu mehreren Stellen, nenne alle; steht sie auf dieser Seite nicht, gib eine leere Liste. Rate nicht.\nAntworte nur als JSON, ohne weiteren Text: {\"zuordnung\": [{\"nummer\": 1, \"kennungen\": [\"q5\"]}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 1507,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-78075919-249c-4ab9-93fc-3c4268421909",
+  "object": "chat.completion",
+  "created": 1791575503,
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\n  \"zuordnung\": [\n    {\n      \"nummer\": 1,\n      \"kennungen\": [\"q5\"]\n    },\n    {\n      \"nummer\": 2,\n      \"kennungen\": [\"q8\"]\n    },\n    {\n      \"nummer\": 3,\n      \"kennungen\": [\"q13\"]\n    },\n    {\n      \"nummer\": 4,\n      \"kennungen\": [\"q14\"]\n    }\n  ]\n}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+  "usage": {
+   "prompt_tokens": 850,
+   "total_tokens": 947,
+   "completion_tokens": 97,
+   "prompt_tokens_details": {
+    "cached_tokens": 832,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

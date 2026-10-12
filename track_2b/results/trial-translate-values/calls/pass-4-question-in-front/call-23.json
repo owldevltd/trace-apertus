@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:59:43.496Z",
+  "tag": "werte sechs frage it suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Italienisch gemacht, die in ein deutsches Formular gehören. Vor jeder Angabe steht die Frage, auf die sie antwortet; die Frage ist nur zum Verständnis da.\n\nFrage 19: Welcher Körperteil der verletzten Person ist betroffen?\nAngabe 19: Polso\n\nFrage 20: Wer ist der Erstbehandelnde Arzt oder das Spital/Klinik?\nAngabe 20: Ospedale Cantonale di Zurigo, Pronto Soccorso\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird; übersetze nur die Angaben, nicht die Fragen. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 456,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-8192f1dd-96d5-475b-8a5f-01ce1cf98b0e",
+    "object": "chat.completion",
+    "created": 1791554384,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 19, \"wert\": \"Polso\"}, {\"nummer\": 20, \"wert\": \"Ospedale Cantonale di Zurigo, Pronto Soccorso\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 262,
+      "total_tokens": 308,
+      "completion_tokens": 46,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

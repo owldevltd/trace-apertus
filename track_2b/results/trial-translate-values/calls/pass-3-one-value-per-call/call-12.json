@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:45:04.822Z",
+  "tag": "einzeln fr suva-bagatellunfall name",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 200,
+  "prompt": "Übersetze die Angabe unten vom Französisch ins Deutsche. Sie steht in einem Formular bei «Name und Vorname». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der deutschen Angabe, ohne weiteren Text.\n\nAngabe: Keller Sandra",
+  "image": 0,
+  "audio": 0,
+  "ms": 148,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-9a320cc1-0899-4b5d-a513-52be5f67eee7",
+    "object": "chat.completion",
+    "created": 1791553505,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Keller Sandra",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 126,
+      "total_tokens": 130,
+      "completion_tokens": 4,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

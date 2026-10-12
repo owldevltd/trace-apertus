@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:36:31.408Z",
+ "tag": "translate value forderung",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 200,
+ "prompt": "Übersetze die Angabe unten vom Französisch ins Deutsch. Sie steht in einem Formular bei «Forderungsgrund oder Forderungsurkunde mit Datum». Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Antworte nur mit der Angabe auf Deutsch, ohne weiteren Text.\n\nAngabe: Facture n° 2026-118 du 12.06.2026, réparation",
+ "image": 0,
+ "audio": 0,
+ "ms": 510,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-190a2783-8e6d-4921-9ad1-a63fa5f81aa4",
+  "object": "chat.completion",
+  "created": 1791556592,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Rechnung Nr. 2026-118 vom 12.06.2026, Reparatur",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 161,
+   "total_tokens": 191,
+   "completion_tokens": 30,
+   "prompt_tokens_details": {
+    "cached_tokens": 160,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

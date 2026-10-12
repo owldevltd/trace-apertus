@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-11T15:20:41.756Z",
+ "tag": "T B2 f18,f51,f19,f20,f21,f52",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 400,
+ "prompt": "Unten steht, was eine Person zu einem Formular gesagt hat, als Text. Jedes Stück der Aufnahme beginnt mit seiner Kennung in eckigen Klammern, zum Beispiel [p1].\n\n-----\n[p1] Der Schuldner ist Urs Meier, Musterstrasse 1 in 8000 Zürich. Gläubiger bin ich, Hans Rietli, Brandschenkestrasse 1, 8002 Zürich. Die Forderung ist eine Rechnung vom 3. Mai 2025 über 3000 Franken, mit 5 Prozent Zins seit dem 1. Juni 2025. Dazu kommen zwei weitere Forderungen: eine Mahngebühr von 40 Franken vom 20. Juni 2025 und die Miete für Juli 2025, 1200 Franken, mit 5 Prozent Zins seit dem 1. August 2025.\n-----\n\nLies daraus ab, was in diese Felder des Formulars gehört:\n- f18: Forderungsgrund oder Forderungsurkunde mit Datum — Vorgabe: Text\n- f51: Betrag (CHF) — Vorgabe: Zahl\n- f19: Zins % — Vorgabe: Zahl\n- f20: seit (Datum) — Vorgabe: Datum als TT.MM.JJJJ\n- f21: Forderungsgrund oder Forderungsurkunde mit Datum — Vorgabe: Text\n- f52: Betrag (CHF) — Vorgabe: Zahl\n\nWurde zu einem Feld nichts gesagt, schreibe dafür einen Strich (-). Erfinde nichts. Bei einem Kästchen schreibe ja oder nein. Antworte mit genau einer Zeile je Feld, in der Form \"name: wert [Kennung des Stücks, aus dem der Wert stammt]\", ohne weiteren Text.",
+ "image": 0,
+ "audio": 0,
+ "ms": 731,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-af3535d1-1343-4504-ade8-44c9df9a38d4",
+  "object": "chat.completion",
+  "created": 1791732044,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "f18: Rechnung vom 3. Mai 2025 — [p1]\nf51: 3000 — [p1]\nf19: 5 — [p1]\nf20: 01.06.2025 — [p1]\nf21: Mahngebühr vom 20. Juni 2025 — [p1]\nf52: 40 — [p1]",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 467,
+   "total_tokens": 570,
+   "completion_tokens": 103,
+   "prompt_tokens_details": {
+    "cached_tokens": 256,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

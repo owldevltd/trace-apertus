@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T07:40:59.607Z",
+  "tag": "umgeschrieben-paeckchen suva-bagatellunfall q61",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 1440,
+  "prompt": "Hier sind die Fragen eines Fragebogens zum Formular \"Bagatellunfall-Meldung UVG\", jede mit ihrer Kennung:\n\nq61: Welche Information wird an dieser Stelle eingetragen?\nq62: Welche Information wird an dieser Stelle eingetragen?\nq63: Welche Information wird an dieser Stelle eingetragen?\nq64: Welche Information wird an dieser Stelle eingetragen?\nq65: Welche Information wird an dieser Stelle eingetragen?\nq66: Welche Information wird an dieser Stelle eingetragen?\nq67: Welche Information wird an dieser Stelle eingetragen?\nq68: Welche Information wird an dieser Stelle eingetragen?\nq69: Welche Information wird an dieser Stelle eingetragen?\nq70: Welche Information wird an dieser Stelle eingetragen?\nq71: Welche Information wird an dieser Stelle eingetragen?\nq72: Welche Information wird an dieser Stelle eingetragen?\n\nSchreibe jede Frage so um, wie man sie im Gespräch einem Menschen stellt, der mit Ämtern und Versicherungen wenig zu tun hat:\n- einfache, alltägliche Wörter und kurze Sätze\n- keine Abkürzungen, keine Klammern, keine Schrägstriche\n- frage direkt (\"Wann ist die Person geboren?\") statt unpersönlich (\"Welches Geburtsdatum wird eingetragen?\")\n- der Inhalt bleibt genau gleich: frage nach nichts anderem, lasse nichts weg, und die Möglichkeiten einer Auswahl bleiben dieselben\nAntworte nur als JSON, ohne weiteren Text, mit jeder Kennung genau einmal: {\"fragen\": [{\"kennung\": \"q1\", \"frage\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 1724,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-95ad7a4d-9c2b-4704-a56b-2bb7cb886300",
+    "object": "chat.completion",
+    "created": 1791531659,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"fragen\": [{\"kennung\": \"q61\", \"frage\": \"Wann wurde die Person geboren?\"}, {\"kennung\": \"q62\", \"frage\": \"Welches Geschlecht hat die Person?\"}, {\"kennung\": \"q63\", \"frage\": \"Welchen Beruf hat die Person?\"}, {\"kennung\": \"q64\", \"frage\": \"Welchen Vornamen hat die Person?\"}, {\"kennung\": \"q65\", \"frage\": \"Welchen Nachnamen hat die Person?\"}, {\"kennung\": \"q66\", \"frage\": \"Welche Adresse hat die Person?\"}, {\"kennung\": \"q67\", \"frage\": \"Welche Telefonnummer hat die Person?\"}, {\"kennung\": \"q68\", \"frage\": \"Welche E-Mail-Adresse hat die Person?\"}, {\"kennung\": \"q69\", \"frage\": \"Welche Versicherung ist zuständig?\"}, {\"kennung\": \"q70\", \"frage\": \"Wann ist der Unfall passiert?\"}, {\"kennung\": \"q71\", \"frage\": \"Wo ist der Unfall passiert?\"}, {\"kennung\": \"q72\", \"frage\": \"Was genau ist passiert?\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 416,
+      "total_tokens": 690,
+      "completion_tokens": 274,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

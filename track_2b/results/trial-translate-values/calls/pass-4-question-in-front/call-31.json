@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T14:00:05.829Z",
+  "tag": "werte sechs frage en suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 600,
+  "prompt": "Eine Person hat im Gespräch Angaben auf Englisch gemacht, die in ein deutsches Formular gehören. Vor jeder Angabe steht die Frage, auf die sie antwortet; die Frage ist nur zum Verständnis da.\n\nFrage 7: Welche Staatsangehörigkeit hat die verletzte Person?\nAngabe 7: Switzerland\n\nFrage 8: Welcher Zivilstand ist bei der verletzten Person?\nAngabe 8: single\n\nFrage 9: Wann hat die verletzte Person angefangen bei diesem Arbeitgeber zu arbeiten?\nAngabe 9: 01.02.2019\n\nFrage 10: Welchen Beruf übt die verletzte Person aus?\nAngabe 10: Warehouse worker\n\nFrage 11: Wie viele Stunden arbeitet die verletzte Person pro Woche?\nAngabe 11: 40\n\nFrage 12: Tag\nAngabe 12: 05\n\nÜbersetze jede Angabe ins Deutsche, so wie sie in das Formular eingetragen wird; übersetze nur die Angaben, nicht die Fragen. Eigennamen, Strassen, Orte, Nummern und Daten bleiben Zeichen für Zeichen stehen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 697,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-148a80a7-988e-4bdb-a30e-d96214ffcf9a",
+    "object": "chat.completion",
+    "created": 1791554406,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 7, \"wert\": \"Switzerland\"}, {\"nummer\": 8, \"wert\": \"single\"}, {\"nummer\": 9, \"wert\": \"01.02.2019\"}, {\"nummer\": 10, \"wert\": \"Warehouse worker\"}, {\"nummer\": 11, \"wert\": \"40\"}, {\"nummer\": 12, \"wert\": \"05\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 351,
+      "total_tokens": 447,
+      "completion_tokens": 96,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

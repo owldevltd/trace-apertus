@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:38:24.208Z",
+  "tag": "zurück2 8b sechs fr suva-bagatellunfall",
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "temperature": 0,
+  "room": 760,
+  "prompt": "Eine Person hat ein deutsches Formular auf Französisch beantwortet. Unten steht je Nummer die deutsche Beschriftung der Stelle und was die Person dort angegeben hat.\n\n1 | Name und Adresse mit Postleitzahl | Logistik Zugersee AG, Werkstrasse 12, 6300 Zug\n2 | Tel.-Nr. | 041 728 40 10\n3 | Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig) | Lager\n4 | Name und Vorname | Keller Sandra\n5 | Geburtsdatum | 14.03.1988\n6 | Strasse | Werkstrasse 12, 6300 Zug\n\nSchreibe jede Angabe auf Deutsch, so wie sie in das deutsche Formular eingetragen wird. Am Ende steht kein Wort mehr auf Französisch. Eigennamen, Strassen, Orte, Nummern und Daten übernimmst du dabei Zeichen für Zeichen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 820,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-897de4d3-5c41-493c-b8b3-2fd8fe703238",
+    "object": "chat.completion",
+    "created": 1791553104,
+    "model": "swiss-ai/Apertus-v1.5-8B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"werte\": [{\"nummer\": 1, \"wert\": \"Name und Adresse mit Postleitzahl\"}, {\"nummer\": 2, \"wert\": \"Tel.-Nr.\"}, {\"nummer\": 3, \"wert\": \"Üblicher Arbeitsplatz des/der Verletzten (Betriebszweig)\"}, {\"nummer\": 4, \"wert\": \"Name und Vorname\"}, {\"nummer\": 5, \"wert\": \"Geburtsdatum\"}, {\"nummer\": 6, \"wert\": \"Strasse\"}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+    "usage": {
+      "prompt_tokens": 312,
+      "total_tokens": 425,
+      "completion_tokens": 113,
+      "prompt_tokens_details": {
+        "cached_tokens": 96,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

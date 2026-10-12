@@ -1,0 +1,56 @@
+{
+ "at": "2026-10-11T21:43:09.316Z",
+ "tag": "C voice-b #8",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 1500,
+ "prompt": "Transkribiere die Aufnahme wortwörtlich. Ausgangssprache ist Deutsch, bitte gib Deutsch zurück.",
+ "image": 0,
+ "audio": 18765,
+ "ms": 171,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-c841ebb1-c01c-4865-9987-9309df8f2158",
+  "object": "chat.completion",
+  "created": 1791754992,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "Bahnhofstraße zwölf",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 177,
+   "total_tokens": 183,
+   "completion_tokens": 6,
+   "prompt_tokens_details": {
+    "cached_tokens": 160,
+    "multimodal_tokens": {
+     "audio": 91
+    }
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-09T13:37:59.695Z",
+  "tag": "zurück2 70b fr betreibungsbegehren",
+  "model": "swiss-ai/Apertus-v1.5-70B",
+  "temperature": 0,
+  "room": 880,
+  "prompt": "Eine Person hat ein deutsches Formular auf Französisch beantwortet. Unten steht je Nummer die deutsche Beschriftung der Stelle und was die Person dort angegeben hat.\n\n1 | Betreibungsamt | Office des poursuites Chur\n2 | Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort) | Peter Hartmann, Via Nova 14, 7013 Domat/Ems\n3 | Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort) | Garage Caduff AG, Kasernenstrasse 8, 7000 Chur\n4 | IBAN | CH93 0076 2011 6238 5295 7\n5 | Forderungsgrund oder Forderungsurkunde mit Datum | Facture n° 2026-118 du 12.06.2026, réparation\n6 | Betrag (CHF) | 2'340.50\n7 | Zins % | 5\n8 | Zins seit (Datum) | 13.07.2026\n\nSchreibe jede Angabe auf Deutsch, so wie sie in das deutsche Formular eingetragen wird. Am Ende steht kein Wort mehr auf Französisch. Eigennamen, Strassen, Orte, Nummern und Daten übernimmst du dabei Zeichen für Zeichen. Erfinde nichts dazu und lass nichts weg.\nAntworte nur als JSON, ohne weiteren Text: {\"werte\": [{\"nummer\": 1, \"wert\": \"...\"}]}",
+  "image": 0,
+  "audio": 0,
+  "ms": 5209,
+  "http": 200,
+  "error": null,
+  "answer": {
+    "id": "chatcmpl-4ce0e313-115d-4c32-b4d8-afa8dac7601b",
+    "object": "chat.completion",
+    "created": 1791553080,
+    "model": "swiss-ai/Apertus-v1.5-70B",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"werte\": [\n    {\n      \"nummer\": 1,\n      \"wert\": \"Betreibungsamt\"\n    },\n    {\n      \"nummer\": 2,\n      \"wert\": \"Schuldner (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\\nPeter Hartmann, Via Nova 14, 7013 Domat/Ems\"\n    },\n    {\n      \"nummer\": 3,\n      \"wert\": \"Gläubiger (Name und Vorname bzw. Firma; Adresse; PLZ Ort)\\nGarage Caduff AG, Kasernenstrasse 8, 7000 Chur\"\n    },\n    {\n      \"nummer\": 4,\n      \"wert\": \"IBAN\\nCH93 0076 2011 6238 5295 7\"\n    },\n    {\n      \"nummer\": 5,\n      \"wert\": \"Forderungsgrund oder Forderungsurkunde mit Datum\\nFacture n° 2026-118 du 12.06.2026, réparation\"\n    },\n    {\n      \"nummer\": 6,\n      \"wert\": \"Betrag (CHF)\\n2'340.50\"\n    },\n    {\n      \"nummer\": 7,\n      \"wert\": \"Zins %\\n5\"\n    },\n    {\n      \"nummer\": 8,\n      \"wert\": \"Zins seit (Datum)\\n13.07.2026\"\n    }\n  ]\n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 68,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-tp4-1381023c",
+    "usage": {
+      "prompt_tokens": 408,
+      "total_tokens": 743,
+      "completion_tokens": 335,
+      "prompt_tokens_details": {
+        "cached_tokens": 64,
+        "multimodal_tokens": null
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "metrics": null
+  }
+}

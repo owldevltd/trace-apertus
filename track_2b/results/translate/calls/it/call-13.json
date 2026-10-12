@@ -1,0 +1,54 @@
+{
+ "at": "2026-10-09T14:38:15.889Z",
+ "tag": "translate questions page 1",
+ "model": "swiss-ai/Apertus-v1.5-8B",
+ "temperature": 0,
+ "room": 2220,
+ "prompt": "Jemand führt ein Gespräch und stellt diese Fragen auf Deutsch. Übersetze jede Frage ins Italienisch, für ein Gegenüber, das Italienisch spricht: dieselbe Frage in einfachen Worten, nichts dazu und nichts weg. Eigennamen und Zahlen bleiben stehen.\n\n1: Wie heisst der Arbeitgeber und wo befindet er sich mit Postleitzahl?\n2: Welche Telefonnummer hat der Arbeitgeber?\n3: Welche Kunden-Nummer hat der Arbeitgeber?\n4: In welchem Bereich arbeitet die verletzte Person im Betrieb?\n5: Wie heissen die verletzte Person?\n6: Wann ist die verletzte Person geboren?\n7: Welche AHV-Nummer hat die verletzte Person?\n8: Welche Strasse hat die verletzte Person?\n9: Welche Staatsangehörigkeit hat die verletzte Person?\n10: Welcher Zivilstand ist bei der verletzten Person?\n11: Wann hat die verletzte Person angefangen bei diesem Arbeitgeber zu arbeiten?\n12: Welchen Beruf übt die verletzte Person aus?\n13: Ist die verletzte Person höheres Kader, mittleres Kader, Angestellte/r, Arbeiter/in, Lehrling oder Praktikant/in?\n14: Wie viele Stunden arbeitet die verletzte Person pro Woche?\n15: Welcher Monat war es, als der Unfall passierte?\n16: Welches Jahr war es, als der Unfall passierte?\n17: Zu welcher Zeit passierte der Unfall in Stunden und Minuten?\n18: Wo genau ist der Unfall passiert, zum Beispiel Ort und Strasse oder Postleitzahl?\n19: Was hat die verletzte Person genau zur Zeit des Unfalls gemacht, wie der Unfall verlaufen ist, wer war dabei und was war beteiligt?\n20: Welche Gegenstände waren am Unfall beteiligt, wie Maschine, Werkzeug, Fahrzeug oder Arbeitsstoff?\n21: Welcher Körperteil der verletzten Person ist betroffen?\n22: Ist die Verletzung links, rechts oder unbestimmt?\n23: Wie ist die Art der Schädigung bei der Verletzung?\n24: Wer ist der Erstbehandelnde Arzt oder das Spital/Klinik?\n25: Wer ist der Nachbehandelnde Arzt oder das Spital/Klinik?\n26: Wo und wann ist der Abschluss passiert?\n\nAntworte nur als JSON, ohne weiteren Text: {\"texte\": [{\"nummer\": 1, \"text\": \"...\"}]}",
+ "image": 0,
+ "audio": 0,
+ "ms": 4277,
+ "http": 200,
+ "error": null,
+ "answer": {
+  "id": "chatcmpl-952b4fd8-5304-4b3a-8437-4d7d8ccdf053",
+  "object": "chat.completion",
+  "created": 1791556696,
+  "model": "swiss-ai/Apertus-v1.5-8B",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"texte\": [{\"nummer\": 1, \"text\": \"Come si chiama il datore di lavoro e dove si trova con il codice postale?\"}, {\"nummer\": 2, \"text\": \"Qual è il numero di telefono del datore di lavoro?\"}, {\"nummer\": 3, \"text\": \"Qual è il numero di cliente del datore di lavoro?\"}, {\"nummer\": 4, \"text\": \"In quale settore lavora la persona infortunata nell'azienda?\"}, {\"nummer\": 5, \"text\": \"Come si chiama la persona infortunata?\"}, {\"nummer\": 6, \"text\": \"Quando è nata la persona infortunata?\"}, {\"nummer\": 7, \"text\": \"Qual è il numero AVS della persona infortunata?\"}, {\"nummer\": 8, \"text\": \"In quale via abita la persona infortunata?\"}, {\"nummer\": 9, \"text\": \"Qual è la nazionalità della persona infortunata?\"}, {\"nummer\": 10, \"text\": \"Qual è lo stato civile della persona infortunata?\"}, {\"nummer\": 11, \"text\": \"Quando ha iniziato a lavorare presso questo datore di lavoro la persona infortunata?\"}, {\"nummer\": 12, \"text\": \"Qual è la professione della persona infortunata?\"}, {\"nummer\": 13, \"text\": \"La persona infortunata è dirigente superiore, dirigente medio, impiegato/a, operaio/a, apprendista o praticante?\"}, {\"nummer\": 14, \"text\": \"Quante ore lavora la persona infortunata a settimana?\"}, {\"nummer\": 15, \"text\": \"In quale mese è avvenuto l'incidente?\"}, {\"nummer\": 16, \"text\": \"In quale anno è avvenuto l'incidente?\"}, {\"nummer\": 17, \"text\": \"A che ora è avvenuto l'incidente, in ore e minuti?\"}, {\"nummer\": 18, \"text\": \"Dove è avvenuto esattamente l'incidente, ad esempio luogo e via o codice postale?\"}, {\"nummer\": 19, \"text\": \"Cosa stava facendo esattamente la persona infortunata al momento dell'incidente, come si è verificato l'incidente, chi era presente e cosa era coinvolto?\"}, {\"nummer\": 20, \"text\": \"Quali oggetti erano coinvolti nell'incidente, come macchina, attrezzo, veicolo o materiale di lavoro?\"}, {\"nummer\": 21, \"text\": \"Quale parte del corpo della persona infortunata è interessata?\"}, {\"nummer\": 22, \"text\": \"La lesione è a sinistra, a destra o indeterminata?\"}, {\"nummer\": 23, \"text\": \"Qual è la natura del danno nella lesione?\"}, {\"nummer\": 24, \"text\": \"Chi è il medico curante o l'ospedale/clinica?\"}, {\"nummer\": 25, \"text\": \"Chi è il medico di seguito o l'ospedale/clinica?\"}, {\"nummer\": 26, \"text\": \"Dove e quando è avvenuta la chiusura?\"}]}",
+     "refusal": null,
+     "annotations": null,
+     "audio": null,
+     "function_call": null,
+     "reasoning": null
+    },
+    "logprobs": null,
+    "finish_reason": "stop",
+    "stop_reason": 68,
+    "token_ids": null,
+    "routed_experts": null
+   }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.23.1rc1.dev1029+ga601a9d99-2d880180",
+  "usage": {
+   "prompt_tokens": 587,
+   "total_tokens": 1289,
+   "completion_tokens": 702,
+   "prompt_tokens_details": {
+    "cached_tokens": 576,
+    "multimodal_tokens": null
+   }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "metrics": null
+ }
+}
