@@ -54,7 +54,7 @@ documentation. The common denominator: forms someone else prescribes. The demo s
 
 ## Flow
 
-1. **Capture.** Photo of the paper form, or a PDF.
+1. **Capture.** Photo or scan of the paper form; the shipped forms come as PDFs.
 2. **Structure.** The page is split into elements by geometry; the model reads the text of each element (a form
    that ships with the app was captured beforehand, from the text of its PDF); labels and boxes become fields. The fields are grouped into units, and the model writes one plain question per unit and
    checks it twice, so the form can be asked as a conversation; where no question holds, the printed label stays.

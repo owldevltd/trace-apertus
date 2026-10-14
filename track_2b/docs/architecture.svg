@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+    <style>
+      .band { fill: #fafafa; stroke: #c8c8c8; stroke-dasharray: 4 3; }
+      .code { fill: #eef0f2; stroke: #6b7280; }
+      .model { fill: #dbe8fb; stroke: #2f5fa8; }
+      .big { fill: #d6dcf5; stroke: #3b3f9e; }
+      .human { fill: #ddf1e2; stroke: #2f7d4a; }
+      .t { font-weight: bold; }
+      .s { font-size: 11.5px; fill: #333; }
+      .h { font-size: 12px; fill: #555; font-style: italic; }
+      .l { stroke: #444; stroke-width: 1.4; fill: none; marker-end: url(#a); }
+    </style>
+  </defs>
+
+  <!-- Band 1: einmal je Formular -->
+  <rect class="band" x="5" y="5" width="990" height="150" rx="8"/>
+  <text x="985" y="24" class="h" text-anchor="end">once per form – capture (51–88 s a page)</text>
+
+  <rect class="code" x="15" y="40" width="180" height="100" rx="6"/>
+  <text x="25" y="62" class="t">1 Capture</text>
+  <text x="25" y="82" class="s">photo, scan or the</text>
+  <text x="25" y="98" class="s">fillable original</text>
+
+  <rect class="code" x="215" y="40" width="180" height="100" rx="6"/>
+  <text x="225" y="62" class="t">2 Geometry</text>
+  <text x="225" y="82" class="s">no model: lines,</text>
+  <text x="225" y="98" class="s">areas, tick boxes,</text>
+  <text x="225" y="114" class="s">empty cells, text blocks</text>
+
+  <rect class="model" x="415" y="40" width="180" height="100" rx="6"/>
+  <text x="425" y="62" class="t">3 Reading</text>
+  <text x="425" y="82" class="s">Apertus 8B, one element</text>
+  <text x="425" y="98" class="s">per call, each checked</text>
+  <text x="425" y="114" class="s">against the image</text>
+
+  <rect class="human" x="615" y="40" width="180" height="100" rx="6"/>
+  <text x="625" y="62" class="t">4 Fields</text>
+  <text x="625" y="82" class="s">label, kind, values;</text>
+  <text x="625" y="98" class="s">8B writes a question</text>
+  <text x="625" y="114" class="s">per unit; a person corrects</text>
+
+  <rect class="big" x="815" y="40" width="170" height="100" rx="6"/>
+  <text x="825" y="62" class="t">5 Catalogue</text>
+  <text x="825" y="82" class="s">Apertus 70B: required</text>
+  <text x="825" y="98" class="s">entries, legal sources;</text>
+  <text x="825" y="114" class="s">shipped ones Fedlex-checked</text>
+
+  <!-- Band 2: je Ausfüllen -->
+  <rect class="band" x="5" y="185" width="990" height="150" rx="8"/>
+  <text x="985" y="204" class="h" text-anchor="end">every filling, any number of times – up to the sent PDF (3–17 s)</text>
+
+  <rect class="human" x="15" y="220" width="180" height="100" rx="6"/>
+  <text x="25" y="242" class="t">6 Conversation</text>
+  <text x="25" y="262" class="s">question by question or</text>
+  <text x="25" y="278" class="s">free dictation; voice or</text>
+  <text x="25" y="294" class="s">keyboard, own language</text>
+
+  <rect class="model" x="215" y="220" width="180" height="100" rx="6"/>
+  <text x="225" y="242" class="t">7 Filling</text>
+  <text x="225" y="262" class="s">8B transcribes and fills;</text>
+  <text x="225" y="278" class="s">each value with the</text>
+  <text x="225" y="294" class="s">words it came from</text>
+
+  <rect class="human" x="415" y="220" width="180" height="100" rx="6"/>
+  <text x="425" y="242" class="t">8 Review</text>
+  <text x="425" y="262" class="s">ok, unclear, missing; hints</text>
+  <text x="425" y="278" class="s">from the catalogue; the</text>
+  <text x="425" y="294" class="s">person decides</text>
+
+  <rect class="code" x="615" y="220" width="180" height="100" rx="6"/>
+  <text x="625" y="242" class="t">9 Translation</text>
+  <text x="625" y="262" class="s">only where needed, into</text>
+  <text x="625" y="278" class="s">the form's language;</text>
+  <text x="625" y="294" class="s">code checks digits, names</text>
+
+  <rect class="code" x="815" y="220" width="170" height="100" rx="6"/>
+  <text x="825" y="242" class="t">10 Output</text>
+  <text x="825" y="262" class="s">into the original's own</text>
+  <text x="825" y="278" class="s">form fields; then to</text>
+  <text x="825" y="294" class="s">signature</text>
+
+  <!-- Pfeile -->
+  <path class="l" d="M195,90 L213,90"/>
+  <path class="l" d="M395,90 L413,90"/>
+  <path class="l" d="M595,90 L613,90"/>
+  <path class="l" d="M795,90 L813,90"/>
+  <path class="l" d="M900,140 L900,168 L105,168 L105,218"/>
+  <text x="400" y="164" class="h">captured form, kept – opens without the model</text>
+  <path class="l" d="M195,270 L213,270"/>
+  <path class="l" d="M395,270 L413,270"/>
+  <path class="l" d="M595,270 L613,270"/>
+  <path class="l" d="M795,270 L813,270"/>
+
+  <!-- Legende -->
+  <rect class="code" x="15" y="360" width="14" height="12"/><text x="35" y="371" class="s">code, without a model</text>
+  <rect class="model" x="175" y="360" width="14" height="12"/><text x="195" y="371" class="s">Apertus 8B</text>
+  <rect class="big" x="300" y="360" width="14" height="12"/><text x="320" y="371" class="s">Apertus 70B, once per form</text>
+  <rect class="human" x="530" y="360" width="14" height="12"/><text x="550" y="371" class="s">person in the loop</text>
+</svg>

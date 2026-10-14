@@ -1,6 +1,6 @@
 # Result: how long capturing and filling take
 
-Measured on 12 October 2026 on a server of its own with swiss-ai/Apertus-v1.5-8B (the catalogue: swiss-ai/Apertus-v1.5-70B) at the CSCS endpoint, the pace of the queue as built: ten calls one after the other, then half a second. 463 calls, all answered. One run each. Machine: 8 cores (Intel i5-1135G7), 6.9 GB of memory.
+Measured on 12 October 2026 on a server of its own with swiss-ai/Apertus-v1.5-8B (the catalogue: swiss-ai/Apertus-v1.5-70B) at the CSCS endpoint, the pace of the queue as built: ten calls one after the other, then half a second. 463 calls, all answered. One run each. Machine: 4 cores, 8 threads (Intel i5-1135G7), 6.9 GB of memory.
 
 ## Capturing one page from an image
 
