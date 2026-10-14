@@ -34,7 +34,6 @@ export async function open( ctx, entry ) {
         greeting: t( 'mail.greeting' ),
         body: t( 'mail.body', { f: f.name, d: ctx.i18n.date() } ),
         closing: t( 'mail.closing' ),
-        me: t( 'more.me' ),
     } );
     ctx.router.push( 'sign' );
 }
