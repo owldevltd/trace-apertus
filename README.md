@@ -8,6 +8,12 @@ The work is split in two. Geometry runs without a model: lines, tinted areas, ti
 
 Every reading is checked against the image by the shape of its glyphs, every value carries the words it was taken from, and whatever fails either check is flagged for confirmation. The thresholds behind these flags were measured, not chosen; the measurements and the decisions they led to are in the evidence document, including the attempts that did not work.
 
-Everything runs in one Node process, on premise or in a Swiss cloud, with the model behind an OpenAI-compatible endpoint. Two libraries do what would be unreasonable to rewrite: pdf-lib writes the filled PDF, lamejs encodes the recording as MP3 in the browser; everything else, from the page geometry to the templates, is in the repository. The shipped forms, their reference data and the test harnesses reproduce the numbers: `make test` for the geometry without a model, `make bench` for the reading with one.
+Everything runs in one Node process in a container, with the model behind an OpenAI-compatible endpoint (run at CSCS, in Switzerland). Two libraries do what would be unreasonable to rewrite: pdf-lib writes the filled PDF, lamejs encodes the recording as MP3 in the browser; everything else, from the page geometry to the templates, is in the repository. The shipped forms, their reference data and the test harnesses reproduce the numbers: `make test` for the geometry without a model, `make bench` for the reading with one.
 
-The project root is [`track_2b/`](track_2b/): source in `src/`, forms and schema in `data/`, concept and evidence in `docs/`, harnesses in `tests/`, the committed model run in `results/`, and the technical report. Status: geometry and reading are in; voice, field filling, the app and the container follow this week. Licensed under Apache 2.0, see [LICENSE](LICENSE).
+```
+cd track_2b
+cp .env.example .env    # put your key after LLM_API_KEY=
+make run                # Docker; then open http://localhost:8080 (or http://localhost:8080/?demo)
+```
+
+What you need, how to fill a first form, input and output, the results and the tests: [`track_2b/README.md`](track_2b/README.md). The project root is [`track_2b/`](track_2b/): source in `src/`, forms and schema in `data/`, concept and evidence in `docs/`, harnesses in `tests/`, the committed model runs in `results/`, and the technical report. Licensed under Apache 2.0, see [LICENSE](LICENSE).
