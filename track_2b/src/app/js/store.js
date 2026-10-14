@@ -6,8 +6,8 @@ const EVENTS = 30;
 
 // key: where the state is kept; the demo keeps its own, so its made-up forms never show in the app
 export function createStore( KEY = 'trace' ) {
-    // the language of the system until the person chooses one; one the app does not speak falls back to English
-    const state = Object.assign( { saved: [], events: [], lang: ( navigator.language || 'en' ).slice( 0, 2 ).toLowerCase(), mockIndex: 0 }, read() );
+    // German until the person chooses another language under More
+    const state = Object.assign( { saved: [], events: [], lang: 'de', mockIndex: 0 }, read() );
     const listeners = new Set();
 
     function read() {

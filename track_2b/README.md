@@ -41,8 +41,8 @@ From the folder `track_2b/`:
 1. `cp .env.example .env` and put your key after `LLM_API_KEY=`.
 2. `make run` (on Linux possibly `sudo make run`). The first build takes a few minutes; the log stays in the
    terminal and ends with `Trace listening on http://localhost:8080`.
-3. Open **http://localhost:8080**. The app starts in English; **More** switches it to German, French or Italian, and
-   that is the language you speak or type in.
+3. Open **http://localhost:8080**. The app starts in German; under **Mehr** → **Sprache** it switches to English
+   (the labels below), French or Italian, and that is the language you speak or type in.
 4. To see the flow first, without a model: **http://localhost:8080/?demo**, a walk-through with made-up values.
 5. Fill a shipped form: press **+** (New), **Open form**, and pick one – *Austrittsmeldung* is the one-page test
    sheet. Press **Start listening** and say what belongs in the form, all at once or question by question, or type

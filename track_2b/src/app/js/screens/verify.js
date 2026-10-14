@@ -49,7 +49,7 @@ export function recognize( ctx ) {
 export function startJob( ctx, pages ) {
     return runJob( ctx, async ( progress ) => {
         progress( ctx.t( 'job.upload', { n: pages.length } ) );
-        const { id } = await api.createJob( pages[ 0 ].blob );
+        const { id } = await api.createJob( pages[ 0 ].blob, ctx.t( 'form.captured' ) );
         for ( const p of pages.slice( 1 ) ) {
             await api.addPage( id, p.blob );
         }

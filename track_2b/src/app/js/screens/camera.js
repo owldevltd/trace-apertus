@@ -1,6 +1,6 @@
 import { $, $$ } from '../dom.js';
 import { SMALL, findDocument, inFrame, sameQuad } from '../capture/detect.js';
-import { isRectangular, rectify, enhance } from '../capture/warp.js';
+import { isRectangular, rectify, enhance, fit } from '../capture/warp.js';
 import * as verify from './verify.js';
 
 // The camera: the device camera when the browser gives it, else the file picker. Every frame is searched for
@@ -146,7 +146,7 @@ export async function ingest( ctx, source, quad = null ) {
     }
     $( '[data-hint]', s ).textContent = ctx.t( quad ? 'cam.straighten' : 'cam.flat' );
     await new Promise( ( r ) => requestAnimationFrame( r ) );
-    const page = quad ? rectify( source, quad ) : source;
+    const page = quad ? rectify( source, quad ) : fit( source );
     if ( quad ) {
         await animate( ctx, shot, source, quad );
     }

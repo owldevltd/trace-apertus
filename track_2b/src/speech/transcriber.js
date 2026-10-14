@@ -118,7 +118,7 @@ export async function transcribeAnswer( job, numbers, question, client ) {
 async function hear( job, piece, words, client ) {
     const dir = jobDir( job.id );
     const bytes = await fs.readFile( path.join( dir, 'audio', piece.file ) );
-    // the language that is spoken: the person's, where it is not the form's; number words are known in German only
+    // the language that is spoken: the person's, where it is not the form's; its number words become digits
     const spoken = foreign( job ) || job.form.language;
     const ask = ( tag ) => client.ask( prompt( spoken, words ), { audio: { bytes, format: piece.format }, room: 1500, log: path.join( dir, 'model' ), tag } );
     const answer = await ask( 'audio #' + piece.n ) || ( client.state.halted ? null : await ask( 'audio #' + piece.n + ' again' ) );
@@ -131,7 +131,7 @@ async function hear( job, piece, words, client ) {
     return {
         n: piece.n,
         start: piece.start,
-        text: foreign( job ) ? said : digits( said ),
+        text: digits( said, spoken ),
         raw,
         // a person should listen: nothing came back, the prompt came back, or the answer was cut off
         approve: said === '' || echo >= 0 || answer.finish === 'length',

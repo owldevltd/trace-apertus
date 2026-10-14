@@ -37,11 +37,13 @@ export function registerJobs( router, client ) {
 
     router.add( 'GET', '/api/jobs', async () => ( { status: 200, json: await listJobs() } ) );
 
-    router.add( 'POST', '/api/jobs', async ( { body } ) => {
+    // the app names a new form in its own language (?name=); until 14 October 2026 every one was "Captured form"
+    router.add( 'POST', '/api/jobs', async ( { body, url } ) => {
         if ( !isPng( body ) ) {
             return { status: 415, json: { error: 'a page is a PNG body' } };
         }
-        const job = createJob( { name: 'Captured form', language: 'de', pages: 1, origin: 'original' } );
+        const name = ( url.searchParams.get( 'name' ) || '' ).replace( /[\u0000-\u001f]/g, '' ).trim().slice( 0, 80 ) || 'Captured form';
+        const job = createJob( { name, language: 'de', pages: 1, origin: 'original' } );
         await saveJob( job );
         await addPage( job, body );
         return { status: 201, json: { id: job.id, pages: job.pages.length } };

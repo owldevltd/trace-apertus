@@ -1,13 +1,14 @@
 // Translations. One JSON per language with flat keys; a value is a string with {name} placeholders, or an
 // object { one, other } chosen by the parameter n. Form content (labels, transcript, legal text) stays in the
-// language of the form and never goes through here. English is the fallback for a missing key.
+// language of the form and never goes through here. English is the fallback for a missing key; the app starts in
+// German.
 
 export const LANGUAGES = [ [ 'en', 'English' ], [ 'de', 'Deutsch' ], [ 'fr', 'Français' ], [ 'it', 'Italiano' ] ];
 
 const LOCALE = { en: 'en-GB', de: 'de-CH', fr: 'fr-CH', it: 'it-CH' };
 
 export function createI18n( tables, lang ) {
-    const state = { lang: tables[ lang ] ? lang : 'en' };
+    const state = { lang: tables[ lang ] ? lang : 'de' };
 
     // t( key, params ): params.n picks the plural form, every param fills its {placeholder}.
     function t( key, params = {} ) {

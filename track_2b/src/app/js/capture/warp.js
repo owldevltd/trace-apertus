@@ -94,6 +94,23 @@ export function rectify( source, corners ) {
     return out;
 }
 
+// A picture in which no sheet was found goes as it is, but never larger than a straightened page; until 14 October
+// 2026 it went at the camera's full size. That day a photographed page came apart into 680 elements, every one of
+// them a call to the model.
+export function fit( source ) {
+    const k = Math.min( 1, WIDTH / source.width, MAX_SIDE / Math.max( source.width, source.height ) );
+    if ( k >= 1 ) {
+        return source;
+    }
+    const out = document.createElement( 'canvas' );
+    out.width = Math.max( 1, Math.round( source.width * k ) );
+    out.height = Math.max( 1, Math.round( source.height * k ) );
+    const g = out.getContext( '2d' );
+    g.imageSmoothingQuality = 'high';
+    g.drawImage( source, 0, 0, out.width, out.height );
+    return out;
+}
+
 // Evens out the light: shading goes away against a coarse background map, then the darkest percentile becomes
 // black and the paper white. Changes the canvas in place.
 export function enhance( canvas ) {

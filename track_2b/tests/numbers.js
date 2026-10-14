@@ -1,6 +1,7 @@
 import { digits, numberWord } from '../src/speech/numbers.js';
 
-// German number words → digits, the cases the speech evaluation relied on. No model.
+// Number words → digits: German, the cases the speech evaluation relied on; English, French and Italian, each in its
+// own words. No model.
 //
 //   node tests/numbers.js
 
@@ -22,6 +23,19 @@ const texts = [
     [ 'neun, drei, acht, fünf, vier, zwei, fünf, eins, zwei', '9, 3, 8, 5, 4, 2, 5, 1, 2' ],
     [ 'vor ein, zwei Wochen, halb eins', 'vor ein, 2 Wochen, halb 1' ],
 ];
+// the other languages: digits said one after the other stay apart, a number said in parts is joined, articles and
+// a lone pronoun stay words, and a word of another language is no number ("elf" in English)
+const others = [
+    [ 'en', 'Five six nine eight', '5 6 9 8' ],
+    [ 'en', 'twenty one, two hundred and five, one thousand nine hundred eighty four', '21, 205, 1984' ],
+    [ 'en', 'my number is zero seven nine, four one two', 'my number is 0 7 9, 4 1 2' ],
+    [ 'en', 'one of them, two hundred and Peter, elf', 'one of them, 200 and Peter, elf' ],
+    [ 'fr', 'quatre-vingt-dix-sept, soixante-dix, vingt-et-un, deux cents trois, deux mille vingt-six', '97, 70, 21, 203, 2026' ],
+    [ 'fr', 'un livre et cinq six neuf huit', 'un livre et 5 6 9 8' ],
+    [ 'it', 'ventotto, duecentoquaranta, duemilasei, ventitré, mille novecento', '28, 240, 2006, 23, 1900' ],
+    [ 'it', 'uno studio, cinque sei nove otto', 'uno studio, 5 6 9 8' ],
+    [ 'el', 'πέντε έξι', 'πέντε έξι' ],
+];
 
 let failed = 0;
 for ( const [ w, v, ordinal ] of words ) {
@@ -34,6 +48,12 @@ for ( const [ text, want ] of texts ) {
     const got = digits( text );
     const ok = got === want;
     console.log( ( ok ? 'ok   ' : 'FAIL ' ) + got );
+    failed += ok ? 0 : 1;
+}
+for ( const [ lang, text, want ] of others ) {
+    const got = digits( text, lang );
+    const ok = got === want;
+    console.log( ( ok ? 'ok   ' : 'FAIL ' ) + lang + ' ' + got );
     failed += ok ? 0 : 1;
 }
 process.exit( failed ? 1 : 0 );

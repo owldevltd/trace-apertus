@@ -13,7 +13,7 @@ export const api = {
     jobs: () => fetch( '/api/jobs' ).then( json ),
     job: ( id ) => fetch( '/api/jobs/' + id ).then( json ),
     // png: a Blob or ArrayBuffer of the page
-    createJob: ( png ) => fetch( '/api/jobs', { method: 'POST', headers: { 'Content-Type': 'image/png' }, body: png } ).then( json ),
+    createJob: ( png, name = '' ) => fetch( '/api/jobs' + ( name ? '?name=' + encodeURIComponent( name ) : '' ), { method: 'POST', headers: { 'Content-Type': 'image/png' }, body: png } ).then( json ),
     addPage: ( id, png ) => fetch( '/api/jobs/' + id + '/pages', { method: 'POST', headers: { 'Content-Type': 'image/png' }, body: png } ).then( json ),
     fromForm: ( form ) => fetch( '/api/jobs/from/' + form, { method: 'POST' } ).then( json ),
     run: ( id ) => fetch( '/api/jobs/' + id + '/run', { method: 'POST' } ).then( json ),
