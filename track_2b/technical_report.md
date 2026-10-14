@@ -74,7 +74,10 @@ certificates of fitness for work for their employees (scenario 2); three of the 
 ![Figure 1: Trace – capture once, fill often](docs/architecture.svg)
 
 One Node process without a framework, a browser app, Apertus behind an OpenAI-compatible endpoint. Ten stations in two
-parts (Figure 1): capturing happens once per form, filling any number of times.
+parts (Figure 1): capturing happens once per form, filling any number of times. Work began on 2 October 2026. The
+geometry and reading module was written on 3 and 4 October and ported on 6 October to both of our submissions, Python
+for Docket (Track 2A) and Node for Trace (Track 2B); each port was checked against the original and gives the same
+blocks (docs/evidence.md).
 
 ### 2.1 First recognise, then read
 
@@ -217,6 +220,8 @@ processes or streams run. The cost per filling stays, because a form is captured
 - Lists from a dictation and pages of copies are not filled; only images can be uploaded, no PDFs.
 - The signature service is a mock; a system of rights and users is missing.
 - The 70B for the catalogue is set in the code, not through `LLM_NAME`.
+- On a phone, camera and microphone need HTTPS; for trying it we opened the app through a Cloudflare tunnel, which
+  passes the traffic through Cloudflare. A deployment needs the organisation's own HTTPS; the tunnel is not part of it.
 
 ## 7. Reproducibility
 
