@@ -3,9 +3,9 @@
 - **Track:** Track 2B — Own Project: Trace – capture, structure, verify
 - **Event:** Online
 - **Team:** Marcus Selzer, Tim Bärisch
-- **Demo:** the video (2 minutes) is linked in the submission; `make run` starts the app, `/?demo` shows a
-  walk-through without a model
-- **Repository:** https://github.com/owldevltd/trace-apertus
+- **Demo:** the video (2 minutes) is linked in the submission; `make run` starts the app, `/?demo` shows a walk-through
+  without a model
+- **Repository:** https://github.com/owldevltd/trace-apertus, code at commit `21b7e62`
 - **Model:** Apertus v1.5 8B, and the 70B once per new form
 - **Maturity:** between proof of concept and deployable prototype (reasons in 1)
 
@@ -225,11 +225,12 @@ processes or streams run. The cost per filling stays, because a form is captured
 
 ## 7. Reproducibility
 
-`make run` builds and starts the container (port 8080) with `LLM_NAME`, `LLM_BASE_URL`, `LLM_API_KEY` from `.env`;
-without a key the app runs without reading, and `/?demo` is a walk-through with made-up values. `make test` checks
-without a model and without the network (Node 20.6 or newer, `npm ci` first). `make bench` reads with the model (about
-180 calls, about 8 minutes), `make dialogue` checks the conversation (about 280 calls, about 25 minutes). Camera and
-microphone on a phone need HTTPS, for example through a tunnel. The logged runs are in `results/`.
+The code is at commit `21b7e62`. `make run` builds and starts the container (port 8080) with `LLM_NAME`, `LLM_BASE_URL`,
+`LLM_API_KEY` from `.env`; without a key the app runs without reading, and `/?demo` is a walk-through with made-up
+values. `make test` checks without a model and without the network (Node 20.6 or newer, `npm ci` first). `make bench`
+reads with the model (about 180 calls, about 8 minutes), `make dialogue` checks the conversation (about 280 calls, about
+25 minutes). Camera and microphone on a phone need HTTPS, for example through a tunnel. The logged runs are in
+`results/`.
 
 ## 8. Next steps
 
