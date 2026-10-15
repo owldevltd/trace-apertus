@@ -39,23 +39,27 @@ The technical report (`technical_report.md`) gives the design and the evaluation
 From the folder `track_2b/`:
 
 1. `cp .env.example .env` and put your key after `LLM_API_KEY=`.
-2. `make run` (on Linux possibly `sudo make run`). The first build takes a few minutes; the log stays in the
-   terminal and ends with `Trace listening on http://localhost:8080`.
-3. Open **http://localhost:8080**. The app starts in German; under **Mehr** → **Sprache** it switches to English
-   (the labels below), French or Italian, and that is the language you speak or type in.
+2. `make run` (on Linux possibly `sudo make run`). The first build takes a few minutes; the log stays in the terminal
+   and ends with `Trace listening on http://localhost:8080`.
+3. Open **http://localhost:8080**. The app starts in German; the steps below give the labels in English and German.
+   Under **Mehr** → **Sprache** it switches to English, French or Italian, and that is the language you speak or type
+   in.
 4. To see the flow first, without a model: **http://localhost:8080/?demo**, a walk-through with made-up values.
-5. Fill a shipped form: press **+** (New), **Open form**, and pick one – *Austrittsmeldung* is the one-page test
-   sheet. Press **Start listening** and say what belongs in the form, all at once or question by question, or type
-   the answer and press **Send**.
-6. Check: every question shows the value taken and a state – ok, unclear or missing; tapping a value shows the
-   words it came from, **Change** corrects it, and required entries the form's catalogue names are pointed out.
-   Where you spoke another language than the form's, **Continue** translates the answers and you check them once
+5. Fill a shipped form: press **+** (New / Neu), **Open form** (Formular öffnen), and pick one – *Austrittsmeldung* is
+   the one-page test sheet. Press **Start listening** (Zuhören beginnen) and say what belongs in the form, all at once
+   or question by question, or type the answer and press **Send** (Senden).
+6. Check: every question shows the value taken and a state – ok, unclear or missing; tapping a value shows the words it
+   came from, **Change** (Ändern) corrects it, and required entries the form's catalogue names are pointed out. Where
+   you spoke another language than the form's, **Continue** (Weiter) translates the answers and you check them once
    more.
-7. Send: the signature screen shows the filled original under **Open the PDF**; **Send** hands it on for signature
-   (the signature service is a mock).
-8. Your own form: press **+** and **Upload an image** – a photo or a scan of each page – or, on a phone,
-   **Photograph form**. Capturing takes about a minute a page; the fields can then be corrected on the page, and the
-   form is filled like a shipped one. A captured form is kept and opens again without the model.
+7. Send: the signature screen shows the filled original under **Open the PDF** (PDF öffnen); **Send** (Senden) hands it
+   on for signature (the signature service is a mock).
+8. Your own form: press **+** (Neu) and **Upload an image** (Bild hochladen) – a photo or a scan of each page – or, on a
+   phone, **Photograph form** (Formular fotografieren). To try it with the test sheet, print
+   `data/forms/austrittsmeldung/form.pdf` and photograph it, or upload
+   `data/forms/austrittsmeldung/austrittsmeldung-s1.png`; the upload takes images, not PDFs. Capturing takes about a
+   minute a page; the fields can then be corrected on the page, and the form is filled like a shipped one. A captured
+   form is kept and opens again without the model.
 
 `Ctrl+C` stops the app; the captured forms stay under `track_2b/storage/`.
 
