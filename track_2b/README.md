@@ -1,7 +1,7 @@
 # Trace — capture, structure, verify
 
 **Photograph a paper form, say what belongs in it, and get the original back filled in – with Apertus.**
-Hack Apertus 2026 · Track 2B · Own Project.
+Hack Apertus 2026 · Track 2B · Own Project. Demo video (2 minutes): https://youtu.be/6Vq8VxiFxUQ
 
 Trace takes a photographed or scanned form, finds its fields, asks for them as a conversation – by voice or by
 typing, in the person's own language – and fills the original. Every value stands next to the words it came from;

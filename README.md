@@ -1,6 +1,6 @@
 # Trace — capture, structure, verify.
 
-Hack Apertus 2026 · Track 2B (Own Project) · built on [Apertus](https://huggingface.co/swiss-ai)
+Hack Apertus 2026 · Track 2B (Own Project) · built on [Apertus](https://huggingface.co/swiss-ai) · [demo video](https://youtu.be/6Vq8VxiFxUQ)
 
 Trace takes a photographed or scanned form, finds its fields, fills them from what a person says, shows every value next to the words it came from, and hands the result over for signature. The form stays what it is: a document someone else designed, printed in its own layout. Nothing is rewritten and nothing is guessed silently; what could not be read or derived is marked for a person to look at.
 

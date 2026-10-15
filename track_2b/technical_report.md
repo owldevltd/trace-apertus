@@ -2,8 +2,8 @@
 
 - **Track:** Track 2B — Own Project: Trace – capture, structure, verify
 - **Event:** Online
-- **Team:** Marcus Selzer, Tim Bärisch
-- **Demo:** the video (2 minutes) is linked in the submission; `make run` starts the app, `/?demo` shows a walk-through
+- **Team:** Handover — Marcus Selzer, Tim Bärisch
+- **Demo:** video (2 minutes) https://youtu.be/6Vq8VxiFxUQ; `make run` starts the app, `/?demo` shows a walk-through
   without a model
 - **Repository:** https://github.com/owldevltd/trace-apertus, code at commit `21b7e62`
 - **Model:** Apertus v1.5 8B, and the 70B once per new form
@@ -33,6 +33,10 @@ What Trace does differently:
 - **8B where it is enough, 70B where it is needed:** the 70B writes the catalogue of required entries and legal sources
   once per form and helps bind it to the questions.
 
+Every failure of Apertus has become a fixed step. From memory, the 8B named 3 of 4 statute numbers wrong, so the 70B
+writes a catalogue of required entries, and for the shipped forms a person checked it against Fedlex. More examples are
+in section 3.
+
 | Criterion | shown in |
 |---|---|
 | Purposeful use of AI | 3 |
@@ -49,10 +53,14 @@ in their daily work.
 
 ### 1.1 Problem and users
 
+Picture a nurse at the end of her shift. Instead of being with the residents, she copies by hand what she already knows
+into a form that someone else prescribes. If a field is missing, the query comes the next morning. She stands for many:
+in the insurance office, in the doctor's practice, at the authority's counter.
+
 60 % of companies feel the administrative burden as high (SECO); for prefilled forms and electronic documents
-Switzerland stands at 49 %, the EU at 78 % (national e-government study 2025). In care,
-about a quarter of working time goes into documentation (23.6 % measured in a German study); doctors document 119
-minutes a day (FMH, gfs.bern). Common to all of them is the form someone else prescribes.
+Switzerland stands at 49 %, the EU at 78 % (national e-government study 2025). In care, about a quarter of working time
+goes into documentation (23.6 % measured in a German study); doctors document 114 minutes a day (FMH, gfs.bern). Common
+to all of them is the form someone else prescribes.
 
 Three scenarios, one tool:
 
@@ -105,6 +113,10 @@ question. In the review every question stands with what was said and a state (ok
 catalogue of required entries and legal sources that the 70B writes once per form; the catalogues of the shipped forms
 are checked by hand against Fedlex, the catalogue of a newly captured form is shown as unchecked. Trace never says "this
 is not allowed" but "please look here"; the person decides.
+
+Back to the nurse: she speaks her details into the app. What is missing is shown as "missing" in the review, while the
+detail is still fresh in her mind and not only at the query the next morning. She adds it, sees every value next to the
+words it came from, and releases the form. Trace proposes, the person decides.
 
 ### 2.4 The original stays
 
@@ -233,6 +245,10 @@ reads with the model (about 180 calls, about 8 minutes), `make dialogue` checks 
 `results/`.
 
 ## 8. Next steps
+
+We see the first deployments in care homes and trade businesses, where decisions are made quickly. The hospital remains
+the big vision, with long cycles, compliance and IT governance. The first step is a pilot with real forms and real
+voices instead of synthetic ones.
 
 A measurement with people instead of synthetic voices; uploading PDFs; checking against official registers; for
 scenarios 2 and 3 accounts, handing forms out to customers and a management of the forms; a real signature service;
